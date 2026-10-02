@@ -2,7 +2,7 @@ import type { LabMeta } from "../types";
 
 /** 3D labs for Web Development 101 (basics) and 201 (server side). */
 export const WEBA_LABS: LabMeta[] = [
-  { id: "httpjourney", title: "One page load, step by step", where: [["WD-101", 1]], blurb: "Follow a page request through DNS, TCP, TLS, the server and the download. Change latency, bandwidth and page size to see where the time goes.", topics: ["World Wide Web", "DNS", "HTTP request", "Latency and bandwidth"], animated: false,
+  { id: "httpjourney", title: "One page load, step by step", where: [["WD-101", 1], ["BCA-004", 4]], blurb: "Follow a page request through DNS, TCP, TLS, the server and the download. Change latency, bandwidth and page size to see where the time goes.", topics: ["World Wide Web", "DNS", "HTTP request", "Latency and bandwidth", "Operating Systems (Batch, Multiprogrammed, Time-sharing, Distributed, Real-time)", "DBMS fundamentals"], animated: false,
     presets: [
       { name: "Fast fibre, near server", note: "With a 10 ms round trip, cached DNS and 100 Mbit/s the whole page arrives in 120 ms, and the first byte after 80 ms.", values: { rtt: 10, dns: 0, https: true, server: 50, size: 500, mbps: 100 } },
       { name: "Slow mobile, far server", note: "A 300 ms round trip and 2 Mbit/s stretch a 1.5 MB page to 7.2 s; even the first byte needs 1.2 s of set-up.", values: { rtt: 300, dns: 100, https: true, server: 200, size: 1500, mbps: 2 } },
@@ -63,13 +63,13 @@ export const WEBA_LABS: LabMeta[] = [
       { name: "One shared global", note: "The same 7 calls on a single global variable make every reader see 7, and any code anywhere could overwrite it.", values: { t: 7, n: 3, mode: "global" } },
       { name: "Six counters", note: "Twenty calls spread over six closures leave counts of 4, 4, 3, 3, 3 and 3: independent state costs nothing extra to write.", values: { t: 20, n: 6, mode: "closure" } },
     ] },
-  { id: "coverage", title: "Test coverage and hidden bugs", where: [["WD-201", 4]], blurb: "A grid of code branches. Each test exercises a few of them; green means covered. Hidden bugs are found only in covered branches.", topics: ["Testing", "Code coverage", "Jest", "Bugs"], animated: false,
+  { id: "coverage", title: "Test coverage and hidden bugs", where: [["WD-201", 4], ["BCA-009", 4]], blurb: "A grid of code branches. Each test exercises a few of them; green means covered. Hidden bugs are found only in covered branches.", topics: ["Testing", "Code coverage", "Jest", "Bugs", "White-Box testing: Basis Path testing", "Cyclomatic Complexity", "Control Flow Graphs (CFG)", "debugging", "verification and validation"], animated: false,
     presets: [
       { name: "A few tests", note: "Three tests touch only about a third of the branches, so bugs in the rest go unseen.", values: { tests: 3, branches: 20, per: 2, bugs: 3 } },
       { name: "Broad suite", note: "Thirty tests that each touch three branches reach full coverage of 20 branches and find all three bugs.", values: { tests: 30, branches: 20, per: 3, bugs: 3 } },
       { name: "Redundant tests", note: "Forty tests on 8 branches reach full coverage after a handful; the rest add nothing new. Coverage shows what ran, not whether the checks were good.", values: { tests: 40, branches: 8, per: 1, bugs: 2 } },
     ] },
-  { id: "dbindex", title: "Index against full scan", where: [["WD-201", 5]], blurb: "Find one row among millions. A full table scan reads half the rows on average; a B-tree index reads only a few pages.", topics: ["Databases", "PostgreSQL", "Index", "B-tree"], animated: false,
+  { id: "dbindex", title: "Index against full scan", where: [["WD-201", 5], ["BCA-004", 4], ["BCA-006", 5]], blurb: "Find one row among millions. A full table scan reads half the rows on average; a B-tree index reads only a few pages.", topics: ["Databases", "PostgreSQL", "Index", "B-tree", "DBMS fundamentals", "primary vs. secondary storage", "data retrieval methods", "Hashing: hash functions"], animated: false,
     presets: [
       { name: "One million rows", note: "A scan reads 500,000 rows on average; a B-tree with fan-out 100 has 3 levels, so 4 page reads find the row: about 125,000 times fewer.", values: { exp: 6, fanout: 100, index: true } },
       { name: "One hundred million rows", note: "The scan grows 100 times to 50 million rows, but the tree gains only one level (4 levels, 5 page reads in all): indexes scale logarithmically.", values: { exp: 8, fanout: 100, index: true } },
@@ -101,7 +101,7 @@ export const WEBA_LABS: LabMeta[] = [
       { name: "Weak 2-byte token", note: "Only 65,536 possibilities: at 1000 tries a second an attacker has even odds within 33 seconds and certainty within the hour.", values: { bytes: 2, rate: 1000, life: 60 } },
       { name: "3 bytes, fast attacker", note: "16.7 million possibilities against 100,000 tries a second: a 50% chance in about 84 seconds. Use at least 16 random bytes.", values: { bytes: 3, rate: 100000, life: 60 } },
     ] },
-  { id: "passwordcrack", title: "How long a stored password lasts", where: [["WD-201", 10]], blurb: "Compare fast hashes (MD5, SHA-256) with bcrypt for stored passwords: length, character set, salting and cost decide how long a cracker needs.", topics: ["Password storage", "Hashing", "bcrypt", "Salting"], animated: false,
+  { id: "passwordcrack", title: "How long a stored password lasts", where: [["WD-201", 10], ["BCA-004", 5]], blurb: "Compare fast hashes (MD5, SHA-256) with bcrypt for stored passwords: length, character set, salting and cost decide how long a cracker needs.", topics: ["Password storage", "Hashing", "bcrypt", "Salting", "Number systems (Positional & Non-Positional): Binary", "Octal", "Decimal", "Hexadecimal", "radix conversions", "binary arithmetic: addition"], animated: false,
     presets: [
       { name: "8 lowercase, MD5", note: "About 2×10¹¹ combinations, and one GPU tries 1.6×10¹¹ MD5 hashes a second: the average password falls in under a second.", values: { len: 8, cs: "lower", scheme: "md5", cost: 10, salt: false } },
       { name: "8 mixed, bcrypt cost 12", note: "218 trillion combinations at roughly 1,400 tries a second: about 2,400 years for one GPU on average. Slow, salted hashes are the point of bcrypt.", values: { len: 8, cs: "alnum", scheme: "bcrypt", cost: 12, salt: true } },
