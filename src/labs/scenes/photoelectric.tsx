@@ -88,21 +88,79 @@ export default function PhotoelectricLab() {
   const beamQ = useMemo(() => new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), LAMP.clone().sub(HIT).normalize()), []);
   const beamLen = LAMP.distanceTo(HIT), mid = LAMP.clone().add(HIT).multiplyScalar(0.5);
   const collector = V > 0.005 ? "#2ba6f5" : V < -0.005 ? "#ff5a5f" : "#9db0ba";
-  const reach = !r.emits ? "No emission" : V <= 0 ? "Yes (all of them)" : r.kmax > V ? "Yes (fastest only)" : "No, all turned back";
+  const reach = !r.emits ? "No emission" : V <= 0 ? "Yes (all photoelectrons)" : r.kmax > V ? "Yes (energetic electrons only)" : "No (all turned back)";
+
   return (
     <LabFrame
-      label="Light of chosen colour striking a metal plate and ejecting photoelectrons toward a collector plate held at a retarding voltage"
-      camera={[0, 2, 11]}
+      label="Precision quartz vacuum phototube apparatus: monochromatic photon excitation, photocathode work function, and retarding potential"
+      camera={[0, 1.8, 10.5]}
       onReset={reset}
-      scene={() => (<group>
-        <mesh position={[XE - 0.1, 0, 0]}><boxGeometry args={[0.2, 3.2, 2.6]} /><meshStandardMaterial color={m.color} metalness={0.6} roughness={0.35} /></mesh>
-        <mesh position={[XC + 0.1, 0, 0]}><boxGeometry args={[0.2, 3.2, 2.6]} /><meshStandardMaterial color={collector} emissive={collector} emissiveIntensity={0.25} metalness={0.4} roughness={0.5} /></mesh>
-        <mesh position={[0, -1.8, 0]}><boxGeometry args={[7.2, 0.08, 2.6]} /><meshStandardMaterial color="#2b3a43" /></mesh>
-        <mesh position={[LAMP.x, LAMP.y + 0.3, 0]}><cylinderGeometry args={[0.3, 0.45, 0.6, 20]} /><meshStandardMaterial color="#5b6d77" /></mesh>
-        <mesh position={mid} quaternion={beamQ}><coneGeometry args={[0.95, beamLen, 24, 1, true]} /><meshBasicMaterial color={col} transparent opacity={0.2} side={THREE.DoubleSide} depthWrite={false} /></mesh>
-        <mesh position={[XE + 0.02, HIT.y, 0]} rotation={[0, Math.PI / 2, 0]}><circleGeometry args={[0.95, 32]} /><meshBasicMaterial color={col} transparent opacity={0.55} /></mesh>
-        <Particles count={count} kmax={r.kmax} V={V} active={active} photons={photons} color={col} />
-      </group>)}
+      scene={() => (
+        <group>
+          {/* Optical Bench Apparatus Platform */}
+          <mesh position={[0, -2.2, 0]}>
+            <boxGeometry args={[9.2, 0.28, 3.6]} />
+            <meshStandardMaterial color="#1a242b" metalness={0.8} roughness={0.3} />
+          </mesh>
+          <mesh position={[0, -2.05, 0]}>
+            <boxGeometry args={[9.2, 0.02, 0.6]} />
+            <meshStandardMaterial color="#7f939e" metalness={0.9} roughness={0.15} />
+          </mesh>
+
+          {/* Quartz Phototube Glass Envelope */}
+          <mesh position={[0, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+            <cylinderGeometry args={[1.7, 1.7, 7.2, 32, 1, true]} />
+            <meshStandardMaterial color="#d0e4ee" roughness={0.1} metalness={0.1} transparent opacity={0.18} side={THREE.DoubleSide} />
+          </mesh>
+
+          {/* Phototube End Caps */}
+          <mesh position={[XE - 0.7, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+            <cylinderGeometry args={[1.72, 1.72, 0.4, 32]} />
+            <meshStandardMaterial color="#1a252c" metalness={0.8} roughness={0.3} />
+          </mesh>
+          <mesh position={[XC + 0.7, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+            <cylinderGeometry args={[1.72, 1.72, 0.4, 32]} />
+            <meshStandardMaterial color="#1a252c" metalness={0.8} roughness={0.3} />
+          </mesh>
+
+          {/* Concave Metal Photocathode Target Plate */}
+          <mesh position={[XE - 0.1, 0, 0]}>
+            <cylinderGeometry args={[1.4, 1.4, 0.12, 32]} />
+            <meshStandardMaterial color={m.color} metalness={0.75} roughness={0.25} />
+          </mesh>
+
+          {/* Ring Anode / Collector Electrode */}
+          <mesh position={[XC + 0.1, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
+            <torusGeometry args={[1.3, 0.08, 16, 32]} />
+            <meshStandardMaterial color={collector} emissive={collector} emissiveIntensity={0.35} metalness={0.7} roughness={0.25} />
+          </mesh>
+
+          {/* Monochromatic Lamp Housing & Collimator Lens */}
+          <group position={[LAMP.x, LAMP.y, 0]}>
+            <mesh rotation={[0, 0, 0.4]}>
+              <cylinderGeometry args={[0.45, 0.6, 0.9, 24]} />
+              <meshStandardMaterial color="#2d3c46" metalness={0.7} roughness={0.3} />
+            </mesh>
+            <mesh position={[0, -0.48, 0]}>
+              <cylinderGeometry args={[0.3, 0.3, 0.15, 20]} />
+              <meshStandardMaterial color="#cca43b" metalness={0.85} roughness={0.2} />
+            </mesh>
+          </group>
+
+          {/* Illuminated Focused Incident Light Cone */}
+          <mesh position={mid} quaternion={beamQ}>
+            <coneGeometry args={[0.95, beamLen, 32, 1, true]} />
+            <meshBasicMaterial color={col} transparent opacity={0.22} side={THREE.DoubleSide} depthWrite={false} />
+          </mesh>
+          <mesh position={[XE + 0.02, HIT.y, 0]} rotation={[0, Math.PI / 2, 0]}>
+            <circleGeometry args={[0.95, 32]} />
+            <meshBasicMaterial color={col} transparent opacity={0.65} />
+          </mesh>
+
+          {/* Dynamic Photons & Photoelectrons Simulation */}
+          <Particles count={count} kmax={r.kmax} V={V} active={active} photons={photons} color={col} />
+        </group>
+      )}
       readouts={[
         ["Photon energy hc/λ", `${r.E.toFixed(2)} eV`],
         [`Work function φ (${m.name})`, `${m.phi.toFixed(2)} eV`],

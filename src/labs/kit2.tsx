@@ -29,7 +29,7 @@ export type Curve = { pts: XY[]; color: string; w?: number; dashed?: boolean };
  * A 2-D graph standing in the 3-D scene. Data coordinates in `xr` × `yr` map onto a w × h panel whose lower-left corner is (x0, y0).
  * Points outside the range are clamped to the frame.
  */
-export function Graph({ x0, y0, w, h, z = 0, xr, yr, curves, marker, grid = 4, bg = "#16303b", markerColor = C.red, vlines = [] }: {
+export function Graph({ x0, y0, w, h, z = 0, xr, yr, curves, marker, grid = 4, bg = "#0d1b22", markerColor = C.red, vlines = [] }: {
   x0: number; y0: number; w: number; h: number; z?: number; xr: XY; yr: XY; curves: Curve[]; marker?: XY | null; grid?: number; bg?: string; markerColor?: string; vlines?: { x: number; color: string }[];
 }) {
   const map = (p: XY): V3 => {
@@ -48,12 +48,25 @@ export function Graph({ x0, y0, w, h, z = 0, xr, yr, curves, marker, grid = 4, b
   const zeroX = xr[0] < 0 && xr[1] > 0 ? x0 + w * (-xr[0] / (xr[1] - xr[0])) : null;
   return (
     <group>
-      <Panel p={[x0 + w / 2, y0 + h / 2, z - 0.01]} w={w + 0.3} h={h + 0.3} c={bg} />
-      <lineSegments geometry={gridPts}><lineBasicMaterial color="#2c4b57" /></lineSegments>
-      <Line points={[[x0, zeroY ?? y0, z], [x0 + w, zeroY ?? y0, z]]} color={C.light} lineWidth={1.6} />
-      <Line points={[[zeroX ?? x0, y0, z], [zeroX ?? x0, y0 + h, z]]} color={C.light} lineWidth={1.6} />
-      {vlines.map((v, i) => <Line key={i} points={[map([v.x, yr[0]]), map([v.x, yr[1]])]} color={v.color} lineWidth={1.2} dashed dashSize={0.08} gapSize={0.06} />)}
-      {curves.map((c, i) => c.pts.length > 1 ? <Line key={i} points={c.pts.map(map)} color={c.color} lineWidth={c.w ?? 2.6} dashed={c.dashed} dashSize={0.1} gapSize={0.07} /> : null)}
+      {/* Outer instrument chassis bevel */}
+      <mesh position={[x0 + w / 2, y0 + h / 2, z - 0.03]}>
+        <boxGeometry args={[w + 0.44, h + 0.44, 0.04]} />
+        <meshStandardMaterial color="#1a252c" roughness={0.4} metalness={0.6} />
+      </mesh>
+      {/* Recessed inner bezel frame */}
+      <mesh position={[x0 + w / 2, y0 + h / 2, z - 0.015]}>
+        <boxGeometry args={[w + 0.16, h + 0.16, 0.02]} />
+        <meshStandardMaterial color="#0f171d" roughness={0.6} />
+      </mesh>
+      {/* CRT / LCD screen face */}
+      <Panel p={[x0 + w / 2, y0 + h / 2, z - 0.005]} w={w + 0.08} h={h + 0.08} c={bg} o={0.98} />
+      {/* Oscilloscope graticule grid lines */}
+      <lineSegments geometry={gridPts}><lineBasicMaterial color="#1e3a47" /></lineSegments>
+      {/* Major calibrated axes */}
+      <Line points={[[x0, zeroY ?? y0, z], [x0 + w, zeroY ?? y0, z]]} color="#607d8b" lineWidth={2} />
+      <Line points={[[zeroX ?? x0, y0, z], [zeroX ?? x0, y0 + h, z]]} color="#607d8b" lineWidth={2} />
+      {vlines.map((v, i) => <Line key={i} points={[map([v.x, yr[0]]), map([v.x, yr[1]])]} color={v.color} lineWidth={1.4} dashed dashSize={0.08} gapSize={0.06} />)}
+      {curves.map((c, i) => c.pts.length > 1 ? <Line key={i} points={c.pts.map(map)} color={c.color} lineWidth={c.w ?? 3.2} dashed={c.dashed} dashSize={0.1} gapSize={0.07} /> : null)}
       {marker && <Pulse p={map(marker)} color={markerColor} />}
     </group>
   );
@@ -108,18 +121,36 @@ export function Flow({ path, n = 16, speed = 0.25, color = C.gold, r = 0.07, cap
   );
 }
 
-/** An analogue meter: arc scale plus a needle at `f` (0 … 1 of full scale). */
-export function Dial({ p, f, color = C.gold, size = 0.8, face = "#e8f1f5" }: { p: V3; f: number; color?: string; size?: number; face?: string }) {
+/** An analogue meter: realistic lab multimeter housing, arc scale plus damped needle at `f` (0 … 1 of full scale). */
+export function Dial({ p, f, color = C.red, size = 0.8, face = "#f4f8fa" }: { p: V3; f: number; color?: string; size?: number; face?: string }) {
   const ang = Math.PI * (0.85 - 0.7 * Math.min(1, Math.max(0, f)));
-  const arc = useMemo(() => Array.from({ length: 25 }, (_, i) => { const a = Math.PI * (0.85 - 0.7 * (i / 24)); return [Math.cos(a) * size * 0.8, Math.sin(a) * size * 0.8 - size * 0.25, 0.03] as V3; }), [size]);
+  const arc = useMemo(() => Array.from({ length: 25 }, (_, i) => { const a = Math.PI * (0.85 - 0.7 * (i / 24)); return [Math.cos(a) * size * 0.8, Math.sin(a) * size * 0.8 - size * 0.25, 0.035] as V3; }), [size]);
   return (
     <group position={p}>
-      <mesh><boxGeometry args={[size * 2.1, size * 1.5, 0.12]} /><meshStandardMaterial color="#33454e" /></mesh>
-      <mesh position={[0, 0.05, 0.065]}><planeGeometry args={[size * 1.9, size * 1.2]} /><meshBasicMaterial color={face} /></mesh>
-      <group position={[0, 0.05, 0.07]}>
-        <Line points={arc} color="#5b6d77" lineWidth={2} />
-        <Line points={[[0, -size * 0.25, 0.01], [Math.cos(ang) * size * 0.85, Math.sin(ang) * size * 0.85 - size * 0.25, 0.01]]} color={color} lineWidth={3} />
-        <mesh position={[0, -size * 0.25, 0.01]}><circleGeometry args={[0.05, 12]} /><meshBasicMaterial color="#1f2d33" /></mesh>
+      {/* Outer instrument bezel / Bakelite casing */}
+      <mesh>
+        <boxGeometry args={[size * 2.15, size * 1.55, 0.16]} />
+        <meshStandardMaterial color="#1a252c" roughness={0.5} metalness={0.2} />
+      </mesh>
+      {/* Chrome inner bezel */}
+      <mesh position={[0, 0.04, 0.04]}>
+        <boxGeometry args={[size * 1.95, size * 1.25, 0.06]} />
+        <meshStandardMaterial color="#8ca4b0" roughness={0.2} metalness={0.75} />
+      </mesh>
+      {/* Meter scale face plate */}
+      <mesh position={[0, 0.04, 0.075]}>
+        <planeGeometry args={[size * 1.88, size * 1.18]} />
+        <meshStandardMaterial color={face} roughness={0.3} />
+      </mesh>
+      {/* Scale markings and needle */}
+      <group position={[0, 0.04, 0.082]}>
+        <Line points={arc} color="#475b66" lineWidth={2.2} />
+        <Line points={[[0, -size * 0.25, 0.005], [Math.cos(ang) * size * 0.85, Math.sin(ang) * size * 0.85 - size * 0.25, 0.005]]} color={color} lineWidth={3} />
+        {/* Brass central pivot cap */}
+        <mesh position={[0, -size * 0.25, 0.012]}>
+          <circleGeometry args={[0.06, 16]} />
+          <meshStandardMaterial color="#cca43b" metalness={0.8} roughness={0.25} />
+        </mesh>
       </group>
     </group>
   );
@@ -131,16 +162,24 @@ export function Coil({ p, turns = 8, r = 0.35, len = 1.6, color = C.orange, w = 
   return <Line points={pts} color={color} lineWidth={w} />;
 }
 
-/** A cylinder between two points (pipes, rods, members). */
-export function Rod({ a, b, r = 0.06, color = C.light, glow = 0, o = 1 }: { a: V3; b: V3; r?: number; color?: string; glow?: number; o?: number }) {
+/** A cylinder between two points (pipes, rods, members) with physical metallic/dielectric materials. */
+export function Rod({ a, b, r = 0.06, color = C.light, glow = 0, o = 1, metal = 0.2, rough = 0.3 }: { a: V3; b: V3; r?: number; color?: string; glow?: number; o?: number; metal?: number; rough?: number }) {
   const { pos, quat, len } = useMemo(() => {
     const A = new THREE.Vector3(...a), B = new THREE.Vector3(...b), d = B.clone().sub(A);
     return { pos: A.clone().add(B).multiplyScalar(0.5), quat: new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.clone().normalize()), len: Math.max(1e-4, d.length()) };
   }, [a, b]);
   return (
     <mesh position={pos} quaternion={quat}>
-      <cylinderGeometry args={[r, r, len, 12]} />
-      <meshStandardMaterial color={color} emissive={glow > 0 ? color : "#000000"} emissiveIntensity={glow} transparent={o < 1} opacity={o} roughness={0.45} />
+      <cylinderGeometry args={[r, r, len, 24]} />
+      <meshStandardMaterial
+        color={color}
+        emissive={glow > 0 ? color : "#000000"}
+        emissiveIntensity={glow}
+        transparent={o < 1}
+        opacity={o}
+        roughness={rough}
+        metalness={metal}
+      />
     </mesh>
   );
 }

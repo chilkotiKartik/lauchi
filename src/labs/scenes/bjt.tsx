@@ -13,7 +13,7 @@ const MULT = [0.4, 0.7, 1, 1.4, 1.9];
 const COLS = ["#5b6d77", "#2ba6f5", "#44c95a", "#ffc83d", "#a970ff"];
 
 export default function BjtLab() {
-  const [P, set, reset] = useLabParams(ELEX_SPECS.bjt);
+  const [P, set, reset] = useLabParams(ELEC_SPECS.bjt);
   const { VCC, RB, RC, beta, early } = P;
   const va = early ? VA : Infinity;
   const B = fixedBias(VCC, RB * 1000, RC * 1000, beta, va);
@@ -27,27 +27,96 @@ export default function BjtLab() {
   }), [VCC, RB, RC, beta, early]);
   const q = useRef<THREE.Mesh>(null), t = useRef(0);
   const tick = (dt: number) => { t.current += Math.min(dt, 0.05); q.current?.scale.setScalar(1 + 0.2 * Math.sin(t.current * 4)); };
-  const bar = (v: number, max: number) => Math.max(0.03, (v / Math.max(max, 1e-12)) * 1.8);
+  const bar = (v: number, max: number) => Math.max(0.04, (v / Math.max(max, 1e-12)) * 1.8);
+
   return (
     <LabFrame
-      label="A family of BJT output characteristic curves in different colours crossed by a straight DC load line, with a pulsing dot at the Q point and three bars for base, collector and emitter current"
-      camera={[0, 0.6, 9]}
+      label="Bipolar Junction Transistor (BJT) curve tracer: output characteristics family, DC load line, and operating Q point"
+      camera={[0, 0.8, 9.4]}
       onReset={reset}
-      scene={() => (<group>
-        <Tick fn={tick} />
-        <group position={[0, -1.1, 0]}>
-          <Line points={[[-W / 2, 0, 0], [W / 2 + 0.2, 0, 0]]} color="#9db0ba" lineWidth={1.5} />
-          <Line points={[[-W / 2, 0, 0], [-W / 2, H + 0.2, 0]]} color="#9db0ba" lineWidth={1.5} />
-          {curves.map((c, k) => (<Line key={k} points={c} color={COLS[k]} lineWidth={k === 2 ? 3.4 : 1.8} />))}
-          <Line points={[[xs(VCC), 0, 0.02], [xs(0), ys(B.ICsat), 0.02]]} color="#ff9a1f" lineWidth={2.6} />
-          <mesh ref={q} position={[xs(B.VCE), ys(B.IC), 0.06]}><sphereGeometry args={[0.15, 16, 16]} /><meshStandardMaterial color="#ff5a5f" emissive="#ff5a5f" emissiveIntensity={0.45} /></mesh>
+      scene={() => (
+        <group>
+          <Tick fn={tick} />
+
+          {/* Curve Tracer Oscilloscope Display */}
+          <group position={[0.4, 0.2, 0]}>
+            {/* Bezel Frame */}
+            <mesh position={[0, H / 2, -0.04]}>
+              <boxGeometry args={[W + 0.7, H + 0.7, 0.1]} />
+              <meshStandardMaterial color="#16222a" roughness={0.4} metalness={0.6} />
+            </mesh>
+            <mesh position={[0, H / 2, -0.01]}>
+              <planeGeometry args={[W + 0.45, H + 0.45]} />
+              <meshBasicMaterial color="#0b171d" />
+            </mesh>
+
+            {/* Graticule Reticle Lines */}
+            <Line points={[[-W / 2, 0, 0], [W / 2 + 0.2, 0, 0]]} color="#455a64" lineWidth={1.8} />
+            <Line points={[[-W / 2, 0, 0], [-W / 2, H + 0.2, 0]]} color="#455a64" lineWidth={1.8} />
+
+            {/* Characteristic Family of Curves */}
+            {curves.map((c, k) => (
+              <Line key={k} points={c} color={COLS[k]} lineWidth={k === 2 ? 3.8 : 2.2} />
+            ))}
+
+            {/* DC Load Line */}
+            <Line points={[[xs(VCC), 0, 0.02], [xs(0), ys(B.ICsat), 0.02]]} color="#ff9a1f" lineWidth={3.2} />
+
+            {/* Quiescent Operating Q-Point */}
+            <mesh ref={q} position={[xs(B.VCE), ys(B.IC), 0.06]}>
+              <sphereGeometry args={[0.16, 20, 20]} />
+              <meshStandardMaterial color="#ff5a5f" emissive="#ff5a5f" emissiveIntensity={0.8} />
+            </mesh>
+          </group>
+
+          {/* TO-220 Transistor Device on Left Breadboard */}
+          <group position={[-3.8, -1.2, 0.6]}>
+            {/* Breadboard Base */}
+            <mesh position={[0, -0.4, 0]}>
+              <boxGeometry args={[1.8, 0.18, 1.4]} />
+              <meshStandardMaterial color="#e8f1f5" roughness={0.6} />
+            </mesh>
+
+            {/* Metal Heatsink Tab */}
+            <mesh position={[0, 0.4, -0.06]}>
+              <boxGeometry args={[0.8, 0.6, 0.08]} />
+              <meshStandardMaterial color="#bdc3c7" metalness={0.9} roughness={0.15} />
+            </mesh>
+            {/* Transistor Epoxy Body */}
+            <mesh position={[0, 0.1, 0]}>
+              <boxGeometry args={[0.78, 0.6, 0.25]} />
+              <meshStandardMaterial color="#1a252c" roughness={0.3} metalness={0.2} />
+            </mesh>
+            {/* Terminal Leads (Base, Collector, Emitter) */}
+            {[-0.2, 0, 0.2].map((lx, i) => (
+              <mesh key={i} position={[lx, -0.25, 0]}>
+                <cylinderGeometry args={[0.025, 0.025, 0.35, 12]} />
+                <meshStandardMaterial color="#cca43b" metalness={0.9} roughness={0.2} />
+              </mesh>
+            ))}
+          </group>
+
+          {/* Current Flow Column Meters (IB, IC, IE) */}
+          <group position={[-1.8, -2.6, 0.8]}>
+            <mesh position={[0.8, -0.1, 0]}>
+              <boxGeometry args={[2.4, 0.12, 0.9]} />
+              <meshStandardMaterial color="#1a252c" roughness={0.5} metalness={0.5} />
+            </mesh>
+            <mesh position={[0, bar(B.IB, B.IE) / 2, 0]}>
+              <boxGeometry args={[0.42, bar(B.IB, B.IE), 0.42]} />
+              <meshStandardMaterial color="#ffc83d" emissive="#ffc83d" emissiveIntensity={0.4} metalness={0.3} roughness={0.25} />
+            </mesh>
+            <mesh position={[0.75, bar(B.IC, B.IE) / 2, 0]}>
+              <boxGeometry args={[0.42, bar(B.IC, B.IE), 0.42]} />
+              <meshStandardMaterial color="#44c95a" emissive="#44c95a" emissiveIntensity={0.4} metalness={0.3} roughness={0.25} />
+            </mesh>
+            <mesh position={[1.5, bar(B.IE, B.IE) / 2, 0]}>
+              <boxGeometry args={[0.42, bar(B.IE, B.IE), 0.42]} />
+              <meshStandardMaterial color="#2ba6f5" emissive="#2ba6f5" emissiveIntensity={0.4} metalness={0.3} roughness={0.25} />
+            </mesh>
+          </group>
         </group>
-        <group position={[-2.6, -3.15, 0.8]}>
-          <mesh position={[0, bar(B.IB, B.IE) / 2, 0]}><boxGeometry args={[0.4, bar(B.IB, B.IE), 0.4]} /><meshStandardMaterial color="#ffc83d" /></mesh>
-          <mesh position={[0.7, bar(B.IC, B.IE) / 2, 0]}><boxGeometry args={[0.4, bar(B.IC, B.IE), 0.4]} /><meshStandardMaterial color="#44c95a" /></mesh>
-          <mesh position={[1.4, bar(B.IE, B.IE) / 2, 0]}><boxGeometry args={[0.4, bar(B.IE, B.IE), 0.4]} /><meshStandardMaterial color="#2ba6f5" /></mesh>
-        </group>
-      </group>)}
+      )}
       readouts={[
         ["Base current I_B", eng(B.IB, "A")], ["Collector current I_C", eng(B.IC, "A")], ["Emitter current I_E = I_B + I_C", eng(B.IE, "A")],
         ["V_CE at the Q point", `${B.VCE.toFixed(2)} V`], ["Region", B.region], ["Saturation current V_CC/R_C", eng(B.ICsat, "A")],

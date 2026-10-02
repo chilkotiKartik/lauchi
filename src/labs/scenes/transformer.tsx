@@ -53,28 +53,120 @@ export default function TransformerLab() {
   const [P, set, reset] = useLabParams(ELEC_SPECS.transformer);
   const { V1, N1, N2, f, RL, A } = P;
   const T = transformer(V1, N1, N2, f, RL, A);
-  const vh = (v: number) => Math.max(0.05, Math.min(2.6, (v / Math.max(V1, T.V2, 1)) * 2.4));
-  const coreCol = T.saturated ? "#ff7a5a" : T.Bm > 1.2 ? "#d9a05b" : "#7c8d97";
+  const coreCol = T.saturated ? "#ff6055" : T.Bm > 1.2 ? "#e59f48" : "#657682";
+
   return (
     <LabFrame
-      label="A rectangular iron core with a primary coil on the left limb and a secondary coil on the right, flux particles circulating around the core and voltage bars for the two windings"
-      camera={[0, 0.6, 8.6]}
+      label="Heavy step-up / step-down power transformer with laminated core, copper bobbins, and flux circulation"
+      camera={[0, 0.8, 9.2]}
       onReset={reset}
-      scene={() => (<group>
-        <group position={[-0.4, 0, 0]}>
-          <mesh position={[0, CH / 2, 0]}><boxGeometry args={[CW + 0.5, 0.5, 0.6]} /><meshStandardMaterial color={coreCol} metalness={0.4} roughness={0.5} /></mesh>
-          <mesh position={[0, -CH / 2, 0]}><boxGeometry args={[CW + 0.5, 0.5, 0.6]} /><meshStandardMaterial color={coreCol} metalness={0.4} roughness={0.5} /></mesh>
-          <mesh position={[-CW / 2, 0, 0]}><boxGeometry args={[0.5, CH, 0.6]} /><meshStandardMaterial color={coreCol} metalness={0.4} roughness={0.5} /></mesh>
-          <mesh position={[CW / 2, 0, 0]}><boxGeometry args={[0.5, CH, 0.6]} /><meshStandardMaterial color={coreCol} metalness={0.4} roughness={0.5} /></mesh>
-          <Coil x={-CW / 2} count={turnsShown(N1)} color="#ff9a1f" />
-          <Coil x={CW / 2} count={turnsShown(N2)} color="#44c95a" />
-          <Flux speed={Math.min(0.5, 0.06 + f / 500)} hot={T.saturated} low={quality === "low"} />
+      scene={() => (
+        <group>
+          {/* Main Transformer Unit */}
+          <group position={[-0.8, 0, 0]}>
+            {/* Base mounting foot brackets */}
+            {[-CW / 2, CW / 2].map((bx, i) => (
+              <mesh key={i} position={[bx, -CH / 2 - 0.35, 0]}>
+                <boxGeometry args={[0.9, 0.12, 1.1]} />
+                <meshStandardMaterial color="#1a252c" metalness={0.7} roughness={0.4} />
+              </mesh>
+            ))}
+
+            {/* Laminated Silicon Steel Core (Top, Bottom, Left, Right Limbs) */}
+            <mesh position={[0, CH / 2, 0]}>
+              <boxGeometry args={[CW + 0.6, 0.55, 0.7]} />
+              <meshStandardMaterial color={coreCol} metalness={0.65} roughness={0.35} />
+            </mesh>
+            <mesh position={[0, -CH / 2, 0]}>
+              <boxGeometry args={[CW + 0.6, 0.55, 0.7]} />
+              <meshStandardMaterial color={coreCol} metalness={0.65} roughness={0.35} />
+            </mesh>
+            <mesh position={[-CW / 2, 0, 0]}>
+              <boxGeometry args={[0.55, CH, 0.7]} />
+              <meshStandardMaterial color={coreCol} metalness={0.65} roughness={0.35} />
+            </mesh>
+            <mesh position={[CW / 2, 0, 0]}>
+              <boxGeometry args={[0.55, CH, 0.7]} />
+              <meshStandardMaterial color={coreCol} metalness={0.65} roughness={0.35} />
+            </mesh>
+
+            {/* Core center E-I clamping plates */}
+            <mesh position={[0, 0, 0.37]}>
+              <boxGeometry args={[CW + 0.65, 0.08, 0.04]} />
+              <meshStandardMaterial color="#2d3c46" metalness={0.8} roughness={0.2} />
+            </mesh>
+            <mesh position={[0, 0, -0.37]}>
+              <boxGeometry args={[CW + 0.65, 0.08, 0.04]} />
+              <meshStandardMaterial color="#2d3c46" metalness={0.8} roughness={0.2} />
+            </mesh>
+
+            {/* Primary & Secondary Bobbins */}
+            <mesh position={[-CW / 2, 0, 0]}>
+              <cylinderGeometry args={[0.56, 0.56, 1.95, 24]} />
+              <meshStandardMaterial color="#1f1812" roughness={0.6} />
+            </mesh>
+            <mesh position={[CW / 2, 0, 0]}>
+              <cylinderGeometry args={[0.56, 0.56, 1.95, 24]} />
+              <meshStandardMaterial color="#1f1812" roughness={0.6} />
+            </mesh>
+
+            {/* Copper Wire Windings */}
+            <Coil x={-CW / 2} count={turnsShown(N1)} color="#e67e22" />
+            <Coil x={CW / 2} count={turnsShown(N2)} color="#2ecc71" />
+
+            {/* Banana Terminal Posts on top of windings */}
+            {[-0.2, 0.2].map((dx, i) => (
+              <group key={i} position={[-CW / 2 + dx, CH / 2 + 0.38, 0]}>
+                <mesh>
+                  <cylinderGeometry args={[0.07, 0.07, 0.22, 16]} />
+                  <meshStandardMaterial color={i === 0 ? "#ff5a5f" : "#1a252c"} roughness={0.3} metalness={0.4} />
+                </mesh>
+                <mesh position={[0, 0.12, 0]}>
+                  <cylinderGeometry args={[0.04, 0.04, 0.08, 16]} />
+                  <meshStandardMaterial color="#cca43b" metalness={0.9} roughness={0.2} />
+                </mesh>
+              </group>
+            ))}
+
+            {[-0.2, 0.2].map((dx, i) => (
+              <group key={i} position={[CW / 2 + dx, CH / 2 + 0.38, 0]}>
+                <mesh>
+                  <cylinderGeometry args={[0.07, 0.07, 0.22, 16]} />
+                  <meshStandardMaterial color={i === 0 ? "#ff5a5f" : "#1a252c"} roughness={0.3} metalness={0.4} />
+                </mesh>
+                <mesh position={[0, 0.12, 0]}>
+                  <cylinderGeometry args={[0.04, 0.04, 0.08, 16]} />
+                  <meshStandardMaterial color="#cca43b" metalness={0.9} roughness={0.2} />
+                </mesh>
+              </group>
+            ))}
+
+            {/* Magnetic Flux Circulation Particles */}
+            <Flux speed={Math.min(0.5, 0.06 + f / 500)} hot={T.saturated} low={quality === "low"} />
+          </group>
+
+          {/* Instrument Load Panel & Meter Columns */}
+          <group position={[3.2, -0.4, 0]}>
+            {/* Bench Enclosure Base */}
+            <mesh position={[0.4, -1.3, 0]}>
+              <boxGeometry args={[2.2, 0.2, 1.4]} />
+              <meshStandardMaterial color="#1a252c" roughness={0.5} metalness={0.5} />
+            </mesh>
+
+            {/* Primary & Secondary Voltage Indicator Columns */}
+            <group position={[0, -1.15, 0]}>
+              <mesh position={[0, vh(V1) / 2, 0]}>
+                <boxGeometry args={[0.42, vh(V1), 0.42]} />
+                <meshStandardMaterial color="#e67e22" emissive="#e67e22" emissiveIntensity={0.45} metalness={0.3} roughness={0.25} />
+              </mesh>
+              <mesh position={[0.8, vh(T.V2) / 2, 0]}>
+                <boxGeometry args={[0.42, vh(T.V2), 0.42]} />
+                <meshStandardMaterial color="#2ecc71" emissive="#2ecc71" emissiveIntensity={0.45} metalness={0.3} roughness={0.25} />
+              </mesh>
+            </group>
+          </group>
         </group>
-        <group position={[3.1, -1.6, 0]}>
-          <mesh position={[0, vh(V1) / 2, 0]}><boxGeometry args={[0.36, vh(V1), 0.36]} /><meshStandardMaterial color="#ff9a1f" /></mesh>
-          <mesh position={[0.6, vh(T.V2) / 2, 0]}><boxGeometry args={[0.36, vh(T.V2), 0.36]} /><meshStandardMaterial color="#44c95a" /></mesh>
-        </group>
-      </group>)}
+      )}
       readouts={[
         ["Turns ratio N1:N2", `${N1}:${N2} (${T.kind})`], ["Secondary voltage V₂", `${T.V2.toFixed(1)} V`], ["Secondary current I₂", si(T.I2, "A")],
         ["Primary current I₁", si(T.I1, "A")], ["Peak flux Φm = V₁/4.44fN₁", si(T.phim, "Wb")], ["Flux density B_m", `${T.Bm.toFixed(2)} T${T.saturated ? " — saturated!" : ""}`],

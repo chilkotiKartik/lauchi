@@ -18,36 +18,177 @@ export default function SolarCellLab() {
   const curve = useMemo(() => sample((v) => Math.max(-0.2, sc.curve(v)), 0, Math.max(0.05, sc.Voc * 1.02), 100), [sc]);
   const loadLine = useMemo(() => sample((v) => v / R, 0, Math.max(0.05, sc.Voc), 20), [R, sc.Voc]);
   const ledCurve = useMemo(() => sample((v) => led(mat, v).I * 1000, 0, 3.5, 140), [mat]);
-  const sunRays = useMemo<V3[][]>(() => [-1.2, 0, 1.2].map((x) => [[x - 1, 3.4, 0], [x, 0.4, 0]]), []);
-  const circuit = useMemo<V3[]>(() => [[-1.7, 0.1, 0], [-1.7, -1.4, 0], [1.7, -1.4, 0], [1.7, 0.1, 0]], []);
+  const sunRays = useMemo<V3[][]>(() => [-1.4, 0, 1.4].map((x) => [[x - 1.2, 3.8, 0], [x, 0.45, 0]]), []);
+  const circuit = useMemo<V3[]>(() => [[-1.8, 0.2, 0], [-1.8, -1.6, 0], [1.8, -1.6, 0], [1.8, 0.2, 0]], []);
   const glow = nmHex(le.lambda);
+
   return (
     <LabFrame
-      label={solar ? "A p–n junction slab under sunlight; photons free electron–hole pairs that flow round an external load, beside a graph of the illuminated I–V curve and the load line" : "A forward-biased p–n junction LED glowing at the colour set by its band gap, with its I–V curve"}
-      camera={[0.5, 1.5, 9]}
+      label={
+        solar
+          ? "Monocrystalline silicon photovoltaic solar cell with anti-reflective coating, contact fingers, and live illuminated I–V curve load tracker"
+          : "Light Emitting Diode (LED) semiconductor die with forward-bias photon emission and calibrated I–V characteristic curve"
+      }
+      camera={[0.5, 1.6, 9.2]}
       onReset={reset}
-      scene={() => (<group position={[-1.6, 0, 0]}>
-        <Box p={[0, 0.25, 0]} s={[3.2, 0.3, 1.6]} c={C.blue} />
-        <Box p={[0, -0.12, 0]} s={[3.2, 0.44, 1.6]} c={C.red} />
-        <Box p={[0, 0.05, 0]} s={[3.2, 0.08, 1.62]} c={C.light} o={0.6} />
-        {solar ? (<>
-          {G > 0 && sunRays.map((r, i) => <group key={i}><Line points={r} color={C.gold} lineWidth={2} /><Flow path={r} n={Math.round(3 + G / 250)} speed={1} color={C.gold} r={0.06} /></group>)}
-          <mesh position={[-2.6, 3.8, 0]}><sphereGeometry args={[0.45, 20, 20]} /><meshStandardMaterial color={C.gold} emissive={C.gold} emissiveIntensity={0.4 + G / 1500} /></mesh>
-          <Line points={circuit} color={C.light} lineWidth={2} />
-          <Box p={[0, -1.4, 0]} s={[0.9, 0.3, 0.3]} c={C.orange} glow={Math.min(1, sc.Pop / 2)} />
-          {sc.Iop > 0.001 && <Flow path={circuit} n={14} speed={Math.min(1.5, 0.2 + sc.Iop / 3)} color={C.blue} r={0.06} />}
-          {cells && [0, 1, 2].map((i) => <Box key={i} p={[-1.1 + i * 1.1, 0.42, 0]} s={[0.02, 0.05, 1.6]} c={C.white} />)}
-        </>) : (<>
-          <mesh position={[0, 0.9, 0]}><sphereGeometry args={[0.5 + Math.min(0.6, le.I * 8), 24, 24]} /><meshStandardMaterial color={glow} emissive={glow} emissiveIntensity={le.on ? 1.2 : 0.05} transparent opacity={le.on ? 0.85 : 0.25} /></mesh>
-          <Line points={circuit} color={C.light} lineWidth={2} />
-          <Box p={[0, -1.4, 0]} s={[0.6, 0.6, 0.3]} c={C.dark} />
-          {le.on && <Flow path={circuit} n={12} speed={-0.6} color={C.blue} r={0.06} />}
-        </>)}
-        {solar
-          ? <Graph x0={2.3} y0={-1.8} w={4} h={3.4} xr={[0, Math.max(0.1, sc.Voc * 1.05)]} yr={[0, Math.max(0.01, sc.Isc * 1.15)]} curves={[{ pts: curve, color: C.green, w: 3 }, { pts: loadLine, color: C.blue }]} marker={[sc.Vop, sc.Iop]} />
-          : <Graph x0={2.3} y0={-1.8} w={4} h={3.4} xr={[0, 3.5]} yr={[0, 100]} curves={[{ pts: ledCurve, color: glow, w: 3 }]} marker={[V, le.I * 1000]} />}
-        {solar && <Pulse p={[0, 0.06, 0.82]} color={C.gold} r={0.06} />}
-      </group>)}
+      scene={() => (
+        <group position={[-1.6, 0, 0]}>
+          {solar ? (
+            <group>
+              {/* Solar Cell Substrate / Base Plate */}
+              <mesh position={[0, -0.22, 0]}>
+                <boxGeometry args={[3.6, 0.16, 2.0]} />
+                <meshStandardMaterial color="#1a242b" metalness={0.7} roughness={0.4} />
+              </mesh>
+
+              {/* p-type Silicon Layer (Red base) */}
+              <mesh position={[0, -0.06, 0]}>
+                <boxGeometry args={[3.4, 0.16, 1.8]} />
+                <meshStandardMaterial color="#c0392b" metalness={0.4} roughness={0.35} />
+              </mesh>
+
+              {/* Depletion Region (Subtle dielectric band) */}
+              <mesh position={[0, 0.04, 0]}>
+                <boxGeometry args={[3.42, 0.04, 1.82]} />
+                <meshStandardMaterial color="#9db0ba" transparent opacity={0.65} />
+              </mesh>
+
+              {/* n-type Silicon with Anti-Reflective Blue Coating */}
+              <mesh position={[0, 0.16, 0]}>
+                <boxGeometry args={[3.4, 0.2, 1.8]} />
+                <meshStandardMaterial color="#1f4e79" metalness={0.6} roughness={0.2} />
+              </mesh>
+
+              {/* Silver Busbars and Contact Fingers Grid */}
+              {cells && (
+                <group position={[0, 0.27, 0]}>
+                  {/* Two Main Silver Busbars */}
+                  {[-0.8, 0.8].map((bx, i) => (
+                    <mesh key={i} position={[bx, 0, 0]}>
+                      <boxGeometry args={[0.08, 0.02, 1.76]} />
+                      <meshStandardMaterial color="#ecf0f1" metalness={0.9} roughness={0.1} />
+                    </mesh>
+                  ))}
+                  {/* Fine Contact Fingers */}
+                  {Array.from({ length: 9 }).map((_, i) => (
+                    <mesh key={i} position={[0, 0, -0.75 + i * 0.1875]}>
+                      <boxGeometry args={[3.3, 0.015, 0.02]} />
+                      <meshStandardMaterial color="#bdc3c7" metalness={0.9} roughness={0.15} />
+                    </mesh>
+                  ))}
+                </group>
+              )}
+
+              {/* Incident Solar Rays & Sun Source */}
+              {G > 0 && (
+                <group>
+                  <mesh position={[-2.8, 4.2, 0]}>
+                    <sphereGeometry args={[0.55, 24, 24]} />
+                    <meshStandardMaterial color="#f39c12" emissive="#f39c12" emissiveIntensity={0.6 + G / 1200} />
+                  </mesh>
+                  {sunRays.map((r, i) => (
+                    <group key={i}>
+                      <Line points={r} color="#f1c40f" lineWidth={2} />
+                      <Flow path={r} n={Math.round(4 + G / 200)} speed={1.2} color="#f1c40f" r={0.065} />
+                    </group>
+                  ))}
+                </group>
+              )}
+
+              {/* External Load Resistor Box */}
+              <group position={[0, -1.6, 0]}>
+                <mesh>
+                  <boxGeometry args={[1.4, 0.5, 0.7]} />
+                  <meshStandardMaterial color="#2c3e50" metalness={0.6} roughness={0.35} />
+                </mesh>
+                {/* Resistor Rotary Knobs */}
+                {[-0.35, 0.35].map((kx, i) => (
+                  <mesh key={i} position={[kx, 0.28, 0]}>
+                    <cylinderGeometry args={[0.16, 0.16, 0.1, 16]} />
+                    <meshStandardMaterial color="#cca43b" metalness={0.85} roughness={0.25} />
+                  </mesh>
+                ))}
+              </group>
+
+              {/* Circuit Wiring & Current Flow */}
+              <Line points={circuit} color="#95a5a6" lineWidth={2.5} />
+              {sc.Iop > 0.001 && <Flow path={circuit} n={16} speed={Math.min(1.8, 0.3 + sc.Iop / 2.5)} color="#3498db" r={0.065} />}
+            </group>
+          ) : (
+            <group>
+              {/* LED Metal Leadframe & Anode/Cathode Posts */}
+              <group position={[0, 0, 0]}>
+                <mesh position={[-0.2, -0.6, 0]}>
+                  <cylinderGeometry args={[0.04, 0.04, 1.4, 16]} />
+                  <meshStandardMaterial color="#bdc3c7" metalness={0.9} roughness={0.15} />
+                </mesh>
+                <mesh position={[0.2, -0.7, 0]}>
+                  <cylinderGeometry args={[0.04, 0.04, 1.2, 16]} />
+                  <meshStandardMaterial color="#bdc3c7" metalness={0.9} roughness={0.15} />
+                </mesh>
+                {/* Reflective Reflector Cup */}
+                <mesh position={[0, 0.1, 0]}>
+                  <cylinderGeometry args={[0.3, 0.15, 0.25, 20]} />
+                  <meshStandardMaterial color="#ecf0f1" metalness={0.95} roughness={0.1} />
+                </mesh>
+                {/* Glowing Semiconductor Die */}
+                <mesh position={[0, 0.18, 0]}>
+                  <boxGeometry args={[0.14, 0.06, 0.14]} />
+                  <meshStandardMaterial color={glow} emissive={glow} emissiveIntensity={le.on ? 1.5 : 0.1} />
+                </mesh>
+                {/* Epoxy Lens Dome */}
+                <mesh position={[0, 0.5, 0]}>
+                  <sphereGeometry args={[0.65, 32, 32]} />
+                  <meshStandardMaterial color={glow} emissive={glow} emissiveIntensity={le.on ? 0.9 : 0.05} transparent opacity={le.on ? 0.75 : 0.35} />
+                </mesh>
+              </group>
+
+              {/* DC Power Supply Box */}
+              <group position={[0, -1.6, 0]}>
+                <mesh>
+                  <boxGeometry args={[1.3, 0.6, 0.8]} />
+                  <meshStandardMaterial color="#1a252c" metalness={0.7} roughness={0.35} />
+                </mesh>
+                <mesh position={[0, 0, 0.42]}>
+                  <planeGeometry args={[0.7, 0.25]} />
+                  <meshBasicMaterial color="#0d1b22" />
+                </mesh>
+              </group>
+
+              <Line points={circuit} color="#95a5a6" lineWidth={2.5} />
+              {le.on && <Flow path={circuit} n={14} speed={-0.8} color="#3498db" r={0.065} />}
+            </group>
+          )}
+
+          {/* Calibrated I-V Graph with Active Operating Point Marker */}
+          {solar ? (
+            <Graph
+              x0={2.4}
+              y0={-1.8}
+              w={4.2}
+              h={3.6}
+              xr={[0, Math.max(0.1, sc.Voc * 1.05)]}
+              yr={[0, Math.max(0.01, sc.Isc * 1.15)]}
+              curves={[
+                { pts: curve, color: "#2ecc71", w: 3.5 },
+                { pts: loadLine, color: "#3498db", w: 2.2 },
+              ]}
+              marker={[sc.Vop, sc.Iop]}
+            />
+          ) : (
+            <Graph
+              x0={2.4}
+              y0={-1.8}
+              w={4.2}
+              h={3.6}
+              xr={[0, 3.5]}
+              yr={[0, 100]}
+              curves={[{ pts: ledCurve, color: glow, w: 3.5 }]}
+              marker={[V, le.I * 1000]}
+            />
+          )}
+        </group>
+      )}
       readouts={solar ? [
         ["Short-circuit current I_sc", fmtSI(sc.Isc, "A")],
         ["Open-circuit voltage V_oc", fmtSI(sc.Voc, "V")],

@@ -102,9 +102,14 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
             camera={{ position: camera, fov: 45 }}
             gl={{ antialias: quality === "high", powerPreference: "default", preserveDrawingBuffer: true }}
           >
-            <ambientLight intensity={0.8} />
-            <directionalLight position={[4, 6, 3]} intensity={1.4} />
-            {variant === "lab" && <OrbitControls enableDamping={false} makeDefault />}
+            {/* Studio 3-Point Laboratory Lighting */}
+            <ambientLight color="#ebf4f9" intensity={0.75} />
+            <directionalLight position={[7, 11, 7]} intensity={1.35} color="#ffffff" />
+            <directionalLight position={[-7, 5, -5]} intensity={0.45} color="#9ec5db" />
+            <pointLight position={[0, 8, -6]} intensity={0.35} color="#44c95a" />
+
+            {/* Smooth physical camera controls */}
+            {variant === "lab" && <OrbitControls enableDamping dampingFactor={0.08} makeDefault minDistance={2} maxDistance={28} />}
             {variant === "lab" && <Fit base={camera} />}
             {children}
           </Canvas>

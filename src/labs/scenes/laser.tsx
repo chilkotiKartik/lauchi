@@ -50,19 +50,89 @@ export default function LaserLab() {
       label="A glass He–Ne tube between two mirrors; atoms glow when excited, photons bounce along the axis and a red beam leaves the output mirror once gain exceeds the losses; a graph shows gain against current with the threshold line"
       camera={[0, 2.2, 9]}
       onReset={reset}
-      scene={() => (<group position={[-0.8, 0.6, 0]}>
-        <Rod a={[-len / 2, 0, 0]} b={[len / 2, 0, 0]} r={0.55} color="#9db0ba" o={0.22} />
-        <Atoms len={len - 0.4} excited={excited} n={q === "low" ? 30 : NA} />
-        <Box p={[-len / 2 - 0.15, 0, 0]} s={[0.08, 1.4, 1.4]} c={C.light} glow={0.2} />
-        <Box p={[len / 2 + 0.15, 0, 0]} s={[0.08, 1.4, 1.4]} c={C.blue} o={0.6} />
-        {[-len / 2 + 0.4, len / 2 - 0.4].map((x) => <mesh key={x} position={[x, 0, 0]} rotation={[0, 0, 0.9]}><planeGeometry args={[0.9, 0.9]} /><meshStandardMaterial color="#e8f1f5" transparent opacity={0.35} side={2} /></mesh>)}
-        {s.lasing && <Flow path={axis} n={18} speed={1.4} color={C.red} r={0.05} />}
-        {s.lasing && <><Line points={out} color={C.red} lineWidth={3 + Math.min(6, s.out)} /><Flow path={out} n={10} speed={1.2} color={C.red} r={0.07} /></>}
-        <Box p={[0, -1.1, 0]} s={[1.6, 0.4, 0.8]} c={C.dark} />
-        <Line points={[[-0.6, -0.9, 0], [-len / 2 + 0.6, -0.5, 0]]} color={C.gold} lineWidth={1.5} />
-        <Line points={[[0.6, -0.9, 0], [len / 2 - 0.6, -0.5, 0]]} color={C.gold} lineWidth={1.5} />
-        <Graph x0={-2.2} y0={-4.4} w={4.4} h={2.2} xr={[0, 10]} yr={[0, 0.14]} curves={[{ pts: gainCurve, color: C.green, w: 3 }, { pts: [[0, s.gth], [10, s.gth]], color: C.red, dashed: true }]} marker={[I, s.g0]} />
-      </group>)}
+      scene={() => (
+        <group position={[-0.8, 0.6, 0]}>
+          {/* Glass discharge plasma tube with gas glow */}
+          <Rod a={[-len / 2, 0, 0]} b={[len / 2, 0, 0]} r={0.58} color="#b4d7ea" o={0.35} metal={0.1} rough={0.05} />
+          {/* Internal plasma glow column */}
+          <mesh position={[0, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+            <cylinderGeometry args={[0.38, 0.38, len - 0.2, 24]} />
+            <meshStandardMaterial color={I > 0 ? (s.lasing ? "#ff4d4d" : "#ff8566") : "#3a4a52"} emissive={I > 0 ? (s.lasing ? "#ff2222" : "#ff6644") : "#000000"} emissiveIntensity={I > 0 ? Math.min(2.0, 0.3 + I * 0.18) : 0} transparent opacity={0.4} />
+          </mesh>
+
+          <Atoms len={len - 0.4} excited={excited} n={q === "low" ? 30 : NA} />
+
+          {/* High Reflectivity Rear Mirror Mount (99.9% mirror) */}
+          <group position={[-len / 2 - 0.18, 0, 0]}>
+            <mesh>
+              <cylinderGeometry args={[0.75, 0.75, 0.14, 32]} rotation={[0, 0, Math.PI / 2]} />
+              <meshStandardMaterial color="#2d3748" metalness={0.8} roughness={0.3} />
+            </mesh>
+            <mesh position={[0.075, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+              <circleGeometry args={[0.55, 32]} />
+              <meshStandardMaterial color="#e2e8f0" metalness={0.98} roughness={0.05} />
+            </mesh>
+          </group>
+
+          {/* Output Coupler Mirror Mount */}
+          <group position={[len / 2 + 0.18, 0, 0]}>
+            <mesh>
+              <cylinderGeometry args={[0.75, 0.75, 0.14, 32]} rotation={[0, 0, Math.PI / 2]} />
+              <meshStandardMaterial color="#2d3748" metalness={0.8} roughness={0.3} />
+            </mesh>
+            <mesh position={[-0.075, 0, 0]} rotation={[0, 0, -Math.PI / 2]}>
+              <circleGeometry args={[0.55, 32]} />
+              <meshPhysicalMaterial color="#90cdf4" metalness={0.6} roughness={0.1} transparent opacity={0.6} />
+            </mesh>
+          </group>
+
+          {/* Brewster angle windows at each end of the tube */}
+          {[-len / 2 + 0.35, len / 2 - 0.35].map((x, idx) => (
+            <mesh key={x} position={[x, 0, 0]} rotation={[0, 0, idx === 0 ? 0.98 : -0.98]}>
+              <boxGeometry args={[0.04, 0.95, 0.95]} />
+              <meshPhysicalMaterial color="#e2f1f8" transparent opacity={0.45} roughness={0.05} transmission={0.9} />
+            </mesh>
+          ))}
+
+          {/* Laser Cavity Resonating Photons */}
+          {s.lasing && <Flow path={axis} n={24} speed={1.8} color="#ff2222" r={0.05} />}
+
+          {/* Output Laser Beam (632.8 nm Red Coherent Beam) */}
+          {s.lasing && (
+            <group>
+              <mesh position={[len / 2 + 1.8, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+                <cylinderGeometry args={[0.045, 0.045, 3.4, 16]} />
+                <meshStandardMaterial color="#ff1111" emissive="#ff0000" emissiveIntensity={2.5} roughness={0.1} />
+              </mesh>
+              {/* Outer Beam Halo */}
+              <mesh position={[len / 2 + 1.8, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+                <cylinderGeometry args={[0.12, 0.12, 3.4, 16]} />
+                <meshBasicMaterial color="#ff4444" transparent opacity={0.25} />
+              </mesh>
+              <Flow path={out} n={12} speed={1.5} color="#ffdddd" r={0.06} />
+            </group>
+          )}
+
+          {/* High-Voltage Power Supply / Lab Bench Stand */}
+          <group position={[0, -1.2, 0]}>
+            <mesh>
+              <boxGeometry args={[len + 0.8, 0.35, 1.4]} />
+              <meshStandardMaterial color="#1a202c" metalness={0.7} roughness={0.4} />
+            </mesh>
+            {/* Anode & Cathode Power Terminals */}
+            <mesh position={[-len / 2 + 0.8, 0.45, 0]}>
+              <cylinderGeometry args={[0.08, 0.08, 0.6, 16]} />
+              <meshStandardMaterial color="#e53e3e" metalness={0.8} roughness={0.3} />
+            </mesh>
+            <mesh position={[len / 2 - 0.8, 0.45, 0]}>
+              <cylinderGeometry args={[0.08, 0.08, 0.6, 16]} />
+              <meshStandardMaterial color="#2b6cb0" metalness={0.8} roughness={0.3} />
+            </mesh>
+          </group>
+
+          <Graph x0={-2.2} y0={-4.4} w={4.4} h={2.2} xr={[0, 10]} yr={[0, 0.14]} curves={[{ pts: gainCurve, color: C.green, w: 3 }, { pts: [[0, s.gth], [10, s.gth]], color: C.red, dashed: true }]} marker={[I, s.g0]} />
+        </group>
+      )}
       readouts={[
         ["Small-signal gain g₀", `${(s.g0 * 100).toFixed(2)} %/m`],
         ["Threshold gain", `${(s.gth * 100).toFixed(2)} %/m`],
