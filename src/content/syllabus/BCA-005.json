@@ -1,0 +1,100 @@
+{
+  "code": "BCA-005",
+  "name": "Personality Development and Life Skills",
+  "short": "Personality Dev.",
+  "type": "theory",
+  "ltp": "3-1-0",
+  "credits": 4,
+  "sem": "I",
+  "marks": null,
+  "objectives": [],
+  "outcomes": [],
+  "text": [],
+  "ref": [],
+  "rule": "",
+  "note": "",
+  "units": [
+    {
+      "n": 1,
+      "title": "Self-Exploration and Personality",
+      "hours": null,
+      "topics": [
+        "Self-exploration",
+        "self-awareness",
+        "personality definitions",
+        "determinants (heredity, environment, family, society)"
+      ],
+      "formulas": [],
+      "hints": [
+        "The Johari Window model for self-awareness and interpersonal dynamics",
+        "Conflict resolution styles (Thomas-Kilmann model)"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Empathy and Thinking Skills",
+      "hours": null,
+      "topics": [
+        "Empathy",
+        "altruism",
+        "creative vs. critical thinking",
+        "problem-solving barriers"
+      ],
+      "formulas": [],
+      "hints": [
+        "Define Empathy and differentiate it from sympathy",
+        "Define Altruism and explain its importance in community teamwork"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Stress and Communication",
+      "hours": null,
+      "topics": [
+        "Stress management techniques",
+        "verbal vs. non-verbal communication",
+        "listening skills",
+        "public speaking"
+      ],
+      "formulas": [],
+      "hints": [
+        "Define Stress Management and list two physical relaxation methods",
+        "Compare Verbal and Non-Verbal communication, listing non-verbal cues"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Mindset and Time Management",
+      "hours": null,
+      "topics": [
+        "Mindset (Fixed vs. Growth)",
+        "time management strategies",
+        "Eisenhower Matrix",
+        "social etiquette",
+        "manners"
+      ],
+      "formulas": [],
+      "hints": [
+        "Define Mindset and compare Fixed Mindset with Growth Mindset",
+        "Define Etiquette and explain its professional significance"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Interviews and Careers",
+      "hours": null,
+      "topics": [
+        "Mock interviews",
+        "interview preparation",
+        "body language",
+        "CV vs. Resume design",
+        "career counseling and technology"
+      ],
+      "formulas": [],
+      "hints": [
+        "SWOT analysis for personal career development"
+      ]
+    }
+  ],
+  "exps": []
+}

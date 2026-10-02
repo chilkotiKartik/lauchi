@@ -1,0 +1,2592 @@
+{
+ "Q1.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Formation of energy bands from overlap of atomic orbitals (definition of valence band, conduction band, forbidden gap E<sub>g</sub>)",
+    "marks": 2
+   },
+   {
+    "point": "Conductor: overlapping bands / partly filled band, E<sub>g</sub> = 0, with labelled band diagram",
+    "marks": 2
+   },
+   {
+    "point": "Insulator: completely filled VB, empty CB, large gap (E<sub>g</sub> > 5 eV), with labelled band diagram",
+    "marks": 2
+   },
+   {
+    "point": "Semiconductor: small gap (≈ 0.7–1.1 eV), conductivity rises with temperature, with labelled band diagram",
+    "marks": 2
+   },
+   {
+    "point": "Tabular comparison (E<sub>g</sub>, resistivity, temperature effect, examples)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Band theory (MO theory applied to solids):</b> in a solid containing N atoms, the N atomic orbitals of each energy level overlap to give N closely spaced molecular orbitals. Because N ≈ 10<sup>23</sup>, the spacing is so small that the levels merge into a continuous <b>energy band</b>.",
+   "<b>Valence band (VB):</b> the highest energy band filled with valence electrons (at 0 K). <b>Conduction band (CB):</b> the next higher band, empty or partly filled, whose electrons are free to move and carry current. <b>Forbidden gap (E<sub>g</sub>):</b> the energy region between the top of the VB and the bottom of the CB in which no electron state exists.",
+   "<b>1. Conductors (metals):</b> either the VB is only partly filled or the VB and CB overlap, so E<sub>g</sub> = 0. A very small electric field can move electrons to vacant levels immediately. Conductivity is high (10<sup>7</sup> S m<sup>-1</sup>) and <i>decreases</i> as temperature rises because lattice vibrations scatter electrons. Examples: Cu, Ag, Na, Al.",
+   "<b>2. Insulators:</b> the VB is completely filled, the CB is empty and E<sub>g</sub> is large (> 5 eV, e.g. diamond ≈ 6 eV). Thermal or electrical energy available at ordinary temperature cannot lift electrons across the gap, so there is practically no conduction. Resistivity ≈ 10<sup>10</sup>–10<sup>20</sup> Ω m. Examples: diamond, glass, mica, rubber.",
+   "<b>3. Semiconductors:</b> the VB is filled and the CB empty at 0 K (behaves like an insulator) but E<sub>g</sub> is small (Si 1.1 eV, Ge 0.7 eV). At room temperature some electrons are excited to the CB, leaving holes in the VB; both carry current. Conductivity <i>increases</i> with temperature (and with doping: n-type, p-type).",
+   "<b>Diagram to draw:</b> three vertical energy axes side by side. (a) Conductor: VB and CB overlapping, no gap. (b) Insulator: shaded VB at bottom, empty CB at top, wide gap labelled E<sub>g</sub> > 5 eV. (c) Semiconductor: shaded VB, empty CB, narrow gap labelled E<sub>g</sub> ≈ 1 eV. Label VB, CB, E<sub>g</sub> and the Fermi level.",
+   "<b>Comparison:</b> Conductor – E<sub>g</sub> = 0, resistivity 10<sup>-8</sup> Ω m, resistance increases with T, free electrons are many. Semiconductor – E<sub>g</sub> ≈ 1 eV, resistivity 10<sup>-4</sup>–10<sup>4</sup> Ω m, resistance decreases with T. Insulator – E<sub>g</sub> > 5 eV, resistivity > 10<sup>10</sup> Ω m, essentially no carriers.",
+   "<b>Conclusion:</b> the width of the forbidden gap, and the filling of the bands, decides whether a solid is a conductor, semiconductor or insulator."
+  ],
+  "formulas": [
+   "Conductor: E<sub>g</sub> = 0",
+   "Semiconductor: E<sub>g</sub> ≈ 0.7–1.1 eV",
+   "Insulator: E<sub>g</sub> > 5 eV"
+  ],
+  "diagram": "Three side-by-side energy-band diagrams (conductor with overlapping VB/CB; insulator with wide E<sub>g</sub> > 5 eV; semiconductor with narrow E<sub>g</sub> ≈ 1 eV). Label VB (shaded), CB, E<sub>g</sub>, energy axis and Fermi level."
+ },
+ "Q1.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "MO energy-level diagram of CO (14 e⁻) with correct ordering, labelled AOs and MOs",
+    "marks": 2.5
+   },
+   {
+    "point": "CO electronic configuration and bond order = 3",
+    "marks": 1.5
+   },
+   {
+    "point": "MO energy-level diagram of NO (15 e⁻) with electron filling",
+    "marks": 2
+   },
+   {
+    "point": "NO electronic configuration and bond order = 2.5",
+    "marks": 1
+   },
+   {
+    "point": "Magnetic behaviour of CO (diamagnetic) and NO (paramagnetic) with reason",
+    "marks": 2
+   },
+   {
+    "point": "Reference to 2s–2p mixing / use of MO ordering (π2p below σ2p)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Basis:</b> CO and NO are heteronuclear diatomic molecules with 14 and 15 electrons; like N<sub>2</sub> (2s–2p mixing present) the order of MOs is σ1s < σ*1s < σ2s < σ*2s < π2p<sub>x</sub> = π2p<sub>y</sub> < σ2p<sub>z</sub> < π*2p<sub>x</sub> = π*2p<sub>y</sub> < σ*2p<sub>z</sub> (2s–2p mixing). The more electronegative atom (O) has its AOs at lower energy, so bonding MOs are closer to O and antibonding MOs closer to C (or N).",
+   "<b>Diagram of CO:</b> on the left put the AOs of C (1s, 2s, 2p), on the right those of O (lower in energy); in the centre draw the MOs in the above order, joined to the parent AOs by dashed lines. Fill the 14 electrons with arrows by the Aufbau principle, Pauli principle and Hund's rule.",
+   "<b>Configuration of CO (6 + 8 = 14 e⁻):</b> σ1s² σ*1s² σ2s² σ*2s² π2p<sub>x</sub>² π2p<sub>y</sub>² σ2p<sub>z</sub>². (The 1s pair is non-bonding core in practice.)",
+   "<b>Bond order of CO:</b> N<sub>b</sub> = 10, N<sub>a</sub> = 4, so B.O. = (N<sub>b</sub> − N<sub>a</sub>)/2 = (10 − 4)/2 = <b>3</b> (triple bond C≡O, isoelectronic with N<sub>2</sub>).",
+   "<b>Magnetism of CO:</b> all 14 electrons are paired in the MOs (no electron in π*), hence CO is <b>diamagnetic</b>.",
+   "<b>Configuration of NO (7 + 8 = 15 e⁻):</b> σ1s² σ*1s² σ2s² σ*2s² π2p<sub>x</sub>² π2p<sub>y</sub>² σ2p<sub>z</sub>² π*2p<sub>x</sub>¹ (π*2p<sub>y</sub>⁰). The 15th electron enters one of the degenerate π* orbitals.",
+   "<b>Bond order of NO:</b> N<sub>b</sub> = 10, N<sub>a</sub> = 5, so B.O. = (10 − 5)/2 = <b>2.5</b>.",
+   "<b>Magnetism of NO:</b> one unpaired electron in π*2p, so NO is <b>paramagnetic</b> (μ = √[n(n+2)] = √3 = 1.73 BM).",
+   "<b>Why CO is diamagnetic but NO is paramagnetic:</b> CO has an even number of electrons (14) which exactly fill the bonding MOs, leaving π* empty, so every spin is paired. NO has an odd number (15); the extra electron must go in the antibonding π*2p orbital and cannot be paired. Removing it gives NO<sup>+</sup> (B.O. 3, diamagnetic) – hence NO is easily ionised and its bond is stronger in NO<sup>+</sup>."
+  ],
+  "formulas": [
+   "B.O. = ½(N<sub>b</sub> − N<sub>a</sub>)",
+   "CO: B.O. = 3, diamagnetic",
+   "NO: B.O. = 2.5, paramagnetic (1 unpaired e⁻)"
+  ],
+  "diagram": "Two MO diagrams (CO and NO): AOs of the two atoms on the sides (O lower than C or N), MOs in the centre in the order σ2s, σ*2s, π2p (x,y), σ2p<sub>z</sub>, π*2p (x,y), σ*2p<sub>z</sub>, with electrons as arrows; show the single electron in π* for NO."
+ },
+ "Q1.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Labelled MO energy-level diagram of O<sub>2</sub> (σ2p<sub>z</sub> lies below π2p for O<sub>2</sub>)",
+    "marks": 3
+   },
+   {
+    "point": "Electronic configuration of O<sub>2</sub> (16 e⁻)",
+    "marks": 1
+   },
+   {
+    "point": "Bond order of O<sub>2</sub> = 2",
+    "marks": 1
+   },
+   {
+    "point": "Explanation of paramagnetism (two unpaired electrons in π*2p, Hund's rule)",
+    "marks": 1.5
+   },
+   {
+    "point": "B.O. and magnetic nature of O<sub>2</sub><sup>+</sup>, O<sub>2</sub><sup>-</sup>, O<sub>2</sub><sup>2-</sup> (0.75 each)",
+    "marks": 2.25
+   },
+   {
+    "point": "Correct order of bond length / stability",
+    "marks": 1.25
+   }
+  ],
+  "answer": [
+   "<b>MO theory for O<sub>2</sub>:</b> two oxygen atoms (1s² 2s² 2p⁴) combine through LCAO; 16 electrons in total. For O<sub>2</sub> and heavier diatomics the 2s–2p mixing is negligible, so the energy order is: σ1s < σ*1s < σ2s < σ*2s < σ2p<sub>z</sub> < π2p<sub>x</sub> = π2p<sub>y</sub> < π*2p<sub>x</sub> = π*2p<sub>y</sub> < σ*2p<sub>z</sub>.",
+   "<b>Diagram:</b> AOs of oxygen atom A (left) and B (right); the MOs in the centre in the above order; 16 electrons filled with arrows (Aufbau, Pauli, Hund). The two electrons of the π* pair are drawn as ↑ in π*2p<sub>x</sub> and ↑ in π*2p<sub>y</sub>.",
+   "<b>Electronic configuration of O<sub>2</sub>:</b> σ1s² σ*1s² σ2s² σ*2s² σ2p<sub>z</sub>² π2p<sub>x</sub>² π2p<sub>y</sub>² π*2p<sub>x</sub>¹ π*2p<sub>y</sub>¹.",
+   "<b>Bond order:</b> N<sub>b</sub> = 10, N<sub>a</sub> = 6; B.O. = (10 − 6)/2 = <b>2</b> (O=O double bond).",
+   "<b>Paramagnetism:</b> by Hund's rule the last two electrons occupy the two degenerate π*2p orbitals singly with parallel spins. Two unpaired electrons give a net magnetic moment μ = √[n(n+2)] = √8 = 2.83 BM, so liquid O<sub>2</sub> is attracted by a magnet. (Lewis/VB theory fails to explain this – a major success of MOT.)",
+   "<b>O<sub>2</sub><sup>+</sup> (15 e⁻):</b> one electron removed from π*: ... π*2p<sub>x</sub>¹. B.O. = (10 − 5)/2 = <b>2.5</b>; one unpaired electron – <b>paramagnetic</b>.",
+   "<b>O<sub>2</sub><sup>-</sup> (superoxide, 17 e⁻):</b> ... π*2p<sub>x</sub>² π*2p<sub>y</sub>¹. B.O. = (10 − 7)/2 = <b>1.5</b>; one unpaired electron – <b>paramagnetic</b>.",
+   "<b>O<sub>2</sub><sup>2-</sup> (peroxide, 18 e⁻):</b> ... π*2p<sub>x</sub>² π*2p<sub>y</sub>². B.O. = (10 − 8)/2 = <b>1</b>; no unpaired electron – <b>diamagnetic</b>.",
+   "<b>Summary / trend:</b> Bond order: O<sub>2</sub><sup>+</sup> (2.5) > O<sub>2</sub> (2) > O<sub>2</sub><sup>-</sup> (1.5) > O<sub>2</sub><sup>2-</sup> (1). Bond length and stability follow the order: bond length O<sub>2</sub><sup>2-</sup> > O<sub>2</sub><sup>-</sup> > O<sub>2</sub> > O<sub>2</sub><sup>+</sup>; bond energy is in the reverse order."
+  ],
+  "formulas": [
+   "B.O. = ½(N<sub>b</sub> − N<sub>a</sub>)",
+   "O<sub>2</sub><sup>+</sup>: 2.5, para | O<sub>2</sub>: 2, para | O<sub>2</sub><sup>-</sup>: 1.5, para | O<sub>2</sub><sup>2-</sup>: 1, dia"
+  ],
+  "diagram": "MO diagram of O<sub>2</sub>: 2s and 2p AOs of each O on the sides; centre column σ2s, σ*2s, σ2p<sub>z</sub>, π2p<sub>x,y</sub>, π*2p<sub>x,y</sub>, σ*2p<sub>z</sub>; 16 electrons, with two parallel-spin arrows in π*2p<sub>x</sub> and π*2p<sub>y</sub>."
+ },
+ "Q1.4": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Electronic configurations of CO (14 e⁻) and CO<sup>+</sup> (13 e⁻)",
+    "marks": 1.5
+   },
+   {
+    "point": "Bond order of CO = 3 and of CO<sup>+</sup> = 2.5",
+    "marks": 1.5
+   },
+   {
+    "point": "Relation: higher bond order → shorter bond length / greater bond energy",
+    "marks": 1
+   },
+   {
+    "point": "Conclusion: CO shorter than CO<sup>+</sup>; (CO<sup>+</sup> paramagnetic)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Configuration of CO (14 e⁻):</b> σ1s² σ*1s² σ2s² σ*2s² π2p<sub>x</sub>² π2p<sub>y</sub>² σ2p<sub>z</sub>². Bonding electrons N<sub>b</sub> = 10, antibonding N<sub>a</sub> = 4.",
+   "<b>Bond order of CO:</b> (10 − 4)/2 = <b>3</b> (C≡O triple bond).",
+   "<b>Configuration of CO<sup>+</sup> (13 e⁻):</b> the electron is removed from the highest filled MO, σ2p<sub>z</sub>, which is a <i>bonding</i> orbital: σ1s² σ*1s² σ2s² σ*2s² π2p<sub>x</sub>² π2p<sub>y</sub>² σ2p<sub>z</sub>¹. So N<sub>b</sub> = 9, N<sub>a</sub> = 4.",
+   "<b>Bond order of CO<sup>+</sup>:</b> (9 − 4)/2 = <b>2.5</b>.",
+   "<b>Relation:</b> bond length is inversely related to bond order, and bond dissociation energy is directly related to it. Greater bond order means more electron density between the nuclei, a stronger pull on both nuclei, and a shorter bond.",
+   "<b>Conclusion:</b> since B.O.(CO) = 3 > B.O.(CO<sup>+</sup>) = 2.5, CO has the shorter and stronger bond than CO<sup>+</sup> (also CO is diamagnetic, CO<sup>+</sup> paramagnetic with one unpaired electron)."
+  ],
+  "formulas": [
+   "B.O.(CO) = 3; B.O.(CO<sup>+</sup>) = 2.5",
+   "bond length ∝ 1 / bond order"
+  ]
+ },
+ "Q1.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition and postulates of CFT (point charges, electrostatic repulsion, no orbital overlap, ligand field)",
+    "marks": 2
+   },
+   {
+    "point": "Five d-orbitals and why they split (e<sub>g</sub> pointing at ligands, t<sub>2g</sub> between them)",
+    "marks": 1
+   },
+   {
+    "point": "Octahedral splitting: e<sub>g</sub> up (+0.6Δ<sub>o</sub>), t<sub>2g</sub> down (−0.4Δ<sub>o</sub>), with labelled diagram",
+    "marks": 3
+   },
+   {
+    "point": "Tetrahedral splitting: e down (−0.6Δ<sub>t</sub>), t<sub>2</sub> up (+0.4Δ<sub>t</sub>), with labelled diagram",
+    "marks": 2.5
+   },
+   {
+    "point": "Δ<sub>t</sub> = (4/9)Δ<sub>o</sub>, tetrahedral complexes high spin; strong/weak field and pairing energy",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Definition:</b> Crystal Field Theory (Bethe, Van Vleck) explains the bonding, colour and magnetism of transition-metal complexes by considering the metal–ligand interaction as purely <i>electrostatic</i>, and studies how the ligand field removes the degeneracy of the five d-orbitals of the central metal ion.",
+   "<b>Postulates:</b> (1) The ligands are treated as point negative charges (or dipoles) and the metal ion as a positive charge. (2) The bond between metal and ligand is purely ionic; there is no orbital overlap. (3) In the free ion the five d-orbitals are degenerate; in the field of the ligands they repel the ligand charges and the degeneracy is lost. (4) The d-orbitals that point towards the ligands are raised more in energy than those that point between them. (5) The splitting depends on the nature of the ligand, the geometry and the metal ion; whether electrons pair or not depends on splitting energy Δ versus pairing energy P.",
+   "<b>The d-orbitals:</b> d<sub>xy</sub>, d<sub>yz</sub>, d<sub>zx</sub> have lobes <i>between</i> the axes (t<sub>2g</sub> set); d<sub>x²−y²</sub> and d<sub>z²</sub> have lobes <i>along</i> the axes (e<sub>g</sub> set).",
+   "<b>Octahedral field (O<sub>h</sub>):</b> six ligands approach along ±x, ±y, ±z. The e<sub>g</sub> orbitals point directly at the ligands, so they experience strong repulsion and rise in energy; the t<sub>2g</sub> orbitals avoid the ligands and are relatively lower. The gap is Δ<sub>o</sub> (10 Dq). By the barycentre rule: t<sub>2g</sub> lies 0.4Δ<sub>o</sub> (−4 Dq) below and e<sub>g</sub> lies 0.6Δ<sub>o</sub> (+6 Dq) above the average (hypothetical spherical-field) level.",
+   "<b>Diagram (octahedral):</b> draw the bare-ion level at the centre, raised spherical-field level, and on the right the e<sub>g</sub> (d<sub>x²−y²</sub>, d<sub>z²</sub>) at +0.6Δ<sub>o</sub> and t<sub>2g</sub> (d<sub>xy</sub>, d<sub>yz</sub>, d<sub>zx</sub>) at −0.4Δ<sub>o</sub>, with Δ<sub>o</sub> marked between them.",
+   "<b>Tetrahedral field (T<sub>d</sub>):</b> four ligands occupy alternate corners of a cube. Now the lobes of d<sub>xy</sub>, d<sub>yz</sub>, d<sub>zx</sub> (t<sub>2</sub>) lie closer to the ligands, whereas d<sub>x²−y²</sub>, d<sub>z²</sub> (e) point to the face centres, away from the ligands. Hence the order is reversed: t<sub>2</sub> is raised by +0.4Δ<sub>t</sub> and e lowered by −0.6Δ<sub>t</sub>. (No ‘g’ subscript, as there is no centre of symmetry.)",
+   "<b>Magnitude:</b> with only four ligands and no direct pointing at the lobes, Δ<sub>t</sub> = (4/9)Δ<sub>o</sub> ≈ 0.44Δ<sub>o</sub> for the same metal and ligand. Because Δ<sub>t</sub> is almost always smaller than the pairing energy P, tetrahedral complexes are practically always <b>high spin</b>.",
+   "<b>Spin states (octahedral, d⁴–d⁷):</b> if Δ<sub>o</sub> < P (weak-field ligands such as I<sup>-</sup>, Br<sup>-</sup>, Cl<sup>-</sup>, F<sup>-</sup>, H<sub>2</sub>O) electrons occupy e<sub>g</sub> before pairing – high spin. If Δ<sub>o</sub> > P (strong-field ligands such as NH<sub>3</sub>, en, CN<sup>-</sup>, CO) electrons pair in t<sub>2g</sub> first – low spin. Spectrochemical series: I<sup>-</sup> < Br<sup>-</sup> < Cl<sup>-</sup> < F<sup>-</sup> < OH<sup>-</sup> < H<sub>2</sub>O < NH<sub>3</sub> < en < NO<sub>2</sub><sup>-</sup> < CN<sup>-</sup> < CO.",
+   "<b>Success:</b> CFT explains colour (d–d transitions of energy Δ), magnetism and the stability (CFSE) of complexes."
+  ],
+  "formulas": [
+   "Octahedral: t<sub>2g</sub> = −0.4Δ<sub>o</sub>, e<sub>g</sub> = +0.6Δ<sub>o</sub>",
+   "Tetrahedral: e = −0.6Δ<sub>t</sub>, t<sub>2</sub> = +0.4Δ<sub>t</sub>",
+   "Δ<sub>t</sub> = (4/9)Δ<sub>o</sub>",
+   "Spin state: Δ < P → high spin; Δ > P → low spin"
+  ],
+  "diagram": "Two splitting diagrams: (i) octahedral – bare ion level, e<sub>g</sub> (d<sub>x²−y²</sub>, d<sub>z²</sub>) at +0.6Δ<sub>o</sub> above, t<sub>2g</sub> (d<sub>xy</sub>, d<sub>yz</sub>, d<sub>zx</sub>) at −0.4Δ<sub>o</sub> below, Δ<sub>o</sub> marked; (ii) tetrahedral – t<sub>2</sub> at +0.4Δ<sub>t</sub> above, e at −0.6Δ<sub>t</sub> below, Δ<sub>t</sub> marked and smaller."
+ },
+ "Q1.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Ni<sup>2+</sup> is d⁸ (3d⁸) and the oxidation state/electron count",
+    "marks": 1
+   },
+   {
+    "point": "[Ni(CN)<sub>4</sub>]<sup>2-</sup>: CN<sup>-</sup> strong-field ligand, large splitting, d<sub>x²−y²</sub> very high, electrons pair, dsp² square planar",
+    "marks": 3
+   },
+   {
+    "point": "Electron filling → no unpaired electrons → diamagnetic (μ = 0)",
+    "marks": 1.5
+   },
+   {
+    "point": "[NiCl<sub>4</sub>]<sup>2-</sup>: Cl<sup>-</sup> weak-field ligand, small Δ<sub>t</sub> (4/9 Δ<sub>o</sub>), tetrahedral sp³, splitting diagram",
+    "marks": 2.5
+   },
+   {
+    "point": "e⁴t₂⁴ configuration, 2 unpaired electrons, paramagnetic, μ = 2.83 BM; comparison",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Metal ion:</b> in both complexes nickel is Ni<sup>2+</sup>: Ni (3d⁸ 4s²) → Ni<sup>2+</sup> = [Ar] 3d⁸. The geometry (and hence magnetism) is decided by the strength of the ligand field.",
+   "<b>[Ni(CN)<sub>4</sub>]<sup>2-</sup>:</b> CN<sup>-</sup> is a <i>strong-field</i> ligand (π-acceptor, high in the spectrochemical series). It produces a very large crystal field splitting, so the eight d-electrons prefer to pair up. In a square planar field (ligands along ±x, ±y) the d<sub>x²−y²</sub> orbital, pointing directly at the four ligands, is raised very high in energy, and the other four orbitals (d<sub>xy</sub>, d<sub>z²</sub>, d<sub>xz</sub>, d<sub>yz</sub>) are lower.",
+   "<b>Electron filling:</b> the eight electrons of Ni<sup>2+</sup> fill the four lower orbitals in pairs (d<sub>xz</sub>² d<sub>yz</sub>² d<sub>z²</sub>² d<sub>xy</sub>²) leaving the high-energy d<sub>x²−y²</sub> empty. The energy gap to d<sub>x²−y²</sub> is greater than the pairing energy, so no electron is promoted. This gives dsp² hybridisation (one 3d, 4s, two 4p orbitals) and a <b>square planar</b> shape.",
+   "<b>Magnetism:</b> all electrons are paired, so n = 0 and μ = √[n(n+2)] = 0; [Ni(CN)<sub>4</sub>]<sup>2-</sup> is <b>diamagnetic</b>.",
+   "<b>[NiCl<sub>4</sub>]<sup>2-</sup>:</b> Cl<sup>-</sup> is a <i>weak-field</i> ligand. The four ligands arrange themselves tetrahedrally (minimum ligand–ligand repulsion), where the splitting Δ<sub>t</sub> = (4/9)Δ<sub>o</sub> is so small that it cannot overcome the pairing energy. The d-orbitals split into a lower e set (d<sub>z²</sub>, d<sub>x²−y²</sub>) and an upper t<sub>2</sub> set (d<sub>xy</sub>, d<sub>yz</sub>, d<sub>zx</sub>).",
+   "<b>Electron filling:</b> 8 electrons: e⁴ (all four paired in the lower set) and t<sub>2</sub>⁴ (two paired in one orbital, two unpaired in the other two orbitals by Hund's rule). The configuration is e⁴ t<sub>2</sub>⁴ with sp³ hybridisation.",
+   "<b>Magnetism:</b> two unpaired electrons, so [NiCl<sub>4</sub>]<sup>2-</sup> is <b>paramagnetic</b> with μ = √(2×4) = √8 = 2.83 BM.",
+   "<b>Comparison:</b> square planar [Ni(CN)<sub>4</sub>]<sup>2-</sup>: strong field, dsp², low spin, 0 unpaired e⁻, diamagnetic. Tetrahedral [NiCl<sub>4</sub>]<sup>2-</sup>: weak field, sp³, high spin, 2 unpaired e⁻, paramagnetic.",
+   "<b>Conclusion:</b> the difference arises purely from the position of CN<sup>-</sup> and Cl<sup>-</sup> in the spectrochemical series: a strong-field ligand forces pairing and square planar d⁸ geometry; a weak-field ligand gives tetrahedral geometry with unpaired electrons."
+  ],
+  "formulas": [
+   "Ni<sup>2+</sup> = 3d⁸",
+   "[Ni(CN)<sub>4</sub>]<sup>2-</sup>: dsp², square planar, n = 0, μ = 0",
+   "[NiCl<sub>4</sub>]<sup>2-</sup>: sp³, tetrahedral, e⁴t<sub>2</sub>⁴, n = 2, μ = 2.83 BM"
+  ],
+  "diagram": "Splitting diagrams: (a) square planar – d<sub>x²−y²</sub> at the top (empty) and four lower orbitals fully paired (8 arrows); (b) tetrahedral – lower e set with 4 electrons (2 pairs), upper t<sub>2</sub> set with 4 electrons (one pair + two single arrows)."
+ },
+ "Q1.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Electronic configuration of Co<sup>3+</sup> (3d⁶) and oxidation-state working",
+    "marks": 1
+   },
+   {
+    "point": "[Co(NH<sub>3</sub>)<sub>6</sub>]<sup>3+</sup>: strong-field NH<sub>3</sub> causes pairing, vacating two 3d orbitals; d²sp³ orbital diagram",
+    "marks": 2
+   },
+   {
+    "point": "Inner-orbital (low-spin) character, octahedral, no unpaired electrons, diamagnetic (μ = 0)",
+    "marks": 1.5
+   },
+   {
+    "point": "Electronic configuration of Ni<sup>2+</sup> (3d⁸)",
+    "marks": 1
+   },
+   {
+    "point": "[Ni(NH<sub>3</sub>)<sub>6</sub>]<sup>2+</sup>: sp³d² with 4s, 4p, 4d orbitals (outer orbital), two unpaired 3d electrons, μ = 2.83 BM, paramagnetic; reason for not forming d²sp³",
+    "marks": 2.5
+   },
+   {
+    "point": "Supporting CFT explanation (t<sub>2g</sub>⁶ for Co<sup>3+</sup>; t<sub>2g</sub>⁶e<sub>g</sub>² for Ni<sup>2+</sup>)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Valence bond approach:</b> the ligand donates a lone pair into a vacant hybrid orbital of the metal ion. If the hybrid uses the inner (n−1)d orbitals the complex is <i>inner orbital</i> (low spin); if it uses the outer nd orbitals it is <i>outer orbital</i> (high spin).",
+   "<b>[Co(NH<sub>3</sub>)<sub>6</sub>]<sup>3+</sup>:</b> oxidation state of Co: x + 6(0) = +3, so Co<sup>3+</sup>. Co: [Ar] 3d⁷ 4s², Co<sup>3+</sup>: [Ar] 3d⁶ (4 unpaired electrons in the free ion).",
+   "NH<sub>3</sub> is a strong-field ligand: the six 3d electrons are forced to pair up in three orbitals (↑↓ ↑↓ ↑↓), leaving two 3d orbitals vacant. These two 3d, the 4s and three 4p orbitals mix to give six equivalent <b>d²sp³</b> hybrid orbitals directed to the corners of an octahedron; each accepts a lone pair from one NH<sub>3</sub>.",
+   "Because the inner 3d orbitals are used, it is an <b>inner orbital (low spin)</b> complex. There is no unpaired electron (n = 0, μ = 0), so the complex is <b>diamagnetic</b>.",
+   "<b>CFT view:</b> Δ<sub>o</sub> (strong field NH<sub>3</sub>) > P, so Co<sup>3+</sup> has the configuration t<sub>2g</sub>⁶ e<sub>g</sub>⁰ – fully paired.",
+   "<b>[Ni(NH<sub>3</sub>)<sub>6</sub>]<sup>2+</sup>:</b> Ni<sup>2+</sup> has configuration [Ar] 3d⁸ (Ni: 3d⁸ 4s²; 2 electrons from 4s removed). Eight electrons in five d-orbitals: even after maximum pairing (↑↓ ↑↓ ↑↓ ↑↓ and one empty) only <i>one</i> 3d orbital could be emptied, but two empty d-orbitals are needed for d²sp³.",
+   "Hence Ni<sup>2+</sup> cannot use inner 3d orbitals; the two unpaired 3d electrons remain, and the metal uses one 4s, three 4p and two 4d orbitals to form <b>sp³d²</b> hybrids (octahedral). This is an <b>outer orbital (high spin)</b> complex.",
+   "Two unpaired electrons: μ = √[n(n+2)] = √8 = 2.83 BM, so the complex is <b>paramagnetic</b>.",
+   "<b>CFT view:</b> an octahedral d⁸ ion always has the configuration t<sub>2g</sub>⁶ e<sub>g</sub>², i.e. two unpaired electrons in e<sub>g</sub>, irrespective of the field strength, so it is always paramagnetic.",
+   "<b>Conclusion:</b> Co<sup>3+</sup>(d⁶) with strong-field NH<sub>3</sub> – d²sp³, inner orbital, diamagnetic; Ni<sup>2+</sup>(d⁸) – sp³d², outer orbital, paramagnetic."
+  ],
+  "formulas": [
+   "[Co(NH<sub>3</sub>)<sub>6</sub>]<sup>3+</sup>: d²sp³, n = 0, diamagnetic",
+   "[Ni(NH<sub>3</sub>)<sub>6</sub>]<sup>2+</sup>: sp³d², n = 2, μ = 2.83 BM, paramagnetic",
+   "μ = √[n(n+2)] BM"
+  ],
+  "diagram": "Orbital-box diagrams (3d, 4s, 4p, 4d) for Co<sup>3+</sup> before and after hybridisation (two empty 3d + 4s + 4p → d²sp³, ligand electron pairs shown) and for Ni<sup>2+</sup> (3d⁸ unchanged, 4s, 4p, 4d → sp³d²)."
+ },
+ "Q1.8": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Main postulates of VBT (any 4, 0.5 each)",
+    "marks": 2
+   },
+   {
+    "point": "Limitations of VBT (any 3)",
+    "marks": 1.5
+   },
+   {
+    "point": "XeF<sub>4</sub>: sp³d² hybridisation, square planar, 2 lone pairs",
+    "marks": 0.75
+   },
+   {
+    "point": "XeO<sub>4</sub>: sp³ hybridisation, tetrahedral, with dπ–pπ bonding",
+    "marks": 0.75
+   }
+  ],
+  "answer": [
+   "<b>Postulates of VBT (Heitler–London, Pauling):</b> (1) A covalent bond forms by the overlap of half-filled atomic orbitals of two atoms having electrons of opposite spin; the pair is shared. (2) The greater the overlap, the stronger the bond; bonds form in the direction of maximum overlap. (3) A σ bond is formed by head-on overlap, and a π bond by lateral overlap. (4) The number of bonds equals the number of unpaired electrons (valency); atoms can be promoted to get more unpaired electrons. (5) Atomic orbitals of comparable energy hybridise to give equivalent hybrid orbitals of definite geometry.",
+   "<b>Limitations:</b> (1) It cannot explain the paramagnetism of O<sub>2</sub> (predicts all electrons paired). (2) It treats electrons as localised and does not explain delocalised bonding, e.g. in benzene (needs resonance). (3) It does not explain the existence of odd-electron species such as H<sub>2</sub><sup>+</sup>, and the colour/spectra of complexes. (4) It does not give energies of excited states; no quantitative information about bond energies for polyatomic molecules.",
+   "<b>XeF<sub>4</sub>:</b> Xe (5s² 5p⁶) – two electrons are promoted from 5p to 5d giving four unpaired electrons which bond to four F atoms. Hybridisation: <b>sp³d²</b> (octahedral arrangement of 6 electron pairs: 4 bond pairs + 2 lone pairs, placed trans to each other). Structure: <b>square planar</b>, F–Xe–F = 90°.",
+   "<b>XeO<sub>4</sub>:</b> Xe is promoted to its 8-electron (4 unpaired) state (5s¹ 5p³ 5d⁴); four σ bonds with O using <b>sp³</b> hybrids, and four π (pπ–dπ) bonds. Structure: <b>tetrahedral</b>, O–Xe–O = 109.5°, no lone pair."
+  ],
+  "formulas": [
+   "XeF<sub>4</sub>: sp³d², square planar",
+   "XeO<sub>4</sub>: sp³, tetrahedral"
+  ],
+  "diagram": "Sketch XeF<sub>4</sub> as a square-planar molecule with Xe at the centre, four F at the corners and two lone pairs above and below the plane; sketch XeO<sub>4</sub> as a tetrahedron with Xe=O bonds."
+ },
+ "Q1.9": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Hybridisation concept (definition, mixing of orbitals) – introduction",
+    "marks": 1
+   },
+   {
+    "point": "H<sub>2</sub>O: sp³ hybridisation, 2 bond pairs + 2 lone pairs, bent shape, ~104.5°, with figure",
+    "marks": 3
+   },
+   {
+    "point": "NH<sub>3</sub>: sp³ hybridisation, 3 bond pairs + 1 lone pair, trigonal pyramidal, ~107°, with figure",
+    "marks": 3
+   },
+   {
+    "point": "SF<sub>6</sub>: sp³d² hybridisation, octahedral, 90°, with figure and promotion of electrons",
+    "marks": 3
+   }
+  ],
+  "answer": [
+   "<b>Hybridisation</b> is the mixing of atomic orbitals of the same atom with nearly equal energies to give an equal number of equivalent hybrid orbitals with definite orientation. The geometry (arrangement of electron pairs) follows the type of hybridisation, whereas the shape (arrangement of atoms) additionally depends on lone pairs.",
+   "<b>H<sub>2</sub>O:</b> central O (2s² 2p⁴) forms two σ bonds with H using two sp³ hybrid orbitals; the other two sp³ orbitals hold lone pairs. Steric number = 4 → <b>sp³</b>, tetrahedral electron geometry. Because lone pair–lone pair repulsion > lone pair–bond pair > bond pair–bond pair, the H–O–H angle is compressed from 109.5° to <b>104.5°</b>. Molecular shape: <b>bent (V-shaped)</b>.",
+   "<b>NH<sub>3</sub>:</b> N (2s² 2p³) has three half-filled 2p orbitals; one 2s and three 2p mix to give four sp³ hybrid orbitals. Three form σ bonds with H 1s, the fourth holds the lone pair. Steric number = 4 → <b>sp³</b> (tetrahedral geometry). The lone pair repels the bond pairs more and compresses H–N–H to <b>107°</b>. Shape: <b>trigonal pyramidal</b>.",
+   "<b>SF<sub>6</sub>:</b> ground-state S (3s² 3p⁴) has only two unpaired electrons. For six bonds, one 3s and one 3p electron are promoted to vacant 3d orbitals, giving six unpaired electrons (3s¹ 3p³ 3d²). One 3s, three 3p and two 3d orbitals mix to give six equivalent <b>sp³d²</b> hybrid orbitals pointing to the corners of a regular octahedron; each overlaps with a 2p orbital of F. All six S–F bonds are equal and F–S–F angle is <b>90°</b>. Geometry and shape: <b>octahedral</b> (no lone pair, non-polar, μ = 0).",
+   "<b>Summary table:</b> H<sub>2</sub>O – sp³, 2 bp + 2 lp, bent, 104.5°; NH<sub>3</sub> – sp³, 3 bp + 1 lp, pyramidal, 107°; SF<sub>6</sub> – sp³d², 6 bp + 0 lp, octahedral, 90°."
+  ],
+  "formulas": [
+   "H<sub>2</sub>O: sp³, bent, 104.5°",
+   "NH<sub>3</sub>: sp³, pyramidal, 107°",
+   "SF<sub>6</sub>: sp³d², octahedral, 90°"
+  ],
+  "diagram": "Three sketches: bent H<sub>2</sub>O with two lone pairs and angle 104.5°; pyramidal NH<sub>3</sub> with the lone pair at the top and angle 107°; octahedral SF<sub>6</sub> with S at the centre and six F, 90° marked."
+ },
+ "Q1.10": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Physical significance of ψ (amplitude, no direct physical meaning, may be complex, probability amplitude)",
+    "marks": 2
+   },
+   {
+    "point": "Significance of ψ² (or ψψ*): probability density, normalisation ∫ψ²dτ = 1",
+    "marks": 2.5
+   },
+   {
+    "point": "de Broglie hypothesis λ = h/mv and its significance (wave nature, Davisson–Germer, Bohr condition)",
+    "marks": 2.5
+   },
+   {
+    "point": "Heisenberg uncertainty principle Δx·Δp ≥ h/4π and its significance (definite orbits replaced by probability orbitals)",
+    "marks": 2.5
+   },
+   {
+    "point": "Concluding remark linking these to the wave-mechanical atom",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Wave function (ψ):</b> in quantum mechanics the state of an electron is described by a mathematical function ψ(x, y, z) obtained by solving the Schrödinger wave equation. ψ is the <i>amplitude</i> of the electron wave. It has <b>no direct physical meaning</b> (it can be negative or complex and is not measurable), but it contains all the information about the system; it is called the probability amplitude. For a given orbital the sign of ψ gives the phase of the wave (+ve/−ve lobes), which is important for bonding.",
+   "<b>Significance of ψ²:</b> the square of the amplitude (for complex ψ, |ψ|² = ψψ*) gives the <b>probability density</b>, i.e. the probability of finding the electron per unit volume at the point (x, y, z). The probability of finding the electron in a small volume dτ is ψ²dτ.",
+   "<b>Normalisation:</b> since the electron must be somewhere in space, ∫ψ² dτ over all space = 1. A wave function satisfying this is normalised. The orbital (region of high ψ²) is the space around the nucleus where the probability of finding the electron is about 90–95%. For ψ to be acceptable it must be single-valued, finite and continuous.",
+   "<b>de Broglie hypothesis:</b> every moving particle has a wave associated with it, with wavelength λ = h/p = h/mv (h = 6.626×10<sup>-34</sup> J s). For an electron accelerated through V volts, λ = 12.27/√V Å.",
+   "<b>Significance of de Broglie hypothesis:</b> (i) It explains the stability of Bohr orbits: a standing wave exists only when the circumference of the orbit is a whole number of wavelengths, 2πr = nλ, giving mvr = nh/2π (quantisation of angular momentum). (ii) It was verified by the Davisson–Germer electron diffraction experiment and G. P. Thomson's experiment; this is the basis of the electron microscope and electron diffraction. (iii) It laid the foundation of wave mechanics (Schrödinger). (iv) The wavelength is measurable only for microscopic particles; for a cricket ball λ ≈ 10<sup>-34</sup> m is undetectable.",
+   "<b>Heisenberg's uncertainty principle:</b> it is impossible to determine simultaneously both the exact position and exact momentum of a microscopic particle: Δx · Δp ≥ h/4π (or ΔE · Δt ≥ h/4π).",
+   "<b>Significance of the uncertainty principle:</b> (i) The concept of definite orbits (Bohr) is untenable; only the probability of finding the electron (orbitals) can be given. (ii) It explains why an electron cannot exist inside the nucleus (confinement to Δx ≈ 10<sup>-15</sup> m would require a kinetic energy far larger than nuclear binding energy). (iii) It is negligible for macroscopic bodies (e.g. a 1 mg particle) but important for electrons. (iv) It follows from the wave nature of matter and justifies the use of ψ² as probability.",
+   "<b>Conclusion:</b> ψ and ψ² describe the electron statistically; de Broglie's relation gives the wave character and Heisenberg's principle sets the limit of precision, together leading to the modern quantum-mechanical model."
+  ],
+  "formulas": [
+   "∫ψ² dτ = 1",
+   "λ = h/mv",
+   "Δx · Δp ≥ h/4π"
+  ]
+ },
+ "Q1.11": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Starting classical wave equation for a wave in 3D",
+    "marks": 1.5
+   },
+   {
+    "point": "Separation ψ(x,y,z)e<sup>−iωt</sup> and reduction to ∇²ψ + (4π²/λ²)ψ = 0",
+    "marks": 1.5
+   },
+   {
+    "point": "Use of de Broglie relation λ = h/mv",
+    "marks": 1.5
+   },
+   {
+    "point": "Kinetic energy ½mv² = E − V substituted",
+    "marks": 1.5
+   },
+   {
+    "point": "Final equation ∇²ψ + (8π²m/h²)(E − V)ψ = 0 (3D)",
+    "marks": 3
+   },
+   {
+    "point": "Hamiltonian form Ĥψ = Eψ and conditions on ψ",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Postulate:</b> a moving particle has a wave associated with it (de Broglie). Schrödinger (1926) treated the matter wave like a classical standing wave and obtained a differential equation for it.",
+   "<b>Step 1 – classical wave equation:</b> for a wave of velocity u and amplitude Ψ(x, y, z, t): ∂²Ψ/∂x² + ∂²Ψ/∂y² + ∂²Ψ/∂z² = (1/u²) ∂²Ψ/∂t², i.e. ∇²Ψ = (1/u²)∂²Ψ/∂t².",
+   "<b>Step 2 – separate the variables:</b> for a stationary state, Ψ(x, y, z, t) = ψ(x, y, z) e<sup>−iωt</sup>, where ψ depends only on position. Then ∂²Ψ/∂t² = −ω² ψ e<sup>−iωt</sup>, so ∇²ψ = −(ω²/u²) ψ, i.e. ∇²ψ + (ω²/u²)ψ = 0.",
+   "<b>Step 3 – use ω = 2πν and u = νλ:</b> ω/u = 2πν/νλ = 2π/λ. Hence ∇²ψ + (4π²/λ²) ψ = 0 … (1).",
+   "<b>Step 4 – de Broglie relation:</b> λ = h/mv, so 1/λ² = m²v²/h². Substituting in (1): ∇²ψ + (4π²m²v²/h²) ψ = 0 … (2).",
+   "<b>Step 5 – energy relation:</b> total energy E = kinetic + potential = ½mv² + V, so ½mv² = E − V, i.e. m²v² = 2m(E − V) … (3).",
+   "<b>Step 6 – substitute (3) in (2):</b> ∇²ψ + (4π²/h²) · 2m(E − V) ψ = 0.",
+   "<b>Result – time-independent Schrödinger equation in 3D:</b> ∇²ψ + (8π²m/h²)(E − V)ψ = 0, where ∇² = ∂²/∂x² + ∂²/∂y² + ∂²/∂z².",
+   "<b>Hamiltonian form:</b> rearranging, −(h²/8π²m)∇²ψ + Vψ = Eψ, i.e. Ĥψ = Eψ, with Ĥ = −(ħ²/2m)∇² + V (ħ = h/2π) the Hamiltonian operator and E the eigenvalue (energy).",
+   "<b>Conditions on ψ:</b> acceptable solutions must be single-valued, finite and continuous, with continuous first derivative, and normalisable (∫ψ²dτ = 1); only for certain values of E (eigenvalues) are such solutions possible – this gives quantisation of energy.",
+   "<b>Special case:</b> for a free particle V = 0, ∇²ψ + (8π²mE/h²)ψ = 0."
+  ],
+  "formulas": [
+   "∇²ψ + (8π²m/h²)(E − V)ψ = 0",
+   "Ĥψ = Eψ, Ĥ = −(ħ²/2m)∇² + V",
+   "∇² = ∂²/∂x² + ∂²/∂y² + ∂²/∂z²"
+  ]
+ },
+ "Q1.12": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Writing the data: m, v, fractional uncertainty, and Δp = 10<sup>-6</sup> × mv",
+    "marks": 1
+   },
+   {
+    "point": "Heisenberg's principle Δx·Δp ≥ h/4π",
+    "marks": 1
+   },
+   {
+    "point": "Calculation of momentum p = mv and Δp",
+    "marks": 1
+   },
+   {
+    "point": "Correct substitution in Δx = h/(4πΔp)",
+    "marks": 1
+   },
+   {
+    "point": "Final answer Δx ≈ 1.45 m (units)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> m = 9.1 × 10<sup>-31</sup> kg, v = 40 m s<sup>-1</sup>, uncertainty in momentum = 10<sup>-6</sup> (taken as the fraction 10<sup>-6</sup> of the momentum), h = 6.626 × 10<sup>-34</sup> J s. To find: Δx.",
+   "<b>Formula (Heisenberg):</b> Δx · Δp ≥ h/4π, so Δx = h/(4π Δp).",
+   "<b>Momentum:</b> p = mv = 9.1 × 10<sup>-31</sup> × 40 = 3.64 × 10<sup>-29</sup> kg m s<sup>-1</sup>.",
+   "<b>Uncertainty in momentum:</b> Δp = 10<sup>-6</sup> × p = 10<sup>-6</sup> × 3.64 × 10<sup>-29</sup> = 3.64 × 10<sup>-35</sup> kg m s<sup>-1</sup>.",
+   "<b>Substitution:</b> Δx = 6.626 × 10<sup>-34</sup> / (4 × 3.1416 × 3.64 × 10<sup>-35</sup>) = 6.626 × 10<sup>-34</sup> / (4.574 × 10<sup>-34</sup>).",
+   "<b>Result:</b> Δx ≈ 1.45 m. (If instead Δp were taken as an absolute 10<sup>-6</sup> kg m s<sup>-1</sup>, Δx would be 5.27 × 10<sup>-29</sup> m; the standard textbook reading is the fractional one.)"
+  ],
+  "formulas": [
+   "Δx · Δp ≥ h/4π",
+   "Δx = h / (4π Δp)"
+  ],
+  "result": "Δx ≈ 1.45 m"
+ },
+ "Q1.13": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "(i) Oxidation state Co<sup>3+</sup> and d⁶ configuration",
+    "marks": 0.75
+   },
+   {
+    "point": "(i) NH<sub>3</sub> strong field → low spin t<sub>2g</sub>⁶, 0 unpaired electrons, diamagnetic",
+    "marks": 1.75
+   },
+   {
+    "point": "(ii) Oxidation state Mn<sup>3+</sup> and d⁴ configuration",
+    "marks": 0.75
+   },
+   {
+    "point": "(ii) CN<sup>-</sup> strong field → low spin t<sub>2g</sub>⁴, 2 unpaired electrons, paramagnetic",
+    "marks": 1.75
+   }
+  ],
+  "answer": [
+   "<b>(i) [Co(NH<sub>3</sub>)<sub>6</sub>]<sup>3+</sup>:</b> x + 6(0) = +3 → Co<sup>3+</sup>. Co (Z = 27): [Ar] 3d⁷ 4s²; Co<sup>3+</sup>: [Ar] 3d⁶.",
+   "NH<sub>3</sub> is a strong-field ligand (Δ<sub>o</sub> > P), so the six electrons pair up in the t<sub>2g</sub> level: t<sub>2g</sub>⁶ e<sub>g</sub>⁰ (low spin, d²sp³).",
+   "<b>Unpaired electrons = 0; the complex is diamagnetic</b> (μ = 0 BM).",
+   "<b>(ii) [Mn(CN)<sub>6</sub>]<sup>3-</sup>:</b> x + 6(−1) = −3 → x = +3, Mn<sup>3+</sup>. Mn (Z = 25): [Ar] 3d⁵ 4s²; Mn<sup>3+</sup>: [Ar] 3d⁴.",
+   "CN<sup>-</sup> is a very strong-field ligand, so electrons pair in the lower level: t<sub>2g</sub>⁴ e<sub>g</sub>⁰ (↑↓ ↑ ↑), low spin (d²sp³).",
+   "<b>Unpaired electrons = 2; the complex is paramagnetic</b> with μ = √[n(n+2)] = √8 = 2.83 BM."
+  ],
+  "formulas": [
+   "μ = √[n(n+2)] BM"
+  ],
+  "result": "(i) 0 unpaired e⁻, diamagnetic; (ii) 2 unpaired e⁻, paramagnetic (μ = 2.83 BM)"
+ },
+ "Q2.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of Nernst equation and definition of ΔG, Q, E°",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation of the cell form: ΔG = −nFE and ΔG° = −nFE° substituted in ΔG = ΔG° + RT ln Q",
+    "marks": 3
+   },
+   {
+    "point": "Final cell equation E = E° − (RT/nF) ln Q and its 298 K form E = E° − (0.0591/n) log Q",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation of single electrode potential E = E° + (0.0591/n) log[M<sup>n+</sup>] for M<sup>n+</sup> + ne<sup>−</sup> → M",
+    "marks": 2
+   },
+   {
+    "point": "Engineering applications (any three: pH, corrosion tendency, concentration cells, solubility product, equilibrium constant, potentiometric titration)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Nernst equation</b> relates the electrode/cell potential to the standard potential and the activities (concentrations) of the species taking part in the redox change at temperature T.",
+   "<b>Step 1 – Free energy of a general reaction.</b> For aA + bB → cC + dD at constant T and P, the van't Hoff isotherm gives ΔG = ΔG° + RT ln Q, where Q = [C]<sup>c</sup>[D]<sup>d</sup> / ([A]<sup>a</sup>[B]<sup>b</sup>) is the reaction quotient.",
+   "<b>Step 2 – Link with electrical work.</b> The maximum useful (electrical) work obtained from a cell equals the decrease in free energy: −ΔG = nFE, so ΔG = −nFE. Under standard conditions ΔG° = −nFE° (F = 96500 C mol<sup>−1</sup>, n = electrons transferred).",
+   "<b>Step 3 – Substitution.</b> −nFE = −nFE° + RT ln Q. Dividing by −nF:",
+   "<b>E = E° − (RT/nF) ln Q</b> … (cell Nernst equation).",
+   "<b>Step 4 – Numerical form.</b> At 298 K, R = 8.314 J K<sup>−1</sup> mol<sup>−1</sup>, F = 96500 C: 2.303RT/F = 0.0591 V. Hence <b>E = E° − (0.0591/n) log<sub>10</sub> Q</b>.",
+   "<b>Single electrode potential.</b> For the reduction half-reaction M<sup>n+</sup> + ne<sup>−</sup> → M(s), Q = a<sub>M</sub>/a<sub>M<sup>n+</sup></sub> = 1/[M<sup>n+</sup>] (activity of pure solid = 1). Applying the same derivation:",
+   "<b>E<sub>M<sup>n+</sup>/M</sub> = E° − (RT/nF) ln (1/[M<sup>n+</sup>]) = E° + (0.0591/n) log[M<sup>n+</sup>]</b> at 298 K.",
+   "<b>Cell example (Daniell cell).</b> Zn + Cu<sup>2+</sup> → Zn<sup>2+</sup> + Cu; Q = [Zn<sup>2+</sup>]/[Cu<sup>2+</sup>], so E<sub>cell</sub> = E°<sub>cell</sub> − (0.0591/2) log([Zn<sup>2+</sup>]/[Cu<sup>2+</sup>]).",
+   "<b>Engineering applications:</b> (i) calculation of pH with hydrogen/glass electrodes, E = E° − 0.0591 pH; (ii) predicting corrosion tendency and feasibility of a redox reaction under non-standard conditions; (iii) concentration cells and ion-selective electrodes; (iv) determination of equilibrium constant (at equilibrium E = 0, log K = nE°/0.0591) and solubility product of sparingly soluble salts; (v) potentiometric titrations and battery voltage estimation."
+  ],
+  "formulas": [
+   "ΔG = ΔG° + RT ln Q",
+   "ΔG = −nFE",
+   "E = E° − (RT/nF) ln Q",
+   "E = E° − (0.0591/n) log Q (298 K)",
+   "E<sub>M<sup>n+</sup>/M</sub> = E° + (0.0591/n) log[M<sup>n+</sup>]"
+  ]
+ },
+ "Q2.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Neat labelled diagram of Daniell cell (electrodes, electrolytes, salt bridge, voltmeter, direction of e<sup>−</sup> and ion flow)",
+    "marks": 3
+   },
+   {
+    "point": "Construction described (anode, cathode, salt bridge and its function)",
+    "marks": 2
+   },
+   {
+    "point": "Anode and cathode half-cell reactions",
+    "marks": 2
+   },
+   {
+    "point": "Overall cell reaction and cell notation",
+    "marks": 1.5
+   },
+   {
+    "point": "EMF formula E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub> and Nernst form",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Galvanic (voltaic) cell:</b> a device that converts the chemical energy of a spontaneous redox reaction into electrical energy. The Daniell cell is the standard example.",
+   "<b>Construction:</b> A zinc rod dipped in 1 M ZnSO<sub>4</sub> solution forms the anode half-cell; a copper rod dipped in 1 M CuSO<sub>4</sub> solution forms the cathode half-cell. The two solutions are connected internally by a <b>salt bridge</b> (U-tube containing agar–agar gel saturated with KCl or KNO<sub>3</sub>) and externally by a metallic wire through a voltmeter/load.",
+   "<b>Function of salt bridge:</b> completes the internal circuit, maintains electrical neutrality of both half-cells by migration of ions, and eliminates the liquid-junction potential. K<sup>+</sup> and Cl<sup>−</sup> are chosen because their ionic mobilities are almost equal.",
+   "<b>Anode (oxidation, negative):</b> Zn(s) → Zn<sup>2+</sup>(aq) + 2e<sup>−</sup>.",
+   "<b>Cathode (reduction, positive):</b> Cu<sup>2+</sup>(aq) + 2e<sup>−</sup> → Cu(s).",
+   "<b>Overall cell reaction:</b> Zn(s) + Cu<sup>2+</sup>(aq) → Zn<sup>2+</sup>(aq) + Cu(s).",
+   "<b>Cell representation:</b> Zn(s) | Zn<sup>2+</sup>(C<sub>1</sub>) ∥ Cu<sup>2+</sup>(C<sub>2</sub>) | Cu(s), anode on the left, cathode on the right, ∥ = salt bridge.",
+   "<b>Flow:</b> electrons flow from Zn to Cu through the external wire, conventional current from Cu to Zn; anions move towards the anode and cations towards the cathode through the salt bridge.",
+   "<b>EMF:</b> E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub> (both as reduction potentials) = 0.34 − (−0.76) = 1.10 V.",
+   "<b>Nernst form:</b> E<sub>cell</sub> = E°<sub>cell</sub> − (0.0591/2) log([Zn<sup>2+</sup>]/[Cu<sup>2+</sup>]) at 298 K."
+  ],
+  "formulas": [
+   "E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub>",
+   "E<sub>cell</sub> = E°<sub>cell</sub> − (0.0591/n) log Q",
+   "Zn + Cu<sup>2+</sup> → Zn<sup>2+</sup> + Cu"
+  ],
+  "diagram": "Two beakers: left Zn rod in ZnSO<sub>4</sub> (anode, −), right Cu rod in CuSO<sub>4</sub> (cathode, +); inverted U salt bridge (KCl/agar) joining them; external wire with voltmeter; arrow for e<sup>−</sup> from Zn to Cu; arrows for ion migration."
+ },
+ "Q2.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "First law: statement and mathematical form ΔU = q − w (or q + w) with sign convention",
+    "marks": 2
+   },
+   {
+    "point": "Explanation: internal energy, work, heat, ΔH = ΔU + PΔn<sub>g</sub>RT, an example",
+    "marks": 3
+   },
+   {
+    "point": "Second law: any two standard statements (Kelvin–Planck / Clausius / entropy form)",
+    "marks": 2
+   },
+   {
+    "point": "Explanation of spontaneity, ΔS<sub>universe</sub> > 0, Carnot efficiency or ΔS = q<sub>rev</sub>/T",
+    "marks": 2
+   },
+   {
+    "point": "Applications / limitations or comparison of the two laws",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Thermodynamic system:</b> the part of the universe under study; the rest is the surroundings. State functions (U, H, S, G) depend only on initial and final states.",
+   "<b>First law (law of conservation of energy):</b> Energy can neither be created nor destroyed; it can only be converted from one form to another. Equivalently, the energy of an isolated system is constant.",
+   "<b>Mathematical form:</b> ΔU = q − w, where q = heat absorbed by the system, w = work done by the system (w = PΔV for expansion). For an infinitesimal change dU = δq − δw. U is a state function; q and w are path functions.",
+   "<b>Consequences:</b> (a) at constant volume q<sub>v</sub> = ΔU; (b) at constant pressure q<sub>p</sub> = ΔH = ΔU + PΔV, so ΔH = ΔU + Δn<sub>g</sub>RT; (c) for an isothermal process of an ideal gas ΔU = 0 and q = w; (d) for an adiabatic process q = 0 and ΔU = −w. Hess's law is a direct result of the first law.",
+   "<b>Limitation of the first law:</b> it gives the energy balance but does not say in which direction a process will occur, nor why heat cannot be fully converted into work.",
+   "<b>Second law – Kelvin–Planck statement:</b> It is impossible to construct a cyclic engine which absorbs heat from a single reservoir and converts it completely into work without any other effect.",
+   "<b>Clausius statement:</b> Heat cannot flow spontaneously from a colder body to a hotter body without external work.",
+   "<b>Entropy statement:</b> For any spontaneous (irreversible) process the entropy of the universe increases: ΔS<sub>total</sub> = ΔS<sub>system</sub> + ΔS<sub>surr</sub> > 0; for a reversible process ΔS<sub>total</sub> = 0. Entropy change is defined by dS = δq<sub>rev</sub>/T.",
+   "<b>Explanation:</b> Natural processes proceed towards greater disorder (e.g. gas expansion into vacuum, heat flow from hot to cold, mixing). The efficiency of any heat engine working between T<sub>1</sub> (source) and T<sub>2</sub> (sink) is η = (T<sub>1</sub> − T<sub>2</sub>)/T<sub>1</sub> < 1, so complete conversion of heat to work is impossible.",
+   "<b>Applications:</b> the second law gives the criterion of spontaneity (ΔG = ΔH − TΔS < 0), efficiency of engines and refrigerators, and equilibrium conditions (ΔG = 0)."
+  ],
+  "formulas": [
+   "ΔU = q − w",
+   "ΔH = ΔU + Δn<sub>g</sub>RT",
+   "dS = δq<sub>rev</sub>/T",
+   "ΔS<sub>universe</sub> ≥ 0",
+   "η = (T<sub>1</sub> − T<sub>2</sub>)/T<sub>1</sub>"
+  ]
+ },
+ "Q2.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(i) Entropy: definition, dS = q<sub>rev</sub>/T, state function, units, physical meaning (disorder), entropy change criteria",
+    "marks": 3.5
+   },
+   {
+    "point": "(ii) Gibbs free energy: definition G = H − TS, ΔG = ΔH − TΔS, criteria of spontaneity",
+    "marks": 3
+   },
+   {
+    "point": "(iii) Gibbs–Helmholtz equation statement/derivation",
+    "marks": 2
+   },
+   {
+    "point": "Applications of Gibbs–Helmholtz (ΔH from E and temperature coefficient, etc.)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(i) Entropy (S):</b> A thermodynamic state function that measures the randomness or disorder of a system. Defined by dS = δq<sub>rev</sub>/T; ΔS = q<sub>rev</sub>/T for an isothermal reversible change. Unit: J K<sup>−1</sup> mol<sup>−1</sup>.",
+   "Physical meaning: S(gas) > S(liquid) > S(solid); entropy rises on melting, vaporisation, mixing and on increasing temperature. ΔS<sub>universe</sub> > 0 for spontaneous, = 0 for equilibrium (reversible) processes. For reactions ΔS° = ΣS°(products) − ΣS°(reactants). Third law: S = 0 for a perfect crystal at 0 K.",
+   "<b>(ii) Gibbs free energy (G):</b> G = H − TS, a state function that gives the maximum useful (non-expansion) work available from a system at constant T and P: −ΔG = w<sub>max,useful</sub>.",
+   "At constant T and P: <b>ΔG = ΔH − TΔS</b>. Criteria: ΔG < 0 spontaneous (feasible); ΔG = 0 equilibrium; ΔG > 0 non-spontaneous. Relations: ΔG° = −RT ln K = −nFE°.",
+   "<b>(iii) Gibbs–Helmholtz equation:</b> From G = H − TS and dG = V dP − S dT, at constant P: (∂G/∂T)<sub>P</sub> = −S. So G = H + T(∂G/∂T)<sub>P</sub>.",
+   "Hence ΔG = ΔH + T(∂ΔG/∂T)<sub>P</sub>, which on differentiating (ΔG/T) gives <b>[∂(ΔG/T)/∂T]<sub>P</sub> = −ΔH/T²</b>.",
+   "For an electrochemical cell with ΔG = −nFE: −nFE = ΔH − nFT(∂E/∂T)<sub>P</sub> ⇒ <b>ΔH = −nFE + nFT(∂E/∂T)<sub>P</sub></b>.",
+   "<b>Applications:</b> (a) finding ΔH of cell reactions from emf and temperature coefficient; (b) ΔS = nF(∂E/∂T)<sub>P</sub>; (c) effect of temperature on ΔG and on equilibrium constant (van't Hoff equation d ln K/dT = ΔH°/RT²); (d) predicting temperature at which a reaction becomes spontaneous, T = ΔH/ΔS."
+  ],
+  "formulas": [
+   "ΔS = q<sub>rev</sub>/T",
+   "ΔG = ΔH − TΔS",
+   "[∂(ΔG/T)/∂T]<sub>P</sub> = −ΔH/T²",
+   "ΔH = −nFE + nFT(∂E/∂T)<sub>P</sub>",
+   "ΔS = nF(∂E/∂T)<sub>P</sub>"
+  ]
+ },
+ "Q2.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of Hess's law",
+    "marks": 2
+   },
+   {
+    "point": "Explanation with a worked example (e.g. C → CO<sub>2</sub> directly vs via CO), with energy-cycle diagram",
+    "marks": 3
+   },
+   {
+    "point": "Basis of the law (H is a state function)",
+    "marks": 1
+   },
+   {
+    "point": "Applications (at least four)",
+    "marks": 2.5
+   },
+   {
+    "point": "Limitations (at least two)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Statement:</b> The total enthalpy change of a chemical reaction is the same whether the reaction takes place in one step or in several steps, provided the initial and final conditions (T, P, states of reactants and products) are the same. It depends only on initial and final states.",
+   "<b>Basis:</b> It is a direct consequence of the first law of thermodynamics and of enthalpy being a state function: ΔH is independent of the path.",
+   "<b>Illustration:</b> Formation of CO<sub>2</sub> from carbon. Route 1 (direct): C(s) + O<sub>2</sub>(g) → CO<sub>2</sub>(g), ΔH = −393.5 kJ. Route 2 (two steps): C(s) + ½O<sub>2</sub> → CO(g), ΔH<sub>1</sub> = −110.5 kJ; CO(g) + ½O<sub>2</sub> → CO<sub>2</sub>(g), ΔH<sub>2</sub> = −283.0 kJ. Sum: −110.5 − 283.0 = −393.5 kJ = ΔH. Hence ΔH = ΔH<sub>1</sub> + ΔH<sub>2</sub>.",
+   "<b>Energy cycle:</b> draw C + O<sub>2</sub> at the top, CO<sub>2</sub> at the bottom, with a direct arrow (ΔH) and an indirect path through CO (ΔH<sub>1</sub>, ΔH<sub>2</sub>).",
+   "<b>Applications:</b> (a) enthalpy of formation of compounds that cannot be made directly, e.g. CO, CH<sub>4</sub>, C<sub>2</sub>H<sub>6</sub> from heats of combustion; (b) enthalpy of transition between allotropes (graphite → diamond); (c) lattice energy through the Born–Haber cycle; (d) enthalpy of hydration and of neutralisation; (e) calculation of bond enthalpies; (f) calorific value of fuels.",
+   "<b>Method:</b> ΔH°<sub>reaction</sub> = ΣΔH°<sub>f</sub>(products) − ΣΔH°<sub>f</sub>(reactants) = ΣΔH°<sub>c</sub>(reactants) − ΣΔH°<sub>c</sub>(products).",
+   "<b>Limitations:</b> (a) applicable only when initial and final conditions (T, P, physical states, allotropic forms) are identical in all routes; (b) it gives only ΔH, not the rate or feasibility of the reaction; (c) data must be available for each step and ideal/consistent states are assumed; (d) it cannot be applied to reactions whose individual steps cannot be studied separately or whose enthalpy data are inaccurate; (e) enthalpy changes of dissolution depend on concentration."
+  ],
+  "formulas": [
+   "ΔH = ΔH<sub>1</sub> + ΔH<sub>2</sub> + ΔH<sub>3</sub> + …",
+   "ΔH°<sub>r</sub> = ΣΔH°<sub>f</sub>(P) − ΣΔH°<sub>f</sub>(R)"
+  ],
+  "diagram": "Triangular energy cycle: C(s)+O<sub>2</sub> at top, CO(g)+½O<sub>2</sub> at the middle, CO<sub>2</sub>(g) at bottom; arrows labelled ΔH<sub>1</sub>, ΔH<sub>2</sub> (two-step path) and ΔH (direct)."
+ },
+ "Q2.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Arrhenius concept: definition with examples and limitations",
+    "marks": 2.5
+   },
+   {
+    "point": "Brønsted–Lowry concept: proton donor/acceptor, conjugate pairs, examples, limitations",
+    "marks": 3
+   },
+   {
+    "point": "Lewis concept: electron-pair acceptor/donor, examples including coordinate bond formation",
+    "marks": 3
+   },
+   {
+    "point": "Comparison / relationship among the three theories",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>1. Arrhenius theory (1884):</b> An acid is a substance that ionises in water to give H<sup>+</sup> (H<sub>3</sub>O<sup>+</sup>) ions; a base ionises to give OH<sup>−</sup>. Examples: HCl → H<sup>+</sup> + Cl<sup>−</sup>; NaOH → Na<sup>+</sup> + OH<sup>−</sup>. Neutralisation: H<sup>+</sup> + OH<sup>−</sup> → H<sub>2</sub>O.",
+   "<i>Limitations:</i> restricted to aqueous solutions; cannot explain basic nature of NH<sub>3</sub> or Na<sub>2</sub>CO<sub>3</sub> (no OH<sup>−</sup> in formula); cannot explain acid–base reactions in non-aqueous solvents or in gas phase (NH<sub>3</sub> + HCl → NH<sub>4</sub>Cl).",
+   "<b>2. Brønsted–Lowry theory (1923):</b> An acid is a proton (H<sup>+</sup>) donor; a base is a proton acceptor. Every acid has a conjugate base, and every base has a conjugate acid.",
+   "Examples: HCl + H<sub>2</sub>O ⇌ H<sub>3</sub>O<sup>+</sup> + Cl<sup>−</sup> (HCl acid, Cl<sup>−</sup> its conjugate base; H<sub>2</sub>O base, H<sub>3</sub>O<sup>+</sup> its conjugate acid); NH<sub>3</sub> + H<sub>2</sub>O ⇌ NH<sub>4</sub><sup>+</sup> + OH<sup>−</sup> (NH<sub>3</sub> base). Water is amphiprotic. A strong acid has a weak conjugate base.",
+   "<i>Limitations:</i> requires a transferable proton, so cannot explain acid behaviour of BF<sub>3</sub>, AlCl<sub>3</sub>, CO<sub>2</sub>, SO<sub>2</sub>.",
+   "<b>3. Lewis theory (1923):</b> An acid is a species that accepts an electron pair; a base is a species that donates an electron pair, forming a coordinate (dative) bond.",
+   "Examples: BF<sub>3</sub> + :NH<sub>3</sub> → F<sub>3</sub>B←NH<sub>3</sub> (BF<sub>3</sub> acid, NH<sub>3</sub> base); AlCl<sub>3</sub> + Cl<sup>−</sup> → AlCl<sub>4</sub><sup>−</sup>; Ag<sup>+</sup> + 2NH<sub>3</sub> → [Ag(NH<sub>3</sub>)<sub>2</sub>]<sup>+</sup>; H<sup>+</sup> + OH<sup>−</sup> → H<sub>2</sub>O; CO<sub>2</sub> + OH<sup>−</sup> → HCO<sub>3</sub><sup>−</sup>. Lewis acids: electron-deficient molecules (BF<sub>3</sub>, AlCl<sub>3</sub>), cations (H<sup>+</sup>, Fe<sup>3+</sup>); Lewis bases: NH<sub>3</sub>, H<sub>2</sub>O, Cl<sup>−</sup>, amines.",
+   "<b>Comparison:</b> Lewis ⊃ Brønsted–Lowry ⊃ Arrhenius in generality. Every Arrhenius acid/base is a Brønsted one, and every Brønsted acid/base is a Lewis one (H<sup>+</sup> is the Lewis acid), but the reverse is not true. Lewis concept is most useful in organic catalysis and coordination chemistry."
+  ]
+ },
+ "Q2.7": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Definition of Ellingham diagram: plot of ΔG° vs T for oxide formation per mole of O<sub>2</sub>, ΔG° = ΔH° − TΔS°",
+    "marks": 1.5
+   },
+   {
+    "point": "Features: straight lines, slope = −ΔS°, kinks at phase changes, negative slope for most metals; C → CO line slopes down",
+    "marks": 1.5
+   },
+   {
+    "point": "Interpretation: lower line = more stable oxide; a metal reduces the oxide of any metal above it",
+    "marks": 1
+   },
+   {
+    "point": "Application to reducing agent selection (C, CO, Al, Mg) and temperature choice, e.g. smelting of ZnO / iron oxide",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Ellingham diagram</b> is a graph of the standard free-energy change ΔG° for the formation of oxides (per mole of O<sub>2</sub> consumed, 2M + O<sub>2</sub> → 2MO) against temperature. It is based on ΔG° = ΔH° − TΔS°, which has the form y = c + mx, so the plot is a straight line with slope −ΔS° and intercept ΔH°.",
+   "<b>Features:</b> (a) Since a gas (O<sub>2</sub>) is consumed, ΔS° is negative, so most lines slope upward (ΔG° becomes less negative with rising T). (b) The slope changes (a kink) at the melting or boiling point of the metal or oxide because ΔS° changes. (c) For C + O<sub>2</sub> → CO<sub>2</sub> the line is almost horizontal (ΔS° ≈ 0); for 2C + O<sub>2</sub> → 2CO the line slopes downward (ΔS° > 0, more gas is produced) and crosses the other lines.",
+   "<b>Interpretation:</b> The lower a metal's line, the more negative its ΔG°, and the more stable its oxide. A metal can reduce the oxide of any metal whose line lies above it at that temperature, because the coupled reaction has a negative ΔG°.",
+   "<b>Reducing agent selection:</b> Carbon can reduce an oxide above a certain temperature where the C → CO line falls below the metal-oxide line (e.g. ZnO, FeO, SnO<sub>2</sub> by coke at high temperature). Al and Mg lie low in the diagram and so reduce Cr<sub>2</sub>O<sub>3</sub>, Fe<sub>2</sub>O<sub>3</sub> (thermite). Oxides at the very bottom (Al<sub>2</sub>O<sub>3</sub>, MgO, CaO) cannot be reduced by carbon at practical temperatures and are extracted by electrolysis. Noble metal oxides (Ag, Hg) decompose on heating (ΔG° becomes positive).",
+   "<b>Use:</b> the diagram tells the minimum temperature for smelting and the most economical reductant for each ore."
+  ],
+  "formulas": [
+   "ΔG° = ΔH° − TΔS°",
+   "slope = −ΔS°"
+  ],
+  "diagram": "ΔG° (kJ per mol O<sub>2</sub>) on y-axis vs T (K) on x-axis; lines for Cu, Fe, Zn, Cr, Al, Mg oxides rising with T; C → CO<sub>2</sub> horizontal and C → CO downward sloping; mark the kinks and crossover temperatures."
+ },
+ "Q2.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Writing the required formation equation C(graphite) + 2H<sub>2</sub>(g) → CH<sub>4</sub>(g)",
+    "marks": 1.5
+   },
+   {
+    "point": "Writing the three combustion equations with given ΔH values",
+    "marks": 2
+   },
+   {
+    "point": "Correct use of Hess's law (multiply H<sub>2</sub> by 2, reverse CH<sub>4</sub> equation)",
+    "marks": 3
+   },
+   {
+    "point": "Correct numerical substitution",
+    "marks": 2
+   },
+   {
+    "point": "Answer with units: −74.8 kJ/mol (and sign/exothermic comment)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Required:</b> C(graphite) + 2H<sub>2</sub>(g) → CH<sub>4</sub>(g), ΔH<sub>f</sub>° = ?",
+   "<b>Given:</b> (1) C(s) + O<sub>2</sub> → CO<sub>2</sub>, ΔH<sub>1</sub> = −393.50 kJ/mol",
+   "(2) H<sub>2</sub>(g) + ½O<sub>2</sub> → H<sub>2</sub>O(l), ΔH<sub>2</sub> = −285.83 kJ/mol",
+   "(3) CH<sub>4</sub>(g) + 2O<sub>2</sub> → CO<sub>2</sub> + 2H<sub>2</sub>O(l), ΔH<sub>3</sub> = −890.36 kJ/mol",
+   "<b>Hess's law:</b> Required equation = (1) + 2 × (2) − (3). Adding C + O<sub>2</sub> → CO<sub>2</sub>; 2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O; and reversing (3): CO<sub>2</sub> + 2H<sub>2</sub>O → CH<sub>4</sub> + 2O<sub>2</sub>. On cancellation: C + 2H<sub>2</sub> → CH<sub>4</sub>.",
+   "ΔH<sub>f</sub>° = ΔH<sub>1</sub> + 2ΔH<sub>2</sub> − ΔH<sub>3</sub> = (−393.50) + 2(−285.83) − (−890.36)",
+   "= −393.50 − 571.66 + 890.36 = <b>−74.80 kJ/mol</b>",
+   "The negative sign shows that formation of methane from its elements is exothermic."
+  ],
+  "formulas": [
+   "ΔH<sub>f</sub>°(CH<sub>4</sub>) = ΔH<sub>c</sub>(C) + 2ΔH<sub>c</sub>(H<sub>2</sub>) − ΔH<sub>c</sub>(CH<sub>4</sub>)"
+  ],
+  "result": "ΔH<sub>f</sub>°(CH<sub>4</sub>) = −74.80 kJ mol<sup>−1</sup>"
+ },
+ "Q2.9": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Writing combustion equations of C<sub>2</sub>H<sub>4</sub>, C<sub>2</sub>H<sub>6</sub> and H<sub>2</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Applying Hess's law: ΔH = Σ(ΔH<sub>c</sub> reactants) − Σ(ΔH<sub>c</sub> products)",
+    "marks": 1.5
+   },
+   {
+    "point": "Correct numerical substitution",
+    "marks": 1
+   },
+   {
+    "point": "Answer with units: −136.8 kJ/mol",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "Reaction: C<sub>2</sub>H<sub>4</sub> + H<sub>2</sub> → C<sub>2</sub>H<sub>6</sub>.",
+   "(1) C<sub>2</sub>H<sub>4</sub> + 3O<sub>2</sub> → 2CO<sub>2</sub> + 2H<sub>2</sub>O, ΔH = −1411 kJ; (2) C<sub>2</sub>H<sub>6</sub> + 3½O<sub>2</sub> → 2CO<sub>2</sub> + 3H<sub>2</sub>O, ΔH = −1560 kJ; (3) H<sub>2</sub> + ½O<sub>2</sub> → H<sub>2</sub>O, ΔH = −285.8 kJ.",
+   "Required = (1) + (3) − (2): both sides give C<sub>2</sub>H<sub>4</sub> + H<sub>2</sub> + 3½O<sub>2</sub> → C<sub>2</sub>H<sub>6</sub> + 3½O<sub>2</sub>.",
+   "ΔH = ΔH<sub>c</sub>(C<sub>2</sub>H<sub>4</sub>) + ΔH<sub>c</sub>(H<sub>2</sub>) − ΔH<sub>c</sub>(C<sub>2</sub>H<sub>6</sub>) = (−1411) + (−285.8) − (−1560)",
+   "ΔH = −1696.8 + 1560 = <b>−136.8 kJ/mol</b> (exothermic)."
+  ],
+  "result": "ΔH = −136.8 kJ mol<sup>−1</sup>"
+ },
+ "Q2.10": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Anode (oxidation) half-reaction Zn → Zn<sup>2+</sup> + 2e<sup>−</sup>",
+    "marks": 1.5
+   },
+   {
+    "point": "Cathode (reduction) half-reaction Cu<sup>2+</sup> + 2e<sup>−</sup> → Cu",
+    "marks": 1.5
+   },
+   {
+    "point": "Complete cell reaction Zn + Cu<sup>2+</sup> → Zn<sup>2+</sup> + Cu (n = 2)",
+    "marks": 1
+   },
+   {
+    "point": "E°<sub>cell</sub> = 0.34 − (−0.76) = 1.10 V",
+    "marks": 2
+   },
+   {
+    "point": "Nernst equation with Q = [Zn<sup>2+</sup>]/[Cu<sup>2+</sup>] = 10",
+    "marks": 2
+   },
+   {
+    "point": "Correct calculation and answer 1.07 V with units",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Anode (oxidation):</b> Zn(s) → Zn<sup>2+</sup>(0.01 M) + 2e<sup>−</sup> (Zn has the lower reduction potential, so it is oxidised).",
+   "<b>Cathode (reduction):</b> Cu<sup>2+</sup>(0.001 M) + 2e<sup>−</sup> → Cu(s).",
+   "<b>Cell reaction:</b> Zn(s) + Cu<sup>2+</sup>(aq) → Zn<sup>2+</sup>(aq) + Cu(s); n = 2.",
+   "<b>Standard EMF:</b> E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub> = 0.34 − (−0.76) = 1.10 V.",
+   "<b>Nernst equation (298 K):</b> E<sub>cell</sub> = E°<sub>cell</sub> − (0.0591/n) log([Zn<sup>2+</sup>]/[Cu<sup>2+</sup>])",
+   "= 1.10 − (0.0591/2) log(0.01/0.001) = 1.10 − 0.02955 × log 10",
+   "= 1.10 − 0.02955 × 1 = <b>1.0705 V ≈ 1.07 V</b>"
+  ],
+  "formulas": [
+   "E = E° − (0.0591/n) log Q"
+  ],
+  "result": "E<sub>cell</sub> ≈ 1.07 V"
+ },
+ "Q2.11": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Cell reaction Ni + Cu<sup>2+</sup> → Ni<sup>2+</sup> + Cu, n = 2, E° = 0.59 V",
+    "marks": 2
+   },
+   {
+    "point": "Nernst equation with Q = 0.02/0.2 = 0.1 and E = 0.6196 V",
+    "marks": 2.5
+   },
+   {
+    "point": "ΔG = −nFE = −119.6 kJ",
+    "marks": 2
+   },
+   {
+    "point": "ΔS = nF(∂E/∂T) = 19.3 J K<sup>−1</sup>",
+    "marks": 1.5
+   },
+   {
+    "point": "ΔH = ΔG + TΔS = −113.8 kJ with units",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Cell reaction:</b> anode Ni → Ni<sup>2+</sup> + 2e<sup>−</sup>; cathode Cu<sup>2+</sup> + 2e<sup>−</sup> → Cu; net Ni + Cu<sup>2+</sup> → Ni<sup>2+</sup> + Cu, n = 2.",
+   "E°<sub>cell</sub> = 0.34 − (−0.25) = 0.59 V.",
+   "<b>Nernst:</b> E = 0.59 − (0.0591/2) log([Ni<sup>2+</sup>]/[Cu<sup>2+</sup>]) = 0.59 − 0.02955 log(0.02/0.2) = 0.59 − 0.02955 × (−1) = 0.6196 V.",
+   "<b>ΔG</b> = −nFE = −2 × 96500 × 0.6196 = −1.196 × 10<sup>5</sup> J = <b>−119.6 kJ</b>.",
+   "<b>ΔS</b> = nF(∂E/∂T)<sub>P</sub> = 2 × 96500 × 1.0 × 10<sup>−4</sup> = <b>19.3 J K<sup>−1</sup></b>.",
+   "<b>ΔH</b> = ΔG + TΔS = −119573 + 298 × 19.3 = −119573 + 5751 = −113822 J ≈ <b>−113.8 kJ</b> (from Gibbs–Helmholtz, ΔH = −nFE + nFT(∂E/∂T))."
+  ],
+  "result": "ΔG ≈ −119.6 kJ; ΔS ≈ 19.3 J K<sup>−1</sup>; ΔH ≈ −113.8 kJ (T = 298 K assumed)"
+ },
+ "Q2.12": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Cell representation Pt,H<sub>2</sub>(1 atm) | H<sup>+</sup>(x) ∥ SCE and half-cell reactions",
+    "marks": 2
+   },
+   {
+    "point": "E<sub>cell</sub> = E<sub>cal</sub> − E<sub>H</sub> (reference electrode is cathode)",
+    "marks": 2
+   },
+   {
+    "point": "Hydrogen electrode potential E<sub>H</sub> = −0.0591 pH (E° = 0, p<sub>H2</sub> = 1 atm)",
+    "marks": 2
+   },
+   {
+    "point": "Correct substitution to get E<sub>H</sub> = −0.1773 V",
+    "marks": 2
+   },
+   {
+    "point": "pH = 3.0 with conclusion that solution is acidic",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Cell:</b> Pt, H<sub>2</sub>(1 atm) | H<sup>+</sup>(unknown) ∥ KCl (sat.), Hg<sub>2</sub>Cl<sub>2</sub> | Hg. The hydrogen electrode is the anode; the calomel electrode (cathode) is the reference.",
+   "Anode: ½H<sub>2</sub> → H<sup>+</sup> + e<sup>−</sup>; cathode: ½Hg<sub>2</sub>Cl<sub>2</sub> + e<sup>−</sup> → Hg + Cl<sup>−</sup>.",
+   "E<sub>cell</sub> = E<sub>cal</sub> − E<sub>H</sub> ⇒ 0.4188 = 0.2415 − E<sub>H</sub> ⇒ E<sub>H</sub> = 0.2415 − 0.4188 = −0.1773 V.",
+   "For the hydrogen electrode (reduction form) H<sup>+</sup> + e<sup>−</sup> → ½H<sub>2</sub>: E<sub>H</sub> = E° − 0.0591 log (p<sub>H2</sub><sup>½</sup>/[H<sup>+</sup>]) = 0 + 0.0591 log[H<sup>+</sup>] = −0.0591 pH.",
+   "∴ −0.0591 pH = −0.1773 ⇒ pH = 0.1773/0.0591 = <b>3.0</b>.",
+   "The solution is acidic ([H<sup>+</sup>] = 10<sup>−3</sup> M)."
+  ],
+  "formulas": [
+   "E<sub>H</sub> = −0.0591 pH",
+   "pH = (E<sub>cell</sub> − E<sub>cal</sub>)/0.0591 (with sign)"
+  ],
+  "result": "pH = 3.0"
+ },
+ "Q2.13": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Conversion T = 17 + 273 = 290 K",
+    "marks": 1.5
+   },
+   {
+    "point": "Formula ΔG = ΔH − TΔS stated",
+    "marks": 2
+   },
+   {
+    "point": "Consistent units (ΔS in kJ or ΔH in J)",
+    "marks": 2
+   },
+   {
+    "point": "Substitution and calculation ΔG = −14.0 kJ/mol",
+    "marks": 3
+   },
+   {
+    "point": "Conclusion: ΔG < 0, reaction spontaneous",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> ΔH = −12.55 kJ mol<sup>−1</sup> = −12550 J mol<sup>−1</sup>; ΔS = +5.0 J K<sup>−1</sup> mol<sup>−1</sup>; T = 17 + 273 = 290 K.",
+   "<b>Formula:</b> ΔG = ΔH − TΔS.",
+   "ΔG = −12550 − (290 × 5.0) = −12550 − 1450 = −14000 J mol<sup>−1</sup> = <b>−14.0 kJ mol<sup>−1</sup></b>.",
+   "<b>Prediction:</b> ΔG is negative (both the exothermic ΔH and the positive ΔS favour the reaction), therefore the reaction is <b>spontaneous</b> at 17 °C."
+  ],
+  "result": "ΔG = −14.0 kJ/mol; spontaneous"
+ },
+ "Q2.14": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "ΔS° = ΣS°(products) − ΣS°(reactants) set up correctly with ½ O<sub>2</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Calculation ΔS° = −86.6 J K<sup>−1</sup>",
+    "marks": 1
+   },
+   {
+    "point": "ΔG° = ΔH° − TΔS° with T = 298 K and unit conversion",
+    "marks": 1.5
+   },
+   {
+    "point": "Final answer −257.0 kJ",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "Reaction: CO(g) + ½O<sub>2</sub>(g) → CO<sub>2</sub>(g); ΔH° = −282.84 kJ; T = 298 K (assumed standard temperature).",
+   "ΔS° = S°(CO<sub>2</sub>) − [S°(CO) + ½S°(O<sub>2</sub>)] = 213.8 − [197.9 + 102.505] = 213.8 − 300.405 = −86.605 J K<sup>−1</sup>.",
+   "ΔG° = ΔH° − TΔS° = −282.84 − 298 × (−86.605 × 10<sup>−3</sup>) kJ = −282.84 + 25.81 = <b>−257.03 kJ</b>.",
+   "Negative ΔG°: the oxidation of CO is spontaneous under standard conditions."
+  ],
+  "result": "ΔG° ≈ −257.0 kJ (ΔS° = −86.6 J K⁻¹, T = 298 K assumed)"
+ },
+ "Q3.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Labelled diagram: cation exchanger column, anion exchanger column, inlet/outlet",
+    "marks": 2
+   },
+   {
+    "point": "Cation exchange resin (R–H) reactions for Ca<sup>2+</sup>, Mg<sup>2+</sup>, Na<sup>+</sup>",
+    "marks": 2
+   },
+   {
+    "point": "Anion exchange resin (R′–OH) reactions for Cl<sup>−</sup>, SO<sub>4</sub><sup>2−</sup>, HCO<sub>3</sub><sup>−</sup>",
+    "marks": 2
+   },
+   {
+    "point": "Regeneration with dil. HCl/H<sub>2</sub>SO<sub>4</sub> and dil. NaOH with reactions",
+    "marks": 2
+   },
+   {
+    "point": "Merits over zeolite process (at least two) / demerits",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Principle:</b> Ion-exchange (demineralisation) resins are insoluble, cross-linked organic polymers (styrene–divinylbenzene) bearing replaceable ionic groups. Cation exchangers (R–H) replace all cations by H<sup>+</sup>; anion exchangers (R′–OH) replace all anions by OH<sup>−</sup>; H<sup>+</sup> and OH<sup>−</sup> combine to form water, giving demineralised (deionised) water.",
+   "<b>Cation exchange resin (RH):</b> strongly acidic, with –SO<sub>3</sub>H or –COOH groups (e.g. sulphonated polystyrene).",
+   "<b>Anion exchange resin (R′OH):</b> basic, with quaternary ammonium (–NR<sub>3</sub>OH) or amino groups.",
+   "<b>Process:</b> Hard water first passes down the cation exchange column, then the anion exchange column.",
+   "Cation exchanger: 2RH + Ca<sup>2+</sup> → R<sub>2</sub>Ca + 2H<sup>+</sup>; 2RH + Mg<sup>2+</sup> → R<sub>2</sub>Mg + 2H<sup>+</sup>; RH + Na<sup>+</sup> → RNa + H<sup>+</sup>. The effluent contains free acids (HCl, H<sub>2</sub>SO<sub>4</sub>, H<sub>2</sub>CO<sub>3</sub>).",
+   "Anion exchanger: R′OH + Cl<sup>−</sup> → R′Cl + OH<sup>−</sup>; 2R′OH + SO<sub>4</sub><sup>2−</sup> → R′<sub>2</sub>SO<sub>4</sub> + 2OH<sup>−</sup>; R′OH + HCO<sub>3</sub><sup>−</sup> → R′HCO<sub>3</sub> + OH<sup>−</sup>.",
+   "Net: H<sup>+</sup> + OH<sup>−</sup> → H<sub>2</sub>O; the water leaving is free from all ions (hardness ≈ 0, pH ≈ 7). A degasser may remove CO<sub>2</sub>.",
+   "<b>Regeneration:</b> Exhausted cation exchanger is washed with dil. HCl or H<sub>2</sub>SO<sub>4</sub>: R<sub>2</sub>Ca + 2H<sup>+</sup> → 2RH + Ca<sup>2+</sup>. Exhausted anion exchanger is washed with dil. NaOH: R′<sub>2</sub>SO<sub>4</sub> + 2OH<sup>−</sup> → 2R′OH + SO<sub>4</sub><sup>2−</sup>. The washings are drained off.",
+   "<b>Merits over zeolite process:</b> (i) removes all ions (cations and anions), giving water of very low TDS, whereas zeolite replaces only Ca<sup>2+</sup>/Mg<sup>2+</sup> by Na<sup>+</sup>; (ii) suitable for high-pressure boilers; (iii) works on acidic or turbid-free water over a wide pH range and does not add Na<sup>+</sup>; (iv) the process can be controlled to give water of very low hardness (0–2 ppm).",
+   "<b>Demerits:</b> costly equipment and resins; water must be free from turbidity and iron/manganese; skilled operation required."
+  ],
+  "diagram": "Two columns in series: first labelled 'Cation exchanger (RH)' with hard-water inlet at top; pipe to second column 'Anion exchanger (R′OH)'; demineralised water outlet at bottom; regenerants dil. HCl and dil. NaOH inlets."
+ },
+ "Q3.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Electrochemical theory: anodic and cathodic areas on iron surface, local cells, electrolyte film",
+    "marks": 2
+   },
+   {
+    "point": "Anode reaction Fe → Fe<sup>2+</sup> + 2e<sup>−</sup>",
+    "marks": 1.5
+   },
+   {
+    "point": "(i) Hydrogen evolution: cathodic reaction 2H<sup>+</sup> + 2e<sup>−</sup> → H<sub>2</sub> and overall reaction in acid",
+    "marks": 2
+   },
+   {
+    "point": "(ii) Oxygen absorption: ½O<sub>2</sub> + H<sub>2</sub>O + 2e<sup>−</sup> → 2OH<sup>−</sup>, Fe(OH)<sub>2</sub> formation",
+    "marks": 2
+   },
+   {
+    "point": "Formation of rust Fe<sub>2</sub>O<sub>3</sub>·xH<sub>2</sub>O by oxidation of Fe(OH)<sub>2</sub> and diagram",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>Electrochemical theory of wet corrosion:</b> When iron is in contact with moisture/electrolyte and oxygen, different parts of the surface (due to impurities, strain, differences in concentration) behave as anodic and cathodic areas. A large number of tiny galvanic cells form: the anode is oxidised (corrodes), electrons flow through the metal to the cathode where a reduction reaction occurs, and ions move through the electrolyte film to complete the circuit.",
+   "<b>Anodic reaction (oxidation, common to both):</b> Fe → Fe<sup>2+</sup> + 2e<sup>−</sup>. Corrosion takes place at the anode.",
+   "<b>(i) Hydrogen evolution mechanism (acidic medium, absence of oxygen, pH < 5):</b> Cathode: 2H<sup>+</sup> + 2e<sup>−</sup> → H<sub>2</sub>↑. Overall: Fe + 2H<sup>+</sup> → Fe<sup>2+</sup> + H<sub>2</sub>. It occurs for metals above hydrogen in the electrochemical series and is favoured by acids; the cathode area is relatively small and the anode large.",
+   "<b>(ii) Oxygen absorption mechanism (neutral or alkaline medium, with dissolved oxygen):</b> Cathode: ½O<sub>2</sub> + H<sub>2</sub>O + 2e<sup>−</sup> → 2OH<sup>−</sup>. Fe<sup>2+</sup> from the anode and OH<sup>−</sup> from the cathode meet to give Fe(OH)<sub>2</sub>: Fe<sup>2+</sup> + 2OH<sup>−</sup> → Fe(OH)<sub>2</sub>. Overall: Fe + ½O<sub>2</sub> + H<sub>2</sub>O → Fe(OH)<sub>2</sub>.",
+   "<b>Formation of rust:</b> In the presence of excess oxygen, ferrous hydroxide is further oxidised: 4Fe(OH)<sub>2</sub> + O<sub>2</sub> + 2H<sub>2</sub>O → 4Fe(OH)<sub>3</sub>, which loses water to form yellow-brown <b>rust, Fe<sub>2</sub>O<sub>3</sub>·xH<sub>2</sub>O</b>. If oxygen is limited, black magnetite Fe<sub>3</sub>O<sub>4</sub> forms.",
+   "Rust is porous and flaky, so it does not protect the underlying metal, and corrosion continues. Corrosion occurs at the anode (e.g. under a water drop centre/crevice where oxygen is poor), while rust deposits at the oxygen-rich cathodic region.",
+   "<b>Conclusion:</b> Oxygen absorption is the more common mechanism in natural waters and moist air; hydrogen evolution is important in acid environments such as pickling baths."
+  ],
+  "diagram": "Section of an iron surface under a water drop: oxygen-rich edge as cathode (O<sub>2</sub> + 2H<sub>2</sub>O + 4e<sup>−</sup> → 4OH<sup>−</sup>), centre as anode (Fe → Fe<sup>2+</sup> + 2e<sup>−</sup>), arrows for electron flow in the metal and ions in the drop, rust at the junction."
+ },
+ "Q3.3": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Any three differences between dry and wet corrosion (medium, mechanism, nature of products, rate)",
+    "marks": 2
+   },
+   {
+    "point": "Effect of temperature",
+    "marks": 1
+   },
+   {
+    "point": "Effect of pH",
+    "marks": 1
+   },
+   {
+    "point": "Effect of humidity",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Differences:</b> (1) <i>Medium:</i> dry corrosion occurs by direct chemical attack of dry gases (O<sub>2</sub>, Cl<sub>2</sub>, SO<sub>2</sub>) in absence of moisture; wet corrosion needs a conducting liquid/electrolyte (moisture).",
+   "(2) <i>Mechanism:</i> dry corrosion follows adsorption and chemical (oxide-film) reaction – no electrochemical cells; wet corrosion follows an electrochemical mechanism with anodic and cathodic areas.",
+   "(3) <i>Products:</i> dry – corrosion products (oxide, sulphide, halide film) form at the surface and can be protective (Al<sub>2</sub>O<sub>3</sub>, Cr<sub>2</sub>O<sub>3</sub>); wet – products (rust) form between anode and cathode, are porous and non-protective.",
+   "(4) <i>Rate:</i> dry corrosion is slow and uniform; wet corrosion is rapid and localised (pitting, crevice, galvanic). (5) Wet corrosion is far more common (rusting, tarnishing).",
+   "<b>Effect of temperature:</b> the rate of corrosion generally increases with temperature (higher reaction rate, greater diffusion and ionic conductivity); however, at higher temperature the solubility of oxygen in water falls, and a protective oxide film may form.",
+   "<b>Effect of pH:</b> acidic medium (pH < 4) increases corrosion of most metals through hydrogen evolution; neutral to mildly alkaline medium (pH 7–10) with oxygen gives moderate corrosion; strongly alkaline medium forms a passive film on iron and reduces corrosion (amphoteric metals such as Al, Zn corrode in strong alkali).",
+   "<b>Effect of humidity:</b> moisture is required for the electrolyte film; above a critical humidity (about 60 % for iron) corrosion rate increases sharply, aided by hygroscopic salts and pollutants (SO<sub>2</sub>, NaCl), which form conducting films."
+  ]
+ },
+ "Q3.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Principle of cathodic protection: forcing the metal to act as cathode",
+    "marks": 1.5
+   },
+   {
+    "point": "Sacrificial anode method: principle, working, anode materials (Mg, Zn, Al), applications",
+    "marks": 3
+   },
+   {
+    "point": "Impressed current method: DC source, inert anode (graphite, Pt, high-silicon iron), backfill, applications",
+    "marks": 3
+   },
+   {
+    "point": "Diagrams of both methods",
+    "marks": 1.5
+   },
+   {
+    "point": "Tabular comparison (at least three points)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Principle:</b> Corrosion is prevented by converting the whole metal structure into a cathode, so that no oxidation (M → M<sup>n+</sup> + ne<sup>−</sup>) can occur on it. Electrons are supplied either by a more active metal or by an external DC source.",
+   "<b>1. Sacrificial anode (galvanic) protection:</b> The structure to be protected (pipeline, ship hull, underground tank) is connected by a wire to a block of a more active metal (Mg, Zn or Al), which has a lower reduction potential than iron. The active metal acts as anode and gets corroded (sacrificed), while iron becomes the cathode and is protected.",
+   "Anode: Mg → Mg<sup>2+</sup> + 2e<sup>−</sup>; cathode (iron): O<sub>2</sub> + 2H<sub>2</sub>O + 4e<sup>−</sup> → 4OH<sup>−</sup>. The consumed anodes are replaced periodically. Uses: buried pipelines, ship hulls, boilers, water tanks, small installations.",
+   "<b>2. Impressed current cathodic protection (ICCP):</b> The structure is connected to the negative terminal of an external DC source (rectifier), and an inert anode (graphite, platinised titanium, high-silicon iron, scrap iron) buried in the soil in coke-breeze backfill is connected to the positive terminal. The impressed current flows from the anode through soil to the structure, making it cathodic.",
+   "Anode reaction at the inert anode: 2H<sub>2</sub>O → O<sub>2</sub> + 4H<sup>+</sup> + 4e<sup>−</sup> (or 2Cl<sup>−</sup> → Cl<sub>2</sub> + 2e<sup>−</sup>). Uses: large structures such as long pipelines, underground cables, marine piers, ships' hulls and storage tanks.",
+   "<b>Comparison:</b> (a) <i>Power:</i> sacrificial – no external power; ICCP – needs DC supply. (b) <i>Anode:</i> sacrificial – consumable active metal; ICCP – inert/slowly consumed anode. (c) <i>Cost:</i> sacrificial – low installation cost, higher replacement; ICCP – higher installation, lower running cost per unit area. (d) <i>Current:</i> sacrificial – small and fixed; ICCP – large and adjustable. (e) <i>Suitability:</i> sacrificial for small/short-term structures, ICCP for large, well-coated structures and high resistivity soils."
+  ],
+  "diagram": "(a) Underground iron pipe connected by wire to a buried Mg block (arrow: electrons Mg → pipe). (b) Pipe connected to the − terminal of a DC rectifier; the + terminal connected to a graphite anode in coke backfill; arrows show current direction through the soil."
+ },
+ "Q3.5": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Sacrificial (anodic) coating – galvanizing: definition, example, protection even at breaks",
+    "marks": 1.5
+   },
+   {
+    "point": "Noble (cathodic) coating – tinning: example and behaviour at pores/cracks",
+    "marks": 1.5
+   },
+   {
+    "point": "Differences in a table",
+    "marks": 0.5
+   },
+   {
+    "point": "Methods of metallic coating: hot dipping, electroplating, cladding, cementation/sherardizing, metal spraying (any four)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Anodic (sacrificial) coating – galvanizing:</b> iron is coated with zinc, a metal more active (anodic) than iron. Zn protects iron even if the coating is broken, because zinc becomes the anode and is corroded while iron remains the cathode. Used for roofing sheets, buckets, wires, pipes.",
+   "<b>Cathodic (noble) coating – tinning:</b> iron is coated with a less active (more noble) metal such as tin, Ni, Cu or Cr. As long as the coating is intact, it protects; but if a pore or crack appears, iron becomes the anode, the small anodic area meets a large cathode and corrosion is rapid and concentrated. Used for food containers (tin cans), since tin is non-toxic.",
+   "<b>Differences:</b> (a) Zn is anodic to Fe, Sn is cathodic to Fe. (b) Galvanized iron is protected at breaks; tin-plated iron corrodes faster at breaks. (c) Galvanized containers cannot be used for acidic foods (Zn is toxic and attacked); tinned cans are used for food storage.",
+   "<b>Methods of applying metallic coatings:</b> (1) <i>Hot dipping:</i> the base metal is dipped in a molten bath of the coating metal (galvanizing in molten Zn, tinning in molten Sn). (2) <i>Electroplating:</i> the article is made the cathode in a bath containing the salt of the coating metal. (3) <i>Cladding:</i> a thin sheet of the coating metal is bonded by rolling or pressing (e.g. duralumin clad with Al). (4) <i>Cementation (sherardizing, calorizing, chromizing):</i> the article is heated in a powder of Zn, Al or Cr. (5) <i>Metal spraying:</i> molten metal is sprayed on the surface with a spray gun."
+  ]
+ },
+ "Q3.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Principle: treatment with Ca(OH)<sub>2</sub> and Na<sub>2</sub>CO<sub>3</sub> to convert soluble Ca/Mg salts into insoluble CaCO<sub>3</sub> and Mg(OH)<sub>2</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Reactions for temporary hardness (Ca(HCO<sub>3</sub>)<sub>2</sub>, Mg(HCO<sub>3</sub>)<sub>2</sub>) with lime",
+    "marks": 2
+   },
+   {
+    "point": "Reactions for permanent hardness (CaCl<sub>2</sub>, CaSO<sub>4</sub>, MgCl<sub>2</sub>, MgSO<sub>4</sub>) with lime and soda",
+    "marks": 2.5
+   },
+   {
+    "point": "Cold lime-soda process: working conditions, coagulant, residual hardness 50–60 ppm",
+    "marks": 1.5
+   },
+   {
+    "point": "Hot lime-soda process: temperature 80–150 °C, advantages, residual hardness 15–30 ppm",
+    "marks": 1.5
+   },
+   {
+    "point": "Diagram/flow or comparison table and statement of advantages",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Principle:</b> Hardness-causing Ca<sup>2+</sup> and Mg<sup>2+</sup> ions are converted into insoluble CaCO<sub>3</sub> and Mg(OH)<sub>2</sub> by adding calculated amounts of lime Ca(OH)<sub>2</sub> and soda ash Na<sub>2</sub>CO<sub>3</sub>. The precipitates settle and are removed by filtration (sludge).",
+   "<b>Temporary hardness (removed by lime):</b> Ca(HCO<sub>3</sub>)<sub>2</sub> + Ca(OH)<sub>2</sub> → 2CaCO<sub>3</sub>↓ + 2H<sub>2</sub>O; Mg(HCO<sub>3</sub>)<sub>2</sub> + 2Ca(OH)<sub>2</sub> → 2CaCO<sub>3</sub>↓ + Mg(OH)<sub>2</sub>↓ + 2H<sub>2</sub>O.",
+   "<b>Permanent hardness – Mg salts (lime then soda):</b> MgCl<sub>2</sub> + Ca(OH)<sub>2</sub> → Mg(OH)<sub>2</sub>↓ + CaCl<sub>2</sub>; MgSO<sub>4</sub> + Ca(OH)<sub>2</sub> → Mg(OH)<sub>2</sub>↓ + CaSO<sub>4</sub>. The CaCl<sub>2</sub>/CaSO<sub>4</sub> so formed (and the original Ca salts) are removed by soda:",
+   "<b>Permanent hardness – Ca salts (soda):</b> CaCl<sub>2</sub> + Na<sub>2</sub>CO<sub>3</sub> → CaCO<sub>3</sub>↓ + 2NaCl; CaSO<sub>4</sub> + Na<sub>2</sub>CO<sub>3</sub> → CaCO<sub>3</sub>↓ + Na<sub>2</sub>SO<sub>4</sub>. Also CO<sub>2</sub>/H<sup>+</sup> or free acid present consumes lime: CO<sub>2</sub> + Ca(OH)<sub>2</sub> → CaCO<sub>3</sub> + H<sub>2</sub>O.",
+   "<b>Cold lime-soda process:</b> The calculated amounts of lime and soda are mixed with water at room temperature in a continuous tank with a stirrer; a coagulant (alum, sodium aluminate) is added so that the fine precipitates settle. Sludge settles in the conical bottom and softened water is filtered. Residual hardness ≈ 50–60 ppm.",
+   "<b>Hot lime-soda process:</b> The process is carried out at 80–150 °C with a mixture of water, lime and soda heated by steam. Reaction is fast, precipitate settles quickly and coagulant is not needed; dissolved gases are expelled and viscosity falls so filtration is easy. Residual hardness is lower, 15–30 ppm.",
+   "<b>Comparison:</b> hot process – faster, no coagulant, more efficient, costly equipment; cold process – slow, needs coagulant, simple and cheap. Both processes are economical and increase the pH of water, reducing corrosion; the drawback is the disposal of large amounts of sludge."
+  ]
+ },
+ "Q3.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Natural osmosis vs reverse osmosis definition with osmotic pressure",
+    "marks": 2
+   },
+   {
+    "point": "Principle: applying pressure greater than osmotic pressure to the saline side",
+    "marks": 2
+   },
+   {
+    "point": "Labelled diagram of RO cell with semi-permeable membrane",
+    "marks": 2
+   },
+   {
+    "point": "Working, membrane materials (cellulose acetate, polyamide), pressure 15–40 kg/cm<sup>2</sup>",
+    "marks": 2
+   },
+   {
+    "point": "Differences from natural osmosis and merits/uses",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Osmosis</b> is the spontaneous flow of solvent from a dilute solution (or pure solvent) to a concentrated solution through a semi-permeable membrane (SPM). The pressure that just prevents this flow is the osmotic pressure π (π = CRT).",
+   "<b>Reverse osmosis:</b> When a hydrostatic pressure larger than the osmotic pressure is applied on the concentrated (saline) side, the flow of solvent is reversed: pure water passes from the concentrated side to the dilute side, leaving the dissolved salts behind.",
+   "<b>Set-up:</b> A pressure vessel is divided by a semi-permeable membrane (cellulose acetate, polyamide or polysulfone thin-film composite in spiral-wound modules). Hard/saline water is pumped to the feed side at 15–40 kg cm<sup>−2</sup> (up to ≈ 60–70 bar for sea water) after filtration.",
+   "<b>Working:</b> Water molecules pass through the pores, while Ca<sup>2+</sup>, Mg<sup>2+</sup>, Na<sup>+</sup>, Cl<sup>−</sup>, SO<sub>4</sub><sup>2−</sup>, bacteria, colloids and dissolved organics (≈ 95–99 % of dissolved solids) are rejected; the concentrated reject (brine) is drained off. Hence both softening and desalination are achieved.",
+   "<b>Difference from natural osmosis:</b> (a) Direction – RO: solvent moves from concentrated to dilute side; osmosis: dilute to concentrated. (b) Pressure – RO needs applied pressure > π; osmosis is spontaneous. (c) RO is a forced, energy-consuming process used for purification; osmosis is a natural process.",
+   "<b>Advantages:</b> removes ionic and non-ionic, colloidal and bacterial impurities; low cost of operation, membrane can be replaced quickly; compact, no regeneration chemicals. Used in desalination of sea/brackish water, in drinking water plants, boiler feed and pharmaceutical industries.",
+   "<b>Limitation:</b> membrane fouling and scaling, high pressure/energy, wastage of reject water."
+  ],
+  "diagram": "Vessel with a vertical semi-permeable membrane; left chamber labelled 'impure/saline water' with a piston or pump applying pressure P > π; right chamber 'pure water outlet'; reject outlet at the saline side. Arrows show water moving from saline to pure side."
+ },
+ "Q3.8": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Principle: temporary hardness only, addition of calculated amount of lime Ca(OH)<sub>2</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Reaction for Ca(HCO<sub>3</sub>)<sub>2</sub> and Mg(HCO<sub>3</sub>)<sub>2</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Procedure and removal of precipitate; point that excess lime must be avoided",
+    "marks": 1
+   },
+   {
+    "point": "Limitation/application",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Clark's process (lime process)</b> removes only <i>temporary hardness</i> (bicarbonates of Ca and Mg). Calculated amount of slaked lime, Ca(OH)<sub>2</sub>, is added to hard water, which converts soluble bicarbonates into insoluble CaCO<sub>3</sub> and Mg(OH)<sub>2</sub>.",
+   "Ca(HCO<sub>3</sub>)<sub>2</sub> + Ca(OH)<sub>2</sub> → 2CaCO<sub>3</sub>↓ + 2H<sub>2</sub>O",
+   "Mg(HCO<sub>3</sub>)<sub>2</sub> + 2Ca(OH)<sub>2</sub> → 2CaCO<sub>3</sub>↓ + Mg(OH)<sub>2</sub>↓ + 2H<sub>2</sub>O",
+   "Free CO<sub>2</sub> in the water is also removed: CO<sub>2</sub> + Ca(OH)<sub>2</sub> → CaCO<sub>3</sub>↓ + H<sub>2</sub>O.",
+   "<b>Procedure:</b> The measured lime is mixed with the water in a tank, stirred and allowed to settle; the precipitated CaCO<sub>3</sub> and Mg(OH)<sub>2</sub> are filtered off. The quantity of lime must be exact: excess lime itself makes the water hard (and caustic).",
+   "<b>Limitation:</b> permanent hardness (chlorides, sulphates) is not removed; hence it is used as a first step for water containing mainly temporary hardness."
+  ]
+ },
+ "Q3.9": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of hardness; temporary vs permanent hardness salts",
+    "marks": 2
+   },
+   {
+    "point": "Differences (removal by boiling, salts, other names, softening methods) in tabular form",
+    "marks": 2.5
+   },
+   {
+    "point": "Causes of hardness (dissolved Ca/Mg salts from rocks, CO<sub>2</sub> in rain water etc.)",
+    "marks": 1.5
+   },
+   {
+    "point": "Effects of hardness (domestic and industrial, boilers, textile, paper etc.)",
+    "marks": 2
+   },
+   {
+    "point": "Why hard water consumes more soap: reactions forming scum",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Hardness</b> is the soap-destroying power of water, caused by dissolved bicarbonates, chlorides and sulphates of calcium and magnesium (and Fe, Mn, Al salts).",
+   "<b>Temporary (carbonate) hardness:</b> due to bicarbonates of Ca and Mg. It is removed by boiling: Ca(HCO<sub>3</sub>)<sub>2</sub> → CaCO<sub>3</sub>↓ + H<sub>2</sub>O + CO<sub>2</sub>↑; Mg(HCO<sub>3</sub>)<sub>2</sub> → Mg(OH)<sub>2</sub>↓ + 2CO<sub>2</sub>↑.",
+   "<b>Permanent (non-carbonate) hardness:</b> due to chlorides and sulphates of Ca and Mg (CaCl<sub>2</sub>, MgCl<sub>2</sub>, CaSO<sub>4</sub>, MgSO<sub>4</sub>). It is not removed by boiling; it needs lime-soda, zeolite, or ion exchange treatment.",
+   "<b>Differences:</b> (1) salts – bicarbonates vs chlorides/sulphates; (2) boiling removes the first, not the second; (3) temporary hardness can also be removed by Clark's process, permanent only by chemical methods; (4) temporary hardness causes scale/sludge by decomposition, permanent hardness causes scales at the high temperature of boilers (CaSO<sub>4</sub>) due to decreased solubility.",
+   "<b>Causes:</b> Rain water dissolves CO<sub>2</sub> from air and soil to form carbonic acid, which attacks limestone, dolomite and gypsum on its way, bringing Ca<sup>2+</sup>, Mg<sup>2+</sup>, HCO<sub>3</sub><sup>−</sup>, Cl<sup>−</sup> and SO<sub>4</sub><sup>2−</sup> into ground and river water: CaCO<sub>3</sub> + H<sub>2</sub>O + CO<sub>2</sub> → Ca(HCO<sub>3</sub>)<sub>2</sub>.",
+   "<b>Effects:</b> (a) Domestic: wastage of soap, scum on clothes, bad taste, poor cooking of pulses/vegetables, scaling of kettles. (b) Industrial: boiler scale and sludge, corrosion, reduced efficiency and risk of explosions; in textile and dyeing industries poor dyeing and spots; in paper and sugar industries impure product; in pharmaceutical industry contamination.",
+   "<b>Soap consumption:</b> Soap is sodium/potassium salt of higher fatty acid (e.g. sodium stearate, C<sub>17</sub>H<sub>35</sub>COONa). Ca<sup>2+</sup> and Mg<sup>2+</sup> react with it to give insoluble scum: 2C<sub>17</sub>H<sub>35</sub>COONa + CaCl<sub>2</sub> → (C<sub>17</sub>H<sub>35</sub>COO)<sub>2</sub>Ca↓ + 2NaCl; 2C<sub>17</sub>H<sub>35</sub>COONa + MgSO<sub>4</sub> → (C<sub>17</sub>H<sub>35</sub>COO)<sub>2</sub>Mg↓ + Na<sub>2</sub>SO<sub>4</sub>.",
+   "Lather is formed only after all Ca<sup>2+</sup>/Mg<sup>2+</sup> have been precipitated; thus a large quantity of soap is wasted before cleaning can start."
+  ]
+ },
+ "Q3.10": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Differences between sludge and scale (any three)",
+    "marks": 1.5
+   },
+   {
+    "point": "Calgon conditioning: formula Na<sub>2</sub>[Na<sub>4</sub>(PO<sub>3</sub>)<sub>6</sub>] and reaction forming soluble complex [Na<sub>2</sub>Ca<sub>2</sub>(PO<sub>3</sub>)<sub>6</sub>]",
+    "marks": 2
+   },
+   {
+    "point": "Why Calgon is superior (soluble complex, no sludge, no pH problem, easy to use)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Sludge</b> is a soft, loose, slimy precipitate (MgCO<sub>3</sub>, MgCl<sub>2</sub>, CaCl<sub>2</sub>, MgSO<sub>4</sub>) formed in colder parts of the boiler; it is a poor conductor of heat, but is easily removed by blow-down. <b>Scale</b> is a hard, adherent coating (CaSO<sub>4</sub>, CaCO<sub>3</sub>, Mg(OH)<sub>2</sub>, silica) on the inner walls at the hottest parts; it is removed with difficulty (scraping, thermal shock, chemical treatment) and causes fuel wastage, overheating and explosions.",
+   "<b>Calgon conditioning:</b> Calgon is sodium hexametaphosphate, Na<sub>2</sub>[Na<sub>4</sub>(PO<sub>3</sub>)<sub>6</sub>]. It is added to the boiler water, where it reacts with Ca<sup>2+</sup> to form a highly soluble complex ion, which does not precipitate:",
+   "2CaSO<sub>4</sub> + Na<sub>2</sub>[Na<sub>4</sub>(PO<sub>3</sub>)<sub>6</sub>] → Na<sub>2</sub>[Ca<sub>2</sub>(PO<sub>3</sub>)<sub>6</sub>] + 2Na<sub>2</sub>SO<sub>4</sub> (the Ca<sup>2+</sup> is held in a soluble complex anion, so scale is prevented).",
+   "<b>Superiority over phosphate/carbonate conditioning:</b> (i) no insoluble sludge or scale of calcium phosphate/carbonate is produced; the complex is soluble and passes out with the blow-down; (ii) it also dissolves the scale already present; (iii) it works over a wide pH range and does not need maintaining a precise alkalinity (phosphate conditioning needs pH 9–10); (iv) the quantity of treatment is small and the process is simple and economical."
+  ]
+ },
+ "Q3.11": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Implications of hard water in boilers: scale and sludge, corrosion, caustic embrittlement, priming and foaming (any four)",
+    "marks": 2
+   },
+   {
+    "point": "Priming: definition and cause",
+    "marks": 1
+   },
+   {
+    "point": "Foaming: definition and cause",
+    "marks": 1
+   },
+   {
+    "point": "Prevention of priming and foaming",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Implications:</b> (1) <i>Scale and sludge formation:</i> reduced heat transfer, fuel wastage, overheating of tubes and explosion risk; clogging of pipes. (2) <i>Corrosion:</i> dissolved O<sub>2</sub>, CO<sub>2</sub> and acid produced by MgCl<sub>2</sub> hydrolysis (MgCl<sub>2</sub> + 2H<sub>2</sub>O → Mg(OH)<sub>2</sub> + 2HCl) attack boiler metal. (3) <i>Caustic embrittlement:</i> NaOH from Na<sub>2</sub>CO<sub>3</sub> hydrolysis causes cracks at stressed joints. (4) <i>Priming and foaming</i> cause wet steam and carry-over. (5) Decrease in boiler life and efficiency.",
+   "<b>Priming:</b> the production of wet steam when a boiler is steamed very rapidly, so that tiny droplets of water are carried along with the steam. <i>Causes:</i> very high water level, sudden boiling, high steam velocity, defective boiler design, large amount of dissolved solids.",
+   "<b>Foaming:</b> the formation of a persistent foam or bubbles at the water surface which do not break easily. <i>Causes:</i> presence of oil, grease and suspended impurities and surface-active agents (soaps, detergents), which lower surface tension.",
+   "<b>Prevention:</b> Priming – maintain a proper water level, avoid sudden steaming, use steam purifiers/baffles, soften water to reduce dissolved solids, blow-down regularly. Foaming – remove oil by adding sodium aluminate or anti-foaming agents (castor oil, synthetic polyamides), and remove oil and suspended solids from feed water by blow-down and filtering."
+  ]
+ },
+ "Q3.12": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Definition of alkalinity (acid-neutralising capacity)",
+    "marks": 1
+   },
+   {
+    "point": "Causes of alkalinity (OH<sup>−</sup>, CO<sub>3</sub><sup>2−</sup>, HCO<sub>3</sub><sup>−</sup>) and their combinations",
+    "marks": 1.5
+   },
+   {
+    "point": "Determination by titration with standard H<sub>2</sub>SO<sub>4</sub> using phenolphthalein (P) and methyl orange (M) indicators",
+    "marks": 1.5
+   },
+   {
+    "point": "Reactions and calculation table P, M (OH<sup>−</sup>, CO<sub>3</sub><sup>2−</sup>, HCO<sub>3</sub><sup>−</sup>)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Alkalinity</b> of water is its capacity to neutralise acid; it is expressed in ppm or mg/L as CaCO<sub>3</sub>.",
+   "<b>Causes:</b> presence of hydroxide (OH<sup>−</sup>), carbonate (CO<sub>3</sub><sup>2−</sup>) and bicarbonate (HCO<sub>3</sub><sup>−</sup>) ions, formed by dissolution of rocks, CO<sub>2</sub>, and by the addition of lime/soda in softening. OH<sup>−</sup> and HCO<sub>3</sub><sup>−</sup> cannot exist together because OH<sup>−</sup> + HCO<sub>3</sub><sup>−</sup> → CO<sub>3</sub><sup>2−</sup> + H<sub>2</sub>O. Possible combinations: OH<sup>−</sup> alone; CO<sub>3</sub><sup>2−</sup> alone; HCO<sub>3</sub><sup>−</sup> alone; OH<sup>−</sup> + CO<sub>3</sub><sup>2−</sup>; CO<sub>3</sub><sup>2−</sup> + HCO<sub>3</sub><sup>−</sup>.",
+   "<b>Determination:</b> A known volume (e.g. 100 mL) of water is titrated with standard N/50 H<sub>2</sub>SO<sub>4</sub>. First with phenolphthalein indicator until the pink colour disappears (end point P: neutralises all OH<sup>−</sup> and half the CO<sub>3</sub><sup>2−</sup>: OH<sup>−</sup> + H<sup>+</sup> → H<sub>2</sub>O; CO<sub>3</sub><sup>2−</sup> + H<sup>+</sup> → HCO<sub>3</sub><sup>−</sup>). Then methyl orange is added and the titration continued to the red/orange end point (total M: HCO<sub>3</sub><sup>−</sup> + H<sup>+</sup> → H<sub>2</sub>O + CO<sub>2</sub>).",
+   "<b>Calculation (P and M in mL of acid):</b> P = 0, M > 0 → only HCO<sub>3</sub><sup>−</sup> = M; P = ½M → only CO<sub>3</sub><sup>2−</sup> = 2P; P = M → only OH<sup>−</sup> = P; P < ½M → CO<sub>3</sub><sup>2−</sup> = 2P and HCO<sub>3</sub><sup>−</sup> = M − 2P; P > ½M → OH<sup>−</sup> = 2P − M and CO<sub>3</sub><sup>2−</sup> = 2(M − P). Alkalinity (ppm as CaCO<sub>3</sub>) = (volume × normality × 50 × 1000)/(volume of sample)."
+  ]
+ },
+ "Q3.13": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Conversion of each impurity to CaCO<sub>3</sub> equivalent (multiplying factor 100/mol. mass)",
+    "marks": 3
+   },
+   {
+    "point": "Identifying which impurities need lime and/or soda (formula with 74/100 and 106/100)",
+    "marks": 2
+   },
+   {
+    "point": "Lime requirement per litre: 22.2 mg/L",
+    "marks": 1.5
+   },
+   {
+    "point": "Soda requirement per litre: 21.2 mg/L",
+    "marks": 1.5
+   },
+   {
+    "point": "Purity correction and quantity for 50,000 L: lime 1387.5 g, soda 1177.8 g",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Step 1 – Convert to CaCO<sub>3</sub> equivalents</b> (mg/L × 100/molar mass): CaSO<sub>4</sub> (136): 13.6 × 100/136 = 10; MgCl<sub>2</sub> (95): 9.5 × 100/95 = 10; Mg(HCO<sub>3</sub>)<sub>2</sub> (146): 7.3 × 100/146 = 5; Ca(HCO<sub>3</sub>)<sub>2</sub> (162): 16.2 × 100/162 = 10.",
+   "<b>Step 2 – Classify:</b> Temporary Ca (Ca(HCO<sub>3</sub>)<sub>2</sub>) = 10; temporary Mg (Mg(HCO<sub>3</sub>)<sub>2</sub>) = 5; permanent Ca (CaSO<sub>4</sub>) = 10; permanent Mg (MgCl<sub>2</sub>) = 10 (all in mg/L as CaCO<sub>3</sub>).",
+   "<b>Step 3 – Formulae:</b> Lime = 74/100 [Temp Ca + 2 × Temp Mg + Perm Mg] and Soda = 106/100 [Perm Ca + Perm Mg] (mg/L as CaCO<sub>3</sub>). (Ca(HCO<sub>3</sub>)<sub>2</sub> needs 1 lime, Mg(HCO<sub>3</sub>)<sub>2</sub> needs 2 lime, MgCl<sub>2</sub> needs 1 lime then 1 soda, CaSO<sub>4</sub> needs 1 soda.)",
+   "<b>Lime</b> = 74/100 × [10 + 2(5) + 10] = 0.74 × 30 = 22.2 mg/L.",
+   "<b>Soda</b> = 106/100 × [10 + 10] = 1.06 × 20 = 21.2 mg/L.",
+   "<b>Step 4 – For 50,000 L:</b> pure lime = 22.2 × 50,000 = 1,110,000 mg = 1110 g; pure soda = 21.2 × 50,000 = 1,060,000 mg = 1060 g.",
+   "<b>Step 5 – Purity correction:</b> lime (80 % pure) = 1110/0.80 = 1387.5 g = 1.3875 kg; soda (90 % pure) = 1060/0.90 = 1177.8 g = 1.178 kg."
+  ],
+  "formulas": [
+   "Lime = (74/100)[Temp Ca + 2 Temp Mg + Perm Mg]",
+   "Soda = (106/100)[Perm Ca + Perm Mg]"
+  ],
+  "result": "Lime ≈ 1.39 kg (1387.5 g); Soda ≈ 1.18 kg (1177.8 g)"
+ },
+ "Q3.14": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Conversion of Ca<sup>2+</sup>, Mg<sup>2+</sup>, CO<sub>2</sub>, HCO<sub>3</sub><sup>−</sup> and NaAlO<sub>2</sub> to CaCO<sub>3</sub> equivalents (400, 400, 50, 91, 24.4)",
+    "marks": 3
+   },
+   {
+    "point": "Correct formula for lime with sodium aluminate (subtracted) and soda formula",
+    "marks": 2
+   },
+   {
+    "point": "Lime per litre ≈ 382.3 mg/L",
+    "marks": 1.5
+   },
+   {
+    "point": "Soda per litre ≈ 751.6 mg/L",
+    "marks": 1.5
+   },
+   {
+    "point": "Quantity for 10,000 L: lime ≈ 3.82 kg, soda ≈ 7.52 kg",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Assumption:</b> ppm of ions are converted to CaCO<sub>3</sub> equivalents using equivalent weights (Ca<sup>2+</sup> = 20, Mg<sup>2+</sup> = 12, CO<sub>2</sub> = 22, HCO<sub>3</sub><sup>−</sup> = 61, NaAlO<sub>2</sub> = 82); NaAlO<sub>2</sub> hydrolyses to NaOH, which acts like lime and so reduces the lime requirement.",
+   "<b>Convert to CaCO<sub>3</sub> equivalents:</b> Ca<sup>2+</sup> = 160 × 100/40 = 400 ppm; Mg<sup>2+</sup> = 96 × 100/24 = 400 ppm; CO<sub>2</sub> = 22 × 100/44 = 50 ppm; HCO<sub>3</sub><sup>−</sup> = 111 × 100/122 = 90.98 ppm; NaAlO<sub>2</sub> = 20 × 100/82 = 24.39 ppm.",
+   "<b>Formulae:</b> Lime = 74/100 [Mg<sup>2+</sup> + CO<sub>2</sub> + HCO<sub>3</sub><sup>−</sup> − NaAlO<sub>2</sub>]; Soda = 106/100 [Ca<sup>2+</sup> + Mg<sup>2+</sup> − HCO<sub>3</sub><sup>−</sup>] (all as CaCO<sub>3</sub>).",
+   "<b>Lime</b> = 0.74 × [400 + 50 + 90.98 − 24.39] = 0.74 × 516.59 = 382.3 mg/L.",
+   "<b>Soda</b> = 1.06 × [400 + 400 − 90.98] = 1.06 × 709.02 = 751.6 mg/L.",
+   "<b>For 10,000 L:</b> lime = 382.3 × 10,000 mg = 3.823 × 10<sup>6</sup> mg = 3.82 kg; soda = 751.6 × 10,000 mg = 7.516 × 10<sup>6</sup> mg = 7.52 kg."
+  ],
+  "result": "Lime ≈ 3.82 kg; Soda ≈ 7.52 kg (for 10,000 L)"
+ },
+ "Q3.15": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Mass of NaCl used: 58 L × 100 g/L = 5800 g",
+    "marks": 1
+   },
+   {
+    "point": "Equivalence: 2NaCl ≡ CaCO<sub>3</sub> (117 g NaCl ≡ 100 g CaCO<sub>3</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "Hardness removed = 4957 g CaCO<sub>3</sub> equivalent",
+    "marks": 1
+   },
+   {
+    "point": "Hardness = 495.7 mg/L (ppm) with units",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "NaCl used for regeneration = 58 L × 100 g L<sup>−1</sup> = 5800 g.",
+   "Regeneration: CaZ + 2NaCl → Na<sub>2</sub>Z + CaCl<sub>2</sub>. Equivalent masses: NaCl = 58.5 and CaCO<sub>3</sub> = 50, so 117 g NaCl ≡ 100 g CaCO<sub>3</sub>.",
+   "CaCO<sub>3</sub> equivalent of hardness removed = 5800 × 100/117 = 4957.3 g = 4.957 × 10<sup>6</sup> mg.",
+   "This hardness was in 10,000 L: hardness = 4.957 × 10<sup>6</sup> mg/10,000 L = <b>495.7 mg/L ≈ 496 ppm</b> as CaCO<sub>3</sub>."
+  ],
+  "result": "Hardness ≈ 496 ppm (mg/L) as CaCO<sub>3</sub>"
+ },
+ "Q3.16": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Total NaCl: 150 L × 150 g/L = 22,500 g",
+    "marks": 1
+   },
+   {
+    "point": "CaCO<sub>3</sub> equivalent: 22,500 × 100/117 = 19,231 g",
+    "marks": 1.5
+   },
+   {
+    "point": "Hardness 600 ppm = 0.6 g/L",
+    "marks": 1
+   },
+   {
+    "point": "Volume of water = 19,231/0.6 ≈ 32,051 L",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "NaCl used = 150 L × 150 g L<sup>−1</sup> = 22,500 g.",
+   "117 g NaCl ≡ 100 g CaCO<sub>3</sub> ⇒ hardness-removing capacity = 22,500 × 100/117 = 19,230.8 g CaCO<sub>3</sub>.",
+   "Hardness of sample = 600 ppm = 600 mg/L = 0.6 g/L.",
+   "Volume of water softened = 19,230.8 g/(0.6 g L<sup>−1</sup>) = <b>32,051 L ≈ 3.2 × 10<sup>4</sup> L</b>."
+  ],
+  "result": "≈ 32,051 L of water"
+ },
+ "Q3.17": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Stoichiometry: 1 mL of 0.01 M EDTA ≡ 1 mg CaCO<sub>3</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Total hardness (30 mL): 300 mg/L",
+    "marks": 3
+   },
+   {
+    "point": "Permanent hardness (boiled sample, 10 mL): 100 mg/L",
+    "marks": 2.5
+   },
+   {
+    "point": "Temporary (carbonate) hardness = total − permanent = 200 mg/L",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "1 mL of 0.01 M EDTA contains 0.01 mmol EDTA, which reacts 1:1 with 0.01 mmol Ca<sup>2+</sup> ≡ 0.01 mmol CaCO<sub>3</sub> = 0.01 × 100 mg = 1 mg CaCO<sub>3</sub>.",
+   "<b>(i) Total hardness:</b> 100 mL requires 30.0 mL, ≡ 30 mg CaCO<sub>3</sub> in 100 mL. Hardness = 30 × (1000/100) = <b>300 mg/L</b>.",
+   "<b>(ii) Permanent hardness:</b> after boiling, temporary hardness is removed. 100 mL needs 10.0 mL ≡ 10 mg CaCO<sub>3</sub> per 100 mL, so permanent hardness = 10 × 10 = <b>100 mg/L</b>.",
+   "<b>(iii) Carbonate (temporary) hardness</b> = total − permanent = 300 − 100 = <b>200 mg/L</b>."
+  ],
+  "result": "Total = 300 mg/L; permanent = 100 mg/L; carbonate (temporary) = 200 mg/L as CaCO<sub>3</sub>"
+ },
+ "Q3.18": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Conversion of each salt to CaCO<sub>3</sub> equivalent using 100/molar mass",
+    "marks": 2
+   },
+   {
+    "point": "Identification of temporary (bicarbonates) and permanent (Cl<sup>−</sup>, SO<sub>4</sub><sup>2−</sup>, NO<sub>3</sub><sup>−</sup>) salts",
+    "marks": 1
+   },
+   {
+    "point": "Temporary hardness ≈ 51.07 mg/L",
+    "marks": 1
+   },
+   {
+    "point": "Permanent hardness ≈ 51.34 mg/L with units",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Molar masses:</b> Ca(HCO<sub>3</sub>)<sub>2</sub> = 162; MgCl<sub>2</sub> = 95; CaSO<sub>4</sub> = 136; Mg(NO<sub>3</sub>)<sub>2</sub> = 148; Mg(HCO<sub>3</sub>)<sub>2</sub> = 146.",
+   "<b>CaCO<sub>3</sub> equivalents</b> (mg/L × 100/M): Ca(HCO<sub>3</sub>)<sub>2</sub> = 55 × 100/162 = 33.95; MgCl<sub>2</sub> = 20 × 100/95 = 21.05; CaSO<sub>4</sub> = 32 × 100/136 = 23.53; Mg(NO<sub>3</sub>)<sub>2</sub> = 10 × 100/148 = 6.76; Mg(HCO<sub>3</sub>)<sub>2</sub> = 25 × 100/146 = 17.12.",
+   "<b>Temporary hardness</b> (bicarbonates) = 33.95 + 17.12 = <b>51.07 mg/L</b>.",
+   "<b>Permanent hardness</b> (MgCl<sub>2</sub>, CaSO<sub>4</sub>, Mg(NO<sub>3</sub>)<sub>2</sub>) = 21.05 + 23.53 + 6.76 = <b>51.34 mg/L</b>. (Total hardness = 102.4 mg/L.)"
+  ],
+  "result": "Temporary ≈ 51.1 ppm; Permanent ≈ 51.3 ppm (as CaCO<sub>3</sub>)"
+ },
+ "Q4.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Principle: complete combustion of a known mass of fuel at constant volume in excess O<sub>2</sub> in a closed bomb; heat absorbed by water",
+    "marks": 1.5
+   },
+   {
+    "point": "Labelled diagram of bomb calorimeter",
+    "marks": 2
+   },
+   {
+    "point": "Construction (stainless steel bomb, crucible, ignition wire, oxygen inlet, calorimeter, stirrer, Beckmann thermometer, air jacket)",
+    "marks": 2
+   },
+   {
+    "point": "Working procedure: 1 g fuel, 25 atm O<sub>2</sub>, ignition, temperature rise",
+    "marks": 1.5
+   },
+   {
+    "point": "Formula for GCV and NCV (NCV = GCV − 0.09H × 587)",
+    "marks": 1.5
+   },
+   {
+    "point": "Corrections: fuse wire, acid (HNO<sub>3</sub>, H<sub>2</sub>SO<sub>4</sub>), cooling/radiation",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Principle:</b> A known mass of the fuel is burnt completely in excess oxygen at constant volume inside a closed steel bomb, which is immersed in a known mass of water. The heat liberated is absorbed by the water and the calorimeter; from the rise in temperature, the calorific value is calculated. Since products are cooled to the initial temperature, the steam condenses and the value found is the <b>Gross (higher) calorific value</b>.",
+   "<b>Construction:</b> (i) A strong stainless-steel <i>bomb</i> with a gas-tight screw lid, provided with an oxygen inlet valve and two electrodes; (ii) a small ignition (nickel/platinum) crucible supported on one electrode; a fine fuse wire connects the electrodes and touches the fuel; (iii) the bomb is placed in a copper <i>calorimeter</i> containing a known weight of water, fitted with a stirrer and a Beckmann thermometer; (iv) an outer air jacket and water jacket minimise heat loss.",
+   "<b>Working:</b> About 0.5–1 g of the fuel (pelletised if solid) is weighed in the crucible, the fuse wire is arranged, and the bomb is filled with pure oxygen at about 25 atm. It is placed in the water of the calorimeter, and the initial steady temperature t<sub>1</sub> is noted. The fuel is ignited electrically; combustion is rapid, the stirrer is operated and the maximum temperature t<sub>2</sub> is recorded.",
+   "<b>Calculation:</b> Let x = mass of fuel, W = mass of water, w = water equivalent of calorimeter and bomb, Δt = (t<sub>2</sub> − t<sub>1</sub>) with corrections. Then heat gained = (W + w)Δt, so <b>GCV = (W + w)(t<sub>2</sub> − t<sub>1</sub> + t<sub>c</sub>) − (fuse + acid corrections) / x</b> (cal/g or kcal/kg).",
+   "<b>Corrections:</b> (1) <i>Fuse wire correction</i> – heat produced by burning of the ignition wire is subtracted. (2) <i>Acid correction</i> – nitrogen and sulphur in the fuel oxidise to HNO<sub>3</sub> and H<sub>2</sub>SO<sub>4</sub> under high pressure, liberating extra heat (formation of HNO<sub>3</sub> 57.6 kcal/mol, H<sub>2</sub>SO<sub>4</sub> 144 kcal/mol), which must be subtracted. (3) <i>Cooling (radiation) correction</i> – heat lost by radiation during the experiment is added to the observed rise of temperature (t<sub>c</sub>, found from the cooling rate). (4) Also the sensitivity of the thermometer and heat of ignition pellets may be corrected.",
+   "<b>Net calorific value:</b> NCV = GCV − latent heat of steam formed = GCV − 0.09 H × 587 cal/g (H = % hydrogen; 587 cal/g is the latent heat of steam; 1 g H gives 9 g H<sub>2</sub>O).",
+   "<b>Use:</b> accurate determination of the calorific value of solid and non-volatile liquid fuels (coal, coke, fuel oil)."
+  ],
+  "formulas": [
+   "GCV = [(W + w)(t<sub>2</sub> − t<sub>1</sub> + t<sub>c</sub>) − (acid + fuse)]/x",
+   "NCV = GCV − 0.09 H × 587"
+  ],
+  "diagram": "Cut-section of the bomb: stainless-steel bomb with screw cap, O<sub>2</sub> inlet valve, two electrodes with fuse wire, crucible containing fuel; bomb immersed in water in a copper calorimeter with stirrer and Beckmann thermometer; outer air jacket and insulating water jacket."
+ },
+ "Q4.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of conducting polymer (conjugated π-electron backbone)",
+    "marks": 1.5
+   },
+   {
+    "point": "Classification: intrinsically conducting (conjugated, doped) and extrinsically conducting (conducting-element filled, blended)",
+    "marks": 2
+   },
+   {
+    "point": "Structures of polyacetylene, polyaniline, polypyrrole/polythiophene",
+    "marks": 2
+   },
+   {
+    "point": "p-type doping (oxidative) with I<sub>2</sub>/AsF<sub>5</sub> – mechanism with polaron/bipolaron",
+    "marks": 1.5
+   },
+   {
+    "point": "n-type doping (reductive) with Na/Li – mechanism",
+    "marks": 1.5
+   },
+   {
+    "point": "Applications (at least four)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Conducting polymers</b> are organic polymers that conduct electricity. Ordinary polymers are insulators, but polymers having a backbone of alternate single and double bonds (conjugated π-system) become conducting when doped.",
+   "<b>Classification:</b> (1) <i>Intrinsically conducting polymers</i> – conductivity arises from the conjugated π electrons of the polymer backbone. (a) Conjugated polymers: polyacetylene (–CH=CH–)<sub>n</sub>, polyaniline, polypyrrole, polythiophene, poly(p-phenylene vinylene). (b) Doped polymers obtained from the above by oxidation/reduction. (2) <i>Extrinsically conducting polymers</i> – an insulating polymer filled with conducting material such as carbon black, metal fibres or oxides (conducting-element filled) or blended with a conducting polymer.",
+   "<b>Structure:</b> polyacetylene –CH=CH–CH=CH–; polyaniline: alternating benzenoid–amine and quinoid–imine units (–C<sub>6</sub>H<sub>4</sub>–NH–C<sub>6</sub>H<sub>4</sub>–N=); polypyrrole and polythiophene: five-membered rings (N–H or S) linked at 2,5 positions. The extended π-orbitals overlap to give bands, but with a band gap, so undoped polymer is a semiconductor/insulator.",
+   "<b>Doping:</b> Conductivity is raised (from 10<sup>−10</sup> to about 10<sup>3</sup>–10<sup>5</sup> S cm<sup>−1</sup>) by introducing charge carriers via redox doping.",
+   "<b>p-doping (oxidative):</b> The polymer is treated with an oxidising agent such as I<sub>2</sub>, Br<sub>2</sub>, AsF<sub>5</sub> or FeCl<sub>3</sub>. An electron is removed from the π-bond, creating a positive hole (radical cation, polaron/bipolaron) delocalised along the chain: (CH)<sub>n</sub> + (3x/2)I<sub>2</sub> → [(CH)<sup>x+</sup>]<sub>n</sub> + xI<sub>3</sub><sup>−</sup>. These holes move through the chain under a potential, giving conduction.",
+   "<b>n-doping (reductive):</b> Treatment with a reducing agent such as sodium naphthalide, Li or Na adds electrons to the π* band, forming carbanions (negative charge carriers): (CH)<sub>n</sub> + xNa → [(CH)<sup>x−</sup>]<sub>n</sub> + xNa<sup>+</sup>. The charges migrate along the chain. n-doped polymers are less stable in air.",
+   "<b>Applications:</b> rechargeable lightweight batteries, electrochromic displays and smart windows, organic light-emitting diodes (OLED), solar cells, sensors and biosensors, antistatic coatings and EMI shielding, corrosion protection coatings, artificial muscles/actuators, transistors and microelectronic devices."
+  ],
+  "diagram": "Energy-band sketch showing neutral polymer with gap; after p-doping a polaron level appears above VB; after n-doping a level appears below CB."
+ },
+ "Q4.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "PMMA: monomer, preparation, properties, uses",
+    "marks": 2
+   },
+   {
+    "point": "PAN: monomer, preparation, properties, uses",
+    "marks": 1.5
+   },
+   {
+    "point": "PET: monomers, condensation reaction, properties, uses",
+    "marks": 2
+   },
+   {
+    "point": "Nylon-6,6: monomers (hexamethylenediamine + adipic acid), reaction, properties, uses",
+    "marks": 1.5
+   },
+   {
+    "point": "Polyurethane: diisocyanate + diol reaction, properties, uses",
+    "marks": 1.5
+   },
+   {
+    "point": "Buna-S and Buna-N: monomers, preparation, properties, uses",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(i) PMMA (Plexiglass/Perspex):</b> Preparation: addition polymerisation of methyl methacrylate CH<sub>2</sub>=C(CH<sub>3</sub>)COOCH<sub>3</sub> with benzoyl peroxide in bulk/suspension: n CH<sub>2</sub>=C(CH<sub>3</sub>)COOCH<sub>3</sub> → [–CH<sub>2</sub>–C(CH<sub>3</sub>)(COOCH<sub>3</sub>)–]<sub>n</sub>. Properties: hard, transparent (92 % light transmission), amorphous, weather resistant, good dielectric, brittle compared with polycarbonate. Uses: lenses, aircraft windows and canopies, display signs, dentures, bone cement, light covers.",
+   "<b>(ii) PAN (polyacrylonitrile, Orlon/Acrilan):</b> Preparation: free-radical polymerisation of acrylonitrile CH<sub>2</sub>=CH–CN: n CH<sub>2</sub>=CHCN → [–CH<sub>2</sub>–CH(CN)–]<sub>n</sub>. Properties: high tensile strength, polar, resistant to solvents and sunlight, high melting point. Uses: acrylic fibres (wool substitute, blankets, sweaters), precursor of carbon fibre, membranes.",
+   "<b>(iii) PET (Dacron/Terylene):</b> Preparation: condensation (step-growth) of terephthalic acid (or dimethyl terephthalate) with ethylene glycol at 150–200 °C, then 280 °C under vacuum, eliminating water (or methanol): n HOOC–C<sub>6</sub>H<sub>4</sub>–COOH + n HOCH<sub>2</sub>CH<sub>2</sub>OH → [–OC–C<sub>6</sub>H<sub>4</sub>–COO–CH<sub>2</sub>CH<sub>2</sub>–O–]<sub>n</sub> + 2n H<sub>2</sub>O. Properties: high tensile strength, crystalline, low moisture absorption, resistant to chemicals. Uses: textile fibres (Terylene), bottles, films, tyre cords, packaging.",
+   "<b>(iv) Nylon-6,6:</b> Preparation: condensation of hexamethylenediamine H<sub>2</sub>N(CH<sub>2</sub>)<sub>6</sub>NH<sub>2</sub> with adipic acid HOOC(CH<sub>2</sub>)<sub>4</sub>COOH at 250 °C: n H<sub>2</sub>N(CH<sub>2</sub>)<sub>6</sub>NH<sub>2</sub> + n HOOC(CH<sub>2</sub>)<sub>4</sub>COOH → [–NH(CH<sub>2</sub>)<sub>6</sub>NHCO(CH<sub>2</sub>)<sub>4</sub>CO–]<sub>n</sub> + 2n H<sub>2</sub>O. Properties: strong, tough, abrasion resistant, high m.p. (265 °C), hydrogen bonding between chains. Uses: fibres, ropes, tyre cords, gears and bearings.",
+   "<b>(v) Polyurethane:</b> Preparation: polyaddition of a diisocyanate (toluene-2,4-diisocyanate) with a diol (ethylene glycol) or polyol: n OCN–R–NCO + n HO–R′–OH → [–CO–NH–R–NH–CO–O–R′–O–]<sub>n</sub>. Properties: elastic, tough, abrasion and chemical resistant. Uses: foams (cushions, mattresses), insulation, paints, adhesives, elastic fibres (spandex), shoe soles.",
+   "<b>(vi) Buna-S (SBR):</b> copolymer of butadiene (75 %) and styrene (25 %), emulsion polymerisation with free-radical initiator at 5 °C (cold rubber). Properties: good abrasion resistance, ageing resistance, but poor oil resistance; vulcanised with S. Uses: tyres, footwear soles, floor tiles, cables. <b>Buna-N (NBR):</b> copolymer of butadiene and acrylonitrile (CH<sub>2</sub>=CH–CN) by emulsion polymerisation. Properties: excellent resistance to oils, petrol and solvents. Uses: oil seals, gaskets, hoses, tank linings, conveyor belts."
+  ]
+ },
+ "Q4.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Addition polymerisation: definition, example (ethylene → polyethylene), free-radical mechanism with initiation, propagation, termination steps",
+    "marks": 3.5
+   },
+   {
+    "point": "Condensation polymerisation: definition, mechanism (step-wise reaction with elimination of small molecules), examples (Nylon-6,6, PET, Bakelite)",
+    "marks": 3
+   },
+   {
+    "point": "Differences between chain-growth and step-growth (at least four points)",
+    "marks": 3.5
+   }
+  ],
+  "answer": [
+   "<b>Addition (chain-growth) polymerisation:</b> Monomers containing a double bond (vinyl type) add to one another repeatedly to form a polymer without loss of any small molecule. The polymer has the same empirical formula as the monomer. Example: n CH<sub>2</sub>=CH<sub>2</sub> → [–CH<sub>2</sub>–CH<sub>2</sub>–]<sub>n</sub>.",
+   "<b>Free-radical mechanism:</b> (1) <i>Initiation:</i> peroxide (R–O–O–R) → 2RO•; RO• + CH<sub>2</sub>=CH<sub>2</sub> → RO–CH<sub>2</sub>–CH<sub>2</sub>•. (2) <i>Propagation:</i> RO–CH<sub>2</sub>–CH<sub>2</sub>• + CH<sub>2</sub>=CH<sub>2</sub> → RO–(CH<sub>2</sub>–CH<sub>2</sub>)<sub>2</sub>• → … → RO–(CH<sub>2</sub>CH<sub>2</sub>)<sub>n</sub>•. (3) <i>Termination:</i> by coupling of two growing chains, 2 R(CH<sub>2</sub>CH<sub>2</sub>)<sub>n</sub>• → R(CH<sub>2</sub>CH<sub>2</sub>)<sub>2n</sub>R, or by disproportionation. Other examples: PVC, polystyrene, PTFE, polypropylene. Ionic (cationic/anionic) and coordination mechanisms also exist.",
+   "<b>Condensation (step-growth) polymerisation:</b> Bifunctional (or polyfunctional) monomers react with each other, with the elimination of small molecules such as H<sub>2</sub>O, HCl or CH<sub>3</sub>OH at each step. The polymer repeat unit differs from the monomers.",
+   "<b>Mechanism:</b> A dimer forms first (e.g. diamine + diacid → amide + H<sub>2</sub>O), the dimer reacts further with monomers or other dimers to form trimers, tetramers and finally long chains: H<sub>2</sub>N–R–NH<sub>2</sub> + HOOC–R′–COOH → H<sub>2</sub>N–R–NHCO–R′–COOH + H<sub>2</sub>O → … → [–NH–R–NHCO–R′–CO–]<sub>n</sub>. Examples: Nylon-6,6, PET (terephthalic acid + ethylene glycol), Bakelite (phenol + formaldehyde), polycarbonate.",
+   "<b>Chain-growth vs step-growth:</b> (1) Monomers: unsaturated (C=C) vs bifunctional with reactive groups (–OH, –COOH, –NH<sub>2</sub>). (2) Growth: by successive addition of monomer to an active centre (radical/ion) vs reaction between any two species (monomer–monomer, oligomer–oligomer). (3) High molecular mass formed quickly even at low conversion vs high molecular mass reached only at very high conversion (>99 %). (4) By-products: none vs small molecules like H<sub>2</sub>O eliminated. (5) Monomer disappears slowly; reaction mixture contains monomer and high polymer vs monomer disappears very early. (6) Needs initiator/catalyst, is exothermic and rapid vs generally slower, heat is needed."
+  ]
+ },
+ "Q4.5": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Tacticity: definition",
+    "marks": 1
+   },
+   {
+    "point": "Isotactic, syndiotactic and atactic arrangements with diagrams and example (polypropylene) and properties",
+    "marks": 2
+   },
+   {
+    "point": "Functionality: definition and degree of polymerisation relation",
+    "marks": 1
+   },
+   {
+    "point": "Why methanol does not polymerise (functionality = 1)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Tacticity</b> is the spatial arrangement of the substituent groups (R) on the asymmetric carbon atoms along the polymer backbone [–CH<sub>2</sub>–CHR–]<sub>n</sub>.",
+   "<b>Isotactic:</b> all R groups lie on the same side of the chain (all above the plane of the zig-zag backbone). The chain is regular, packs well, and the polymer is highly crystalline, strong, high-melting (e.g. isotactic polypropylene by Ziegler–Natta catalyst).",
+   "<b>Syndiotactic:</b> R groups lie alternately on opposite sides of the chain; stereoregular, crystalline, with properties between isotactic and atactic.",
+   "<b>Atactic:</b> R groups are arranged randomly on both sides; the chain is irregular, amorphous, soft, low-melting and sticky (e.g. atactic polypropylene obtained by free-radical polymerisation).",
+   "<b>Functionality</b> of a monomer is the number of bonding sites (reactive functional groups) through which it can link to other monomers. A monomer with functionality 2 (bifunctional: ethylene by its double bond, glycol, adipic acid) gives linear polymers, functionality 3 (glycerol, phenol) gives cross-linked polymers.",
+   "<b>Methanol (CH<sub>3</sub>OH)</b> has only one reactive group (–OH); its functionality is 1. It can form only a dimer (CH<sub>3</sub>OCH<sub>3</sub>), and further growth is blocked because the molecule has no second site to continue chain growth. A monomer must be at least bifunctional to polymerise."
+  ],
+  "diagram": "Zig-zag backbone drawings: isotactic (all CH<sub>3</sub> wedges up), syndiotactic (alternate up/down), atactic (random)."
+ },
+ "Q4.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of lubrication and functions",
+    "marks": 1.5
+   },
+   {
+    "point": "Classification: solid, semi-solid (greases), liquid (oils); and synthetic/emulsions",
+    "marks": 2
+   },
+   {
+    "point": "Fluid-film (hydrodynamic) lubrication mechanism with diagram",
+    "marks": 2
+   },
+   {
+    "point": "Boundary lubrication mechanism",
+    "marks": 2
+   },
+   {
+    "point": "Extreme-pressure lubrication mechanism with additives (chlorinated, sulphurised, phosphated compounds)",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>Lubrication</b> is the process of reducing friction and wear between two moving surfaces by interposing a substance (lubricant) between them. Functions: reduce friction and wear, carry away heat, prevent corrosion, act as a seal, remove dirt and increase efficiency.",
+   "<b>Classification of lubricants:</b> (1) <i>Liquid lubricants (oils):</i> animal/vegetable oils (castor, palm), mineral/petroleum oils, synthetic oils (silicones, polyglycols) and blended oils. (2) <i>Semi-solid lubricants (greases):</i> mixture of oil with soap (Ca, Na, Li soap) as thickener. (3) <i>Solid lubricants:</i> graphite, molybdenum disulphide, talc, boron nitride, PTFE. Also emulsions and aerosols.",
+   "<b>(i) Fluid film (hydrodynamic) lubrication:</b> The two moving surfaces are completely separated by a thick film of fluid (at least 1000 Å), so metal-to-metal contact is avoided. Friction arises only from the internal resistance (viscosity) of the fluid. It is achieved with low-viscosity oils in journal bearings, where rotation draws oil into a wedge-shaped film that supports the load. Friction coefficient is very low (0.001–0.03); the film thickness depends on viscosity, speed and load.",
+   "<b>(ii) Boundary (thin film) lubrication:</b> Under heavy load or low speed or high temperature, the fluid film is squeezed out or discontinuous. A thin film of lubricant (a few molecular layers) is adsorbed on the metal surfaces by physical or chemical adsorption (polar groups such as fatty acids, esters, soaps), preventing direct contact of asperities. Lubricants: vegetable oils, fatty acids, graphite, MoS<sub>2</sub>, greases. Used in gears, cams, piston rings.",
+   "<b>(iii) Extreme pressure (EP) lubrication:</b> At very high loads, speeds and temperatures (hypoid gears, cutting tools, rolling mills), ordinary films break down. EP additives such as chlorinated esters, sulphurised oils, tricresyl phosphate react chemically with the metal surfaces at the local high temperature to form durable films of metal chlorides, sulphides or phosphides (FeCl<sub>2</sub>, FeS, FePO<sub>4</sub>), with low shear strength and high melting point; these films prevent welding and seizure of the metal surfaces."
+  ],
+  "diagram": "Journal bearing with shaft off-centre showing wedge-shaped oil film; and a magnified boundary film with polar molecules adsorbed on two surfaces."
+ },
+ "Q4.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Flash and fire point: definitions, apparatus (Pensky–Martens), significance",
+    "marks": 2
+   },
+   {
+    "point": "Cloud and pour point: definitions, significance",
+    "marks": 2
+   },
+   {
+    "point": "Aniline point: definition, significance (aromatic content, rubber/seal compatibility)",
+    "marks": 2
+   },
+   {
+    "point": "Viscosity index: definition, formula VI = (L − U)/(L − H) × 100, significance",
+    "marks": 2
+   },
+   {
+    "point": "Solid lubricant named (graphite or MoS<sub>2</sub>) and mechanism",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>1. Flash and fire point:</b> The <i>flash point</i> is the lowest temperature at which the vapour of an oil gives a momentary flash when a small flame is brought near it under specified conditions; the <i>fire point</i> is the lowest temperature at which the vapours burn continuously for at least 5 seconds. Fire point is 5–40 °C higher than flash point. Determined by Pensky–Martens (closed cup) or Abel's apparatus. Significance: a lubricant must have a flash point well above the working temperature to prevent fire hazards; it also indicates volatility.",
+   "<b>2. Cloud and pour point:</b> The <i>cloud point</i> is the temperature at which the oil becomes cloudy or hazy owing to separation of waxes or solid crystals on cooling. The <i>pour point</i> is the temperature at which the oil ceases to flow when cooled (the lowest temperature at which it still pours). Pour point is lower than cloud point. Significance: they indicate suitability of the oil in cold climates and refrigeration machines; a lubricant must have a pour point lower than the lowest operating temperature to avoid blockage of oil passages.",
+   "<b>3. Aniline point:</b> The minimum temperature at which equal volumes of the oil and aniline become completely miscible. A <i>low</i> aniline point indicates high aromatic hydrocarbon content, which tends to dissolve/swell rubber seals and gaskets; a <i>high</i> aniline point indicates a paraffinic, rubber-safe oil. It gives an idea of the aromatic content and of the ignition quality (diesel index = aniline point °F × API gravity/100).",
+   "<b>4. Viscosity index (VI):</b> An empirical number showing the rate of change of viscosity with temperature. Oil of high VI shows small change of viscosity with temperature. It is calculated by comparing the oil with two reference oils (Pennsylvanian oil, VI = 100; Gulf oil, VI = 0) having the same viscosity at 210 °F: <b>VI = (L − U)/(L − H) × 100</b>, where U = viscosity of the test oil at 100 °F, L = viscosity of the VI 0 standard oil at 100 °F and H = viscosity of the VI 100 standard oil at 100 °F. Significance: a high VI oil is preferred for engines operating over wide temperature ranges.",
+   "<b>Solid lubricant: graphite.</b> It has a layered structure of hexagonal carbon sheets held together by weak van der Waals forces. The layers slide over one another under shear, reducing friction (like a pack of cards). Layers adsorb gases or moisture, which weakens interlayer forces. Used in the form of powder, in oil/water dispersion (oildag, aquadag), in high-temperature (up to 650 °C) and electrically conducting applications (motors, furnaces). (Alternative: MoS<sub>2</sub> with similar layered structure.)"
+  ],
+  "formulas": [
+   "VI = (L − U)/(L − H) × 100"
+  ]
+ },
+ "Q4.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of vulcanization (heating rubber with sulfur at 100–140 °C)",
+    "marks": 1.5
+   },
+   {
+    "point": "Chemistry: sulfur cross-links (–S–S– bridges) between polyisoprene chains at the double-bond/allylic sites, with diagram",
+    "marks": 3
+   },
+   {
+    "point": "Accelerators and fillers (ZnO, carbon black) and degree of vulcanization (3–5 % hard S gives soft rubber; 20–30 % gives ebonite)",
+    "marks": 1.5
+   },
+   {
+    "point": "Improvement in properties (tensile strength, elasticity, hardness, resistance to abrasion, solvents, oxidation, temperature)",
+    "marks": 3
+   },
+   {
+    "point": "Uses of vulcanized rubber",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Vulcanization</b> is the process of heating raw (natural) rubber with sulfur (3–5 %) at 100–140 °C, in presence of an accelerator (ZBX, ZnO), to form sulfur cross-links between the long polyisoprene chains. It was discovered by Charles Goodyear in 1839.",
+   "<b>Natural rubber</b> is cis-1,4-polyisoprene, [–CH<sub>2</sub>–C(CH<sub>3</sub>)=CH–CH<sub>2</sub>–]<sub>n</sub>, whose chains coil and are held only by weak van der Waals forces. Raw rubber is soft, sticky, has low tensile strength, becomes plastic when hot and brittle when cold, absorbs water, swells in organic solvents and is attacked by oxidants.",
+   "<b>Chemistry:</b> Sulfur atoms add at the double bond sites (reactive α-methylene hydrogens) of the polyisoprene chains and form –S–S– (or –S–) bridges between adjacent chains, making a three-dimensional network: chain–CH–S–S–CH–chain. Sulfur is thus tied covalently across chains.",
+   "<b>Extent of cross-linking:</b> 3–5 % S gives soft, flexible rubber (tyre tubes); 10–15 % S gives semi-hard rubber; 30–32 % S gives hard, rigid, non-elastic <i>ebonite</i>.",
+   "<b>Improvement in properties after vulcanization:</b> (1) Higher tensile strength (up to 2000 kg cm<sup>−2</sup>) and elasticity since the cross-links resist slipping of chains and restore the original shape; (2) better resistance to abrasion, tear and wear; (3) lower water absorption; (4) increased resistance to solvents (swelling is limited by cross-links), oxidation and ozone; (5) wider useful temperature range (−40 to 100 °C) – rubber no longer becomes sticky when hot nor brittle when cold; (6) higher hardness and stiffness, and good electrical insulation.",
+   "<b>Uses:</b> tyres, tubes, conveyor belts, hoses, gaskets, shoe soles, shock absorbers, insulation of cables, ebonite for battery containers and electrical parts."
+  ],
+  "diagram": "Two parallel polyisoprene chains with –S–S– cross-links between carbon atoms adjacent to the double bonds."
+ },
+ "Q4.9": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Stages of anaerobic digestion: hydrolysis, acidogenesis (acetogenesis), methanogenesis with reactions",
+    "marks": 2
+   },
+   {
+    "point": "Composition of biogas (CH<sub>4</sub> 55–65 %, CO<sub>2</sub> 30–40 %)",
+    "marks": 0.5
+   },
+   {
+    "point": "Environmental impact of biogas use (renewable, reduces methane emissions, residual slurry, CO<sub>2</sub>)",
+    "marks": 1
+   },
+   {
+    "point": "Causes and effects of air pollution (any two each)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Biogas production</b> is the anaerobic digestion of organic waste (cow dung, sewage, crop residues) by bacteria in a closed digester in absence of oxygen, in three main stages:",
+   "<b>1. Hydrolysis:</b> Hydrolytic bacteria secrete extracellular enzymes that break down complex polymers (carbohydrates, proteins, fats) into soluble monomers: sugars, amino acids and fatty acids. (C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>)<sub>n</sub> + nH<sub>2</sub>O → nC<sub>6</sub>H<sub>12</sub>O<sub>6</sub>.",
+   "<b>2. Acidogenesis (acid formation):</b> Fermentative acid-forming bacteria convert the monomers into volatile fatty acids (acetic, propionic, butyric), alcohols, CO<sub>2</sub> and H<sub>2</sub>; acetogenesis converts these to acetic acid: C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> → 3CH<sub>3</sub>COOH.",
+   "<b>3. Methanogenesis:</b> Methanogenic bacteria (Methanobacterium, Methanosarcina) produce methane: CH<sub>3</sub>COOH → CH<sub>4</sub> + CO<sub>2</sub> (aceticlastic); CO<sub>2</sub> + 4H<sub>2</sub> → CH<sub>4</sub> + 2H<sub>2</sub>O. Biogas contains CH<sub>4</sub> (55–65 %), CO<sub>2</sub> (30–40 %), traces of H<sub>2</sub>S, H<sub>2</sub>, N<sub>2</sub>, with CV ≈ 5000–5500 kcal/m³.",
+   "<b>Environmental impact of biogas:</b> it is a renewable, clean-burning fuel with no soot or smoke (reducing indoor air pollution), recycles organic waste, prevents release of methane (a greenhouse gas about 25 times stronger than CO<sub>2</sub>) from decomposing waste and gives nutrient-rich slurry as manure; its combustion releases CO<sub>2</sub>, which is part of the short carbon cycle (carbon-neutral), unlike fossil fuels.",
+   "<b>Air pollution – causes:</b> burning of fossil fuels in vehicles and industry (CO, NO<sub>x</sub>, SO<sub>2</sub>, particulates), thermal power plants, biomass burning, chemical industries, CFCs. <b>Effects:</b> respiratory and cardiac diseases, acid rain (SO<sub>2</sub>, NO<sub>x</sub>), global warming (CO<sub>2</sub>, CH<sub>4</sub>), ozone layer depletion (CFC), photochemical smog and damage to buildings and crops."
+  ]
+ },
+ "Q4.10": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of bomb calorimeter principle / formula for GCV",
+    "marks": 2
+   },
+   {
+    "point": "Correct data listed with corrected temperature rise (2.5 + 0.02 = 2.52 °C)",
+    "marks": 2
+   },
+   {
+    "point": "Correct substitution in GCV formula including fuse + acid corrections (58 cal)",
+    "marks": 3
+   },
+   {
+    "point": "GCV = 8940.8 cal/g",
+    "marks": 1
+   },
+   {
+    "point": "NCV formula with 0.09 H × 587 and correct substitution; NCV = 8148.4 cal/g",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> m = 0.98 g; w = 1000 g; W = 2500 g; Δt = 2.5 °C; cooling correction = +0.02 °C; fuse wire correction = 8 cal; acid correction = 50 cal; H = 15 %.",
+   "<b>Principle:</b> a weighed amount of fuel is burnt completely in oxygen in a closed bomb; the heat evolved is absorbed by water and the calorimeter. The cooling correction is <i>added</i> to the observed rise, and the heat released by fuse wire burning and by acid formation (HNO<sub>3</sub>, H<sub>2</sub>SO<sub>4</sub>) is <i>subtracted</i> from the heat gained.",
+   "<b>Corrected rise in temperature</b> = 2.5 + 0.02 = 2.52 °C.",
+   "<b>Gross calorific value:</b> GCV = [(W + w)(t<sub>2</sub> − t<sub>1</sub> + t<sub>c</sub>) − (acid + fuse corrections)] / m",
+   "Heat gained by water + calorimeter = (1000 + 2500) × 2.52 = 3500 × 2.52 = 8820 cal.",
+   "Total correction = 50 + 8 = 58 cal; heat from the coal = 8820 − 58 = 8762 cal.",
+   "GCV = 8762 / 0.98 = <b>8940.8 cal/g</b>.",
+   "<b>Net calorific value:</b> NCV = GCV − 0.09 × H × latent heat of steam (587 cal/g).",
+   "0.09 × 15 × 587 = 792.45 cal/g.",
+   "NCV = 8940.8 − 792.45 = <b>8148.4 cal/g</b>."
+  ],
+  "formulas": [
+   "GCV = [(W + w)(t<sub>2</sub> − t<sub>1</sub> + t<sub>c</sub>) − (acid + fuse)] / m",
+   "NCV = GCV − 0.09 H × 587"
+  ],
+  "result": "GCV ≈ 8940.8 cal/g; NCV ≈ 8148.4 cal/g (latent heat of steam taken as 587 cal/g)"
+ },
+ "Q4.11": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Bomb calorimeter formula for GCV stated",
+    "marks": 2
+   },
+   {
+    "point": "Corrected temperature rise (2.4 + 0.12 = 2.52 °C)",
+    "marks": 2
+   },
+   {
+    "point": "Correct substitution with fuse + acid corrections (58 cal)",
+    "marks": 3
+   },
+   {
+    "point": "GCV = 12484 cal/g",
+    "marks": 1
+   },
+   {
+    "point": "NCV with 0.09 H × 587 = 528.3; NCV = 11955.7 cal/g",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> m = 0.5 g; w = 1500 g; W = 1000 g; Δt = 2.4 °C; t<sub>c</sub> = 0.12 °C; fuse = 18 cal; acid = 40 cal; H = 10 %.",
+   "<b>Formula:</b> GCV = [(W + w)(Δt + t<sub>c</sub>) − (fuse + acid)] / m.",
+   "Corrected rise = 2.4 + 0.12 = 2.52 °C.",
+   "Heat absorbed = (1500 + 1000) × 2.52 = 2500 × 2.52 = 6300 cal.",
+   "Corrections = 18 + 40 = 58 cal, so heat from coal = 6300 − 58 = 6242 cal.",
+   "GCV = 6242 / 0.5 = <b>12484 cal/g</b>.",
+   "NCV = GCV − 0.09 × H × 587 = 12484 − (0.09 × 10 × 587) = 12484 − 528.3.",
+   "NCV = <b>11955.7 cal/g</b>."
+  ],
+  "formulas": [
+   "GCV = [(W + w)(Δt + t<sub>c</sub>) − (fuse + acid)] / m",
+   "NCV = GCV − 0.09 H × 587"
+  ],
+  "result": "GCV = 12484 cal/g; NCV ≈ 11955.7 cal/g (latent heat 587 cal/g assumed)"
+ },
+ "Q4.12": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Bomb calorimeter formula for GCV stated; no cooling correction given so Δt = 2.0 °C",
+    "marks": 2
+   },
+   {
+    "point": "Heat absorbed (600 + 1900) × 2.0 = 5000 cal",
+    "marks": 2
+   },
+   {
+    "point": "Subtraction of fuse + acid corrections (50 cal) giving 4950 cal",
+    "marks": 2
+   },
+   {
+    "point": "GCV = 4950 cal/g",
+    "marks": 1
+   },
+   {
+    "point": "NCV formula using 0.09 H × 580 = 261 cal/g",
+    "marks": 2
+   },
+   {
+    "point": "NCV = 4689 cal/g with units",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> m = 1.00 g; w = 600 g; W = 1900 g; Δt = 2.0 °C (no cooling correction given); fuse = 10 cal; acid = 40 cal; H = 5 %; latent heat of steam = 580 cal/g.",
+   "<b>GCV</b> = [(W + w) × Δt − (fuse + acid)] / m.",
+   "Heat absorbed = (600 + 1900) × 2.0 = 2500 × 2.0 = 5000 cal.",
+   "Corrections = 10 + 40 = 50 cal; net heat = 5000 − 50 = 4950 cal.",
+   "GCV = 4950 / 1.00 = <b>4950 cal/g</b>.",
+   "<b>NCV</b> = GCV − 0.09 × H × latent heat = 4950 − (0.09 × 5 × 580).",
+   "0.09 × 5 × 580 = 261 cal/g.",
+   "NCV = 4950 − 261 = <b>4689 cal/g</b>."
+  ],
+  "formulas": [
+   "GCV = [(W + w)Δt − (fuse + acid)] / m",
+   "NCV = GCV − 0.09 H × L"
+  ],
+  "result": "GCV = 4950 cal/g; NCV = 4689 cal/g"
+ },
+ "Q4.13": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of viscosity index (empirical number showing rate of change of viscosity with temperature)",
+    "marks": 2
+   },
+   {
+    "point": "Formula VI = (L − U)/(L − H) × 100 with meaning of L, H, U",
+    "marks": 3
+   },
+   {
+    "point": "Correct identification: L = 800 s, H = 500 s, U = 600 s",
+    "marks": 2
+   },
+   {
+    "point": "Correct substitution",
+    "marks": 1
+   },
+   {
+    "point": "VI = 66.7 with interpretation",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Viscosity index (VI)</b> is an arbitrary number that measures how little the viscosity of a lubricating oil changes with temperature. A high VI means the oil's viscosity changes little with temperature (desirable). The reference scale: Pennsylvanian oil (least change) VI = 100, Gulf oil (greatest change) VI = 0.",
+   "<b>Formula (Dean and Davis):</b> VI = (L − U)/(L − H) × 100, where U = viscosity of the unknown oil at 100 °F, L = viscosity at 100 °F of the low-VI (Gulf) oil, H = viscosity at 100 °F of the high-VI (Pennsylvanian) oil; all three oils have the same viscosity (60 s) at 210 °F.",
+   "<b>Data:</b> U = 600 s; L = 800 s; H = 500 s.",
+   "VI = (800 − 600)/(800 − 500) × 100 = 200/300 × 100.",
+   "VI = <b>66.7</b>.",
+   "<b>Conclusion:</b> the oil's viscosity varies less than the Gulf standard but more than the Pennsylvanian standard, i.e. it has a moderate VI."
+  ],
+  "formulas": [
+   "VI = (L − U)/(L − H) × 100"
+  ],
+  "result": "Viscosity index ≈ 66.7"
+ },
+ "Q5.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Principle: nuclei with spin I = ½ (<sup>1</sup>H) behave as tiny magnets; in field B<sub>0</sub> they split into two levels (α, β); resonance when hν = ΔE",
+    "marks": 3
+   },
+   {
+    "point": "Resonance condition ν = γB<sub>0</sub>/2π (radio-frequency absorption)",
+    "marks": 1
+   },
+   {
+    "point": "Shielding and deshielding explained with induced field / electron density",
+    "marks": 2
+   },
+   {
+    "point": "Definition of chemical shift δ = (ν<sub>sample</sub> − ν<sub>TMS</sub>)/ν<sub>spectrometer</sub> × 10<sup>6</sup> ppm",
+    "marks": 2
+   },
+   {
+    "point": "Reasons for using TMS as internal standard (any two)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Principle:</b> nuclei with non-zero spin (e.g. <sup>1</sup>H, I = ½) possess a magnetic moment. In the absence of a field the two spin states (m<sub>I</sub> = +½, −½) are degenerate. In an external magnetic field B<sub>0</sub> they split: the α state (aligned with the field, lower energy) and the β state (opposed, higher energy), with ΔE = γħB<sub>0</sub>.",
+   "When radio-frequency radiation of frequency ν is applied such that hν = ΔE, the nucleus absorbs energy and flips from α to β (<b>resonance</b>): ν = γB<sub>0</sub>/2π. The absorption is detected and plotted as an NMR spectrum. For a given nucleus the signal position depends on its chemical environment.",
+   "<b>Shielding:</b> the circulation of the electrons around a proton generates a small induced field opposing B<sub>0</sub>, so the proton experiences an effective field B<sub>eff</sub> = B<sub>0</sub>(1 − σ), slightly smaller than B<sub>0</sub>. High electron density (e.g. next to electron-donating groups) means greater shielding; the signal appears at lower δ (upfield).",
+   "<b>Deshielding:</b> electron-withdrawing groups (O, halogens, C=O) or π-electron ring currents (aromatic protons) reduce the electron density at the proton, so it feels a larger effective field and resonates at higher δ (downfield).",
+   "<b>Chemical shift (δ):</b> the position of a signal relative to a reference, expressed in ppm: δ = (ν<sub>sample</sub> − ν<sub>TMS</sub>) / (spectrometer frequency in MHz) = [(ν<sub>sample</sub> − ν<sub>TMS</sub>)/ν<sub>0</sub>] × 10<sup>6</sup>. It is independent of the instrument's field strength.",
+   "<b>Why TMS, Si(CH<sub>3</sub>)<sub>4</sub>, is used as internal standard:</b> (i) all 12 protons are equivalent, giving a single sharp signal; (ii) silicon is electropositive, so the protons are highly shielded and its signal appears at δ = 0, upfield of almost all organic protons; (iii) chemically inert and does not react with the sample; (iv) volatile (b.p. 27 °C), so it is easily removed and the sample recovered; (v) soluble in most organic solvents."
+  ],
+  "formulas": [
+   "ΔE = hν = γħB<sub>0</sub>",
+   "B<sub>eff</sub> = B<sub>0</sub>(1 − σ)",
+   "δ (ppm) = (ν<sub>sample</sub> − ν<sub>TMS</sub>)/ν<sub>0</sub> × 10<sup>6</sup>"
+  ],
+  "diagram": "Energy-level diagram: single level splitting into α (lower) and β (upper) with increasing B<sub>0</sub>, ΔE = hν marked; and a schematic spectrum with δ axis (0 at right for TMS, downfield to left)."
+ },
+ "Q5.2": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Spin-spin coupling: splitting of a signal by non-equivalent neighbouring protons",
+    "marks": 1.5
+   },
+   {
+    "point": "n+1 rule with example (e.g. ethyl group: triplet + quartet)",
+    "marks": 1
+   },
+   {
+    "point": "Coupling constant J: spacing between split lines in Hz, independent of B<sub>0</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Chemical shift definition with formula in ppm",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Spin-spin coupling:</b> the magnetic field felt by a proton is modified by the spin states (α or β) of protons on adjacent carbon atoms (three bonds away, H–C–C–H). This splits a signal into a multiplet. A proton with n equivalent neighbouring protons gives n + 1 lines (<b>n + 1 rule</b>), with intensities from Pascal's triangle (1:1 doublet, 1:2:1 triplet, 1:3:3:1 quartet).",
+   "Example: in CH<sub>3</sub>CH<sub>2</sub>Cl the CH<sub>3</sub> protons (two neighbours) appear as a triplet and the CH<sub>2</sub> protons (three neighbours) as a quartet. Equivalent protons do not split one another.",
+   "<b>Coupling constant (J):</b> the distance in Hz between adjacent lines of a multiplet. It measures the strength of the coupling, is independent of the applied field B<sub>0</sub>, and the coupled partners have the same J. Typical vicinal J ≈ 6–8 Hz.",
+   "<b>Chemical shift (δ):</b> the position of a resonance signal relative to TMS: δ = [(ν<sub>sample</sub> − ν<sub>TMS</sub>)/ν<sub>0</sub>] × 10<sup>6</sup> ppm. It reflects the electronic environment (shielding/deshielding) of the proton."
+  ],
+  "formulas": [
+   "Number of lines = n + 1",
+   "δ = (ν<sub>sample</sub> − ν<sub>TMS</sub>)/ν<sub>0</sub> × 10<sup>6</sup>"
+  ]
+ },
+ "Q5.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "S<sub>N</sub>2: one-step concerted mechanism with transition state shown",
+    "marks": 2.5
+   },
+   {
+    "point": "S<sub>N</sub>2 rate law (second order) and Walden inversion",
+    "marks": 1.5
+   },
+   {
+    "point": "S<sub>N</sub>1: two-step mechanism via carbocation",
+    "marks": 2.5
+   },
+   {
+    "point": "S<sub>N</sub>1 rate law (first order) and racemization",
+    "marks": 1.5
+   },
+   {
+    "point": "Tabular differentiation (substrate, solvent, nucleophile, leaving group etc.)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Nucleophilic substitution:</b> R–X + Nu<sup>−</sup> → R–Nu + X<sup>−</sup>; a nucleophile replaces a leaving group at an sp<sup>3</sup> carbon.",
+   "<b>S<sub>N</sub>2 (bimolecular) mechanism:</b> a single concerted step. The nucleophile attacks the carbon from the side opposite the leaving group (backside attack) while the C–X bond breaks. Pentacoordinate transition state: [Nu···C···X]<sup>δ−</sup> with the three other groups in a plane (sp<sup>2</sup>-like). Example: CH<sub>3</sub>Br + OH<sup>−</sup> → CH<sub>3</sub>OH + Br<sup>−</sup>.",
+   "Rate law: rate = k[R–X][Nu<sup>−</sup>] (second order). Stereochemistry: complete <b>inversion of configuration (Walden inversion)</b>, like an umbrella turning inside out; (R) → (S) product.",
+   "<b>S<sub>N</sub>1 (unimolecular) mechanism:</b> two steps. Step 1 (slow, rate-determining): ionisation of the substrate to a planar carbocation, (CH<sub>3</sub>)<sub>3</sub>C–Br → (CH<sub>3</sub>)<sub>3</sub>C<sup>+</sup> + Br<sup>−</sup>. Step 2 (fast): attack of the nucleophile on the carbocation, (CH<sub>3</sub>)<sub>3</sub>C<sup>+</sup> + OH<sup>−</sup> → (CH<sub>3</sub>)<sub>3</sub>COH.",
+   "Rate law: rate = k[R–X] (first order, independent of [Nu]). Stereochemistry: the nucleophile can attack the planar carbocation from either face, giving a mixture of retention and inversion, i.e. <b>racemization</b> (partial in practice, because of ion-pair effects).",
+   "<b>Differences:</b> (i) S<sub>N</sub>2 is one step, S<sub>N</sub>1 two steps; (ii) kinetics second order vs first order; (iii) reactivity CH<sub>3</sub> > 1° > 2° > 3° for S<sub>N</sub>2, but 3° > 2° > 1° for S<sub>N</sub>1 (carbocation stability); (iv) S<sub>N</sub>2 favoured by strong nucleophile and polar aprotic solvents (DMSO, acetone), S<sub>N</sub>1 by weak nucleophile and polar protic solvents (water, alcohol); (v) inversion vs racemization; (vi) no rearrangement in S<sub>N</sub>2, rearrangement possible in S<sub>N</sub>1; (vii) good leaving group needed in both."
+  ],
+  "formulas": [
+   "S<sub>N</sub>2: rate = k[R–X][Nu]",
+   "S<sub>N</sub>1: rate = k[R–X]"
+  ],
+  "diagram": "Energy profile diagrams: S<sub>N</sub>2 with one maximum (transition state); S<sub>N</sub>1 with two maxima and a carbocation intermediate in the valley between."
+ },
+ "Q5.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Electronic spectroscopy defined (absorption of UV-Vis radiation causing electronic transitions, 200–800 nm)",
+    "marks": 2
+   },
+   {
+    "point": "Four transition types with relative energies and typical λ ranges",
+    "marks": 3
+   },
+   {
+    "point": "Shifts: bathochromic, hypsochromic, hyperchromic, hypochromic",
+    "marks": 2
+   },
+   {
+    "point": "Transitions in O<sub>2</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Transitions in benzene",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Electronic spectroscopy</b> (UV-Visible) deals with absorption of radiation of 200–800 nm by molecules, which promotes electrons from occupied ground-state orbitals (bonding σ, π or non-bonding n) to vacant antibonding orbitals (σ* or π*). Energy order of orbitals: σ < π < n < π* < σ*.",
+   "<b>Types of transitions:</b>",
+   "<b>(i) σ → σ*:</b> requires highest energy, λ < 150 nm (vacuum UV); shown by saturated hydrocarbons, e.g. methane (122 nm), ethane (135 nm).",
+   "<b>(ii) n → σ*:</b> saturated compounds with lone pairs (alcohols, amines, halides, ethers); 150–250 nm, e.g. water 167 nm, CH<sub>3</sub>Cl 173 nm.",
+   "<b>(iii) π → π*:</b> alkenes, alkynes, carbonyls, aromatics; 170–250 nm for isolated, longer for conjugated systems; high intensity (ε = 10<sup>3</sup>–10<sup>4</sup>).",
+   "<b>(iv) n → π*:</b> lowest energy; compounds with both lone pair and π bond (C=O, N=O, C=S); 250–350 nm; weak and forbidden (ε = 10–100), e.g. acetone ≈ 280 nm.",
+   "<b>Shifts:</b> <b>Bathochromic (red) shift</b> – λ<sub>max</sub> moves to longer wavelength (by auxochrome, conjugation or solvent); <b>hypsochromic (blue) shift</b> – to shorter wavelength; <b>hyperchromic effect</b> – increase in absorption intensity (ε); <b>hypochromic effect</b> – decrease in intensity.",
+   "<b>Oxygen molecule (O<sub>2</sub>):</b> has σ and π bonds and lone pairs, so possible transitions are σ → σ*, π → π* and n → π* (n → σ*); in the ground state the unpaired electrons in π* orbitals also allow π* → σ* transitions.",
+   "<b>Benzene:</b> only σ and π electrons, no lone pairs, so σ → σ* (very high energy, vacuum UV) and π → π* transitions occur. The π → π* gives three bands: 184 nm (E<sub>1</sub>, ε ≈ 47000), 204 nm (E<sub>2</sub>, ε ≈ 7000) and the weak, fine-structured 254 nm (B-band, ε ≈ 200, symmetry forbidden)."
+  ],
+  "formulas": [
+   "σ → σ* > n → σ* > π → π* > n → π* (energy order)",
+   "ΔE = hc/λ"
+  ],
+  "diagram": "Energy level diagram showing σ, π, n (ground) and π*, σ* (excited) with arrows for the four transitions labelled."
+ },
+ "Q5.5": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Conjugation in butadiene lowers the HOMO–LUMO gap (explanation with MO)",
+    "marks": 2
+   },
+   {
+    "point": "Ethane only σ → σ* (≈135 nm) vs butadiene π → π* (217 nm)",
+    "marks": 1
+   },
+   {
+    "point": "Statement of Beer-Lambert law with equation A = εcl",
+    "marks": 1
+   },
+   {
+    "point": "Any two applications of UV-Vis",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Ethane</b> has only σ electrons, so its only transition is σ → σ*, which needs very high energy (λ<sub>max</sub> ≈ 135 nm). <b>1,3-Butadiene</b> has two conjugated C=C bonds; the four p orbitals combine to give four π molecular orbitals (ψ<sub>1</sub>–ψ<sub>4</sub>). The interaction of the two π systems raises the HOMO (ψ<sub>2</sub>) and lowers the LUMO (ψ<sub>3</sub>) relative to isolated ethene, so the HOMO–LUMO gap decreases.",
+   "Because ΔE = hc/λ, a smaller ΔE means longer wavelength: butadiene absorbs by π → π* at λ<sub>max</sub> = 217 nm (ethene 165 nm), far above ethane's 135 nm. More conjugation gives a further red shift.",
+   "<b>Beer-Lambert law:</b> the absorbance of a solution is directly proportional to the concentration of the absorbing species and to the path length of the cell: A = log(I<sub>0</sub>/I) = εcl, where ε is the molar absorptivity (L mol<sup>−1</sup> cm<sup>−1</sup>), c the concentration (mol L<sup>−1</sup>), l the path length (cm).",
+   "<b>Applications:</b> quantitative estimation of unknown concentrations; detection of conjugation/functional groups (chromophores); study of reaction kinetics and equilibria; determination of purity of compounds; finding dissociation constants of acids/indicators; analysis of metal complexes (colorimetry)."
+  ],
+  "formulas": [
+   "A = log(I<sub>0</sub>/I) = εcl",
+   "ΔE = hc/λ"
+  ]
+ },
+ "Q5.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Number of vibrational modes: 3N − 5 for linear, 3N − 6 for non-linear",
+    "marks": 2
+   },
+   {
+    "point": "Modes of CO<sub>2</sub>/CS<sub>2</sub> (linear): symmetric stretch, asymmetric stretch, doubly degenerate bend, with IR activity",
+    "marks": 3
+   },
+   {
+    "point": "Modes of H<sub>2</sub>O (bent): three modes, all IR-active",
+    "marks": 2
+   },
+   {
+    "point": "Condition for IR activity: change in dipole moment",
+    "marks": 1.5
+   },
+   {
+    "point": "IR-inactive molecules among list (H<sub>2</sub>, N<sub>2</sub>) and CH<sub>4</sub> note, with reasons",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Number of fundamental vibrations:</b> non-linear molecule 3N − 6; linear molecule 3N − 5. For AB<sub>2</sub> (N = 3) this is 3 modes for bent H<sub>2</sub>O and 4 modes for linear CO<sub>2</sub> and CS<sub>2</sub>.",
+   "<b>Water (bent, C<sub>2v</sub>) – 3 modes:</b> (i) symmetric stretch ν<sub>1</sub> ≈ 3652 cm<sup>−1</sup>; (ii) bending (scissoring) ν<sub>2</sub> ≈ 1595 cm<sup>−1</sup>; (iii) asymmetric stretch ν<sub>3</sub> ≈ 3756 cm<sup>−1</sup>. All three change the dipole moment, so all are IR-active.",
+   "<b>CO<sub>2</sub> and CS<sub>2</sub> (linear, O=C=O) – 4 modes:</b> (i) <b>symmetric stretch</b> ν<sub>1</sub> (both C=O lengthen together; CO<sub>2</sub> 1388 cm<sup>−1</sup>): dipole stays zero, so <b>IR-inactive</b> (Raman-active); (ii) <b>asymmetric stretch</b> ν<sub>3</sub> (2349 cm<sup>−1</sup> for CO<sub>2</sub>): one bond shortens while the other lengthens, dipole changes, <b>IR-active</b>; (iii) and (iv) <b>bending</b> ν<sub>2</sub> (667 cm<sup>−1</sup>), two mutually perpendicular degenerate modes (in the plane and out of the plane), dipole changes, <b>IR-active</b> (counted as one absorption band).",
+   "<b>Condition for IR activity:</b> a vibration is IR-active only if it produces a net change in the dipole moment of the molecule (Δμ ≠ 0 during vibration); in addition the radiation frequency must match the vibrational frequency (hν = ΔE, with the vibrational selection rule Δv = ±1 for the harmonic oscillator).",
+   "<b>Which molecules do not absorb IR:</b> homonuclear diatomics <b>H<sub>2</sub> and N<sub>2</sub></b> have no permanent dipole and none develops on stretching, so they are IR-inactive. CO (heteronuclear, dipole changes on stretching) is IR-active (≈ 2143 cm<sup>−1</sup>). CO<sub>2</sub> absorbs through its asymmetric stretch and bend. CH<sub>4</sub> (tetrahedral, zero dipole) absorbs through its asymmetric stretch (3019 cm<sup>−1</sup>) and bend (1306 cm<sup>−1</sup>) as these produce a changing dipole; only its totally symmetric stretch is IR-inactive. Thus the only molecules that show no IR absorption at all are H<sub>2</sub> and N<sub>2</sub>."
+  ],
+  "formulas": [
+   "Modes = 3N − 6 (non-linear), 3N − 5 (linear)",
+   "ν̄ = (1/2πc)√(k/μ)"
+  ],
+  "diagram": "Draw arrows on atoms for ν<sub>1</sub>, ν<sub>2</sub>, ν<sub>3</sub> of H<sub>2</sub>O and ν<sub>1</sub>, ν<sub>2</sub> (with + and − for out-of-plane), ν<sub>3</sub> of CO<sub>2</sub>."
+ },
+ "Q5.7": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Fingerprint region 400–1400 cm<sup>−1</sup> consists of complex absorption from C–C, C–O, C–N stretches and bending vibrations",
+    "marks": 2
+   },
+   {
+    "point": "Pattern is unique to each molecule (like a human fingerprint); even close homologues differ",
+    "marks": 2
+   },
+   {
+    "point": "Use: identification by matching with a reference spectrum",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "The region from about 400 to 1400 cm<sup>−1</sup> contains a very large number of overlapping absorptions: single-bond stretches (C–C, C–O, C–N, C–X) and many skeletal bending, rocking, twisting and wagging vibrations. These have similar energies and also couple with each other, so the bands are numerous and complex.",
+   "The exact pattern depends on the whole molecular skeleton: even a small change in structure (e.g. one additional CH<sub>2</sub> or a different position of a substituent) changes this region considerably. Hence no two different compounds, except enantiomers, give the same pattern here, just as no two persons have the same fingerprint.",
+   "Therefore this region is called the <b>fingerprint region</b>. It is not used to identify individual functional groups (done in 1400–4000 cm<sup>−1</sup>), but an unknown compound is confirmed by an exact match of its fingerprint region with the spectrum of an authentic sample."
+  ]
+ },
+ "Q5.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition: [4+2] cycloaddition of a conjugated diene with a dienophile giving cyclohexene",
+    "marks": 2
+   },
+   {
+    "point": "Example reaction (1,3-butadiene + ethene / maleic anhydride) with equation",
+    "marks": 2
+   },
+   {
+    "point": "Concerted, single-step, cyclic transition state; 4π + 2π electrons; suprafacial",
+    "marks": 3
+   },
+   {
+    "point": "Requirements: s-cis diene, electron-poor dienophile, stereospecific (syn addition; endo rule)",
+    "marks": 2
+   },
+   {
+    "point": "Diagram / orbital interaction (HOMO–LUMO)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Diels-Alder reaction</b> is a thermal [4 + 2] cycloaddition between a conjugated diene (4π electrons) and an alkene or alkyne called the dienophile (2π electrons) to give a six-membered ring (cyclohexene derivative), forming two new σ bonds at the expense of two π bonds.",
+   "<b>Example:</b> 1,3-butadiene + maleic anhydride → cis-tetrahydrophthalic anhydride (cyclohex-4-ene-1,2-dicarboxylic anhydride) on heating in benzene/xylene. Simple example: CH<sub>2</sub>=CH–CH=CH<sub>2</sub> + CH<sub>2</sub>=CH–CHO → cyclohex-3-enecarbaldehyde.",
+   "<b>Mechanism:</b> it is a <b>concerted, pericyclic</b> reaction with no intermediate. The diene (in s-cis conformation) and dienophile approach in parallel planes. Bond formation between the diene termini C-1 and C-4 and the two dienophile carbons occurs simultaneously through a six-membered cyclic aromatic-like transition state containing 6 delocalised π electrons (thermally allowed by the Woodward-Hoffmann rules, [π4<sub>s</sub> + π2<sub>s</sub>]).",
+   "The diene double bonds shift: the new C=C forms between C-2 and C-3 of the diene, giving the cyclohexene ring.",
+   "<b>Orbital picture:</b> normal electron-demand: HOMO of the diene overlaps in phase with the LUMO of the dienophile, which is why electron-withdrawing groups (–CHO, –COOR, –CN, anhydride) on the dienophile and electron-donating groups on the diene increase the rate.",
+   "<b>Stereochemistry:</b> stereospecific syn addition, so the relative configuration of substituents on the dienophile is retained (cis-dienophile gives cis-product, trans gives trans). With cyclic dienes such as cyclopentadiene the <b>endo</b> product is favoured (Alder endo rule, secondary orbital overlap).",
+   "<b>Importance:</b> a key method for synthesis of six-membered rings and polycyclic compounds, with 100 % atom economy."
+  ],
+  "formulas": [
+   "Diene (4π) + Dienophile (2π) → cyclohexene"
+  ],
+  "diagram": "Draw butadiene in the s-cis form above ethene with dotted lines joining C-1/C-4 to the dienophile carbons (cyclic transition state) and the cyclohexene product."
+ },
+ "Q5.9": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Addition vs substitution: definitions with examples",
+    "marks": 2
+   },
+   {
+    "point": "Tabular differences (bond change, unsaturation, product)",
+    "marks": 2
+   },
+   {
+    "point": "Mechanism of substitution (S<sub>N</sub>1/S<sub>N</sub>2 or electrophilic aromatic substitution)",
+    "marks": 2
+   },
+   {
+    "point": "(i) Electrophilic addition: mechanism with example (HBr + ethene / Markovnikov)",
+    "marks": 2
+   },
+   {
+    "point": "(ii) Nucleophilic addition: mechanism with example (HCN + carbonyl)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Addition reaction:</b> two molecules combine to give a single product; a π bond is broken and two new σ bonds form, so unsaturation decreases. Example: CH<sub>2</sub>=CH<sub>2</sub> + Br<sub>2</sub> → BrCH<sub>2</sub>CH<sub>2</sub>Br. Typical of alkenes, alkynes, aldehydes and ketones.",
+   "<b>Substitution reaction:</b> an atom or group in a molecule is replaced by another atom or group; the unsaturation is unchanged and two products are formed. Example: CH<sub>3</sub>Cl + OH<sup>−</sup> → CH<sub>3</sub>OH + Cl<sup>−</sup>; C<sub>6</sub>H<sub>6</sub> + HNO<sub>3</sub> → C<sub>6</sub>H<sub>5</sub>NO<sub>2</sub> + H<sub>2</sub>O. Typical of alkanes, alkyl halides and arenes.",
+   "<b>Differences:</b> addition – σ + π bond change, one product, occurs in unsaturated compounds, mechanism electrophilic/nucleophilic/free radical; substitution – only σ bonds change, two products, occurs in saturated compounds and aromatics (S<sub>N</sub>1, S<sub>N</sub>2, S<sub>E</sub>Ar).",
+   "<b>Mechanism of substitution (S<sub>N</sub>2):</b> Nu<sup>−</sup> attacks the carbon from the backside of the leaving group, giving a [Nu···C···X] transition state in one step with inversion of configuration; S<sub>N</sub>1 goes through a carbocation. In arenes the electrophile forms an arenium ion (σ-complex) that loses H<sup>+</sup> to restore aromaticity.",
+   "<b>(i) Electrophilic addition</b> (alkenes): addition of HBr to propene. Step 1: the π electrons attack H<sup>+</sup> of HBr (slow) forming the more stable secondary carbocation CH<sub>3</sub>–C<sup>+</sup>H–CH<sub>3</sub> + Br<sup>−</sup>. Step 2: Br<sup>−</sup> attacks the carbocation (fast) giving 2-bromopropane. This follows <b>Markovnikov's rule</b> (H adds to the carbon having more hydrogens).",
+   "<b>(ii) Nucleophilic addition</b> (carbonyl compounds): addition of HCN to acetaldehyde. Step 1: CN<sup>−</sup> (nucleophile) attacks the electron-deficient carbonyl carbon (slow), the C=O π electrons move to oxygen giving an alkoxide ion CH<sub>3</sub>CH(CN)O<sup>−</sup>. Step 2: the alkoxide takes H<sup>+</sup> from HCN/H<sub>2</sub>O to give the cyanohydrin CH<sub>3</sub>CH(OH)CN. Aldehydes are more reactive than ketones (less steric hindrance and positive charge)."
+  ],
+  "formulas": [
+   "Alkene + HX → alkyl halide (Markovnikov)",
+   "R<sub>2</sub>C=O + HCN → R<sub>2</sub>C(OH)CN"
+  ]
+ },
+ "Q5.10": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Balanced equation: salicylic acid + acetic anhydride → aspirin + acetic acid",
+    "marks": 2
+   },
+   {
+    "point": "Conditions: few drops conc. H<sub>2</sub>SO<sub>4</sub> or H<sub>3</sub>PO<sub>4</sub> catalyst, warm at 50–60 °C ~15 min",
+    "marks": 2
+   },
+   {
+    "point": "Mechanism: nucleophilic acyl substitution (protonation of anhydride, attack by phenolic OH, tetrahedral intermediate, loss of acetic acid)",
+    "marks": 4
+   },
+   {
+    "point": "Work-up: cooling, addition of water, crystallisation / recrystallisation from ethanol-water; m.p. 135–136 °C",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Reaction (acetylation of salicylic acid):</b> 2-HO–C<sub>6</sub>H<sub>4</sub>–COOH (salicylic acid) + (CH<sub>3</sub>CO)<sub>2</sub>O (acetic anhydride) → 2-CH<sub>3</sub>COO–C<sub>6</sub>H<sub>4</sub>–COOH (acetylsalicylic acid, aspirin) + CH<sub>3</sub>COOH.",
+   "<b>Conditions:</b> salicylic acid is warmed with excess acetic anhydride in the presence of a few drops of conc. H<sub>2</sub>SO<sub>4</sub> (or H<sub>3</sub>PO<sub>4</sub>) as acid catalyst at about 50–60 °C for 15–20 minutes. The mixture is cooled and water is added to decompose excess anhydride and precipitate the product; the crude aspirin is filtered and recrystallised from ethanol–water (m.p. 135–136 °C).",
+   "<b>Mechanism (nucleophilic acyl substitution, addition–elimination):</b>",
+   "Step 1: the acid protonates a carbonyl oxygen of acetic anhydride, making its carbonyl carbon much more electrophilic.",
+   "Step 2: the lone pair on the phenolic –OH oxygen of salicylic acid attacks this carbon (nucleophilic addition), giving a tetrahedral intermediate.",
+   "Step 3: proton transfer within the intermediate converts the acetate group into a good leaving group (acetic acid).",
+   "Step 4: the C=O reforms, expelling CH<sub>3</sub>COOH (elimination), and loss of H<sup>+</sup> from the oxonium oxygen gives aspirin and regenerates the catalyst.",
+   "Aspirin (analgesic, antipyretic, anti-inflammatory, antiplatelet) is thus obtained in about 80–90 % yield."
+  ],
+  "formulas": [
+   "C<sub>7</sub>H<sub>6</sub>O<sub>3</sub> + (CH<sub>3</sub>CO)<sub>2</sub>O → C<sub>9</sub>H<sub>8</sub>O<sub>4</sub> + CH<sub>3</sub>COOH"
+  ]
+ },
+ "Q5.11": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Degree of unsaturation = 0, saturated alkyl bromide",
+    "marks": 1
+   },
+   {
+    "point": "Total H count 6 + 1 + 2 = 9 matches C<sub>4</sub>H<sub>9</sub>Br",
+    "marks": 1
+   },
+   {
+    "point": "δ 1.04 (6H, d): two equivalent CH<sub>3</sub> on a CH",
+    "marks": 2
+   },
+   {
+    "point": "δ 1.95 (1H, m): CH coupled to 6 + 2 = 8 neighbouring H",
+    "marks": 2
+   },
+   {
+    "point": "δ 3.33 (2H, d): CH<sub>2</sub>Br attached to one CH, deshielded by Br",
+    "marks": 2
+   },
+   {
+    "point": "Structure (CH<sub>3</sub>)<sub>2</sub>CHCH<sub>2</sub>Br (isobutyl bromide, 1-bromo-2-methylpropane) and rejection of isomers",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Formula C<sub>4</sub>H<sub>9</sub>Br:</b> degree of unsaturation = (2×4 + 2 − 9 − 1)/2 = 0, so the compound is a saturated alkyl bromide. The integration 6H + 1H + 2H = 9H agrees with all nine hydrogens.",
+   "<b>δ 1.04 (6H, doublet):</b> six equivalent protons = two equivalent CH<sub>3</sub> groups, upfield (typical alkyl). A doublet (n + 1 = 2) means each CH<sub>3</sub> has one neighbouring H: they are attached to a CH, i.e. (CH<sub>3</sub>)<sub>2</sub>CH–.",
+   "<b>δ 1.95 (1H, multiplet):</b> the methine proton CH, coupled with 6 (from two CH<sub>3</sub>) + 2 (from CH<sub>2</sub>) = 8 neighbours, giving a nonet seen as a multiplet.",
+   "<b>δ 3.33 (2H, doublet):</b> two protons strongly deshielded (δ 3–4) by the electronegative bromine: –CH<sub>2</sub>Br. A doublet means one neighbouring H, i.e. attached to the CH.",
+   "<b>Structure:</b> (CH<sub>3</sub>)<sub>2</sub>CH–CH<sub>2</sub>–Br, isobutyl bromide (1-bromo-2-methylpropane).",
+   "<b>Other isomers rejected:</b> n-butyl bromide would show a triplet (3H) and a CH<sub>2</sub>Br triplet; sec-butyl bromide (CH<sub>3</sub>CH<sub>2</sub>CHBrCH<sub>3</sub>) has a 3H triplet, 3H doublet, and 1H sextet; tert-butyl bromide shows one 9H singlet. Only isobutyl bromide fits 6H d, 1H m, 2H d."
+  ],
+  "result": "Compound = (CH<sub>3</sub>)<sub>2</sub>CHCH<sub>2</sub>Br (1-bromo-2-methylpropane)"
+ },
+ "Q5.12": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Degree of unsaturation = 4 and 5 aromatic H (monosubstituted benzene ring) for both isomers",
+    "marks": 2
+   },
+   {
+    "point": "Isomer A: δ 7.28 (5H, s) monosubstituted phenyl; δ 1.30 (9H, s) three equivalent CH<sub>3</sub> on a quaternary carbon",
+    "marks": 3
+   },
+   {
+    "point": "Structure of A = tert-butylbenzene",
+    "marks": 1
+   },
+   {
+    "point": "Isomer B: δ 0.88 (6H, d) + 1.86 (1H, m) isopropyl-type CH(CH<sub>3</sub>)<sub>2</sub>; δ 2.45 (2H, d) benzylic CH<sub>2</sub> attached to CH",
+    "marks": 3
+   },
+   {
+    "point": "Structure of B = isobutylbenzene, H count check",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Common features:</b> C<sub>10</sub>H<sub>14</sub> has degree of unsaturation = (2×10 + 2 − 14)/2 = 4, which with a 5H signal near δ 7.1–7.3 (aromatic protons, ring-current deshielded) indicates a <b>monosubstituted benzene ring</b> C<sub>6</sub>H<sub>5</sub>– bearing a C<sub>4</sub>H<sub>9</sub> group.",
+   "<b>Isomer A:</b> δ 7.28 (5H, singlet) = C<sub>6</sub>H<sub>5</sub>; δ 1.30 (9H, singlet) = three equivalent CH<sub>3</sub> groups with no neighbouring protons, which requires a quaternary carbon: –C(CH<sub>3</sub>)<sub>3</sub>. Total H = 5 + 9 = 14.",
+   "<b>A = tert-butylbenzene,</b> C<sub>6</sub>H<sub>5</sub>–C(CH<sub>3</sub>)<sub>3</sub>.",
+   "<b>Isomer B:</b> δ 7.12 (5H) = C<sub>6</sub>H<sub>5</sub>; δ 0.88 (6H, doublet) = two equivalent CH<sub>3</sub> attached to a CH; δ 1.86 (1H, multiplet) = CH coupled to 6 + 2 = 8 neighbouring protons; δ 2.45 (2H, doublet) = benzylic CH<sub>2</sub> (deshielded by ring) attached to the CH only. Total H = 5 + 6 + 1 + 2 = 14.",
+   "<b>B = isobutylbenzene,</b> C<sub>6</sub>H<sub>5</sub>–CH<sub>2</sub>–CH(CH<sub>3</sub>)<sub>2</sub> (2-methylpropylbenzene).",
+   "<b>Check against other isomers:</b> n-butylbenzene and sec-butylbenzene would show triplets/sextets and a 3H doublet + triplet, which are absent."
+  ],
+  "result": "A = tert-butylbenzene; B = isobutylbenzene"
+ },
+ "Q5.13": {
+  "marks": 6,
+  "rubric": [
+   {
+    "point": "(i) CH<sub>3</sub>CH<sub>2</sub>Cl: 2 signals (triplet 3H, quartet 2H)",
+    "marks": 1
+   },
+   {
+    "point": "(ii) C<sub>6</sub>H<sub>6</sub>: 1 signal (singlet)",
+    "marks": 1
+   },
+   {
+    "point": "(iii) C<sub>6</sub>H<sub>5</sub>CH<sub>3</sub>: 2 signals (singlet CH<sub>3</sub>; aromatic H multiplet/ singlet-like)",
+    "marks": 1
+   },
+   {
+    "point": "(iv) CH<sub>3</sub>OCH<sub>3</sub>: 1 signal (singlet)",
+    "marks": 1
+   },
+   {
+    "point": "(v) CH<sub>3</sub>CH<sub>2</sub>OH: 3 signals (triplet, quartet, singlet OH)",
+    "marks": 1
+   },
+   {
+    "point": "(vi) (CH<sub>3</sub>)<sub>2</sub>CHCl: 2 signals (doublet 6H, septet 1H)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(i) CH<sub>3</sub>CH<sub>2</sub>Cl:</b> two types of H, so <b>2 signals</b>: CH<sub>3</sub> (3H) triplet (two neighbours); CH<sub>2</sub> (2H) quartet (three neighbours), δ ≈ 3.5.",
+   "<b>(ii) C<sub>6</sub>H<sub>6</sub>:</b> all six protons equivalent, so <b>1 signal</b>, a singlet at δ ≈ 7.3.",
+   "<b>(iii) C<sub>6</sub>H<sub>5</sub>CH<sub>3</sub> (toluene):</b> <b>2 signals</b> in principle: CH<sub>3</sub> (3H) singlet at δ ≈ 2.3 and aromatic protons (5H) δ ≈ 7.1–7.3 (a narrow multiplet, practically a singlet since the ortho/meta/para shifts are nearly equal; rigorously ortho, meta and para H differ slightly).",
+   "<b>(iv) CH<sub>3</sub>OCH<sub>3</sub>:</b> both CH<sub>3</sub> groups are equivalent and have no neighbouring H: <b>1 signal</b>, singlet (6H), δ ≈ 3.2.",
+   "<b>(v) CH<sub>3</sub>CH<sub>2</sub>OH:</b> <b>3 signals</b>: CH<sub>3</sub> triplet (δ 1.2), CH<sub>2</sub> quartet (δ 3.7), OH singlet (broad, exchange, variable δ).",
+   "<b>(vi) CH<sub>3</sub>CHClCH<sub>3</sub>:</b> <b>2 signals</b>: two equivalent CH<sub>3</sub> (6H) doublet (δ 1.5) and CH (1H) septet (δ 4.1)."
+  ],
+  "result": "(i) 2 (t, q); (ii) 1 (s); (iii) 2 (s + aromatic multiplet); (iv) 1 (s); (v) 3 (t, q, s); (vi) 2 (d, septet)"
+ },
+ "Q5.14": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Frequency relation ν = (1/2π)√(k/μ); force constant unchanged on isotopic substitution",
+    "marks": 1.5
+   },
+   {
+    "point": "Reduced masses of O–H and O–D",
+    "marks": 1.5
+   },
+   {
+    "point": "Correct ratio ν<sub>D</sub>/ν<sub>H</sub> = √(μ<sub>H</sub>/μ<sub>D</sub>)",
+    "marks": 1
+   },
+   {
+    "point": "Final value ≈ 2657 cm<sup>−1</sup> (≈ 2582 cm<sup>−1</sup> if the 1/√2 approximation is used)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "For a vibration, ν̄ = (1/2πc)√(k/μ). Isotopic substitution does not change the electronic structure, so the force constant k is the same for O–H and O–D; the frequency changes only through the reduced mass μ: ν̄<sub>D</sub>/ν̄<sub>H</sub> = √(μ<sub>OH</sub>/μ<sub>OD</sub>).",
+   "Treating the vibration as an O–H(O–D) stretching mode: μ<sub>OH</sub> = (16 × 1)/(16 + 1) = 0.9412 u; μ<sub>OD</sub> = (16 × 2)/(16 + 2) = 1.7778 u.",
+   "ν̄<sub>D</sub>/ν̄<sub>H</sub> = √(0.9412/1.7778) = √0.5294 = 0.7276.",
+   "ν̄(D<sub>2</sub>O) = 0.7276 × 3652 = <b>≈ 2657 cm<sup>−1</sup></b>.",
+   "(If the frequency is simply taken as ∝ 1/√m of the hydrogen isotope, ν̄<sub>D</sub> = 3652/√2 = 2582 cm<sup>−1</sup>; the observed symmetric stretch of D<sub>2</sub>O is 2666 cm<sup>−1</sup>, in good agreement.)"
+  ],
+  "formulas": [
+   "ν̄ = (1/2πc)√(k/μ)",
+   "ν̄<sub>D</sub>/ν̄<sub>H</sub> = √(μ<sub>H</sub>/μ<sub>D</sub>)"
+  ],
+  "result": "ν̄(D<sub>2</sub>O) ≈ 2.66 × 10<sup>3</sup> cm<sup>−1</sup> (≈ 2657 cm<sup>−1</sup>)"
+ },
+ "Q5.15": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Line spacing = 2B so B = 8.47 cm<sup>−1</sup>",
+    "marks": 1
+   },
+   {
+    "point": "Reduced mass μ = (1 × 80)/(81) u = 1.640 × 10<sup>−27</sup> kg",
+    "marks": 1
+   },
+   {
+    "point": "Moment of inertia I = h/(8π²cB) = 3.30 × 10<sup>−47</sup> kg m²",
+    "marks": 1.5
+   },
+   {
+    "point": "r = √(I/μ) = 1.42 × 10<sup>−10</sup> m",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "For a rigid rotor, rotational lines appear at ν̄ = 2B(J + 1), so the spacing between successive lines is 2B. Hence B = 16.94/2 = 8.47 cm<sup>−1</sup>.",
+   "B = h/(8π²cI), so I = h/(8π²cB) = (6.626 × 10<sup>−34</sup>)/(8 × 9.8696 × 2.998 × 10<sup>10</sup> × 8.47) = <b>3.30 × 10<sup>−47</sup> kg m²</b> (c in cm s<sup>−1</sup>).",
+   "Reduced mass: μ = (m<sub>H</sub>m<sub>Br</sub>)/(m<sub>H</sub> + m<sub>Br</sub>) = (1 × 80)/81 = 0.9877 u = 0.9877 × 1.6605 × 10<sup>−27</sup> = 1.640 × 10<sup>−27</sup> kg.",
+   "I = μr², so r = √(I/μ) = √(3.30 × 10<sup>−47</sup> / 1.640 × 10<sup>−27</sup>) = √(2.015 × 10<sup>−20</sup>) = 1.42 × 10<sup>−10</sup> m.",
+   "Bond length r = <b>1.42 Å</b> (142 pm)."
+  ],
+  "formulas": [
+   "Line spacing = 2B",
+   "B = h/(8π²cI)",
+   "I = μr²"
+  ],
+  "result": "Bond length of HBr ≈ 1.42 Å (1.42 × 10<sup>−10</sup> m)"
+ }
+}

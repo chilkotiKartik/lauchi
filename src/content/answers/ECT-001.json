@@ -1,0 +1,1524 @@
+{
+ "Q1.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Labelled energy band diagram of an intrinsic semiconductor (E<sub>C</sub>, E<sub>V</sub>, E<sub>g</sub>, E<sub>F</sub> at mid-gap) and thermal generation of electron-hole pairs at 300 K",
+    "marks": 2
+   },
+   {
+    "point": "Definition of intrinsic and extrinsic semiconductors with examples; n = p = n<sub>i</sub> for intrinsic",
+    "marks": 2
+   },
+   {
+    "point": "Donor (pentavalent, N-type) and acceptor (trivalent, P-type) impurities explained with examples and band diagrams",
+    "marks": 2
+   },
+   {
+    "point": "Energy band diagrams of conductor, semiconductor and insulator with typical E<sub>g</sub> values",
+    "marks": 2
+   },
+   {
+    "point": "Definitions: drift current, diffusion current, mobility, Fermi level, forbidden gap (with expressions)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Energy bands.</b> In a solid the discrete atomic levels broaden into bands. The highest filled band is the <b>valence band</b> (VB, top edge E<sub>V</sub>), the next empty band is the <b>conduction band</b> (CB, bottom edge E<sub>C</sub>) and the region between them is the <b>forbidden energy gap</b> E<sub>g</sub> = E<sub>C</sub> − E<sub>V</sub>.",
+   "<b>Free electrons and holes in an intrinsic semiconductor at 300 K.</b> At 0 K the VB of pure Si/Ge is completely full and the CB completely empty, so it behaves as an insulator. At 300 K thermal energy (kT ≈ 0.026 eV) breaks some covalent bonds: an electron gains energy ≥ E<sub>g</sub>, jumps from VB to CB and becomes a <b>free electron</b>, leaving behind a vacancy in the VB called a <b>hole</b> (an effective positive charge carrier). Electrons and holes are generated in pairs, so n = p = n<sub>i</sub>. The Fermi level E<sub>F</sub> lies near the middle of the gap. (Si: E<sub>g</sub> = 1.1 eV, n<sub>i</sub> ≈ 1.5 × 10<sup>10</sup> cm<sup>−3</sup>; Ge: E<sub>g</sub> = 0.67 eV, n<sub>i</sub> ≈ 2.5 × 10<sup>13</sup> cm<sup>−3</sup>.)",
+   "<b>Intrinsic semiconductor:</b> a chemically pure semiconductor with no impurity, whose carriers come only from thermal generation (n = p = n<sub>i</sub>). <b>Extrinsic semiconductor:</b> a semiconductor doped with a controlled amount of impurity (about 1 atom in 10<sup>6</sup>–10<sup>8</sup>) to raise its conductivity; n ≠ p.",
+   "<b>Donor impurity (N-type):</b> pentavalent atoms (P, As, Sb) substituted in Si. Four electrons form bonds and the fifth is loosely bound; it needs only ≈ 0.05 eV to enter the CB. The donor level lies just below E<sub>C</sub>; majority carriers are electrons, E<sub>F</sub> moves towards E<sub>C</sub>.",
+   "<b>Acceptor impurity (P-type):</b> trivalent atoms (B, Al, Ga, In) leave one bond incomplete, which accepts an electron from the VB and creates a hole. The acceptor level lies just above E<sub>V</sub>; majority carriers are holes, E<sub>F</sub> moves towards E<sub>V</sub>.",
+   "<b>Conductor, semiconductor, insulator.</b> Conductor: VB and CB overlap (E<sub>g</sub> = 0), plenty of free electrons (Cu, Al). Semiconductor: small gap, E<sub>g</sub> ≈ 1 eV (Si 1.1 eV, Ge 0.67 eV), conductivity rises with temperature. Insulator: large gap E<sub>g</sub> > 5 eV (diamond ≈ 6 eV), CB empty and no conduction at ordinary temperature.",
+   "<b>Drift current:</b> current due to motion of carriers under an applied electric field E; J<sub>drift</sub> = q(nμ<sub>n</sub> + pμ<sub>p</sub>)E = σE.",
+   "<b>Diffusion current:</b> current due to motion of carriers from a region of higher concentration to lower concentration; J<sub>n</sub> = qD<sub>n</sub>(dn/dx), J<sub>p</sub> = −qD<sub>p</sub>(dp/dx), with D/μ = V<sub>T</sub> (Einstein relation).",
+   "<b>Mobility (μ):</b> drift velocity per unit electric field, μ = v<sub>d</sub>/E (m<sup>2</sup>/V·s or cm<sup>2</sup>/V·s); for Si μ<sub>n</sub> ≈ 1300, μ<sub>p</sub> ≈ 500 cm<sup>2</sup>/V·s.",
+   "<b>Fermi level:</b> the energy level at which the probability of occupation by an electron is exactly ½ (at T > 0); it is the reference level of the Fermi-Dirac function f(E) = 1/[1 + e<sup>(E−E<sub>F</sub>)/kT</sup>]. <b>Forbidden energy gap:</b> the energy range E<sub>g</sub> between E<sub>V</sub> and E<sub>C</sub> in which no allowed electron states exist; it is the minimum energy needed to create an electron-hole pair."
+  ],
+  "formulas": [
+   "n = p = n<sub>i</sub> (intrinsic)",
+   "E<sub>g</sub> = E<sub>C</sub> − E<sub>V</sub>",
+   "J<sub>drift</sub> = q(nμ<sub>n</sub> + pμ<sub>p</sub>)E",
+   "μ = v<sub>d</sub>/E",
+   "D/μ = kT/q = V<sub>T</sub>"
+  ],
+  "diagram": "Three band diagrams side by side: (i) conductor with overlapping VB and CB, (ii) semiconductor with a narrow gap E<sub>g</sub> ≈ 1 eV, (iii) insulator with a wide gap E<sub>g</sub> > 5 eV. Also an intrinsic band diagram showing E<sub>C</sub>, E<sub>V</sub>, E<sub>g</sub> and E<sub>F</sub> at mid-gap, with an electron excited from VB to CB and a hole left behind. Add N-type (donor level just below E<sub>C</sub>) and P-type (acceptor level just above E<sub>V</sub>)."
+ },
+ "Q1.2": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Statement of the law of mass action: np = n<sub>i</sub>² at thermal equilibrium",
+    "marks": 1.5
+   },
+   {
+    "point": "Equation for N-type: n<sub>n</sub>p<sub>n</sub> = n<sub>i</sub>², with p<sub>n</sub> = n<sub>i</sub>²/N<sub>D</sub>",
+    "marks": 1
+   },
+   {
+    "point": "Equation for P-type: p<sub>p</sub>n<sub>p</sub> = n<sub>i</sub>², with n<sub>p</sub> = n<sub>i</sub>²/N<sub>A</sub>",
+    "marks": 1
+   },
+   {
+    "point": "Physical significance (recombination, product constant, minority carriers fall as doping rises)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Statement.</b> Under thermal equilibrium, at a given temperature, the product of the free electron concentration n and the hole concentration p in a semiconductor is constant and equals the square of the intrinsic concentration, irrespective of the doping: <b>np = n<sub>i</sub>²</b>.",
+   "<b>Reasoning.</b> Electron-hole pairs are generated thermally at a rate g that depends only on temperature, and recombine at a rate proportional to np. At equilibrium generation = recombination, so np = constant = n<sub>i</sub>². For intrinsic material n = p = n<sub>i</sub>.",
+   "<b>N-type.</b> Majority electrons n<sub>n</sub> ≈ N<sub>D</sub> (donor concentration). Minority holes: p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub> ≈ n<sub>i</sub>²/N<sub>D</sub>. So n<sub>n</sub>p<sub>n</sub> = n<sub>i</sub>².",
+   "<b>P-type.</b> Majority holes p<sub>p</sub> ≈ N<sub>A</sub> (acceptor concentration). Minority electrons: n<sub>p</sub> = n<sub>i</sub>²/p<sub>p</sub> ≈ n<sub>i</sub>²/N<sub>A</sub>. So p<sub>p</sub>n<sub>p</sub> = n<sub>i</sub>².",
+   "<b>Significance.</b> Adding donors increases n; the extra electrons recombine with holes so p falls such that the product stays n<sub>i</sub>². Hence doping raises majority carriers by many orders and automatically reduces minority carriers by the same factor (e.g. Si with N<sub>D</sub> = 10<sup>16</sup> cm<sup>−3</sup> gives p ≈ 2.25 × 10<sup>4</sup> cm<sup>−3</sup>). The law lets us find minority carrier density from the doping and underlies the study of junction diodes and transistors. It holds only at equilibrium and for non-degenerate doping."
+  ],
+  "formulas": [
+   "np = n<sub>i</sub>²",
+   "p<sub>n</sub> = n<sub>i</sub>²/N<sub>D</sub> (N-type)",
+   "n<sub>p</sub> = n<sub>i</sub>²/N<sub>A</sub> (P-type)"
+  ]
+ },
+ "Q1.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Circuit diagram for forward bias and reverse bias of a P-N diode (correct polarity of battery, series resistor, meters)",
+    "marks": 2
+   },
+   {
+    "point": "Forward bias explanation: barrier reduction, majority carrier injection, cut-in voltage (Si 0.7 V, Ge 0.3 V)",
+    "marks": 2
+   },
+   {
+    "point": "Reverse bias explanation: wider depletion region, small reverse saturation current I<sub>0</sub>, breakdown",
+    "marks": 2
+   },
+   {
+    "point": "V-I characteristic curve with knee and breakdown labelled; equation I = I<sub>0</sub>(e<sup>V/ηV<sub>T</sub></sup> − 1)",
+    "marks": 2
+   },
+   {
+    "point": "Static resistance R<sub>dc</sub> = V/I and dynamic resistance r<sub>ac</sub> = ΔV/ΔI = ηV<sub>T</sub>/I with meaning",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>P-N junction.</b> A P-N diode has a depletion region at the junction with built-in barrier potential V<sub>0</sub> (≈ 0.7 V Si, 0.3 V Ge). Its behaviour with external bias V is described by the diode equation <b>I = I<sub>0</sub>(e<sup>V/ηV<sub>T</sub></sup> − 1)</b>.",
+   "<b>Forward bias circuit:</b> P side connected to the positive terminal of a variable source through a series resistor (to limit current) and a milliammeter; a voltmeter across the diode. <b>Reverse bias circuit:</b> the battery polarity reversed and a microammeter used.",
+   "<b>Forward bias.</b> The applied voltage opposes V<sub>0</sub>, so the depletion region narrows and the barrier falls to (V<sub>0</sub> − V). For V below the cut-in (knee) voltage the current is negligible; beyond it (≈ 0.7 V Si, 0.3 V Ge) majority carriers cross the junction in large numbers and the current rises almost exponentially. The diode is ON with a small resistance.",
+   "<b>Reverse bias.</b> The applied voltage aids V<sub>0</sub>; the depletion region widens and majority carriers are prevented from crossing. Only thermally generated minority carriers flow, giving a tiny, nearly constant <b>reverse saturation current I<sub>0</sub></b> (nA for Si, μA for Ge) that doubles for every 10 °C rise. The diode is OFF with very high resistance. At a sufficiently large reverse voltage (breakdown voltage V<sub>BR</sub>) the current rises sharply by avalanche/Zener breakdown.",
+   "<b>Characteristics.</b> The V-I curve has the forward branch in the first quadrant (zero current up to the knee, then a steep rise) and the reverse branch in the third quadrant (flat I<sub>0</sub> then a sharp fall at V<sub>BR</sub>). This asymmetry makes the diode a one-way (rectifying) device.",
+   "<b>Static (DC) resistance:</b> the ratio of the DC voltage across the diode to the DC current through it at the operating point Q: <b>R<sub>dc</sub> = V/I</b>. It varies with the point and is large at low current, small at high current.",
+   "<b>Dynamic (AC) resistance:</b> the reciprocal of the slope of the V-I curve at the operating point for small signal variation: <b>r<sub>ac</sub> = ΔV/ΔI = dV/dI = ηV<sub>T</sub>/I</b> (≈ 26 mV/I for η = 1 at 300 K). For example at I = 2.6 mA, r<sub>ac</sub> ≈ 10 Ω. In reverse bias r<sub>ac</sub> is very large (MΩ), in forward bias it is of the order of a few ohms to tens of ohms."
+  ],
+  "formulas": [
+   "I = I<sub>0</sub>(e<sup>V/ηV<sub>T</sub></sup> − 1)",
+   "R<sub>dc</sub> = V/I",
+   "r<sub>ac</sub> = ΔV/ΔI = ηV<sub>T</sub>/I"
+  ],
+  "diagram": "Two circuits: (a) forward bias with battery +ve to P side, series resistor, mA meter, diode symbol, voltmeter across the diode; (b) reverse bias with battery reversed and μA meter. Also the V-I characteristic: first quadrant curve with cut-in voltage V<sub>γ</sub> marked at about 0.7 V, third quadrant with I<sub>0</sub> and breakdown V<sub>BR</sub>; mark Q point and tangent to show r<sub>ac</sub>."
+ },
+ "Q1.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "LED: construction (forward biased P-N junction of direct bandgap material such as GaAsP/GaAs) with diagram",
+    "marks": 1.5
+   },
+   {
+    "point": "LED working: injection and radiative recombination, emission hν ≈ E<sub>g</sub>, λ = 1.24/E<sub>g</sub> μm",
+    "marks": 1.5
+   },
+   {
+    "point": "Tunnel diode: heavily doped narrow junction, working principle (quantum tunnelling) with energy band diagrams",
+    "marks": 2
+   },
+   {
+    "point": "Tunnel diode V-I characteristic with peak point, valley point and negative resistance region; applications",
+    "marks": 2
+   },
+   {
+    "point": "Schottky diode: metal-semiconductor junction, working (majority carrier device, no minority storage)",
+    "marks": 1.5
+   },
+   {
+    "point": "Schottky V-I characteristic (low turn-on ≈ 0.2–0.3 V) with advantages/applications and neat sketches",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>LED construction.</b> A light emitting diode is a P-N junction made of a direct-bandgap compound semiconductor such as GaAs, GaAsP or GaP (Si and Ge are indirect-gap and do not emit light efficiently). The junction is built with a thin P layer on top, so light can escape through a transparent epoxy dome, and metal contacts are attached.",
+   "<b>LED working.</b> When forward biased, electrons from the N side and holes from the P side are injected across the junction and recombine near it. Each recombination releases energy approximately equal to E<sub>g</sub> as a photon: hν = E<sub>g</sub>, so λ(μm) = 1.24/E<sub>g</sub>(eV). Different materials give different colours (GaAs infrared, GaAsP red/yellow, GaP green). Forward drop is about 1.6–3.4 V; a series resistor R = (V<sub>S</sub> − V<sub>F</sub>)/I<sub>F</sub> limits current to about 10–20 mA.",
+   "<b>Tunnel diode – principle.</b> It is a P-N junction with very heavy doping (about 10<sup>19</sup>–10<sup>20</sup> cm<sup>−3</sup>) so that the depletion region is extremely thin (≈ 10 nm). Electrons can then <b>tunnel</b> through the barrier instead of climbing over it, and the degenerate bands overlap (E<sub>F</sub> lies inside the CB on the N side and inside the VB on the P side). It is made of Ge or GaAs.",
+   "<b>Tunnel diode – V-I characteristic.</b> At zero bias there is no net current. As forward voltage increases, the filled N-side states face empty P-side states and the tunnelling current rises to a <b>peak (I<sub>P</sub>, V<sub>P</sub>)</b>. Increasing the voltage further shifts the bands out of alignment and the current <b>falls</b> to a <b>valley (I<sub>V</sub>, V<sub>V</sub>)</b> – this is the <b>negative resistance region</b>. Beyond V<sub>V</sub> the normal diffusion current of a conventional diode flows. In reverse bias it conducts heavily (like a Zener with zero breakdown voltage). Uses: high-frequency (GHz) oscillators, amplifiers, microwave switching and fast logic.",
+   "<b>Schottky diode – construction.</b> It is formed by a metal (Al, Au, Pt) in contact with a lightly doped N-type semiconductor (usually Si or GaAs). The junction gives a rectifying barrier (Schottky barrier). The symbol is the diode symbol with a bent bar on the cathode.",
+   "<b>Schottky diode – working.</b> Electrons from the semiconductor flow into the metal when forward biased; the metal side has no holes. So conduction is entirely by <b>majority carriers</b> and there is <b>no minority carrier storage</b>, hence no reverse recovery delay. The forward turn-on voltage is low (≈ 0.2–0.3 V compared with 0.7 V for Si P-N) and the junction capacitance is very small.",
+   "<b>Schottky V-I characteristic.</b> It resembles that of a P-N diode but with a lower knee (≈ 0.25 V), higher forward current for the same voltage, and a somewhat higher reverse leakage and lower breakdown voltage (usually below 100 V). Uses: high-speed switching (ns), SMPS and power rectifiers in low-voltage supplies, clamping in TTL gates, RF mixers and detectors."
+  ],
+  "formulas": [
+   "hν = E<sub>g</sub>; λ(μm) = 1.24/E<sub>g</sub>(eV)",
+   "R = (V<sub>S</sub> − V<sub>F</sub>)/I<sub>F</sub> for an LED"
+  ],
+  "diagram": "LED: symbol with outward arrows, cross-section of P-N junction with epoxy dome, and a band diagram showing recombination emitting a photon. Tunnel diode: symbol, band diagrams at zero/peak/valley bias, and V-I curve with I<sub>P</sub>, V<sub>P</sub>, I<sub>V</sub>, V<sub>V</sub> and negative resistance region labelled. Schottky: symbol, metal-semiconductor junction cross-section, and forward V-I curve compared with a P-N diode (lower knee)."
+ },
+ "Q1.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Majority carrier n ≈ N<sub>D</sub> = 10<sup>17</sup> cm<sup>-3</sup> (with reason)",
+    "marks": 1
+   },
+   {
+    "point": "(a) Minority carrier p = n<sub>i</sub>²/n = 2.25 × 10<sup>3</sup> cm<sup>-3</sup>",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Conductivity σ = q(nμ<sub>n</sub> + pμ<sub>p</sub>) with substitution and answer 20.8 S/cm",
+    "marks": 2.5
+   },
+   {
+    "point": "(b)(i) Intrinsic σ = qn<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>) = 4.32 × 10<sup>-6</sup> S/cm",
+    "marks": 1.5
+   },
+   {
+    "point": "(b)(ii) Donor density 5 × 10<sup>14</sup> cm<sup>-3</sup> and σ ≈ 0.104 S/cm",
+    "marks": 1.5
+   },
+   {
+    "point": "(b)(iii) Acceptor density 10<sup>15</sup> cm<sup>-3</sup> and σ ≈ 0.08 S/cm",
+    "marks": 1.5
+   },
+   {
+    "point": "Units and correct formulae used (q = 1.6 × 10<sup>-19</sup> C)",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Part (a) – Given:</b> N<sub>D</sub> = 10<sup>17</sup> cm<sup>-3</sup> (phosphorus, a donor), n<sub>i</sub> = 1.5 × 10<sup>10</sup> cm<sup>-3</sup>, μ<sub>n</sub> = 1300, μ<sub>p</sub> = 500 cm<sup>2</sup>/V·s, q = 1.6 × 10<sup>-19</sup> C.",
+   "Since N<sub>D</sub> ≫ n<sub>i</sub>, majority (electron) concentration n ≈ N<sub>D</sub> = <b>10<sup>17</sup> cm<sup>-3</sup></b>.",
+   "Minority (hole) concentration from the law of mass action: p = n<sub>i</sub>²/n = (1.5 × 10<sup>10</sup>)²/10<sup>17</sup> = 2.25 × 10<sup>20</sup>/10<sup>17</sup> = <b>2.25 × 10<sup>3</sup> cm<sup>-3</sup></b>.",
+   "Conductivity σ = q(nμ<sub>n</sub> + pμ<sub>p</sub>) = 1.6 × 10<sup>-19</sup> × (10<sup>17</sup> × 1300 + 2.25 × 10<sup>3</sup> × 500) = 1.6 × 10<sup>-19</sup> × (1.3 × 10<sup>20</sup> + 1.1 × 10<sup>6</sup>) ≈ <b>20.8 S/cm</b> (hole term is negligible).",
+   "<b>Part (b) – (i) Intrinsic Si:</b> n = p = n<sub>i</sub>. σ<sub>i</sub> = qn<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>) = 1.6 × 10<sup>-19</sup> × 1.5 × 10<sup>10</sup> × (1300 + 500) = 1.6 × 10<sup>-19</sup> × 1.5 × 10<sup>10</sup> × 1800 = <b>4.32 × 10<sup>-6</sup> S/cm</b>.",
+   "<b>(ii) Donor 1 in 10<sup>8</sup> atoms:</b> N<sub>D</sub> = 5 × 10<sup>22</sup>/10<sup>8</sup> = 5 × 10<sup>14</sup> cm<sup>-3</sup> ≫ n<sub>i</sub>, so n ≈ 5 × 10<sup>14</sup>, p = 2.25 × 10<sup>20</sup>/5 × 10<sup>14</sup> = 4.5 × 10<sup>5</sup> cm<sup>-3</sup>. σ ≈ qnμ<sub>n</sub> = 1.6 × 10<sup>-19</sup> × 5 × 10<sup>14</sup> × 1300 = <b>0.104 S/cm</b>.",
+   "<b>(iii) Acceptor 1 in 5 × 10<sup>7</sup> atoms:</b> N<sub>A</sub> = 5 × 10<sup>22</sup>/5 × 10<sup>7</sup> = 10<sup>15</sup> cm<sup>-3</sup>, so p ≈ 10<sup>15</sup>, n = 2.25 × 10<sup>20</sup>/10<sup>15</sup> = 2.25 × 10<sup>5</sup> cm<sup>-3</sup>. σ ≈ qpμ<sub>p</sub> = 1.6 × 10<sup>-19</sup> × 10<sup>15</sup> × 500 = <b>0.08 S/cm</b>.",
+   "<b>Conclusion:</b> a doping of only 1 part in 10<sup>8</sup> raises the conductivity of silicon by a factor of about 2.4 × 10<sup>4</sup>."
+  ],
+  "formulas": [
+   "p = n<sub>i</sub>²/n",
+   "σ = q(nμ<sub>n</sub> + pμ<sub>p</sub>)",
+   "σ<sub>i</sub> = qn<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>)"
+  ],
+  "result": "(a) n = 10<sup>17</sup> cm<sup>-3</sup>, p = 2.25 × 10<sup>3</sup> cm<sup>-3</sup>, σ = 20.8 S/cm. (b) σ = 4.32 × 10<sup>-6</sup> S/cm (intrinsic), 0.104 S/cm (donor), 0.08 S/cm (acceptor)."
+ },
+ "Q1.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Shockley diode equation I = I<sub>s</sub>(e<sup>V/ηV<sub>T</sub></sup> − 1) stated",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Correct substitution: V/ηV<sub>T</sub> = 0.6/(2 × 0.026) = 11.54",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Evaluation e<sup>11.54</sup> ≈ 1.03 × 10<sup>5</sup> and I ≈ 0.205 mA with units",
+    "marks": 2
+   },
+   {
+    "point": "(b) V<sub>T</sub> at 25 °C = kT/q = 25.7 mV (T = 298 K) and η = 1 stated",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Substitution: V/V<sub>T</sub> = 0.6/0.0257 = 23.35",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Evaluation I ≈ 1.4 × 10<sup>5</sup> A with units and remark that practical current is limited by series resistance",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Shockley equation:</b> I = I<sub>s</sub>(e<sup>V/(ηV<sub>T</sub>)</sup> − 1), where V<sub>T</sub> = kT/q.",
+   "<b>(a) Given:</b> I<sub>s</sub> = 2 nA = 2 × 10<sup>-9</sup> A, V = 0.6 V, η = 2, V<sub>T</sub> = 26 mV.",
+   "V/(ηV<sub>T</sub>) = 0.6/(2 × 0.026) = 0.6/0.052 = 11.538.",
+   "e<sup>11.538</sup> = 1.026 × 10<sup>5</sup>.",
+   "I = 2 × 10<sup>-9</sup> × (1.026 × 10<sup>5</sup> − 1) = 2.05 × 10<sup>-4</sup> A = <b>0.205 mA</b>.",
+   "<b>(b) Given:</b> I<sub>s</sub> = 10 μA, V = 0.6 V, T = 25 °C = 298 K. For a silicon diode take η = 1 (not specified, ideal diode).",
+   "V<sub>T</sub> = kT/q = (1.38 × 10<sup>-23</sup> × 298)/(1.6 × 10<sup>-19</sup>) = 25.7 mV.",
+   "V/V<sub>T</sub> = 0.6/0.0257 = 23.35; e<sup>23.35</sup> = 1.38 × 10<sup>10</sup>.",
+   "I = 10 × 10<sup>-6</sup> × (1.38 × 10<sup>10</sup> − 1) ≈ 1.4 × 10<sup>5</sup> A.",
+   "<b>Remark:</b> this value is only mathematical; I<sub>s</sub> = 10 μA is large for silicon (typical nA) and a real diode’s current is limited by its bulk series resistance and the external circuit. If V<sub>T</sub> = 26 mV is used the result is ≈ 1.05 × 10<sup>5</sup> A, which is acceptable to an examiner."
+  ],
+  "formulas": [
+   "I = I<sub>s</sub>(e<sup>V/ηV<sub>T</sub></sup> − 1)",
+   "V<sub>T</sub> = kT/q ≈ 26 mV at 300 K"
+  ],
+  "result": "(a) I ≈ 0.205 mA. (b) I ≈ 1.4 × 10<sup>5</sup> A (≈ 10<sup>5</sup> A; theoretical value for η = 1)."
+ },
+ "Q1.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Energy band diagram concept: VB, CB, E<sub>g</sub>, and classification (conductor, semiconductor, insulator) with diagram",
+    "marks": 3
+   },
+   {
+    "point": "Explanation of LED emission: recombination gives photon energy E = hν = E<sub>g</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Formula λ = hc/E<sub>g</sub> with conversion of 1.875 eV to joules (3.0 × 10<sup>-19</sup> J)",
+    "marks": 2
+   },
+   {
+    "point": "Correct substitution and result λ = 6.6 × 10<sup>-7</sup> m = 6600 Å",
+    "marks": 2
+   },
+   {
+    "point": "Colour identified as red",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Energy bands in materials.</b> Atomic energy levels merge into the valence band (VB) and conduction band (CB), separated by the forbidden gap E<sub>g</sub>. <b>Conductor:</b> VB and CB overlap (no gap). <b>Semiconductor:</b> small gap, about 0.7–1.5 eV (Ge 0.67 eV, Si 1.1 eV, GaAs 1.4 eV). <b>Insulator:</b> large gap above 5 eV. In a semiconductor electrons jump from VB to CB on thermal or optical excitation, leaving holes in the VB.",
+   "<b>LED principle.</b> In a forward biased P-N junction of a direct-gap semiconductor, electrons in the CB recombine with holes in the VB and the released energy is emitted as a photon: E = hν = hc/λ = E<sub>g</sub>.",
+   "<b>Given:</b> E<sub>g</sub> = 1.875 eV, h = 6.6 × 10<sup>-34</sup> J·s, c = 3 × 10<sup>8</sup> m/s, 1 eV = 1.6 × 10<sup>-19</sup> J.",
+   "E<sub>g</sub> = 1.875 × 1.6 × 10<sup>-19</sup> = 3.0 × 10<sup>-19</sup> J.",
+   "λ = hc/E<sub>g</sub> = (6.6 × 10<sup>-34</sup> × 3 × 10<sup>8</sup>)/(3.0 × 10<sup>-19</sup>) = 1.98 × 10<sup>-25</sup>/3.0 × 10<sup>-19</sup> = 6.6 × 10<sup>-7</sup> m.",
+   "λ = 660 nm = <b>6600 Å</b>. (Check: 1.24/1.875 = 0.661 μm.)",
+   "This wavelength lies between about 620 and 700 nm, so the emitted light is <b>red</b>, which is what GaAsP LEDs are known for."
+  ],
+  "formulas": [
+   "E = hν = hc/λ = E<sub>g</sub>",
+   "λ(μm) = 1.24/E<sub>g</sub>(eV)"
+  ],
+  "diagram": "Energy band diagram of conductor (overlapping bands), semiconductor (small E<sub>g</sub>) and insulator (large E<sub>g</sub>); plus an LED band diagram showing an electron in CB recombining with a hole in VB and emitting a photon hν = E<sub>g</sub>.",
+  "result": "λ = 6.6 × 10<sup>-7</sup> m = 660 nm = 6600 Å, colour: red."
+ },
+ "Q2.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Labelled bridge rectifier circuit (4 diodes, transformer, R<sub>L</sub>) with input and output waveforms",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Working: D<sub>1</sub>, D<sub>3</sub> conduct in positive half-cycle and D<sub>2</sub>, D<sub>4</sub> in negative half-cycle; current through R<sub>L</sub> in the same direction",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Derivation of I<sub>dc</sub> = 2I<sub>m</sub>/π and I<sub>rms</sub> = I<sub>m</sub>/√2",
+    "marks": 1
+   },
+   {
+    "point": "(a) Derivation of P<sub>dc</sub>, P<sub>ac</sub> and η = 81.2 % (η<sub>max</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Centre-tap circuit diagram and working with waveforms",
+    "marks": 2
+   },
+   {
+    "point": "(b) Ripple factor γ = √(I<sub>rms</sub>²/I<sub>dc</sub>² − 1) = 0.482 with derivation",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Rectification efficiency 81.2 % for the centre-tap rectifier",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(a) Full-wave bridge rectifier.</b> Circuit: the secondary of the transformer (v<sub>s</sub> = V<sub>m</sub> sin ωt) is connected across two opposite corners of a bridge of four diodes D<sub>1</sub>–D<sub>4</sub>; the load R<sub>L</sub> is connected across the other two corners.",
+   "<b>Working.</b> Positive half-cycle: the upper end of the secondary is positive, D<sub>1</sub> and D<sub>3</sub> are forward biased (D<sub>2</sub>, D<sub>4</sub> reverse biased); current flows through R<sub>L</sub> from top to bottom. Negative half-cycle: D<sub>2</sub> and D<sub>4</sub> conduct (D<sub>1</sub>, D<sub>3</sub> off) and the current again flows through R<sub>L</sub> in the <i>same</i> direction. Hence the load voltage is a pulsating dc consisting of both half-cycles, with frequency 2f.",
+   "<b>Derivation of η (ideal diodes, forward resistance r<sub>f</sub> neglected for the maximum value).</b> Let i = I<sub>m</sub> sin ωt, I<sub>m</sub> = V<sub>m</sub>/(R<sub>L</sub> + 2r<sub>f</sub>).",
+   "Step 1: I<sub>dc</sub> = (1/π)∫<sub>0</sub><sup>π</sup> I<sub>m</sub> sin θ dθ = 2I<sub>m</sub>/π = 0.636 I<sub>m</sub>.",
+   "Step 2: I<sub>rms</sub> = √[(1/π)∫<sub>0</sub><sup>π</sup> I<sub>m</sub>² sin²θ dθ] = I<sub>m</sub>/√2 = 0.707 I<sub>m</sub>.",
+   "Step 3: dc output power P<sub>dc</sub> = I<sub>dc</sub>² R<sub>L</sub> = (4I<sub>m</sub>²/π²) R<sub>L</sub>.",
+   "Step 4: ac input power P<sub>ac</sub> = I<sub>rms</sub>²(R<sub>L</sub> + 2r<sub>f</sub>) = (I<sub>m</sub>²/2)(R<sub>L</sub> + 2r<sub>f</sub>).",
+   "Step 5: η = P<sub>dc</sub>/P<sub>ac</sub> = (8/π²)·R<sub>L</sub>/(R<sub>L</sub> + 2r<sub>f</sub>) = 0.811/(1 + 2r<sub>f</sub>/R<sub>L</sub>). For r<sub>f</sub> << R<sub>L</sub>: <b>η<sub>max</sub> = 8/π² = 81.2 %</b>. Other figures: γ = 0.482, PIV = V<sub>m</sub>, TUF = 0.812 (no dc saturation of transformer).",
+   "<b>(b) Full-wave centre-tap rectifier.</b> A transformer with centre-tapped secondary gives two equal voltages V<sub>m</sub> sin ωt, 180° out of phase, to D<sub>1</sub> and D<sub>2</sub>; the load R<sub>L</sub> is connected between the centre-tap and the joined cathodes. In the positive half-cycle D<sub>1</sub> conducts (D<sub>2</sub> off); in the negative half-cycle D<sub>2</sub> conducts (D<sub>1</sub> off). The load current i<sub>L</sub> always flows in one direction, giving |sin ωt| across R<sub>L</sub>. PIV of each diode = 2V<sub>m</sub>.",
+   "<b>Ripple factor.</b> γ = √[(I<sub>rms</sub>/I<sub>dc</sub>)² − 1] = √[((I<sub>m</sub>/√2)/(2I<sub>m</sub>/π))² − 1] = √[(π²/8) − 1] = √(1.2337 − 1) = √0.2337 = <b>0.482</b>.",
+   "<b>Efficiency.</b> η = P<sub>dc</sub>/P<sub>ac</sub> = (4I<sub>m</sub>²R<sub>L</sub>/π²)/[(I<sub>m</sub>²/2)(R<sub>L</sub> + r<sub>f</sub>)] = 8/π² × R<sub>L</sub>/(R<sub>L</sub>+r<sub>f</sub>) → <b>81.2 %</b> (ideal diodes), twice that of a half-wave rectifier (40.6 %). The ripple factor (0.482) is lower than that of a half-wave rectifier (1.21)."
+  ],
+  "formulas": [
+   "I<sub>dc</sub> = 2I<sub>m</sub>/π",
+   "I<sub>rms</sub> = I<sub>m</sub>/√2",
+   "η<sub>max</sub> = 8/π² = 81.2 %",
+   "γ = √(π²/8 − 1) = 0.482",
+   "PIV (bridge) = V<sub>m</sub>; PIV (centre-tap) = 2V<sub>m</sub>"
+  ],
+  "diagram": "Bridge: transformer secondary, four diodes in a diamond (D1, D3 / D2, D4 orientations marked), R_L across the output corners, arrows for the current in each half-cycle; waveforms of v_in (sine) and v_out (full-wave pulsating). Centre-tap: transformer with centre-tapped secondary, D1, D2 and R_L with centre-tap return, plus input/output waveforms."
+ },
+ "Q2.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of breakdown and reverse-bias characteristic indicating the breakdown region",
+    "marks": 1.5
+   },
+   {
+    "point": "Avalanche breakdown mechanism: carrier multiplication by impact ionisation in a wide depletion region, V<sub>B</sub> > 6 V",
+    "marks": 2
+   },
+   {
+    "point": "Zener breakdown mechanism: field emission/tunnelling in a narrow depletion region, V<sub>Z</sub> < 6 V",
+    "marks": 2
+   },
+   {
+    "point": "Comparison on doping and depletion width",
+    "marks": 1
+   },
+   {
+    "point": "Comparison on electric field and temperature coefficient (positive vs negative)",
+    "marks": 2
+   },
+   {
+    "point": "Comparison on V-I characteristics (sharpness of knee) and application",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Breakdown.</b> When the reverse bias on a P-N junction is raised beyond a critical value (the breakdown voltage V<sub>BR</sub>), the reverse current rises abruptly while the voltage across the diode remains almost constant. If the current is limited externally, the junction is not damaged; two mechanisms are responsible.",
+   "<b>1. Avalanche breakdown.</b> Occurs in lightly doped junctions with a wide depletion region (V<sub>B</sub> usually > 6 V). Minority carriers crossing the depletion region gain kinetic energy from the field; when the energy is sufficient they collide with lattice atoms and knock out covalent-bond electrons (<b>impact ionisation</b>), producing new electron-hole pairs. These are accelerated and ionise more atoms; the multiplication (M = 1/[1 − (V/V<sub>B</sub>)<sup>n</sup>]) becomes infinite at V = V<sub>B</sub> and a large reverse current flows.",
+   "<b>2. Zener breakdown.</b> Occurs in heavily doped junctions having a very narrow depletion region (V<sub>Z</sub> < 5–6 V). Even a small reverse voltage produces a very high field (≈ 10<sup>6</sup> V/cm) across the narrow region, which directly pulls electrons out of covalent bonds (<b>field ionisation / tunnelling</b>). The free carriers produce a sudden large reverse current at a sharp, well-defined voltage.",
+   "<b>Comparison:</b>",
+   "<b>Doping:</b> avalanche – light/moderate; Zener – heavy.",
+   "<b>Depletion width:</b> avalanche – wide; Zener – very narrow.",
+   "<b>Electric field intensity:</b> avalanche – relatively lower field but long path for carriers to gain energy; Zener – very high field (> 2 × 10<sup>7</sup> V/m) at low voltage.",
+   "<b>Mechanism:</b> avalanche – impact ionisation and carrier multiplication; Zener – field (tunnelling) emission.",
+   "<b>Temperature coefficient:</b> avalanche – <b>positive</b> (V<sub>B</sub> increases with T because lattice vibration shortens the mean free path); Zener – <b>negative</b> (V<sub>Z</sub> decreases with T because thermal energy helps in breaking bonds). At about 5–6 V both effects cancel (zero temperature coefficient).",
+   "<b>V-I characteristic:</b> avalanche – gradual rounded knee; Zener – very sharp knee with nearly vertical characteristic.",
+   "<b>Use:</b> avalanche – avalanche photodiodes, surge protection; Zener – voltage reference and regulator."
+  ],
+  "diagram": "Reverse-bias V-I curve of a diode in the third quadrant: horizontal (leakage I_s) up to V_BR then a vertical drop; mark V_Z/V_BR, I_ZK (knee) and I_ZM. Optionally show two curves, rounded knee (avalanche) and sharp knee (Zener)."
+ },
+ "Q2.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition and classification of clippers (series/shunt; positive/negative/biased/combinational)",
+    "marks": 2
+   },
+   {
+    "point": "Circuit and working of one positive (shunt) clipper with waveforms",
+    "marks": 2
+   },
+   {
+    "point": "Circuit and working of a biased/negative clipper with transfer characteristic",
+    "marks": 1.5
+   },
+   {
+    "point": "Definition of a clamper and condition RC >> T",
+    "marks": 1.5
+   },
+   {
+    "point": "Circuit diagram of biased positive clamper with V<sub>R</sub>",
+    "marks": 1
+   },
+   {
+    "point": "Operation: capacitor charging, steady-state output v<sub>o</sub> = v<sub>i</sub> + (V<sub>m</sub> + V<sub>R</sub>) with input/output waveforms",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Clipper.</b> A circuit that removes (clips) the part of the input waveform above or below a chosen reference level without distorting the remaining part. It uses diodes, resistors and (optionally) dc batteries but no energy-storing element.",
+   "<b>Classification:</b> (i) <i>series clipper</i> – diode in series with the load; (ii) <i>shunt (parallel) clipper</i> – diode in parallel with the load; each can be positive (clips +ve peaks), negative (clips −ve peaks), biased (with reference V<sub>R</sub>) or combinational/two-level (two diodes and two batteries clipping both peaks).",
+   "<b>Positive shunt clipper (ideal diode).</b> Series R, diode D connected across the output with its cathode to the reference V<sub>R</sub> (anode to the output). For v<sub>i</sub> < V<sub>R</sub> D is off, v<sub>o</sub> = v<sub>i</sub>. For v<sub>i</sub> > V<sub>R</sub> D conducts and v<sub>o</sub> = V<sub>R</sub> (+0.7 V for a Si diode). Positive peaks above V<sub>R</sub> are removed. Reversing the diode (and battery) clips the negative peaks.",
+   "<b>Transfer characteristic:</b> a straight line of slope 1 up to v<sub>i</sub> = V<sub>R</sub>, then horizontal at v<sub>o</sub> = V<sub>R</sub>.",
+   "<b>Clamper.</b> A circuit that adds a dc level to the input ac signal, shifting the whole waveform up or down without changing its shape. It uses a capacitor, a diode and a resistor (and a battery for biased clamping) with the time-constant condition <b>RC >> T</b> (usually 5RC > 10 T) so that the capacitor does not discharge appreciably during the off-period of the diode.",
+   "<b>Biased positive clamper.</b> Circuit: input v<sub>i</sub> → series capacitor C → output node; diode D connected from the output node to ground with its cathode at the output node and anode through a battery V<sub>R</sub> (anode side reference), R<sub>L</sub> across the output. (For a positive clamp the diode is oriented so that it conducts on the negative peak.)",
+   "<b>Operation (ideal diode), input square/sine wave of peak V<sub>m</sub>:</b> During the first negative peak, D is forward biased and C charges to V<sub>C</sub> = V<sub>m</sub> + V<sub>R</sub> with the output-side plate positive, so the output is held at V<sub>R</sub> at the negative peak. When v<sub>i</sub> rises the diode turns off; since τ = RC is large, C retains its voltage and acts as a battery in series with the input.",
+   "<b>Steady state:</b> v<sub>o</sub> = v<sub>i</sub> + V<sub>m</sub> + V<sub>R</sub>. The negative peak (−V<sub>m</sub>) is lifted to +V<sub>R</sub> and the positive peak becomes 2V<sub>m</sub> + V<sub>R</sub>: the waveform is clamped to the positive side at level V<sub>R</sub>, with total swing 2V<sub>m</sub> unchanged. Using a Si diode the clamped level shifts by −0.7 V.",
+   "<b>Applications:</b> restoring the dc component in TV receivers, voltage doublers/multipliers, test equipment."
+  ],
+  "diagram": "(i) Positive clipper: v_i source, R in series, diode with battery V_R across output; waveforms of sine in and clipped sine out. (ii) Biased positive clamper: v_i, series C, diode with battery V_R to ground, R_L; waveforms: input symmetric about 0, output with bottom at +V_R."
+ },
+ "Q2.4": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Circuit diagram of the voltage tripler with D<sub>1</sub>–D<sub>3</sub> and C<sub>1</sub>–C<sub>3</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Working in successive half-cycles (charging C<sub>1</sub> to V<sub>m</sub>, C<sub>2</sub> to 2V<sub>m</sub>, C<sub>3</sub> to 2V<sub>m</sub>)",
+    "marks": 2
+   },
+   {
+    "point": "Output 3V<sub>m</sub> taken across C<sub>1</sub> and C<sub>3</sub> in series; PIV = 2V<sub>m</sub>",
+    "marks": 1
+   },
+   {
+    "point": "Applications/limitations (poor regulation, high-voltage low-current)",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Principle.</b> A voltage multiplier uses diodes as switches and capacitors as storage elements to produce a dc output equal to an integral multiple of the peak input voltage V<sub>m</sub> (without a high-voltage transformer). A tripler gives V<sub>dc</sub> ≈ 3V<sub>m</sub>.",
+   "<b>Circuit.</b> An ac source v<sub>i</sub> = V<sub>m</sub> sin ωt feeds capacitor C<sub>1</sub> in series; D<sub>1</sub> connects the C<sub>1</sub>-diode node to ground (clamping), D<sub>2</sub> connects that node to C<sub>2</sub> (top plate of the second stage), D<sub>3</sub> passes charge on to C<sub>3</sub>; C<sub>2</sub> returns to the ac source side. The load R<sub>L</sub> is connected across the series combination of C<sub>1</sub> and C<sub>3</sub>.",
+   "<b>Step 1 (first negative half-cycle):</b> D<sub>1</sub> conducts and C<sub>1</sub> charges to V<sub>m</sub> (it acts as a clamper).",
+   "<b>Step 2 (positive half-cycle):</b> D<sub>1</sub> off; source (V<sub>m</sub>) in series with C<sub>1</sub> (V<sub>m</sub>) = 2V<sub>m</sub> forward biases D<sub>2</sub> and charges C<sub>2</sub> to 2V<sub>m</sub>.",
+   "<b>Step 3 (next negative half-cycle):</b> D<sub>2</sub> off, D<sub>3</sub> conducts; C<sub>2</sub> (2V<sub>m</sub>) is in series with the source and C<sub>1</sub> in such a way that the net charging voltage of C<sub>3</sub> is V<sub>C2</sub> + V<sub>m</sub> − V<sub>C1</sub> = 2V<sub>m</sub> + V<sub>m</sub> − V<sub>m</sub> = 2V<sub>m</sub>, so C<sub>3</sub> charges to 2V<sub>m</sub>.",
+   "<b>Output:</b> v<sub>o</sub> = V<sub>C1</sub> + V<sub>C3</sub> = V<sub>m</sub> + 2V<sub>m</sub> = <b>3V<sub>m</sub></b>. In the same circuit the voltage across C<sub>2</sub> alone is 2V<sub>m</sub> (doubler output); one more diode-capacitor stage gives a quadrupler (4V<sub>m</sub>). The PIV of each diode is 2V<sub>m</sub>.",
+   "<b>Notes:</b> output reaches 3V<sub>m</sub> after a few cycles, regulation is poor (voltage falls rapidly with load current), so tripler circuits are used for high-voltage, low-current applications such as CRT anodes, photocopiers and ion pumps."
+  ],
+  "formulas": [
+   "V<sub>dc</sub> = 3V<sub>m</sub>",
+   "PIV of each diode = 2V<sub>m</sub>"
+  ],
+  "diagram": "Cascade of three capacitors and three diodes (Cockcroft-Walton type): AC source, C1 series, D1 to ground, D2, C2, D3, C3; label voltages V_m, 2V_m, 2V_m and output 3V_m across R_L."
+ },
+ "Q2.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Zener V-I characteristic and its constant-voltage property in breakdown region",
+    "marks": 1.5
+   },
+   {
+    "point": "Circuit diagram of shunt regulator: R<sub>s</sub>, reverse-biased Zener across R<sub>L</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Line regulation: V<sub>in</sub> change absorbed by R<sub>s</sub> and I<sub>Z</sub>, V<sub>L</sub> constant",
+    "marks": 2.5
+   },
+   {
+    "point": "Load regulation: change in R<sub>L</sub> compensated by I<sub>Z</sub> (I<sub>S</sub> = I<sub>Z</sub> + I<sub>L</sub> constant)",
+    "marks": 2.5
+   },
+   {
+    "point": "Conditions for regulation (I<sub>ZK</sub> ≤ I<sub>Z</sub> ≤ I<sub>ZM</sub>) and design equations",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Zener characteristic.</b> In reverse breakdown a Zener diode maintains an almost constant voltage V<sub>Z</sub> across its terminals while the current varies widely between I<sub>Z,min</sub> (knee current I<sub>ZK</sub>) and I<sub>Z,max</sub> (I<sub>ZM</sub>, set by the power rating P<sub>Z</sub> = V<sub>Z</sub>I<sub>ZM</sub>). The small slope is the dynamic resistance r<sub>z</sub> (a few ohms).",
+   "<b>Circuit.</b> The unregulated supply V<sub>in</sub> is connected through a series resistor R<sub>s</sub> to the Zener diode (cathode toward the positive side) and the load R<sub>L</sub> is connected in <i>parallel</i> with the Zener. Output V<sub>L</sub> = V<sub>Z</sub>. Currents: I<sub>S</sub> = (V<sub>in</sub> − V<sub>Z</sub>)/R<sub>s</sub> = I<sub>Z</sub> + I<sub>L</sub>, where I<sub>L</sub> = V<sub>Z</sub>/R<sub>L</sub>.",
+   "<b>Line regulation (V<sub>in</sub> varies, R<sub>L</sub> fixed).</b> If V<sub>in</sub> increases, I<sub>S</sub> increases. Since V<sub>L</sub> = V<sub>Z</sub> is constant, I<sub>L</sub> is constant, so the whole extra current ΔI<sub>S</sub> = ΔV<sub>in</sub>/R<sub>s</sub> is taken by the Zener (I<sub>Z</sub> rises). The extra voltage drops across R<sub>s</sub> (V<sub>R</sub> = V<sub>in</sub> − V<sub>Z</sub>) and the output stays at V<sub>Z</sub>. When V<sub>in</sub> decreases, I<sub>Z</sub> decreases, and again V<sub>L</sub> ≈ V<sub>Z</sub> as long as I<sub>Z</sub> ≥ I<sub>ZK</sub>.",
+   "<b>Load regulation (R<sub>L</sub> varies, V<sub>in</sub> fixed).</b> I<sub>S</sub> = (V<sub>in</sub> − V<sub>Z</sub>)/R<sub>s</sub> is constant. If R<sub>L</sub> decreases, I<sub>L</sub> increases and the Zener current falls by the same amount (I<sub>Z</sub> = I<sub>S</sub> − I<sub>L</sub>); if R<sub>L</sub> increases, I<sub>Z</sub> rises. The drop in R<sub>s</sub> and V<sub>L</sub> remain unchanged. The Zener thus acts as a variable shunt that diverts the surplus current.",
+   "<b>Conditions for good regulation:</b> (i) V<sub>in</sub> > V<sub>Z</sub>; (ii) I<sub>Z</sub> must stay between I<sub>ZK</sub> and I<sub>ZM</sub>. Hence R<sub>s,min</sub> = (V<sub>in,max</sub> − V<sub>Z</sub>)/(I<sub>ZM</sub> + I<sub>L,min</sub>) and R<sub>s,max</sub> = (V<sub>in,min</sub> − V<sub>Z</sub>)/(I<sub>ZK</sub> + I<sub>L,max</sub>). Minimum R<sub>L</sub> for regulation: R<sub>L,min</sub> = V<sub>Z</sub>R<sub>s</sub>/(V<sub>in,min</sub> − V<sub>Z</sub>).",
+   "<b>Practical measures:</b> line regulation = ΔV<sub>L</sub>/ΔV<sub>in</sub> ≈ r<sub>z</sub>/(R<sub>s</sub> + r<sub>z</sub>), load regulation = −(R<sub>s</sub> ∥ r<sub>z</sub>) ≈ −r<sub>z</sub>. Used in low-power regulated supplies and reference sources."
+  ],
+  "formulas": [
+   "I<sub>S</sub> = (V<sub>in</sub> − V<sub>Z</sub>)/R<sub>s</sub> = I<sub>Z</sub> + I<sub>L</sub>",
+   "V<sub>L</sub> = V<sub>Z</sub>",
+   "R<sub>s</sub> = (V<sub>in</sub> − V<sub>Z</sub>)/(I<sub>Z</sub> + I<sub>L</sub>)"
+  ],
+  "diagram": "Circuit: V_in, series R_s, Zener (cathode to top node) in parallel with R_L; mark I_S, I_Z, I_L and V_L. Also V-I curve in the reverse region with I_ZK, I_ZM, V_Z."
+ },
+ "Q2.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Identification of circuit and statement of assumptions (ideal diode, conducts when v<sub>i</sub> > 1 V)",
+    "marks": 1.5
+   },
+   {
+    "point": "Diode OFF analysis for v<sub>i</sub> < 1 V: v<sub>o</sub> = v<sub>i</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Diode ON analysis for v<sub>i</sub> > 1 V: v<sub>o</sub> = 1 V",
+    "marks": 1.5
+   },
+   {
+    "point": "Transfer characteristic (slope 1 up to 1 V, then flat)",
+    "marks": 2
+   },
+   {
+    "point": "Time period T = 20 ms and instants of clipping 0.64 ms and 9.36 ms",
+    "marks": 1.5
+   },
+   {
+    "point": "Output waveform sketch: positive peak clipped at +1 V, negative half unchanged to −5 V",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Assumed circuit:</b> input v<sub>i</sub>(t) = 5 sin(100πt) V applied through series R; across the output is a diode D (anode to output node) in series with a 1 V battery whose positive terminal faces the cathode, i.e. D conducts when v<sub>i</sub> > 1 V (positive shunt clipper at 1 V). Diode treated as ideal.",
+   "<b>Signal data:</b> V<sub>m</sub> = 5 V, ω = 100π rad/s → f = 50 Hz, T = 20 ms.",
+   "<b>Case 1: v<sub>i</sub> < 1 V</b> (including the whole negative half-cycle) – D is reverse biased (open). No current flows through R, so v<sub>o</sub> = v<sub>i</sub>.",
+   "<b>Case 2: v<sub>i</sub> ≥ 1 V</b> – D conducts and acts as a short circuit in series with the 1 V battery; v<sub>o</sub> = 1 V, and the excess v<sub>i</sub> − 1 appears across R.",
+   "<b>Transfer characteristic (v<sub>o</sub> vs v<sub>i</sub>):</b> v<sub>o</sub> = v<sub>i</sub> for −5 V ≤ v<sub>i</sub> ≤ 1 V (45° line through the origin) and v<sub>o</sub> = 1 V (horizontal line) for 1 V ≤ v<sub>i</sub> ≤ 5 V; the break point is at (1 V, 1 V).",
+   "<b>Clipping instants:</b> 5 sin(100πt) = 1 → sin θ = 0.2 → θ<sub>1</sub> = 11.54° (0.2014 rad). t<sub>1</sub> = θ/ω = 0.2014/(100π) = 0.641 ms; second crossing at θ<sub>2</sub> = 180° − 11.54° = 168.46°, t<sub>2</sub> = 9.359 ms.",
+   "<b>Output waveform:</b> 0 → 0.641 ms follows the sine up to 1 V; 0.641 → 9.359 ms flat at +1 V; 9.359 → 10 ms follows the sine down to 0; during 10–20 ms the negative half-cycle is reproduced unchanged down to −5 V. For a Si diode (V<sub>γ</sub> = 0.7 V) the flat level would be 1.7 V.",
+   "<b>Conclusion:</b> the circuit is a positive peak clipper with clipping level +1 V; peak-to-peak output = 6 V."
+  ],
+  "result": "v_o = v_i for v_i ≤ 1 V; v_o = 1 V for v_i ≥ 1 V; output swings from −5 V to +1 V; clipping from t = 0.641 ms to 9.359 ms in each 20 ms cycle.",
+  "diagram": "Circuit with R in series, diode + 1 V battery to ground at output; transfer curve (45° line then flat at 1 V); input sine ±5 V and output sine with positive peak flattened at +1 V, time axis marked at 0.641 ms, 9.359 ms, 10 ms, 20 ms."
+ },
+ "Q2.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Assumptions about diode orientation and ideal diode (state clearly)",
+    "marks": 1
+   },
+   {
+    "point": "(i) 5τ = 5R<sub>L</sub>C = 0.5 s",
+    "marks": 2
+   },
+   {
+    "point": "(ii) T = 1 ms, T/2 = 0.5 ms; 5τ >> T/2 (1000 times) so C does not discharge",
+    "marks": 2
+   },
+   {
+    "point": "Capacitor charging in the first half-cycle: V<sub>C</sub> = 20 + 1.5 = 21.5 V",
+    "marks": 2
+   },
+   {
+    "point": "(iii) Steady-state output v<sub>o</sub> = v<sub>i</sub> + 21.5: levels +1.5 V and +41.5 V",
+    "marks": 2
+   },
+   {
+    "point": "Correct output waveform sketch with levels labelled",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Assumed network:</b> series capacitor C = 1 μF, load R<sub>L</sub> = 100 kΩ across the output, and a diode in parallel with the output in series with a 1.5 V battery, oriented so that the diode conducts when the output falls below +1.5 V (cathode at the output node, anode at the +1.5 V battery terminal). Ideal diode; input square wave of ±20 V at 1 kHz.",
+   "<b>(i) Time constant:</b> τ = R<sub>L</sub>C = 100 × 10<sup>3</sup> × 1 × 10<sup>-6</sup> = 0.1 s. Hence <b>5τ = 5 × 0.1 = 0.5 s = 500 ms</b>.",
+   "<b>(ii) Comparison:</b> T = 1/f = 1/1000 = 1 ms, so T/2 = 0.5 ms. 5τ/(T/2) = 500 ms/0.5 ms = 1000, i.e. <b>5τ >> T/2</b>. The capacitor cannot discharge appreciably through R<sub>L</sub> during the half-period when the diode is off, so the circuit behaves as a proper clamper (the output is the input shifted by a constant dc level).",
+   "<b>(iii) Steady state.</b> During the first −20 V half-cycle the diode conducts and the capacitor charges rapidly (through the diode, with small resistance) until the output is at the battery voltage: v<sub>o</sub> = +1.5 V. KVL around the input loop with v<sub>o</sub> = v<sub>i</sub> + V<sub>C</sub> (V<sub>C</sub> positive on the output side): 1.5 = −20 + V<sub>C</sub>, so <b>V<sub>C</sub> = 20 + 1.5 = 21.5 V</b>.",
+   "When the input switches to +20 V, the diode turns off (v<sub>o</sub> > 1.5 V) and the capacitor holds 21.5 V: v<sub>o</sub> = 20 + 21.5 = 41.5 V.",
+   "<b>Output waveform:</b> square wave v<sub>o</sub> = v<sub>i</sub> + 21.5 V swinging between <b>+1.5 V</b> (during the −20 V half) and <b>+41.5 V</b> (during the +20 V half); the peak-to-peak swing, 40 V, equals the input swing, the waveform being clamped (shifted up) so that its negative extreme sits at the +1.5 V reference. The slight droop in each half-cycle is negligible because 5τ >> T/2 (droop ≈ 0.5 ms/100 ms of 40 V ≈ 0.2 V).",
+   "<b>Conclusion:</b> positive-going clamper with level shift of +21.5 V."
+  ],
+  "result": "5τ = 0.5 s (500 ms); T/2 = 0.5 ms, so 5τ = 1000 × (T/2); output square wave between +1.5 V and +41.5 V (shift +21.5 V). (Assumed diode orientation: clamps negative peak to +1.5 V.)",
+  "diagram": "Circuit: v_i, series C, output node with R_L to ground and diode + 1.5 V battery to ground; waveforms: input ±20 V square wave; output square wave 1.5 V to 41.5 V."
+ },
+ "Q2.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) I<sub>m</sub> = V<sub>m</sub>/(R<sub>L</sub> + 2r<sub>d</sub>) = 215.7 mA",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) I<sub>dc</sub> = 2I<sub>m</sub>/π = 137.3 mA",
+    "marks": 1
+   },
+   {
+    "point": "(c) I<sub>rms</sub> = I<sub>m</sub>/√2 = 152.5 mA",
+    "marks": 1
+   },
+   {
+    "point": "(d) Ripple factor γ = 0.482 with formula",
+    "marks": 1.5
+   },
+   {
+    "point": "(e) Efficiency η = 0.812R<sub>L</sub>/(R<sub>L</sub> + 2r<sub>d</sub>) = 79.6 %",
+    "marks": 1
+   },
+   {
+    "point": "(i) V<sub>dc</sub> = 2(V<sub>m</sub> − 2V<sub>D</sub>)/π = 107.1 V with V<sub>m</sub> = 169.7 V",
+    "marks": 1.5
+   },
+   {
+    "point": "(ii) PIV = V<sub>m</sub> − V<sub>D</sub> ≈ 169 V (stating that V<sub>m</sub> = 169.7 V is also accepted)",
+    "marks": 1.5
+   },
+   {
+    "point": "(iii) Peak diode current = (V<sub>m</sub> − 2V<sub>D</sub>)/R<sub>L</sub> = 168.3 mA",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(1) Given:</b> R<sub>L</sub> = 1 kΩ, r<sub>d</sub> = 10 Ω, v<sub>s</sub> = 220 sin 314t, so V<sub>m</sub> = 220 V. In a bridge two diodes conduct in series in every half-cycle, so the total resistance = R<sub>L</sub> + 2r<sub>d</sub> = 1000 + 20 = 1020 Ω.",
+   "(a) I<sub>m</sub> = V<sub>m</sub>/(R<sub>L</sub> + 2r<sub>d</sub>) = 220/1020 = 0.2157 A = <b>215.7 mA</b>.",
+   "(b) I<sub>dc</sub> = 2I<sub>m</sub>/π = 2 × 0.2157/3.1416 = 0.1373 A = <b>137.3 mA</b>.",
+   "(c) I<sub>rms</sub> = I<sub>m</sub>/√2 = 0.2157/1.4142 = 0.1525 A = <b>152.5 mA</b>.",
+   "(d) γ = √[(I<sub>rms</sub>/I<sub>dc</sub>)² − 1] = √[(152.5/137.3)² − 1] = √(1.2337 − 1) = <b>0.483 ≈ 0.482</b>.",
+   "(e) η = P<sub>dc</sub>/P<sub>ac</sub> = I<sub>dc</sub>²R<sub>L</sub> / [I<sub>rms</sub>²(R<sub>L</sub> + 2r<sub>d</sub>)] = 0.812 × 1000/1020 = <b>79.6 %</b> (maximum 81.2 % for r<sub>d</sub> = 0).",
+   "<b>(2) Given:</b> V<sub>rms</sub> = 120 V → V<sub>m</sub> = 120√2 = 169.7 V; R<sub>L</sub> = 1 kΩ; V<sub>D</sub> = 0.7 V. Two diodes conduct in series in each half-cycle, so the peak load voltage = V<sub>m</sub> − 2V<sub>D</sub> = 169.7 − 1.4 = 168.3 V.",
+   "(i) V<sub>dc</sub> = 2(V<sub>m</sub> − 2V<sub>D</sub>)/π = 2 × 168.3/π = <b>107.1 V</b>.",
+   "(ii) For the non-conducting diode in the bridge the reverse voltage equals the peak load voltage plus the drop of one conducting diode, so PIV = V<sub>m</sub> − V<sub>D</sub> = 169.7 − 0.7 = <b>169 V</b> (≈ V<sub>m</sub>); rating chosen ≥ 170 V (practically 200 V or more).",
+   "(iii) Peak diode current I<sub>m</sub> = (V<sub>m</sub> − 2V<sub>D</sub>)/R<sub>L</sub> = 168.3/1000 = <b>168.3 mA</b> (also the dc load current I<sub>dc</sub> = 107.1 mA)."
+  ],
+  "result": "(a) I_m = 215.7 mA; (b) I_dc = 137.3 mA; (c) I_rms = 152.5 mA; (d) γ ≈ 0.482; (e) η = 79.6 %. Second: V_dc = 107.1 V; PIV = 169 V; peak diode current = 168.3 mA.",
+  "formulas": [
+   "I<sub>m</sub> = V<sub>m</sub>/(R<sub>L</sub> + 2r<sub>d</sub>)",
+   "I<sub>dc</sub> = 2I<sub>m</sub>/π",
+   "γ = √(I<sub>rms</sub>²/I<sub>dc</sub>² − 1)",
+   "V<sub>dc</sub> = 2(V<sub>m</sub> − 2V<sub>D</sub>)/π"
+  ]
+ },
+ "Q2.9": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Check that Zener is ON (V<sub>L</sub> without Zener = 12 V > V<sub>Z</sub>), V<sub>L</sub> = 10 V",
+    "marks": 1
+   },
+   {
+    "point": "(a) V<sub>R</sub> = 6 V, I<sub>Z</sub> = 2.67 mA, P<sub>Z</sub> = 26.7 mW",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) I<sub>L</sub> = V<sub>Z</sub>/R<sub>L</sub> = 16.67 mA and V<sub>i,min</sub> = 23.67 V",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) I<sub>R,max</sub> = I<sub>ZM</sub> + I<sub>L</sub> = 76.67 mA and V<sub>i,max</sub> = 36.87 V",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) R<sub>s</sub> = (16 − 12)/200 mA = 20 Ω",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) V<sub>Z</sub> = 12 V; power rating P<sub>Z</sub> = 12 × 200 mA = 2.4 W",
+    "marks": 1
+   },
+   {
+    "point": "(d) I<sub>R</sub> = 6/500 = 12 mA; I<sub>L,max</sub> = 12 − 5 = 7 mA",
+    "marks": 1
+   },
+   {
+    "point": "(d) R<sub>L,min</sub> = 6 V/7 mA = 857 Ω",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(a)</b> Remove the Zener: V<sub>L</sub> = V<sub>in</sub>R<sub>L</sub>/(R<sub>s</sub> + R<sub>L</sub>) = 16 × 3/(1 + 3) = 12 V > V<sub>Z</sub> = 10 V, so the Zener is ON (in breakdown).",
+   "V<sub>L</sub> = V<sub>Z</sub> = <b>10 V</b>. V<sub>R</sub> = 16 − 10 = <b>6 V</b>. I<sub>R</sub> = 6 V/1 kΩ = 6 mA. I<sub>L</sub> = 10/3 kΩ = 3.33 mA. I<sub>Z</sub> = I<sub>R</sub> − I<sub>L</sub> = 6 − 3.33 = <b>2.67 mA</b>. P<sub>Z</sub> = V<sub>Z</sub>I<sub>Z</sub> = 10 × 2.67 mA = <b>26.7 mW</b>.",
+   "<b>(b)</b> Load current I<sub>L</sub> = V<sub>Z</sub>/R<sub>L</sub> = 20/1.2 kΩ = 16.67 mA (constant while Zener ON).",
+   "<i>Minimum V<sub>i</sub></i> (Zener just on, I<sub>Z</sub> = 0): V<sub>L</sub> = 20 V = V<sub>i</sub>R<sub>L</sub>/(R + R<sub>L</sub>) → V<sub>i,min</sub> = 20 × (220 + 1200)/1200 = <b>23.67 V</b>.",
+   "<i>Maximum V<sub>i</sub></i> (I<sub>Z</sub> = I<sub>ZM</sub> = 60 mA): I<sub>R,max</sub> = I<sub>ZM</sub> + I<sub>L</sub> = 60 + 16.67 = 76.67 mA; V<sub>i,max</sub> = V<sub>Z</sub> + I<sub>R,max</sub>R = 20 + 76.67 mA × 220 = 20 + 16.87 = <b>36.87 V</b>. Range: 23.67 V ≤ V<sub>i</sub> ≤ 36.87 V.",
+   "<b>(c)</b> The Zener (V<sub>Z</sub> = V<sub>L</sub> = <b>12 V</b>) must supply the load up to 200 mA at fixed V<sub>in</sub> = 16 V. Series current is constant, I<sub>S</sub> = (16 − 12)/R<sub>s</sub>. To supply the full 200 mA at maximum load (Zener current taken as ≈ 0, ideal knee) I<sub>S</sub> ≥ 200 mA → R<sub>s</sub> = 4 V/200 mA = <b>20 Ω</b> (in practice a little less to keep I<sub>ZK</sub> flowing).",
+   "At no load (I<sub>L</sub> = 0) the Zener carries the full 200 mA: P<sub>Z,max</sub> = 12 × 0.2 = <b>2.4 W</b>, so choose a 12 V, 3 W Zener (and R<sub>s</sub> power rating I²R = 0.04 × 20 = 0.8 W → 1 W).",
+   "<b>(d)</b> With the Zener ON at 6 V: I<sub>R</sub> = (12 − 6)/500 = 12 mA (constant). The Zener must keep at least I<sub>ZK</sub> = 5 mA, so the load can take I<sub>L,max</sub> = 12 − 5 = 7 mA. R<sub>L,min</sub> = V<sub>Z</sub>/I<sub>L,max</sub> = 6/7 mA = <b>857 Ω</b> (857 Ω or more keeps output ≥ 6 V)."
+  ],
+  "result": "(a) V_L = 10 V, V_R = 6 V, I_Z = 2.67 mA, P_Z = 26.7 mW; (b) 23.67 V ≤ V_i ≤ 36.87 V; (c) R_s = 20 Ω, V_Z = 12 V (2.4 W, use 3 W); (d) R_L,min = 857 Ω."
+ },
+ "Q3.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Construction diagram of NPN/PNP BJT (emitter heavily doped, base thin and lightly doped, collector large) with biasing",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Internal current components: I<sub>En</sub>, I<sub>Ep</sub>, recombination current, I<sub>Cn</sub>, I<sub>CBO</sub>; I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub>",
+    "marks": 2
+   },
+   {
+    "point": "(b) Definitions of α, β, γ with expressions",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Derivation β = α/(1 − α) and α = β/(1 + β)",
+    "marks": 2
+   },
+   {
+    "point": "(b) Other relation: I<sub>C</sub> = βI<sub>B</sub> + (1 + β)I<sub>CBO</sub> and γ = 1/(1 − α) = 1 + β",
+    "marks": 1
+   },
+   {
+    "point": "(c) Comparison BJT vs FET (at least 4 points)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>(a) Construction.</b> A BJT is a three-layer, two-junction device (NPN or PNP). <b>Emitter</b>: heavily doped, emits carriers; <b>base</b>: very thin (≈ 1 μm) and lightly doped; <b>collector</b>: moderately doped and largest in area, collects carriers. In the active region the emitter-base junction (J<sub>E</sub>) is forward biased and the collector-base junction (J<sub>C</sub>) is reverse biased.",
+   "<b>Current components (NPN).</b> (1) Forward bias of J<sub>E</sub> makes electrons from the emitter flow into the base (I<sub>En</sub>) and holes flow from base to emitter (I<sub>Ep</sub> – small because of low base doping); I<sub>E</sub> = I<sub>En</sub> + I<sub>Ep</sub>. (2) A very small fraction (≈ 1–5 %) of the injected electrons recombines with holes in the base, forming the base recombination current. (3) The remaining electrons, being minority carriers in the base, diffuse across the thin base and are swept by the collector field into the collector (I<sub>Cn</sub>). (4) In addition the reverse-biased J<sub>C</sub> carries a small reverse saturation current I<sub>CBO</sub> of thermally generated minority carriers. Hence I<sub>C</sub> = αI<sub>E</sub> + I<sub>CBO</sub>; I<sub>B</sub> = I<sub>E</sub> − I<sub>C</sub> = (1 − α)I<sub>E</sub> − I<sub>CBO</sub> and I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub>. In a PNP transistor the roles of electrons and holes are interchanged and all currents reverse in direction.",
+   "<b>(b) Definitions.</b> α<sub>dc</sub> = I<sub>C</sub>/I<sub>E</sub> (CB current gain, 0.95–0.995); β<sub>dc</sub> = I<sub>C</sub>/I<sub>B</sub> (CE current gain, 20–500); γ = I<sub>E</sub>/I<sub>B</sub> (CC current gain).",
+   "<b>Derivation.</b> Step 1: I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub>.",
+   "Step 2: divide by I<sub>C</sub>: I<sub>E</sub>/I<sub>C</sub> = I<sub>B</sub>/I<sub>C</sub> + 1 → 1/α = 1/β + 1.",
+   "Step 3: 1/β = 1/α − 1 = (1 − α)/α → <b>β = α/(1 − α)</b>.",
+   "Step 4: from 1/α = 1 + 1/β = (β + 1)/β → <b>α = β/(1 + β)</b>.",
+   "Step 5: γ = I<sub>E</sub>/I<sub>B</sub> = (I<sub>B</sub> + I<sub>C</sub>)/I<sub>B</sub> = 1 + β = 1/(1 − α). Also I<sub>C</sub> = βI<sub>B</sub> + (1 + β)I<sub>CBO</sub> = βI<sub>B</sub> + I<sub>CEO</sub>. (Example: α = 0.98 → β = 49.)",
+   "<b>(c) BJT vs FET:</b> (1) BJT is a <i>current-controlled</i> device; FET is <i>voltage-controlled</i>. (2) BJT is bipolar (both electrons and holes carry current); FET is unipolar (majority carriers only). (3) Input resistance: BJT low (≈ 1 kΩ); FET very high (10<sup>7</sup>–10<sup>12</sup> Ω). (4) Noise: BJT higher; FET lower. (5) Thermal stability: BJT has thermal runaway (negative-feedback needed); FET has negative temperature coefficient of current, thermally stable. (6) Size: FET occupies less area, ideal for ICs; (7) Gain-bandwidth: BJT has higher voltage gain; FET has lower. (8) Switching speed/power: MOSFET has lower power consumption in digital circuits. (9) FET is more susceptible to static damage (MOSFET gate)."
+  ],
+  "formulas": [
+   "I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub>",
+   "α = I<sub>C</sub>/I<sub>E</sub>, β = I<sub>C</sub>/I<sub>B</sub>, γ = I<sub>E</sub>/I<sub>B</sub>",
+   "β = α/(1 − α); α = β/(1 + β); γ = 1 + β",
+   "I<sub>C</sub> = βI<sub>B</sub> + (1 + β)I<sub>CBO</sub>"
+  ],
+  "diagram": "NPN transistor block (N+ emitter, thin P base, N collector) with VEB forward and VCB reverse supplies; arrows for IEn, IEp, recombination in base, ICn, ICBO, IB, IC, IE."
+ },
+ "Q3.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) CE circuit with input/output supplies and meters",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Input characteristic I<sub>B</sub> vs V<sub>BE</sub> at constant V<sub>CE</sub> with explanation and input resistance",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Output characteristics I<sub>C</sub> vs V<sub>CE</sub> at constant I<sub>B</sub> with Early effect and output resistance",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Active, saturation and cut-off regions shown and explained (with junction biasing)",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) CB circuit with polarities (NPN/PNP)",
+    "marks": 1
+   },
+   {
+    "point": "(b) Input characteristics I<sub>E</sub> vs V<sub>EB</sub> at constant V<sub>CB</sub>",
+    "marks": 1
+   },
+   {
+    "point": "(b) Output characteristics I<sub>C</sub> vs V<sub>CB</sub> at constant I<sub>E</sub> with three regions, α, r<sub>o</sub>",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>(a) CE configuration.</b> The emitter is common to input (base-emitter) and output (collector-emitter). For an NPN transistor: V<sub>BB</sub> (variable) in series with R<sub>B</sub> forward-biases the base-emitter junction (+ at base) and V<sub>CC</sub> (variable) makes the collector positive with respect to emitter. A μA meter measures I<sub>B</sub>, an mA meter measures I<sub>C</sub>.",
+   "<b>Input characteristic:</b> I<sub>B</sub> vs V<sub>BE</sub> for constant V<sub>CE</sub>. The curve resembles the forward characteristic of a diode: negligible current up to cut-in voltage (≈ 0.5 V Si) then an exponential rise. Increasing V<sub>CE</sub> shifts the curve slightly to the right (reduced base width, Early effect, smaller I<sub>B</sub>). Input resistance r<sub>i</sub> = ΔV<sub>BE</sub>/ΔI<sub>B</sub> at constant V<sub>CE</sub> (≈ 1 kΩ).",
+   "<b>Output characteristics:</b> I<sub>C</sub> vs V<sub>CE</sub> for different constant I<sub>B</sub>. For V<sub>CE</sub> above a small knee value (≈ 0.2 V) I<sub>C</sub> rises slowly and almost flat with V<sub>CE</sub> (slight upward slope due to base-width modulation); higher I<sub>B</sub> gives a higher curve with I<sub>C</sub> = βI<sub>B</sub>. Output resistance r<sub>o</sub> = ΔV<sub>CE</sub>/ΔI<sub>C</sub> at constant I<sub>B</sub> (≈ 40 kΩ); β<sub>ac</sub> = ΔI<sub>C</sub>/ΔI<sub>B</sub> at constant V<sub>CE</sub>.",
+   "<b>Regions:</b> <i>Active</i> – J<sub>E</sub> forward, J<sub>C</sub> reverse biased (V<sub>CE</sub> > V<sub>CE(sat)</sub>); used for amplification. <i>Saturation</i> – both junctions forward biased, V<sub>CE</sub> ≈ 0.2 V (left of the knee), I<sub>C</sub> maximum, switch ON. <i>Cut-off</i> – both junctions reverse biased (I<sub>B</sub> = 0), only I<sub>CEO</sub> flows; switch OFF.",
+   "<b>(b) CB configuration.</b> Base is common. For an NPN: emitter supply V<sub>EE</sub> makes the emitter negative with respect to the base (forward bias); V<sub>CC</sub> makes the collector positive with respect to the base (reverse bias). (For PNP all polarities are reversed.) Input current I<sub>E</sub>, output current I<sub>C</sub>.",
+   "<b>Input characteristic:</b> I<sub>E</sub> vs V<sub>EB</sub> at constant V<sub>CB</sub> – diode-like curve with cut-in 0.5 V; with higher V<sub>CB</sub> the curve shifts left (more I<sub>E</sub> for a given V<sub>EB</sub>) because of reduced base width. Input resistance is very low (20–100 Ω).",
+   "<b>Output characteristics:</b> I<sub>C</sub> vs V<sub>CB</sub> at constant I<sub>E</sub>. Active region: J<sub>E</sub> forward, J<sub>C</sub> reverse; I<sub>C</sub> ≈ αI<sub>E</sub> nearly constant (curves almost horizontal; r<sub>o</sub> very high, ≈ 1 MΩ). Saturation: J<sub>C</sub> forward biased (V<sub>CB</sub> slightly negative) and I<sub>C</sub> falls rapidly to zero. Cut-off: I<sub>E</sub> = 0, I<sub>C</sub> = I<sub>CBO</sub>. Current gain α = ΔI<sub>C</sub>/ΔI<sub>E</sub> (just less than 1), so CB gives voltage gain but no current gain."
+  ],
+  "diagram": "(1) CE circuit: NPN with R_B & V_BB at base, R_C & V_CC at collector, meters for IB, IC, VBE, VCE. Input curve IB-VBE (two curves for VCE = 0 and VCE ≥ 1 V). Output family IC-VCE with IB = 0, 20, 40, 60 μA; label saturation (left), active (middle), cut-off (IB=0 curve); load line optional. (2) CB circuit with V_EE, V_CC; IE-VEB curves; IC-VCB family with IE = 0, 1, 2, 3 mA."
+ },
+ "Q3.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Definition of biasing and requirements (stable Q-point, linear operation, thermal stability)",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Need for stabilisation: variation of I<sub>CO</sub>, V<sub>BE</sub> and β with temperature, stability factor S",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Fixed-bias circuit diagram",
+    "marks": 1
+   },
+   {
+    "point": "(b) Derivation I<sub>BQ</sub> = (V<sub>CC</sub> − V<sub>BE</sub>)/R<sub>B</sub>, I<sub>CQ</sub> = βI<sub>BQ</sub>, V<sub>CEQ</sub> = V<sub>CC</sub> − I<sub>CQ</sub>R<sub>C</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Disadvantages (S = 1 + β, β-dependence, thermal runaway)",
+    "marks": 1
+   },
+   {
+    "point": "(c) Voltage-divider bias circuit and Thevenin equivalent (V<sub>TH</sub>, R<sub>TH</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) Equations I<sub>B</sub>, I<sub>C</sub>, V<sub>CE</sub>",
+    "marks": 1
+   },
+   {
+    "point": "(c) Reason for stability: S ≈ 1 + R<sub>TH</sub>/R<sub>E</sub>, nearly β-independent",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(a) Biasing</b> is the process of applying suitable dc voltages and currents so that the transistor operates at a fixed quiescent point (Q-point: I<sub>CQ</sub>, V<sub>CEQ</sub>) in the active region, in the middle of the load line, so that the ac signal is amplified without distortion.",
+   "<b>Requirements:</b> (i) Q-point must lie in the active region and give maximum undistorted swing; (ii) the Q-point must remain stable (independent of transistor replacement and temperature); (iii) simple, economical circuit with few components; (iv) low power dissipation and no thermal runaway.",
+   "<b>Need for stabilisation.</b> I<sub>C</sub> = βI<sub>B</sub> + (1 + β)I<sub>CBO</sub>. I<sub>CBO</sub> doubles every 10 °C, V<sub>BE</sub> falls by ≈ 2.5 mV/°C and β varies from unit to unit (and with T and I<sub>C</sub>). Without stabilisation these shift the Q-point into saturation/cut-off and may cause thermal runaway (rise of I<sub>C</sub> → more heat → more I<sub>CBO</sub>). Stability factor S = ∂I<sub>C</sub>/∂I<sub>CBO</sub>; ideally S = 1.",
+   "<b>(b) Fixed bias.</b> V<sub>CC</sub> feeds the base through R<sub>B</sub> and the collector through R<sub>C</sub>. KVL for the base loop: V<sub>CC</sub> − I<sub>B</sub>R<sub>B</sub> − V<sub>BE</sub> = 0.",
+   "I<sub>BQ</sub> = (V<sub>CC</sub> − V<sub>BE</sub>)/R<sub>B</sub> (≈ V<sub>CC</sub>/R<sub>B</sub> for Si, V<sub>BE</sub> = 0.7 V).",
+   "I<sub>CQ</sub> = βI<sub>BQ</sub> (+ (1 + β)I<sub>CBO</sub>); collector loop: V<sub>CEQ</sub> = V<sub>CC</sub> − I<sub>CQ</sub>R<sub>C</sub>.",
+   "<b>Disadvantages:</b> (i) I<sub>CQ</sub> depends directly on β, so the Q-point shifts when β changes with the transistor or temperature; (ii) stability factor S = 1 + β is very high (≈ 100), so poor thermal stability and possible thermal runaway; (iii) no feedback to correct drift. Used only where stability is not critical (switching).",
+   "<b>(c) Voltage-divider (potential-divider) bias.</b> R<sub>1</sub> and R<sub>2</sub> form a divider across V<sub>CC</sub> giving the base voltage; R<sub>C</sub> in the collector, R<sub>E</sub> (with bypass C<sub>E</sub>) in the emitter. Thevenin equivalent of the base network: V<sub>TH</sub> = V<sub>CC</sub>R<sub>2</sub>/(R<sub>1</sub> + R<sub>2</sub>), R<sub>TH</sub> = R<sub>1</sub>∥R<sub>2</sub>.",
+   "Base loop: V<sub>TH</sub> = I<sub>B</sub>R<sub>TH</sub> + V<sub>BE</sub> + I<sub>E</sub>R<sub>E</sub>, with I<sub>E</sub> = (1 + β)I<sub>B</sub> → <b>I<sub>B</sub> = (V<sub>TH</sub> − V<sub>BE</sub>)/(R<sub>TH</sub> + (1 + β)R<sub>E</sub>)</b>; I<sub>C</sub> = βI<sub>B</sub>; collector loop: <b>V<sub>CE</sub> = V<sub>CC</sub> − I<sub>C</sub>R<sub>C</sub> − I<sub>E</sub>R<sub>E</sub> ≈ V<sub>CC</sub> − I<sub>C</sub>(R<sub>C</sub> + R<sub>E</sub>)</b>.",
+   "<b>Why most stable.</b> If R<sub>TH</sub> << (1 + β)R<sub>E</sub> (design rule R<sub>2</sub> ≈ 10R<sub>E</sub>), I<sub>E</sub> ≈ (V<sub>TH</sub> − V<sub>BE</sub>)/R<sub>E</sub>, independent of β. Stability factor S = (1 + β)(1 + R<sub>TH</sub>/R<sub>E</sub>)/(1 + β + R<sub>TH</sub>/R<sub>E</sub>) ≈ 1 + R<sub>TH</sub>/R<sub>E</sub> (≈ 5–10, close to ideal 1). Negative feedback through R<sub>E</sub>: any increase in I<sub>C</sub> raises I<sub>E</sub>R<sub>E</sub>, reduces V<sub>BE</sub> and I<sub>B</sub>, restoring I<sub>C</sub>. Hence the Q-point is nearly independent of β, T and I<sub>CBO</sub>."
+  ],
+  "formulas": [
+   "Fixed bias: I<sub>B</sub> = (V<sub>CC</sub> − V<sub>BE</sub>)/R<sub>B</sub>; I<sub>C</sub> = βI<sub>B</sub>; V<sub>CE</sub> = V<sub>CC</sub> − I<sub>C</sub>R<sub>C</sub>; S = 1 + β",
+   "V<sub>TH</sub> = V<sub>CC</sub>R<sub>2</sub>/(R<sub>1</sub> + R<sub>2</sub>); R<sub>TH</sub> = R<sub>1</sub>∥R<sub>2</sub>",
+   "I<sub>B</sub> = (V<sub>TH</sub> − V<sub>BE</sub>)/(R<sub>TH</sub> + (1 + β)R<sub>E</sub>)",
+   "S ≈ 1 + R<sub>TH</sub>/R<sub>E</sub>"
+  ],
+  "diagram": "Fixed bias: V_CC, R_B to base, R_C to collector, emitter grounded, mark I_B, I_C, V_CE. Voltage divider: R1 (top), R2 (bottom) to base, R_C, R_E with bypass C_E, coupling capacitors; Thevenin equivalent beside it."
+ },
+ "Q3.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Low-frequency h-parameter model of CE amplifier with R<sub>S</sub> and R<sub>L</sub> (h<sub>ie</sub>, h<sub>re</sub>V<sub>o</sub>, h<sub>fe</sub>I<sub>b</sub>, 1/h<sub>oe</sub>)",
+    "marks": 2
+   },
+   {
+    "point": "Current gain A<sub>i</sub> = −h<sub>fe</sub>/(1 + h<sub>oe</sub>R<sub>L</sub>) with derivation",
+    "marks": 2
+   },
+   {
+    "point": "Input resistance R<sub>i</sub> = h<sub>ie</sub> + h<sub>re</sub>A<sub>i</sub>R<sub>L</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Voltage gain A<sub>v</sub> = A<sub>i</sub>R<sub>L</sub>/R<sub>i</sub>",
+    "marks": 1
+   },
+   {
+    "point": "Output resistance R<sub>o</sub> = 1/[h<sub>oe</sub> − h<sub>fe</sub>h<sub>re</sub>/(h<sub>ie</sub> + R<sub>S</sub>)]",
+    "marks": 1.5
+   },
+   {
+    "point": "r<sub>e</sub> model: Z<sub>i</sub> = βr<sub>e</sub>, Z<sub>o</sub> ≈ r<sub>o</sub>, A<sub>v</sub> = −R<sub>C</sub>/r<sub>e</sub>, A<sub>i</sub> = β",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Low-frequency h-parameter model (CE).</b> Hybrid equations: V<sub>be</sub> = h<sub>ie</sub>I<sub>b</sub> + h<sub>re</sub>V<sub>ce</sub>; I<sub>c</sub> = h<sub>fe</sub>I<sub>b</sub> + h<sub>oe</sub>V<sub>ce</sub>. Equivalent circuit: input loop has source V<sub>S</sub> with R<sub>S</sub>, h<sub>ie</sub> and a voltage source h<sub>re</sub>V<sub>ce</sub>; output has a current source h<sub>fe</sub>I<sub>b</sub> in parallel with 1/h<sub>oe</sub> and the load R<sub>L</sub>. I<sub>L</sub> = −I<sub>c</sub>.",
+   "<b>(i) Current gain.</b> The load current I<sub>L</sub> flows out of the collector into R<sub>L</sub>, so I<sub>L</sub> = −I<sub>c</sub> and V<sub>ce</sub> = I<sub>L</sub>R<sub>L</sub> = −I<sub>c</sub>R<sub>L</sub>. From I<sub>c</sub> = h<sub>fe</sub>I<sub>b</sub> + h<sub>oe</sub>V<sub>ce</sub> = h<sub>fe</sub>I<sub>b</sub> − h<sub>oe</sub>R<sub>L</sub>I<sub>c</sub> we get I<sub>c</sub>(1 + h<sub>oe</sub>R<sub>L</sub>) = h<sub>fe</sub>I<sub>b</sub>. Hence <b>A<sub>i</sub> = I<sub>L</sub>/I<sub>b</sub> = −h<sub>fe</sub>/(1 + h<sub>oe</sub>R<sub>L</sub>)</b> (≈ −h<sub>fe</sub> when h<sub>oe</sub>R<sub>L</sub> << 1).",
+   "<b>(ii) Input resistance.</b> R<sub>i</sub> = V<sub>be</sub>/I<sub>b</sub> = h<sub>ie</sub> + h<sub>re</sub>V<sub>ce</sub>/I<sub>b</sub>. Using V<sub>ce</sub> = I<sub>L</sub>R<sub>L</sub> = A<sub>i</sub>I<sub>b</sub>R<sub>L</sub>: <b>R<sub>i</sub> = h<sub>ie</sub> + h<sub>re</sub>A<sub>i</sub>R<sub>L</sub> = h<sub>ie</sub> − h<sub>fe</sub>h<sub>re</sub>R<sub>L</sub>/(1 + h<sub>oe</sub>R<sub>L</sub>)</b> (≈ h<sub>ie</sub>).",
+   "<b>(iii) Voltage gain.</b> A<sub>v</sub> = V<sub>o</sub>/V<sub>i</sub> = (I<sub>L</sub>R<sub>L</sub>)/(I<sub>b</sub>R<sub>i</sub>) → <b>A<sub>v</sub> = A<sub>i</sub>R<sub>L</sub>/R<sub>i</sub> = −h<sub>fe</sub>R<sub>L</sub>/[h<sub>ie</sub> + (h<sub>ie</sub>h<sub>oe</sub> − h<sub>fe</sub>h<sub>re</sub>)R<sub>L</sub>]</b>, negative (180° phase shift) and large (≈ −h<sub>fe</sub>R<sub>L</sub>/h<sub>ie</sub>).",
+   "<b>(iv) Output resistance.</b> Set V<sub>S</sub> = 0, remove R<sub>L</sub> and apply V<sub>ce</sub>. Input loop: I<sub>b</sub> = −h<sub>re</sub>V<sub>ce</sub>/(h<sub>ie</sub> + R<sub>S</sub>). Then I<sub>c</sub> = h<sub>fe</sub>I<sub>b</sub> + h<sub>oe</sub>V<sub>ce</sub> = V<sub>ce</sub>[h<sub>oe</sub> − h<sub>fe</sub>h<sub>re</sub>/(h<sub>ie</sub> + R<sub>S</sub>)], so <b>R<sub>o</sub> = V<sub>ce</sub>/I<sub>c</sub> = 1/[h<sub>oe</sub> − h<sub>fe</sub>h<sub>re</sub>/(h<sub>ie</sub> + R<sub>S</sub>)]</b>, high (≈ 40–80 kΩ).",
+   "<b>r<sub>e</sub> model (CE, voltage-divider biased).</b> The base-emitter junction is replaced by βr<sub>e</sub>, with r<sub>e</sub> = 26 mV/I<sub>E</sub>, and a collector current source βI<sub>b</sub> in parallel with r<sub>o</sub>.",
+   "<b>Input impedance:</b> Z<sub>i</sub> = R<sub>B</sub>∥βr<sub>e</sub> (with emitter bypassed), ≈ βr<sub>e</sub> if R<sub>B</sub> >> βr<sub>e</sub>. <b>Output impedance:</b> Z<sub>o</sub> = R<sub>C</sub>∥r<sub>o</sub> ≈ R<sub>C</sub> (r<sub>o</sub> >> R<sub>C</sub>). <b>Voltage gain:</b> V<sub>o</sub> = −βI<sub>b</sub>(R<sub>C</sub>∥r<sub>o</sub>∥R<sub>L</sub>) and V<sub>i</sub> = I<sub>b</sub>βr<sub>e</sub>, so A<sub>v</sub> = −(R<sub>C</sub>∥r<sub>o</sub>∥R<sub>L</sub>)/r<sub>e</sub> ≈ −R<sub>C</sub>/r<sub>e</sub> (unloaded). <b>Current gain:</b> A<sub>i</sub> = I<sub>o</sub>/I<sub>i</sub> = β (neglecting R<sub>B</sub> and r<sub>o</sub>); in general A<sub>i</sub> = −A<sub>v</sub>Z<sub>i</sub>/R<sub>L</sub>."
+  ],
+  "formulas": [
+   "A<sub>i</sub> = −h<sub>fe</sub>/(1 + h<sub>oe</sub>R<sub>L</sub>)",
+   "R<sub>i</sub> = h<sub>ie</sub> + h<sub>re</sub>A<sub>i</sub>R<sub>L</sub>",
+   "A<sub>v</sub> = A<sub>i</sub>R<sub>L</sub>/R<sub>i</sub>",
+   "R<sub>o</sub> = 1/[h<sub>oe</sub> − h<sub>fe</sub>h<sub>re</sub>/(h<sub>ie</sub> + R<sub>S</sub>)]",
+   "r<sub>e</sub> model: Z<sub>i</sub> = βr<sub>e</sub>, A<sub>v</sub> = −R<sub>C</sub>/r<sub>e</sub>"
+  ],
+  "diagram": "h-parameter equivalent circuit of CE amplifier: V_S and R_S, input node with h_ie and h_re V_ce source, output with h_fe I_b current source parallel to 1/h_oe and load R_L; label I_b, I_c, V_be, V_ce."
+ },
+ "Q3.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Writing the base-loop KVL with R<sub>E</sub>: V<sub>CC</sub> = I<sub>B</sub>R<sub>B</sub> + V<sub>BE</sub> + (β + 1)I<sub>B</sub>R<sub>E</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Substitution and I<sub>B</sub> = 17.64 μA",
+    "marks": 2
+   },
+   {
+    "point": "I<sub>C</sub> = βI<sub>B</sub> = 3.53 mA and I<sub>E</sub> = 3.545 mA",
+    "marks": 1.5
+   },
+   {
+    "point": "V<sub>CE</sub> = V<sub>CC</sub> − I<sub>C</sub>R<sub>C</sub> − I<sub>E</sub>R<sub>E</sub> evaluated (negative: −1.06 V)",
+    "marks": 1.5
+   },
+   {
+    "point": "Recognition that the active-region assumption fails, so transistor is in saturation",
+    "marks": 1.5
+   },
+   {
+    "point": "Corrected saturation values: V<sub>CE(sat)</sub> ≈ 0.2 V and I<sub>C(sat)</sub> ≈ 3.19 mA with units",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Assumed circuit:</b> the standard emitter-stabilised fixed-bias CE circuit: V<sub>CC</sub> = 12 V feeds the base through R<sub>B</sub> = 500 kΩ and the collector through R<sub>C</sub> = 3 kΩ; R<sub>E</sub> = 700 Ω from emitter to ground; β = 200, V<sub>BE</sub> = 0.7 V.",
+   "<b>Base loop (KVL):</b> V<sub>CC</sub> − I<sub>B</sub>R<sub>B</sub> − V<sub>BE</sub> − I<sub>E</sub>R<sub>E</sub> = 0 with I<sub>E</sub> = (β + 1)I<sub>B</sub>.",
+   "I<sub>B</sub> = (V<sub>CC</sub> − V<sub>BE</sub>)/[R<sub>B</sub> + (β + 1)R<sub>E</sub>] = (12 − 0.7)/[500 kΩ + 201 × 0.7 kΩ] = 11.3/(500 + 140.7) kΩ = 11.3/640.7 kΩ = 17.64 μA.",
+   "I<sub>C</sub> = βI<sub>B</sub> = 200 × 17.64 μA = 3.527 mA; I<sub>E</sub> = (β + 1)I<sub>B</sub> = 201 × 17.64 μA = 3.545 mA.",
+   "<b>Collector loop:</b> V<sub>CE</sub> = V<sub>CC</sub> − I<sub>C</sub>R<sub>C</sub> − I<sub>E</sub>R<sub>E</sub> = 12 − (3.527 × 3) − (3.545 × 0.7) = 12 − 10.58 − 2.48 = −1.06 V.",
+   "<b>Check:</b> a negative V<sub>CE</sub> is impossible for an NPN transistor in the active region, hence the active-region assumption (I<sub>C</sub> = βI<sub>B</sub>) is invalid: the transistor is driven into <b>saturation</b> (the circuit is over-driven). In saturation V<sub>CE(sat)</sub> ≈ 0.2 V and I<sub>C</sub> is limited by the external circuit.",
+   "<b>Saturation values:</b> I<sub>C(sat)</sub> ≈ (V<sub>CC</sub> − V<sub>CE(sat)</sub>)/(R<sub>C</sub> + R<sub>E</sub>) = (12 − 0.2)/(3.7 kΩ) = <b>3.19 mA</b> (taking I<sub>E</sub> ≈ I<sub>C</sub>). The base current remains I<sub>B</sub> ≈ 17.6 μA (forced β = I<sub>C</sub>/I<sub>B</sub> ≈ 181 < 200).",
+   "<b>Answer:</b> I<sub>B</sub> ≈ 17.6 μA; I<sub>C</sub> (from β) = 3.53 mA, but actually limited to ≈ 3.19 mA; V<sub>CE</sub> (formula) = −1.06 V, i.e. the transistor is saturated with V<sub>CE</sub> ≈ 0.2 V. (If R<sub>E</sub> were absent the textbook values would be I<sub>B</sub> = 22.6 μA, I<sub>C</sub> = 4.5 mA, also saturating.)"
+  ],
+  "result": "I_B = 17.6 μA; I_C = 3.53 mA from I_C = βI_B; V_CE computes to −1.06 V, hence the transistor is in saturation: V_CE(sat) ≈ 0.2 V and I_C(sat) ≈ 3.19 mA. Assumed: emitter-stabilised fixed bias, R_E in the emitter.",
+  "formulas": [
+   "I<sub>B</sub> = (V<sub>CC</sub> − V<sub>BE</sub>)/[R<sub>B</sub> + (β + 1)R<sub>E</sub>]",
+   "I<sub>C</sub> = βI<sub>B</sub>",
+   "V<sub>CE</sub> = V<sub>CC</sub> − I<sub>C</sub>R<sub>C</sub> − I<sub>E</sub>R<sub>E</sub>"
+  ]
+ },
+ "Q3.6": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "(a) Formula I<sub>C</sub> = βI<sub>B</sub> + I<sub>CEO</sub> with I<sub>CEO</sub> as the CE leakage current",
+    "marks": 1
+   },
+   {
+    "point": "(a) I<sub>C</sub> = 29.44 mA and I<sub>E</sub> = I<sub>C</sub> + I<sub>B</sub> = 29.74 mA",
+    "marks": 1
+   },
+   {
+    "point": "(b) β = α/(1 − α) substitution",
+    "marks": 0.5
+   },
+   {
+    "point": "(b) β<sub>dc</sub> = 332",
+    "marks": 1
+   },
+   {
+    "point": "(c) I<sub>B</sub> = I<sub>C</sub>/β = 11.1 μA",
+    "marks": 1
+   },
+   {
+    "point": "(c) I<sub>E</sub> = I<sub>C</sub> + I<sub>B</sub> = 2.011 mA",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>(a)</b> Given β = 98, I<sub>CEO</sub> = 40 μA, I<sub>B</sub> = 0.3 mA. In the CE configuration I<sub>C</sub> = βI<sub>B</sub> + I<sub>CEO</sub>, where I<sub>CEO</sub> = (1 + β)I<sub>CBO</sub> is the collector-emitter leakage with the base open.",
+   "I<sub>C</sub> = 98 × 0.3 mA + 0.04 mA = 29.4 + 0.04 = <b>29.44 mA</b>. I<sub>E</sub> = I<sub>C</sub> + I<sub>B</sub> = 29.44 + 0.3 = <b>29.74 mA</b>.",
+   "<b>(b)</b> β<sub>dc</sub> = α<sub>dc</sub>/(1 − α<sub>dc</sub>) = 0.997/(1 − 0.997) = 0.997/0.003 = <b>332.3 ≈ 332</b>.",
+   "<b>(c)</b> I<sub>B</sub> = I<sub>C</sub>/β<sub>dc</sub> = 2 mA/180 = 0.01111 mA = <b>11.1 μA</b>.",
+   "I<sub>E</sub> = I<sub>C</sub> + I<sub>B</sub> = 2 + 0.0111 = <b>2.011 mA</b> (= (β + 1)I<sub>B</sub> = 181 × 11.11 μA)."
+  ],
+  "result": "(a) I_C = 29.44 mA, I_E = 29.74 mA; (b) β_dc ≈ 332; (c) I_B = 11.1 μA, I_E = 2.011 mA."
+ },
+ "Q4.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Labelled structure of n-channel JFET (n-bar, p+ gate regions, source, drain, depletion region)",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Working: V<sub>GS</sub> controls channel width, pinch-off for V<sub>DS</sub> = V<sub>P</sub> – I<sub>D</sub> saturation",
+    "marks": 2
+   },
+   {
+    "point": "(b) Definitions of V<sub>P</sub>, I<sub>DSS</sub> (1 mark)",
+    "marks": 1
+   },
+   {
+    "point": "(b) g<sub>m</sub>, r<sub>d</sub>, μ with expressions and μ = g<sub>m</sub>r<sub>d</sub>",
+    "marks": 2
+   },
+   {
+    "point": "(c) Drain characteristics with ohmic, saturation (pinch-off) and breakdown regions",
+    "marks": 1.75
+   },
+   {
+    "point": "(c) Transfer characteristic and Shockley equation I<sub>D</sub> = I<sub>DSS</sub>(1 − V<sub>GS</sub>/V<sub>P</sub>)²",
+    "marks": 1.75
+   }
+  ],
+  "answer": [
+   "<b>(a) Construction.</b> An n-channel JFET consists of an n-type silicon bar with ohmic contacts at the two ends, <b>source</b> (S) and <b>drain</b> (D). Heavily doped p<sup>+</sup> regions are diffused on both sides of the bar and connected together to form the <b>gate</b> (G). The narrow n-region between the gate junctions is the <b>channel</b>. Normally the gate-channel p-n junction is reverse biased (V<sub>GS</sub> ≤ 0), so the gate current is of the order of nA and the input resistance is very high (10<sup>8</sup> Ω).",
+   "<b>Working.</b> With V<sub>GS</sub> = 0 and small V<sub>DS</sub>, electrons flow from source to drain through the channel and the device behaves as a resistor (I<sub>D</sub> ∝ V<sub>DS</sub>). As V<sub>DS</sub> increases, the voltage drop along the channel reverse biases the gate junction more near the drain, so the depletion region is wedge shaped and narrows the channel there. At V<sub>DS</sub> = |V<sub>P</sub>| the depletion layers almost touch (pinch-off) and I<sub>D</sub> becomes nearly constant at I<sub>DSS</sub>. Making V<sub>GS</sub> more negative widens the depletion regions, reducing the channel width and I<sub>D</sub>; at V<sub>GS</sub> = V<sub>P</sub> (cut-off) I<sub>D</sub> ≈ 0. Hence I<sub>D</sub> is controlled by the gate <i>voltage</i> (voltage-controlled device, unipolar).",
+   "<b>(b) Parameters.</b> (i) <b>Pinch-off voltage V<sub>P</sub>:</b> the gate-source voltage at which the channel is fully depleted and I<sub>D</sub> ≈ 0 (for V<sub>GS</sub> = 0 it is the V<sub>DS</sub> at which I<sub>D</sub> saturates), e.g. −4 V.",
+   "(ii) <b>I<sub>DSS</sub>:</b> the maximum drain current for V<sub>GS</sub> = 0 in the saturation (pinch-off) region.",
+   "(iii) <b>Transconductance g<sub>m</sub></b> = ΔI<sub>D</sub>/ΔV<sub>GS</sub> at constant V<sub>DS</sub> (mS). g<sub>m</sub> = g<sub>m0</sub>(1 − V<sub>GS</sub>/V<sub>P</sub>), g<sub>m0</sub> = 2I<sub>DSS</sub>/|V<sub>P</sub>|.",
+   "(iv) <b>Drain (dynamic) resistance r<sub>d</sub></b> = ΔV<sub>DS</sub>/ΔI<sub>D</sub> at constant V<sub>GS</sub> (≈ 10 kΩ–1 MΩ; large in saturation).",
+   "(v) <b>Amplification factor μ</b> = ΔV<sub>DS</sub>/ΔV<sub>GS</sub> at constant I<sub>D</sub>. The three are related by <b>μ = r<sub>d</sub>g<sub>m</sub></b>.",
+   "<b>(c) Drain characteristics (I<sub>D</sub> vs V<sub>DS</sub> at constant V<sub>GS</sub>).</b> For each V<sub>GS</sub> (0, −1, −2 V …): <i>ohmic (triode) region</i> for small V<sub>DS</sub> where I<sub>D</sub> rises linearly (voltage-controlled resistor); <i>saturation (pinch-off) region</i> where I<sub>D</sub> is almost constant – the amplifier region, with V<sub>DS</sub> ≥ V<sub>GS</sub> − V<sub>P</sub>; <i>breakdown region</i> at large V<sub>DS</sub> where avalanche breakdown of the gate junction occurs and I<sub>D</sub> rises sharply. The top curve is V<sub>GS</sub> = 0 (I<sub>DSS</sub>); more negative V<sub>GS</sub> gives lower curves, and the cut-off curve is V<sub>GS</sub> = V<sub>P</sub>.",
+   "<b>Transfer characteristic (I<sub>D</sub> vs V<sub>GS</sub> at constant V<sub>DS</sub> in saturation).</b> A parabola from I<sub>DSS</sub> at V<sub>GS</sub> = 0 to zero at V<sub>GS</sub> = V<sub>P</sub>, given by the Shockley equation <b>I<sub>D</sub> = I<sub>DSS</sub>(1 − V<sub>GS</sub>/V<sub>P</sub>)²</b>. It is obtained by projecting the saturation values of the drain curves."
+  ],
+  "formulas": [
+   "I<sub>D</sub> = I<sub>DSS</sub>(1 − V<sub>GS</sub>/V<sub>P</sub>)²",
+   "g<sub>m</sub> = ΔI<sub>D</sub>/ΔV<sub>GS</sub> = (2I<sub>DSS</sub>/|V<sub>P</sub>|)(1 − V<sub>GS</sub>/V<sub>P</sub>)",
+   "r<sub>d</sub> = ΔV<sub>DS</sub>/ΔI<sub>D</sub>; μ = ΔV<sub>DS</sub>/ΔV<sub>GS</sub> = g<sub>m</sub>r<sub>d</sub>"
+  ],
+  "diagram": "JFET structure: n-channel bar between p+ gate regions with G, S, D labels and shaded depletion layers wedge-shaped toward the drain; supplies V_GG (reverse) and V_DD. Drain curves family with ohmic/saturation/breakdown regions and V_GS values; parabolic transfer curve with I_DSS and V_P marked."
+ },
+ "Q4.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Construction diagram of E-MOSFET (p-substrate, n+ source & drain, SiO<sub>2</sub>, metal gate, no channel)",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Working: inversion channel formation above threshold voltage V<sub>T</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Drain and transfer characteristics of E-MOSFET (I<sub>D</sub> = k(V<sub>GS</sub> − V<sub>T</sub>)²)",
+    "marks": 2
+   },
+   {
+    "point": "(b) Construction of D-MOSFET with built-in channel",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Working in depletion mode (V<sub>GS</sub> negative) and enhancement mode (V<sub>GS</sub> positive)",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Characteristics (transfer curve through I<sub>DSS</sub>) and explanation for both modes",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>(a) N-channel enhancement MOSFET (E-MOSFET).</b> <i>Construction:</i> a lightly doped p-type substrate with two heavily doped n<sup>+</sup> regions (source and drain). A thin SiO<sub>2</sub> layer (≈ 10<sup>-8</sup> m) covers the region between them and a metal gate is deposited on the oxide, insulating the gate from the substrate. No channel exists physically; the substrate is usually tied to the source.",
+   "<i>Working:</i> With V<sub>GS</sub> = 0 the two n<sup>+</sup>-p junctions are back to back, so I<sub>D</sub> ≈ 0. A positive V<sub>GS</sub> repels holes from the surface under the gate and attracts minority electrons. At a threshold voltage V<sub>T</sub> (≈ 1–3 V) a thin n-type <b>inversion layer</b> (induced channel) forms between source and drain. For V<sub>GS</sub> > V<sub>T</sub>, a larger V<sub>GS</sub> increases the channel conductivity (enhances it), hence the name. With V<sub>DS</sub> applied, I<sub>D</sub> flows; when V<sub>DS</sub> ≥ V<sub>GS</sub> − V<sub>T</sub> the channel pinches off at the drain end and I<sub>D</sub> saturates.",
+   "<i>Characteristics:</i> Drain characteristic: for V<sub>GS</sub> > V<sub>T</sub>, ohmic region (I<sub>D</sub> = k[2(V<sub>GS</sub> − V<sub>T</sub>)V<sub>DS</sub> − V<sub>DS</sub>²]) then saturation region (flat); the curves for V<sub>GS</sub> = V<sub>T</sub>, V<sub>T</sub>+1, … are equally spaced upwards. Transfer characteristic: I<sub>D</sub> = 0 until V<sub>GS</sub> = V<sub>T</sub>, then I<sub>D</sub> = k(V<sub>GS</sub> − V<sub>T</sub>)<sup>2</sup> (parabola). It is operated only with positive gate bias (n-channel).",
+   "<b>(b) N-channel depletion MOSFET (D-MOSFET).</b> <i>Construction:</i> similar to the E-MOSFET but with an n-type channel diffused between the n<sup>+</sup> source and drain during manufacture (a physically present channel). The gate is insulated by SiO<sub>2</sub>, so gate current is ≈ 10<sup>-12</sup> A.",
+   "<i>Working – depletion mode:</i> A negative V<sub>GS</sub> repels electrons from the channel and induces positive charge in it, depleting (reducing) the carriers. I<sub>D</sub> decreases until pinch-off at V<sub>GS</sub> = V<sub>P</sub> (negative, e.g. −4 V).",
+   "<i>Working – enhancement mode:</i> A positive V<sub>GS</sub> attracts additional electrons into the channel, increasing its conductivity; I<sub>D</sub> exceeds I<sub>DSS</sub>.",
+   "<b>Characteristics:</b> The transfer characteristic is the Shockley parabola I<sub>D</sub> = I<sub>DSS</sub>(1 − V<sub>GS</sub>/V<sub>P</sub>)² extended to positive V<sub>GS</sub>; it passes through I<sub>DSS</sub> at V<sub>GS</sub> = 0 and cuts the axis at V<sub>P</sub>. The drain characteristics are like those of a JFET but with curves for both negative and positive V<sub>GS</sub>.",
+   "<b>Why both modes?</b> Because the channel already exists at V<sub>GS</sub> = 0 and the gate is insulated by the oxide, the gate can be biased of either polarity without forward-biasing a junction (as would happen in a JFET). Negative gate voltage depletes, positive enhances the channel carriers, so the D-MOSFET can operate in both modes. Very high input resistance (10<sup>10</sup>–10<sup>15</sup> Ω)."
+  ],
+  "formulas": [
+   "E-MOSFET: I<sub>D</sub> = k(V<sub>GS</sub> − V<sub>T</sub>)²",
+   "D-MOSFET: I<sub>D</sub> = I<sub>DSS</sub>(1 − V<sub>GS</sub>/V<sub>P</sub>)²",
+   "Saturation: V<sub>DS</sub> ≥ V<sub>GS</sub> − V<sub>T</sub> (E-type)"
+  ],
+  "diagram": "Two cross-sections: (i) E-MOSFET: p-substrate, n+ S and D, SiO2, metal gate, inversion channel dotted in; (ii) D-MOSFET: same with a shaded n-channel. Curves: E-MOSFET transfer (starts at V_T), drain family; D-MOSFET transfer through I_DSS with depletion (V_GS<0) and enhancement (V_GS>0) halves labelled."
+ },
+ "Q4.3": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Difference in principle (current vs voltage controlled) and carriers (bipolar vs unipolar)",
+    "marks": 1
+   },
+   {
+    "point": "Input resistance and noise comparison",
+    "marks": 1
+   },
+   {
+    "point": "Thermal stability and size/IC suitability",
+    "marks": 1
+   },
+   {
+    "point": "Gain bandwidth/gain, switching/power, handling aspects",
+    "marks": 1
+   },
+   {
+    "point": "Table format with at least 8 distinct, correct points",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "A comparative table of BJT and FET (JFET/MOSFET) is given below (property – BJT – FET):",
+   "<b>Controlled by:</b> BJT – base current (current-controlled); FET – gate-source voltage (voltage-controlled).",
+   "<b>Carriers:</b> BJT – bipolar (electrons and holes); FET – unipolar (majority carriers only).",
+   "<b>Input resistance:</b> BJT – low (1–2 kΩ, forward-biased junction); FET – very high (JFET 10<sup>8</sup> Ω, MOSFET 10<sup>10</sup>–10<sup>15</sup> Ω).",
+   "<b>Output / gain parameters:</b> BJT – higher voltage gain and larger g<sub>m</sub> (I<sub>C</sub>/V<sub>T</sub>); FET – lower g<sub>m</sub> (mS) and gain-bandwidth product.",
+   "<b>Noise:</b> BJT – more (shot noise from two junctions); FET – less, suitable for low-noise front-ends.",
+   "<b>Thermal stability:</b> BJT – thermal runaway (I<sub>C</sub> rises with T); FET – negative temperature coefficient, more stable.",
+   "<b>Size and construction:</b> BJT – larger, complex fabrication; FET – smaller, simpler, occupies less area, preferred in VLSI.",
+   "<b>Offset voltage:</b> BJT has an offset voltage V<sub>CE(sat)</sub> at zero collector current; FET has none, making it a good chopper/analog switch. <b>Handling:</b> BJT – robust; MOSFET – the thin oxide is easily damaged by static charge. <b>Power and speed:</b> BJT switches faster in some cases but dissipates more power; MOSFET consumes almost no static power (CMOS)."
+  ],
+  "diagram": "Optional: symbols of NPN BJT and n-channel JFET/MOSFET."
+ },
+ "Q4.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Circuit diagram of self-biased CS JFET amplifier (R<sub>G</sub>, R<sub>S</sub> with C<sub>S</sub>, R<sub>D</sub>, V<sub>DD</sub>, coupling capacitors)",
+    "marks": 2
+   },
+   {
+    "point": "Phase relation: 180° phase shift explained with reasoning",
+    "marks": 1.5
+   },
+   {
+    "point": "Small-signal AC equivalent model with g<sub>m</sub>v<sub>gs</sub> and r<sub>d</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Derivation of A<sub>v</sub> = −g<sub>m</sub>(r<sub>d</sub>∥R<sub>D</sub>∥R<sub>L</sub>) or −g<sub>m</sub>R<sub>D</sub> ",
+    "marks": 2.5
+   },
+   {
+    "point": "Input and output impedances Z<sub>i</sub> = R<sub>G</sub>, Z<sub>o</sub> = r<sub>d</sub>∥R<sub>D</sub>",
+    "marks": 1
+   },
+   {
+    "point": "Remarks: unbypassed R<sub>S</sub> case and typical values",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Circuit.</b> An n-channel JFET in common-source (CS) configuration with self bias: gate returned to ground via R<sub>G</sub> (≈ 1 MΩ), source resistor R<sub>S</sub> bypassed by C<sub>S</sub>, drain resistor R<sub>D</sub> connected to V<sub>DD</sub>. The input v<sub>i</sub> is applied to the gate through coupling capacitor C<sub>1</sub>, the output v<sub>o</sub> is taken from the drain through C<sub>2</sub> across R<sub>L</sub>.",
+   "<b>Phase relationship.</b> During the positive half-cycle of v<sub>i</sub>, V<sub>GS</sub> becomes less negative, I<sub>D</sub> increases, the drop I<sub>D</sub>R<sub>D</sub> increases and the drain voltage V<sub>DS</sub> = V<sub>DD</sub> − I<sub>D</sub>R<sub>D</sub> decreases. Hence the output is <b>180° out of phase</b> with the input (inverting amplifier).",
+   "<b>AC equivalent model.</b> Short V<sub>DD</sub> and capacitors. The JFET is replaced by a voltage-controlled current source g<sub>m</sub>v<sub>gs</sub> (drain to source) in parallel with r<sub>d</sub>. The gate draws no current, so v<sub>gs</sub> = v<sub>i</sub> (source grounded through C<sub>S</sub>). The load seen by the current source is r<sub>d</sub>, R<sub>D</sub> and R<sub>L</sub> in parallel.",
+   "<b>Derivation.</b> Step 1: output current source: i<sub>d</sub> = g<sub>m</sub>v<sub>gs</sub> (from drain to source).",
+   "Step 2: this current flows through the parallel load R' = r<sub>d</sub>∥R<sub>D</sub>∥R<sub>L</sub>, producing v<sub>o</sub> = −i<sub>d</sub>R' (the minus sign because the current flows from drain to ground, making the drain voltage fall).",
+   "Step 3: v<sub>o</sub> = −g<sub>m</sub>v<sub>i</sub>R'.",
+   "Step 4: <b>A<sub>v</sub> = v<sub>o</sub>/v<sub>i</sub> = −g<sub>m</sub>(r<sub>d</sub>∥R<sub>D</sub>∥R<sub>L</sub>)</b>. For r<sub>d</sub> >> R<sub>D</sub> and no load, A<sub>v</sub> ≈ −g<sub>m</sub>R<sub>D</sub>; in terms of μ = g<sub>m</sub>r<sub>d</sub>: A<sub>v</sub> = −μR<sub>D</sub>/(r<sub>d</sub> + R<sub>D</sub>) (unloaded).",
+   "<b>Impedances:</b> Z<sub>i</sub> = R<sub>G</sub> (very high, since gate current ≈ 0); Z<sub>o</sub> = r<sub>d</sub>∥R<sub>D</sub> ≈ R<sub>D</sub>.",
+   "<b>Remark.</b> If C<sub>S</sub> is omitted (unbypassed R<sub>S</sub>), the gain falls to A<sub>v</sub> = −g<sub>m</sub>R<sub>D</sub>/(1 + g<sub>m</sub>R<sub>S</sub>) due to negative feedback (r<sub>d</sub> neglected). Example: g<sub>m</sub> = 3 mS, R<sub>D</sub> = 4.7 kΩ → |A<sub>v</sub>| ≈ 14."
+  ],
+  "formulas": [
+   "A<sub>v</sub> = −g<sub>m</sub>(r<sub>d</sub>∥R<sub>D</sub>∥R<sub>L</sub>) ≈ −g<sub>m</sub>R<sub>D</sub>",
+   "Z<sub>i</sub> = R<sub>G</sub>; Z<sub>o</sub> = r<sub>d</sub>∥R<sub>D</sub>",
+   "Unbypassed: A<sub>v</sub> = −g<sub>m</sub>R<sub>D</sub>/(1 + g<sub>m</sub>R<sub>S</sub>)"
+  ],
+  "diagram": "Left: CS JFET circuit with V_DD, R_D, drain output via C2 to R_L, gate via C1 and R_G to ground, source R_S ∥ C_S. Right: AC model with v_gs across open gate, current source g_m v_gs in parallel with r_d, R_D, R_L."
+ },
+ "Q4.5": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Fixed-bias circuit diagram of JFET with V<sub>GG</sub>, R<sub>G</sub>, R<sub>D</sub>, V<sub>DD</sub>",
+    "marks": 1
+   },
+   {
+    "point": "Fixed-bias equations V<sub>GS</sub> = −V<sub>GG</sub>, I<sub>D</sub> by Shockley, V<sub>DS</sub> = V<sub>DD</sub> − I<sub>D</sub>R<sub>D</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Self-bias circuit diagram with R<sub>S</sub>",
+    "marks": 1
+   },
+   {
+    "point": "Self-bias equations V<sub>GS</sub> = −I<sub>D</sub>R<sub>S</sub>, solution with Shockley, V<sub>DS</sub> = V<sub>DD</sub> − I<sub>D</sub>(R<sub>D</sub> + R<sub>S</sub>)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Biasing</b> fixes the operating point (V<sub>GS</sub>, I<sub>D</sub>, V<sub>DS</sub>) of the JFET in the saturation (pinch-off) region. Since the gate current is zero, the voltage across R<sub>G</sub> is zero.",
+   "<b>(a) Fixed (battery) bias.</b> The gate is connected through R<sub>G</sub> (≈ 1 MΩ) to a separate negative supply V<sub>GG</sub>, the source is grounded and the drain is connected to V<sub>DD</sub> via R<sub>D</sub>. Gate loop: V<sub>GS</sub> = −V<sub>GG</sub> (I<sub>G</sub>R<sub>G</sub> = 0).",
+   "Drain current from Shockley's equation: I<sub>D</sub> = I<sub>DSS</sub>(1 − V<sub>GS</sub>/V<sub>P</sub>)²; drain loop: V<sub>DS</sub> = V<sub>DD</sub> − I<sub>D</sub>R<sub>D</sub>. Disadvantage: needs two supplies, and the Q-point varies widely with the I<sub>DSS</sub>, V<sub>P</sub> spread of devices.",
+   "<b>(b) Self bias.</b> A resistor R<sub>S</sub> is placed between the source and ground (often bypassed by C<sub>S</sub>) and the gate returns to ground via R<sub>G</sub>. The drain current I<sub>D</sub> through R<sub>S</sub> raises the source above ground: V<sub>S</sub> = I<sub>D</sub>R<sub>S</sub>. Since V<sub>G</sub> = 0, <b>V<sub>GS</sub> = −I<sub>D</sub>R<sub>S</sub></b>, i.e. a reverse bias is generated automatically from a single supply.",
+   "Substitute in the Shockley equation: I<sub>D</sub> = I<sub>DSS</sub>(1 + I<sub>D</sub>R<sub>S</sub>/V<sub>P</sub>)² — a quadratic in I<sub>D</sub> (choose the root with |V<sub>GS</sub>| < |V<sub>P</sub>|), or find the intersection of the bias line V<sub>GS</sub> = −I<sub>D</sub>R<sub>S</sub> with the transfer curve graphically. Then <b>V<sub>DS</sub> = V<sub>DD</sub> − I<sub>D</sub>(R<sub>D</sub> + R<sub>S</sub>)</b>.",
+   "<b>Advantage:</b> negative feedback through R<sub>S</sub> stabilises I<sub>D</sub> (if I<sub>D</sub> rises, V<sub>GS</sub> becomes more negative and reduces it), and only one supply is needed."
+  ],
+  "formulas": [
+   "Fixed bias: V<sub>GS</sub> = −V<sub>GG</sub>; V<sub>DS</sub> = V<sub>DD</sub> − I<sub>D</sub>R<sub>D</sub>",
+   "Self bias: V<sub>GS</sub> = −I<sub>D</sub>R<sub>S</sub>; V<sub>DS</sub> = V<sub>DD</sub> − I<sub>D</sub>(R<sub>D</sub> + R<sub>S</sub>)",
+   "I<sub>D</sub> = I<sub>DSS</sub>(1 − V<sub>GS</sub>/V<sub>P</sub>)²"
+  ],
+  "diagram": "Two circuits: (a) n-JFET with R_G to −V_GG battery, R_D to V_DD, source to ground; (b) n-JFET with R_G to ground, R_S (with C_S) from source to ground, R_D to V_DD."
+ },
+ "Q4.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of Shockley equation and gate-loop equation V<sub>GS</sub> = −I<sub>D</sub>R<sub>S</sub> (I<sub>G</sub> = 0, no drop across R<sub>G</sub>)",
+    "marks": 2
+   },
+   {
+    "point": "Substitution leading to the quadratic 0.625I<sub>D</sub>² − 6I<sub>D</sub> + 10 = 0 (I<sub>D</sub> in mA)",
+    "marks": 2.5
+   },
+   {
+    "point": "Solution I<sub>D</sub> = 2.147 mA and rejection of 7.45 mA (|V<sub>GS</sub>| > |V<sub>P</sub>|)",
+    "marks": 2
+   },
+   {
+    "point": "V<sub>GS</sub> = −2.147 V",
+    "marks": 1
+   },
+   {
+    "point": "V<sub>DS</sub> = V<sub>DD</sub> − I<sub>D</sub>(R<sub>D</sub> + R<sub>S</sub>) = 4.97 V",
+    "marks": 1.5
+   },
+   {
+    "point": "Check that the JFET is in saturation (V<sub>DS</sub> > V<sub>GS</sub> − V<sub>P</sub>)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> V<sub>DD</sub> = 20 V, R<sub>D</sub> = 6 kΩ, R<sub>S</sub> = 1 kΩ, R<sub>G</sub> = 2 MΩ, I<sub>DSS</sub> = 10 mA, V<sub>P</sub> = −4 V.",
+   "I<sub>G</sub> = 0, so the voltage drop across R<sub>G</sub> is zero and V<sub>G</sub> = 0. Gate-source loop: V<sub>GS</sub> = −I<sub>D</sub>R<sub>S</sub> = −I<sub>D</sub> (with I<sub>D</sub> in mA and R<sub>S</sub> = 1 kΩ).",
+   "Shockley equation: I<sub>D</sub> = I<sub>DSS</sub>(1 − V<sub>GS</sub>/V<sub>P</sub>)² = 10(1 − (−I<sub>D</sub>)/(−4))² = 10(1 − I<sub>D</sub>/4)².",
+   "Expand: I<sub>D</sub> = 10(1 − I<sub>D</sub>/2 + I<sub>D</sub>²/16) = 10 − 5I<sub>D</sub> + 0.625I<sub>D</sub>².",
+   "Rearrange: 0.625I<sub>D</sub>² − 6I<sub>D</sub> + 10 = 0.",
+   "I<sub>D</sub> = [6 ± √(36 − 4 × 0.625 × 10)]/(2 × 0.625) = (6 ± √11)/1.25 = (6 ± 3.317)/1.25, i.e. 7.45 mA or <b>2.147 mA</b>.",
+   "I<sub>D</sub> = 7.45 mA would require V<sub>GS</sub> = −7.45 V, beyond V<sub>P</sub> = −4 V (channel cut off) – rejected. Hence <b>I<sub>D</sub> = 2.15 mA</b>.",
+   "<b>V<sub>GS</sub> = −I<sub>D</sub>R<sub>S</sub> = −2.147 mA × 1 kΩ = −2.15 V.</b>",
+   "<b>V<sub>DS</sub></b> = V<sub>DD</sub> − I<sub>D</sub>(R<sub>D</sub> + R<sub>S</sub>) = 20 − 2.147 mA × 7 kΩ = 20 − 15.03 = <b>4.97 V</b>.",
+   "<b>Check:</b> V<sub>GS</sub> − V<sub>P</sub> = −2.15 + 4 = 1.85 V < V<sub>DS</sub> = 4.97 V, so the JFET is in the saturation (pinch-off) region and Shockley's equation is valid."
+  ],
+  "result": "V_GS = −2.15 V; I_D = 2.15 mA; V_DS = 4.97 V (JFET in saturation).",
+  "formulas": [
+   "I<sub>D</sub> = I<sub>DSS</sub>(1 − V<sub>GS</sub>/V<sub>P</sub>)²",
+   "V<sub>GS</sub> = −I<sub>D</sub>R<sub>S</sub>",
+   "V<sub>DS</sub> = V<sub>DD</sub> − I<sub>D</sub>(R<sub>D</sub> + R<sub>S</sub>)"
+  ]
+ },
+ "Q5.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of Op-Amp with block/symbol (inverting, non-inverting inputs, V<sub>+</sub>, V<sub>−</sub>, output)",
+    "marks": 1.5
+   },
+   {
+    "point": "Ideal characteristics: A<sub>OL</sub> = ∞, R<sub>i</sub> = ∞, R<sub>o</sub> = 0, BW = ∞, CMRR = ∞, zero offset, infinite slew rate (at least 6)",
+    "marks": 3
+   },
+   {
+    "point": "Virtual short/virtual ground concept explained with the inverting amplifier",
+    "marks": 2
+   },
+   {
+    "point": "Definition of slew rate (V/μs) and cause (compensation capacitor)",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation f<sub>max</sub> = SR/(2πV<sub>m</sub>)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Op-Amp.</b> An operational amplifier is a high-gain, direct-coupled differential amplifier with a very high input impedance and low output impedance, having two inputs (inverting − and non-inverting +) and one output. It was originally used for mathematical operations (add, subtract, integrate, differentiate) in analog computers. Output v<sub>o</sub> = A<sub>OL</sub>(v<sub>+</sub> − v<sub>−</sub>); typical IC: 741 with supplies ±15 V.",
+   "<b>Ideal Op-Amp characteristics:</b> (1) Open-loop voltage gain A<sub>OL</sub> = ∞; (2) input resistance R<sub>i</sub> = ∞ (input currents are zero); (3) output resistance R<sub>o</sub> = 0; (4) bandwidth = ∞; (5) CMRR = ∞ (common-mode gain zero); (6) infinite slew rate; (7) zero input offset voltage and current (output zero when inputs are equal); (8) no drift of characteristics with temperature or supply voltage (PSRR = ∞); (9) infinite input voltage range and zero noise.",
+   "(Practical 741: A<sub>OL</sub> = 2 × 10<sup>5</sup>, R<sub>i</sub> = 2 MΩ, R<sub>o</sub> = 75 Ω, CMRR = 90 dB, SR = 0.5 V/μs.)",
+   "<b>Virtual ground.</b> Because A<sub>OL</sub> is very large, with negative feedback the output stays finite: v<sub>+</sub> − v<sub>−</sub> = v<sub>o</sub>/A<sub>OL</sub> ≈ 0. Thus the two input terminals are at the same potential (<i>virtual short</i>). If the non-inverting terminal is grounded, the inverting terminal is at 0 V though it is not physically connected to ground – the <b>virtual ground</b>. Since R<sub>i</sub> = ∞ no current flows into the op-amp, so the entire input current flows through the feedback resistor (used in deriving A<sub>v</sub> = −R<sub>f</sub>/R<sub>1</sub>).",
+   "<b>Slew rate.</b> The maximum rate of change of the output voltage with time: SR = (dv<sub>o</sub>/dt)<sub>max</sub> in V/μs. It is caused by the finite charging current available to the internal compensation capacitor C<sub>c</sub> (SR = I<sub>max</sub>/C<sub>c</sub>). If the signal demands a faster slope, the output is distorted (a sine wave becomes triangular).",
+   "<b>Derivation of f<sub>max</sub>.</b> Let v<sub>o</sub> = V<sub>m</sub> sin 2πft.",
+   "Step 1: dv<sub>o</sub>/dt = 2πfV<sub>m</sub> cos 2πft.",
+   "Step 2: maximum slope (at zero crossing) = 2πfV<sub>m</sub>.",
+   "Step 3: for distortion-free output this must not exceed the slew rate: 2πfV<sub>m</sub> ≤ SR.",
+   "Step 4: <b>f<sub>max</sub> = SR/(2πV<sub>m</sub>)</b> (full-power bandwidth). Example: SR = 0.5 V/μs, V<sub>m</sub> = 10 V → f<sub>max</sub> = 0.5 × 10<sup>6</sup>/(2π × 10) = 7.96 kHz."
+  ],
+  "formulas": [
+   "v<sub>o</sub> = A<sub>OL</sub>(v<sub>+</sub> − v<sub>−</sub>)",
+   "SR = (dv<sub>o</sub>/dt)<sub>max</sub> = 2πfV<sub>m</sub>",
+   "f<sub>max</sub> = SR/(2πV<sub>m</sub>)"
+  ],
+  "diagram": "Op-amp triangle symbol with − (inverting), + (non-inverting), output, +V_CC and −V_EE; inverting amplifier showing virtual ground node."
+ },
+ "Q5.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Inverting amplifier circuit diagram (R<sub>1</sub>, R<sub>f</sub>, grounded non-inverting input)",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Derivation of A<sub>v</sub> = −R<sub>f</sub>/R<sub>1</sub> using virtual ground and i<sub>in</sub> = i<sub>f</sub>",
+    "marks": 1.75
+   },
+   {
+    "point": "(a) Design for gain −3 (e.g. R<sub>1</sub> = 10 kΩ, R<sub>f</sub> = 30 kΩ)",
+    "marks": 1.25
+   },
+   {
+    "point": "(b) Non-inverting circuit diagram",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Operation and derivation A<sub>v</sub> = 1 + R<sub>f</sub>/R<sub>1</sub> using virtual short",
+    "marks": 3
+   },
+   {
+    "point": "(b) Remarks: in-phase output, high input resistance, voltage follower special case",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(a) Inverting amplifier.</b> The input v<sub>i</sub> is applied to the inverting terminal through R<sub>1</sub>; feedback resistor R<sub>f</sub> is connected from output to the inverting terminal; the non-inverting terminal is grounded.",
+   "<b>Derivation.</b> Step 1: v<sub>+</sub> = 0, and with A<sub>OL</sub> → ∞, v<sub>−</sub> ≈ v<sub>+</sub> = 0 (virtual ground).",
+   "Step 2: input current i<sub>1</sub> = (v<sub>i</sub> − 0)/R<sub>1</sub>.",
+   "Step 3: the op-amp draws no current (R<sub>i</sub> = ∞), so i<sub>1</sub> = i<sub>f</sub> = (0 − v<sub>o</sub>)/R<sub>f</sub>.",
+   "Step 4: v<sub>i</sub>/R<sub>1</sub> = −v<sub>o</sub>/R<sub>f</sub> → <b>A<sub>v</sub> = v<sub>o</sub>/v<sub>i</sub> = −R<sub>f</sub>/R<sub>1</sub></b>. The negative sign shows 180° phase inversion. Input resistance R<sub>in</sub> = R<sub>1</sub>.",
+   "<b>Design for A<sub>v</sub> = −3:</b> R<sub>f</sub>/R<sub>1</sub> = 3. Choose R<sub>1</sub> = 10 kΩ, then R<sub>f</sub> = 30 kΩ (input impedance 10 kΩ); compensating resistor R<sub>comp</sub> = R<sub>1</sub>∥R<sub>f</sub> = 7.5 kΩ at the non-inverting input is optional. For v<sub>i</sub> = 1 V, v<sub>o</sub> = −3 V.",
+   "<b>(b) Non-inverting amplifier.</b> The input v<sub>i</sub> is applied directly to the non-inverting terminal; the feedback network R<sub>f</sub> (output to inverting input) and R<sub>1</sub> (inverting input to ground) forms a voltage divider that returns a fraction β = R<sub>1</sub>/(R<sub>1</sub> + R<sub>f</sub>) of v<sub>o</sub> to the inverting terminal (negative feedback).",
+   "<b>Operation:</b> Any difference between v<sub>+</sub> and v<sub>−</sub> is amplified by A<sub>OL</sub> and the output adjusts until the feedback voltage equals the input (virtual short): v<sub>−</sub> = v<sub>+</sub> = v<sub>i</sub>.",
+   "<b>Derivation.</b> Voltage-divider: v<sub>−</sub> = v<sub>o</sub>R<sub>1</sub>/(R<sub>1</sub> + R<sub>f</sub>) (no current into the op-amp).",
+   "Set v<sub>−</sub> = v<sub>i</sub>: v<sub>i</sub> = v<sub>o</sub>R<sub>1</sub>/(R<sub>1</sub> + R<sub>f</sub>) → <b>A<sub>v</sub> = v<sub>o</sub>/v<sub>i</sub> = 1 + R<sub>f</sub>/R<sub>1</sub></b>.",
+   "<b>Remarks:</b> output is in phase with the input; gain is always ≥ 1; input resistance is very high (≈ R<sub>i</sub>(1 + A<sub>OL</sub>β)); with R<sub>f</sub> = 0 (or R<sub>1</sub> = ∞) it becomes a unity-gain <b>voltage follower</b> (buffer)."
+  ],
+  "formulas": [
+   "Inverting: A<sub>v</sub> = −R<sub>f</sub>/R<sub>1</sub>",
+   "Non-inverting: A<sub>v</sub> = 1 + R<sub>f</sub>/R<sub>1</sub>",
+   "Design: A<sub>v</sub> = −3 → R<sub>1</sub> = 10 kΩ, R<sub>f</sub> = 30 kΩ"
+  ],
+  "diagram": "Two op-amp circuits: (1) v_i → R1 → (−) input, R_f from output to (−), (+) grounded; i1 and i_f arrows, node marked virtual ground. (2) v_i to (+) input, R_f from output to (−), R1 from (−) to ground."
+ },
+ "Q5.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Circuit diagram of inverting summing amplifier (R<sub>1</sub>, R<sub>2</sub>, R<sub>3</sub>, R<sub>f</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation v<sub>o</sub> = −R<sub>f</sub>(v<sub>1</sub>/R<sub>1</sub> + v<sub>2</sub>/R<sub>2</sub> + v<sub>3</sub>/R<sub>3</sub>) via KCL at virtual ground",
+    "marks": 2.5
+   },
+   {
+    "point": "Special case R<sub>1</sub> = R<sub>2</sub> = R<sub>3</sub> = R<sub>f</sub> (adder) and scaling remarks",
+    "marks": 1
+   },
+   {
+    "point": "Circuit diagram of difference amplifier (four resistors R<sub>1</sub>, R<sub>f</sub>, R<sub>2</sub>, R<sub>3</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation by superposition: v<sub>o</sub> = −(R<sub>f</sub>/R<sub>1</sub>)v<sub>1</sub> + (1 + R<sub>f</sub>/R<sub>1</sub>)(R<sub>3</sub>/(R<sub>2</sub>+R<sub>3</sub>))v<sub>2</sub>",
+    "marks": 2.5
+   },
+   {
+    "point": "Result for matched resistors v<sub>o</sub> = (R<sub>f</sub>/R<sub>1</sub>)(v<sub>2</sub> − v<sub>1</sub>)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(i) Summing (inverting adder) amplifier.</b> Inputs v<sub>1</sub>, v<sub>2</sub>, v<sub>3</sub> are applied through R<sub>1</sub>, R<sub>2</sub>, R<sub>3</sub> to the inverting terminal; R<sub>f</sub> is the feedback resistor, the non-inverting terminal is grounded.",
+   "<b>Derivation.</b> The inverting node is a virtual ground (0 V). KCL at this node (no current into the op-amp): i<sub>1</sub> + i<sub>2</sub> + i<sub>3</sub> = i<sub>f</sub>.",
+   "v<sub>1</sub>/R<sub>1</sub> + v<sub>2</sub>/R<sub>2</sub> + v<sub>3</sub>/R<sub>3</sub> = −v<sub>o</sub>/R<sub>f</sub>.",
+   "<b>v<sub>o</sub> = −R<sub>f</sub>(v<sub>1</sub>/R<sub>1</sub> + v<sub>2</sub>/R<sub>2</sub> + v<sub>3</sub>/R<sub>3</sub>)</b>. For R<sub>1</sub> = R<sub>2</sub> = R<sub>3</sub> = R: v<sub>o</sub> = −(R<sub>f</sub>/R)(v<sub>1</sub> + v<sub>2</sub> + v<sub>3</sub>); with R<sub>f</sub> = R: v<sub>o</sub> = −(v<sub>1</sub> + v<sub>2</sub> + v<sub>3</sub>). Different resistor ratios give a weighted sum (e.g. D/A converter); a following inverter restores the sign. Inputs do not interact because of the virtual ground.",
+   "<b>(ii) Difference amplifier (subtractor).</b> v<sub>1</sub> is applied to the inverting terminal through R<sub>1</sub> with feedback R<sub>f</sub>; v<sub>2</sub> is applied to the non-inverting terminal through R<sub>2</sub>, with R<sub>3</sub> from the non-inverting terminal to ground.",
+   "<b>Derivation by superposition.</b> (a) v<sub>2</sub> = 0: inverting amplifier, v<sub>o1</sub> = −(R<sub>f</sub>/R<sub>1</sub>)v<sub>1</sub>.",
+   "(b) v<sub>1</sub> = 0: non-inverting amplifier with input v<sub>+</sub> = v<sub>2</sub>R<sub>3</sub>/(R<sub>2</sub> + R<sub>3</sub>); v<sub>o2</sub> = (1 + R<sub>f</sub>/R<sub>1</sub>)·v<sub>2</sub>R<sub>3</sub>/(R<sub>2</sub> + R<sub>3</sub>).",
+   "(c) Total: <b>v<sub>o</sub> = −(R<sub>f</sub>/R<sub>1</sub>)v<sub>1</sub> + (1 + R<sub>f</sub>/R<sub>1</sub>)(R<sub>3</sub>/(R<sub>2</sub> + R<sub>3</sub>))v<sub>2</sub></b>.",
+   "For R<sub>2</sub> = R<sub>1</sub> and R<sub>3</sub> = R<sub>f</sub> the second coefficient becomes (R<sub>1</sub> + R<sub>f</sub>)/R<sub>1</sub> × R<sub>f</sub>/(R<sub>1</sub> + R<sub>f</sub>) = R<sub>f</sub>/R<sub>1</sub>, hence <b>v<sub>o</sub> = (R<sub>f</sub>/R<sub>1</sub>)(v<sub>2</sub> − v<sub>1</sub>)</b>; with all resistors equal, v<sub>o</sub> = v<sub>2</sub> − v<sub>1</sub>. It amplifies the difference and rejects the common-mode signal (used in instrumentation amplifiers)."
+  ],
+  "formulas": [
+   "Adder: v<sub>o</sub> = −R<sub>f</sub>(v<sub>1</sub>/R<sub>1</sub> + v<sub>2</sub>/R<sub>2</sub> + v<sub>3</sub>/R<sub>3</sub>)",
+   "Subtractor: v<sub>o</sub> = (R<sub>f</sub>/R<sub>1</sub>)(v<sub>2</sub> − v<sub>1</sub>) for R<sub>2</sub> = R<sub>1</sub>, R<sub>3</sub> = R<sub>f</sub>"
+  ],
+  "diagram": "Adder: three input resistors joining at the inverting node, R_f feedback, non-inverting grounded. Subtractor: v1–R1 to inverting input with R_f feedback; v2–R2 to non-inverting input with R3 to ground."
+ },
+ "Q5.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of universal gates; NAND/NOR with truth tables and why universal",
+    "marks": 2
+   },
+   {
+    "point": "NOT, OR, AND using NOR only (circuit diagram/expression for each)",
+    "marks": 3
+   },
+   {
+    "point": "NOT, AND, OR using NAND only (circuit diagram/expression for each)",
+    "marks": 3
+   },
+   {
+    "point": "Proofs by Boolean algebra / De Morgan",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Universal gates.</b> NAND and NOR are called universal gates because any Boolean function (and hence any digital circuit) can be implemented using only NAND gates or only NOR gates; each can be used to realize the basic gates NOT, AND and OR. Truth tables: NAND Y = (AB)′ is 0 only when A = B = 1; NOR Y = (A + B)′ is 1 only when A = B = 0.",
+   "<b>Reason:</b> a NAND (or NOR) gate with its inputs tied gives NOT, and with an inverter after it gives AND (OR); since {AND, OR, NOT} is a functionally complete set, so are NAND and NOR. They are also cheaper and faster to fabricate in CMOS.",
+   "<b>Realisation using NOR gates only:</b>",
+   "<b>NOT:</b> tie both inputs: Y = (A + A)′ = A′.",
+   "<b>OR:</b> NOR followed by a NOT (a second NOR with inputs tied): Y = ((A + B)′)′ = A + B (2 NOR gates).",
+   "<b>AND:</b> invert each input using NOR-NOT, then NOR them: Y = (A′ + B′)′ = AB (De Morgan) (3 NOR gates).",
+   "<b>Realisation using NAND gates only:</b>",
+   "<b>NOT:</b> tie both inputs: Y = (A·A)′ = A′.",
+   "<b>AND:</b> NAND followed by a NAND-NOT: Y = ((AB)′)′ = AB (2 NAND gates).",
+   "<b>OR:</b> invert both inputs with NAND-NOTs, then NAND: Y = (A′·B′)′ = A + B (De Morgan) (3 NAND gates).",
+   "All equivalences follow from De Morgan's theorems (A + B)′ = A′B′ and (AB)′ = A′ + B′."
+  ],
+  "formulas": [
+   "NOT: A′ = (A·A)′ = (A + A)′",
+   "AND (NAND): AB = ((AB)′)′;  OR (NAND): A + B = (A′B′)′",
+   "OR (NOR): A + B = ((A + B)′)′;  AND (NOR): AB = (A′ + B′)′"
+  ],
+  "diagram": "Six small gate-level circuits: NOT, OR, AND from NOR gates (1, 2 and 3 gates) and NOT, AND, OR from NAND gates (1, 2 and 3 gates), with intermediate nodes labelled."
+ },
+ "Q5.5": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Statement of first theorem (A + B)′ = A′B′",
+    "marks": 0.5
+   },
+   {
+    "point": "Statement of second theorem (AB)′ = A′ + B′",
+    "marks": 0.5
+   },
+   {
+    "point": "Proof of both by truth table (4 rows, columns for A′, B′)",
+    "marks": 2
+   },
+   {
+    "point": "Proof by Boolean logic (complement argument)",
+    "marks": 1
+   },
+   {
+    "point": "Logic/switching equivalent diagrams (NOR = bubbled AND, NAND = bubbled OR)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>First theorem:</b> The complement of a sum equals the product of the complements: <b>(A + B)′ = A′·B′</b> (a NOR gate equals an AND gate with inverted inputs).",
+   "<b>Second theorem:</b> The complement of a product equals the sum of the complements: <b>(A·B)′ = A′ + B′</b> (a NAND gate equals an OR gate with inverted inputs).",
+   "<b>Truth-table proof</b> (A, B: 00, 01, 10, 11): (A + B)′ = 1, 0, 0, 0 and A′B′ = 1·1, 1·0, 0·1, 0·0 = 1, 0, 0, 0 – identical. (AB)′ = 1, 1, 1, 0 and A′ + B′ = 1, 1, 1, 0 – identical. Hence both theorems are proved.",
+   "<b>Algebraic proof of the first theorem:</b> Let X = A + B and Y = A′B′. If X′ = Y then X + Y = 1 and X·Y = 0. X + Y = A + B + A′B′ = (A + B + A′)(A + B + B′) = 1·1 = 1. XY = (A + B)A′B′ = AA′B′ + BA′B′ = 0 + 0 = 0. So Y is the complement of X: (A + B)′ = A′B′. The second theorem follows by duality (or by applying the first to A′ and B′).",
+   "<b>Switching circuit:</b> (A + B)′: two switches A and B in parallel form A + B; the complement is conducting only when both A and B are open, i.e. a series connection of normally-closed contacts A′ and B′ (A′B′). Likewise (AB)′: switches A and B in series form AB; the complement conducts if either A or B is open, i.e. parallel normally-closed contacts A′ + B′.",
+   "<b>Use:</b> converting AND-OR logic into NAND-NAND or NOR-NOR implementations."
+  ],
+  "formulas": [
+   "(A + B)′ = A′·B′",
+   "(A·B)′ = A′ + B′"
+  ],
+  "diagram": "Truth table (A, B, A+B, (A+B)′, A′, B′, A′B′ and similarly for AB). Gate diagrams: NOR gate = AND with bubbled inputs; NAND gate = OR with bubbled inputs. Parallel/series switch circuits as above."
+ },
+ "Q5.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) 4-variable K-map filled correctly and groupings",
+    "marks": 1
+   },
+   {
+    "point": "(a) f = B′ + AC′ + A′CD and NAND-only implementation",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) 3-variable K-map with don't cares and grouping",
+    "marks": 1
+   },
+   {
+    "point": "(b) f = x′ + y′ and gate implementation (a single NAND)",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) K-map and groups AB, AC, AD, BCD",
+    "marks": 1
+   },
+   {
+    "point": "(c) F = AB + AC + AD + BCD",
+    "marks": 1.5
+   },
+   {
+    "point": "(d) SOP f = A′B′ + AC′ and POS f = (A + B′)(A′ + C′)",
+    "marks": 1.5
+   },
+   {
+    "point": "(d) Implementation using basic gates",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(a) f(A,B,C,D) = Σm(0,1,2,3,7,8,9,10,11,12,13).</b> K-map (rows AB = 00, 01, 11, 10; columns CD = 00, 01, 11, 10): row 00: 1 1 1 1; row 01: 0 0 1 0; row 11: 1 1 0 0; row 10: 1 1 1 1.",
+   "Groups: octet m(0,1,2,3,8,9,10,11) = B′; quad m(8,9,12,13) = AC′; pair m(3,7) = A′CD. <b>f = B′ + AC′ + A′CD</b>.",
+   "<b>NAND implementation:</b> f = B′ + AC′ + A′CD = ((B′)′ · (AC′)′ · (A′CD)′)′ = NAND( B′, NAND(A,C′), NAND(A′,C,D) ). Use three NAND-inverters for B′, C′, A′; a 2-input NAND for AC′; a 3-input NAND for A′CD; and a final 3-input NAND.",
+   "<b>(b) f(x,y,z) = Σm(0,1,3,4,5) + d(2,6).</b> K-map (x = row; yz columns 00, 01, 11, 10): x = 0: 1 1 1 X; x = 1: 1 1 0 X. Group m(0,1,2,3) using the don't care 2 → x′; group m(0,1,4,5) → y′ (don't care 6 is not needed). <b>f = x′ + y′</b>.",
+   "Implementation: f = x′ + y′ = (xy)′ → a single 2-input NAND gate with inputs x and y (or an OR gate with two inverters).",
+   "<b>(c) F(A,B,C,D) = Σm(7,9,10,11,12,13,14,15).</b> K-map rows AB = 00: 0 0 0 0; 01: 0 0 1 0; 11: 1 1 1 1; 10: 0 1 1 1. Quad m(12,13,14,15) = AB; quad m(10,11,14,15) = AC; quad m(9,11,13,15) = AD; pair m(7,15) = BCD. All are essential (m12, m10, m9, m7 are covered only once). <b>F = AB + AC + AD + BCD</b> = A(B + C + D) + BCD.",
+   "<b>(d) f(A,B,C) = Σm(0,1,4,6) = ΠM(2,3,5,7).</b> K-map (A rows; BC columns 00, 01, 11, 10): A = 0: 1 1 0 0; A = 1: 1 0 0 1.",
+   "<b>SOP (group the 1s):</b> m(0,1) = A′B′; m(4,6) = AC′. <b>f = A′B′ + AC′</b> (m0, m4 can also form B′C′ but it is redundant).",
+   "<b>POS (group the 0s, complement):</b> zeros m(2,3) = A′B, m(5,7) = AC → f′ = A′B + AC; f = (f′)′ = (A + B′)(A′ + C′). Check: (A + B′)(A′ + C′) = AC′ + A′B′ + B′C′ = AC′ + A′B′ ✓.",
+   "<b>Implementation:</b> SOP: two inverters (A′, C′), two AND gates (A′B′ and AC′) and one OR gate; POS: inverters for B′ and C′ (plus A′), two OR gates (A + B′, A′ + C′) and one AND gate. Both realise the same function."
+  ],
+  "result": "(a) f = B′ + AC′ + A′CD; (b) f = x′ + y′ = (xy)′; (c) F = AB + AC + AD + BCD; (d) f = A′B′ + AC′ = (A + B′)(A′ + C′).",
+  "diagram": "K-maps: 4×4 map with the octet, quad and pair loops for (a); 2×4 map with the two quads for (b); 4×4 map with four loops for (c); 2×4 map with SOP loops and POS loops for (d). Logic diagrams for each."
+ },
+ "Q5.7": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "(a) Integer part conversion 229 = (11100101)<sub>2</sub> by repeated division",
+    "marks": 1
+   },
+   {
+    "point": "(a) Fractional part 0.225 = (0.0011 1001 1001…)<sub>2</sub> by repeated multiplication",
+    "marks": 1
+   },
+   {
+    "point": "(a) Hexadecimal (E5.399…)<sub>16</sub> via 4-bit grouping",
+    "marks": 0.5
+   },
+   {
+    "point": "(b)(i) (1BD.A0)<sub>16</sub> = 1×256 + 11×16 + 13 + 10/16 = 445.625",
+    "marks": 1.5
+   },
+   {
+    "point": "(b)(ii) (436.21)<sub>8</sub> = (100 011 110 . 010 001)<sub>2</sub> = 100011110.010001",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(a)</b> Integer part: 229 ÷ 2 → remainders (from last to first): 229 = 128 + 64 + 32 + 4 + 1, so (229)<sub>10</sub> = (11100101)<sub>2</sub>.",
+   "Fractional part 0.225 × 2 = 0.45 → 0; 0.45 × 2 = 0.9 → 0; 0.9 × 2 = 1.8 → 1; 0.8 × 2 = 1.6 → 1; 0.6 × 2 = 1.2 → 1; 0.2 × 2 = 0.4 → 0; 0.4 × 2 = 0.8 → 0; 0.8 × 2 = 1.6 → 1; 0.6 → 1; 0.2 → 0; 0.4 → 0 … the pattern 1100 repeats. So (0.225)<sub>10</sub> = (0.0011100110011…)<sub>2</sub> ≈ (0.00111001)<sub>2</sub>.",
+   "<b>(229.225)<sub>10</sub> = (11100101.0011100110011…)<sub>2</sub> ≈ (11100101.00111001)<sub>2</sub>.</b>",
+   "Hexadecimal: group in 4 bits from the binary point: 1110 0101 . 0011 1001 1001 … = E 5 . 3 9 9 … so <b>(229.225)<sub>10</sub> ≈ (E5.399)<sub>16</sub></b>.",
+   "<b>(b)(i)</b> (1BD.A0)<sub>16</sub> = 1 × 16<sup>2</sup> + B × 16<sup>1</sup> + D × 16<sup>0</sup> + A × 16<sup>-1</sup> + 0 × 16<sup>-2</sup> = 256 + 11 × 16 + 13 + 10/16 = 256 + 176 + 13 + 0.625 = <b>(445.625)<sub>10</sub></b>.",
+   "<b>(ii)</b> Convert each octal digit into 3 bits: 4 = 100, 3 = 011, 6 = 110, . 2 = 010, 1 = 001. Hence <b>(436.21)<sub>8</sub> = (100011110.010001)<sub>2</sub></b>."
+  ],
+  "result": "(a) (229.225)₁₀ = (11100101.00111001…)₂ = (E5.399…)₁₆; (b)(i) (1BD.A0)₁₆ = (445.625)₁₀; (ii) (436.21)₈ = (100011110.010001)₂."
+ }
+}

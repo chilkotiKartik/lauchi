@@ -1,0 +1,126 @@
+{
+  "code": "BCA-007",
+  "name": "Computer Organization & Architecture",
+  "short": "COA",
+  "type": "theory",
+  "ltp": "3-1-0",
+  "credits": 4,
+  "sem": "I",
+  "marks": null,
+  "objectives": [],
+  "outcomes": [],
+  "text": [],
+  "ref": [],
+  "rule": "",
+  "note": "",
+  "units": [
+    {
+      "n": 1,
+      "title": "Structure of Computers & Arithmetic",
+      "hours": null,
+      "topics": [
+        "Functional units",
+        "Von Neumann architecture",
+        "bus structures",
+        "performance metrics",
+        "multiprocessors/multicomputers",
+        "fixed-point and IEEE 754 floating-point representations",
+        "error detection/correction codes",
+        "computer arithmetic: signed addition",
+        "subtraction",
+        "Booth's multiplication",
+        "restoring/non-restoring division"
+      ],
+      "formulas": [],
+      "hints": [
+        "Booth's 2's complement multiplication algorithm trace on signed integers"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Basic Computer Organization & Design",
+      "hours": null,
+      "topics": [
+        "Instruction codes",
+        "computer registers",
+        "instruction cycle (Fetch, Decode, Execute, Interrupt)",
+        "timing and control",
+        "memory-reference instructions",
+        "input-output configuration",
+        "CPU organization",
+        "stack organization",
+        "instruction formats (zero, one, two, three-address)",
+        "addressing modes",
+        "RISC vs. CISC"
+      ],
+      "formulas": [],
+      "hints": [
+        "Explain the complete instruction cycle showing Fetch, Decode, Execute, and Interrupt…",
+        "Compare RISC and CISC architectures regarding instruction set size, cycle duration…"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Register Transfer & Micro-Operations",
+      "hours": null,
+      "topics": [
+        "Register Transfer Language (RTL)",
+        "bus and memory transfers",
+        "three-state bus buffers",
+        "arithmetic micro-operations",
+        "logic micro-operations",
+        "shift micro-operations",
+        "Arithmetic Logic Shift Unit (ALSU) design",
+        "control memory",
+        "address sequencing",
+        "hardwired vs. microprogrammed control units"
+      ],
+      "formulas": [],
+      "hints": [
+        "Draw the schematic of an Arithmetic Logic Shift Unit (ALSU) and explain how mode select…",
+        "Explain address sequencing in a microprogrammed control unit with a block diagram"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Memory System",
+      "hours": null,
+      "topics": [
+        "Memory hierarchy",
+        "semiconductor RAM/ROM",
+        "cache memory: organization",
+        "mapping techniques (Direct, Associative, Set-Associative)",
+        "cache write policies (write-through, write-back)",
+        "cache hit ratio",
+        "virtual memory",
+        "address mapping",
+        "paging",
+        "page replacement"
+      ],
+      "formulas": [],
+      "hints": [
+        "Direct, Associative, and Set-Associative cache mapping address field derivations"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Multiprocessors & I/O Organization",
+      "hours": null,
+      "topics": [
+        "Multiprocessor characteristics",
+        "inter-processor arbitration (daisy chaining, parallel arbitration)",
+        "I/O interfaces",
+        "asynchronous data transfer (strobe, handshaking)",
+        "Programmed I/O",
+        "Interrupt-driven I/O",
+        "Direct Memory Access (DMA)",
+        "priority interrupts"
+      ],
+      "formulas": [],
+      "hints": [
+        "Handshake asynchronous data transfer timing sequence"
+      ]
+    }
+  ],
+  "exps": []
+}

@@ -1,0 +1,113 @@
+{
+  "code": "BCA-010",
+  "name": "Environmental Studies",
+  "short": "Env. Studies",
+  "type": "theory",
+  "ltp": "3-1-0",
+  "credits": 4,
+  "sem": "I",
+  "marks": null,
+  "objectives": [],
+  "outcomes": [],
+  "text": [],
+  "ref": [],
+  "rule": "",
+  "note": "",
+  "units": [
+    {
+      "n": 1,
+      "title": "Ecosystems",
+      "hours": null,
+      "topics": [
+        "Concepts",
+        "structure",
+        "function",
+        "energy flow",
+        "food chains",
+        "food webs",
+        "ecological pyramids (number, biomass, energy)",
+        "ecological succession (primary, secondary)"
+      ],
+      "formulas": [],
+      "hints": [
+        "Biogeochemical cycles: Carbon cycle and Nitrogen cycle mechanics"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Natural Resources & Biodiversity",
+      "hours": null,
+      "topics": [
+        "Renewable vs. non-renewable resources",
+        "biodiversity levels",
+        "threats (habitat loss, poaching, human-wildlife conflict)",
+        "in-situ vs. ex-situ conservation",
+        "global and Indian biogeographic distributions"
+      ],
+      "formulas": [],
+      "hints": [
+        "Bioaccumulation and biomagnification of persistent pollutants (DDT, Heavy Metals) through trophic levels"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Environmental Pollution",
+      "hours": null,
+      "topics": [
+        "Air",
+        "water",
+        "soil",
+        "noise",
+        "thermal",
+        "nuclear hazards",
+        "solid waste management",
+        "incineration",
+        "composting",
+        "sanitary landfills",
+        "greenhouse effect",
+        "global warming",
+        "acid rain",
+        "ozone depletion"
+      ],
+      "formulas": [],
+      "hints": [
+        "Eutrophication of freshwater bodies: mechanism, algal blooms, and dissolved oxygen depletion"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Policies & Legal Practices",
+      "hours": null,
+      "topics": [
+        "Environment Protection Act",
+        "Air Act",
+        "Water Act",
+        "Wildlife Protection Act",
+        "Forest Conservation Act",
+        "traditional environmental knowledge"
+      ],
+      "formulas": [],
+      "hints": [
+        "Outline three key environmental acts in India",
+        "Explain the significance of traditional and indigenous ecological knowledge in…"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Human Communities & Environment",
+      "hours": null,
+      "topics": [
+        "Environmental movements (Chipko, Silent Valley, Narmada Bachao)",
+        "population growth impacts",
+        "human health risks",
+        "sustainable development"
+      ],
+      "formulas": [],
+      "hints": [
+        "Describe the Chipko Movement and Narmada Bachao Andolan, stating their objectives and…",
+        "Discuss major human health risks associated with water contamination and particulate air…"
+      ]
+    }
+  ],
+  "exps": []
+}

@@ -1,0 +1,129 @@
+{
+  "code": "BCA-006",
+  "name": "Data Structures",
+  "short": "Data Structures",
+  "type": "theory",
+  "ltp": "3-1-0",
+  "credits": 4,
+  "sem": "I",
+  "marks": null,
+  "objectives": [],
+  "outcomes": [],
+  "text": [],
+  "ref": [],
+  "rule": "",
+  "note": "",
+  "units": [
+    {
+      "n": 1,
+      "title": "Introduction to Data Structures",
+      "hours": null,
+      "topics": [
+        "Primitive vs. non-primitive",
+        "linear vs. non-linear structures",
+        "sub-algorithms",
+        "abstract data types (ADTs)",
+        "asymptotic notations (O, Ω, Θ)",
+        "time and space complexity",
+        "space-time tradeoffs"
+      ],
+      "formulas": [],
+      "hints": [
+        "Define data structures and classify primitive vs. non-primitive and linear vs.…",
+        "Explain sub-algorithms with a modular programming example"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Linear Data Structures",
+      "hours": null,
+      "topics": [
+        "Stacks: push",
+        "pop",
+        "array implementation",
+        "applications (recursion, infix to postfix conversion, postfix evaluation)",
+        "Queues: enqueue",
+        "dequeue",
+        "circular queues",
+        "deques",
+        "priority queues",
+        "Linked Lists: singly",
+        "doubly",
+        "circular",
+        "address calculation for 1D and 2D arrays"
+      ],
+      "formulas": [
+        "A = [2, 4, 6, 8, 10]"
+      ],
+      "hints": [
+        "Evaluation of postfix expressions using stack data structures"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Non-Linear Structures — Trees",
+      "hours": null,
+      "topics": [
+        "Tree terminologies",
+        "binary trees",
+        "properties",
+        "representations",
+        "tree traversals (inorder, preorder, postorder)",
+        "Binary Search Trees (BST): insertion",
+        "deletion",
+        "searching",
+        "AVL trees",
+        "balance factors",
+        "rotations (LL, RR, LR, RL)"
+      ],
+      "formulas": [],
+      "hints": [
+        "Deletion of a node with two children in a Binary Search Tree (inorder predecessor/successor replacement)"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Graphs",
+      "hours": null,
+      "topics": [
+        "Graph definitions",
+        "directed vs. undirected graphs",
+        "paths",
+        "cycles",
+        "representations: adjacency matrix",
+        "adjacency list",
+        "graph traversals: Breadth-First Search (BFS)",
+        "Depth-First Search (DFS)",
+        "Spanning Trees",
+        "Minimum Spanning Trees (Kruskal's, Prim's algorithms)"
+      ],
+      "formulas": [],
+      "hints": [
+        "Prim's and Kruskal's algorithms for Minimum Spanning Trees"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Sorting & Searching",
+      "hours": null,
+      "topics": [
+        "Sorting techniques: Bubble sort",
+        "Insertion sort",
+        "Selection sort",
+        "Merge sort",
+        "Quick sort",
+        "Radix sort",
+        "Searching: Linear search",
+        "Binary search",
+        "Hashing: hash functions",
+        "collision resolution (chaining, open addressing: linear probing, quadratic probing, double hashing)"
+      ],
+      "formulas": [],
+      "hints": [
+        "Write the algorithm for Bubble Sort and state its best, worst, and average-case time…",
+        "What is hashing?"
+      ]
+    }
+  ],
+  "exps": []
+}

@@ -1,0 +1,142 @@
+{
+  "code": "BCA-003",
+  "name": "Digital Electronics",
+  "short": "Digital Electronics",
+  "type": "theory",
+  "ltp": "3-1-0",
+  "credits": 4,
+  "sem": "I",
+  "marks": null,
+  "objectives": [],
+  "outcomes": [],
+  "text": [],
+  "ref": [],
+  "rule": "",
+  "note": "",
+  "units": [
+    {
+      "n": 1,
+      "title": "Digital Systems & Logic Simplification",
+      "hours": null,
+      "topics": [
+        "Number systems and arithmetic",
+        "signed binary representations",
+        "binary codes (BCD, Excess-3, Gray code, parity)",
+        "code conversion",
+        "review of Boolean algebra",
+        "De Morgan's laws",
+        "canonical SOP and POS forms",
+        "K-maps up to 5 variables",
+        "Don't Care conditions",
+        "NAND/NOR implementations",
+        "Quine-McCluskey (Tabular) minimization"
+      ],
+      "formulas": [
+        "X = (A' + B)(A + B + D)D'",
+        "f(A,B,C,D,E) = Σm(0,1,2,4,7,8,12,14,15,16,17,18,20,24,28,30,31)",
+        "f(A,B,C,D) = Σm(0,1,5,7,10,14)"
+      ],
+      "hints": [
+        "Simplify the Boolean expression using Boolean algebra laws",
+        "Convert the fractional binary number (1001.0010)2 to its exact decimal equivalent"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Combinational Logic Design",
+      "hours": null,
+      "topics": [
+        "Half adder",
+        "full adder",
+        "half subtractor",
+        "full subtractor",
+        "serial and parallel binary adders",
+        "Look-Ahead Carry adder",
+        "BCD adder",
+        "magnitude comparator (1-bit, 2-bit, 4-bit)",
+        "multiplexers (MUX)",
+        "demultiplexers (DEMUX)",
+        "decoders (3:8, BCD-to-7 segment)",
+        "encoders",
+        "priority encoders"
+      ],
+      "formulas": [],
+      "hints": [
+        "Implementation of higher-order MUX (e.g., 16:1) using lower-order MUX (4:1)"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Sequential Logic Circuits",
+      "hours": null,
+      "topics": [
+        "Latches (SR, D)",
+        "flip-flops: SR",
+        "JK",
+        "Master-Slave JK",
+        "characteristic tables",
+        "characteristic equations",
+        "excitation tables",
+        "flip-flop conversions",
+        "shift registers (SISO, SIPO, PISO, PIPO, bi-directional)",
+        "counters: asynchronous (ripple)",
+        "synchronous",
+        "up/down",
+        "Ring counter",
+        "Johnson counter"
+      ],
+      "formulas": [],
+      "hints": [
+        "Flip-flop conversion: JK Flip-Flop to T Flip-Flop and D Flip-Flop",
+        "4-bit synchronous binary Up/Down counter design using JK/T flip-flops"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Synchronous & Asynchronous Sequential Design",
+      "hours": null,
+      "topics": [
+        "Synchronous clocked sequential circuits",
+        "Mealy and Moore models",
+        "state diagrams",
+        "state tables",
+        "state reduction methods (implication table)",
+        "state assignment",
+        "hazards in combinational/sequential circuits (static-0, static-1, dynamic hazards)",
+        "essential hazards",
+        "race-free state assignment in asynchronous machines"
+      ],
+      "formulas": [],
+      "hints": [
+        "Define critical and non-critical races in asynchronous sequential circuits",
+        "Define a Hazard"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Logic Families & Programmable Devices",
+      "hours": null,
+      "topics": [
+        "Digital IC logic families: DTL",
+        "DCTL",
+        "TTL (totem-pole, open-collector, tri-state)",
+        "ECL",
+        "CMOS",
+        "operational metrics: Fan-in",
+        "Fan-out",
+        "Propagation Delay",
+        "Noise Margin",
+        "Power Dissipation",
+        "Memory units: RAM",
+        "ROM",
+        "Programmable Logic Array (PLA)",
+        "Programmable Array Logic (PAL)"
+      ],
+      "formulas": [],
+      "hints": [
+        "Totem-pole vs. Open-Collector TTL outputs and pull-up resistor calculation"
+      ]
+    }
+  ],
+  "exps": []
+}

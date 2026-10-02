@@ -1,0 +1,126 @@
+{
+  "code": "BCA-009",
+  "name": "Software Engineering",
+  "short": "Software Engg.",
+  "type": "theory",
+  "ltp": "3-1-0",
+  "credits": 4,
+  "sem": "I",
+  "marks": null,
+  "objectives": [],
+  "outcomes": [],
+  "text": [],
+  "ref": [],
+  "rule": "",
+  "note": "",
+  "units": [
+    {
+      "n": 1,
+      "title": "Software Processes",
+      "hours": null,
+      "topics": [
+        "Software evolution",
+        "myths",
+        "process framework",
+        "CMMI",
+        "process patterns",
+        "process assessment",
+        "Waterfall model",
+        "Incremental process model",
+        "Evolutionary models: Prototyping",
+        "Spiral model",
+        "Unified Process"
+      ],
+      "formulas": [],
+      "hints": [
+        "COCOMO (Basic, Intermediate) cost estimation equations",
+        "Agile methodologies (Scrum sprint cycles and Extreme Programming practices)"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Requirements Engineering",
+      "hours": null,
+      "topics": [
+        "Functional and non-functional requirements",
+        "user and system requirements",
+        "Software Requirements Specification (SRS)",
+        "IEEE 830 standard",
+        "requirements elicitation",
+        "validation",
+        "feasibility studies",
+        "context models",
+        "behavioral models"
+      ],
+      "formulas": [],
+      "hints": [
+        "Define Software Requirements Specification (SRS)"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Software Design & UML",
+      "hours": null,
+      "topics": [
+        "Design process",
+        "design quality",
+        "architectural styles",
+        "UML conceptual model",
+        "structural modeling: Class diagrams",
+        "Object diagrams",
+        "behavioral modeling: Use Case",
+        "Sequence",
+        "Collaboration",
+        "Component",
+        "Deployment diagrams"
+      ],
+      "formulas": [],
+      "hints": [
+        "Draw a Use Case diagram and Sequence diagram for an Online Banking/ATM System with…",
+        "Explain software architectural styles"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Testing Strategies & Metrics",
+      "hours": null,
+      "topics": [
+        "Verification and validation",
+        "unit testing",
+        "integration testing",
+        "system testing",
+        "Black-Box testing: Equivalence Partitioning",
+        "Boundary Value Analysis (BVA)",
+        "White-Box testing: Basis Path testing",
+        "Cyclomatic Complexity",
+        "Control Flow Graphs (CFG)",
+        "debugging"
+      ],
+      "formulas": [],
+      "hints": [
+        "Equivalence Partitioning test-case design with valid and invalid input domains"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Quality Management & Risk Management",
+      "hours": null,
+      "topics": [
+        "Software quality",
+        "ISO 9000",
+        "SEI-CMM",
+        "metrics for source code and maintenance",
+        "risk management: reactive vs. proactive strategies",
+        "risk identification",
+        "projection",
+        "refinement",
+        "RMMM plan"
+      ],
+      "formulas": [],
+      "hints": [
+        "Detail the RMMM (Risk Mitigation, Monitoring, and Management) plan in software project…"
+      ]
+    }
+  ],
+  "exps": []
+}

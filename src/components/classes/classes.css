@@ -1,0 +1,14 @@
+.cls-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -4px; padding: 0 4px; }
+.cls-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 14px; }
+.cls-table th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); font-weight: 900; padding: 8px 10px; border-bottom: 2px solid var(--line); white-space: nowrap; }
+.cls-table th button { min-height: 32px; text-transform: uppercase; letter-spacing: .04em; color: inherit; }
+.cls-table th button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
+.cls-table td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--text); }
+.cls-table tr:last-child td { border-bottom: 0; }
+.cls-table td.num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.cls-table th.num { text-align: right; }
+.cls-bar { height: 10px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.cls-bar > i { display: block; height: 100%; border-radius: 99px; }
+.cls-stat { display: flex; flex-direction: column; gap: 2px; }
+.cls-stat b { font-size: 1.6rem; line-height: 1.1; color: var(--head); font-variant-numeric: tabular-nums; }
+.cls-stat span { font-size: 12px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }

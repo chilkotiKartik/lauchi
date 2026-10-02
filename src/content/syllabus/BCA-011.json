@@ -1,0 +1,110 @@
+{
+  "code": "BCA-011",
+  "name": "Bridge Course in Mathematics",
+  "short": "Bridge Maths",
+  "type": "theory",
+  "ltp": "3-1-0",
+  "credits": 4,
+  "sem": "I",
+  "marks": null,
+  "objectives": [],
+  "outcomes": [],
+  "text": [],
+  "ref": [],
+  "rule": "",
+  "note": "",
+  "units": [
+    {
+      "n": 1,
+      "title": "Algebra",
+      "hours": null,
+      "topics": [
+        "Partial fractions (linear non-repeated, repeated, irreducible quadratic factors)",
+        "Arithmetic Progression (AP)",
+        "Geometric Progression (GP)",
+        "infinite GP series",
+        "matrices",
+        "determinants",
+        "properties of determinants",
+        "matrix inversion via adjoint method"
+      ],
+      "formulas": [
+        "A = [0 1 2; 1 2 3; 3 1 1]",
+        "[a a+b a+b+c; 2a 3a+2b 4a+3b+2c; 3a 6a+3b 10a+6b+3c] = a<sup>3</sup>",
+        "S<sub>∞</sub>= a/(1 - r)"
+      ],
+      "hints": [
+        "Sum of infinite GP series: S∞= a/(1 - r) for |r| < 1"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Permutations, Combinations & Binomial Theorem",
+      "hours": null,
+      "topics": [
+        "Permutations (<sup>n</sup>P<sub>r</sub>)",
+        "combinations (<sup>n</sup>C<sub>r</sub>)",
+        "mathematical induction principle",
+        "Binomial Theorem for positive integral index",
+        "general term",
+        "middle term",
+        "constant term (x<sup>0</sup>)",
+        "exponential series",
+        "logarithmic series"
+      ],
+      "formulas": [],
+      "hints": [
+        "(i) How many 5-digit telephone numbers can be constructed from digits 0 to 9 if each…",
+        "Find the constant term (independent of x) in the expansion of (3x2 - 2/x)15"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Coordinate Geometry & Conic Sections",
+      "hours": null,
+      "topics": [
+        "Cartesian coordinate system",
+        "distance formula",
+        "section formula",
+        "slope of straight lines",
+        "line forms (slope-intercept, point-slope, two-point, intercept, normal)",
+        "angle between lines",
+        "pair of straight lines",
+        "conic sections: parabola",
+        "ellipse",
+        "hyperbola standard equations and geometric parameters"
+      ],
+      "formulas": [
+        "y<sup>2</sup> = 10x",
+        "x<sup>2</sup>/a<sup>2</sup> - y<sup>2</sup>/b<sup>2</sup> = 1"
+      ],
+      "hints": [
+        "Eccentricity, foci coordinates, and asymptotes of standard hyperbolas: x2/a2 - y2/b2 = 1"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Statistics & Dispersion Measures",
+      "hours": null,
+      "topics": [
+        "Frequency distributions",
+        "measures of central tendency: Mean",
+        "Median",
+        "Mode",
+        "Geometric Mean",
+        "Harmonic Mean",
+        "partition values (quartiles, deciles, percentiles)",
+        "Interquartile Range (IQR)",
+        "Mean Deviation about mean/median",
+        "Standard Deviation",
+        "variance",
+        "coefficient of variation"
+      ],
+      "formulas": [],
+      "hints": [
+        "Standard deviation calculation on continuous grouped frequency tables"
+      ]
+    }
+  ],
+  "exps": []
+}

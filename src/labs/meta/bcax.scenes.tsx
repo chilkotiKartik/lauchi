@@ -1,0 +1,36 @@
+"use client";
+import type { ComponentType } from "react";
+import { load } from "../load";
+
+export const BCAX_SCENES: Record<string, ComponentType> = {
+  dlcodes: load(() => import("../scenes/dlcodes")),
+  dlqm: load(() => import("../scenes/dlqm")),
+  addsub: load(() => import("../scenes/addsub")),
+  muxdec: load(() => import("../scenes/muxdec")),
+  ffconv: load(() => import("../scenes/ffconv")),
+  counters: load(() => import("../scenes/counters")),
+  fsm: load(() => import("../scenes/fsm")),
+  hazard: load(() => import("../scenes/hazard")),
+  logicfam: load(() => import("../scenes/logicfam")),
+  dsbigo: load(() => import("../scenes/dsbigo")),
+  dsstack: load(() => import("../scenes/dsstack")),
+  dslist: load(() => import("../scenes/dslist")),
+  dsarray: load(() => import("../scenes/dsarray")),
+  dsbst: load(() => import("../scenes/dsbst")),
+  dsavl: load(() => import("../scenes/dsavl")),
+  dsgraph: load(() => import("../scenes/dsgraph")),
+  dshash: load(() => import("../scenes/dshash")),
+  dsmerge: load(() => import("../scenes/dsmerge")),
+  coabooth: load(() => import("../scenes/coabooth")),
+  coacycle: load(() => import("../scenes/coacycle")),
+  coaddr: load(() => import("../scenes/coaddr")),
+  coapipe: load(() => import("../scenes/coapipe")),
+  coacache: load(() => import("../scenes/coacache")),
+  coavmem: load(() => import("../scenes/coavmem")),
+  coaio: load(() => import("../scenes/coaio")),
+  jvm: load(() => import("../scenes/jvm")),
+  jheap: load(() => import("../scenes/jheap")),
+  jdispatch: load(() => import("../scenes/jdispatch")),
+  jexc: load(() => import("../scenes/jexc")),
+  jthread: load(() => import("../scenes/jthread")),
+};

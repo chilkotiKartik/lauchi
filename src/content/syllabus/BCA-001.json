@@ -1,0 +1,137 @@
+{
+  "code": "BCA-001",
+  "name": "Programming using C",
+  "short": "C Programming",
+  "type": "theory",
+  "ltp": "3-1-0",
+  "credits": 4,
+  "sem": "I",
+  "marks": null,
+  "objectives": [],
+  "outcomes": [],
+  "text": [],
+  "ref": [],
+  "rule": "",
+  "note": "",
+  "units": [
+    {
+      "n": 1,
+      "title": "C Basics",
+      "hours": null,
+      "topics": [
+        "C character set",
+        "Identifiers and keywords",
+        "Data types (primary, derived, user-defined)",
+        "constants",
+        "variables",
+        "declarations",
+        "expression statements",
+        "symbolic constants",
+        "compound statements",
+        "arithmetic operators",
+        "unary operators",
+        "relational and logical operators",
+        "assignment operators",
+        "conditional operators (? :)",
+        "bitwise operators"
+      ],
+      "formulas": [],
+      "hints": [
+        "Matrix multiplication (Am ×k ×Bk ×n) with dimension validation"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Decision Control & Arrays",
+      "hours": null,
+      "topics": [
+        "if statement",
+        "if-else statement",
+        "nested if()",
+        "if() ladder",
+        "switch-case statement",
+        "Iterative statements: for loop",
+        "while loop",
+        "do-while() loop",
+        "Jump statements: break",
+        "continue",
+        "Storage Classes (auto, extern, static, register)",
+        "Arrays: Declaration",
+        "initialization",
+        "1D array",
+        "2D array",
+        "row-major and column-major memory address calculations"
+      ],
+      "formulas": [
+        "Address(A[i][j]) = Base + W ·[(i - L<sub>r</sub>) ·C + (j - L<sub>c</sub>)]"
+      ],
+      "hints": [
+        "Write a complete C program to find the largest among three numbers using nested if-else…",
+        "Differentiate between entry-controlled (while, for) and exit-controlled (do-while) loops…"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Functions",
+      "hours": null,
+      "topics": [
+        "Standard library functions",
+        "user-defined functions",
+        "function declaration/prototyping",
+        "parameter types: actual vs. formal arguments",
+        "function definition",
+        "passing arrays as parameters",
+        "call by value vs. call by reference",
+        "recursive functions"
+      ],
+      "formulas": [],
+      "hints": [
+        "Call by reference pointer parameter passing for simultaneous computation of area and perimeter",
+        "Recursive Fibonacci and GCD (Euclid's method) function stack analysis"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Pointers & Strings",
+      "hours": null,
+      "topics": [
+        "Declaration of pointer variables",
+        "pointer initialization",
+        "address-of (&) and dereferencing (*) operators",
+        "pointer arithmetic",
+        "pointer to pointer (**ptr)",
+        "returning multiple values from a function via pointers",
+        "string handling",
+        "character arrays"
+      ],
+      "formulas": [],
+      "hints": [
+        "Define a pointer variable",
+        "Explain the differences between an array name (constant pointer) and a pointer variable…"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Structures, Unions & File Handling",
+      "hours": null,
+      "topics": [
+        "Structures",
+        "unions",
+        "array of structures",
+        "nested structures",
+        "enumerations (enum)",
+        "file handling: opening/closing files",
+        "file modes (r, w, a, r+, w+, a+)",
+        "sequential read/write",
+        "copying file contents",
+        "command-line arguments (argc, argv)",
+        "pre-processor directives (#include, #define, conditional compilation)"
+      ],
+      "formulas": [],
+      "hints": [
+        "File handling routine to count characters, words, and lines in a text file"
+      ]
+    }
+  ],
+  "exps": []
+}

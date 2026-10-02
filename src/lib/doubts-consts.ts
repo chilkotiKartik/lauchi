@@ -1,0 +1,1 @@
+export const TITLE_MAX = 140, BODY_MAX = 2000, ANSWER_MAX = 4000;

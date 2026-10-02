@@ -1,0 +1,5 @@
+.adm-drop { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; padding: 22px 16px; border: 2px dashed var(--line); border-radius: 18px; background: var(--soft); transition: border-color .15s, background .15s; }
+.adm-drop:hover, .adm-drop.is-over, .adm-drop:focus-within { border-color: var(--blue); background: var(--blue-l); }
+.adm-drop:focus-within { outline: 3px solid var(--blue); outline-offset: 2px; }
+.adm-drop-input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.adm-drop-input[aria-invalid="true"] ~ * { color: var(--red-t); }

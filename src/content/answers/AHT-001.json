@@ -1,0 +1,2618 @@
+{
+ "Q1.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of Newton's rings (air film between plano-convex lens and plate)",
+    "marks": 1
+   },
+   {
+    "point": "Labelled diagram of the experimental set-up (source, glass plate at 45°, lens, microscope)",
+    "marks": 2
+   },
+   {
+    "point": "Explanation of formation by division of amplitude, with phase change λ/2 at the lower reflection",
+    "marks": 2
+   },
+   {
+    "point": "Path difference Δ = 2μt cos r + λ/2 and relation r² = 2Rt",
+    "marks": 2
+   },
+   {
+    "point": "Derivation of dark-ring diameter D²<sub>n</sub> = 4nλR",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation of bright-ring diameter D²<sub>n</sub> = 2(2n − 1)λR",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Newton's rings:</b> when a plano-convex lens of large radius of curvature R is placed with its convex surface on a flat glass plate, a thin air film of gradually increasing thickness is enclosed between them. Illuminated normally by monochromatic light, this film produces a system of alternate bright and dark concentric circular fringes, with a dark spot at the centre in reflected light. These fringes are called Newton's rings.",
+   "<b>Experimental arrangement:</b> a monochromatic source (sodium lamp) S sends light to a glass plate G inclined at 45° to the horizontal. G reflects the light vertically downward on to the lens L resting on the plate P. The rays reflected from the top and bottom surfaces of the air film are viewed through a travelling microscope M.",
+   "<b>Formation:</b> a ray falling on the film is partly reflected from the lower surface of the lens (glass → air, no phase change) and partly from the upper surface of the plate (air → glass, phase change π, i.e. path change λ/2). These two coherent rays, derived from the same incident ray by division of amplitude, interfere. Since the film thickness is constant along a circle centred at the point of contact, the fringes are circular.",
+   "<b>Derivation.</b> Let a ray fall normally at a point where the air film has thickness t, at distance r from the point of contact O. For normal incidence (cos r' = 1) and air (μ = 1) the effective path difference is Δ = 2μt cos r' + λ/2 = 2t + λ/2.",
+   "<b>Step 1 – Relation between r and t.</b> From the geometry of the circle, r² = R² − (R − t)² = 2Rt − t². Since t ≪ R, t² is negligible, so r² = 2Rt, i.e. t = r²/2R.",
+   "<b>Step 2 – Dark rings.</b> Condition for minimum: Δ = (2n + 1)λ/2 ⇒ 2t + λ/2 = (2n + 1)λ/2 ⇒ 2t = nλ. Putting t = r²/2R: r² = nλR, so the diameter D<sub>n</sub> = 2r<sub>n</sub> gives D<sub>n</sub>² = 4nλR (n = 0, 1, 2, …). Hence D<sub>n</sub> = 2√(nλR).",
+   "<b>Step 3 – Bright rings.</b> Condition for maximum: Δ = nλ ⇒ 2t + λ/2 = nλ ⇒ 2t = (2n − 1)λ/2. Putting t = r²/2R: r² = (2n − 1)λR/2, so D<sub>n</sub>² = 2(2n − 1)λR (n = 1, 2, 3, …). Hence D<sub>n</sub> = √(2(2n − 1)λR).",
+   "<b>Conclusion.</b> The central spot (n = 0, t = 0) is dark because of the λ/2 phase change. Ring diameters vary as √n, so the rings get closer together as we move outwards."
+  ],
+  "formulas": [
+   "Path difference: Δ = 2μt cos r + λ/2",
+   "r² = 2Rt",
+   "Dark: D<sub>n</sub>² = 4nλR",
+   "Bright: D<sub>n</sub>² = 2(2n − 1)λR"
+  ],
+  "diagram": "Draw a monochromatic source S, a glass plate G inclined at 45°, the plano-convex lens L on a flat plate P, and a travelling microscope M above G. Label the air film, its thickness t, the point of contact O, radius r and radius of curvature R. Also sketch the circular rings with a dark centre."
+ },
+ "Q1.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of path difference Δ = 2μt cos r + λ/2 for the air film in reflected light",
+    "marks": 1.5
+   },
+   {
+    "point": "Relation t = r²/2R (with the approximation t ≪ R)",
+    "marks": 1.5
+   },
+   {
+    "point": "Condition and derivation of D<sub>n</sub>² = 4nλR for dark rings",
+    "marks": 2
+   },
+   {
+    "point": "Proof that D<sub>n</sub> ∝ √n for dark rings",
+    "marks": 1.5
+   },
+   {
+    "point": "Condition and derivation of D<sub>n</sub>² = 2(2n − 1)λR for bright rings",
+    "marks": 2
+   },
+   {
+    "point": "Proof that D<sub>n</sub> ∝ √(2n − 1) for bright rings, with conclusion",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "For Newton's rings seen in reflected light at normal incidence, air film (μ = 1) of thickness t, the path difference between the rays reflected from the lens–air and air–plate surfaces is Δ = 2t + λ/2 (the λ/2 arises from reflection at the denser glass plate).",
+   "From the geometry of the circular lens surface (radius R), r² = R² − (R − t)² = 2Rt − t² ≈ 2Rt, so 2t = r²/R.",
+   "<b>(i) Dark rings.</b> Minimum when Δ = (2n + 1)λ/2, i.e. 2t = nλ.",
+   "Substituting 2t = r²/R: r² = nλR ⇒ D<sub>n</sub>² = (2r)² = 4nλR.",
+   "Therefore D<sub>n</sub> = 2√(λR) · √n. As λ and R are constants for a given experiment, <b>D<sub>n</sub> ∝ √n</b>: the diameters of dark rings are proportional to the square roots of natural numbers (1, √2, √3, …). Hence D<sub>1</sub> : D<sub>2</sub> : D<sub>3</sub> = 1 : √2 : √3.",
+   "<b>(ii) Bright rings.</b> Maximum when Δ = nλ, i.e. 2t + λ/2 = nλ ⇒ 2t = (2n − 1)λ/2.",
+   "Substituting 2t = r²/R: r² = (2n − 1)λR/2 ⇒ D<sub>n</sub>² = 4r² = 2(2n − 1)λR.",
+   "Therefore D<sub>n</sub> = √(2λR) · √(2n − 1), so <b>D<sub>n</sub> ∝ √(2n − 1)</b>: the diameters of bright rings are proportional to the square roots of odd natural numbers (1, √3, √5, …). Hence D<sub>1</sub> : D<sub>2</sub> : D<sub>3</sub> = 1 : √3 : √5.",
+   "Because diameters grow as √n, successive rings become crowded as n increases."
+  ],
+  "formulas": [
+   "Dark: D<sub>n</sub> = 2√(nλR) ⇒ D<sub>n</sub> ∝ √n",
+   "Bright: D<sub>n</sub> = √(2(2n − 1)λR) ⇒ D<sub>n</sub> ∝ √(2n − 1)"
+  ],
+  "diagram": "Cross-section of plano-convex lens on a plate showing R, t and r with a right-angled triangle used for r² = 2Rt."
+ },
+ "Q1.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Labelled diagram and brief description of set-up (travelling microscope, sodium lamp, 45° plate)",
+    "marks": 2
+   },
+   {
+    "point": "Working formula D<sub>n</sub>² = 4nλR for dark rings in air",
+    "marks": 1
+   },
+   {
+    "point": "Procedure: measure diameters of n<sup>th</sup> and (n+p)<sup>th</sup> rings by travelling microscope",
+    "marks": 1.5
+   },
+   {
+    "point": "Result λ = (D²<sub>n+p</sub> − D²<sub>n</sub>)/4pR (or from slope of D² vs n graph)",
+    "marks": 2
+   },
+   {
+    "point": "Liquid: dark-ring diameter D<sub>n</sub>² = 4nλR/μ",
+    "marks": 1.5
+   },
+   {
+    "point": "Result μ = D²<sub>n</sub>(air)/D²<sub>n</sub>(liquid) (or with n+p rings)",
+    "marks": 1.5
+   },
+   {
+    "point": "Graph/precautions or mention of R being found separately",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Set-up.</b> Plano-convex lens L of known radius of curvature R rests on a plane glass plate P. Light from a sodium lamp S falls on a glass plate G inclined at 45° and is reflected normally on to the film. The rings are viewed with a travelling microscope M.",
+   "<b>(A) Wavelength of monochromatic light.</b> For dark rings in air, D<sub>n</sub>² = 4nλR. Therefore for the (n+p)<sup>th</sup> ring D²<sub>n+p</sub> = 4(n + p)λR.",
+   "<b>Procedure:</b> focus the microscope on the rings; move the cross-wire from the centre to the left, then set it tangentially on the n<sup>th</sup> ring and note the reading, and likewise on the right side. The difference gives the diameter. Repeat for the (n+p)<sup>th</sup> ring (say n = 5, 10, 15, …, 25).",
+   "Subtracting the two relations: D²<sub>n+p</sub> − D²<sub>n</sub> = 4pλR.",
+   "Hence <b>λ = (D²<sub>n+p</sub> − D²<sub>n</sub>)/4pR</b>. R is found separately with a spherometer. Alternatively, plot D<sup>2</sup> against ring number n: a straight line of slope 4λR results, so λ = slope/4R.",
+   "<b>(B) Refractive index of a liquid.</b> Place a few drops of the liquid in the space between lens and plate. The film is now of refractive index μ, so the path difference is 2μt + λ/2. Dark rings: 2μt = nλ ⇒ r² = nλR/μ ⇒ D<sub>n</sub>(liq)² = 4nλR/μ.",
+   "For the same ring number n, D<sub>n</sub>(air)² = 4nλR, and so D<sub>n</sub>(air)²/D<sub>n</sub>(liq)² = μ. Using the (n+p)<sup>th</sup> and n<sup>th</sup> rings for better accuracy:",
+   "<b>μ = [D²<sub>n+p</sub> − D²<sub>n</sub>]<sub>air</sub> / [D²<sub>n+p</sub> − D²<sub>n</sub>]<sub>liquid</sub></b>.",
+   "<b>Precautions:</b> the lens and plate must be clean and free from dust; the microscope should be moved in only one direction to avoid backlash error; the rings should be counted carefully from the centre."
+  ],
+  "formulas": [
+   "λ = (D²<sub>n+p</sub> − D²<sub>n</sub>)/4pR",
+   "μ = D²<sub>n</sub>(air) / D²<sub>n</sub>(liquid)"
+  ],
+  "diagram": "Source S, 45° glass plate G, lens L on plate P, microscope M; label R, and show the ring pattern with the n<sup>th</sup> and (n+p)<sup>th</sup> rings marked."
+ },
+ "Q1.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Description of Fraunhofer single-slit set-up (slit width a, lens, screen) with diagram",
+    "marks": 1.5
+   },
+   {
+    "point": "Division of slit into elements and phase difference between secondary waves",
+    "marks": 2
+   },
+   {
+    "point": "Resultant amplitude R = A0 sin α / α with α = (π a sin θ)/λ",
+    "marks": 2
+   },
+   {
+    "point": "Intensity I = I0 (sin α/α)²; central maximum and minima a sin θ = mλ",
+    "marks": 2
+   },
+   {
+    "point": "Condition for secondary maxima: tan α = α, α ≈ (2m + 1)π/2",
+    "marks": 1.5
+   },
+   {
+    "point": "Relative intensities 1 : 4/9π² : 4/25π² : 4/49π² …",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Phenomenon.</b> When a plane wavefront of monochromatic light of wavelength λ is incident normally on a narrow slit of width a, each point of the slit acts as a secondary source (Huygens). The secondary waves, brought to focus by a convex lens on a screen in its focal plane, interfere to give a bright central maximum with alternate weak maxima and minima on both sides – the Fraunhofer diffraction pattern.",
+   "<b>Theory.</b> Divide the slit AB into a very large number of equal elements. Let the secondary waves travel at angle θ to the incident direction. The path difference between waves from the two extreme points A and B is a sin θ, so the corresponding phase difference is 2α = (2π/λ) a sin θ, i.e. <b>α = (π a sin θ)/λ</b>.",
+   "If the amplitude from each element is proportional to its width, the vector sum of n small amplitude vectors, each differing in phase by δ = 2α/n from the next, forms a circular arc. The resultant amplitude is R = 2r sin α, where the arc length is nA = 2rα = A0 (A0 = amplitude at θ = 0). Hence R = A0 (sin α)/α.",
+   "Therefore the intensity is <b>I = R² = I0 (sin α / α)²</b>, where I0 = A0² is the central intensity.",
+   "<b>Central maximum:</b> θ = 0 ⇒ α → 0, sin α/α → 1, I = I0.",
+   "<b>Minima:</b> sin α = 0 with α ≠ 0 ⇒ α = ±mπ ⇒ <b>a sin θ = mλ</b> (m = 1, 2, 3, …).",
+   "<b>Secondary maxima:</b> dI/dα = 0 ⇒ 2 (sin α/α) · (α cos α − sin α)/α² = 0 ⇒ α cos α − sin α = 0 ⇒ tan α = α. Solving graphically (y = tan α and y = α), the roots are α ≈ ±1.43π, ±2.46π, ±3.47π …, i.e. approximately α ≈ ±(3π/2), ±(5π/2), ±(7π/2) …, namely α ≈ (2m + 1)π/2.",
+   "<b>Intensity of the m<sup>th</sup> maximum:</b> I<sub>m</sub> = I0 sin²α/α² with α = (2m + 1)π/2, so sin²α = 1 and I<sub>m</sub> = I0 · 4/[(2m + 1)²π²].",
+   "m = 0: I0 (central). m = 1: 4I0/9π². m = 2: 4I0/25π². m = 3: 4I0/49π². Therefore I0 : I1 : I2 : I3 : … = <b>1 : 4/9π² : 4/25π² : 4/49π² : …</b>",
+   "That is, I1 ≈ 4.5 % and I2 ≈ 1.6 % of the central maximum: the intensity falls very rapidly with the order."
+  ],
+  "formulas": [
+   "α = (π a sin θ)/λ",
+   "I = I0 (sin α/α)²",
+   "Minima: a sin θ = mλ",
+   "Secondary maxima: tan α = α",
+   "I<sub>m</sub> = 4I0/[(2m + 1)²π²]"
+  ],
+  "diagram": "Plane wavefront, slit AB of width a, lens and screen with central point O; show diffracted rays at angle θ. Sketch also the intensity (I vs sin θ) curve with a tall central peak, minima at ±λ/a, ±2λ/a and small side peaks."
+ },
+ "Q1.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Construction of a plane transmission grating (grating element e = a + b, N lines per cm)",
+    "marks": 1.5
+   },
+   {
+    "point": "Labelled diagram with parallel beam, lens, screen",
+    "marks": 1
+   },
+   {
+    "point": "Resultant amplitude A sin α/α · sin Nβ / sin β with α, β defined",
+    "marks": 3
+   },
+   {
+    "point": "Condition of principal maxima: e sin θ = nλ (intensity N²)",
+    "marks": 1.5
+   },
+   {
+    "point": "Condition of minima: N e sin θ = mλ, m ≠ 0, N, 2N… and N − 1 minima / N − 2 secondary maxima",
+    "marks": 2
+   },
+   {
+    "point": "Remarks: maximum order, missing orders",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Construction.</b> A plane transmission grating is a plane glass plate on which a large number of equidistant, parallel opaque lines are ruled with a diamond point (about 10<sup>4</sup> lines per cm). The clear spaces of width a between lines transmit light, and the opaque lines of width b block it. The sum e = a + b is the <b>grating element</b> (grating constant). If N<sub>0</sub> lines per cm are ruled, e = 1/N<sub>0</sub> cm.",
+   "<b>Theory.</b> Let a plane wavefront fall normally on the grating (N slits in all). Each slit gives a single-slit diffraction amplitude A sin α/α with α = (π a sin θ)/λ in the direction θ. The N diffracted beams, with a constant phase difference between successive slits δ = (2π/λ) e sin θ = 2β, where <b>β = (π e sin θ)/λ</b>, then interfere.",
+   "Adding N vectors of equal length each differing in phase by 2β, the resultant is: R = A (sin α/α) · (sin Nβ / sin β).",
+   "Hence the intensity is <b>I = A² (sin²α/α²) · (sin²Nβ / sin²β)</b>. The first factor is the diffraction envelope due to a single slit and the second is the interference term due to N slits.",
+   "<b>Principal maxima.</b> When sin β = 0, i.e. β = ±nπ, then sin Nβ/sin β → ±N (L'Hôpital), so I = N²A² sin²α/α². This gives <b>e sin θ = nλ</b> (n = 0, 1, 2, …), where n is the order of the spectrum. These maxima are very bright and sharp.",
+   "<b>Minima.</b> I = 0 when sin Nβ = 0 but sin β ≠ 0, i.e. Nβ = ±mπ with m ≠ 0, N, 2N, …. This gives <b>N e sin θ = mλ</b>, with m = 1, 2, …, (N − 1), (N + 1), …. Between two successive principal maxima there are (N − 1) minima.",
+   "<b>Secondary maxima.</b> Between two adjacent minima there is a weak secondary maximum; hence between two principal maxima there are (N − 2) secondary maxima. Their intensity is negligible (less than 5 % of the principal maximum) for large N.",
+   "<b>Maximum order.</b> Since sin θ ≤ 1, n<sub>max</sub> ≤ e/λ. With white light the central maximum is white and the other orders are spectra with violet nearer to the centre.",
+   "<b>Missing orders.</b> If the diffraction minimum a sin θ = mλ coincides with the interference maximum e sin θ = nλ, the nth order is absent: when e/a = n/m, e.g. e = 2a eliminates the 2nd, 4th, … orders."
+  ],
+  "formulas": [
+   "β = (π e sin θ)/λ,  α = (π a sin θ)/λ",
+   "I = I0 (sin²α/α²)(sin²Nβ/sin²β)",
+   "Principal maxima: e sin θ = nλ",
+   "Minima: N e sin θ = mλ (m ≠ 0, N, 2N…)"
+  ],
+  "diagram": "Parallel beam incident normally on grating of N slits, each of width a with opaque width b (e = a + b), diffracted rays at θ focused by a lens on a screen; sketch an intensity curve with sharp principal maxima at e sin θ = 0, λ, 2λ and smaller secondary maxima."
+ },
+ "Q1.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of resolving power R = λ/dλ",
+    "marks": 1.5
+   },
+   {
+    "point": "Statement of Rayleigh's criterion",
+    "marks": 1.5
+   },
+   {
+    "point": "Diagram showing nth principal maximum of λ and of λ + dλ with the first minimum",
+    "marks": 1.5
+   },
+   {
+    "point": "Condition for resolution using position of first minimum: Ne sin θ = (Nn + 1)λ",
+    "marks": 2
+   },
+   {
+    "point": "Combination with e sin θ = n(λ + dλ) to give N n dλ = λ",
+    "marks": 2
+   },
+   {
+    "point": "Final result RP = λ/dλ = nN, with its dependence on order and number of lines",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Resolving power:</b> the resolving power of a spectroscopic instrument (grating) is its ability to show two neighbouring spectral lines of wavelengths λ and λ + dλ as separate. It is measured by <b>RP = λ/dλ</b>, where dλ is the smallest wavelength difference that can just be resolved.",
+   "<b>Rayleigh's criterion:</b> two close spectral lines are said to be just resolved when the principal maximum of one coincides with the first minimum of the other, i.e. the central maximum of one falls on the first minimum of the other so that the intensity at the dip is about 80 % of the peak.",
+   "<b>Deduction for a plane grating.</b> Let a grating with grating element e and total N lines receive light of wavelengths λ and λ + dλ. The n<sup>th</sup> principal maximum of wavelength λ + dλ occurs at an angle (θ + dθ), so e sin(θ + dθ) = n(λ + dλ). … (1)",
+   "The first minimum next to the n<sup>th</sup> principal maximum of λ occurs at the same angle (θ + dθ) when Ne sin(θ + dθ) = (Nn + 1)λ. … (2) (since minima are at N e sin θ = mλ, m ≠ Nn and the nearest one is m = Nn + 1).",
+   "By Rayleigh's criterion, the two directions coincide for the lines just resolved. Multiply (1) by N: N e sin(θ + dθ) = Nn(λ + dλ). … (3)",
+   "Equating (2) and (3): (Nn + 1)λ = Nn λ + Nn dλ ⇒ λ = N n dλ.",
+   "Hence <b>RP = λ/dλ = nN</b>.",
+   "<b>Remarks:</b> the resolving power of a grating is directly proportional to the order n and the total number of lines N on the grating that are illuminated; it does not depend on the grating element e directly. A grating with 10<sup>4</sup> lines can resolve two lines of mean wavelength 5000 Å differing by 0.5 Å in the first order."
+  ],
+  "formulas": [
+   "RP = λ/dλ",
+   "Ne sin θ = (Nn + 1)λ",
+   "RP = nN"
+  ],
+  "diagram": "Intensity vs θ curves for λ and λ + dλ placed so that the central peak of one falls on the first minimum of the other (Rayleigh's limit), with the resultant sum curve showing a central dip."
+ },
+ "Q1.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Description/diagram of a thin film of thickness t, refractive index μ, incident angle i, refraction angle r",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation of path difference Δ = 2μt cos r (using AB, BC, AN)",
+    "marks": 2.5
+   },
+   {
+    "point": "Correction λ/2 for reflection at denser medium: Δ = 2μt cos r + λ/2 (or − λ/2)",
+    "marks": 1
+   },
+   {
+    "point": "Condition for maxima in reflected light: 2μt cos r = (2n ± 1)λ/2 form",
+    "marks": 1.5
+   },
+   {
+    "point": "Condition for minima in reflected light: 2μt cos r = nλ",
+    "marks": 1
+   },
+   {
+    "point": "Path difference and conditions in transmitted light",
+    "marks": 1.5
+   },
+   {
+    "point": "Conclusion that the two patterns are complementary",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Interference in a thin film.</b> Consider a transparent film of uniform thickness t and refractive index μ in air. A monochromatic ray SA is incident at angle i and refracts at angle r into the film. Part of it is reflected at A (ray AR1); the remainder enters, reflects at B at the lower surface and emerges at C (ray CR2). The two reflected rays AR1 and CR2 are parallel, coherent (same origin) and interfere (division of amplitude).",
+   "<b>Path difference.</b> Draw CN perpendicular to the reflected ray AR1 (CN is the common wavefront) so that points N and C are in the same phase on the reflected wavefront. Then the optical path difference between the two reflected rays is Δ = μ(AB + BC) − AN.",
+   "From geometry, AB = BC = t/cos r and AC = 2t tan r. Also AN = AC sin i = 2t tan r sin i = 2t tan r · μ sin r (Snell's law, sin i = μ sin r).",
+   "Therefore Δ = 2μt/cos r − 2μt sin²r/cos r = 2μt (1 − sin²r)/cos r = <b>2μt cos r</b>.",
+   "<b>Phase change.</b> The ray AR1 is reflected at the rarer-to-denser boundary (air → film) and suffers a phase change π, equivalent to a path change of λ/2. The ray reflected at B (film → air) suffers none. So the effective path difference in reflected light is Δ = 2μt cos r + λ/2 (or − λ/2 – both equivalent).",
+   "<b>Conditions in reflected light.</b> Maxima (bright): 2μt cos r + λ/2 = nλ ⇒ <b>2μt cos r = (2n − 1)λ/2</b>, n = 1, 2, 3, … Minima (dark): 2μt cos r + λ/2 = (2n + 1)λ/2 ⇒ <b>2μt cos r = nλ</b>, n = 0, 1, 2, ….",
+   "<b>Transmitted light.</b> The ray transmitted directly through the film and the ray that undergoes two internal reflections (at B and at C) interfere. Both internal reflections are at the film–air boundary (denser → rarer), so no phase change occurs. Path difference = 2μt cos r. Maxima: 2μt cos r = nλ; minima: 2μt cos r = (2n − 1)λ/2.",
+   "<b>Complementary nature.</b> The condition for a maximum in reflected light, 2μt cos r = (2n − 1)λ/2, is exactly the condition for a minimum in transmitted light, and the condition for a minimum in reflected light (2μt cos r = nλ) is that for a maximum in transmitted light. A film that appears bright in reflection appears dark in transmission for the same wavelength, and vice versa – the patterns are complementary, as required by conservation of energy."
+  ],
+  "formulas": [
+   "Δ = 2μt cos r",
+   "Reflected maxima: 2μt cos r = (2n − 1)λ/2",
+   "Reflected minima: 2μt cos r = nλ",
+   "Transmitted maxima: 2μt cos r = nλ; minima: 2μt cos r = (2n − 1)λ/2"
+  ],
+  "diagram": "Thin film of thickness t with incident ray SA, reflected ray AR1, ray AB inside the film, reflection at B, emergent ray CR2, transmitted rays; mark angles i and r, and normal CN to AR1."
+ },
+ "Q1.8": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Description of wedge-shaped film (angle θ, thin air or medium) and diagram",
+    "marks": 1
+   },
+   {
+    "point": "Path difference and conditions for bright/dark fringes: 2μt cos r = nλ (dark) etc.",
+    "marks": 1
+   },
+   {
+    "point": "Relation t = xθ for n<sup>th</sup> and (n+1)<sup>th</sup> fringes",
+    "marks": 1
+   },
+   {
+    "point": "Derivation of fringe width β = λ/2μθ",
+    "marks": 1.5
+   },
+   {
+    "point": "Statement β = λ/2θ for air; fringes straight, parallel to edge, equidistant",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Wedge film.</b> A wedge-shaped film is enclosed between two plane glass plates that are inclined at a very small angle θ and are in contact at the edge O. Light from a monochromatic source is made to fall almost normally; the rays reflected from the upper and lower surfaces of the film interfere. For each thickness t the path difference is Δ = 2μt cos(r + θ) + λ/2 ≈ 2μt + λ/2 (normal incidence, θ small).",
+   "<b>Fringe conditions.</b> Since thickness is constant along lines parallel to the edge, the fringes are straight, parallel to the edge. Bright: 2μt = (2n − 1)λ/2. Dark: 2μt = nλ. At the edge t = 0 and a dark fringe is seen (due to the λ/2 phase change).",
+   "<b>Fringe width.</b> Let the n<sup>th</sup> dark fringe be at distance x<sub>n</sub> from the edge O where the thickness is t<sub>n</sub>. Then t<sub>n</sub> = x<sub>n</sub> tan θ ≈ x<sub>n</sub> θ, so 2μ x<sub>n</sub> θ = nλ. … (1)",
+   "Similarly for the (n+1)<sup>th</sup> dark fringe at x<sub>n+1</sub>: 2μ x<sub>n+1</sub> θ = (n + 1)λ. … (2)",
+   "Subtract (1) from (2): 2μθ (x<sub>n+1</sub> − x<sub>n</sub>) = λ.",
+   "Hence the fringe width <b>β = x<sub>n+1</sub> − x<sub>n</sub> = λ/(2μθ)</b>. For an air wedge (μ = 1), <b>β = λ/2θ</b>. The same value is found for bright fringes; thus the fringes are equidistant and β decreases as θ increases.",
+   "Application: measuring the thickness of a thin wire or foil: if the object of diameter d is placed at distance L from the edge, d = Lθ = Lλ/2β."
+  ],
+  "formulas": [
+   "2μt = nλ (dark)",
+   "β = λ/(2μθ)",
+   "β = λ/2θ (air wedge)"
+  ],
+  "diagram": "Two plates in contact at O making a small wedge angle θ, with incident normal rays, reflected rays, and distances x<sub>n</sub> and x<sub>n+1</sub> from O; also the straight equidistant fringes parallel to the edge."
+ },
+ "Q1.9": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Setup of Young's double slit with slit separation 2d and screen distance D, diagram",
+    "marks": 1
+   },
+   {
+    "point": "Path difference without plate: 2dx/D",
+    "marks": 1
+   },
+   {
+    "point": "Extra optical path (μ − 1)t introduced by plate",
+    "marks": 1
+   },
+   {
+    "point": "Equating path difference at central fringe position",
+    "marks": 1
+   },
+   {
+    "point": "Final x<sub>0</sub> = D(μ − 1)t/2d, and number of fringes shifted",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Set-up.</b> In a Young's double-slit (or biprism) arrangement let S<sub>1</sub> and S<sub>2</sub> be the two coherent sources separated by 2d, and let the screen be at distance D from them. O is the centre of the screen, equidistant from S<sub>1</sub> and S<sub>2</sub>.",
+   "<b>Without plate:</b> for a point P at distance x from O, the path difference is S<sub>2</sub>P − S<sub>1</sub>P = 2d·x/D. The central bright fringe (zero path difference) is at O.",
+   "<b>With plate:</b> a thin transparent plate of thickness t and refractive index μ is placed in the path of the beam from S<sub>1</sub>. The optical path of the ray in the plate is μt instead of t, so an extra optical path (μ − 1)t is introduced in the S<sub>1</sub>P beam.",
+   "The path difference at P becomes Δ = S<sub>2</sub>P − [S<sub>1</sub>P + (μ − 1)t] = 2dx/D − (μ − 1)t.",
+   "The central (zero order) fringe is now located at the point x = x<sub>0</sub> where Δ = 0: 2d x<sub>0</sub>/D = (μ − 1)t.",
+   "Hence the lateral displacement of fringes is <b>x<sub>0</sub> = D(μ − 1)t / 2d</b>, towards the side on which the plate is placed.",
+   "Since the fringe width is β = λD/2d, the number of fringes shifted is x<sub>0</sub>/β = (μ − 1)t/λ. This is used to determine the thickness or refractive index of thin sheets."
+  ],
+  "formulas": [
+   "Path difference: Δ = 2dx/D",
+   "x<sub>0</sub> = D(μ − 1)t/2d",
+   "Fringe shift = (μ − 1)t/λ"
+  ],
+  "diagram": "Slits S<sub>1</sub>, S<sub>2</sub> separated by 2d, plate of thickness t in front of S<sub>1</sub>, screen at distance D, central point O and shifted central fringe at x<sub>0</sub>."
+ },
+ "Q1.10": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Writing the formula D²<sub>n+p</sub> − D²<sub>n</sub> = 4pλR (n = 5, p = 10)",
+    "marks": 1.5
+   },
+   {
+    "point": "Given data converted consistently (cm)",
+    "marks": 0.5
+   },
+   {
+    "point": "Correct substitution",
+    "marks": 1.5
+   },
+   {
+    "point": "Correct calculation of squares and λ",
+    "marks": 1
+   },
+   {
+    "point": "Answer with units: 5880 Å",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> D<sub>15</sub> = 0.59 cm, D<sub>5</sub> = 0.336 cm, R = 100 cm. n = 5, n + p = 15, so p = 10.",
+   "<b>Formula:</b> D²<sub>n+p</sub> − D²<sub>n</sub> = 4pλR ⇒ λ = (D²<sub>15</sub> − D²<sub>5</sub>)/(4 × 10 × R).",
+   "<b>Substitution:</b> D²<sub>15</sub> = (0.59)² = 0.3481 cm²; D²<sub>5</sub> = (0.336)² = 0.112896 cm². Difference = 0.235204 cm².",
+   "λ = 0.235204 / (4 × 10 × 100) = 0.235204 / 4000 = 5.88 × 10<sup>-5</sup> cm.",
+   "Since 1 Å = 10<sup>-8</sup> cm, λ = 5.88 × 10<sup>-5</sup> cm = <b>5880 Å</b>."
+  ],
+  "formulas": [
+   "λ = (D²<sub>n+p</sub> − D²<sub>n</sub>)/4pR"
+  ],
+  "result": "λ = 5.88 × 10⁻⁵ cm = 5880 Å (≈ 588 nm)"
+ },
+ "Q1.11": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Formula D<sub>n</sub>² = 4nλR for dark rings",
+    "marks": 1
+   },
+   {
+    "point": "Conversion of units (λ = 6 × 10⁻⁵ cm, D = 0.5 cm)",
+    "marks": 0.5
+   },
+   {
+    "point": "Substitution and R = 104.2 cm",
+    "marks": 1.5
+   },
+   {
+    "point": "Film thickness formula 2t = nλ or t = r²/2R",
+    "marks": 1
+   },
+   {
+    "point": "Thickness t = 3 × 10⁻⁴ cm (= 3 μm) with units",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> λ = 6000 Å = 6 × 10<sup>-5</sup> cm; n = 10; D<sub>10</sub> = 0.50 cm.",
+   "<b>(i) Radius of curvature.</b> For dark rings D<sub>n</sub>² = 4nλR ⇒ R = D<sub>n</sub>²/(4nλ).",
+   "R = (0.50)² / (4 × 10 × 6 × 10<sup>-5</sup>) = 0.25 / (2.4 × 10<sup>-3</sup>) = 104.17 cm ≈ <b>1.04 m</b>.",
+   "<b>(ii) Thickness of air film at the 10<sup>th</sup> dark ring.</b> For a dark ring in reflected light 2t = nλ ⇒ t = nλ/2.",
+   "t = 10 × 6 × 10<sup>-5</sup> / 2 = 3 × 10<sup>-4</sup> cm = <b>3 × 10<sup>-6</sup> m (3 μm)</b>.",
+   "<b>Check:</b> t = r²/2R = (0.25)²/(2 × 104.17) = 0.0625/208.3 = 3 × 10<sup>-4</sup> cm ✓."
+  ],
+  "formulas": [
+   "R = D<sub>n</sub>²/4nλ",
+   "t = nλ/2 = r²/2R"
+  ],
+  "result": "R ≈ 104.2 cm (≈ 1.04 m); t = 3 × 10⁻⁴ cm = 3 μm"
+ },
+ "Q1.12": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Dark ring diameter in air D² = 4nλR and in liquid D² = 4nλR/μ",
+    "marks": 1.5
+   },
+   {
+    "point": "μ = D²<sub>air</sub>/D²<sub>liq</sub>",
+    "marks": 1
+   },
+   {
+    "point": "Correct substitution (0.3² / 0.25²)",
+    "marks": 1
+   },
+   {
+    "point": "Value μ = 1.44",
+    "marks": 0.5
+   },
+   {
+    "point": "Speed of light in liquid v = c/μ = 2.08 × 10⁸ m/s with units",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> D<sub>air</sub> = 0.3 cm, D<sub>liq</sub> = 0.25 cm (same n<sup>th</sup> dark ring).",
+   "<b>Formulae:</b> D<sub>air</sub>² = 4nλR and D<sub>liq</sub>² = 4nλR/μ ⇒ μ = D<sub>air</sub>²/D<sub>liq</sub>².",
+   "<b>Substitution:</b> μ = (0.3)²/(0.25)² = 0.09/0.0625 = <b>1.44</b>.",
+   "<b>Velocity of light in the liquid:</b> v = c/μ = 3 × 10<sup>8</sup> / 1.44 = 2.083 × 10<sup>8</sup> m/s."
+  ],
+  "formulas": [
+   "μ = D<sub>air</sub>²/D<sub>liq</sub>²",
+   "v = c/μ"
+  ],
+  "result": "μ = 1.44; v ≈ 2.08 × 10⁸ m/s"
+ },
+ "Q1.13": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Condition for first minimum a sin θ = λ (angular half-width)",
+    "marks": 1.5
+   },
+   {
+    "point": "Substitution for θ = 30°: a = λ/sin 30°",
+    "marks": 1
+   },
+   {
+    "point": "Answer a = 1 μm = 10⁻⁶ m",
+    "marks": 0.5
+   },
+   {
+    "point": "Condition for spread to 90°: a = λ/sin 90°",
+    "marks": 1
+   },
+   {
+    "point": "Answer a = 5000 Å = 0.5 μm",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> λ = 5000 Å = 5 × 10<sup>-7</sup> m. The central maximum extends up to the first minima, at angle θ = 30° on both sides.",
+   "<b>Condition for first minimum</b> of a single slit: a sin θ = λ (m = 1).",
+   "<b>(i)</b> a = λ/sin 30° = 5 × 10<sup>-7</sup>/0.5 = 1 × 10<sup>-6</sup> m = <b>1 μm (10000 Å)</b>.",
+   "<b>(ii)</b> Central maximum spreading out to 90°: a = λ/sin 90° = 5 × 10<sup>-7</sup> m = <b>0.5 μm (5000 Å)</b>, i.e. the slit width equals the wavelength."
+  ],
+  "formulas": [
+   "a sin θ = λ"
+  ],
+  "result": "Slit width = 1 μm (10⁻⁶ m); for 90°: a = 5000 Å = 0.5 μm"
+ },
+ "Q1.14": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Resolving power from data: RP = λ/dλ = nN (first order)",
+    "marks": 1
+   },
+   {
+    "point": "Mean wavelength used and dλ = 0.51 Å, RP ≈ 10080 ⇒ N ≈ 10080",
+    "marks": 1.5
+   },
+   {
+    "point": "Required RP for second pair: λ/dλ = 8037.35/0.30 ≈ 26791",
+    "marks": 1
+   },
+   {
+    "point": "Available RP in second order = 2N ≈ 20160",
+    "marks": 1
+   },
+   {
+    "point": "Correct conclusion: the lines will NOT be resolved",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> pair 1: λ<sub>1</sub> = 5140.34 Å, λ<sub>2</sub> = 5140.85 Å, n = 1 (just resolved). Pair 2: 8037.20 Å and 8037.50 Å, n = 2.",
+   "<b>Number of lines:</b> RP = λ/dλ = nN with λ = mean = 5140.595 Å, dλ = 5140.85 − 5140.34 = 0.51 Å.",
+   "RP = 5140.595/0.51 ≈ 10080 = 1 × N ⇒ N ≈ 10080 lines.",
+   "<b>Resolving power needed for pair 2:</b> λ = (8037.20 + 8037.50)/2 = 8037.35 Å, dλ = 0.30 Å ⇒ required RP = 8037.35/0.30 ≈ 26791.",
+   "<b>Resolving power available in the 2nd order:</b> RP = nN = 2 × 10080 ≈ 20160.",
+   "Since 20160 < 26791 (the available RP is less than the required RP), the grating <b>cannot resolve</b> the lines 8037.20 Å and 8037.50 Å in the second order. (Minimum resolvable in second order at this wavelength: dλ = 8037.35/20160 = 0.40 Å > 0.30 Å.)"
+  ],
+  "formulas": [
+   "RP = λ/dλ = nN"
+  ],
+  "result": "N ≈ 10080; required RP ≈ 26800 but available ≈ 20160 – the lines are not resolved"
+ },
+ "Q1.15": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Condition of overlap: n₁λ₁ = n₂λ₂ (same e sin θ)",
+    "marks": 2
+   },
+   {
+    "point": "Substitution: 3 × 5461 = 4 × λ",
+    "marks": 1.5
+   },
+   {
+    "point": "Value λ = 4095.75 Å",
+    "marks": 1
+   },
+   {
+    "point": "Units and statement (violet region)",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> third-order line of λ<sub>1</sub> = 5461 Å overlaps fourth-order line of unknown λ<sub>2</sub>.",
+   "From the grating equation e sin θ = nλ, two lines overlap in the same direction when n<sub>1</sub>λ<sub>1</sub> = n<sub>2</sub>λ<sub>2</sub>.",
+   "3 × 5461 = 4 × λ<sub>2</sub> ⇒ λ<sub>2</sub> = 16383/4 = 4095.75 Å.",
+   "Thus the 4<sup>th</sup> order line of wavelength <b>4095.75 Å</b> (violet) overlaps with the 3<sup>rd</sup> order of 5461 Å (green)."
+  ],
+  "formulas": [
+   "n₁λ₁ = n₂λ₂"
+  ],
+  "result": "λ = 4095.75 Å ≈ 4096 Å"
+ },
+ "Q2.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of Einstein's coefficients A<sub>21</sub>, B<sub>12</sub>, B<sub>21</sub> and the three radiative processes",
+    "marks": 2
+   },
+   {
+    "point": "Rate equations for absorption, spontaneous and stimulated emission",
+    "marks": 1.5
+   },
+   {
+    "point": "Equilibrium condition and Boltzmann distribution N<sub>2</sub>/N<sub>1</sub> = e<sup>−hν/kT</sup>",
+    "marks": 1.5
+   },
+   {
+    "point": "Expression for u(ν) and B<sub>12</sub> = B<sub>21</sub> from the high-temperature limit",
+    "marks": 1.5
+   },
+   {
+    "point": "Comparison with Planck's law ⇒ A<sub>21</sub>/B<sub>21</sub> = 8πhν³/c³",
+    "marks": 1.5
+   },
+   {
+    "point": "Essential conditions for sustained laser action (population inversion, metastable state, pumping, resonant cavity)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Einstein's coefficients.</b> Consider a system of atoms in thermal equilibrium with radiation of energy density u(ν) per unit frequency interval. Let N<sub>1</sub> and N<sub>2</sub> be the numbers of atoms per unit volume in the lower level E<sub>1</sub> and upper level E<sub>2</sub>, with E<sub>2</sub> − E<sub>1</sub> = hν.",
+   "<b>Absorption:</b> rate = B<sub>12</sub> N<sub>1</sub> u(ν). <b>Spontaneous emission:</b> rate = A<sub>21</sub> N<sub>2</sub>. <b>Stimulated emission:</b> rate = B<sub>21</sub> N<sub>2</sub> u(ν). The constants A<sub>21</sub>, B<sub>12</sub>, B<sub>21</sub> are Einstein's coefficients (probabilities per atom per unit time, or per unit energy density).",
+   "<b>Equilibrium:</b> rate of upward transitions = rate of downward transitions: B<sub>12</sub> N<sub>1</sub> u(ν) = A<sub>21</sub> N<sub>2</sub> + B<sub>21</sub> N<sub>2</sub> u(ν). … (1)",
+   "Solving for u(ν): u(ν) = A<sub>21</sub> N<sub>2</sub> / (B<sub>12</sub> N<sub>1</sub> − B<sub>21</sub> N<sub>2</sub>) = (A<sub>21</sub>/B<sub>21</sub>) / [(B<sub>12</sub>/B<sub>21</sub>)(N<sub>1</sub>/N<sub>2</sub>) − 1]. … (2)",
+   "By Boltzmann's law at temperature T: N<sub>2</sub>/N<sub>1</sub> = e<sup>−hν/kT</sup> ⇒ N<sub>1</sub>/N<sub>2</sub> = e<sup>hν/kT</sup>. So u(ν) = (A<sub>21</sub>/B<sub>21</sub>) / [(B<sub>12</sub>/B<sub>21</sub>) e<sup>hν/kT</sup> − 1]. … (3)",
+   "As T → ∞, u(ν) must also → ∞, which needs (B<sub>12</sub>/B<sub>21</sub>) e<sup>hν/kT</sup> → 1, i.e. <b>B<sub>12</sub> = B<sub>21</sub></b>. Then u(ν) = (A<sub>21</sub>/B<sub>21</sub>) / (e<sup>hν/kT</sup> − 1). … (4)",
+   "Planck's radiation law gives u(ν) = (8πhν³/c³) / (e<sup>hν/kT</sup> − 1). … (5)",
+   "Comparing (4) and (5): <b>A<sub>21</sub>/B<sub>21</sub> = 8πhν³/c³</b>. Thus spontaneous emission dominates over stimulated emission at high frequency (ν³ factor), which is why lasers are harder to make at X-ray and UV wavelengths.",
+   "The ratio of stimulated to spontaneous rates is R = B<sub>21</sub>u/A<sub>21</sub> = 1/(e<sup>hν/kT</sup> − 1); at room temperature and visible frequencies this is ≪ 1, so ordinary sources are incoherent.",
+   "<b>Essential conditions for sustained laser action:</b> (1) <i>Population inversion</i> (N<sub>2</sub> > N<sub>1</sub>) between two levels, so stimulated emission exceeds absorption. (2) A <i>metastable</i> upper level (lifetime ~10<sup>-3</sup> s) where atoms can accumulate. (3) A suitable <i>pumping</i> mechanism (optical, electrical or collisional) to maintain the inversion. (4) An <i>active medium</i> placed in an <i>optical resonator</i> (two parallel mirrors, one partially transmitting) providing positive feedback and a standing wave. (5) The gain per round trip must exceed the losses (threshold condition)."
+  ],
+  "formulas": [
+   "B<sub>12</sub>N<sub>1</sub>u = A<sub>21</sub>N<sub>2</sub> + B<sub>21</sub>N<sub>2</sub>u",
+   "B<sub>12</sub> = B<sub>21</sub>",
+   "A<sub>21</sub>/B<sub>21</sub> = 8πhν³/c³"
+  ],
+  "diagram": "Two-level energy diagram with E<sub>1</sub> and E<sub>2</sub>, showing absorption (upward arrow), spontaneous emission (downward, random photon) and stimulated emission (incident photon producing two identical photons)."
+ },
+ "Q2.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Absorption of radiation with rate and diagram",
+    "marks": 1.5
+   },
+   {
+    "point": "Spontaneous emission with properties (random, incoherent)",
+    "marks": 1.5
+   },
+   {
+    "point": "Stimulated emission with properties (coherent, same phase/direction)",
+    "marks": 2
+   },
+   {
+    "point": "Definition of population inversion (N<sub>2</sub> > N<sub>1</sub>, negative temperature)",
+    "marks": 1.5
+   },
+   {
+    "point": "Optical pumping with example (ruby/flash lamp, three-level scheme)",
+    "marks": 2
+   },
+   {
+    "point": "Electrical pumping with example (gas discharge, He-Ne collisions)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Absorption.</b> An atom in the lower level E<sub>1</sub> absorbs a photon of energy hν = E<sub>2</sub> − E<sub>1</sub> and is raised to E<sub>2</sub>. The rate is proportional to the number N<sub>1</sub> of atoms in E<sub>1</sub> and the radiation density u(ν): R<sub>abs</sub> = B<sub>12</sub>N<sub>1</sub>u(ν).",
+   "<b>Spontaneous emission.</b> An excited atom in E<sub>2</sub> returns to E<sub>1</sub> by itself after a mean life τ ~ 10<sup>-8</sup> s, emitting a photon of energy hν. The emission is random in direction, phase and polarisation, hence incoherent. R<sub>sp</sub> = A<sub>21</sub>N<sub>2</sub>. This is the process in an ordinary lamp.",
+   "<b>Stimulated emission.</b> If a photon of energy hν passes near an excited atom in E<sub>2</sub>, it induces the atom to drop to E<sub>1</sub> and emit another photon. The emitted photon has the <i>same energy, phase, direction and polarisation</i> as the stimulating photon – giving two coherent photons. R<sub>st</sub> = B<sub>21</sub>N<sub>2</sub>u(ν). It is the basis of light amplification.",
+   "<b>Population inversion.</b> In normal thermal equilibrium N<sub>2</sub> = N<sub>1</sub>e<sup>−hν/kT</sup> < N<sub>1</sub>, so absorption dominates and light is attenuated. For laser action we need a non-equilibrium state with <b>N<sub>2</sub> > N<sub>1</sub></b>, called population inversion (it corresponds to a negative absolute temperature in the Boltzmann formula). Then stimulated emission exceeds absorption and the medium amplifies light. It cannot be achieved in a two-level system, since pumping can at best equalise N<sub>1</sub> and N<sub>2</sub>; three- or four-level schemes with a <i>metastable</i> level are used.",
+   "<b>Optical pumping.</b> Intense light from a flash lamp (xenon) is absorbed by the active ions, raising them to a broad band E<sub>3</sub> above the metastable level. They decay non-radiatively to the metastable level E<sub>2</sub> (lifetime ~ms), where they accumulate, while E<sub>1</sub> is depleted. Example: ruby laser, Cr<sup>3+</sup> ions pumped by green–blue light (4000–5600 Å) with lasing at 6943 Å. Suitable for solid-state and dye lasers.",
+   "<b>Electrical pumping.</b> In gas lasers, an electric discharge accelerates electrons which excite atoms by collisions. In the He-Ne laser the electrons excite He atoms to metastable states 2³S and 2¹S; these atoms transfer their energy to Ne by resonant collisions of the second kind, populating Ne levels 4s and 5s and producing inversion with respect to the 3p level. The 6328 Å red line is produced. Semiconductor lasers use direct injection of current across a p–n junction.",
+   "<b>Conclusion.</b> Absorption lowers the beam intensity, spontaneous emission gives incoherent light and stimulated emission gives amplified coherent light. Pumping produces the population inversion necessary for stimulated emission to dominate."
+  ],
+  "formulas": [
+   "R<sub>abs</sub> = B<sub>12</sub>N<sub>1</sub>u(ν)",
+   "R<sub>sp</sub> = A<sub>21</sub>N<sub>2</sub>",
+   "R<sub>st</sub> = B<sub>21</sub>N<sub>2</sub>u(ν)",
+   "Inversion: N<sub>2</sub> > N<sub>1</sub>"
+  ],
+  "diagram": "Three small energy-level diagrams (absorption, spontaneous emission, stimulated emission), each with levels E<sub>1</sub>, E<sub>2</sub> and photon arrows hν; and a three-level pumping diagram E<sub>1</sub>, E<sub>2</sub> (metastable), E<sub>3</sub> with pump, fast non-radiative decay and laser transition."
+ },
+ "Q2.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Construction: gas mixture He:Ne ≈ 10:1, pressure ≈ 1 torr, tube, electrodes, mirrors/Brewster windows, with labelled diagram",
+    "marks": 2.5
+   },
+   {
+    "point": "Energy level diagram of He and Ne with metastable states",
+    "marks": 2
+   },
+   {
+    "point": "Working: excitation, resonant energy transfer, population inversion",
+    "marks": 2
+   },
+   {
+    "point": "Laser transitions (6328 Å, 1.15 μm, 3.39 μm) and depopulation of lower level",
+    "marks": 1.5
+   },
+   {
+    "point": "Output features (power, continuous wave, beam)",
+    "marks": 0.5
+   },
+   {
+    "point": "Superiority over ruby laser (at least two points)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Construction.</b> The He-Ne laser consists of a long, narrow discharge tube (about 30 cm long, 1.5 cm diameter) filled with helium and neon in the ratio about 10 : 1 at a total pressure of about 1 torr. A high-voltage DC (≈ 1–2 kV) or RF supply is applied between the electrodes. The tube is closed at ends by optically flat windows set at Brewster's angle (to give plane polarised output) and two concave mirrors M<sub>1</sub> (almost 100 % reflecting) and M<sub>2</sub> (≈ 98 % reflecting) form the optical resonator.",
+   "<b>Energy levels.</b> Helium has two metastable excited states: 2³S (19.81 eV) and 2¹S (20.61 eV). Neon has excited levels 4s (≈ 19.78 eV) and 5s (≈ 20.66 eV) lying almost exactly at the same energies, so resonance energy transfer is possible. Neon also has lower levels 3p, 4p and 3s.",
+   "<b>Working.</b> (1) The electrical discharge accelerates electrons which collide with He atoms, raising them to the metastable states 2³S and 2¹S (He* ). (2) Excited He atoms cannot radiate to the ground state (forbidden transition) and so collide with ground-state Ne atoms and transfer their energy by resonant collisions of the second kind: He* + Ne → He + Ne*. This populates the Ne 4s and 5s levels. (3) Since Ne has fewer atoms and the 3p/4p levels are practically empty, <b>population inversion</b> between 5s (or 4s) and the lower levels is established continuously.",
+   "<b>Laser transitions.</b> 5s → 3p gives the famous <b>6328 Å (red)</b> line; 5s → 4p gives 3.39 μm (infrared); 4s → 3p gives 1.15 μm (infrared). Photons travelling along the axis stimulate more emissions, are reflected by the mirrors and build up a standing wave; the beam emerges from M<sub>2</sub>.",
+   "<b>Depopulation of lower levels.</b> The Ne atoms in 3p quickly drop to 3s (≈ 10<sup>-8</sup> s) by spontaneous emission, and then return to the ground state by collisions with the tube walls (hence narrow tube), preventing accumulation in the lower level. Thus it is a four-level laser. Output power is ≈ 1–50 mW in continuous operation with low divergence (~10<sup>-3</sup> rad).",
+   "<b>Superiority over ruby laser.</b> (i) He-Ne works as a <i>four-level</i> system, so population inversion is easily obtained with small pumping power, while ruby is a three-level laser needing more than half the ions pumped. (ii) It gives a <i>continuous</i> output, ruby gives pulses. (iii) Beam is more monochromatic, more coherent and has much less divergence. (iv) Operates at room temperature without cooling; simple, compact, cheap, with good stability. (v) The efficiency is low (≈ 0.1 %) but there is no damage from heating, unlike ruby."
+  ],
+  "formulas": [
+   "He*(2¹S) + Ne → He + Ne*(5s)",
+   "λ = 6328 Å (5s → 3p)"
+  ],
+  "diagram": "Discharge tube with anode and cathode, Brewster windows, mirrors M<sub>1</sub> and M<sub>2</sub>, power supply, laser beam out. Energy level diagram: He 2³S, 2¹S, ground; Ne 4s, 5s, 3p, 4p, 3s, ground; arrows for excitation, energy transfer and 6328 Å, 1.15 μm, 3.39 μm transitions."
+ },
+ "Q2.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Labelled diagram of ruby laser (rod, flash lamp, mirrors, power supply)",
+    "marks": 2.5
+   },
+   {
+    "point": "Construction: Al₂O₃ with ≈ 0.05 % Cr³⁺, rod size, silvered ends, helical xenon flash lamp",
+    "marks": 1.5
+   },
+   {
+    "point": "Energy levels (three-level scheme) of Cr³⁺ with pumping wavelength",
+    "marks": 2
+   },
+   {
+    "point": "Working: pumping, non-radiative transition, metastable state (~3 ms), population inversion, stimulated emission at 6943 Å",
+    "marks": 2.5
+   },
+   {
+    "point": "Practical drawbacks (any two or three)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Construction.</b> The active medium is a synthetic ruby rod: a crystal of aluminium oxide (Al<sub>2</sub>O<sub>3</sub>) in which about 0.05 % of Al<sup>3+</sup> ions are replaced by chromium Cr<sup>3+</sup> ions (which give the pink colour). The rod is about 4–20 cm long and 0.5–1 cm in diameter. Its ends are ground flat and parallel and are silvered: one end completely, the other partially (≈ 10 % transmitting), so that they form an optical resonator. The rod is surrounded by a helical xenon flash lamp, which acts as the pump source, powered by a high-voltage capacitor bank. The assembly is cooled to avoid overheating.",
+   "<b>Energy levels (Cr<sup>3+</sup>).</b> It is a three-level laser: E<sub>1</sub> = ground state (⁴A<sub>2</sub>); E<sub>3</sub> = broad bands (⁴F<sub>1</sub>, ⁴F<sub>2</sub>) at the top, which absorb green–blue light at about 5600 Å and 4100 Å; E<sub>2</sub> = metastable level (²E) of life time ≈ 3 ms, located between them.",
+   "<b>Working.</b> (1) The flash lamp emits a very intense pulse of white light. Cr<sup>3+</sup> ions absorb the green and blue components and are excited from E<sub>1</sub> to the bands E<sub>3</sub> (optical pumping). (2) They decay very rapidly (≈ 10<sup>-8</sup> s) by non-radiative transitions (giving energy to the crystal lattice as heat) to the metastable level E<sub>2</sub>. (3) Because the life time at E<sub>2</sub> (3 ms) is very much longer, ions accumulate there, and when more than half of the ions are in E<sub>2</sub> a <b>population inversion</b> is produced between E<sub>2</sub> and E<sub>1</sub>. (4) Some ions fall spontaneously from E<sub>2</sub> to E<sub>1</sub> emitting photons of wavelength 6943 Å (red). These photons stimulate others; those travelling along the rod axis are reflected back and forth by the mirrors, producing an avalanche of coherent photons. (5) A pulsed, intense red beam of wavelength <b>6943 Å</b> leaves through the partially silvered end.",
+   "<b>Drawbacks.</b> (i) Being a three-level laser, the ground state must be depleted by pumping more than half of all Cr<sup>3+</sup> ions, which needs very high pumping power (high threshold). (ii) Operation is only pulsed (not continuous) because the rod heats up. (iii) Efficiency is very low (< 1 %); most of the lamp's energy is wasted as heat and needs cooling. (iv) Output beam is not highly monochromatic and the divergence is larger than for gas lasers; the beam is not uniform because of crystal imperfections."
+  ],
+  "formulas": [
+   "λ = 6943 Å",
+   "Metastable life ≈ 3 ms"
+  ],
+  "diagram": "Ruby rod placed along the axis of a helical xenon flash tube; fully reflecting mirror at one end and partially reflecting mirror at the other; power supply and the laser beam. Also a three-level diagram E<sub>1</sub>, E<sub>2</sub>, E<sub>3</sub> with pump, non-radiative decay and 6943 Å."
+ },
+ "Q2.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Diagram of step-index fibre with core n₁, cladding n₂, outside n₀ and ray geometry",
+    "marks": 2
+   },
+   {
+    "point": "Snell's law at the entrance face: n₀ sin θ₀ = n₁ sin θ₁",
+    "marks": 1.5
+   },
+   {
+    "point": "TIR condition at core-cladding interface: φ ≥ φ<sub>c</sub>, sin φ<sub>c</sub> = n₂/n₁",
+    "marks": 1.5
+   },
+   {
+    "point": "Using φ = 90° − θ₁ to obtain sin θ₁ ≤ √(n₁² − n₂²)/n₁",
+    "marks": 2
+   },
+   {
+    "point": "Acceptance angle θ₀(max) = sin⁻¹(√(n₁² − n₂²)/n₀) and cone of acceptance",
+    "marks": 1.5
+   },
+   {
+    "point": "NA = n₀ sin θ₀ = √(n₁² − n₂²) = n₁√(2Δ)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Step-index fibre.</b> A step-index fibre has a core of refractive index n<sub>1</sub> and cladding of lower refractive index n<sub>2</sub> (n<sub>1</sub> > n<sub>2</sub>), with the refractive index changing abruptly at the interface. Light is guided by total internal reflection (TIR) at the core–cladding boundary.",
+   "Let a ray enter the fibre at the axial point O from a medium (air, n<sub>0</sub> = 1) at an angle θ<sub>0</sub> to the axis. It refracts into the core at angle θ<sub>1</sub> and strikes the core–cladding interface at angle of incidence φ = 90° − θ<sub>1</sub>.",
+   "<b>Snell's law at entrance:</b> n<sub>0</sub> sin θ<sub>0</sub> = n<sub>1</sub> sin θ<sub>1</sub>. … (1)",
+   "<b>TIR at the interface:</b> the ray is guided if φ ≥ φ<sub>c</sub> where sin φ<sub>c</sub> = n<sub>2</sub>/n<sub>1</sub>. … (2)",
+   "For the limiting ray, φ = φ<sub>c</sub> and so θ<sub>1</sub> = 90° − φ<sub>c</sub>: sin θ<sub>1</sub> = cos φ<sub>c</sub> = √(1 − sin²φ<sub>c</sub>) = √(1 − n<sub>2</sub>²/n<sub>1</sub>²) = √(n<sub>1</sub>² − n<sub>2</sub>²)/n<sub>1</sub>. … (3)",
+   "Substituting (3) in (1) for the maximum entrance angle θ<sub>0</sub>(max): n<sub>0</sub> sin θ<sub>0</sub>(max) = n<sub>1</sub> × √(n<sub>1</sub>² − n<sub>2</sub>²)/n<sub>1</sub> = √(n<sub>1</sub>² − n<sub>2</sub>²).",
+   "Hence the <b>acceptance angle</b> is θ<sub>0</sub>(max) = sin<sup>-1</sup>[√(n<sub>1</sub>² − n<sub>2</sub>²)/n<sub>0</sub>] and for air (n<sub>0</sub> = 1) it is sin<sup>-1</sup>√(n<sub>1</sub>² − n<sub>2</sub>²). Rays entering within the cone of this half-angle (acceptance cone) are guided; rays outside it are lost in the cladding.",
+   "The <b>numerical aperture</b> is the light-gathering ability of the fibre: <b>NA = n<sub>0</sub> sin θ<sub>0</sub>(max) = √(n<sub>1</sub>² − n<sub>2</sub>²)</b>. In terms of the fractional index difference Δ = (n<sub>1</sub> − n<sub>2</sub>)/n<sub>1</sub>, NA = n<sub>1</sub>√(2Δ).",
+   "A larger NA means a larger acceptance cone and easier light coupling, but also more modal dispersion."
+  ],
+  "formulas": [
+   "n₀ sin θ₀ = n₁ sin θ₁",
+   "sin φ<sub>c</sub> = n₂/n₁",
+   "NA = √(n₁² − n₂²) = n₁√(2Δ)",
+   "θ₀(max) = sin⁻¹(NA/n₀)"
+  ],
+  "diagram": "Longitudinal section of fibre showing core (n₁) and cladding (n₂), outside medium n₀, ray entering at θ₀ to axis, refracted at θ₁, striking interface at φ = 90° − θ₁ (critical angle for limiting ray); the acceptance cone of half-angle θ₀."
+ },
+ "Q2.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of double refraction; O-ray and E-ray properties",
+    "marks": 2
+   },
+   {
+    "point": "Geometry of calcite crystal: rhombohedron, angles 78°/102°, blunt corners",
+    "marks": 1.5
+   },
+   {
+    "point": "Optic axis and principal section defined",
+    "marks": 1.5
+   },
+   {
+    "point": "Construction of Nicol prism (length : width = 3 : 1, 68° ends, Canada balsam cement, 90° with end faces)",
+    "marks": 2
+   },
+   {
+    "point": "Working: O-ray totally reflected at balsam, E-ray transmitted; refractive indices comparison",
+    "marks": 2
+   },
+   {
+    "point": "Uses of Nicol prism (polariser/analyser, polarimeter, etc.)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Double refraction.</b> When an unpolarised ray of light enters a calcite (or quartz) crystal, it splits into two refracted rays: the <b>ordinary ray (O-ray)</b> which obeys Snell's law (μ<sub>o</sub> is constant, the ray travels with same speed in all directions) and the <b>extraordinary ray (E-ray)</b> which does not obey Snell's law (speed and refractive index μ<sub>e</sub> vary with direction). Both rays are plane polarised with vibrations mutually perpendicular: O-ray vibrations perpendicular to the principal section, E-ray vibrations in the principal section.",
+   "<b>Calcite geometry.</b> Calcite (CaCO<sub>3</sub>) is a rhombohedron bounded by six parallelogram faces. Each face has angles 78°5′ and 101°55′. At two opposite corners (blunt corners), three obtuse face angles of 101°55′ meet.",
+   "<b>Optic axis:</b> the direction through a blunt corner making equal angles with all the three edges meeting there. It is a direction, not a line; any line parallel to it is also an optic axis. There is no double refraction along it. Calcite is a uniaxial crystal (μ<sub>o</sub> = 1.658, μ<sub>e</sub> = 1.486 for sodium light, a negative crystal).",
+   "<b>Principal section:</b> a plane containing the optic axis and perpendicular to a pair of opposite faces of the crystal. It cuts the faces in a parallelogram with angles 71° and 109°.",
+   "<b>Nicol prism – construction.</b> A calcite crystal about three times as long as it is wide (length : width ≈ 3 : 1) has its end faces cut so that the principal section angles become 68° and 112° instead of 71° and 109°. The crystal is cut along a diagonal plane perpendicular to the principal section and to the new end faces, and the two halves are cemented back together with a thin layer of <b>Canada balsam</b> (μ = 1.55). The sides are blackened to absorb stray rays.",
+   "<b>Working.</b> An unpolarised ray SA entering parallel to the length is doubly refracted into the O-ray and E-ray. Refractive indices: for O-ray, μ<sub>o</sub> = 1.658 > μ<sub>balsam</sub> = 1.55, so the O-ray passes from a denser to a rarer medium. The angle of incidence on the balsam layer (≈ 77°) exceeds the critical angle sin⁻¹(1.55/1.658) ≈ 69°, and the O-ray is <b>totally internally reflected</b> and absorbed by the blackened side. For E-ray, μ<sub>e</sub> = 1.486 < 1.55, so there is no TIR and the E-ray is transmitted. The emergent beam is therefore <b>plane-polarised</b>, with vibrations in the principal section.",
+   "<b>Limitations:</b> the field of view is limited (about 29°) since for rays inclined too much the O-ray is no longer totally reflected, and the E-ray may also be reflected; the prism is also expensive.",
+   "<b>Uses.</b> (i) As a polariser to produce plane-polarised light. (ii) As an analyser to detect and analyse polarised light. (iii) In polarimeters (Laurent's half-shade, saccharimeter), polarising microscopes and in production/analysis of circularly and elliptically polarised light."
+  ],
+  "formulas": [
+   "μ<sub>o</sub> = 1.658, μ<sub>e</sub> = 1.486 (calcite, sodium light)",
+   "Critical angle at balsam for O-ray: sin C = μ<sub>balsam</sub>/μ<sub>o</sub>"
+  ],
+  "diagram": "(1) Calcite rhombohedron with the obtuse blunt corners and optic axis marked, and the principal section parallelogram. (2) Nicol prism in the principal section: ends cut at 68°, balsam layer, incident ray SA, O-ray totally reflected, E-ray emerging, vibration marks (dots for O, arrows for E)."
+ },
+ "Q2.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Principle of Nicol prism as polariser/analyser and of quarter-wave plate (path difference λ/4, thickness)",
+    "marks": 2
+   },
+   {
+    "point": "Plane-polarised light production and detection (Nicol; extinction twice per rotation)",
+    "marks": 2
+   },
+   {
+    "point": "Circularly polarised light: plane light at 45° to QWP axis, equal amplitudes, phase difference π/2",
+    "marks": 2
+   },
+   {
+    "point": "Elliptically polarised light: general angle, unequal amplitudes",
+    "marks": 1.5
+   },
+   {
+    "point": "Detection scheme: analyser alone then QWP + analyser to distinguish circular/unpolarised and elliptical/partially polarised",
+    "marks": 2
+   },
+   {
+    "point": "Diagram of arrangement/vibration forms",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Principle.</b> A Nicol prism transmits only the E-ray, so it produces plane-polarised light (polariser) and can detect it (analyser). A <b>quarter-wave plate (QWP)</b> is a thin doubly-refracting plate cut parallel to its optic axis with thickness t such that it introduces a path difference λ/4 (phase difference π/2) between the O-ray and E-ray: (μ<sub>o</sub> − μ<sub>e</sub>)t = λ/4 ⇒ t = λ/4(μ<sub>o</sub> − μ<sub>e</sub>) (for calcite, ≈ 0.0136 mm at 5893 Å).",
+   "<b>Plane-polarised light.</b> Unpolarised light passed through Nicol prism N<sub>1</sub> (polariser) emerges plane-polarised. <i>Detection:</i> when viewed through a rotating second Nicol N<sub>2</sub> (analyser), the intensity varies as cos²θ (Malus' law), becoming zero twice in each rotation (at crossed positions) and maximum twice.",
+   "<b>Circularly polarised light.</b> Plane-polarised light from N<sub>1</sub> of amplitude A is incident normally on the QWP with its vibration making an angle of 45° with the optic axis of the plate. It is resolved into E-component (parallel to the axis) A cos 45° and O-component (perpendicular) A sin 45° – equal amplitudes A/√2. The QWP introduces a phase difference π/2, so the components are x = a cos ωt, y = a sin ωt; hence x² + y² = a², the tip of the resultant vector describes a circle. Light emerging is <b>circularly polarised</b>. <i>Detection:</i> viewed through a rotating Nicol, the intensity remains constant (no extinction), like unpolarised light.",
+   "<b>Elliptically polarised light.</b> If the vibration of the plane-polarised light makes any angle θ other than 0°, 45°, 90° with the optic axis, then the components have unequal amplitudes A cos θ and A sin θ with a phase difference π/2, so x²/a² + y²/b² = 1, an ellipse with its axes along the principal directions. This is <b>elliptically polarised light</b>. <i>Detection:</i> a rotating analyser gives intensity varying between a non-zero minimum and a maximum (twice each in a rotation); the minimum is not zero.",
+   "<b>Distinguishing the types.</b> (a) Plane-polarised: complete extinction at two positions of analyser. (b) Circularly polarised vs. unpolarised: both show constant intensity through a Nicol; to distinguish, pass the light first through a QWP and then through the analyser. Circular light becomes plane-polarised after the QWP (phase π/2 more, giving 0 or π) and is now extinguished at some position of the analyser; unpolarised light still gives constant intensity. (c) Elliptical vs. partially polarised: similarly, place the QWP with its optic axis parallel to the major axis (or minor axis) of the ellipse found by the analyser; elliptic light becomes plane-polarised and shows complete extinction; partially polarised light does not."
+  ],
+  "formulas": [
+   "t = λ/4(μ<sub>o</sub> − μ<sub>e</sub>)",
+   "Circular: x² + y² = a²",
+   "Elliptic: x²/a² + y²/b² = 1",
+   "Malus: I = I₀cos²θ"
+  ],
+  "diagram": "Source → N₁ (polariser) → QWP (optic axis marked, vibration at 45°) → N₂ (analyser) → eye; show the vibration forms: line, circle, ellipse."
+ },
+ "Q2.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of specific rotation S = θ/(lC) with units",
+    "marks": 1.5
+   },
+   {
+    "point": "Optical activity and the need for half-shade device (sensitivity)",
+    "marks": 1
+   },
+   {
+    "point": "Construction: polariser, half-shade plate (quartz + glass), polarimeter tube, analyser, telescope, monochromatic source",
+    "marks": 2.5
+   },
+   {
+    "point": "Diagram",
+    "marks": 1.5
+   },
+   {
+    "point": "Working principle with the half-shade angle: equal intensity position",
+    "marks": 2
+   },
+   {
+    "point": "Procedure and determination of S (difference of readings with/without solution)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Specific rotation.</b> The specific rotation of an optically active substance at a given temperature and wavelength is the rotation (in degrees) of the plane of polarisation produced by a solution of 1 g/cm³ concentration in a tube 1 decimetre (10 cm) long: <b>S = θ/(l × C)</b>, where θ is the observed rotation (degrees), l the tube length in dm, C the concentration in g/cm³. Unit: degree dm<sup>-1</sup> (g/cm³)<sup>-1</sup>.",
+   "<b>Need for half-shade.</b> Finding the position of complete extinction between crossed Nicols is hard, because the intensity changes slowly near the minimum. Using two half-fields of equal brightness is much more sensitive (accuracy ~ 0.05°).",
+   "<b>Construction.</b> Monochromatic sodium light is made parallel with a lens L and passes through (1) a Nicol prism N<sub>1</sub> (polariser), (2) a half-shade plate H, (3) the polarimeter tube T containing the optically active solution, (4) an analyser N<sub>2</sub> that can rotate over a graduated circular scale with vernier, and (5) a small telescope focused on H. The half-shade plate consists of a semi-circular half-wave plate of quartz (thickness chosen to give λ/2 path difference for sodium light) cemented to a semi-circular glass plate of the same absorption; the quartz has its optic axis parallel to the dividing line (diameter).",
+   "<b>Working.</b> Light from N<sub>1</sub> has its vibrations along OP. The glass half transmits the vibration unchanged (OP). In the quartz half the vibration is rotated to the other side of the optic axis: OP′ such that the angle between OP and OP′ is 2φ (the half-shade angle, small, ~ 2–4°). Thus the two halves of the field are plane-polarised in two directions inclined by 2φ. The bisector OB of the angle is the axis of the plate.",
+   "If the analyser N<sub>2</sub> is set with its transmission axis parallel to OP, the glass half is brighter. If parallel to OP′ the quartz half is brighter. When the axis of the analyser is perpendicular to the bisector OB, both fields are <i>equally faintly illuminated</i>; any small rotation makes one half bright and the other dark. This equal-shade position is the sensitive setting.",
+   "<b>Procedure.</b> (1) With the tube empty (or filled with water), rotate the analyser to the equal-intensity position and note the reading θ<sub>1</sub>. (2) Fill the tube with the optically active solution (e.g. sugar solution of concentration C in g/cm³); the field becomes unequal because the plane of polarisation is rotated. Rotate the analyser to restore equal intensity and note reading θ<sub>2</sub>. (3) The angle of rotation is θ = θ<sub>2</sub> − θ<sub>1</sub>. (4) Measure length l (dm) and concentration C and compute S = θ/(lC). Dextro- or laevo-rotation is found from the direction of rotation of the analyser. Plotting θ against C gives a straight line."
+  ],
+  "formulas": [
+   "S = θ/(l C)",
+   "Half-shade angle 2φ between the two vibration directions"
+  ],
+  "diagram": "Optical bench: sodium lamp, collimating lens, polariser N₁, half-shade plate H (quartz half and glass half), polarimeter tube T, analyser N₂ with circular scale, telescope. Also the vector diagram with OP, OP′, bisector OB and analyser axis perpendicular to OB, and the three field appearances (left bright, equal, right bright)."
+ },
+ "Q2.9": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Statement of Brewster's law μ = tan i<sub>p</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Explanation: reflected light completely plane-polarised at polarising angle (vibrations ⊥ plane of incidence)",
+    "marks": 1
+   },
+   {
+    "point": "Use of Snell's law μ = sin i/sin r with μ = tan i",
+    "marks": 1
+   },
+   {
+    "point": "Derivation sin r = cos i ⇒ i + r = 90°",
+    "marks": 1
+   },
+   {
+    "point": "Conclusion: angle between reflected and refracted rays = 90°; diagram",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Brewster's law.</b> When unpolarised light is incident on a transparent surface at a particular angle of incidence i<sub>p</sub> (the polarising or Brewster angle), the reflected light is completely plane-polarised, with its vibrations perpendicular to the plane of incidence. The law states that the tangent of the polarising angle equals the refractive index of the medium: <b>μ = tan i<sub>p</sub></b>. The refracted ray is partially polarised.",
+   "<b>Explanation.</b> The incident vibrations may be resolved into components parallel to and perpendicular to the plane of incidence. At i<sub>p</sub> the component parallel to the plane of incidence is not reflected at all; only the perpendicular component is reflected. For glass (μ = 1.5), i<sub>p</sub> = tan<sup>-1</sup>1.5 ≈ 56.3°.",
+   "<b>Proof of perpendicularity.</b> By Snell's law at the surface: μ = sin i<sub>p</sub>/sin r. … (1)",
+   "Brewster's law: μ = tan i<sub>p</sub> = sin i<sub>p</sub>/cos i<sub>p</sub>. … (2)",
+   "Equating (1) and (2): sin r = cos i<sub>p</sub> = sin(90° − i<sub>p</sub>) ⇒ r = 90° − i<sub>p</sub>, i.e. <b>i<sub>p</sub> + r = 90°</b>.",
+   "The angle between the reflected ray and refracted ray is 180° − (i<sub>p</sub> + r) = 180° − 90° = <b>90°</b>. Hence the reflected and refracted rays are mutually perpendicular. Physically, the electrons in the second medium oscillate along the refracted ray's vibration direction; they cannot radiate along their own line of vibration, so no parallel component is reflected."
+  ],
+  "formulas": [
+   "μ = tan i<sub>p</sub>",
+   "i<sub>p</sub> + r = 90°"
+  ],
+  "diagram": "Interface with incident ray at i<sub>p</sub>, reflected ray at i<sub>p</sub>, refracted ray at r, with a right angle marked between reflected and refracted rays; dots (⊥ vibrations) on the reflected ray and arrows on refracted."
+ },
+ "Q2.10": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Condition for half-wave plate: (μ<sub>e</sub> − μ<sub>o</sub>)t = λ/2",
+    "marks": 2
+   },
+   {
+    "point": "Correct substitution in metres (λ = 5 × 10⁻⁷ m)",
+    "marks": 1.5
+   },
+   {
+    "point": "Calculation t = 2.78 × 10⁻⁵ m",
+    "marks": 1
+   },
+   {
+    "point": "Answer with units (27.8 μm)",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> λ = 5000 Å = 5 × 10<sup>-7</sup> m; μ<sub>e</sub> = 1.553, μ<sub>o</sub> = 1.544 (quartz is a positive crystal, μ<sub>e</sub> > μ<sub>o</sub>).",
+   "<b>Condition:</b> a half-wave plate gives a path difference λ/2 between the E- and O-rays: (μ<sub>e</sub> − μ<sub>o</sub>)t = λ/2 ⇒ t = λ/[2(μ<sub>e</sub> − μ<sub>o</sub>)].",
+   "<b>Substitution:</b> t = 5 × 10<sup>-7</sup> / [2 × (1.553 − 1.544)] = 5 × 10<sup>-7</sup> / (2 × 0.009) = 5 × 10<sup>-7</sup> / 0.018.",
+   "t = 2.78 × 10<sup>-5</sup> m = <b>0.0278 mm (≈ 27.8 μm)</b>."
+  ],
+  "formulas": [
+   "t = λ/[2(μ<sub>e</sub> − μ<sub>o</sub>)]"
+  ],
+  "result": "t = 2.78 × 10⁻⁵ m ≈ 0.028 mm"
+ },
+ "Q2.11": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Formula of specific rotation S = θ/(lC)",
+    "marks": 1
+   },
+   {
+    "point": "Writing given data in same units (l = 4 dm, C = 5 % = 0.05 g/cm³)",
+    "marks": 1
+   },
+   {
+    "point": "Calculation of S = 100 °/dm/(g/cm³) (or direct proportion)",
+    "marks": 1.5
+   },
+   {
+    "point": "Substitution for 10 % solution and 35°",
+    "marks": 1
+   },
+   {
+    "point": "Tube length = 3.5 dm = 35 cm with units",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> Solution 1: C<sub>1</sub> = 5 % (0.05 g/cm³), l<sub>1</sub> = 40 cm = 4 dm, θ<sub>1</sub> = 20°. Solution 2: C<sub>2</sub> = 10 % (0.10 g/cm³), θ<sub>2</sub> = 35°, l<sub>2</sub> = ?",
+   "<b>Specific rotation:</b> S = θ/(lC) = 20/(4 × 0.05) = 100° dm<sup>-1</sup>(g/cm³)<sup>-1</sup> (same substance, same S).",
+   "<b>For solution 2:</b> l<sub>2</sub> = θ<sub>2</sub>/(S C<sub>2</sub>) = 35/(100 × 0.10) = 3.5 dm.",
+   "Cross-check by proportion: θ ∝ lC ⇒ l<sub>2</sub> = l<sub>1</sub> × (θ<sub>2</sub>/θ<sub>1</sub>) × (C<sub>1</sub>/C<sub>2</sub>) = 40 × (35/20) × (5/10) = 35 cm.",
+   "Required tube length = <b>35 cm</b>."
+  ],
+  "formulas": [
+   "S = θ/(lC)"
+  ],
+  "result": "l = 3.5 dm = 35 cm"
+ },
+ "Q2.12": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Formula S = θ/(lC) and unit conversion (l = 2 dm)",
+    "marks": 1.5
+   },
+   {
+    "point": "Rearrangement C = θ/(S l)",
+    "marks": 1
+   },
+   {
+    "point": "Substitution C = 11/(66 × 2) = 0.0833 g/cm³",
+    "marks": 1
+   },
+   {
+    "point": "Mass = C × volume = 0.0833 × 48",
+    "marks": 1
+   },
+   {
+    "point": "Answer 4 g with units",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> l = 20 cm = 2 dm, θ = 11°, S = 66° dm<sup>-1</sup>(g/cm³)<sup>-1</sup>, V = 48 cm³.",
+   "<b>Formula:</b> S = θ/(lC) ⇒ C = θ/(S l).",
+   "C = 11/(66 × 2) = 11/132 = 0.0833 g/cm³.",
+   "Mass of sugar in the solution m = C × V = 0.0833 × 48 = <b>4 g</b>."
+  ],
+  "formulas": [
+   "C = θ/(S l)",
+   "m = C V"
+  ],
+  "result": "Mass of sugar = 4 g"
+ },
+ "Q2.13": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Formula NA = √(n₁² − n₂²)",
+    "marks": 1
+   },
+   {
+    "point": "Correct substitution and NA = 0.384",
+    "marks": 1.5
+   },
+   {
+    "point": "Acceptance angle θ₀ = sin⁻¹(NA) = 22.6°",
+    "marks": 1.25
+   },
+   {
+    "point": "Critical angle φ<sub>c</sub> = sin⁻¹(n₂/n₁)",
+    "marks": 0.75
+   },
+   {
+    "point": "Value 75.2° with units",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> n<sub>1</sub> = 1.50, n<sub>2</sub> = 1.45, outside medium air (n<sub>0</sub> = 1).",
+   "<b>Numerical aperture:</b> NA = √(n<sub>1</sub>² − n<sub>2</sub>²) = √(2.25 − 2.1025) = √0.1475 = <b>0.384</b>.",
+   "<b>Acceptance angle:</b> sin θ<sub>0</sub> = NA/n<sub>0</sub> = 0.384 ⇒ θ<sub>0</sub> = sin<sup>-1</sup>(0.384) = <b>22.6°</b> (total acceptance cone angle 2θ<sub>0</sub> ≈ 45.2°).",
+   "<b>Critical angle (core–cladding):</b> sin φ<sub>c</sub> = n<sub>2</sub>/n<sub>1</sub> = 1.45/1.50 = 0.9667 ⇒ φ<sub>c</sub> = sin<sup>-1</sup>(0.9667) = <b>75.2°</b>."
+  ],
+  "formulas": [
+   "NA = √(n₁² − n₂²)",
+   "θ₀ = sin⁻¹(NA)",
+   "φ<sub>c</sub> = sin⁻¹(n₂/n₁)"
+  ],
+  "result": "NA = 0.384; acceptance angle = 22.6°; critical angle = 75.2°"
+ },
+ "Q2.14": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Formula V = (2πa/λ) n₁√(2Δ) (= (2πa/λ)NA)",
+    "marks": 1.5
+   },
+   {
+    "point": "Conversion a = 14.5 μm (radius from diameter 29 μm)",
+    "marks": 1
+   },
+   {
+    "point": "Substitution and V = 3.99",
+    "marks": 1.25
+   },
+   {
+    "point": "Number of modes N = V²/2 for step-index fibre",
+    "marks": 0.75
+   },
+   {
+    "point": "N ≈ 7.9 ≈ 8 modes",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> n<sub>1</sub> = 1.52, core diameter 2a = 29 μm ⇒ a = 14.5 μm, Δ = 0.0007, λ = 1.3 μm.",
+   "<b>V-number:</b> V = (2πa/λ) × NA = (2πa/λ) n<sub>1</sub>√(2Δ).",
+   "√(2Δ) = √(0.0014) = 0.03742. NA = 1.52 × 0.03742 = 0.05688.",
+   "2πa/λ = 2π × 14.5 / 1.3 = 70.08. Therefore V = 70.08 × 0.05688 = <b>3.99 ≈ 4.0</b>.",
+   "<b>Number of guided modes</b> (step-index): N ≈ V²/2 = (3.986)²/2 = 7.94 ≈ <b>8 modes</b>."
+  ],
+  "formulas": [
+   "V = (2πa/λ) n₁√(2Δ)",
+   "N ≈ V²/2"
+  ],
+  "result": "V ≈ 3.99; number of modes ≈ 8"
+ },
+ "Q2.15": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Energy of the emitted photon equals the energy difference E = E₂ − E₁ = hν",
+    "marks": 2
+   },
+   {
+    "point": "Use of E = hc/λ and relevant data (h, c, λ in metres)",
+    "marks": 2
+   },
+   {
+    "point": "Correct substitution in SI units",
+    "marks": 2
+   },
+   {
+    "point": "Numerical value in joule: 2.87 × 10⁻¹⁹ J",
+    "marks": 2
+   },
+   {
+    "point": "Conversion to eV: 1.79 eV, with the statement that E₂ = 1.79 eV as ground state is zero",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> λ = 6930 Å = 6.93 × 10<sup>-7</sup> m; E<sub>1</sub> (ground state) = 0; h = 6.626 × 10<sup>-34</sup> J s; c = 3 × 10<sup>8</sup> m/s; 1 eV = 1.6 × 10<sup>-19</sup> J.",
+   "<b>Principle:</b> in a laser transition from the excited state E<sub>2</sub> to the ground state E<sub>1</sub>, the emitted photon carries the energy difference: E<sub>2</sub> − E<sub>1</sub> = hν = hc/λ.",
+   "Since E<sub>1</sub> = 0, E<sub>2</sub> = hc/λ.",
+   "<b>Substitution:</b> E<sub>2</sub> = (6.626 × 10<sup>-34</sup> × 3 × 10<sup>8</sup>)/(6.93 × 10<sup>-7</sup>) = 1.9878 × 10<sup>-25</sup> / 6.93 × 10<sup>-7</sup>.",
+   "E<sub>2</sub> = 2.87 × 10<sup>-19</sup> J.",
+   "<b>In electron-volt:</b> E<sub>2</sub> = 2.87 × 10<sup>-19</sup> / 1.6 × 10<sup>-19</sup> = <b>1.79 eV</b> (check: 12400/6930 = 1.79 eV).",
+   "Hence the excited state lies 1.79 eV above the ground state. (This corresponds to a frequency ν = c/λ = 4.33 × 10<sup>14</sup> Hz, red light.)"
+  ],
+  "formulas": [
+   "E₂ − E₁ = hc/λ"
+  ],
+  "result": "E₂ = 2.87 × 10⁻¹⁹ J ≈ 1.79 eV"
+ },
+ "Q3.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of Poynting vector S = E × H, its direction and unit (W/m²)",
+    "marks": 2
+   },
+   {
+    "point": "Statement of Poynting's theorem in words",
+    "marks": 1.5
+   },
+   {
+    "point": "Use of Maxwell's curl equations ∇×E = −∂B/∂t and ∇×H = J + ∂D/∂t",
+    "marks": 2
+   },
+   {
+    "point": "Vector identity ∇·(E × H) = H·(∇×E) − E·(∇×H) and substitution",
+    "marks": 2
+   },
+   {
+    "point": "Final differential form −∇·S = E·J + ∂u/∂t",
+    "marks": 1
+   },
+   {
+    "point": "Integral form and physical interpretation of each term",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Poynting vector.</b> The Poynting vector <b>S = E × H</b> (W/m²) represents the rate of flow of electromagnetic energy per unit area, perpendicular to the plane containing E and H, i.e. along the direction of propagation of the wave. Its magnitude is the energy crossing unit area per second.",
+   "<b>Poynting's theorem (statement).</b> The net rate at which electromagnetic energy flows out through a closed surface equals the negative of the rate of decrease of the electromagnetic energy stored in the enclosed volume minus the rate at which the fields do work (Joule heat) on the charges inside the volume. It is the statement of conservation of energy for EM fields.",
+   "<b>Deduction.</b> Start with Maxwell's equations: ∇×E = −∂B/∂t … (1) and ∇×H = J + ∂D/∂t … (2).",
+   "Take the scalar product of (1) with H and of (2) with E: H·(∇×E) = −H·∂B/∂t; E·(∇×H) = E·J + E·∂D/∂t.",
+   "Subtract: H·(∇×E) − E·(∇×H) = −H·∂B/∂t − E·∂D/∂t − E·J. … (3)",
+   "Using the vector identity ∇·(E × H) = H·(∇×E) − E·(∇×H), the left side is ∇·(E × H).",
+   "For linear isotropic media B = μH, D = εE, so H·∂B/∂t = ∂(½μH²)/∂t and E·∂D/∂t = ∂(½εE²)/∂t. Thus (3) becomes: ∇·(E × H) = −∂/∂t(½εE² + ½μH²) − E·J. Define u = ½εE² + ½μH² (energy density) and S = E × H: <b>−∇·S = ∂u/∂t + E·J</b>. … (4)",
+   "<b>Integral form.</b> Integrate over a volume V bounded by closed surface A and use the divergence theorem: <b>−∮<sub>A</sub> S·dA = d/dt ∫<sub>V</sub> u dV + ∫<sub>V</sub> E·J dV</b>.",
+   "<b>Interpretation:</b> the left side is the total power flowing into the volume; the first term on the right is the rate of increase of stored electric and magnetic energy; the second term E·J is the power dissipated as Joule heat (work done on charges). In free space (J = 0): −∇·S = ∂u/∂t. For a plane wave the average of |S| over a cycle gives the intensity I = ½ε₀cE₀²."
+  ],
+  "formulas": [
+   "S = E × H",
+   "−∇·S = ∂u/∂t + E·J",
+   "−∮ S·dA = d/dt∫u dV + ∫E·J dV",
+   "u = ½εE² + ½μH²"
+  ],
+  "diagram": "Closed surface enclosing volume V with arrows S = E × H on the surface and the unit normal; or E, H and S forming a right-handed triad."
+ },
+ "Q3.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of the inconsistency of Ampere's law ∇×H = J for non-steady currents (∇·∇×H = 0 vs ∇·J ≠ 0)",
+    "marks": 2
+   },
+   {
+    "point": "Use of the continuity equation ∇·J = −∂ρ/∂t and Gauss's law ∇·D = ρ",
+    "marks": 2
+   },
+   {
+    "point": "Introduction of displacement current density J<sub>d</sub> = ∂D/∂t",
+    "marks": 2
+   },
+   {
+    "point": "Modified Ampere–Maxwell law ∇×H = J + ∂D/∂t (differential and integral form)",
+    "marks": 2
+   },
+   {
+    "point": "Capacitor example (continuity of current)",
+    "marks": 1.5
+   },
+   {
+    "point": "Physical significance (changing E produces B; prediction of EM waves)",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Ampere's circuital law</b> for steady currents is ∇×H = J (∮H·dl = I). Taking the divergence of both sides: ∇·(∇×H) = 0 (since the divergence of a curl is zero), so ∇·J = 0, which is true only for steady currents.",
+   "<b>Inconsistency.</b> For time-varying fields the equation of continuity gives ∇·J = −∂ρ/∂t ≠ 0 (charge accumulates, as on the plates of a charging capacitor). Hence ∇×H = J cannot be right in general: ∇·(∇×H) = 0 but ∇·J ≠ 0.",
+   "<b>Maxwell's modification.</b> Maxwell added an unknown term J<sub>d</sub>: ∇×H = J + J<sub>d</sub>. Taking the divergence: 0 = ∇·J + ∇·J<sub>d</sub> ⇒ ∇·J<sub>d</sub> = −∇·J = ∂ρ/∂t.",
+   "Using Gauss's law ∇·D = ρ: ∂ρ/∂t = ∂(∇·D)/∂t = ∇·(∂D/∂t). So ∇·J<sub>d</sub> = ∇·(∂D/∂t), which gives the <b>displacement current density J<sub>d</sub> = ∂D/∂t</b>.",
+   "<b>Modified Ampere's law (Ampere–Maxwell law):</b> ∇×H = J + ∂D/∂t, or in integral form ∮H·dl = ∫(J + ∂D/∂t)·dA = I + I<sub>d</sub>. Now taking divergence: ∇·J + ∂(∇·D)/∂t = ∇·J + ∂ρ/∂t = 0, consistent with the continuity equation.",
+   "<b>Example: charging capacitor.</b> Conduction current I flows in the wires but not through the gap between the plates. Applying Ampere's law to loop around the wire, using a surface through the gap, would give zero. The electric field between plates E = q/ε₀A changes with time, so the displacement current I<sub>d</sub> = ε₀A dE/dt = dq/dt = I, equal to conduction current I. Thus the total current is continuous and the same B is obtained for both surfaces.",
+   "<b>Significance.</b> The displacement current is not a flow of charge but a time-varying electric field, which also produces a magnetic field. Together with Faraday's law (changing B produces E), it explains the self-propagating electromagnetic waves."
+  ],
+  "formulas": [
+   "J<sub>d</sub> = ∂D/∂t",
+   "∇×H = J + ∂D/∂t",
+   "∮H·dl = I + dΦ<sub>D</sub>/dt"
+  ],
+  "diagram": "A parallel-plate capacitor being charged: wire carrying conduction current I, gap with electric field E and displacement current, Amperian loop and surfaces S₁ (cuts wire) and S₂ (passes through gap)."
+ },
+ "Q3.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Maxwell's four equations in differential form with names/physical meaning",
+    "marks": 2
+   },
+   {
+    "point": "Four equations in integral form",
+    "marks": 2
+   },
+   {
+    "point": "Free space equations (ρ = 0, J = 0) and use of curl of curl",
+    "marks": 2
+   },
+   {
+    "point": "Derivation of wave equation ∇²E = μ₀ε₀ ∂²E/∂t² (and for B)",
+    "marks": 2
+   },
+   {
+    "point": "Velocity v = 1/√(μ₀ε₀) = 3 × 10⁸ m/s equal to c",
+    "marks": 1.5
+   },
+   {
+    "point": "Conclusion that light is an electromagnetic wave; refractive index n = √(μ<sub>r</sub>ε<sub>r</sub>)",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Maxwell's equations</b> (differential form | integral form):",
+   "(1) Gauss's law (electricity): ∇·D = ρ | ∮D·dA = q (charge enclosed).",
+   "(2) Gauss's law (magnetism): ∇·B = 0 | ∮B·dA = 0 (no magnetic monopoles).",
+   "(3) Faraday's law: ∇×E = −∂B/∂t | ∮E·dl = −dΦ<sub>B</sub>/dt.",
+   "(4) Ampere–Maxwell law: ∇×H = J + ∂D/∂t | ∮H·dl = I + dΦ<sub>D</sub>/dt. Here D = εE and B = μH.",
+   "<b>Wave equation in free space.</b> In free space ρ = 0, J = 0, D = ε₀E, B = μ₀H. Equations become ∇·E = 0, ∇·B = 0, ∇×E = −∂B/∂t, ∇×B = μ₀ε₀ ∂E/∂t.",
+   "Take the curl of the Faraday equation: ∇×(∇×E) = −∂(∇×B)/∂t = −μ₀ε₀ ∂²E/∂t².",
+   "Using the identity ∇×(∇×E) = ∇(∇·E) − ∇²E = −∇²E (since ∇·E = 0): −∇²E = −μ₀ε₀ ∂²E/∂t² ⇒ <b>∇²E = μ₀ε₀ ∂²E/∂t²</b>.",
+   "Similarly, taking the curl of the Ampere equation gives <b>∇²B = μ₀ε₀ ∂²B/∂t²</b>.",
+   "Compare with the standard wave equation ∇²ψ = (1/v²) ∂²ψ/∂t²: the speed of the wave is v = 1/√(μ₀ε₀).",
+   "<b>Numerical value:</b> μ₀ = 4π × 10<sup>-7</sup> H/m, ε₀ = 8.854 × 10<sup>-12</sup> F/m ⇒ v = 1/√(4π × 10<sup>-7</sup> × 8.854 × 10<sup>-12</sup>) = 2.998 × 10<sup>8</sup> m/s, exactly equal to the measured speed of light c.",
+   "<b>Conclusion.</b> Electric and magnetic fields satisfy the wave equation and travel with speed equal to c, and light shows interference, diffraction, polarisation (transverse waves) – hence light is an electromagnetic wave. In a medium, v = 1/√(με) = c/√(μ<sub>r</sub>ε<sub>r</sub>), giving Maxwell's relation n = √(μ<sub>r</sub>ε<sub>r</sub>)."
+  ],
+  "formulas": [
+   "∇·D = ρ; ∇·B = 0; ∇×E = −∂B/∂t; ∇×H = J + ∂D/∂t",
+   "∇²E = μ₀ε₀ ∂²E/∂t²",
+   "c = 1/√(μ₀ε₀) = 3 × 10⁸ m/s"
+  ]
+ },
+ "Q3.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Plane wave solution E = E₀ e^{i(k·r − ωt)}, B = B₀ e^{i(k·r − ωt)} and operator replacements ∇ → ik, ∂/∂t → −iω",
+    "marks": 2
+   },
+   {
+    "point": "Proof k·E = 0 from ∇·E = 0 (E transverse)",
+    "marks": 2
+   },
+   {
+    "point": "Proof k·B = 0 from ∇·B = 0 (B transverse)",
+    "marks": 2
+   },
+   {
+    "point": "Use of Faraday's law: k × E = ωB ⇒ B ⊥ E and B ⊥ k",
+    "marks": 2
+   },
+   {
+    "point": "Conclusion: mutually perpendicular triad, B = (k̂ × E)/c, E₀ = cB₀",
+    "marks": 1.5
+   },
+   {
+    "point": "Direction of propagation along E × B / Poynting vector",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "In a source-free region (ρ = 0, J = 0) Maxwell's equations are: ∇·E = 0, ∇·B = 0, ∇×E = −∂B/∂t, ∇×B = μ₀ε₀ ∂E/∂t.",
+   "Consider a plane electromagnetic wave travelling along the direction of the wave vector k: E = E₀ e<sup>i(k·r − ωt)</sup>, B = B₀ e<sup>i(k·r − ωt)</sup>. For such solutions, ∇ → ik (so ∇· → ik·, ∇× → ik×) and ∂/∂t → −iω.",
+   "<b>(1) E is transverse.</b> ∇·E = 0 ⇒ i k·E = 0 ⇒ <b>k·E = 0</b>. Hence E is perpendicular to the direction of propagation.",
+   "<b>(2) B is transverse.</b> ∇·B = 0 ⇒ <b>k·B = 0</b>. So B is also perpendicular to the direction of propagation. Thus EM waves are transverse.",
+   "<b>(3) E ⊥ B.</b> From ∇×E = −∂B/∂t: i k×E = −(−iω)B = iωB ⇒ <b>k × E = ωB</b>. … (a) By the property of the cross product, B is perpendicular to both k and E. Hence B·E = 0.",
+   "Similarly, from ∇×B = μ₀ε₀ ∂E/∂t: k×B = −μ₀ε₀ω E. … (b) which shows that E is perpendicular to both k and B (the same conclusion), with k × B antiparallel to E.",
+   "<b>Magnitudes.</b> From (a): |k||E₀| = ω|B₀| ⇒ E₀ = (ω/k)B₀ = cB₀ (since ω/k = c). So E₀/B₀ = c, and the vectors can be written B = (k̂ × E)/c.",
+   "<b>Conclusion.</b> The three vectors E, B and k are mutually perpendicular (E ⊥ B ⊥ k), forming a right-handed orthogonal triad: the wave propagates in the direction of E × B (the Poynting vector S = E × H). E and B oscillate in phase with each other."
+  ],
+  "formulas": [
+   "k·E = 0, k·B = 0",
+   "k × E = ωB",
+   "E₀ = cB₀; B = (k̂ × E)/c"
+  ],
+  "diagram": "Right-handed set of axes with E along x, B along y and k along z; sinusoidal E and B curves in perpendicular planes."
+ },
+ "Q3.5": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Statement: charge conserved; current I = ∮J·dA through closed surface",
+    "marks": 1
+   },
+   {
+    "point": "Rate of decrease of charge −dq/dt = −d/dt∫ρ dV",
+    "marks": 1
+   },
+   {
+    "point": "Equating ∮J·dA = −∫(∂ρ/∂t) dV",
+    "marks": 1
+   },
+   {
+    "point": "Use of divergence theorem ∮J·dA = ∫∇·J dV",
+    "marks": 1
+   },
+   {
+    "point": "Final result ∇·J + ∂ρ/∂t = 0 and meaning",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Principle.</b> Electric charge is conserved: it can neither be created nor destroyed. Hence charge leaving a closed surface must equal the decrease of charge within it.",
+   "Consider a closed surface S enclosing volume V. If J is the current density, the current flowing out through S is I = ∮<sub>S</sub> J·dA.",
+   "The charge inside V is q = ∫<sub>V</sub> ρ dV, and the rate of decrease of charge is −dq/dt = −(d/dt)∫<sub>V</sub> ρ dV = −∫<sub>V</sub> (∂ρ/∂t) dV (V fixed).",
+   "By conservation of charge: ∮<sub>S</sub> J·dA = −∫<sub>V</sub> (∂ρ/∂t) dV. … (1)",
+   "Apply the divergence theorem to the left-hand side: ∮<sub>S</sub> J·dA = ∫<sub>V</sub> (∇·J) dV. … (2)",
+   "From (1) and (2): ∫<sub>V</sub> (∇·J + ∂ρ/∂t) dV = 0. Since the volume V is arbitrary, the integrand must vanish: <b>∇·J + ∂ρ/∂t = 0</b>.",
+   "This is the equation of continuity. For steady currents (∂ρ/∂t = 0) it reduces to ∇·J = 0, i.e. no net charge accumulation; current lines are closed. It also follows from Maxwell's equations by taking the divergence of ∇×H = J + ∂D/∂t."
+  ],
+  "formulas": [
+   "∮J·dA = −dq/dt",
+   "∇·J + ∂ρ/∂t = 0"
+  ]
+ },
+ "Q3.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of Langevin's assumptions (orbiting electron has orbital magnetic moment, no net moment in diamagnetic atom)",
+    "marks": 1.5
+   },
+   {
+    "point": "Larmor's theorem: change in angular velocity Δω = eB/2m (Larmor frequency)",
+    "marks": 2
+   },
+   {
+    "point": "Induced magnetic moment Δμ = −e²r²B/4m (opposing B)",
+    "marks": 2
+   },
+   {
+    "point": "Averaging ⟨ρ²⟩ = ⅔⟨r²⟩ for random orientation and Z electrons per atom",
+    "marks": 1.5
+   },
+   {
+    "point": "Magnetisation M = NΔμ and susceptibility χ = −μ₀NZe²⟨r²⟩/6m",
+    "marks": 2
+   },
+   {
+    "point": "Conclusion: χ negative and independent of temperature (and of B)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Langevin's theory.</b> In a diamagnetic atom, electrons occur in pairs with opposite orbital (and spin) motions, so the net magnetic moment of each atom is zero. When an external magnetic field B is applied, the atom acquires an induced moment opposed to B (Lenz's law).",
+   "Consider an electron of charge e and mass m revolving with angular velocity ω₀ in a circular orbit of radius r about the nucleus (charge Ze). Without a field, the centripetal force is provided by the Coulomb attraction F: F = mω₀²r. … (1)",
+   "When a field B is applied perpendicular to the plane of the orbit, an additional radial Lorentz force ±eBωr acts (inwards or outwards, depending on the sense of rotation), and the angular velocity changes to ω: F ± Beωr = mω²r. … (2)",
+   "Subtract (1) from (2): ± Beωr = m(ω² − ω₀²)r ⇒ m(ω − ω₀)(ω + ω₀) = ±Beω. For a small change ω ≈ ω₀, so ω + ω₀ ≈ 2ω: Δω = ω − ω₀ = ± eB/2m. This is the <b>Larmor frequency</b>: ω<sub>L</sub> = eB/2m (the electron precesses about the field direction). It's the same magnitude for both the senses of rotation, but opposite in sign.",
+   "The orbital magnetic moment is μ = −(e ω r²/2) (current i = eω/2π times area πr²). The change due to field is Δμ = −e r² Δω/2 = <b>−e²r²B/4m</b>. This is negative: opposite to B, the origin of diamagnetism.",
+   "If the orbit's plane is not perpendicular to B, r² is replaced by ρ² = the mean square distance of the electron from the axis through the nucleus parallel to B: ρ² = x² + y². For spherical symmetry, ⟨x²⟩ = ⟨y²⟩ = ⟨z²⟩ = ⅓⟨r²⟩ ⇒ ⟨ρ²⟩ = ⅔⟨r²⟩.",
+   "For an atom with Z electrons: Δμ(atom) = −(Ze²B/4m)·⅔⟨r²⟩ = −Ze²⟨r²⟩B/6m.",
+   "If there are N atoms per unit volume, the magnetisation is M = NΔμ = −NZe²⟨r²⟩B/6m. Since B = μ₀H (χ is small), the susceptibility is <b>χ = M/H = −μ₀NZe²⟨r²⟩/6m</b>.",
+   "<b>Conclusion.</b> (i) χ is negative because induced moment opposes the field. (ii) The expression contains no term in temperature T. The thermal motion of atoms does not change r² (the electrons' orbits), so χ is strictly independent of temperature (and of B) – a characteristic property of diamagnetic materials. Typical values: χ ~ −10<sup>-5</sup>."
+  ],
+  "formulas": [
+   "ω<sub>L</sub> = eB/2m",
+   "Δμ = −e²r²B/4m",
+   "χ = −μ₀NZe²⟨r²⟩/6m"
+  ],
+  "diagram": "Electron orbit of radius r around the nucleus with B perpendicular to the plane; arrows for velocity, force from nucleus and Lorentz force; moment μ and induced Δμ."
+ },
+ "Q3.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Diamagnetism: origin (no permanent dipoles, induced opposing moment), χ<0 small, temperature independent, examples",
+    "marks": 3
+   },
+   {
+    "point": "Paramagnetism: permanent dipoles randomly oriented, partial alignment, χ>0 small, Curie law χ = C/T, examples",
+    "marks": 3
+   },
+   {
+    "point": "Ferromagnetism: domains, exchange interaction, large positive χ, spontaneous magnetisation, Curie–Weiss law, Curie temperature, examples",
+    "marks": 3
+   },
+   {
+    "point": "Comparison/summary (μ<sub>r</sub>, χ values, response to field, hysteresis)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Diamagnetic materials.</b> The atoms have no permanent magnetic dipole moment, since the orbital and spin moments of their electrons cancel in pairs. When placed in a field B, a small moment opposing B is induced in each atom (Lenz's law). Hence the material is feebly repelled by the field (weakly pushed out of a strong field region). <b>χ is small and negative</b> (~ −10<sup>-5</sup>), μ<sub>r</sub> slightly less than 1 (B inside < B outside). <b>χ is independent of temperature.</b> Examples: Bi, Cu, Zn, Au, Ag, water, NaCl. Superconductors are perfectly diamagnetic (χ = −1).",
+   "<b>Paramagnetic materials.</b> The atoms possess permanent magnetic dipole moments (odd number of electrons or unfilled shells), but they are randomly oriented because of thermal motion, so the net magnetisation is zero without a field. In a field, the dipoles partially align along B (against thermal agitation), and the material is weakly attracted. <b>χ is small and positive</b> (10<sup>-5</sup> to 10<sup>-3</sup>) and μ<sub>r</sub> slightly greater than 1. The susceptibility decreases with increasing temperature according to <b>Curie's law χ = C/T</b> (C = Curie constant). Examples: Al, Pt, Mn, Na, O<sub>2</sub>, CuSO<sub>4</sub>.",
+   "<b>Ferromagnetic materials.</b> The atoms have permanent dipoles, and strong quantum-mechanical <i>exchange interaction</i> aligns neighbouring dipoles parallel within small regions called <b>domains</b> (10<sup>-6</sup>–10<sup>-2</sup> cm) even without an external field. Each domain is spontaneously magnetised to saturation but domains are oriented randomly, so the net moment is zero. A weak field causes domain wall movement and domain rotation, resulting in huge magnetisation. <b>χ is large and positive</b> (10²–10⁵) and non-linear; μ<sub>r</sub> ≫ 1; shows hysteresis and saturation. Above the <b>Curie temperature T<sub>c</sub></b> (Fe: 1043 K, Co: 1388 K, Ni: 627 K) thermal agitation destroys the domains and the material becomes paramagnetic, obeying the <b>Curie–Weiss law χ = C/(T − T<sub>c</sub>)</b>. Examples: Fe, Co, Ni, Gd, Alnico.",
+   "<b>Summary of comparison.</b> Diamagnetic: no permanent dipoles, χ < 0, temperature independent. Paramagnetic: permanent dipoles, random, χ > 0 small, χ ∝ 1/T. Ferromagnetic: aligned domains, χ ≫ 0, χ ∝ 1/(T − T<sub>c</sub>) above T<sub>c</sub>, hysteresis."
+  ],
+  "formulas": [
+   "Diamagnetic: χ < 0, independent of T",
+   "Paramagnetic (Curie law): χ = C/T",
+   "Ferromagnetic (Curie–Weiss law): χ = C/(T − T<sub>c</sub>), T > T<sub>c</sub>"
+  ],
+  "diagram": "Three small sketches of dipole arrangements: (a) no dipoles/induced opposite dipoles, (b) random dipoles that align partially, (c) domains with parallel dipoles; and a graph of 1/χ vs T for the three classes."
+ },
+ "Q3.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Domain theory of ferromagnetism (domains, wall movement and rotation)",
+    "marks": 2
+   },
+   {
+    "point": "Hysteresis loop B–H curve described with labelled diagram (origin, saturation, retentivity, coercivity)",
+    "marks": 2.5
+   },
+   {
+    "point": "Definition of retentivity (residual magnetism B<sub>r</sub>) and coercivity (coercive field H<sub>c</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation of energy per unit volume dW = H dB",
+    "marks": 2
+   },
+   {
+    "point": "Area of loop = energy loss per unit volume per cycle (heat); consequences for soft vs hard materials",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Domain theory.</b> A ferromagnetic specimen consists of many domains, each of which is spontaneously magnetised to saturation, but their directions are arranged randomly so that the net magnetisation of an unmagnetised specimen is zero. When an external field H is applied: (i) for weak fields, the domains already favourably oriented grow by the reversible movement of their walls; (ii) in medium fields the wall motion becomes irreversible (jumps); (iii) at high fields the remaining domains <i>rotate</i> to align with H and the specimen saturates.",
+   "<b>Hysteresis loop.</b> Take an unmagnetised specimen (B = 0, H = 0). Increase H: B increases along the initial magnetisation curve OA, up to the saturation at A (all domains aligned). When H is decreased to zero, B does not retrace OA; it falls along AB, leaving residual B<sub>r</sub> (OB) at H = 0. To make B zero, the field has to be reversed to −H<sub>c</sub> (OC). Further increase of reverse field leads to saturation in the opposite direction (D). Returning H to zero gives −B<sub>r</sub> at E, and reversing again via +H<sub>c</sub> (F) completes the closed loop ABCDEFA. The lag of B behind H is called <b>hysteresis</b>.",
+   "<b>Retentivity (remanence):</b> the value of flux density B<sub>r</sub> that remains in the material when the magnetising field is reduced to zero after saturation (OB).",
+   "<b>Coercivity:</b> the magnitude of the reverse magnetising field H<sub>c</sub> that must be applied to reduce the residual magnetisation to zero (OC).",
+   "<b>Energy loss and loop area.</b> Consider a toroid/solenoid of volume V (length l, cross-section A, n turns per unit length, N = nl turns) carrying current i, with core of the ferromagnetic material. If flux density changes by dB in time dt, the induced emf is e = NA dB/dt. Work done by the source against this back-emf in time dt: dW = e i dt = N A (dB/dt) i dt = (n l A)(i) dB = (V)(ni) dB. Since H = ni, <b>dW = V H dB</b> (joule). So work per unit volume dw = H dB.",
+   "For one complete cycle, the work done per unit volume is w = ∮H dB, which is exactly the <b>area enclosed by the B–H loop</b> (since H dB is an element of area). This energy is not recovered; it is dissipated as heat in the specimen by the friction of domain-wall motion.",
+   "Hence <b>energy loss per unit volume per cycle = area of the hysteresis loop</b> (J/m³/cycle). The power loss P = (loop area) × f × V.",
+   "<b>Consequences.</b> Soft magnetic materials (soft iron, silicon steel) have narrow loops – small coercivity and low loss – used in transformer cores and electromagnets. Hard magnetic materials (steel, Alnico) have wide loops – high retentivity and coercivity – used for permanent magnets."
+  ],
+  "formulas": [
+   "dW = V H dB",
+   "Energy loss per cycle per unit volume = ∮H dB = area of B–H loop"
+  ],
+  "diagram": "B–H loop with axes H (horizontal) and B (vertical): origin O, initial curve OA to saturation, B<sub>r</sub> on the B-axis (retentivity), −H<sub>c</sub> on the H-axis (coercivity), saturation points ±A, closed loop shaded (area = energy loss per cycle)."
+ },
+ "Q3.9": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Poynting vector = power per unit area S = P/4πR²",
+    "marks": 2
+   },
+   {
+    "point": "Substitution with correct data (R = 7 × 10⁸ m)",
+    "marks": 1.5
+   },
+   {
+    "point": "Numerical calculation 4πR² = 6.16 × 10¹⁸ m²",
+    "marks": 1
+   },
+   {
+    "point": "Answer 6.17 × 10⁷ W/m² with units",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> P = 3.8 × 10<sup>26</sup> W, R = 7 × 10<sup>8</sup> m.",
+   "<b>Principle:</b> the sun radiates uniformly in all directions. The magnitude of the Poynting vector at its surface is the power per unit area: S = P/(4πR²).",
+   "<b>Surface area:</b> 4πR² = 4π × (7 × 10<sup>8</sup>)² = 4π × 4.9 × 10<sup>17</sup> = 6.157 × 10<sup>18</sup> m².",
+   "<b>S</b> = 3.8 × 10<sup>26</sup> / 6.157 × 10<sup>18</sup> = <b>6.17 × 10<sup>7</sup> W/m²</b>, directed radially outwards."
+  ],
+  "formulas": [
+   "S = P/(4πR²)"
+  ],
+  "result": "S ≈ 6.17 × 10⁷ W/m² (radially outward)"
+ },
+ "Q3.10": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Relation I = S<sub>avg</sub> = ½ε₀cE₀²",
+    "marks": 1.5
+   },
+   {
+    "point": "Rearrangement E₀ = √(2I/ε₀c)",
+    "marks": 1
+   },
+   {
+    "point": "Substitution I = 1365 W/m², ε₀ = 8.85 × 10⁻¹² F/m, c = 3 × 10⁸ m/s and E₀ ≈ 1014 V/m",
+    "marks": 1.5
+   },
+   {
+    "point": "B₀ = E₀/c = 3.38 × 10⁻⁶ T",
+    "marks": 0.75
+   },
+   {
+    "point": "Units and final answer",
+    "marks": 0.25
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> I = 1365 W/m² (note 2 cal min<sup>-1</sup> cm<sup>-2</sup> = 2 × 4.18 / 60 × 10⁴ ≈ 1393 W/m², given as 1365 W/m²). ε₀ = 8.85 × 10<sup>-12</sup> F/m, c = 3 × 10⁸ m/s.",
+   "<b>Intensity of a plane EM wave</b> (time-averaged Poynting vector) I = ½ε₀cE₀² = E₀B₀/2μ₀.",
+   "<b>Peak electric field:</b> E₀ = √(2I/ε₀c) = √(2 × 1365 / (8.85 × 10<sup>-12</sup> × 3 × 10<sup>8</sup>)) = √(2730 / 2.655 × 10<sup>-3</sup>) = √(1.028 × 10<sup>6</sup>) ≈ 1.01 × 10<sup>3</sup> V/m.",
+   "<b>Peak magnetic field:</b> B₀ = E₀/c = 1014 / (3 × 10<sup>8</sup>) = 3.38 × 10<sup>-6</sup> T (≈ 3.4 μT)."
+  ],
+  "formulas": [
+   "I = ½ε₀cE₀²",
+   "B₀ = E₀/c"
+  ],
+  "result": "E₀ ≈ 1.01 × 10³ V/m; B₀ ≈ 3.4 × 10⁻⁶ T"
+ },
+ "Q3.11": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Spherical wave: intensity I = P/4πr²",
+    "marks": 2
+   },
+   {
+    "point": "Substitution r = 2 m, P = 100 W: I = 1.99 W/m²",
+    "marks": 2
+   },
+   {
+    "point": "Relation I = ½ε₀cE₀² and E₀ = √(2I/ε₀c)",
+    "marks": 2
+   },
+   {
+    "point": "Calculation of E₀ ≈ 38.7 V/m",
+    "marks": 1.5
+   },
+   {
+    "point": "Magnetic field B₀ = E₀/c = 1.29 × 10⁻⁷ T",
+    "marks": 1.5
+   },
+   {
+    "point": "Statement of assumptions (100 W entirely radiated as EM energy; peak vs rms) with units",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Assumption:</b> the whole 100 W is radiated as electromagnetic waves uniformly in all directions (an isotropic point source). (Actually only a few percent of a bulb's power is visible light; the question asks us to ignore this.)",
+   "<b>Given:</b> P = 100 W, r = 2 m, ε₀ = 8.854 × 10<sup>-12</sup> F/m, c = 3 × 10⁸ m/s.",
+   "<b>Intensity at distance r:</b> I = P/4πr² = 100/(4π × 2²) = 100/50.27 = 1.989 W/m².",
+   "<b>Electric field:</b> I = ½ε₀cE₀² ⇒ E₀ = √(2I/ε₀c) = √(2 × 1.989 / (8.854 × 10<sup>-12</sup> × 3 × 10<sup>8</sup>)) = √(3.978 / 2.656 × 10<sup>-3</sup>) = √1497.7 = 38.7 V/m (peak value).",
+   "The rms value is E<sub>rms</sub> = E₀/√2 = 27.4 V/m.",
+   "<b>Magnetic field:</b> B₀ = E₀/c = 38.7 / (3 × 10<sup>8</sup>) = 1.29 × 10<sup>-7</sup> T. (rms: 9.1 × 10<sup>-8</sup> T). Equivalent magnetic field intensity H₀ = B₀/μ₀ = 0.103 A/m.",
+   "Check: E₀B₀/(2μ₀) = 38.7 × 1.29 × 10<sup>-7</sup> / (2 × 4π × 10<sup>-7</sup>) = 1.99 W/m² ✓."
+  ],
+  "formulas": [
+   "I = P/4πr²",
+   "E₀ = √(2I/ε₀c)",
+   "B₀ = E₀/c"
+  ],
+  "result": "I ≈ 1.99 W/m²; E₀ ≈ 38.7 V/m (E<sub>rms</sub> ≈ 27.4 V/m); B₀ ≈ 1.29 × 10⁻⁷ T"
+ },
+ "Q3.12": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Formula M = χH",
+    "marks": 1.5
+   },
+   {
+    "point": "Substitution: M = −5 × 10⁻⁵ × 10 = −5 × 10⁻⁴ A/m",
+    "marks": 1.25
+   },
+   {
+    "point": "Formula B = μ₀(H + M) = μ₀H(1 + χ)",
+    "marks": 1.25
+   },
+   {
+    "point": "Substitution and calculation B = 1.2566 × 10⁻⁵ T",
+    "marks": 0.75
+   },
+   {
+    "point": "Units and sign (opposite to H)",
+    "marks": 0.25
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> H = 10 A/m, χ = −5 × 10<sup>-5</sup>, μ₀ = 4π × 10<sup>-7</sup> H/m.",
+   "<b>Magnetisation:</b> M = χH = (−5 × 10<sup>-5</sup>)(10) = <b>−5 × 10<sup>-4</sup> A/m</b> (negative: opposite to H, as in a diamagnetic).",
+   "<b>Flux density:</b> B = μ₀(H + M) = μ₀H(1 + χ) = 4π × 10<sup>-7</sup> × 10 × (1 − 5 × 10<sup>-5</sup>).",
+   "B = 1.2566 × 10<sup>-5</sup> × 0.99995 = <b>1.2566 × 10<sup>-5</sup> T</b> (practically μ₀H, slightly less)."
+  ],
+  "formulas": [
+   "M = χH",
+   "B = μ₀(H + M) = μ₀(1 + χ)H"
+  ],
+  "result": "M = −5 × 10⁻⁴ A/m; B ≈ 1.257 × 10⁻⁵ T"
+ },
+ "Q3.13": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Writing r = √(x² + y² + z²) and ∂r/∂x = x/r",
+    "marks": 1
+   },
+   {
+    "point": "Derivation ∇(rⁿ) = n r<sup>n−2</sup> r⃗",
+    "marks": 1.5
+   },
+   {
+    "point": "Setting up ∇·(rⁿ r⃗) = Σ ∂(rⁿ x)/∂x",
+    "marks": 1
+   },
+   {
+    "point": "Evaluation of derivative terms: 3rⁿ + n rⁿ",
+    "marks": 1
+   },
+   {
+    "point": "Final results ∇(rⁿ) = n r<sup>n−2</sup> r⃗; ∇·(rⁿr⃗) = (n + 3)rⁿ",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> r⃗ = x î + y ĵ + z k̂, r = √(x² + y² + z²), so ∂r/∂x = x/r, ∂r/∂y = y/r, ∂r/∂z = z/r.",
+   "<b>(i) Gradient of rⁿ:</b> ∇(rⁿ) = î ∂rⁿ/∂x + ĵ ∂rⁿ/∂y + k̂ ∂rⁿ/∂z. Now ∂rⁿ/∂x = n r<sup>n−1</sup> ∂r/∂x = n r<sup>n−1</sup> (x/r) = n r<sup>n−2</sup> x. Similarly for y and z.",
+   "Therefore ∇(rⁿ) = n r<sup>n−2</sup> (x î + y ĵ + z k̂) = <b>n r<sup>n−2</sup> r⃗</b>.",
+   "<b>(ii) Divergence of rⁿ r⃗:</b> ∇·(rⁿ r⃗) = ∂(rⁿ x)/∂x + ∂(rⁿ y)/∂y + ∂(rⁿ z)/∂z.",
+   "∂(rⁿ x)/∂x = rⁿ + x · n r<sup>n−2</sup> x = rⁿ + n r<sup>n−2</sup> x². Similarly for y and z.",
+   "Adding: ∇·(rⁿ r⃗) = 3rⁿ + n r<sup>n−2</sup>(x² + y² + z²) = 3rⁿ + n r<sup>n−2</sup> r² = 3rⁿ + n rⁿ = <b>(n + 3) rⁿ</b>.",
+   "Check: for n = 0, ∇·r⃗ = 3; for n = −3, ∇·(r⃗/r³) = 0 (r ≠ 0) – the inverse-square field is divergence-free."
+  ],
+  "formulas": [
+   "∇(rⁿ) = n r<sup>n−2</sup> r⃗",
+   "∇·(rⁿ r⃗) = (n + 3) rⁿ"
+  ],
+  "result": "∇(rⁿ) = n r^(n−2) r⃗; ∇·(rⁿ r⃗) = (n+3) rⁿ"
+ },
+ "Q4.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Setting up TISE inside the box (V = 0): d²ψ/dx² + k²ψ = 0, k² = 2mE/ħ²; V = ∞ outside ⇒ ψ = 0",
+    "marks": 2
+   },
+   {
+    "point": "General solution ψ = A sin kx + B cos kx",
+    "marks": 1
+   },
+   {
+    "point": "Boundary conditions ψ(0) = 0 ⇒ B = 0; ψ(L) = 0 ⇒ kL = nπ",
+    "marks": 2
+   },
+   {
+    "point": "Energy eigenvalues E<sub>n</sub> = n²h²/8mL² (n = 1, 2, …; n = 0 rejected)",
+    "marks": 2
+   },
+   {
+    "point": "Normalisation ∫|ψ|²dx = 1 ⇒ A = √(2/L) and ψ<sub>n</sub>(x)",
+    "marks": 2
+   },
+   {
+    "point": "Discussion: quantisation, zero-point energy, nodes, probability density, diagram",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>The problem.</b> A particle of mass m moves freely in one dimension between two impenetrable walls: V(x) = 0 for 0 < x < L and V(x) = ∞ for x ≤ 0 and x ≥ L. The particle cannot be found outside the box, so ψ(x) = 0 for x ≤ 0 and x ≥ L.",
+   "<b>Schrödinger equation inside the box</b> (V = 0): −(ħ²/2m) d²ψ/dx² = Eψ ⇒ d²ψ/dx² + k²ψ = 0, where <b>k² = 2mE/ħ²</b>. … (1)",
+   "<b>General solution:</b> ψ(x) = A sin kx + B cos kx. … (2)",
+   "<b>Boundary conditions</b> (ψ continuous at the walls): (i) ψ(0) = 0 ⇒ A·0 + B·1 = 0 ⇒ B = 0. So ψ = A sin kx. (ii) ψ(L) = 0 ⇒ A sin kL = 0. A ≠ 0 (otherwise ψ ≡ 0), so sin kL = 0 ⇒ <b>kL = nπ</b>, i.e. k = nπ/L, n = 1, 2, 3, …",
+   "(n = 0 gives ψ = 0 everywhere: no particle, and negative n gives the same states with change of sign, so they are excluded.)",
+   "<b>Energy eigenvalues.</b> From k² = 2mE/ħ² with k = nπ/L: E<sub>n</sub> = ħ²k²/2m = ħ²n²π²/(2mL²). Using ħ = h/2π: <b>E<sub>n</sub> = n²h²/(8mL²)</b>, n = 1, 2, 3, …. The energy is quantised: E<sub>1</sub> = h²/8mL² (ground state; zero-point energy), E<sub>2</sub> = 4E<sub>1</sub>, E<sub>3</sub> = 9E<sub>1</sub>, etc.",
+   "<b>Normalisation.</b> The particle must be somewhere inside the box: ∫<sub>0</sub><sup>L</sup> |ψ|² dx = 1 ⇒ A² ∫<sub>0</sub><sup>L</sup> sin²(nπx/L) dx = 1.",
+   "∫<sub>0</sub><sup>L</sup> sin²(nπx/L) dx = ½∫<sub>0</sub><sup>L</sup> [1 − cos(2nπx/L)] dx = L/2. So A²·L/2 = 1 ⇒ <b>A = √(2/L)</b>.",
+   "<b>Eigenfunctions:</b> <b>ψ<sub>n</sub>(x) = √(2/L) sin(nπx/L)</b>, for 0 < x < L.",
+   "<b>Discussion.</b> (i) The eigenfunctions are orthonormal, with (n − 1) nodes inside the box. (ii) The probability density P<sub>n</sub> = (2/L) sin²(nπx/L): for n = 1 it is maximum at the centre; for higher n it has n maxima. Classically, it would be uniform. (iii) Lowest energy is non-zero (E<sub>1</sub> = h²/8mL²) in contrast to classical mechanics – consequence of the uncertainty principle (Δx ≈ L). (iv) Energy spacing E<sub>n+1</sub> − E<sub>n</sub> = (2n + 1)E<sub>1</sub> becomes negligible for large L or m, recovering classical continuous values (correspondence principle)."
+  ],
+  "formulas": [
+   "d²ψ/dx² + k²ψ = 0, k² = 2mE/ħ²",
+   "k = nπ/L",
+   "E<sub>n</sub> = n²h²/8mL²",
+   "ψ<sub>n</sub>(x) = √(2/L) sin(nπx/L)"
+  ],
+  "diagram": "Infinite square well from x = 0 to x = L with energy levels E₁, 4E₁, 9E₁ and the first three wave functions ψ₁, ψ₂, ψ₃ (and optionally |ψ|²) drawn on each level, with nodes marked."
+ },
+ "Q4.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of the Compton effect (scattering of X-rays by free electrons with increase in wavelength)",
+    "marks": 1.5
+   },
+   {
+    "point": "Labelled diagram: incident photon, scattered photon at θ, recoil electron at φ",
+    "marks": 1.5
+   },
+   {
+    "point": "Conservation of energy and momentum (x and y components) with relativistic mass",
+    "marks": 2
+   },
+   {
+    "point": "Algebraic elimination of φ and v to obtain Δλ = (h/m₀c)(1 − cos θ)",
+    "marks": 2.5
+   },
+   {
+    "point": "Compton wavelength h/m₀c = 0.0243 Å; Δλ<sub>max</sub> = 2h/m₀c at 180°",
+    "marks": 0.5
+   },
+   {
+    "point": "Unobservable with visible light (Δλ/λ ~ 10⁻⁵)",
+    "marks": 1
+   },
+   {
+    "point": "Origin of the unmodified peak (scattering from tightly bound electrons / whole atom)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Compton effect.</b> When a monochromatic beam of X-rays (or γ-rays) of wavelength λ is scattered by a free (loosely bound) electron, the scattered radiation contains, besides the original wavelength, a longer wavelength λ′ whose shift depends only on the scattering angle θ. This is Compton scattering; it demonstrates the particle nature of radiation.",
+   "<b>Model.</b> A photon of energy hν = hc/λ and momentum h/λ collides with a free electron of rest mass m₀ at rest. After the collision the photon goes off at angle θ with energy hν′ and momentum h/λ′ and the electron recoils with velocity v at angle φ, with relativistic mass m = m₀/√(1 − v²/c²).",
+   "<b>Conservation of energy:</b> hν + m₀c² = hν′ + mc². … (1)",
+   "<b>Conservation of momentum:</b> along the incident direction: h/λ = (h/λ′) cos θ + mv cos φ … (2); perpendicular: 0 = (h/λ′) sin θ − mv sin φ … (3).",
+   "<b>Elimination of φ:</b> write (2) and (3) as mv cos φ = (hν/c) − (hν′/c) cos θ and mv sin φ = (hν′/c) sin θ. Squaring and adding: m²v²c² = (hν)² + (hν′)² − 2(hν)(hν′) cos θ. … (4)",
+   "<b>From (1):</b> mc² = hν − hν′ + m₀c². Squaring: m²c⁴ = (hν − hν′)² + 2m₀c²(hν − hν′) + m₀²c⁴. … (5)",
+   "Since m²c⁴ − m²v²c² = m₀²c⁴, subtract (4) from (5): (hν − hν′)² + 2m₀c²h(ν − ν′) − [(hν)² + (hν′)² − 2h²νν′ cos θ] = 0.",
+   "Expanding: −2h²νν′ + 2m₀c²h(ν − ν′) + 2h²νν′ cos θ = 0 ⇒ m₀c²(ν − ν′) = hνν′(1 − cos θ).",
+   "Divide by νν′ and use ν = c/λ: m₀c²(1/ν′ − 1/ν) = h(1 − cos θ) ⇒ m₀c(λ′ − λ) = h(1 − cos θ). Hence <b>Δλ = λ′ − λ = (h/m₀c)(1 − cos θ)</b>. The quantity h/m₀c = 2.43 × 10<sup>-12</sup> m = 0.0243 Å is the Compton wavelength of the electron. The shift is 0 at θ = 0, and maximum 2h/m₀c = 0.0485 Å at θ = 180°.",
+   "<b>Why unobservable with visible light.</b> Δλ is independent of λ and has a maximum of about 0.05 Å. For visible light λ ≈ 5000 Å, Δλ/λ ≈ 10<sup>-5</sup>, which is too small to be detected. For X-rays (λ ≈ 0.5–1 Å) the fractional change is ~ 5 %, easily measured. Also the photon energy of visible light (~ 2 eV) is comparable to the binding energy of electrons, so electrons are not free.",
+   "<b>Unmodified peak.</b> Besides the shifted line, the scattered X-rays also show a peak at the original wavelength λ. It arises from collisions of photons with tightly bound inner electrons: the recoil momentum is absorbed by the whole atom (mass M ≫ m₀), so the shift Δλ = h/(Mc)(1 − cos θ) is negligible (~ 10<sup>-5</sup> times smaller). It is more intense for heavy atoms and for lower photon energies."
+  ],
+  "formulas": [
+   "hν + m₀c² = hν′ + mc²",
+   "Δλ = λ′ − λ = (h/m₀c)(1 − cos θ)",
+   "λ<sub>C</sub> = h/m₀c = 0.0243 Å"
+  ],
+  "diagram": "Incident photon (λ) along +x hits an electron at rest at the origin; scattered photon (λ′) at angle θ above the axis, recoil electron at angle φ below the axis; momentum triangle optional."
+ },
+ "Q4.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of uncertainty principle Δx·Δp ≥ ħ/2 (and meaning)",
+    "marks": 2
+   },
+   {
+    "point": "Nuclear dimension Δx ≈ 10⁻¹⁴ m as the position uncertainty",
+    "marks": 1.5
+   },
+   {
+    "point": "Calculation of minimum Δp = ħ/2Δx ≈ 5.3 × 10⁻²¹ kg m/s",
+    "marks": 2
+   },
+   {
+    "point": "Energy using relativistic relation E ≈ pc ≈ 9.9 MeV (and why non-relativistic form is invalid)",
+    "marks": 2
+   },
+   {
+    "point": "Comparison with observed β-decay electron energies (≈ 3–4 MeV maximum) and binding energy",
+    "marks": 1.5
+   },
+   {
+    "point": "Conclusion: electrons cannot be confined in nucleus",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Statement.</b> It is impossible to determine simultaneously and exactly both the position and the momentum of a particle; the product of the uncertainties in the position Δx and momentum Δp is at least ħ/2: <b>Δx·Δp ≥ ħ/2</b> (ħ = h/2π = 1.055 × 10<sup>-34</sup> J s). The same holds for energy and time ΔE·Δt ≥ ħ/2. The limitation is a fundamental property of matter waves, not an instrumental defect.",
+   "<b>Application to the nucleus.</b> Suppose an electron were to exist inside a nucleus. The nuclear radius is about 10<sup>-14</sup> m, so the electron's position is uncertain by Δx ≈ 10<sup>-14</sup> m (diameter 2 × 10<sup>-14</sup> m would give half this momentum).",
+   "<b>Minimum momentum:</b> Δp ≥ ħ/2Δx = 1.055 × 10<sup>-34</sup> / (2 × 10<sup>-14</sup>) = 5.3 × 10<sup>-21</sup> kg m/s. The actual momentum must be at least of this order: p ≳ Δp.",
+   "<b>Energy of the electron:</b> if we use the non-relativistic formula K = p²/2m = (5.3 × 10<sup>-21</sup>)²/(2 × 9.1 × 10<sup>-31</sup>) = 1.5 × 10<sup>-11</sup> J ≈ 96 MeV, which is huge, indicating that the electron is highly relativistic, so we use E ≈ pc (since pc ≫ m₀c² = 0.511 MeV): E ≈ 5.3 × 10<sup>-21</sup> × 3 × 10<sup>8</sup> = 1.6 × 10<sup>-12</sup> J = 1.6 × 10<sup>-12</sup>/1.6 × 10<sup>-19</sup> eV ≈ <b>9.9 MeV</b> (≈ 10 MeV).",
+   "<b>Comparison with experiment.</b> The electrons emitted in β-decay by radioactive nuclei have kinetic energies of a few MeV only (maximum about 3–4 MeV). An electron with ≥ 10 MeV energy would not be bound by the nucleus: the electrostatic potential energy of an electron in the field of the nucleus (a few MeV–tens of MeV at best) cannot keep it confined within such a small size.",
+   "<b>Conclusion.</b> According to the uncertainty principle, an electron confined within a nucleus would need energy of about 10 MeV, much larger than any observed energy of β-electrons; therefore electrons cannot exist as permanent constituents of the nucleus. The β-electrons are created at the instant of decay (n → p + e⁻ + ν̄). In contrast, protons and neutrons (mass ~ 1836 m<sub>e</sub>) confined within the nucleus have K ≈ p²/2M ≈ 0.5–1 MeV, which is comparable to nuclear binding energies per nucleon; so they can exist."
+  ],
+  "formulas": [
+   "Δx·Δp ≥ ħ/2",
+   "Δp ≈ ħ/2Δx",
+   "E ≈ pc ≈ 9.9 MeV for Δx = 10⁻¹⁴ m"
+  ]
+ },
+ "Q4.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Wave function of a free particle Ψ = Ae^{i(kx − ωt)} with p = ħk, E = ħω",
+    "marks": 2
+   },
+   {
+    "point": "Derivation of operators: ∂²Ψ/∂x² = −k²Ψ, ∂Ψ/∂t = −iωΨ",
+    "marks": 1.5
+   },
+   {
+    "point": "Use of E = p²/2m + V to obtain the TDSE iħ∂Ψ/∂t = −(ħ²/2m)∇²Ψ + VΨ",
+    "marks": 2
+   },
+   {
+    "point": "Separation of variables Ψ = ψ(x)e^{−iEt/ħ} leading to TISE −(ħ²/2m)d²ψ/dx² + Vψ = Eψ",
+    "marks": 2
+   },
+   {
+    "point": "Boundary conditions on ψ (finite, single-valued, continuous, continuous derivative, normalisable)",
+    "marks": 2
+   },
+   {
+    "point": "Physical meaning of |Ψ|² as probability density",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Starting point.</b> A free particle of momentum p and energy E is associated with the de Broglie matter wave Ψ(x, t) = A e<sup>i(kx − ωt)</sup> with p = ħk (k = 2π/λ) and E = ħω.",
+   "Differentiating twice with respect to x: ∂²Ψ/∂x² = −k²Ψ = −(p²/ħ²)Ψ ⇒ p²Ψ = −ħ² ∂²Ψ/∂x². … (1)",
+   "Differentiating with respect to t: ∂Ψ/∂t = −iωΨ = −i(E/ħ)Ψ ⇒ EΨ = iħ ∂Ψ/∂t. … (2)",
+   "<b>Energy equation.</b> For a particle in a potential V(x, t): E = p²/2m + V. Multiply by Ψ: EΨ = (p²/2m)Ψ + VΨ. … (3)",
+   "Substituting (1) and (2) in (3): <b>iħ ∂Ψ/∂t = −(ħ²/2m) ∂²Ψ/∂x² + VΨ</b>. In three dimensions iħ ∂Ψ/∂t = −(ħ²/2m)∇²Ψ + VΨ (<b>time-dependent Schrödinger equation</b>, TDSE), or iħ∂Ψ/∂t = ĤΨ with Ĥ = −(ħ²/2m)∇² + V.",
+   "<b>Time-independent equation.</b> When V depends only on position, separate variables: Ψ(x, t) = ψ(x) φ(t). Substituting in TDSE and dividing by ψφ: iħ (1/φ) dφ/dt = −(ħ²/2m)(1/ψ) d²ψ/dx² + V(x). The left side depends on t only, and the right on x only, so both equal a constant E.",
+   "Time part: dφ/dt = −iEφ/ħ ⇒ φ = e<sup>−iEt/ħ</sup>. Space part: <b>−(ħ²/2m) d²ψ/dx² + Vψ = Eψ</b>, i.e. <b>d²ψ/dx² + (2m/ħ²)(E − V)ψ = 0</b> – the <b>time-independent Schrödinger equation (TISE)</b>; in 3-D: ∇²ψ + (2m/ħ²)(E − V)ψ = 0. The stationary-state solution is Ψ = ψ(x) e<sup>−iEt/ħ</sup>, with a time-independent probability density |Ψ|² = |ψ|².",
+   "<b>Boundary conditions (acceptable wave function).</b> (i) ψ must be single-valued; (ii) ψ must be finite everywhere; (iii) ψ must be continuous everywhere; (iv) its first derivative dψ/dx must be continuous wherever V is finite; (v) ψ must be normalisable, i.e. ψ → 0 as x → ±∞ so that ∫|ψ|² dV = 1 (square integrable).",
+   "<b>Physical meaning.</b> |Ψ|² dV is the probability of finding the particle in the volume dV; Ψ itself has no direct meaning."
+  ],
+  "formulas": [
+   "iħ ∂Ψ/∂t = −(ħ²/2m)∇²Ψ + VΨ",
+   "∇²ψ + (2m/ħ²)(E − V)ψ = 0",
+   "Ψ = ψ(x)e^{−iEt/ħ}"
+  ]
+ },
+ "Q4.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of phase velocity v<sub>p</sub> = ω/k and group velocity v<sub>g</sub> = dω/dk, with wave packet idea",
+    "marks": 2
+   },
+   {
+    "point": "Derivation of Rayleigh's relation v<sub>g</sub> = v<sub>p</sub> − λ dv<sub>p</sub>/dλ",
+    "marks": 2.5
+   },
+   {
+    "point": "de Broglie wave: ω = E/ħ, k = p/ħ and v<sub>p</sub> = c²/v > c",
+    "marks": 2
+   },
+   {
+    "point": "v<sub>g</sub> = dω/dk = dE/dp = v using E² = p²c² + m₀²c⁴",
+    "marks": 2
+   },
+   {
+    "point": "Relation v<sub>p</sub>v<sub>g</sub> = c² and physical interpretation",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Phase velocity.</b> The velocity with which a point of constant phase of a monochromatic wave moves is v<sub>p</sub> = ω/k = νλ.",
+   "<b>Group velocity.</b> A particle is represented by a wave packet (group), a superposition of waves of slightly different k and ω. The velocity with which the envelope of the packet (and hence the energy) travels is <b>v<sub>g</sub> = dω/dk</b>.",
+   "<b>Rayleigh's relation.</b> ω = v<sub>p</sub>k ⇒ v<sub>g</sub> = dω/dk = d(v<sub>p</sub>k)/dk = v<sub>p</sub> + k dv<sub>p</sub>/dk. With k = 2π/λ, dk = −(2π/λ²) dλ so k dv<sub>p</sub>/dk = (2π/λ)·dv<sub>p</sub>/[−(2π/λ²) dλ] = −λ dv<sub>p</sub>/dλ. Hence <b>v<sub>g</sub> = v<sub>p</sub> − λ dv<sub>p</sub>/dλ</b>. In a non-dispersive medium dv<sub>p</sub>/dλ = 0 and v<sub>g</sub> = v<sub>p</sub>.",
+   "<b>de Broglie wave of a particle.</b> For a particle of mass m (relativistic) and speed v: energy E = mc² = ħω ⇒ ω = mc²/ħ; momentum p = mv = ħk ⇒ k = mv/ħ.",
+   "<b>Phase velocity:</b> v<sub>p</sub> = ω/k = (mc²/ħ)/(mv/ħ) = <b>c²/v</b>. Since v < c, <b>v<sub>p</sub> > c</b>. This is not a contradiction with relativity, because the phase velocity carries no energy or information.",
+   "<b>Group velocity:</b> E² = p²c² + m₀²c⁴ ⇒ 2E dE = 2pc² dp ⇒ dE/dp = pc²/E = (mv)c²/(mc²) = v. Since ω = E/ħ and k = p/ħ: <b>v<sub>g</sub> = dω/dk = dE/dp = v</b>, the particle velocity.",
+   "<b>Relation:</b> v<sub>p</sub> · v<sub>g</sub> = (c²/v) · v = c². The wave packet therefore travels with the particle speed (v<sub>g</sub> = v < c), consistent with relativity, while the individual waves (phase) move faster than light."
+  ],
+  "formulas": [
+   "v<sub>p</sub> = ω/k",
+   "v<sub>g</sub> = dω/dk",
+   "v<sub>g</sub> = v<sub>p</sub> − λ dv<sub>p</sub>/dλ",
+   "v<sub>p</sub> = c²/v, v<sub>g</sub> = v, v<sub>p</sub>v<sub>g</sub> = c²"
+  ]
+ },
+ "Q4.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "de Broglie hypothesis λ = h/p",
+    "marks": 1.5
+   },
+   {
+    "point": "Relativistic energy relation E² = p²c² + m₀²c⁴",
+    "marks": 2
+   },
+   {
+    "point": "Kinetic energy K = qV = E − m₀c², hence p²c² = K² + 2Km₀c²",
+    "marks": 2
+   },
+   {
+    "point": "Result λ = hc/√(K(K + 2m₀c²))",
+    "marks": 2
+   },
+   {
+    "point": "Conversion to λ = h/√(2m₀qV(1 + qV/2m₀c²))",
+    "marks": 1.5
+   },
+   {
+    "point": "Non-relativistic limit λ = h/√(2m₀qV) = 12.27/√V Å",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>de Broglie hypothesis.</b> A particle of momentum p has an associated wavelength <b>λ = h/p</b>.",
+   "<b>Relativistic relations.</b> For a particle of rest mass m₀ the total energy is E = K + m₀c², where K is the kinetic energy. The energy–momentum relation is E² = p²c² + m₀²c⁴. … (1)",
+   "When a particle of charge q is accelerated through potential difference V from rest, K = qV. … (2)",
+   "From (1): p²c² = E² − m₀²c⁴ = (K + m₀c²)² − m₀²c⁴ = K² + 2Km₀c² = K(K + 2m₀c²). … (3)",
+   "Therefore p = √(K(K + 2m₀c²))/c, and <b>λ = h/p = hc/√(K(K + 2m₀c²))</b>. … (4)",
+   "<b>In terms of V.</b> Writing K(K + 2m₀c²) = 2m₀c² K (1 + K/2m₀c²) and K = qV: p²c² = 2m₀c² qV (1 + qV/2m₀c²) ⇒ p = √(2m₀qV(1 + qV/2m₀c²)).",
+   "Hence <b>λ = h/√(2m₀qV(1 + qV/(2m₀c²)))</b>. … (5)",
+   "<b>Non-relativistic limit.</b> If qV ≪ 2m₀c² (e.g. electron with V ≪ 10⁶ V), the correction factor → 1 and λ = h/√(2m₀qV). For an electron, λ = 12.27/√V Å. For example, V = 100 V gives λ = 1.227 Å.",
+   "<b>Relativistic correction.</b> For electrons accelerated through 100 kV, K = 0.1 MeV, m₀c² = 0.511 MeV, the factor (1 + K/2m₀c²) = 1.098 reduces λ by about 5 % from the non-relativistic value (3.88 pm vs 3.70 pm); thus this correction is necessary for the electron microscope."
+  ],
+  "formulas": [
+   "E² = p²c² + m₀²c⁴",
+   "λ = hc/√(K(K + 2m₀c²))",
+   "λ = h/√(2m₀qV(1 + qV/2m₀c²))"
+  ]
+ },
+ "Q4.7": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Ground-state wave function ψ₁ = √(2/L) sin(πx/L)",
+    "marks": 1
+   },
+   {
+    "point": "Probability P = ∫|ψ₁|²dx between limits 0.2L and 0.6L",
+    "marks": 1
+   },
+   {
+    "point": "Use sin²θ = (1 − cos 2θ)/2 and integration to P = [x/L − sin(2πx/L)/2π]",
+    "marks": 1.5
+   },
+   {
+    "point": "Correct substitution of limits and trigonometric values",
+    "marks": 1
+   },
+   {
+    "point": "Answer P ≈ 0.645 (64.5 %)",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Ground state (n = 1):</b> ψ₁(x) = √(2/L) sin(πx/L), probability density |ψ₁|² = (2/L) sin²(πx/L).",
+   "<b>Probability:</b> P = ∫<sub>0.2L</sub><sup>0.6L</sup> (2/L) sin²(πx/L) dx = (1/L)∫ [1 − cos(2πx/L)] dx = [x/L − (1/2π) sin(2πx/L)]<sub>0.2L</sub><sup>0.6L</sup>.",
+   "Put x = 0.6L: 0.6 − (1/2π) sin(1.2π) = 0.6 − (1/2π)(−0.5878) = 0.6 + 0.09355 = 0.6936.",
+   "Put x = 0.2L: 0.2 − (1/2π) sin(0.4π) = 0.2 − (1/2π)(0.9511) = 0.2 − 0.15137 = 0.04863.",
+   "P = 0.6936 − 0.0486 = <b>0.645</b>, i.e. about 64.5 % chance."
+  ],
+  "formulas": [
+   "P = ∫|ψ₁|²dx = [x/L − sin(2πx/L)/2π]"
+  ],
+  "result": "P ≈ 0.645 (64.5 %)"
+ },
+ "Q4.8": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Compton shift formula Δλ = (h/m₀c)(1 − cos θ)",
+    "marks": 1.5
+   },
+   {
+    "point": "Value h/m₀c = 0.0243 Å",
+    "marks": 1
+   },
+   {
+    "point": "Substitution θ = 60°, 1 − cos 60° = 0.5; Δλ = 0.01213 Å",
+    "marks": 1.5
+   },
+   {
+    "point": "λ′ = λ + Δλ",
+    "marks": 0.5
+   },
+   {
+    "point": "Answer λ′ = 0.0271 Å with units",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> λ = 0.015 Å, θ = 60°.",
+   "<b>Formula:</b> Δλ = (h/m₀c)(1 − cos θ), with Compton wavelength h/m₀c = 6.626 × 10<sup>-34</sup>/(9.11 × 10<sup>-31</sup> × 3 × 10<sup>8</sup>) = 2.426 × 10<sup>-12</sup> m = 0.02426 Å.",
+   "<b>Shift:</b> Δλ = 0.02426 × (1 − cos 60°) = 0.02426 × 0.5 = 0.01213 Å.",
+   "<b>Scattered wavelength:</b> λ′ = λ + Δλ = 0.015 + 0.01213 = <b>0.02713 Å</b> (≈ 2.71 × 10<sup>-12</sup> m)."
+  ],
+  "formulas": [
+   "Δλ = (h/m₀c)(1 − cos θ)"
+  ],
+  "result": "λ′ = 0.0271 Å (≈ 2.71 pm)"
+ },
+ "Q4.9": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Wavelength of incident photon λ = hc/E = 12.398/100 Å = 0.12398 Å",
+    "marks": 1
+   },
+   {
+    "point": "Compton shift Δλ = 0.02426(1 − cos 30°) = 0.00325 Å",
+    "marks": 1.5
+   },
+   {
+    "point": "Scattered wavelength λ′ = 0.12723 Å and energy E′ = hc/λ′ = 97.45 keV",
+    "marks": 1.5
+   },
+   {
+    "point": "Kinetic energy of recoil electron K = E − E′",
+    "marks": 0.5
+   },
+   {
+    "point": "Answer 2.55 keV with units",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> E = 100 keV, θ = 30°.",
+   "<b>Incident wavelength:</b> λ = hc/E = 12.398 keV·Å / 100 keV = 0.12398 Å.",
+   "<b>Compton shift:</b> Δλ = 0.02426 (1 − cos 30°) = 0.02426 × (1 − 0.8660) = 0.02426 × 0.1340 = 0.00325 Å.",
+   "<b>Scattered wavelength:</b> λ′ = 0.12398 + 0.00325 = 0.12723 Å.",
+   "<b>Scattered photon energy:</b> E′ = hc/λ′ = 12.398 / 0.12723 = 97.45 keV.",
+   "<b>Kinetic energy of the recoil electron:</b> K = E − E′ = 100 − 97.45 = <b>2.55 keV</b> (≈ 4.1 × 10<sup>-16</sup> J)."
+  ],
+  "formulas": [
+   "K = hc(1/λ − 1/λ′)",
+   "λ′ = λ + (h/m₀c)(1 − cos θ)"
+  ],
+  "result": "K ≈ 2.55 keV"
+ },
+ "Q4.10": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Energy formula E<sub>n</sub> = n²h²/8mL²",
+    "marks": 1
+   },
+   {
+    "point": "Substitution L = 2 Å = 2 × 10⁻¹⁰ m and E₁ = 9.4 eV",
+    "marks": 1.5
+   },
+   {
+    "point": "E₂ = 4E₁ = 37.6 eV",
+    "marks": 0.5
+   },
+   {
+    "point": "de Broglie wavelength λ<sub>n</sub> = 2L/n (or h/√(2mE))",
+    "marks": 1.5
+   },
+   {
+    "point": "λ₁ = 4 Å and λ₂ = 2 Å with units",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> L = 2 Å = 2 × 10<sup>-10</sup> m, m = 9.11 × 10<sup>-31</sup> kg, h = 6.626 × 10<sup>-34</sup> J s.",
+   "<b>Energy eigenvalues:</b> E<sub>n</sub> = n²h²/8mL². E₁ = (6.626 × 10<sup>-34</sup>)² / (8 × 9.11 × 10<sup>-31</sup> × (2 × 10<sup>-10</sup>)²) = 4.39 × 10<sup>-67</sup> / 2.915 × 10<sup>-49</sup> = 1.506 × 10<sup>-18</sup> J.",
+   "In eV: E₁ = 1.506 × 10<sup>-18</sup> / 1.602 × 10<sup>-19</sup> = <b>9.4 eV</b>. E₂ = 4E₁ = 4 × 9.4 = <b>37.6 eV</b>.",
+   "<b>de Broglie wavelengths:</b> in the box, standing waves require L = nλ/2 ⇒ λ<sub>n</sub> = 2L/n. λ₁ = 2 × 2 Å/1 = <b>4 Å</b>; λ₂ = 2 × 2/2 = <b>2 Å</b>.",
+   "<b>Check:</b> λ = h/√(2mE) = 12.27/√E(eV) Å: for E₁ = 9.4 eV ⇒ 3.99 Å ✓; for E₂ = 37.6 eV ⇒ 2.00 Å ✓."
+  ],
+  "formulas": [
+   "E<sub>n</sub> = n²h²/8mL²",
+   "λ<sub>n</sub> = 2L/n"
+  ],
+  "result": "E₁ = 9.4 eV, E₂ = 37.6 eV; λ₁ = 4 Å, λ₂ = 2 Å"
+ },
+ "Q4.11": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Use of uncertainty principle: Δx ≈ r, Δp ≈ ħ/r (assumption stated)",
+    "marks": 1.5
+   },
+   {
+    "point": "Kinetic energy K = p²/2m = ħ²/2mr²",
+    "marks": 1
+   },
+   {
+    "point": "Potential energy U = −e²/4πε₀r",
+    "marks": 1
+   },
+   {
+    "point": "Numerical values (K ≈ 13.6 eV, U ≈ −27.2 eV)",
+    "marks": 1
+   },
+   {
+    "point": "Total E ≈ −13.6 eV",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Assumption.</b> The electron is confined within the atom, so Δx ≈ r = 0.53 Å = 0.53 × 10<sup>-10</sup> m, and the minimum momentum is p ≈ Δp ≈ ħ/Δx = ħ/r (order-of-magnitude estimate).",
+   "<b>Kinetic energy:</b> K = p²/2m = ħ²/(2mr²) = (1.055 × 10<sup>-34</sup>)² / (2 × 9.11 × 10<sup>-31</sup> × (0.53 × 10<sup>-10</sup>)²) = 1.113 × 10<sup>-68</sup> / 5.118 × 10<sup>-51</sup> = 2.17 × 10<sup>-18</sup> J = 13.6 eV.",
+   "<b>Potential energy:</b> U = −e²/(4πε₀r) = −(9 × 10<sup>9</sup>)(1.6 × 10<sup>-19</sup>)²/(0.53 × 10<sup>-10</sup>) = −4.35 × 10<sup>-18</sup> J = −27.2 eV.",
+   "<b>Total energy:</b> E = K + U = 13.6 − 27.2 = <b>−13.6 eV</b>.",
+   "This agrees with the actual ground-state energy of hydrogen (−13.6 eV). Minimising E(r) = ħ²/2mr² − e²/4πε₀r with respect to r gives r = 4πε₀ħ²/me² = 0.529 Å (the Bohr radius) and the same E<sub>min</sub> = −13.6 eV, showing why the atom does not collapse (the kinetic energy rises as r decreases)."
+  ],
+  "formulas": [
+   "Δp ≈ ħ/r",
+   "E = ħ²/2mr² − e²/4πε₀r"
+  ],
+  "result": "E<sub>min</sub> ≈ −13.6 eV (K ≈ +13.6 eV, U ≈ −27.2 eV)"
+ },
+ "Q4.12": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Calculation of Δv = 0.002 % of 500 m/s = 0.01 m/s",
+    "marks": 1.5
+   },
+   {
+    "point": "Δp = mΔv = 9.11 × 10⁻³³ kg m/s",
+    "marks": 1
+   },
+   {
+    "point": "Uncertainty principle Δx ≥ ħ/2Δp (= h/4πΔp)",
+    "marks": 1
+   },
+   {
+    "point": "Substitution and calculation 5.8 × 10⁻³ m",
+    "marks": 1
+   },
+   {
+    "point": "Answer with units (≈ 5.8 mm)",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> v = 500 m/s, accuracy 0.002 % ⇒ Δv = (0.002/100) × 500 = 0.01 m/s. m = 9.11 × 10<sup>-31</sup> kg.",
+   "<b>Uncertainty in momentum:</b> Δp = mΔv = 9.11 × 10<sup>-31</sup> × 0.01 = 9.11 × 10<sup>-33</sup> kg m/s.",
+   "<b>Heisenberg's principle:</b> Δx·Δp ≥ ħ/2 = h/4π ⇒ Δx<sub>min</sub> = h/(4πΔp) = 1.055 × 10<sup>-34</sup>/(2 × 9.11 × 10<sup>-33</sup>) = 5.79 × 10<sup>-3</sup> m.",
+   "Therefore the minimum uncertainty in position is <b>≈ 5.8 × 10<sup>-3</sup> m ≈ 5.8 mm</b>. (If the form Δx·Δp ≥ h/2π is used, it is ≈ 1.2 cm.)"
+  ],
+  "formulas": [
+   "Δx·Δp ≥ ħ/2"
+  ],
+  "result": "Δx ≈ 5.8 × 10⁻³ m (≈ 5.8 mm)"
+ },
+ "Q5.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement/explanation of Hall effect with labelled diagram (I along x, B along z, V<sub>H</sub> along y)",
+    "marks": 2
+   },
+   {
+    "point": "Balance of forces qE<sub>H</sub> = qv<sub>d</sub>B and J = nqv<sub>d</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Derivation of V<sub>H</sub> = BI/(nqt) (or IB/(nqd))",
+    "marks": 1.5
+   },
+   {
+    "point": "Hall coefficient R<sub>H</sub> = E<sub>H</sub>/JB = 1/nq (= V<sub>H</sub>t/IB)",
+    "marks": 1.5
+   },
+   {
+    "point": "(i) Sign of R<sub>H</sub> ⇒ type of carriers (n-type negative, p-type positive)",
+    "marks": 1
+   },
+   {
+    "point": "(ii) Carrier concentration n = 1/(qR<sub>H</sub>)",
+    "marks": 1
+   },
+   {
+    "point": "(iii) Hall mobility μ<sub>H</sub> = |R<sub>H</sub>|σ and σ = nqμ",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Hall effect.</b> When a current-carrying conductor or semiconductor is placed in a magnetic field perpendicular to the direction of current, a transverse electric field (and a potential difference, the Hall voltage V<sub>H</sub>) is developed across the specimen in the direction perpendicular to both current and magnetic field.",
+   "<b>Set-up.</b> Consider a rectangular slab of width w (along y) and thickness t (along z), carrying current I along +x, in a uniform field B along +z. Charge carriers (charge q, concentration n) drift with velocity v<sub>d</sub>. The current density is J = I/(wt) = nqv<sub>d</sub>. … (1)",
+   "The magnetic Lorentz force F = qv<sub>d</sub>B deflects the carriers towards one face (along −y for holes moving in +x; the deflection depends on sign of q), producing an accumulation of charge on one face and deficit on the other. This charge separation builds a transverse Hall field E<sub>H</sub> along y.",
+   "<b>Equilibrium:</b> the electric force balances the magnetic force: qE<sub>H</sub> = qv<sub>d</sub>B ⇒ E<sub>H</sub> = v<sub>d</sub>B = (J/nq)B = IB/(nqwt). … (2)",
+   "<b>Hall voltage:</b> V<sub>H</sub> = E<sub>H</sub> w = <b>IB/(nqt)</b>. … (3)",
+   "<b>Hall coefficient:</b> R<sub>H</sub> is defined as R<sub>H</sub> = E<sub>H</sub>/(JB) = <b>1/nq</b> (m³/C). Also from (3): R<sub>H</sub> = V<sub>H</sub>t/(IB). For electrons R<sub>H</sub> = −1/ne, for holes R<sub>H</sub> = +1/pe.",
+   "<b>Applications of the Hall coefficient.</b>",
+   "(i) <b>Type of carriers:</b> the sign of V<sub>H</sub> (or of R<sub>H</sub>) tells the majority carriers: R<sub>H</sub> negative ⇒ n-type (electrons), positive ⇒ p-type (holes).",
+   "(ii) <b>Carrier concentration:</b> n = 1/(|R<sub>H</sub>| q) = IB/(q V<sub>H</sub> t), found by measuring V<sub>H</sub>, I, B and t.",
+   "(iii) <b>Hall mobility and conductivity:</b> electrical conductivity σ = nqμ, so mobility μ<sub>H</sub> = σ/nq = |R<sub>H</sub>|σ (σ = L/(RA) measured separately from resistance). Also, measuring Hall voltage in magnetic field gives a gaussmeter to measure B: B = V<sub>H</sub> nqt/I; Hall probes are used for current sensing as well."
+  ],
+  "formulas": [
+   "qE<sub>H</sub> = qv<sub>d</sub>B",
+   "V<sub>H</sub> = IB/(nqt)",
+   "R<sub>H</sub> = 1/nq = V<sub>H</sub>t/(IB)",
+   "n = 1/(|R<sub>H</sub>|q); μ<sub>H</sub> = |R<sub>H</sub>|σ"
+  ],
+  "diagram": "A rectangular slab with axes: current I along +x, magnetic field B along +z (into the plane), charge accumulation on the front and back faces in the y direction, Hall field E<sub>H</sub> and Hall voltage terminals V<sub>H</sub> across the width, with dimensions w and t labelled."
+ },
+ "Q5.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Principle: photovoltaic effect in p–n junction",
+    "marks": 1.5
+   },
+   {
+    "point": "Construction with labelled diagram (thin n-layer, p-base, grid contacts, anti-reflection coating)",
+    "marks": 2
+   },
+   {
+    "point": "Materials used (Si, GaAs, CdTe, CIGS, etc.)",
+    "marks": 1
+   },
+   {
+    "point": "Working: absorption of photons hν ≥ E<sub>g</sub>, electron–hole pair generation, separation by junction field, photocurrent",
+    "marks": 2
+   },
+   {
+    "point": "I–V relation I = I<sub>L</sub> − I₀(e^{qV/kT} − 1) and 4th-quadrant characteristic with V<sub>oc</sub>, I<sub>sc</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Maximum power point P<sub>max</sub> = V<sub>m</sub>I<sub>m</sub>, fill factor and efficiency",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Principle.</b> A solar cell is a p–n junction device that converts light energy directly into electrical energy by the <b>photovoltaic effect</b>: generation of an emf across a junction when illuminated.",
+   "<b>Construction.</b> A thin n-type layer (≈ 0.3–0.5 μm) is diffused on a thicker p-type silicon wafer (≈ 300 μm) to form a p–n junction close to the top surface. The top surface has metallic finger/grid contacts (front electrode) that leave most area open for light; the back has a full metal contact. The top is coated with an anti-reflection coating (SiO<sub>x</sub> or Si<sub>3</sub>N<sub>4</sub>) to reduce reflection from ~30 % to < 5 %. The cell is encapsulated by glass.",
+   "<b>Materials.</b> Crystalline silicon (mono- and poly-crystalline, E<sub>g</sub> = 1.1 eV, efficiency 15–22 %), amorphous silicon, GaAs (E<sub>g</sub> = 1.43 eV, high efficiency, space use), CdTe, CIGS (thin film), perovskites and multi-junction cells.",
+   "<b>Working.</b> (1) In the junction a depletion region with a built-in electric field directed from n to p exists. (2) Photons of energy hν ≥ E<sub>g</sub> are absorbed in or near the depletion region, generating electron–hole pairs. (3) The junction field sweeps electrons to the n-side and holes to the p-side (minority carriers generated within a diffusion length also reach the junction). (4) This charge separation creates a photo-voltage (open-circuit voltage) across the terminals, with n-side negative and p-side positive; when an external load is connected, a current flows from the p terminal through the load to n terminal. Photons with hν < E<sub>g</sub> are not absorbed and those with hν > E<sub>g</sub> waste the excess as heat.",
+   "<b>I–V characteristic.</b> The cell current is I = I<sub>L</sub> − I₀(e<sup>qV/ηkT</sup> − 1), where I<sub>L</sub> is the light-generated current (proportional to the illumination) and I₀ the reverse saturation current. The curve is the diode characteristic shifted down by I<sub>L</sub>, and so lies in the <b>fourth quadrant</b> (V positive, I negative from the diode convention) where the device delivers power.",
+   "<b>Short-circuit current I<sub>sc</sub></b> (V = 0) = I<sub>L</sub>. <b>Open-circuit voltage V<sub>oc</sub></b> (I = 0) = (ηkT/q) ln(1 + I<sub>L</sub>/I₀) (≈ 0.6 V for silicon).",
+   "<b>Maximum power:</b> the load for which the product VI is largest corresponds to the \"knee\" of the curve, P<sub>max</sub> = V<sub>m</sub>I<sub>m</sub>. The <b>fill factor</b> FF = V<sub>m</sub>I<sub>m</sub>/(V<sub>oc</sub>I<sub>sc</sub>) (typically 0.7–0.85) and the efficiency η = P<sub>max</sub>/P<sub>in</sub> = V<sub>oc</sub>I<sub>sc</sub>FF/P<sub>in</sub>."
+  ],
+  "formulas": [
+   "I = I<sub>L</sub> − I₀(e^{qV/ηkT} − 1)",
+   "I<sub>sc</sub> = I<sub>L</sub>",
+   "V<sub>oc</sub> = (ηkT/q) ln(1 + I<sub>L</sub>/I₀)",
+   "FF = V<sub>m</sub>I<sub>m</sub>/(V<sub>oc</sub>I<sub>sc</sub>)",
+   "η = P<sub>max</sub>/P<sub>in</sub>"
+  ],
+  "diagram": "Cross-section: front grid contact, anti-reflection coating, thin n-layer, depletion region, thick p-layer, back contact, with incident photons and load. Second graph: I–V curve in the fourth quadrant, intersecting the voltage axis at V<sub>oc</sub> and the current axis at I<sub>sc</sub>, with the rectangle V<sub>m</sub>I<sub>m</sub> marked at the knee."
+ },
+ "Q5.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Principle: electroluminescence by radiative recombination in a forward-biased p–n junction",
+    "marks": 2
+   },
+   {
+    "point": "Construction (epitaxial layers, contacts, dome/reflector) with diagram and symbol",
+    "marks": 1.5
+   },
+   {
+    "point": "Materials: GaAs, GaAsP, GaP, GaN, InGaN with colours and λ = 1240/E<sub>g</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Working with energy-band description (hν ≈ E<sub>g</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "V–I characteristics (threshold/knee voltage, exponential rise, no light in reverse bias)",
+    "marks": 1.5
+   },
+   {
+    "point": "Why direct bandgap semiconductors are preferred",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Principle.</b> An LED is a forward-biased p–n junction that emits light through <b>electroluminescence</b>: when electrons and holes injected across the junction recombine radiatively, the energy released is emitted as photons of energy hν ≈ E<sub>g</sub>.",
+   "<b>Construction.</b> Heavily doped n-type and p-type layers of a compound semiconductor are grown epitaxially on a substrate (e.g. GaAs). A thin active region lies at the junction; the p-layer is kept thin so that the light can escape. The top metal contact is a small ring or dot, the bottom contact is the full-area metal. The chip is placed in a reflecting cup and enclosed in an epoxy dome, which acts as lens and improves light extraction. The longer lead is the anode.",
+   "<b>Materials.</b> Wavelength λ(nm) = 1240/E<sub>g</sub>(eV). GaAs (E<sub>g</sub> = 1.43 eV, infrared 870–950 nm); GaAs<sub>1−x</sub>P<sub>x</sub> (red/orange/yellow, 1.8–2.0 eV); GaP (green/red); AlGaInP (red–yellow); GaN and InGaN (blue, green, white with phosphor, 2.7–3.4 eV). Silicon and germanium are not used because they are indirect-gap materials.",
+   "<b>Working.</b> Under forward bias the potential barrier is lowered; electrons from n-side and holes from p-side are injected into the junction region where they become minority carriers in excess. They recombine, with an electron falling from the conduction band to the valence band emitting a photon hν = E<sub>c</sub> − E<sub>v</sub> ≈ E<sub>g</sub>. The light intensity is proportional to the forward current.",
+   "<b>V–I characteristics.</b> For forward bias the current is negligible below the threshold (knee) voltage V<sub>γ</sub> ≈ E<sub>g</sub>/q (≈ 1.2 V for IR, 1.8–2.0 V for red, 2.1 V green, 3–3.5 V for blue/white); beyond it the current rises very rapidly (exponentially) and so a series resistor R = (V<sub>s</sub> − V<sub>F</sub>)/I<sub>F</sub> must be used to limit the current. In reverse bias the current is very small and no light is emitted; the reverse breakdown voltage is low (~5 V). The characteristic is the usual diode curve shifted to higher knee voltage.",
+   "<b>Why direct bandgap semiconductors?</b> In a direct bandgap material (GaAs, GaN) the conduction-band minimum and valence-band maximum occur at the same crystal momentum k, so an electron can recombine with a hole without change of momentum and the whole energy emerges as a photon – high radiative recombination probability, hence high efficiency. In an indirect bandgap material (Si, Ge) the minima occur at different k; recombination requires the simultaneous emission or absorption of a phonon to conserve momentum, which is a much less probable (three-body) process, so most recombination is non-radiative (heat). Hence direct bandgap materials are preferred for LEDs and lasers."
+  ],
+  "formulas": [
+   "hν ≈ E<sub>g</sub>",
+   "λ(nm) = 1240/E<sub>g</sub>(eV)",
+   "R<sub>series</sub> = (V<sub>s</sub> − V<sub>F</sub>)/I<sub>F</sub>"
+  ],
+  "diagram": "Left: LED cross section (p-layer, junction/active region, n-layer, substrate, contacts, dome) and symbol with outward arrows. Middle: band diagram under forward bias showing electron–hole recombination emitting hν. Right: V–I curve with knee voltage in the first quadrant and a tiny reverse current in the third quadrant."
+ },
+ "Q5.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Expression for electron concentration n = N<sub>c</sub> exp[−(E<sub>c</sub> − E<sub>F</sub>)/kT]",
+    "marks": 1.5
+   },
+   {
+    "point": "Expression for hole concentration p = N<sub>v</sub> exp[−(E<sub>F</sub> − E<sub>v</sub>)/kT]",
+    "marks": 1.5
+   },
+   {
+    "point": "Condition n = p = n<sub>i</sub> for intrinsic semiconductor",
+    "marks": 1
+   },
+   {
+    "point": "Solution E<sub>F</sub> = (E<sub>c</sub> + E<sub>v</sub>)/2 + (kT/2)ln(N<sub>v</sub>/N<sub>c</sub>) and the result with equal effective masses",
+    "marks": 2.5
+   },
+   {
+    "point": "Effect of temperature in intrinsic semiconductor (stays near mid-gap, shift 3kT/4 ln(m<sub>h</sub>/m<sub>e</sub>))",
+    "marks": 1
+   },
+   {
+    "point": "Effect of temperature in n-type and p-type (movement of E_F towards E<sub>i</sub>, formula)",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>Carrier concentrations.</b> In a non-degenerate semiconductor the density of electrons in the conduction band is n = N<sub>c</sub> exp[−(E<sub>c</sub> − E<sub>F</sub>)/kT] … (1) and the density of holes in the valence band is p = N<sub>v</sub> exp[−(E<sub>F</sub> − E<sub>v</sub>)/kT] … (2), where N<sub>c</sub> = 2(2πm<sub>e</sub>*kT/h²)<sup>3/2</sup> and N<sub>v</sub> = 2(2πm<sub>h</sub>*kT/h²)<sup>3/2</sup>.",
+   "<b>Intrinsic semiconductor:</b> every electron in the conduction band has come from the valence band, leaving a hole, so n = p = n<sub>i</sub>. … (3)",
+   "Equating (1) and (2): N<sub>c</sub> exp[−(E<sub>c</sub> − E<sub>F</sub>)/kT] = N<sub>v</sub> exp[−(E<sub>F</sub> − E<sub>v</sub>)/kT].",
+   "Taking logarithms: ln N<sub>c</sub> − (E<sub>c</sub> − E<sub>F</sub>)/kT = ln N<sub>v</sub> − (E<sub>F</sub> − E<sub>v</sub>)/kT ⇒ 2E<sub>F</sub>/kT = (E<sub>c</sub> + E<sub>v</sub>)/kT + ln(N<sub>v</sub>/N<sub>c</sub>).",
+   "Hence <b>E<sub>F</sub> = (E<sub>c</sub> + E<sub>v</sub>)/2 + (kT/2) ln(N<sub>v</sub>/N<sub>c</sub>) = (E<sub>c</sub> + E<sub>v</sub>)/2 + (3kT/4) ln(m<sub>h</sub>*/m<sub>e</sub>*)</b>. … (4)",
+   "If the effective masses of the electron and hole are equal (m<sub>e</sub>* = m<sub>h</sub>*, N<sub>c</sub> = N<sub>v</sub>), the second term vanishes and <b>E<sub>F</sub> = (E<sub>c</sub> + E<sub>v</sub>)/2</b>: the Fermi level lies exactly in the middle of the forbidden gap. For real materials the second term is only a few percent of E<sub>g</sub> (m<sub>h</sub>* slightly larger than m<sub>e</sub>* gives a small upward shift), and E<sub>F</sub> remains close to mid-gap.",
+   "<b>Temperature effects – intrinsic:</b> from (4), E<sub>F</sub> is at the mid-gap at 0 K and changes only by the small term ∝ T (e.g., slightly up if m<sub>h</sub>* > m<sub>e</sub>*), so E<sub>F</sub> stays in the middle of the gap. The carrier density n<sub>i</sub> = √(N<sub>c</sub>N<sub>v</sub>) exp(−E<sub>g</sub>/2kT) rises rapidly with T.",
+   "<b>Extrinsic – n-type:</b> at T = 0 K, E<sub>F</sub> lies midway between the donor level E<sub>d</sub> and E<sub>c</sub>. With rising T the donors get ionised, and E<sub>F</sub> = E<sub>c</sub> − kT ln(N<sub>c</sub>/N<sub>d</sub>) moves downward; at very high T (when n<sub>i</sub> ≫ N<sub>d</sub>) intrinsic carriers dominate and E<sub>F</sub> approaches the intrinsic level E<sub>i</sub> at mid-gap, and the material behaves as intrinsic.",
+   "<b>Extrinsic – p-type:</b> at 0 K, E<sub>F</sub> lies midway between E<sub>v</sub> and acceptor level E<sub>a</sub>. With increasing T, E<sub>F</sub> = E<sub>v</sub> + kT ln(N<sub>v</sub>/N<sub>a</sub>) moves upward towards E<sub>i</sub> and finally reaches mid-gap at high temperature. Therefore the Fermi level of an extrinsic semiconductor moves toward the middle of the gap as temperature increases, and moves toward E<sub>c</sub> (n-type) or E<sub>v</sub> (p-type) with increasing doping."
+  ],
+  "formulas": [
+   "n = N<sub>c</sub> exp[−(E<sub>c</sub> − E<sub>F</sub>)/kT]",
+   "p = N<sub>v</sub> exp[−(E<sub>F</sub> − E<sub>v</sub>)/kT]",
+   "E<sub>F</sub> = (E<sub>c</sub> + E<sub>v</sub>)/2 + (3kT/4) ln(m<sub>h</sub>*/m<sub>e</sub>*)",
+   "n-type: E<sub>F</sub> = E<sub>c</sub> − kT ln(N<sub>c</sub>/N<sub>d</sub>)"
+  ],
+  "diagram": "Band diagrams (E<sub>c</sub>, E<sub>F</sub>, E<sub>v</sub>): intrinsic with E<sub>F</sub> at mid-gap; n-type with E<sub>F</sub> near E<sub>c</sub> and donor level; p-type with E<sub>F</sub> near E<sub>v</sub>; and a graph of E<sub>F</sub> vs T moving to mid-gap at high T."
+ },
+ "Q5.5": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Definition of direct band gap semiconductor (same k for CB minimum and VB maximum)",
+    "marks": 1.25
+   },
+   {
+    "point": "Definition of indirect band gap semiconductor (different k, phonon needed)",
+    "marks": 1.25
+   },
+   {
+    "point": "Correct E–k diagrams for both with vertical/non-vertical transitions",
+    "marks": 1.25
+   },
+   {
+    "point": "Examples (direct: GaAs, GaN, InP; indirect: Si, Ge, GaP)",
+    "marks": 0.75
+   },
+   {
+    "point": "Consequences/applications (LED, laser vs. Si transistors/solar cells)",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>E–k diagram.</b> In a crystal the energy of an electron is a function of its wave-vector k (crystal momentum p = ħk). The conduction band has an energy minimum E<sub>c</sub> and the valence band has a maximum E<sub>v</sub>; the band gap E<sub>g</sub> = E<sub>c</sub> − E<sub>v</sub>.",
+   "<b>Direct band gap semiconductor.</b> The minimum of the conduction band and the maximum of the valence band occur at the <b>same value of k</b> (usually k = 0). An electron can drop from the conduction band to the valence band (or be excited) with no change in momentum – a vertical transition on the E–k diagram – by emitting (absorbing) a photon whose energy hν = E<sub>g</sub>. The photon's momentum (h/λ ~ 10⁻²⁷ kg m/s) is negligible compared with the crystal momentum. Examples: GaAs, InP, GaN, InAs, CdS, CdTe.",
+   "<b>Indirect band gap semiconductor.</b> The conduction-band minimum and valence-band maximum occur at <b>different values of k</b>. A transition between them needs a change in crystal momentum which a photon cannot supply, so a third particle – a <b>phonon</b> (lattice vibration) – must be emitted or absorbed simultaneously, to conserve momentum and energy. Such a three-body process is much less probable. Examples: Si (E<sub>g</sub> = 1.12 eV), Ge (0.67 eV), GaP, AlAs.",
+   "<b>Consequences.</b> Direct materials have a high probability of radiative recombination and strong light absorption, which makes them suitable for LEDs, laser diodes, and thin-film solar cells (GaAs, CdTe). Indirect materials have longer carrier lifetimes and mostly non-radiative recombination, so they are poor light emitters; silicon is used in integrated circuits, transistors and bulk solar cells but not in LEDs."
+  ],
+  "formulas": [
+   "p = ħk",
+   "Direct: k<sub>c,min</sub> = k<sub>v,max</sub>; Indirect: k<sub>c,min</sub> ≠ k<sub>v,max</sub>"
+  ],
+  "diagram": "Two E–k plots side by side. (a) Direct: parabola-shaped valence band maximum and conduction band minimum both at k = 0, with a vertical arrow labelled hν = E<sub>g</sub>. (b) Indirect: valence band maximum at k = 0, conduction band minimum shifted to k = k₀; a slanted transition with a photon (vertical) plus a phonon (horizontal) arrow."
+ },
+ "Q5.6": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "V–I characteristic of LED (1st quadrant, forward bias, light emission)",
+    "marks": 1
+   },
+   {
+    "point": "V–I characteristic of photodiode (reverse bias, 3rd quadrant, photocurrent ∝ intensity)",
+    "marks": 1
+   },
+   {
+    "point": "V–I characteristic of solar cell (4th quadrant, power generation) with diagram of all three",
+    "marks": 1.25
+   },
+   {
+    "point": "Distinction between photoelectric and photovoltaic effects (two or more points)",
+    "marks": 1.75
+   }
+  ],
+  "answer": [
+   "<b>LED (forward bias, light emitter).</b> The V–I curve is that of a diode in the first quadrant: negligible current below the knee voltage (1.8–3.3 V depending on colour) and then a rapid exponential rise. Electrical power is converted into light; no light in reverse bias.",
+   "<b>Photodiode (reverse bias, light detector).</b> Operated in the third quadrant with reverse bias. In the dark, only the small reverse saturation current (dark current) flows; under illumination the reverse current increases in proportion to the light intensity (I = I₀ + I<sub>ph</sub>), giving nearly horizontal, equally spaced curves for increasing intensity. It consumes power from the supply; used as a light sensor.",
+   "<b>Solar cell (no bias, power source).</b> Under illumination the diode curve is shifted down by I<sub>L</sub> and passes through the fourth quadrant, cutting the voltage axis at V<sub>oc</sub> and the current axis at −I<sub>sc</sub>. In this quadrant V × I is negative in the diode convention, i.e. the device delivers power to the load. The photodiode may be treated as the solar cell operated in the third quadrant (photoconductive mode).",
+   "<b>Comparison.</b> LED – forward bias, converts electricity to light, I–V in 1st quadrant. Photodiode – reverse bias (or zero bias), converts light into current signal, 3rd quadrant, current proportional to light. Solar cell – no external bias, converts light into electrical power, 4th quadrant, large area, optimised for P<sub>max</sub>.",
+   "<b>Photoelectric effect vs photovoltaic effect.</b> (i) The photoelectric effect is the emission of electrons from a (metal) surface when light of frequency above a threshold frequency ν₀ falls on it (hν = φ + ½mv²max); electrons leave the material (external effect). (ii) The photovoltaic effect is the generation of an emf (voltage) across a p–n junction when light with hν ≥ E<sub>g</sub> creates electron–hole pairs that are separated by the built-in field; the carriers remain within the material (internal effect). The photoelectric effect needs an external collecting electrode/vacuum and typically UV; the photovoltaic effect produces voltage by itself, without any applied bias, in visible light."
+  ],
+  "formulas": [
+   "Photoelectric: hν = φ + ½mv²<sub>max</sub>",
+   "Photovoltaic: hν ≥ E<sub>g</sub>"
+  ],
+  "diagram": "One set of axes (V horizontal, I vertical) with: LED curve rising in the first quadrant beyond the knee; photodiode curves in the third quadrant (dark and two illumination levels, shifted down); solar cell curve passing through the fourth quadrant from I<sub>sc</sub> on the current axis to V<sub>oc</sub> on the voltage axis."
+ },
+ "Q5.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Hall voltage relation V<sub>H</sub> = IB/(nqt) and R<sub>H</sub> = V<sub>H</sub>t/(IB)",
+    "marks": 2
+   },
+   {
+    "point": "Unit conversion (t = 0.2 × 10⁻³ m, w = 5 × 10⁻³ m, V<sub>H</sub> = 0.115 × 10⁻³ V, B = 0.2 T)",
+    "marks": 1.5
+   },
+   {
+    "point": "Calculation R<sub>H</sub> = 4.6 × 10⁻⁷ m³/C",
+    "marks": 2
+   },
+   {
+    "point": "Carrier concentration n = 1/(eR<sub>H</sub>) = 1.36 × 10²⁵ m⁻³",
+    "marks": 2
+   },
+   {
+    "point": "Drift velocity from v<sub>d</sub> = I/(nqA) (A = wt = 10⁻⁶ m²) or V<sub>H</sub>/(Bw)",
+    "marks": 2
+   },
+   {
+    "point": "Value v<sub>d</sub> = 0.115 m/s with units",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> I = 0.25 A; thickness t = 0.2 mm = 2 × 10<sup>-4</sup> m; width w = 5 mm = 5 × 10<sup>-3</sup> m; V<sub>H</sub> = 0.115 mV = 1.15 × 10<sup>-4</sup> V; B = 2000 G = 0.2 T; e = 1.6 × 10<sup>-19</sup> C.",
+   "<b>(i) Carrier concentration.</b> V<sub>H</sub> = IB/(nqt) ⇒ n = IB/(e t V<sub>H</sub>).",
+   "Hall coefficient: R<sub>H</sub> = V<sub>H</sub>t/(IB) = (1.15 × 10<sup>-4</sup> × 2 × 10<sup>-4</sup>)/(0.25 × 0.2) = 2.3 × 10<sup>-8</sup>/0.05 = 4.6 × 10<sup>-7</sup> m³/C.",
+   "n = 1/(eR<sub>H</sub>) = 1/(1.6 × 10<sup>-19</sup> × 4.6 × 10<sup>-7</sup>) = 1/(7.36 × 10<sup>-26</sup>) = <b>1.36 × 10<sup>25</sup> m<sup>-3</sup></b>.",
+   "<b>(ii) Drift velocity.</b> Cross-section A = w × t = 5 × 10<sup>-3</sup> × 2 × 10<sup>-4</sup> = 1 × 10<sup>-6</sup> m². From I = nev<sub>d</sub>A: v<sub>d</sub> = I/(neA) = 0.25 / (1.36 × 10<sup>25</sup> × 1.6 × 10<sup>-19</sup> × 10<sup>-6</sup>) = 0.25/2.175 = <b>0.115 m/s</b>.",
+   "<b>Check:</b> from the force balance v<sub>d</sub> = E<sub>H</sub>/B = V<sub>H</sub>/(wB) = 1.15 × 10<sup>-4</sup>/(5 × 10<sup>-3</sup> × 0.2) = 0.115 m/s ✓."
+  ],
+  "formulas": [
+   "R<sub>H</sub> = V<sub>H</sub>t/(IB)",
+   "n = 1/(eR<sub>H</sub>)",
+   "v<sub>d</sub> = I/(neA) = V<sub>H</sub>/(Bw)"
+  ],
+  "result": "n ≈ 1.36 × 10²⁵ m⁻³; v<sub>d</sub> ≈ 0.115 m/s"
+ },
+ "Q5.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Resistance R = ρL/A = 200 Ω and current I = V/R = 0.01 A",
+    "marks": 2.5
+   },
+   {
+    "point": "Hall voltage formula V<sub>H</sub> = IB/(nqt), thickness t along B",
+    "marks": 2
+   },
+   {
+    "point": "Hall coefficient R<sub>H</sub> = V<sub>H</sub>t/(IB) = 1 × 10⁻⁴ m³/C",
+    "marks": 2
+   },
+   {
+    "point": "Carrier density n = 1/(eR<sub>H</sub>) = 6.25 × 10²² m⁻³",
+    "marks": 2.5
+   },
+   {
+    "point": "Units and assumption stated",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Assumption:</b> the voltage of 2 V is applied along the length of the specimen (L = 0.02 m, cross-section A = 10<sup>-6</sup> m²) so the current flows along L; the magnetic field is perpendicular to the current and the Hall voltage is measured across the width, with the specimen thickness t = 0.3 mm along the direction of B.",
+   "<b>Given:</b> ρ = 10<sup>-2</sup> Ω m, L = 0.02 m, A = 10<sup>-6</sup> m², t = 0.3 × 10<sup>-3</sup> m, V = 2 V, B = 0.3 T, V<sub>H</sub> = 1 × 10<sup>-3</sup> V.",
+   "<b>Resistance:</b> R = ρL/A = (10<sup>-2</sup> × 0.02)/10<sup>-6</sup> = 200 Ω. <b>Current:</b> I = V/R = 2/200 = 0.01 A.",
+   "<b>Hall coefficient:</b> R<sub>H</sub> = V<sub>H</sub>t/(IB) = (1 × 10<sup>-3</sup> × 3 × 10<sup>-4</sup>)/(0.01 × 0.3) = 3 × 10<sup>-7</sup>/3 × 10<sup>-3</sup> = 1 × 10<sup>-4</sup> m³/C.",
+   "<b>Carrier density:</b> n = 1/(eR<sub>H</sub>) = 1/(1.6 × 10<sup>-19</sup> × 1 × 10<sup>-4</sup>) = 1/(1.6 × 10<sup>-23</sup>) = <b>6.25 × 10<sup>22</sup> m<sup>-3</sup></b>.",
+   "(Check of mobility: σ = 1/ρ = 100 S/m, μ<sub>H</sub> = σR<sub>H</sub> = 100 × 10<sup>-4</sup> = 10<sup>-2</sup> m²/Vs.)"
+  ],
+  "formulas": [
+   "R = ρL/A; I = V/R",
+   "R<sub>H</sub> = V<sub>H</sub>t/(IB)",
+   "n = 1/(eR<sub>H</sub>)"
+  ],
+  "result": "n ≈ 6.25 × 10²² m⁻³"
+ },
+ "Q5.9": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Intrinsic carrier density relation n<sub>i</sub> = N exp(−E<sub>g</sub>/2kT)",
+    "marks": 1.5
+   },
+   {
+    "point": "Rearrangement E<sub>g</sub> = 2kT ln(N/n<sub>i</sub>)",
+    "marks": 1
+   },
+   {
+    "point": "Substitution T = 300 K, k = 8.61 × 10⁻⁵ eV/K",
+    "marks": 1
+   },
+   {
+    "point": "Calculation ln(2 × 10⁶) = 14.51",
+    "marks": 0.75
+   },
+   {
+    "point": "Answer E<sub>g</sub> ≈ 0.75 eV with units",
+    "marks": 0.75
+   }
+  ],
+  "answer": [
+   "<b>Assumption:</b> room temperature T = 300 K.",
+   "<b>Given:</b> N = 5 × 10<sup>25</sup> m<sup>-3</sup> (effective number of states/electrons available for thermal excitation), n<sub>i</sub> = 2.5 × 10<sup>19</sup> m<sup>-3</sup>, k = 8.61 × 10<sup>-5</sup> eV/K.",
+   "<b>Relation:</b> n<sub>i</sub> = N exp(−E<sub>g</sub>/2kT) ⇒ E<sub>g</sub> = 2kT ln(N/n<sub>i</sub>).",
+   "N/n<sub>i</sub> = 5 × 10<sup>25</sup>/2.5 × 10<sup>19</sup> = 2 × 10<sup>6</sup>; ln(2 × 10<sup>6</sup>) = 14.51.",
+   "E<sub>g</sub> = 2 × 8.61 × 10<sup>-5</sup> × 300 × 14.51 = 0.05166 × 14.51 = <b>0.75 eV</b>."
+  ],
+  "formulas": [
+   "n<sub>i</sub> = N exp(−E<sub>g</sub>/2kT)",
+   "E<sub>g</sub> = 2kT ln(N/n<sub>i</sub>)"
+  ],
+  "result": "E<sub>g</sub> ≈ 0.75 eV (at T = 300 K)"
+ }
+}

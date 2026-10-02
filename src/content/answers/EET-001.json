@@ -1,0 +1,2034 @@
+{
+ "Q1.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Statement of KCL with explanatory circuit/junction diagram",
+    "marks": 1
+   },
+   {
+    "point": "(a) Statement of KVL with loop diagram and sign convention",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Definition of resistance R = ρl/A and effect of temperature on conductors, semiconductors and insulators (with α)",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Correct definitions with one example each: unilateral/bilateral, active/passive, linear/non-linear",
+    "marks": 2
+   },
+   {
+    "point": "(c) Independent and dependent (VCVS, CCVS, VCCS, CCCS) sources with symbols and explanation",
+    "marks": 2
+   },
+   {
+    "point": "(d) v–i relations of L and C and stored-energy results E = ½Li² and E = ½Cv² with derivation",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>(a) Kirchhoff's Current Law (KCL).</b> The algebraic sum of the currents meeting at a node (junction) at any instant is zero, i.e. total current entering a node = total current leaving it. Σ I = 0. It follows from conservation of charge: charge cannot accumulate at a node. Example: at a node with I<sub>1</sub>, I<sub>2</sub> entering and I<sub>3</sub>, I<sub>4</sub> leaving, I<sub>1</sub> + I<sub>2</sub> = I<sub>3</sub> + I<sub>4</sub>.",
+   "<b>Kirchhoff's Voltage Law (KVL).</b> The algebraic sum of all the voltage drops and EMFs around any closed loop (mesh) is zero. Σ V = 0, or Σ E = Σ IR. It follows from conservation of energy: a unit charge returns to the same potential after going once round a closed path. Sign convention: while traversing a loop, a rise in potential (−→+ through a source) is taken positive and a drop (current direction in a resistor) is taken negative. For a loop with source E and resistors R<sub>1</sub>, R<sub>2</sub> in series: E − IR<sub>1</sub> − IR<sub>2</sub> = 0.",
+   "<b>Electrical resistance.</b> Resistance is the opposition offered by a material to the flow of current; R = V/I (ohm, Ω) and for a conductor R = ρl/A, where ρ is resistivity, l length and A area of cross-section.",
+   "<b>Effect of temperature.</b> (i) <i>Conductors (metals):</i> resistance increases with temperature because increased lattice vibration causes more collisions of free electrons; positive temperature coefficient: R<sub>t</sub> = R<sub>0</sub>(1 + α<sub>0</sub>t). (ii) <i>Semiconductors:</i> resistance decreases with temperature because more covalent bonds break, producing more electron–hole pairs; negative temperature coefficient. (iii) <i>Insulators:</i> resistance decreases with temperature (negative coefficient) because more charge carriers are thermally released and insulation breaks down at high temperature. Alloys such as manganin, constantan have almost zero coefficient.",
+   "<b>(b) Classification of elements.</b> (i) <i>Unilateral element:</i> its v–i characteristic depends on the direction of current, e.g. diode, transistor. (ii) <i>Bilateral element:</i> has the same v–i relation for both directions of current, e.g. resistor, inductor, capacitor. (iii) <i>Active element:</i> supplies energy to the circuit, e.g. voltage and current sources, batteries. (iv) <i>Passive element:</i> absorbs or stores energy and cannot supply it, e.g. R, L, C. (v) <i>Linear element:</i> obeys superposition and homogeneity, v–i is a straight line through the origin (R, L, C with constant values); <i>non-linear element:</i> v–i is not a straight line, e.g. diode, thermistor, saturated iron-core inductor.",
+   "<b>(c) Sources.</b> An <i>independent voltage source</i> maintains a fixed terminal voltage whatever the current (symbol: circle with +/− or battery); an <i>independent current source</i> supplies a fixed current whatever the voltage (circle with an arrow). A <i>dependent (controlled) source</i> has its value controlled by a voltage or current elsewhere in the circuit and is drawn as a diamond. Four types: VCVS (v = μv<sub>x</sub>), CCVS (v = r i<sub>x</sub>), VCCS (i = g v<sub>x</sub>), CCCS (i = β i<sub>x</sub>). They model transistors and op-amps.",
+   "<b>(d) Inductor.</b> v = L di/dt. Power p = vi = Li di/dt, so energy stored E = ∫<sub>0</sub><sup>I</sup> Li di = ½LI². The inductor stores energy in its magnetic field; current cannot change instantaneously; it acts as a short circuit to DC in steady state.",
+   "<b>Capacitor.</b> i = C dv/dt. Power p = vi = Cv dv/dt, so E = ∫<sub>0</sub><sup>V</sup> Cv dv = ½CV². It stores energy in the electric field; voltage across it cannot change instantaneously; it acts as an open circuit to DC in steady state."
+  ],
+  "formulas": [
+   "KCL: Σ I<sub>in</sub> = Σ I<sub>out</sub>",
+   "KVL: Σ V = 0 (closed loop)",
+   "R = ρl/A; R<sub>t</sub> = R<sub>0</sub>(1 + αt)",
+   "v<sub>L</sub> = L di/dt, E<sub>L</sub> = ½Li²",
+   "i<sub>C</sub> = C dv/dt, E<sub>C</sub> = ½Cv²"
+  ],
+  "diagram": "Node with 4 branch currents (two arrows in, two out) for KCL; a closed loop with a battery E and resistors R1, R2 with current I and polarity marks for KVL; symbols of independent V and I sources and of the four dependent (diamond) sources."
+ },
+ "Q1.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Correct statement of Thevenin's theorem",
+    "marks": 1
+   },
+   {
+    "point": "(a) Neat circuit with load terminals A-B and Thevenin equivalent (V<sub>th</sub> in series with R<sub>th</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Step-wise procedure: V<sub>th</sub> as open-circuit voltage, R<sub>th</sub> with sources deactivated",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Worked example with correct V<sub>th</sub>, R<sub>th</sub> and I<sub>L</sub>",
+    "marks": 2
+   },
+   {
+    "point": "(b) Correct statement of Norton's theorem with equivalent circuit (I<sub>N</sub> in parallel with R<sub>N</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Procedure: I<sub>N</sub> = short-circuit current, R<sub>N</sub> = R<sub>th</sub>",
+    "marks": 1
+   },
+   {
+    "point": "(b) Dual relationship: V<sub>th</sub> = I<sub>N</sub>R<sub>N</sub>, source transformation",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(a) Thevenin's theorem.</b> Any linear, bilateral two-terminal active network can be replaced, as far as a load connected across its terminals is concerned, by a single voltage source V<sub>th</sub> in series with a resistance R<sub>th</sub>. V<sub>th</sub> is the open-circuit voltage across the terminals and R<sub>th</sub> is the resistance seen from the terminals with all independent sources deactivated.",
+   "<b>Procedure.</b> Step 1: remove the load R<sub>L</sub> and mark the terminals A and B. Step 2: calculate V<sub>th</sub> = V<sub>AB</sub> (open circuit) by any method (KVL, voltage divider, nodal). Step 3: replace every independent voltage source by a short circuit and every current source by an open circuit (internal resistances remain); find R<sub>th</sub> looking into A–B. Step 4: draw the equivalent circuit, reconnect R<sub>L</sub> and find I<sub>L</sub> = V<sub>th</sub>/(R<sub>th</sub> + R<sub>L</sub>).",
+   "<b>Example.</b> A 12 V source with R<sub>1</sub> = 4 Ω in series, and R<sub>2</sub> = 12 Ω across the output terminals A–B, load R<sub>L</sub> = 5 Ω. V<sub>th</sub> = 12 × 12/(4 + 12) = 9 V. R<sub>th</sub> = 4 ∥ 12 = 3 Ω. I<sub>L</sub> = 9/(3 + 5) = 1.125 A.",
+   "<b>(b) Norton's theorem.</b> Any linear bilateral two-terminal active network can be replaced by a current source I<sub>N</sub> in parallel with a resistance R<sub>N</sub>. I<sub>N</sub> is the short-circuit current through the terminals and R<sub>N</sub> is the resistance seen from the terminals with sources deactivated (R<sub>N</sub> = R<sub>th</sub>).",
+   "<b>Procedure.</b> Short the terminals A–B (remove load) and find I<sub>sc</sub> = I<sub>N</sub>; deactivate sources and find R<sub>N</sub>; the load current is I<sub>L</sub> = I<sub>N</sub> R<sub>N</sub>/(R<sub>N</sub> + R<sub>L</sub>) (current divider). For the above example I<sub>N</sub> = 12/4 = 3 A (R<sub>2</sub> shorted), R<sub>N</sub> = 3 Ω, I<sub>L</sub> = 3 × 3/(3 + 5) = 1.125 A, the same result.",
+   "<b>Duality.</b> The Thevenin voltage source V<sub>th</sub> with series R<sub>th</sub> is converted to the Norton current source I<sub>N</sub> with parallel R<sub>N</sub> by source transformation: I<sub>N</sub> = V<sub>th</sub>/R<sub>th</sub>, R<sub>N</sub> = R<sub>th</sub>, equivalently V<sub>th</sub> = I<sub>N</sub> R<sub>N</sub> and R<sub>th</sub> = V<sub>oc</sub>/I<sub>sc</sub>. Series ↔ parallel, voltage ↔ current, open-circuit ↔ short-circuit: the two models are duals and give identical terminal behaviour (not identical internal power dissipation)."
+  ],
+  "formulas": [
+   "V<sub>th</sub> = V<sub>oc</sub>",
+   "R<sub>th</sub> = V<sub>oc</sub>/I<sub>sc</sub>",
+   "I<sub>L</sub> = V<sub>th</sub>/(R<sub>th</sub> + R<sub>L</sub>)",
+   "I<sub>N</sub> = V<sub>th</sub>/R<sub>th</sub>, R<sub>N</sub> = R<sub>th</sub>"
+  ],
+  "diagram": "(i) Original network with load A–B; (ii) Thevenin equivalent: V<sub>th</sub> in series with R<sub>th</sub> feeding R<sub>L</sub>; (iii) Norton equivalent: I<sub>N</sub> source in parallel with R<sub>N</sub> feeding R<sub>L</sub>."
+ },
+ "Q1.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Correct statement of the Superposition theorem",
+    "marks": 1.5
+   },
+   {
+    "point": "Explanation: one source acts at a time, others replaced by internal resistance (V source → short, I source → open)",
+    "marks": 2
+   },
+   {
+    "point": "Step-wise procedure for finding a branch current/voltage",
+    "marks": 2
+   },
+   {
+    "point": "Suitable worked example with correct result",
+    "marks": 2.5
+   },
+   {
+    "point": "Limitations: only linear bilateral networks; not applicable to power; dependent sources note",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Statement.</b> In a linear bilateral network containing more than one independent source, the current through (or voltage across) any element is the algebraic sum of the currents (voltages) produced by each source acting alone, with all the other independent sources replaced by their internal resistances.",
+   "<b>Explanation.</b> When one source acts, other ideal voltage sources are replaced by short circuits (V = 0) and other ideal current sources by open circuits (I = 0). Dependent sources are never deactivated; they remain in the circuit. The partial responses are added with proper regard to direction (sign).",
+   "<b>Procedure.</b> (1) Retain one source and deactivate the rest. (2) Calculate the required branch current I′ using series–parallel reduction or current divider. (3) Repeat for each remaining source to obtain I″, I‴ … (4) Add algebraically: I = I′ + I″ + I‴. Directions opposite to the assumed one are subtracted.",
+   "<b>Example.</b> Two sources E<sub>1</sub> = 10 V (series R<sub>1</sub> = 10 Ω) and E<sub>2</sub> = 20 V (series R<sub>2</sub> = 20 Ω) feed a common load R = 40 Ω. With E<sub>1</sub> alone: R<sub>total</sub> = 10 + (20 ∥ 40) = 23.33 Ω, I<sub>1</sub> = 0.4286 A, load share = 0.4286 × 20/60 = 0.1429 A. With E<sub>2</sub> alone: R<sub>total</sub> = 20 + (10 ∥ 40) = 28 Ω, I<sub>2</sub> = 0.7143 A, load share = 0.7143 × 10/50 = 0.1429 A. Both act in the same direction, so I<sub>load</sub> = 0.1429 + 0.1429 = 0.2857 A.",
+   "<b>Limitations.</b> (i) It is applicable only to <i>linear</i> networks (R, L, C with constant values) that are bilateral; it fails for diodes, transistors, saturated iron-core elements. (ii) It cannot be applied directly to <i>power</i>, since P = I²R is a square (non-linear) function: P ≠ P′ + P″; one must first add the currents and then compute I²R. (iii) Dependent sources cannot be removed. (iv) It is lengthy for networks with many sources, so mesh/nodal analysis is preferred then. (v) Applies to voltage and current but the sources must be independent."
+  ],
+  "formulas": [
+   "I = I′ + I″ + I‴ + …",
+   "P ≠ P′ + P″ (power is non-linear)"
+  ],
+  "diagram": "Original circuit with two sources and common load; two sub-circuits, each with one source active and the other replaced by a short circuit, showing the partial current in the load."
+ },
+ "Q1.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of the theorem and circuit with Thevenin source V<sub>th</sub>, R<sub>th</sub> and variable R<sub>L</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Expression of load current and power P = V<sub>th</sub>²R<sub>L</sub>/(R<sub>th</sub> + R<sub>L</sub>)²",
+    "marks": 2
+   },
+   {
+    "point": "Differentiation dP/dR<sub>L</sub> = 0 giving R<sub>L</sub> = R<sub>th</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Second-derivative check that this is a maximum (or power-vs-R<sub>L</sub> curve)",
+    "marks": 1
+   },
+   {
+    "point": "Derivation of P<sub>max</sub> = V<sub>th</sub>²/4R<sub>th</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Efficiency η = R<sub>L</sub>/(R<sub>th</sub> + R<sub>L</sub>) = 50 % at maximum power",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Statement.</b> A DC network delivers maximum power to a variable resistive load when the load resistance equals the Thevenin equivalent resistance of the network as seen from the load terminals: R<sub>L</sub> = R<sub>th</sub>.",
+   "<b>Proof.</b> Replace the network by its Thevenin equivalent V<sub>th</sub> in series with R<sub>th</sub>, connected to a variable load R<sub>L</sub>.",
+   "Step 1: Load current I = V<sub>th</sub>/(R<sub>th</sub> + R<sub>L</sub>).",
+   "Step 2: Power in load P = I²R<sub>L</sub> = V<sub>th</sub>² R<sub>L</sub>/(R<sub>th</sub> + R<sub>L</sub>)².",
+   "Step 3: For maximum P, dP/dR<sub>L</sub> = 0: dP/dR<sub>L</sub> = V<sub>th</sub>² [ (R<sub>th</sub> + R<sub>L</sub>)² − 2R<sub>L</sub>(R<sub>th</sub> + R<sub>L</sub>) ] / (R<sub>th</sub> + R<sub>L</sub>)<sup>4</sup> = 0.",
+   "Step 4: (R<sub>th</sub> + R<sub>L</sub>) − 2R<sub>L</sub> = 0, so R<sub>th</sub> − R<sub>L</sub> = 0, i.e. <b>R<sub>L</sub> = R<sub>th</sub></b>.",
+   "Step 5: The second derivative at R<sub>L</sub> = R<sub>th</sub> is negative (= −V<sub>th</sub>²/8R<sub>th</sub>³), so the power is a maximum. P is zero at R<sub>L</sub> = 0 and R<sub>L</sub> = ∞ and peaks in between.",
+   "Step 6: Substituting R<sub>L</sub> = R<sub>th</sub>: P<sub>max</sub> = V<sub>th</sub>² R<sub>th</sub>/(2R<sub>th</sub>)² = <b>V<sub>th</sub>²/4R<sub>th</sub></b>.",
+   "<b>Efficiency.</b> Power delivered to load = I²R<sub>L</sub>; power generated by the source = I²(R<sub>th</sub> + R<sub>L</sub>). η = R<sub>L</sub>/(R<sub>th</sub> + R<sub>L</sub>) × 100. At R<sub>L</sub> = R<sub>th</sub>, η = R<sub>th</sub>/2R<sub>th</sub> = 50 %. Half of the power is lost in the source resistance. Hence maximum power transfer is used in communication/low-power circuits where power level is small; power systems operate at high efficiency with R<sub>L</sub> much greater than the source resistance."
+  ],
+  "formulas": [
+   "R<sub>L</sub> = R<sub>th</sub>",
+   "P<sub>max</sub> = V<sub>th</sub>²/4R<sub>th</sub>",
+   "η = R<sub>L</sub>/(R<sub>L</sub> + R<sub>th</sub>) = 50 % at max power"
+  ],
+  "diagram": "Thevenin source V<sub>th</sub> with R<sub>th</sub> feeding variable R<sub>L</sub>; graph of P versus R<sub>L</sub> rising from 0, peaking at R<sub>L</sub> = R<sub>th</sub> with P<sub>max</sub> marked, and falling towards zero."
+ },
+ "Q1.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Neat star and delta diagrams with terminals A, B, C labelled",
+    "marks": 1.5
+   },
+   {
+    "point": "Equivalence condition: resistance between each pair of terminals must be same",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation of star-to-delta formula R<sub>AB</sub> = R<sub>A</sub> + R<sub>B</sub> + R<sub>A</sub>R<sub>B</sub>/R<sub>C</sub> (and cyclic)",
+    "marks": 3
+   },
+   {
+    "point": "Derivation of delta-to-star formula R<sub>A</sub> = R<sub>AB</sub>R<sub>CA</sub>/(R<sub>AB</sub> + R<sub>BC</sub> + R<sub>CA</sub>) (and cyclic)",
+    "marks": 3
+   },
+   {
+    "point": "Special case of equal resistances (R<sub>Δ</sub> = 3R<sub>Y</sub>)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Principle.</b> A star (Y) network of R<sub>A</sub>, R<sub>B</sub>, R<sub>C</sub> and a delta (Δ) network of R<sub>AB</sub>, R<sub>BC</sub>, R<sub>CA</sub> are equivalent when the resistance measured between every pair of terminals A–B, B–C, C–A is the same in both, with the third terminal open.",
+   "<b>Delta, between A and B:</b> R<sub>AB</sub> ∥ (R<sub>BC</sub> + R<sub>CA</sub>) = R<sub>AB</sub>(R<sub>BC</sub> + R<sub>CA</sub>)/(R<sub>AB</sub> + R<sub>BC</sub> + R<sub>CA</sub>). Let R<sub>Δ</sub> = R<sub>AB</sub> + R<sub>BC</sub> + R<sub>CA</sub>.",
+   "<b>Star, between A and B:</b> R<sub>A</sub> + R<sub>B</sub>.",
+   "Equating: (1) R<sub>A</sub> + R<sub>B</sub> = R<sub>AB</sub>(R<sub>BC</sub> + R<sub>CA</sub>)/R<sub>Δ</sub>. Similarly (2) R<sub>B</sub> + R<sub>C</sub> = R<sub>BC</sub>(R<sub>CA</sub> + R<sub>AB</sub>)/R<sub>Δ</sub> and (3) R<sub>C</sub> + R<sub>A</sub> = R<sub>CA</sub>(R<sub>AB</sub> + R<sub>BC</sub>)/R<sub>Δ</sub>.",
+   "<b>Delta → Star.</b> Add (1) and (3) and subtract (2): 2R<sub>A</sub> = [R<sub>AB</sub>R<sub>BC</sub> + R<sub>AB</sub>R<sub>CA</sub> + R<sub>CA</sub>R<sub>AB</sub> + R<sub>CA</sub>R<sub>BC</sub> − R<sub>BC</sub>R<sub>CA</sub> − R<sub>BC</sub>R<sub>AB</sub>]/R<sub>Δ</sub> = 2R<sub>AB</sub>R<sub>CA</sub>/R<sub>Δ</sub>. Hence <b>R<sub>A</sub> = R<sub>AB</sub>R<sub>CA</sub>/(R<sub>AB</sub> + R<sub>BC</sub> + R<sub>CA</sub>)</b>; likewise R<sub>B</sub> = R<sub>AB</sub>R<sub>BC</sub>/R<sub>Δ</sub> and R<sub>C</sub> = R<sub>BC</sub>R<sub>CA</sub>/R<sub>Δ</sub>. (Rule: product of the two delta resistors adjacent to the terminal ÷ sum of all three.)",
+   "<b>Star → Delta.</b> Form R<sub>A</sub>R<sub>B</sub> + R<sub>B</sub>R<sub>C</sub> + R<sub>C</sub>R<sub>A</sub> = R<sub>AB</sub>R<sub>BC</sub>R<sub>CA</sub>(R<sub>AB</sub> + R<sub>BC</sub> + R<sub>CA</sub>)/R<sub>Δ</sub>² = R<sub>AB</sub>R<sub>BC</sub>R<sub>CA</sub>/R<sub>Δ</sub>. Divide by R<sub>C</sub> = R<sub>BC</sub>R<sub>CA</sub>/R<sub>Δ</sub>: (R<sub>A</sub>R<sub>B</sub> + R<sub>B</sub>R<sub>C</sub> + R<sub>C</sub>R<sub>A</sub>)/R<sub>C</sub> = R<sub>AB</sub>. Hence <b>R<sub>AB</sub> = R<sub>A</sub> + R<sub>B</sub> + R<sub>A</sub>R<sub>B</sub>/R<sub>C</sub></b>, and cyclically R<sub>BC</sub> = R<sub>B</sub> + R<sub>C</sub> + R<sub>B</sub>R<sub>C</sub>/R<sub>A</sub>, R<sub>CA</sub> = R<sub>C</sub> + R<sub>A</sub> + R<sub>C</sub>R<sub>A</sub>/R<sub>B</sub>.",
+   "<b>Balanced case.</b> If R<sub>A</sub> = R<sub>B</sub> = R<sub>C</sub> = R<sub>Y</sub>, then R<sub>Δ</sub> = 3R<sub>Y</sub>; conversely R<sub>Y</sub> = R<sub>Δ</sub>/3. These transformations simplify bridge networks that are neither series nor parallel."
+  ],
+  "formulas": [
+   "Y→Δ: R<sub>AB</sub> = R<sub>A</sub> + R<sub>B</sub> + R<sub>A</sub>R<sub>B</sub>/R<sub>C</sub>",
+   "Δ→Y: R<sub>A</sub> = R<sub>AB</sub>R<sub>CA</sub>/(R<sub>AB</sub> + R<sub>BC</sub> + R<sub>CA</sub>)",
+   "Balanced: R<sub>Δ</sub> = 3R<sub>Y</sub>"
+  ],
+  "diagram": "Star with centre node N and arms R<sub>A</sub>, R<sub>B</sub>, R<sub>C</sub> to terminals A, B, C; delta triangle with R<sub>AB</sub>, R<sub>BC</sub>, R<sub>CA</sub> between the same terminals."
+ },
+ "Q1.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of first-order circuit (one energy-storage element, first-order differential equation)",
+    "marks": 1
+   },
+   {
+    "point": "Behaviour of L (short) and C (open) in DC steady state, with reasons",
+    "marks": 1.5
+   },
+   {
+    "point": "R-L circuit: KVL equation and solution i(t) = (V/R)(1 − e<sup>−t/τ</sup>) with τ = L/R",
+    "marks": 3
+   },
+   {
+    "point": "R-C circuit: KVL equation and solution v<sub>C</sub>(t) = V(1 − e<sup>−t/τ</sup>) with τ = RC",
+    "marks": 3
+   },
+   {
+    "point": "Meaning of time constant (63.2 % rise; 5τ settling) and sketch of transient curves",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>First-order circuit.</b> A circuit containing resistors and only one energy-storage element (one L or one C) is a first-order circuit; its response is described by a first-order linear differential equation, and the transient is a single exponential.",
+   "<b>DC steady state.</b> After the transient dies out, currents and voltages are constant, so di/dt = 0 and dv/dt = 0. Hence v<sub>L</sub> = L di/dt = 0: an inductor behaves as a short circuit. i<sub>C</sub> = C dv/dt = 0: a capacitor behaves as an open circuit (and is charged to the source voltage).",
+   "<b>Series R-L, DC V applied at t = 0 (i(0) = 0).</b> KVL: V = iR + L di/dt.",
+   "Rearranging: di/(V − iR) = dt/L. Integrate: −(1/R) ln(V − iR) = t/L + K. At t = 0, i = 0 gives K = −(1/R) ln V.",
+   "So ln[(V − iR)/V] = −Rt/L, thus <b>i(t) = (V/R)(1 − e<sup>−t/τ</sup>), τ = L/R</b>. Also v<sub>L</sub> = L di/dt = V e<sup>−t/τ</sup>, v<sub>R</sub> = V(1 − e<sup>−t/τ</sup>). The current rises from 0 to the final value V/R.",
+   "<b>Series R-C, DC V applied at t = 0 (v<sub>C</sub>(0) = 0).</b> KVL: V = iR + v<sub>C</sub>, with i = C dv<sub>C</sub>/dt, so RC dv<sub>C</sub>/dt + v<sub>C</sub> = V.",
+   "Separate variables: dv<sub>C</sub>/(V − v<sub>C</sub>) = dt/RC. Integrate: −ln(V − v<sub>C</sub>) = t/RC + K; at t = 0, v<sub>C</sub> = 0 gives K = −ln V. Hence <b>v<sub>C</sub>(t) = V(1 − e<sup>−t/τ</sup>), τ = RC</b>, and i(t) = (V/R)e<sup>−t/τ</sup>.",
+   "<b>Time constant τ.</b> It is the time in which the quantity reaches 63.2 % of its final value during rise (or falls to 36.8 % of its initial value during decay); the tangent at t = 0 meets the final value at t = τ. After 5τ the response is within 1 % of the final value, i.e. the transient is considered over. Larger τ means slower response. For discharge (source removed): i = (V/R)e<sup>−t/τ</sup> in RL and v<sub>C</sub> = V e<sup>−t/τ</sup> in RC."
+  ],
+  "formulas": [
+   "R-L: i(t) = (V/R)(1 − e<sup>−t/τ</sup>), τ = L/R",
+   "R-C: v<sub>C</sub>(t) = V(1 − e<sup>−t/τ</sup>), τ = RC",
+   "Steady state: L → short, C → open"
+  ],
+  "diagram": "Series R-L and R-C circuits with switch and DC source; exponential growth curves of i(t) and v<sub>C</sub>(t) showing 0.632 of final value at t = τ."
+ },
+ "Q1.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Statement of the superposition method / two sub-circuits correctly drawn",
+    "marks": 1
+   },
+   {
+    "point": "(a) Current through 40 Ω due to 10 V source alone = 0.1429 A",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Current through 40 Ω due to 20 V source alone = 0.1429 A",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Total current = 0.2857 A with direction",
+    "marks": 1
+   },
+   {
+    "point": "(b) Statement of the Superposition theorem",
+    "marks": 1
+   },
+   {
+    "point": "(b) Partial currents in 3.3 kΩ due to each source (correct values)",
+    "marks": 2.5
+   },
+   {
+    "point": "(b) Total current 1.51 mA and voltage 4.99 V with units",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(a) Assumed circuit:</b> E<sub>1</sub> = 10 V with R<sub>1</sub> = 10 Ω and E<sub>2</sub> = 20 V with R<sub>2</sub> = 20 Ω, both feeding the central 40 Ω resistor across A–B (sources aiding).",
+   "<b>Case 1: 10 V source alone</b> (20 V source shorted). R<sub>eq</sub> = 10 + (20 × 40)/(20 + 40) = 10 + 13.33 = 23.33 Ω. I = 10/23.33 = 0.4286 A. Current in 40 Ω (current divider) I′ = 0.4286 × 20/(20 + 40) = 0.1429 A.",
+   "<b>Case 2: 20 V source alone</b> (10 V source shorted). R<sub>eq</sub> = 20 + (10 × 40)/(10 + 40) = 20 + 8 = 28 Ω. I = 20/28 = 0.7143 A. Current in 40 Ω I″ = 0.7143 × 10/(10 + 40) = 0.1429 A.",
+   "Both components flow from A to B, so I<sub>40</sub> = I′ + I″ = 0.1429 + 0.1429 = <b>0.2857 A</b> (≈ 0.286 A); V<sub>AB</sub> = 0.2857 × 40 = 11.43 V. (Check by nodal analysis: V = (10/10 + 20/20)/(1/10 + 1/20 + 1/40) = 2/0.175 = 11.43 V ✓.)",
+   "<b>(b) Superposition theorem:</b> in a linear bilateral network with several independent sources, the response in any element equals the algebraic sum of the responses due to each source acting alone, the others being replaced by their internal resistances (voltage source → short, current source → open).",
+   "<b>8 V source alone</b> (5 V shorted): 3.3 kΩ ∥ 4.7 kΩ = (3.3 × 4.7)/8.0 = 1.939 kΩ. Total R = 2.0 + 1.939 = 3.939 kΩ; I = 8/3.939 = 2.031 mA. Current in 3.3 kΩ = 2.031 × 4.7/(3.3 + 4.7) = 1.193 mA.",
+   "<b>5 V source alone</b> (8 V shorted): 2.0 ∥ 3.3 = (2.0 × 3.3)/5.3 = 1.245 kΩ. Total R = 4.7 + 1.245 = 5.945 kΩ; I = 5/5.945 = 0.841 mA. Current in 3.3 kΩ = 0.841 × 2.0/(2.0 + 3.3) = 0.318 mA.",
+   "Both act in the same direction through the middle resistor: I = 1.193 + 0.318 = <b>1.51 mA</b>. Voltage V = 1.51 mA × 3.3 kΩ = <b>4.99 V</b>. (Check by nodal: V = (8/2 + 5/4.7)/(1/2 + 1/4.7 + 1/3.3) = 4.985 V ✓.)"
+  ],
+  "formulas": [
+   "I = I′ + I″",
+   "Current divider: I<sub>1</sub> = I × R<sub>2</sub>/(R<sub>1</sub> + R<sub>2</sub>)"
+  ],
+  "diagram": "Original circuit and two sub-circuits (one source active each) with the middle resistor current marked.",
+  "result": "(a) I<sub>40Ω</sub> = 0.2857 A (≈ 0.286 A), V<sub>AB</sub> = 11.43 V.  (b) I = 1.51 mA, V = 4.99 V across 3.3 kΩ."
+ },
+ "Q1.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Statement of assumed circuit and V<sub>th</sub> computation (19.22 V)",
+    "marks": 2
+   },
+   {
+    "point": "(a) R<sub>th</sub> = 8.04 kΩ and I<sub>L</sub> = 1.914 mA with Thevenin equivalent drawn",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Thevenin voltage with assumed circuit (26 V)",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) R<sub>th</sub> = 32 Ω and current i = 0.619 A",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) V<sub>th</sub> and R<sub>th</sub> with correct method",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) Current through 5 Ω load",
+    "marks": 1
+   },
+   {
+    "point": "(c) Max power condition R<sub>L</sub> = R<sub>th</sub> and P<sub>max</sub> value",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(a) Assumed circuit:</b> two potential dividers with a common return: V<sub>S1</sub> = 40 V across R<sub>1</sub> = 4 kΩ (top) and R<sub>3</sub> = 20 kΩ (bottom), terminal A at their junction; V<sub>S2</sub> = 15 V across R<sub>2</sub> = 5 kΩ and R<sub>4</sub> = 80 kΩ, terminal B at their junction; load R<sub>L</sub> = 2 kΩ between A and B.",
+   "V<sub>A</sub> = 40 × 20/(4 + 20) = 33.33 V; V<sub>B</sub> = 15 × 80/(5 + 80) = 14.12 V. <b>V<sub>th</sub> = V<sub>A</sub> − V<sub>B</sub> = 19.22 V.</b>",
+   "R<sub>th</sub> (sources shorted) = (4 ∥ 20) + (5 ∥ 80) = 3.333 + 4.706 = <b>8.04 kΩ</b>.",
+   "I<sub>L</sub> = V<sub>th</sub>/(R<sub>th</sub> + R<sub>L</sub>) = 19.22/(8.04 + 2) = <b>1.914 mA</b>.",
+   "<b>(b) Assumed circuit:</b> 50 V source in series with 30 Ω feeding node X; a 20 Ω resistor from X to ground; the 0.5 A source injects current into X; the load branch (second 20 Ω in series with the 10 Ω resistor) is connected from X to ground. Remove the 10 Ω branch resistor.",
+   "Open-circuit voltage at X: (50 − V<sub>X</sub>)/30 + 0.5 = V<sub>X</sub>/20 gives 2.1667 = V<sub>X</sub>(1/30 + 1/20) = 0.08333 V<sub>X</sub>, so V<sub>th</sub> = 26 V. R<sub>th</sub> = (30 ∥ 20) + 20 = 12 + 20 = 32 Ω (50 V shorted, 0.5 A source open).",
+   "Current in 10 Ω: i = 26/(32 + 10) = <b>0.619 A</b>.",
+   "<b>(c) Assuming the standard network:</b> 24 V source with 6 Ω in series and 12 Ω across the output terminals, load 5 Ω. V<sub>th</sub> = 24 × 12/(6 + 12) = 16 V; R<sub>th</sub> = 6 ∥ 12 = 4 Ω.",
+   "(i) I<sub>5Ω</sub> = 16/(4 + 5) = <b>1.778 A</b>.",
+   "(ii) Maximum power transfer occurs when R<sub>L</sub> = R<sub>th</sub> = <b>4 Ω</b>; P<sub>max</sub> = V<sub>th</sub>²/4R<sub>th</sub> = 16²/(4 × 4) = <b>16 W</b>."
+  ],
+  "formulas": [
+   "I<sub>L</sub> = V<sub>th</sub>/(R<sub>th</sub> + R<sub>L</sub>)",
+   "P<sub>max</sub> = V<sub>th</sub>²/4R<sub>th</sub> at R<sub>L</sub> = R<sub>th</sub>"
+  ],
+  "diagram": "For each part: the circuit with load removed (to find V<sub>th</sub>), the sources-deactivated circuit (to find R<sub>th</sub>) and the Thevenin equivalent with the load reconnected.",
+  "result": "(a) V<sub>th</sub> = 19.22 V, R<sub>th</sub> = 8.04 kΩ, I<sub>L</sub> = 1.914 mA.  (b) i = 0.619 A.  (c) I = 1.778 A; R<sub>L</sub> = 4 Ω, P<sub>max</sub> = 16 W."
+ },
+ "Q1.9": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of the assumed circuit and MPT condition R<sub>L</sub> = R<sub>th</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Parallel combination 8 ∥ 5 ∥ 12 = 2.449 Ω",
+    "marks": 2
+   },
+   {
+    "point": "V<sub>th</sub> = 1.739 V with working",
+    "marks": 2
+   },
+   {
+    "point": "R<sub>th</sub> = 6 ∥ 2.449 = 1.739 Ω and hence R<sub>L</sub> = 1.739 Ω",
+    "marks": 2
+   },
+   {
+    "point": "P<sub>max</sub> = V<sub>th</sub>²/4R<sub>th</sub> = 0.435 W with units",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>Assumed circuit:</b> 6 V source in series with 6 Ω; the three branches 8 Ω, 5 Ω and 12 Ω are connected in parallel across the output; the load R<sub>L</sub> is connected across the same output terminals A–B.",
+   "<b>Condition.</b> Maximum power is transferred when R<sub>L</sub> = R<sub>th</sub>, the Thevenin resistance seen from A–B.",
+   "Step 1: Parallel group, R<sub>p</sub> = 1/(1/8 + 1/5 + 1/12) = 1/(0.125 + 0.2 + 0.0833) = 1/0.4083 = 2.449 Ω.",
+   "Step 2 (open-circuit voltage with R<sub>L</sub> removed): V<sub>th</sub> = 6 × R<sub>p</sub>/(6 + R<sub>p</sub>) = 6 × 2.449/8.449 = 1.739 V.",
+   "Step 3 (R<sub>th</sub>, source shorted): R<sub>th</sub> = 6 ∥ 2.449 = (6 × 2.449)/8.449 = 1.739 Ω.",
+   "Step 4: Hence for maximum power <b>R<sub>L</sub> = R<sub>th</sub> = 1.739 Ω</b>.",
+   "Step 5: P<sub>max</sub> = V<sub>th</sub>²/(4R<sub>th</sub>) = (1.739)²/(4 × 1.739) = 3.024/6.957 = <b>0.435 W</b>.",
+   "Check: with R<sub>L</sub> = 1.739 Ω the current is I = 1.739/(2 × 1.739) = 0.5 A, so P = 0.5² × 1.739 = 0.435 W ✓."
+  ],
+  "formulas": [
+   "R<sub>L</sub> = R<sub>th</sub>",
+   "P<sub>max</sub> = V<sub>th</sub>²/4R<sub>th</sub>"
+  ],
+  "diagram": "6 V source, 6 Ω series, parallel bank 8 Ω ∥ 5 Ω ∥ 12 Ω with R<sub>L</sub> across terminals A–B; Thevenin equivalent (1.739 V, 1.739 Ω).",
+  "result": "R<sub>L</sub> = 1.739 Ω; P<sub>max</sub> = 0.435 W"
+ },
+ "Q1.10": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Assumed circuit, loop currents/KVL equations written correctly",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Branch currents 0.6 A and 0.4 A and I<sub>AB</sub> = 1 A",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Series power relation V²/2R = 60 W giving V²/R = 120",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Parallel power = 4 × series power = 240 W",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) Voltage across parallel part (36 V) and branch currents 1.8 A and 1.2 A",
+    "marks": 2
+   },
+   {
+    "point": "(c) Total applied voltage 81 V with units",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>(a) Assumed circuit:</b> two branches connected between the same nodes A and B: branch 1 has 15 V in series with 10 Ω and 15 Ω (25 Ω total); branch 2 has 20 V in series with 20 Ω and 30 Ω (50 Ω total), with the sources aiding towards the common branch A–B, which is an ideal connection.",
+   "KVL for loop 1: 15 − 25 I<sub>1</sub> = V<sub>AB</sub> = 0 gives I<sub>1</sub> = 15/25 = 0.6 A. KVL for loop 2: 20 − 50 I<sub>2</sub> = 0 gives I<sub>2</sub> = 20/50 = 0.4 A.",
+   "KCL at A: current in branch A–B = I<sub>1</sub> + I<sub>2</sub> = 0.6 + 0.4 = <b>1.0 A</b>. (If instead the two sources were in a single series loop opposing each other, I = (20 − 15)/(25 + 50) = 0.067 A.)",
+   "<b>(b)</b> Let each resistance be R and the battery voltage V. Series: P<sub>s</sub> = V²/(2R) = 60 W, so V²/R = 120 W.",
+   "Parallel: R<sub>eq</sub> = R/2, so P<sub>p</sub> = V²/(R/2) = 2V²/R = 2 × 120 = 240 W. Equivalently P<sub>p</sub> = 4P<sub>s</sub> = 4 × 60 = <b>240 W</b>.",
+   "<b>(c)</b> The 15 Ω resistor is in series, so total current I = 3 A. Parallel combination R<sub>p</sub> = (20 × 30)/(20 + 30) = 12 Ω. Voltage across it V<sub>p</sub> = 3 × 12 = 36 V.",
+   "I<sub>20</sub> = 36/20 = <b>1.8 A</b>, I<sub>30</sub> = 36/30 = <b>1.2 A</b> (sum = 3 A ✓).",
+   "Drop across 15 Ω = 3 × 15 = 45 V. Total applied voltage V = 45 + 36 = <b>81 V</b> (equivalently 3 × (15 + 12) = 81 V)."
+  ],
+  "formulas": [
+   "P<sub>series</sub> = V²/2R, P<sub>parallel</sub> = 2V²/R = 4P<sub>series</sub>",
+   "Current divider for two branches"
+  ],
+  "diagram": "(a) Two-branch circuit with nodes A, B and loop currents I<sub>1</sub>, I<sub>2</sub>; (c) 15 Ω in series with (20 Ω ∥ 30 Ω).",
+  "result": "(a) I<sub>AB</sub> = 1.0 A (0.6 A + 0.4 A).  (b) 240 W.  (c) I<sub>20</sub> = 1.8 A, I<sub>30</sub> = 1.2 A, V = 81 V."
+ },
+ "Q1.11": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Neat star and delta diagrams with terminals labelled",
+    "marks": 1.5
+   },
+   {
+    "point": "Writing the Y→Δ formula R<sub>AB</sub> = R<sub>A</sub> + R<sub>B</sub> + R<sub>A</sub>R<sub>B</sub>/R<sub>C</sub> (and cyclic)",
+    "marks": 3
+   },
+   {
+    "point": "Correct substitution with R = 10 Ω",
+    "marks": 3
+   },
+   {
+    "point": "Answer 30 Ω each with unit",
+    "marks": 1.5
+   },
+   {
+    "point": "Check / remark R<sub>Δ</sub> = 3R<sub>Y</sub> and verification by equivalent resistance between two terminals",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> star network R<sub>1</sub> = R<sub>2</sub> = R<sub>3</sub> = R<sub>Y</sub> = 10 Ω. To find the equivalent delta resistances R<sub>12</sub>, R<sub>23</sub>, R<sub>31</sub>.",
+   "<b>Formula (star to delta):</b> R<sub>12</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>1</sub>R<sub>2</sub>/R<sub>3</sub>, with cyclic expressions for R<sub>23</sub> and R<sub>31</sub>.",
+   "<b>Substitution:</b> R<sub>12</sub> = 10 + 10 + (10 × 10)/10 = 10 + 10 + 10 = 30 Ω. By symmetry R<sub>23</sub> = R<sub>31</sub> = 30 Ω.",
+   "<b>Verification:</b> In the delta, resistance between two terminals = 30 ∥ (30 + 30) = (30 × 60)/90 = 20 Ω. In the star it is 10 + 10 = 20 Ω ✓.",
+   "Hence for a balanced star, R<sub>Δ</sub> = 3R<sub>Y</sub> = 30 Ω."
+  ],
+  "formulas": [
+   "R<sub>Δ</sub> = 3R<sub>Y</sub>"
+  ],
+  "diagram": "Star of three 10 Ω arms and its equivalent delta of three 30 Ω resistors between the terminals 1, 2, 3.",
+  "result": "Each delta branch = 30 Ω"
+ },
+ "Q2.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definitions of instantaneous, peak, average, RMS values",
+    "marks": 1.5
+   },
+   {
+    "point": "Definitions of form factor and peak factor",
+    "marks": 1
+   },
+   {
+    "point": "Sinusoidal wave i = I<sub>m</sub> sin ωt with waveform diagram",
+    "marks": 1
+   },
+   {
+    "point": "Derivation of RMS value using mean of squares over a cycle",
+    "marks": 3
+   },
+   {
+    "point": "Derivation of average value over half cycle (full-cycle average is zero)",
+    "marks": 2.5
+   },
+   {
+    "point": "Final results I<sub>rms</sub> = 0.707 I<sub>m</sub>, I<sub>av</sub> = 0.637 I<sub>m</sub>, K<sub>f</sub> = 1.11, K<sub>p</sub> = 1.414",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Definitions.</b> (i) <i>Instantaneous value</i> – the value of the alternating quantity at any particular instant, e.g. i = I<sub>m</sub> sin ωt. (ii) <i>Peak (maximum) value</i> I<sub>m</sub> – the largest value reached in a half cycle (amplitude). (iii) <i>Average value</i> – the mean of all instantaneous values over a half cycle (the full-cycle mean of a sine wave is zero). (iv) <i>RMS (effective) value</i> – the square root of the mean of the squares of the instantaneous values over a cycle; it equals the DC value that produces the same heating effect in a resistor. (v) <i>Form factor</i> K<sub>f</sub> = RMS value / average value. (vi) <i>Peak (crest) factor</i> K<sub>p</sub> = peak value / RMS value.",
+   "<b>Waveform.</b> Let i = I<sub>m</sub> sin θ, where θ = ωt, one cycle being 0 to 2π (draw a sine wave with positive and negative half-cycles, marking I<sub>m</sub> and the period T).",
+   "<b>Derivation of RMS value.</b> By definition I<sub>rms</sub> = √[ (1/2π) ∫<sub>0</sub><sup>2π</sup> i² dθ ].",
+   "Step 1: i² = I<sub>m</sub>² sin²θ = I<sub>m</sub>² (1 − cos 2θ)/2.",
+   "Step 2: ∫<sub>0</sub><sup>2π</sup> i² dθ = (I<sub>m</sub>²/2) [θ − (sin 2θ)/2]<sub>0</sub><sup>2π</sup> = (I<sub>m</sub>²/2)(2π) = π I<sub>m</sub>².",
+   "Step 3: I<sub>rms</sub> = √[ (1/2π)(π I<sub>m</sub>²) ] = √(I<sub>m</sub>²/2) = <b>I<sub>m</sub>/√2 = 0.707 I<sub>m</sub></b>.",
+   "<b>Derivation of average value.</b> Taken over the half cycle 0 to π (the full cycle gives zero because the two halves cancel): I<sub>av</sub> = (1/π) ∫<sub>0</sub><sup>π</sup> I<sub>m</sub> sin θ dθ.",
+   "Step 4: I<sub>av</sub> = (I<sub>m</sub>/π) [−cos θ]<sub>0</sub><sup>π</sup> = (I<sub>m</sub>/π)(1 + 1) = <b>2I<sub>m</sub>/π = 0.637 I<sub>m</sub></b>.",
+   "<b>Form factor</b> K<sub>f</sub> = I<sub>rms</sub>/I<sub>av</sub> = 0.707 I<sub>m</sub>/0.637 I<sub>m</sub> = <b>1.11</b>.",
+   "<b>Peak factor</b> K<sub>p</sub> = I<sub>m</sub>/I<sub>rms</sub> = I<sub>m</sub>/0.707 I<sub>m</sub> = <b>1.414</b>.",
+   "Significance: a.c. meters are calibrated in RMS values; the 230 V domestic supply is the RMS value, its peak being 230√2 ≈ 325 V."
+  ],
+  "formulas": [
+   "I<sub>rms</sub> = I<sub>m</sub>/√2 = 0.707 I<sub>m</sub>",
+   "I<sub>av</sub> = 2I<sub>m</sub>/π = 0.637 I<sub>m</sub>",
+   "K<sub>f</sub> = 1.11, K<sub>p</sub> = 1.414"
+  ],
+  "diagram": "One full cycle of a sine wave i = I<sub>m</sub> sin ωt on axes of i versus ωt (0, π, 2π); mark I<sub>m</sub>, −I<sub>m</sub>, period T, and shade the positive half-cycle used for the average value."
+ },
+ "Q2.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Definition of active power P = VI cosφ with unit W",
+    "marks": 1
+   },
+   {
+    "point": "(a) Definition of reactive power Q = VI sinφ (VAR) and apparent power S = VI (VA)",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Power factor definition and power triangle drawn with S² = P² + Q²",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Causes of low power factor (any three)",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Disadvantages of low power factor (current, copper loss, regulation, kVA rating, cost)",
+    "marks": 2
+   },
+   {
+    "point": "(b) Shunt capacitor method with phasor diagram and relation C = P(tanφ<sub>1</sub> − tanφ<sub>2</sub>)/(ωV²)",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>(a) Active (true) power P.</b> The power actually converted to useful work or heat in the circuit: P = VI cosφ = I²R, unit watt (W).",
+   "<b>Reactive power Q.</b> The power exchanged back and forth between the source and the L and C elements, doing no net work: Q = VI sinφ = I²X, unit volt-ampere reactive (VAR).",
+   "<b>Apparent power S.</b> The product of RMS voltage and RMS current, S = VI, unit volt-ampere (VA). S = √(P² + Q²).",
+   "<b>Power factor.</b> cosφ = P/S = R/Z = cosine of the angle between V and I; it is lagging for inductive loads and leading for capacitive loads (0 ≤ cosφ ≤ 1).",
+   "<b>Power triangle.</b> Right-angled triangle with base P (W), perpendicular Q (VAR) and hypotenuse S (VA), angle φ between S and P: P = S cosφ, Q = S sinφ, tanφ = Q/P.",
+   "<b>(b) Causes of low power factor.</b> (i) Induction motors and transformers lightly loaded (large magnetising current). (ii) Fluorescent/discharge lamps with chokes. (iii) Arc and induction furnaces, welding sets. (iv) Varying load on the supply and highly inductive loads in industry.",
+   "<b>Disadvantages.</b> For a given power P and voltage V, I = P/(V cosφ), so a low cosφ means: (i) larger current and hence larger I²R losses in lines and transformers; (ii) larger cable/conductor size and higher capital cost; (iii) larger kVA rating of generators and transformers for the same kW; (iv) poor voltage regulation due to larger voltage drop; (v) lower efficiency and penalty (low-p.f. surcharge) in tariff.",
+   "<b>Improvement by shunt capacitor bank.</b> A capacitor connected in parallel with the inductive load draws a leading current I<sub>C</sub> = V/X<sub>C</sub> which cancels part of the lagging reactive component of the load current; the real component is unchanged so the supply current falls and the angle reduces from φ<sub>1</sub> to φ<sub>2</sub>.",
+   "Phasor diagram: V reference; load current I<sub>1</sub> lags by φ<sub>1</sub>; I<sub>C</sub> leads V by 90°; resultant I lags by smaller φ<sub>2</sub>.",
+   "Capacitor required: reactive power supplied Q<sub>C</sub> = P(tanφ<sub>1</sub> − tanφ<sub>2</sub>) = V²/X<sub>C</sub> = ωCV², hence <b>C = P(tanφ<sub>1</sub> − tanφ<sub>2</sub>)/(ωV²)</b> (single phase). Capacitor banks are used at the load end or at substations, and synchronous condensers are an alternative."
+  ],
+  "formulas": [
+   "P = VI cosφ; Q = VI sinφ; S = VI",
+   "S² = P² + Q²; cosφ = P/S",
+   "C = P(tanφ<sub>1</sub> − tanφ<sub>2</sub>)/(ωV²)"
+  ],
+  "diagram": "Power triangle (P horizontal, Q vertical, S hypotenuse, angle φ) and the phasor diagram of V, I<sub>1</sub>, I<sub>C</sub> and the resultant I showing improved angle φ<sub>2</sub>."
+ },
+ "Q2.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of resonance and condition X<sub>L</sub> = X<sub>C</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation of f<sub>0</sub> = 1/(2π√LC)",
+    "marks": 1.5
+   },
+   {
+    "point": "Effects at resonance (Z = R minimum, I maximum, unity p.f., V<sub>L</sub> = V<sub>C</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "Sketch of X<sub>L</sub>, X<sub>C</sub>, R, Z and I versus frequency, labelled",
+    "marks": 2
+   },
+   {
+    "point": "Definition of bandwidth Δf = f<sub>2</sub> − f<sub>1</sub> = f<sub>0</sub>/Q with half-power points",
+    "marks": 1.5
+   },
+   {
+    "point": "Definition of Q = ω<sub>0</sub>L/R = 1/(ω<sub>0</sub>CR) and voltage magnification V<sub>L</sub> = V<sub>C</sub> = QV",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Resonance.</b> A series R-L-C circuit is said to be in resonance when the supply voltage and the current are in phase, i.e. the circuit behaves as a pure resistance (power factor unity). This occurs when the inductive reactance equals the capacitive reactance.",
+   "<b>Condition and resonant frequency.</b> Impedance Z = √[R² + (X<sub>L</sub> − X<sub>C</sub>)²]. Phase angle φ = tan⁻¹[(X<sub>L</sub> − X<sub>C</sub>)/R] = 0 requires X<sub>L</sub> = X<sub>C</sub>.",
+   "At resonance ω<sub>0</sub>L = 1/(ω<sub>0</sub>C) ⇒ ω<sub>0</sub>² = 1/LC ⇒ ω<sub>0</sub> = 1/√(LC) rad/s, hence <b>f<sub>0</sub> = 1/(2π√LC)</b>.",
+   "<b>Characteristics at resonance.</b> Z = R (minimum); I<sub>0</sub> = V/R (maximum); p.f. = 1; V<sub>L</sub> = V<sub>C</sub> (equal and opposite, cancelling), V<sub>R</sub> = V; the circuit is purely resistive.",
+   "<b>Variation with frequency (sketch).</b> X<sub>L</sub> = 2πfL is a straight line through the origin; X<sub>C</sub> = 1/2πfC is a rectangular hyperbola falling with f; they cross at f<sub>0</sub>. R is a horizontal line. Z = √[R² + (X<sub>L</sub> − X<sub>C</sub>)²] is a U-shaped curve with minimum R at f<sub>0</sub>; I = V/Z is a bell-shaped curve with maximum V/R at f<sub>0</sub>. Below f<sub>0</sub> the circuit is capacitive (current leads), above f<sub>0</sub> inductive (current lags).",
+   "<b>Half-power frequencies and bandwidth.</b> The frequencies f<sub>1</sub> and f<sub>2</sub> at which the current falls to I<sub>0</sub>/√2 (power falls to half of its maximum) are the half-power points. Bandwidth <b>Δf = f<sub>2</sub> − f<sub>1</sub> = R/2πL = f<sub>0</sub>/Q</b>.",
+   "<b>Quality factor.</b> Q = (voltage across L or C at resonance)/(supply voltage) = ω<sub>0</sub>L/R = 1/(ω<sub>0</sub>CR) = (1/R)√(L/C). It measures the sharpness of resonance (selectivity); high Q means narrow bandwidth.",
+   "<b>Voltage magnification.</b> At resonance I<sub>0</sub> = V/R, so V<sub>L</sub> = I<sub>0</sub>X<sub>L</sub> = (V/R)ω<sub>0</sub>L = QV and V<sub>C</sub> = I<sub>0</sub>X<sub>C</sub> = QV. Since Q is usually much greater than 1, the voltages across L and C can be many times the supply voltage (hence the name voltage resonance), although they are in antiphase and cancel in the total. Application: tuning circuits in radio receivers."
+  ],
+  "formulas": [
+   "f<sub>0</sub> = 1/(2π√LC)",
+   "Q = ω<sub>0</sub>L/R = (1/R)√(L/C)",
+   "Δf = f<sub>0</sub>/Q = R/2πL",
+   "V<sub>L</sub> = V<sub>C</sub> = QV"
+  ],
+  "diagram": "Graph against frequency f: straight line X<sub>L</sub>, falling hyperbola X<sub>C</sub> crossing at f<sub>0</sub>, horizontal R, U-shaped Z with minimum R, bell-shaped current I with peak I<sub>0</sub> = V/R and half-power points f<sub>1</sub>, f<sub>2</sub> at 0.707 I<sub>0</sub>."
+ },
+ "Q2.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of balanced 3-phase system and 120° displaced phase voltages",
+    "marks": 1
+   },
+   {
+    "point": "Star connection diagram with V<sub>L</sub>, V<sub>ph</sub>, I<sub>L</sub>, I<sub>ph</sub> marked",
+    "marks": 1.5
+   },
+   {
+    "point": "Star phasor diagram and derivation V<sub>L</sub> = √3 V<sub>ph</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Star current relation I<sub>L</sub> = I<sub>ph</sub>",
+    "marks": 0.5
+   },
+   {
+    "point": "Delta connection diagram",
+    "marks": 1.5
+   },
+   {
+    "point": "Delta phasor diagram and derivation I<sub>L</sub> = √3 I<sub>ph</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Delta voltage relation V<sub>L</sub> = V<sub>ph</sub> and power P = √3 V<sub>L</sub>I<sub>L</sub>cosφ",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Balanced system.</b> The three phase voltages have equal magnitude V<sub>ph</sub> and are displaced by 120° in phase; the three loads are identical.",
+   "<b>A. Star (Y) connection.</b> The similar ends of the three phases are joined to form the neutral N; the other ends R, Y, B go to the lines. The line current flows through exactly one phase, so <b>I<sub>L</sub> = I<sub>ph</sub></b>.",
+   "Take V<sub>RN</sub> = V<sub>ph</sub>∠0°, V<sub>YN</sub> = V<sub>ph</sub>∠−120°, V<sub>BN</sub> = V<sub>ph</sub>∠−240°. The line voltage is the potential difference between two lines: V<sub>RY</sub> = V<sub>RN</sub> − V<sub>YN</sub> (phasor difference).",
+   "Phasor diagram: draw V<sub>RN</sub> and reverse V<sub>YN</sub> (−V<sub>YN</sub>); the angle between V<sub>RN</sub> and −V<sub>YN</sub> is 60°. Then V<sub>RY</sub>² = V<sub>ph</sub>² + V<sub>ph</sub>² + 2V<sub>ph</sub>² cos 60° = 3V<sub>ph</sub>².",
+   "Hence <b>V<sub>L</sub> = √3 V<sub>ph</sub></b>, and V<sub>RY</sub> leads V<sub>RN</sub> by 30°. Similarly for V<sub>YB</sub> and V<sub>BR</sub>.",
+   "<b>B. Delta (Δ) connection.</b> The end of each phase is joined to the start of the next to form a closed mesh; the lines are taken from the three junctions. Each phase is directly across two lines, so <b>V<sub>L</sub> = V<sub>ph</sub></b>.",
+   "Phase currents I<sub>RY</sub>, I<sub>YB</sub>, I<sub>BR</sub> (each I<sub>ph</sub>) are 120° apart. Applying KCL at a junction, the line current I<sub>R</sub> = I<sub>RY</sub> − I<sub>BR</sub> (phasor difference).",
+   "Phasor diagram: the angle between I<sub>RY</sub> and −I<sub>BR</sub> is 60°, so I<sub>R</sub>² = I<sub>ph</sub>² + I<sub>ph</sub>² + 2I<sub>ph</sub>² cos 60° = 3I<sub>ph</sub>².",
+   "Hence <b>I<sub>L</sub> = √3 I<sub>ph</sub></b>, and I<sub>R</sub> lags I<sub>RY</sub> by 30°.",
+   "<b>Power.</b> In both connections P = 3V<sub>ph</sub>I<sub>ph</sub>cosφ = √3 V<sub>L</sub>I<sub>L</sub> cosφ, where φ is the angle between phase voltage and phase current."
+  ],
+  "formulas": [
+   "Star: V<sub>L</sub> = √3 V<sub>ph</sub>, I<sub>L</sub> = I<sub>ph</sub>",
+   "Delta: V<sub>L</sub> = V<sub>ph</sub>, I<sub>L</sub> = √3 I<sub>ph</sub>",
+   "P = √3 V<sub>L</sub>I<sub>L</sub> cosφ"
+  ],
+  "diagram": "Star connection with neutral N and phasor diagram showing V<sub>RN</sub>, −V<sub>YN</sub> at 60° and resultant V<sub>RY</sub>; delta mesh with phase currents and phasor diagram showing I<sub>RY</sub>, −I<sub>BR</sub> at 60° and resultant I<sub>R</sub>."
+ },
+ "Q2.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Circuit diagram: current coils in two lines, pressure coils to the third line (star and delta)",
+    "marks": 2
+   },
+   {
+    "point": "Principle: total power = W<sub>1</sub> + W<sub>2</sub> (Blondel's theorem, two instantaneous powers)",
+    "marks": 1.5
+   },
+   {
+    "point": "Phasor diagram for lagging R-L load with angles 30° − φ and 30° + φ",
+    "marks": 1.5
+   },
+   {
+    "point": "Expressions W<sub>1</sub> = V<sub>L</sub>I<sub>L</sub>cos(30° − φ), W<sub>2</sub> = V<sub>L</sub>I<sub>L</sub>cos(30° + φ)",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation of tanφ = √3 (W<sub>1</sub> − W<sub>2</sub>)/(W<sub>1</sub> + W<sub>2</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "Discussion for p.f. = 1, 0.5 and 0 with readings",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Principle.</b> For a 3-wire, 3-phase system (balanced or unbalanced, star or delta) the total instantaneous power is p = v<sub>R</sub>i<sub>R</sub> + v<sub>Y</sub>i<sub>Y</sub> + v<sub>B</sub>i<sub>B</sub> with i<sub>R</sub> + i<sub>Y</sub> + i<sub>B</sub> = 0. Eliminating i<sub>B</sub> gives p = (v<sub>R</sub> − v<sub>B</sub>) i<sub>R</sub> + (v<sub>Y</sub> − v<sub>B</sub>) i<sub>Y</sub>. Hence two wattmeters suffice, and total power P = W<sub>1</sub> + W<sub>2</sub>.",
+   "<b>Connections.</b> The current coil of W<sub>1</sub> is in line R and that of W<sub>2</sub> in line Y; the pressure coils of both are connected between their own line (R and Y respectively) and the third line B. W<sub>1</sub> reads V<sub>RB</sub> I<sub>R</sub> cos(angle between them); W<sub>2</sub> reads V<sub>YB</sub> I<sub>Y</sub> cos(angle). The same connection applies to a balanced star load and a balanced delta load (the load itself is any 3-wire balanced load).",
+   "<b>Phasor diagram (inductive load).</b> Draw the phase voltages V<sub>R</sub>, V<sub>Y</sub>, V<sub>B</sub> at 120°; the phase currents I<sub>R</sub>, I<sub>Y</sub>, I<sub>B</sub> lag their phase voltages by φ. V<sub>RB</sub> = V<sub>R</sub> − V<sub>B</sub> leads V<sub>R</sub> by 30° and V<sub>YB</sub> = V<sub>Y</sub> − V<sub>B</sub> lags V<sub>Y</sub> by 30°, each of magnitude V<sub>L</sub>.",
+   "Angle between V<sub>RB</sub> and I<sub>R</sub> = 30° − φ; angle between V<sub>YB</sub> and I<sub>Y</sub> = 30° + φ.",
+   "So W<sub>1</sub> = V<sub>L</sub>I<sub>L</sub> cos(30° − φ) and W<sub>2</sub> = V<sub>L</sub>I<sub>L</sub> cos(30° + φ).",
+   "Sum: W<sub>1</sub> + W<sub>2</sub> = V<sub>L</sub>I<sub>L</sub>[cos(30° − φ) + cos(30° + φ)] = V<sub>L</sub>I<sub>L</sub> · 2 cos30° cosφ = √3 V<sub>L</sub>I<sub>L</sub> cosφ = total power ✓.",
+   "Difference: W<sub>1</sub> − W<sub>2</sub> = V<sub>L</sub>I<sub>L</sub>[cos(30° − φ) − cos(30° + φ)] = V<sub>L</sub>I<sub>L</sub> · 2 sin30° sinφ = V<sub>L</sub>I<sub>L</sub> sinφ.",
+   "Dividing: (W<sub>1</sub> − W<sub>2</sub>)/(W<sub>1</sub> + W<sub>2</sub>) = sinφ/(√3 cosφ), hence <b>tanφ = √3 (W<sub>1</sub> − W<sub>2</sub>)/(W<sub>1</sub> + W<sub>2</sub>)</b>, from which the power factor cosφ is found.",
+   "<b>Discussion.</b> (i) p.f. = 1 (φ = 0): W<sub>1</sub> = W<sub>2</sub> = V<sub>L</sub>I<sub>L</sub> cos30°; both read equal and positive.",
+   "(ii) p.f. = 0.5 (φ = 60°): W<sub>2</sub> = V<sub>L</sub>I<sub>L</sub> cos90° = 0 and W<sub>1</sub> = V<sub>L</sub>I<sub>L</sub> cos30°; one wattmeter reads zero and the other reads the whole power. For p.f. < 0.5 (φ > 60°) W<sub>2</sub> becomes negative and its connections must be reversed.",
+   "(iii) p.f. = 0 (φ = 90°): W<sub>1</sub> = V<sub>L</sub>I<sub>L</sub> cos(−60°) = +½V<sub>L</sub>I<sub>L</sub> and W<sub>2</sub> = V<sub>L</sub>I<sub>L</sub> cos120° = −½V<sub>L</sub>I<sub>L</sub>; equal and opposite readings, total power zero."
+  ],
+  "formulas": [
+   "P = W<sub>1</sub> + W<sub>2</sub> = √3 V<sub>L</sub>I<sub>L</sub> cosφ",
+   "W<sub>1</sub> − W<sub>2</sub> = V<sub>L</sub>I<sub>L</sub> sinφ",
+   "tanφ = √3 (W<sub>1</sub> − W<sub>2</sub>)/(W<sub>1</sub> + W<sub>2</sub>)"
+  ],
+  "diagram": "Circuit: 3-phase supply R, Y, B; W<sub>1</sub> current coil in R and W<sub>2</sub> in Y, pressure coils joined to B; balanced load. Phasor diagram with V<sub>R</sub>, V<sub>Y</sub>, V<sub>B</sub>, V<sub>RB</sub>, V<sub>YB</sub>, currents lagging by φ and the angles 30° − φ and 30° + φ marked."
+ },
+ "Q2.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Resonant frequency formula and substitution f<sub>0</sub> = 795.8 Hz",
+    "marks": 2
+   },
+   {
+    "point": "Current at resonance I<sub>0</sub> = V/R = 0.3 A",
+    "marks": 1.5
+   },
+   {
+    "point": "X<sub>L</sub> = X<sub>C</sub> = 100 Ω at resonance",
+    "marks": 1.5
+   },
+   {
+    "point": "V<sub>L</sub> = V<sub>C</sub> = 30 V",
+    "marks": 2
+   },
+   {
+    "point": "Quality factor Q = 3.33",
+    "marks": 1.5
+   },
+   {
+    "point": "Bandwidth Δf = f<sub>0</sub>/Q = 238.7 Hz with units",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> R = 30 Ω, L = 20 mH = 20 × 10⁻³ H, C = 2 μF = 2 × 10⁻⁶ F, V = 9 V.",
+   "(i) <b>Resonant frequency.</b> f<sub>0</sub> = 1/(2π√LC) = 1/(2π√(20×10⁻³ × 2×10⁻⁶)) = 1/(2π × 6.3246×10⁻³) = <b>795.8 Hz</b>.",
+   "Reactance at resonance: X<sub>L</sub> = 2πf<sub>0</sub>L = 2π × 795.8 × 0.02 = 100 Ω; X<sub>C</sub> = 1/(2πf<sub>0</sub>C) = 100 Ω (equal).",
+   "(ii) <b>Current at resonance.</b> Z = R = 30 Ω, so I<sub>0</sub> = V/R = 9/30 = <b>0.3 A</b>.",
+   "(iii) <b>Voltages.</b> V<sub>L</sub> = I<sub>0</sub>X<sub>L</sub> = 0.3 × 100 = <b>30 V</b>; V<sub>C</sub> = I<sub>0</sub>X<sub>C</sub> = 0.3 × 100 = <b>30 V</b> (each 3.33 times the supply voltage and in antiphase).",
+   "(iv) <b>Quality factor.</b> Q = X<sub>L</sub>/R = 100/30 = <b>3.33</b> (check: V<sub>L</sub>/V = 30/9 = 3.33).",
+   "(v) <b>Bandwidth.</b> Δf = f<sub>0</sub>/Q = 795.8/3.333 = <b>238.7 Hz</b> (= R/2πL = 30/(2π × 0.02) ✓)."
+  ],
+  "formulas": [
+   "f<sub>0</sub> = 1/(2π√LC)",
+   "I<sub>0</sub> = V/R",
+   "Q = X<sub>L</sub>/R",
+   "Δf = f<sub>0</sub>/Q"
+  ],
+  "result": "f<sub>0</sub> = 795.8 Hz; I<sub>0</sub> = 0.3 A; V<sub>L</sub> = V<sub>C</sub> = 30 V; Q = 3.33; bandwidth = 238.7 Hz"
+ },
+ "Q2.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) X<sub>L</sub> = 2513 Ω, Z = 5596 Ω, I = 26.8 mA ∠−26.7°, V<sub>R</sub> = 134 V, V<sub>L</sub> = 67.4 V, P = 3.59 W",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) X<sub>C</sub> = 338.6 Ω, Z = 353.1 Ω, I = 28.3 mA ∠73.5°, V<sub>R</sub> and V<sub>C</sub> in polar form",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) Branch impedances and currents, phasor sum, supply current 3.93 A, p.f. 0.962 lagging",
+    "marks": 1.5
+   },
+   {
+    "point": "(d) Coil: R = 25 Ω, L = 0.357 H, p.f. 0.217 lagging",
+    "marks": 1
+   },
+   {
+    "point": "(e) X<sub>C</sub> = 56.8 Ω, Z = 115 Ω, I = 2.0 A, p.f. 0.869 leading, V<sub>R</sub> = 200 V, V<sub>C</sub> = 113.7 V",
+    "marks": 1.5
+   },
+   {
+    "point": "(f) Z = 10 Ω, R = 8.66 Ω, X<sub>C</sub> = 5 Ω so C = 1667 μF (capacitive), p.f. 0.866 leading",
+    "marks": 1
+   },
+   {
+    "point": "(g) Z = 52.6 Ω, X<sub>C</sub> = 41.55 Ω, C = 76.6 μF, p.f. 0.95 and element voltages",
+    "marks": 1
+   },
+   {
+    "point": "(h) Z<sub>total</sub> = 6 + j8 = 10∠53.1° Ω, I = 10 A, p.f. 0.6 lagging",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(a)</b> Given R = 5 kΩ, L = 1 H, V = 150 V, f = 400 Hz. X<sub>L</sub> = 2πfL = 2π × 400 × 1 = 2513 Ω. Z = √(5000² + 2513²) = 5596 Ω. I = V/Z = 150/5596 = <b>26.8 mA</b>; φ = tan⁻¹(2513/5000) = <b>26.7° lagging</b> (I = 26.8 mA ∠−26.7° w.r.t. V). V<sub>R</sub> = IR = 0.0268 × 5000 = <b>134 V</b>; V<sub>L</sub> = IX<sub>L</sub> = 0.0268 × 2513 = <b>67.4 V</b> (V = √(134² + 67.4²) = 150 V ✓). P = I²R = (0.0268)² × 5000 = <b>3.59 W</b> (= VI cosφ = 150 × 0.0268 × 0.8935 ✓).",
+   "<b>(b)</b> V = 10∠0° V, f = 1 kHz, R = 100 Ω, C = 0.47 μF. X<sub>C</sub> = 1/(2π × 1000 × 0.47×10⁻⁶) = 338.6 Ω. Z = 100 − j338.6 = 353.1∠−73.55° Ω. I = V/Z = 10/353.1 ∠+73.55° = <b>28.3 mA ∠73.55°</b> (leading). V<sub>R</sub> = IR = <b>2.83 V ∠73.55°</b>; V<sub>C</sub> = I × (−jX<sub>C</sub>) = 0.02832 × 338.6 ∠(73.55° − 90°) = <b>9.59 V ∠−16.45°</b>. (The peak amplitudes are as given since the source is 10 cos ωt with peak 10 V.)",
+   "<b>(c)</b> ω = 2π × 50 = 314.16 rad/s. Coil: X<sub>L</sub> = 314.16 × 0.318 = 99.9 ≈ 100 Ω; Z<sub>1</sub> = 50 + j100 = 111.7∠63.4° Ω; I<sub>1</sub> = 230/111.7 = 2.06 A ∠−63.4°. Other branch: X<sub>C</sub> = 1/(314.16 × 159×10⁻⁶) = 20.0 Ω; Z<sub>2</sub> = 75 − j20 = 77.6∠−14.9° Ω; I<sub>2</sub> = 230/77.6 = 2.96 A ∠+14.9°.",
+   "Components: I<sub>1</sub> = 0.923 − j1.841 A; I<sub>2</sub> = 2.863 + j0.764 A. Total I = 3.785 − j1.077 A = <b>3.93 A ∠−15.9°</b>. Power factor = cos15.9° = <b>0.962 lagging</b>.",
+   "<b>(d)</b> Z = V/I = 230/2 = 115 Ω. P = I²R ⇒ R = 100/4 = <b>25 Ω</b>. X<sub>L</sub> = √(115² − 25²) = 112.25 Ω ⇒ L = X<sub>L</sub>/2πf = 112.25/314.16 = <b>0.357 H</b>. Power factor = R/Z = 25/115 = <b>0.217 lagging</b> (also P/VI = 100/460 ✓).",
+   "<b>(e)</b> X<sub>C</sub> = 1/(314.16 × 56×10⁻⁶) = 56.84 Ω. Z = √(100² + 56.84²) = <b>115.0 Ω</b>. I = 230/115.0 = <b>2.0 A</b>. cosφ = R/Z = 100/115 = <b>0.869 leading</b>. V<sub>R</sub> = 2.0 × 100 = <b>200 V</b>; V<sub>C</sub> = 2.0 × 56.84 = <b>113.7 V</b> (√(200² + 113.7²) = 230 V ✓).",
+   "<b>(f)</b> V<sub>m</sub> = 141.4 V, I<sub>m</sub> = 14.14 A. |Z| = 141.4/14.14 = 10 Ω. Current leads voltage by 30° ⇒ the circuit is capacitive, φ = 30° leading. R = Z cos30° = <b>8.66 Ω</b>; X<sub>C</sub> = Z sin30° = 5 Ω. ω = 120 rad/s ⇒ C = 1/(ωX<sub>C</sub>) = 1/(120 × 5) = 1.667×10⁻³ F = <b>1667 μF</b>. Power factor = cos30° = <b>0.866 leading</b>.",
+   "<b>(g)</b> Z = V/I = 200/3.8 = 52.63 Ω. Net reactance X = √(52.63² − 50²) = 16.43 Ω. As the circuit contains a capacitor and draws a leading current, X<sub>C</sub> − X<sub>L</sub> = 16.43 ⇒ X<sub>C</sub> = 25.12 + 16.43 = 41.55 Ω. C = 1/(2π × 50 × 41.55) = <b>76.6 μF</b>. p.f. = R/Z = 50/52.63 = <b>0.95 leading</b>. Voltage drops: V<sub>R</sub> = 3.8 × 50 = <b>190 V</b>; V<sub>L</sub> = 3.8 × 25.12 = <b>95.5 V</b>; V<sub>C</sub> = 3.8 × 41.55 = <b>157.9 V</b>. (If the net circuit were inductive, X<sub>C</sub> = 8.69 Ω, C = 366 μF, p.f. 0.95 lagging – the capacitive case is the standard answer.)",
+   "<b>(h)</b> Assumed circuit: Z<sub>0</sub> = 1.6 + j7.2 Ω in series with the parallel combination of Z<sub>A</sub> = 4 + j3 Ω and Z<sub>B</sub> = 6 − j8 Ω, across 100 V, 50 Hz. Z<sub>A</sub>Z<sub>B</sub> = (4 + j3)(6 − j8) = 24 − j32 + j18 + 24 = 48 − j14; Z<sub>A</sub> + Z<sub>B</sub> = 10 − j5. Z<sub>p</sub> = (48 − j14)/(10 − j5) = 4.4 + j0.8 Ω. Z<sub>total</sub> = (1.6 + 4.4) + j(7.2 + 0.8) = 6 + j8 = <b>10∠53.1° Ω</b>. I = 100/10 = <b>10 A</b> lagging by 53.1°; p.f. = cos53.1° = <b>0.6 lagging</b>."
+  ],
+  "formulas": [
+   "X<sub>L</sub> = 2πfL; X<sub>C</sub> = 1/2πfC",
+   "Z = √(R² + X²); I = V/Z",
+   "cosφ = R/Z; P = VI cosφ = I²R"
+  ],
+  "result": "(a) 26.8 mA ∠−26.7°, V<sub>R</sub> = 134 V, V<sub>L</sub> = 67.4 V, P = 3.59 W; (b) 28.3 mA ∠73.55°; (c) 3.93 A, p.f. 0.962 lag; (d) R = 25 Ω, L = 0.357 H, p.f. 0.217; (e) Z = 115 Ω, I = 2 A, p.f. 0.869 lead; (f) R = 8.66 Ω, C = 1667 μF, p.f. 0.866 lead; (g) C = 76.6 μF, p.f. 0.95 lead; (h) Z = 10∠53.1° Ω, I = 10 A, p.f. 0.6 lag"
+ },
+ "Q2.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Phase voltage 230.9 V, Z<sub>ph</sub> = 25 Ω, line current 9.24 A",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Power factor 0.8 lagging and total power 5.12 kW",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Z<sub>ph</sub> = 10 Ω, V<sub>ph</sub> = 230.9 V, line current 23.09 A",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) p.f. = 0.8, P = 12.8 kW and Q = 9.6 kVAR",
+    "marks": 2
+   },
+   {
+    "point": "(c) I<sub>L</sub> from P = √3 V<sub>L</sub>I<sub>L</sub>cosφ = 10.83 A and Z<sub>ph</sub> = 21.33 Ω",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) R = 4.27 Ω, X<sub>L</sub> = 20.9 Ω and L = 66.5 mH",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>(a)</b> Star connection: V<sub>ph</sub> = V<sub>L</sub>/√3 = 400/√3 = 230.9 V. Z<sub>ph</sub> = √(20² + 15²) = 25 Ω. I<sub>ph</sub> = I<sub>L</sub> = 230.9/25 = <b>9.24 A</b>. Power factor = R/Z = 20/25 = <b>0.8 lagging</b>. Total active power P = 3I<sub>ph</sub>²R = 3 × (9.24)² × 20 = <b>5120 W = 5.12 kW</b> (check: √3 × 400 × 9.238 × 0.8 = 5120 W ✓).",
+   "<b>(b)</b> Z<sub>ph</sub> = √(8² + 6²) = 10 Ω. I<sub>L</sub> = I<sub>ph</sub> = 230.9/10 = <b>23.09 A</b>. p.f. = 8/10 = <b>0.8 lagging</b>. P = √3 V<sub>L</sub>I<sub>L</sub> cosφ = √3 × 400 × 23.09 × 0.8 = <b>12 800 W = 12.8 kW</b> (also 3I²R = 3 × 533.3 × 8 ✓). Reactive power Q = √3 V<sub>L</sub>I<sub>L</sub> sinφ = √3 × 400 × 23.09 × 0.6 = <b>9600 VAR = 9.6 kVAR</b>. (Apparent power S = 16 kVA.)",
+   "<b>(c)</b> P = √3 V<sub>L</sub>I<sub>L</sub> cosφ ⇒ I<sub>L</sub> = 1500/(√3 × 400 × 0.2) = <b>10.83 A</b>. Z<sub>ph</sub> = V<sub>ph</sub>/I<sub>ph</sub> = 230.9/10.83 = 21.33 Ω.",
+   "R = Z cosφ = 21.33 × 0.2 = <b>4.27 Ω</b>. X<sub>L</sub> = Z sinφ = 21.33 × √(1 − 0.04) = 21.33 × 0.9798 = 20.90 Ω. L = X<sub>L</sub>/2πf = 20.90/(2π × 50) = <b>0.0665 H = 66.5 mH</b>. (Check: 3I²R = 3 × 117.2 × 4.267 = 1500 W ✓.)"
+  ],
+  "formulas": [
+   "V<sub>ph</sub> = V<sub>L</sub>/√3; I<sub>L</sub> = I<sub>ph</sub> (star)",
+   "P = √3 V<sub>L</sub>I<sub>L</sub> cosφ = 3I<sub>ph</sub>²R",
+   "Q = √3 V<sub>L</sub>I<sub>L</sub> sinφ"
+  ],
+  "result": "(a) 9.24 A, 0.8 lag, 5.12 kW; (b) 23.09 A, 0.8 lag, 12.8 kW, 9.6 kVAR; (c) R = 4.27 Ω, L = 66.5 mH"
+ },
+ "Q2.9": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Total power W<sub>1</sub> + W<sub>2</sub> = 25 kW",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) tanφ = √3 (W<sub>1</sub> − W<sub>2</sub>)/(W<sub>1</sub> + W<sub>2</sub>) = 1.039 with substitution",
+    "marks": 2
+   },
+   {
+    "point": "(a) φ = 46.1° and p.f. = 0.693 lagging",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Total power 12 kW and tanφ = 0.577",
+    "marks": 2
+   },
+   {
+    "point": "(b) p.f. = cos30° = 0.866",
+    "marks": 1
+   },
+   {
+    "point": "(b) Line current from P = √3 V<sub>L</sub>I<sub>L</sub>cosφ = 20 A",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>(a)</b> W<sub>1</sub> = 20 kW, W<sub>2</sub> = 5 kW (both positive). Total active power P = W<sub>1</sub> + W<sub>2</sub> = 20 + 5 = <b>25 kW</b>.",
+   "tanφ = √3 (W<sub>1</sub> − W<sub>2</sub>)/(W<sub>1</sub> + W<sub>2</sub>) = √3 × (20 − 5)/(20 + 5) = √3 × 0.6 = 1.039.",
+   "φ = tan⁻¹(1.039) = 46.1°, so power factor cosφ = cos46.1° = <b>0.693 lagging</b>.",
+   "<b>(b)</b> W<sub>1</sub> = 8000 W, W<sub>2</sub> = 4000 W. Total power P = 8000 + 4000 = <b>12 000 W</b>.",
+   "tanφ = √3 (8000 − 4000)/(8000 + 4000) = √3 × 1/3 = 0.5774 ⇒ φ = 30°, p.f. = cos30° = <b>0.866 lagging</b>.",
+   "P = √3 V<sub>L</sub>I<sub>L</sub> cosφ ⇒ I<sub>L</sub> = 12 000/(√3 × 400 × 0.866) = 12 000/600 = <b>20 A</b>."
+  ],
+  "formulas": [
+   "P = W<sub>1</sub> + W<sub>2</sub>",
+   "tanφ = √3 (W<sub>1</sub> − W<sub>2</sub>)/(W<sub>1</sub> + W<sub>2</sub>)",
+   "I<sub>L</sub> = P/(√3 V<sub>L</sub> cosφ)"
+  ],
+  "result": "(a) P = 25 kW, p.f. = 0.693 lagging; (b) I<sub>L</sub> = 20 A, p.f. = 0.866 lagging"
+ },
+ "Q3.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Comparison table of electric and magnetic circuits (at least 5 analogous pairs)",
+    "marks": 2.5
+   },
+   {
+    "point": "Dissimilarities (flux does not flow, energy, saturation, insulators, leakage)",
+    "marks": 1.5
+   },
+   {
+    "point": "Faraday's first and second laws with e = −N dΦ/dt",
+    "marks": 1.5
+   },
+   {
+    "point": "Lenz's law statement",
+    "marks": 1
+   },
+   {
+    "point": "Definitions of MMF, reluctance, permeance and flux density with units",
+    "marks": 2
+   },
+   {
+    "point": "Analogous electric circuit of the composite magnetic circuit with S, S<sub>1</sub>, S<sub>2</sub>",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Similarities.</b> Both circuits have a driving force, a flow quantity and an opposition obeying a form of Ohm's law: <i>Electric:</i> EMF (V) – current I – resistance R = ρl/A – conductance G = 1/R – current density J = I/A – I = EMF/R. <i>Magnetic:</i> MMF (AT) – flux Φ – reluctance S = l/(μ<sub>0</sub>μ<sub>r</sub>A) – permeance 1/S – flux density B = Φ/A – Φ = MMF/S. Series and parallel laws are alike (S<sub>total</sub> = S<sub>1</sub> + S<sub>2</sub> in series; 1/S = 1/S<sub>1</sub> + 1/S<sub>2</sub> in parallel), and Kirchhoff-type laws hold (ΣΦ = 0 at a junction, ΣNI = ΣΦS around a loop).",
+   "<b>Dissimilarities.</b> (i) Current actually flows (charge motion) whereas flux does not 'flow'; it is only established. (ii) Energy is continuously dissipated (I²R) in an electric circuit while no energy is needed to maintain constant flux (only to set it up). (iii) Resistance is practically constant but reluctance varies with flux density (saturation, μ<sub>r</sub> not constant). (iv) Conductors can be insulated perfectly, but there is no insulator for flux – leakage and fringing always exist. (v) Resistivity is temperature dependent, permeability is not significantly.",
+   "<b>Faraday's laws.</b> First law: whenever the flux linked with a coil changes, an EMF is induced in it. Second law: the magnitude of the induced EMF equals the rate of change of flux linkages, e = −N dΦ/dt (volts).",
+   "<b>Lenz's law.</b> The direction of the induced EMF (and current) is such that it opposes the cause producing it – this is the origin of the minus sign.",
+   "<b>Definitions.</b> MMF (magnetomotive force) = NI ampere-turns, the cause producing flux. Reluctance S = MMF/Φ = l/(μA), unit AT/Wb (or H⁻¹): the opposition to establishment of flux. Permeance = 1/S, unit Wb/AT (henry). Flux density B = Φ/A, unit tesla (Wb/m²); B = μH.",
+   "<b>Electrical dual of a parallel-limb (composite) magnetic circuit.</b> Centre limb of reluctance S carries the total flux Φ and side limbs of reluctances S<sub>1</sub> and S<sub>2</sub> carry Φ<sub>1</sub> and Φ<sub>2</sub> in parallel, with Φ = Φ<sub>1</sub> + Φ<sub>2</sub>. The MMF source NI (analogue of a battery) is in series with S; S<sub>1</sub> and S<sub>2</sub> are in parallel across the source branch. Equivalent: S<sub>eq</sub> = S + S<sub>1</sub>S<sub>2</sub>/(S<sub>1</sub> + S<sub>2</sub>), Φ = NI/S<sub>eq</sub>."
+  ],
+  "formulas": [
+   "Φ = MMF/S, S = l/(μ<sub>0</sub>μ<sub>r</sub>A)",
+   "e = −N dΦ/dt",
+   "S<sub>eq</sub> = S + S<sub>1</sub>S<sub>2</sub>/(S<sub>1</sub> + S<sub>2</sub>)"
+  ],
+  "diagram": "Magnetic circuit with a central limb (reluctance S, carrying the coil of N turns) and two outer limbs (S<sub>1</sub>, S<sub>2</sub>); beside it the electric dual: a battery labelled MMF = NI in series with S, then S<sub>1</sub> and S<sub>2</sub> in parallel, with fluxes Φ, Φ<sub>1</sub>, Φ<sub>2</sub> marked as currents."
+ },
+ "Q3.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Principle: mutual induction between two windings (Faraday's law)",
+    "marks": 1
+   },
+   {
+    "point": "Construction: laminated silicon steel core, primary and secondary windings",
+    "marks": 1.5
+   },
+   {
+    "point": "Core-type and shell-type arrangements with diagrams",
+    "marks": 2
+   },
+   {
+    "point": "Working: alternating flux, induced EMFs E<sub>1</sub>, E<sub>2</sub>, turns ratio",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation of EMF equation with flux Φ = Φ<sub>m</sub> sin ωt",
+    "marks": 3
+   },
+   {
+    "point": "Final result E<sub>1</sub> = 4.44 f N<sub>1</sub> Φ<sub>m</sub> and transformation ratio",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Principle.</b> A single-phase transformer is a static device which transfers electrical energy from one a.c. circuit to another at the same frequency, by mutual induction (Faraday's law). When an alternating voltage is applied to the primary, an alternating flux is set up in the core, which links the secondary and induces an EMF in it.",
+   "<b>Construction.</b> (i) Magnetic core of laminated sheets of silicon steel (0.35–0.5 mm, insulated by varnish) to reduce eddy-current and hysteresis loss. (ii) Two separate windings, primary (N<sub>1</sub> turns) and secondary (N<sub>2</sub> turns), of insulated copper, electrically isolated but magnetically coupled. (iii) Tank with transformer oil (for large units) for cooling and insulation, bushings, conservator.",
+   "<b>Core type:</b> the windings surround the core; two limbs and two yokes form a single rectangular magnetic path; primary on one limb and secondary on the other (or both split concentrically over each limb, LV next to core). <b>Shell type:</b> three-limbed core with both windings on the central limb; the flux of the central limb divides equally into the two outer limbs, providing a double magnetic path. Core type is used for high-voltage, shell type for low-voltage and low power.",
+   "<b>Working.</b> The primary current produces alternating flux Φ in the core. By Faraday's law this flux induces E<sub>1</sub> (opposing V<sub>1</sub>, self-induction) in the primary and E<sub>2</sub> in the secondary. With a load connected, secondary current flows and power is delivered at the same frequency.",
+   "<b>EMF equation.</b> Let N<sub>1</sub> = primary turns, f = frequency, Φ<sub>m</sub> = maximum flux (Wb). Flux varies sinusoidally: Φ = Φ<sub>m</sub> sin ωt.",
+   "Step 1: Instantaneous induced EMF e<sub>1</sub> = −N<sub>1</sub> dΦ/dt = −N<sub>1</sub>ωΦ<sub>m</sub> cos ωt = N<sub>1</sub>ωΦ<sub>m</sub> sin(ωt − 90°).",
+   "Step 2: Maximum value E<sub>m</sub> = N<sub>1</sub>ωΦ<sub>m</sub> = 2πf N<sub>1</sub> Φ<sub>m</sub>.",
+   "Step 3: RMS value E<sub>1</sub> = E<sub>m</sub>/√2 = (2π/√2) f N<sub>1</sub> Φ<sub>m</sub> = 4.44 f N<sub>1</sub> Φ<sub>m</sub>. Hence <b>E<sub>1</sub> = 4.44 f N<sub>1</sub> Φ<sub>m</sub></b> volts, and similarly E<sub>2</sub> = 4.44 f N<sub>2</sub> Φ<sub>m</sub>.",
+   "Step 4: Dividing, E<sub>2</sub>/E<sub>1</sub> = N<sub>2</sub>/N<sub>1</sub> = K (transformation ratio). Induced EMF lags the flux by 90°. Also Φ<sub>m</sub> = B<sub>m</sub>A<sub>i</sub> for core area A<sub>i</sub>."
+  ],
+  "formulas": [
+   "E<sub>1</sub> = 4.44 f N<sub>1</sub> Φ<sub>m</sub>",
+   "E<sub>2</sub>/E<sub>1</sub> = N<sub>2</sub>/N<sub>1</sub> = K"
+  ],
+  "diagram": "Core-type (two limbs, primary and secondary windings on opposite limbs with flux path) and shell-type (three limbs, both windings on the central limb, flux splitting into outer limbs); sine curve of Φ with e lagging by 90°."
+ },
+ "Q3.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Ideal transformer definition and characteristics (no resistance, no leakage, no losses, infinite μ, 100% efficiency)",
+    "marks": 2
+   },
+   {
+    "point": "Practical transformer differences (winding resistance, leakage flux, core loss, magnetising current)",
+    "marks": 1.5
+   },
+   {
+    "point": "Basic relations V<sub>1</sub>/V<sub>2</sub> = N<sub>1</sub>/N<sub>2</sub> = I<sub>2</sub>/I<sub>1</sub>",
+    "marks": 1
+   },
+   {
+    "point": "Phasor diagram at unity p.f. with all quantities labelled",
+    "marks": 2
+   },
+   {
+    "point": "Phasor diagram at lagging p.f.",
+    "marks": 2
+   },
+   {
+    "point": "Expressions for E<sub>1</sub>, V<sub>2</sub> with drops (V<sub>1</sub> = E<sub>1</sub> + I<sub>1</sub>(R<sub>1</sub> + jX<sub>1</sub>), E<sub>2</sub> = V<sub>2</sub> + I<sub>2</sub>(R<sub>2</sub> + jX<sub>2</sub>))",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Ideal transformer.</b> One with (i) zero winding resistance, (ii) no leakage flux (coefficient of coupling = 1), (iii) no core loss (hysteresis and eddy), (iv) infinitely permeable core needing negligible magnetising current, (v) hence 100% efficiency and zero voltage regulation. Then V<sub>1</sub>/V<sub>2</sub> = E<sub>1</sub>/E<sub>2</sub> = N<sub>1</sub>/N<sub>2</sub> = I<sub>2</sub>/I<sub>1</sub> and V<sub>1</sub>I<sub>1</sub> = V<sub>2</sub>I<sub>2</sub>. Magnetising current and core-loss current are zero, and primary and secondary mmfs balance exactly (N<sub>1</sub>I<sub>1</sub> = N<sub>2</sub>I<sub>2</sub>).",
+   "<b>Practical transformer.</b> Windings have resistance R<sub>1</sub>, R<sub>2</sub> (copper loss); some flux leaks and produces leakage reactances X<sub>1</sub>, X<sub>2</sub>; the core has finite permeability, so a no-load current I<sub>0</sub> = I<sub>c</sub> + I<sub>m</sub> (I<sub>c</sub> in phase with E<sub>1</sub> for iron loss, I<sub>m</sub> lagging 90° to magnetise) is drawn; efficiency is less than 100% and there is voltage drop on load.",
+   "<b>Basic equations (load).</b> Secondary: E<sub>2</sub> = V<sub>2</sub> + I<sub>2</sub>(R<sub>2</sub> + jX<sub>2</sub>). Primary: V<sub>1</sub> = E<sub>1</sub> + I<sub>1</sub>(R<sub>1</sub> + jX<sub>1</sub>) with E<sub>1</sub> = 4.44 f N<sub>1</sub> Φ<sub>m</sub>, I<sub>1</sub> = I<sub>0</sub> + I<sub>2</sub>' where I<sub>2</sub>' = (N<sub>2</sub>/N<sub>1</sub>) I<sub>2</sub>.",
+   "<b>Phasor diagram – unity p.f. load.</b> Step 1: take main flux Φ as reference. Step 2: E<sub>1</sub> and E<sub>2</sub> lag Φ by 90° (−E<sub>1</sub> is drawn 180° opposite, equal to V<sub>1</sub> balance). Step 3: V<sub>2</sub> is drawn along I<sub>2</sub> (φ<sub>2</sub> = 0). Step 4: add I<sub>2</sub>R<sub>2</sub> parallel to I<sub>2</sub> and I<sub>2</sub>X<sub>2</sub> perpendicular (leading by 90°) to V<sub>2</sub> to get E<sub>2</sub>. Step 5: draw I<sub>0</sub> (I<sub>m</sub> along Φ, I<sub>c</sub> along −E<sub>1</sub>), add I<sub>2</sub>' = −(N<sub>2</sub>/N<sub>1</sub>)I<sub>2</sub> to get I<sub>1</sub>. Step 6: V<sub>1</sub> = −E<sub>1</sub> + I<sub>1</sub>R<sub>1</sub> + jI<sub>1</sub>X<sub>1</sub>; angle between V<sub>1</sub> and I<sub>1</sub> is φ<sub>1</sub>, slightly more than zero.",
+   "<b>Phasor diagram – lagging p.f. (R-L load).</b> The same construction is used, but I<sub>2</sub> lags V<sub>2</sub> by φ<sub>2</sub>; the I<sub>2</sub>R<sub>2</sub> drop is drawn parallel to I<sub>2</sub> and I<sub>2</sub>X<sub>2</sub> perpendicular to it, so E<sub>2</sub> is larger than V<sub>2</sub> and the arithmetic difference E<sub>2</sub> − V<sub>2</sub> ≈ I<sub>2</sub>(R<sub>2</sub> cosφ<sub>2</sub> + X<sub>2</sub> sinφ<sub>2</sub>) is greatest. I<sub>1</sub> lags V<sub>1</sub> by φ<sub>1</sub>, and the no-load current I<sub>0</sub> is seen to be a small part of I<sub>1</sub>.",
+   "<b>Terminal voltages.</b> V<sub>2</sub> = E<sub>2</sub> − I<sub>2</sub>(R<sub>2</sub> + jX<sub>2</sub>) and V<sub>1</sub> = −E<sub>1</sub> + I<sub>1</sub>(R<sub>1</sub> + jX<sub>1</sub>). Hence a lagging load gives a fall in secondary terminal voltage on load; a leading p.f. load can even raise V<sub>2</sub> (Ferranti-like effect)."
+  ],
+  "formulas": [
+   "V<sub>1</sub> = E<sub>1</sub> + I<sub>1</sub>(R<sub>1</sub> + jX<sub>1</sub>)",
+   "V<sub>2</sub> = E<sub>2</sub> − I<sub>2</sub>(R<sub>2</sub> + jX<sub>2</sub>)",
+   "E<sub>1</sub>/E<sub>2</sub> = N<sub>1</sub>/N<sub>2</sub>"
+  ],
+  "diagram": "Two phasor diagrams of a loaded transformer: (1) unity p.f. – Φ reference, E<sub>1</sub>, E<sub>2</sub>, V<sub>2</sub> along I<sub>2</sub>, I<sub>2</sub>R<sub>2</sub>, I<sub>2</sub>X<sub>2</sub>, I<sub>2</sub>', I<sub>0</sub>, I<sub>1</sub>, I<sub>1</sub>R<sub>1</sub>, I<sub>1</sub>X<sub>1</sub>, V<sub>1</sub>; (2) lagging p.f. – same with I<sub>2</sub> lagging V<sub>2</sub> by φ<sub>2</sub>."
+ },
+ "Q3.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Classification of losses: iron (hysteresis, eddy current) and copper losses",
+    "marks": 1.5
+   },
+   {
+    "point": "Minimising hysteresis loss (silicon steel, CRGO) and eddy loss (lamination)",
+    "marks": 2
+   },
+   {
+    "point": "Efficiency expression η = x S cosφ/(x S cosφ + P<sub>i</sub> + x²P<sub>cu</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "Differentiation dη/dx = 0 / minimising losses",
+    "marks": 2
+   },
+   {
+    "point": "Condition P<sub>i</sub> = x²P<sub>cu</sub> (iron loss = copper loss)",
+    "marks": 1.5
+   },
+   {
+    "point": "Load at maximum efficiency x = √(P<sub>i</sub>/P<sub>cu</sub>), I<sub>2</sub> = I<sub>FL</sub>√(P<sub>i</sub>/P<sub>cu</sub>) and η<sub>max</sub>",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Losses in a transformer.</b> (A) <i>Core (iron) losses</i> – constant at constant V and f: (i) hysteresis loss P<sub>h</sub> = k<sub>h</sub> B<sub>m</sub><sup>1.6</sup> f V; (ii) eddy-current loss P<sub>e</sub> = k<sub>e</sub> B<sub>m</sub>² f² t² V. (B) <i>Copper losses</i> – I<sub>1</sub>²R<sub>1</sub> + I<sub>2</sub>²R<sub>2</sub> = I²R<sub>e</sub>, varying with the square of the load current. (C) Stray/dielectric losses (small). There are no rotational losses, hence high efficiency (95–99%).",
+   "<b>Minimising hysteresis loss.</b> Use core material with a narrow B–H loop (small area) – silicon steel (3–4% Si) or cold-rolled grain-oriented (CRGO) steel, which has low coercivity and high permeability.",
+   "<b>Minimising eddy-current loss.</b> Build the core from thin laminations (0.35–0.5 mm) insulated from each other by varnish/oxide; since P<sub>e</sub> ∝ t², thin laminations break up the eddy paths and raise the resistance; silicon also increases resistivity of the steel.",
+   "<b>Condition for maximum efficiency.</b> Let x be the fraction of full load, S the rated kVA, cosφ the load p.f., P<sub>i</sub> the iron loss and P<sub>cu</sub> the full-load copper loss. Output = x S cosφ; copper loss at load x = x²P<sub>cu</sub>.",
+   "Step 1: η = x S cosφ/(x S cosφ + P<sub>i</sub> + x²P<sub>cu</sub>).",
+   "Step 2: For fixed V, f and cosφ, η is maximum when the denominator per unit output is minimum: d/dx [ (x S cosφ + P<sub>i</sub> + x²P<sub>cu</sub>)/(x S cosφ) ] = 0, i.e. d/dx [ 1 + P<sub>i</sub>/(x S cosφ) + x P<sub>cu</sub>/(S cosφ) ] = 0.",
+   "Step 3: −P<sub>i</sub>/(x² S cosφ) + P<sub>cu</sub>/(S cosφ) = 0 ⇒ P<sub>i</sub> = x² P<sub>cu</sub>.",
+   "Hence <b>efficiency is maximum when the variable (copper) loss equals the constant (iron) loss</b>. The second derivative is positive, confirming a maximum (efficiency is independent of p.f. as the condition).",
+   "Step 4: Fraction of full load at maximum efficiency x = √(P<sub>i</sub>/P<sub>cu</sub>). Load current at maximum efficiency I<sub>2</sub> = x I<sub>2,FL</sub> = I<sub>2,FL</sub> √(P<sub>i</sub>/P<sub>cu</sub>). Corresponding kVA = S√(P<sub>i</sub>/P<sub>cu</sub>).",
+   "Step 5: η<sub>max</sub> = x S cosφ/(x S cosφ + 2P<sub>i</sub>). Also, in terms of equivalent resistance, I<sub>2</sub> at η<sub>max</sub> satisfies I<sub>2</sub>²R<sub>2e</sub> = P<sub>i</sub> ⇒ I<sub>2</sub> = √(P<sub>i</sub>/R<sub>2e</sub>)."
+  ],
+  "formulas": [
+   "η = x S cosφ/(x S cosφ + P<sub>i</sub> + x²P<sub>cu</sub>)",
+   "Condition: P<sub>i</sub> = x²P<sub>cu</sub>",
+   "x = √(P<sub>i</sub>/P<sub>cu</sub>); I<sub>2</sub> = I<sub>FL</sub>√(P<sub>i</sub>/P<sub>cu</sub>)",
+   "η<sub>max</sub> = x S cosφ/(x S cosφ + 2P<sub>i</sub>)"
+  ],
+  "diagram": "Efficiency versus load curve rising to a maximum where the constant iron-loss line cuts the parabolic copper-loss curve, then falling."
+ },
+ "Q3.5": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Principle/construction of autotransformer (single common winding) with diagram",
+    "marks": 1
+   },
+   {
+    "point": "Comparison of copper saving: factor (1 − K) and conductor weight",
+    "marks": 1.5
+   },
+   {
+    "point": "Efficiency, size, regulation and reactance comparison",
+    "marks": 1
+   },
+   {
+    "point": "Electrical isolation lacking in autotransformer vs isolation in two-winding",
+    "marks": 0.5
+   },
+   {
+    "point": "Applications of both",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Two-winding transformer.</b> Primary and secondary are separate windings, magnetically coupled but electrically isolated; power is transferred entirely by transformer action (induction).",
+   "<b>Autotransformer.</b> A transformer with a single continuous winding, part of which is common to the primary and the secondary (tapped at a point). Power is transferred partly by conduction (direct electrical connection) and partly by induction. With K = N<sub>2</sub>/N<sub>1</sub> (<1 step-down), input VA = V<sub>1</sub>I<sub>1</sub> of which a fraction K is conducted directly and (1 − K) is transferred by induction.",
+   "<b>Copper saving.</b> Weight of copper in autotransformer = (1 − K) × weight in a two-winding transformer of the same rating (K < 1). For K = 0.8, 20% copper is saved; saving is greatest when K is close to 1. Core and size are also smaller.",
+   "(i) Copper/size/cost: less in autotransformer. (ii) Efficiency: higher in autotransformer (less copper loss, smaller leakage) for the same kVA. (iii) Voltage regulation: better (lower leakage reactance and resistance). (iv) Isolation: two-winding gives complete electrical isolation between primary and secondary; autotransformer gives none, so a fault on the HV side can put full voltage on the LV side – hazardous for safety. (v) Short-circuit currents are larger in autotransformers because of low impedance. (vi) Economical only when K is near 1 (ratio up to about 2).",
+   "<b>Applications.</b> Autotransformer: starting of induction and synchronous motors, variable-voltage supply (variac), voltage boosting/buck in distribution, interconnecting grids of similar voltages (e.g. 220/132 kV). Two-winding: isolation transformers, distribution transformers, large step-up/step-down ratios, instrument and welding transformers."
+  ],
+  "formulas": [
+   "Cu saving = K × (weight of Cu in two-winding)",
+   "W<sub>auto</sub> = (1 − K) W<sub>two-winding</sub>"
+  ]
+ },
+ "Q3.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Classification of instruments (absolute/secondary; indicating, recording, integrating; analogue/digital)",
+    "marks": 1.5
+   },
+   {
+    "point": "Deflecting torque with examples of effects used",
+    "marks": 1
+   },
+   {
+    "point": "Controlling torque (spring/gravity) and equilibrium θ relation",
+    "marks": 1.5
+   },
+   {
+    "point": "Damping torque (air friction, fluid, eddy-current) and critical damping",
+    "marks": 1
+   },
+   {
+    "point": "PMMC construction with labelled diagram",
+    "marks": 1.5
+   },
+   {
+    "point": "PMMC torque equation T<sub>d</sub> = NBAI and θ = (NBA/K)I (linear scale)",
+    "marks": 1.5
+   },
+   {
+    "point": "Why PMMC works only on DC",
+    "marks": 1
+   },
+   {
+    "point": "Advantages and disadvantages of PMMC",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Classification.</b> (A) <i>Absolute</i> instruments (tangent galvanometer) give the quantity from instrument constants; <i>secondary</i> instruments are calibrated against absolute ones and are of three kinds: (i) <i>indicating</i> (ammeter, voltmeter, wattmeter), (ii) <i>integrating</i> (energy meter), (iii) <i>recording</i> (recorders). By working principle: moving-coil (PMMC, dynamometer), moving-iron, induction, electrostatic, thermal, rectifier types. By display: analogue and digital.",
+   "<b>Torques required in an indicating instrument.</b> (i) <i>Deflecting torque T<sub>d</sub></i> – produced by the electrical quantity (magnetic, heating, electrostatic or induction effect) and moves the pointer from zero. (ii) <i>Controlling torque T<sub>c</sub></i> – opposes T<sub>d</sub>, provided by a hair spring (T<sub>c</sub> = Kθ) or gravity, so that the deflection is a definite measure of the quantity; it also returns the pointer to zero. At steady deflection T<sub>d</sub> = T<sub>c</sub>. (iii) <i>Damping torque T<sub>v</sub></i> – proportional to angular velocity, stops oscillation about the final position so that the pointer settles quickly (critical damping); provided by air friction (piston/vane), fluid friction or eddy-current damping.",
+   "<b>PMMC construction.</b> A rectangular coil of N turns (aluminium former) pivoted on jewelled bearings between the poles of a strong permanent horseshoe magnet with soft-iron pole pieces and a fixed cylindrical soft-iron core which produces a uniform radial field B in the air gap. Current is led in and out through two spiral hair springs, which also give the controlling torque; the pointer, balance weights and scale complete the instrument. Damping is by eddy currents induced in the aluminium former.",
+   "<b>Principle and torque equation.</b> A current-carrying coil in a magnetic field experiences a force (F = BIl) producing a torque. Each side of length l carries force BIlN; with width b, deflecting torque T<sub>d</sub> = N B I l b = <b>N B A I</b> (A = lb). Controlling torque T<sub>c</sub> = Kθ. In equilibrium NBAI = Kθ ⇒ <b>θ = (NBA/K) I</b> ∝ I.",
+   "Because θ ∝ I (B constant by radial uniform field and K constant), the scale is <b>uniform (linear)</b>.",
+   "<b>DC only.</b> The torque direction depends on the current direction. On a.c., the torque reverses every half cycle; the moving system cannot follow the frequency, so the average torque is zero and the pointer only vibrates about zero. Hence PMMC measures DC only (with a rectifier it can read a.c.).",
+   "<b>Advantages:</b> uniform scale, high sensitivity and accuracy, low power consumption, effective eddy-current damping, unaffected by stray fields. <b>Disadvantages:</b> DC only, costlier, ageing of magnet and springs, overload can burn springs/coil."
+  ],
+  "formulas": [
+   "T<sub>d</sub> = NBAI; T<sub>c</sub> = Kθ",
+   "θ = (NBA/K) I"
+  ],
+  "diagram": "PMMC: horseshoe magnet with N and S pole pieces, cylindrical soft-iron core, rectangular moving coil, spiral springs, pointer, scale and former; and an end view showing the radial field."
+ },
+ "Q3.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Open-circuit test: I<sub>c</sub> = 0.6 A, I<sub>m</sub> = 3.955 A, R<sub>0</sub> and X<sub>0</sub> (LV and HV)",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Short-circuit test: R<sub>e</sub> = 0.25 Ω, Z<sub>e</sub> = 0.5 Ω, X<sub>e</sub> = 0.433 Ω (HV) and referred to LV",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Efficiency at full load 97.56% and half load 97.41%",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Maximum-efficiency load 6.2 kVA and η<sub>max</sub> = 97.64%",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Parameters of 200 kVA transformer referred to LV and HV with approximate circuit",
+    "marks": 2
+   },
+   {
+    "point": "(c) Parameters of 30 kVA transformer referred to LV (R<sub>0</sub>, X<sub>0</sub>, R<sub>e</sub>, X<sub>e</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "(d) Parameters and efficiency 97.3% of 5 kVA transformer",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Method.</b> OC test on the LV side gives the shunt branch (core loss P<sub>i</sub> = W<sub>0</sub>); SC test on the HV side at rated current gives series parameters and full-load copper loss. cosφ<sub>0</sub> = W<sub>0</sub>/(V<sub>0</sub>I<sub>0</sub>); I<sub>c</sub> = I<sub>0</sub>cosφ<sub>0</sub> = W<sub>0</sub>/V<sub>0</sub>; I<sub>m</sub> = √(I<sub>0</sub>² − I<sub>c</sub>²); R<sub>0</sub> = V<sub>0</sub>/I<sub>c</sub>; X<sub>0</sub> = V<sub>0</sub>/I<sub>m</sub>; R<sub>e</sub> = W<sub>sc</sub>/I<sub>sc</sub>²; Z<sub>e</sub> = V<sub>sc</sub>/I<sub>sc</sub>; X<sub>e</sub> = √(Z<sub>e</sub>² − R<sub>e</sub>²).",
+   "<b>(a) 8 kVA, 400/100 V.</b> Rated currents: HV 20 A, LV 80 A; turns ratio 400/100 = 4. OC (LV): I<sub>c</sub> = 60/100 = 0.6 A; I<sub>m</sub> = √(4² − 0.6²) = 3.955 A. Referred to LV: R<sub>0</sub> = 100/0.6 = 166.7 Ω, X<sub>0</sub> = 100/3.955 = 25.29 Ω. Referred to HV (× 4² = 16): R<sub>0</sub> = 2667 Ω, X<sub>0</sub> = 404.6 Ω.",
+   "SC (HV, I = 20 A = rated): R<sub>e1</sub> = 100/20² = 0.25 Ω; Z<sub>e1</sub> = 10/20 = 0.5 Ω; X<sub>e1</sub> = √(0.25 − 0.0625) = 0.433 Ω. Referred to LV (÷ 16): R<sub>e2</sub> = 0.0156 Ω, Z<sub>e2</sub> = 0.03125 Ω, X<sub>e2</sub> = 0.0271 Ω. Full-load copper loss P<sub>cu</sub> = 100 W; iron loss P<sub>i</sub> = 60 W.",
+   "Efficiency at 0.8 lag: η = x S cosφ/(x S cosφ + P<sub>i</sub> + x²P<sub>cu</sub>). Full load (x = 1): 6400/(6400 + 60 + 100) = <b>97.56%</b>. Half load (x = 0.5): 3200/(3200 + 60 + 25) = <b>97.41%</b>.",
+   "Maximum efficiency: x = √(P<sub>i</sub>/P<sub>cu</sub>) = √(60/100) = 0.7746; load = 0.7746 × 8 = <b>6.2 kVA</b>. η<sub>max</sub> = 0.7746 × 6400/(0.7746 × 6400 + 2 × 60) = 4957.6/5077.6 = <b>97.64%</b>.",
+   "<b>(b) 200 kVA, 2000/200 V.</b> Assumption: the SC readings are on the HV side (LV shorted) and OC readings on the LV side; ratio 10. OC (LV): I<sub>c</sub> = 120/200 = 0.6 A, I<sub>m</sub> = √(16 − 0.36) = 3.955 A; R<sub>0</sub> = 333.3 Ω, X<sub>0</sub> = 50.57 Ω (LV); HV (× 100): 33 333 Ω and 5057 Ω. SC: R<sub>e</sub> = 300/10² = 3 Ω, Z<sub>e</sub> = 60/10 = 6 Ω, X<sub>e</sub> = √(36 − 9) = 5.196 Ω (HV side); referred to LV (÷ 100): 0.03 Ω, 0.06 Ω, 0.052 Ω.",
+   "Approximate circuit referred to HV: series R<sub>e1</sub> = 3 Ω and jX<sub>e1</sub> = j5.196 Ω, followed by shunt R<sub>0</sub> = 33.3 kΩ ∥ jX<sub>0</sub> = j5.06 kΩ across the input (at the supply side). Referred to LV: R<sub>e2</sub> = 0.03 Ω, X<sub>e2</sub> = j0.052 Ω in series with shunt R<sub>0</sub> = 333 Ω ∥ X<sub>0</sub> = 50.6 Ω.",
+   "<b>(c) 30 kVA, 200/2000 V.</b> LV is 200 V, ratio HV/LV = 10. OC (LV): I<sub>c</sub> = 360/200 = 1.8 A; I<sub>m</sub> = √(6.2² − 1.8²) = 5.933 A; R<sub>0</sub> = 111.1 Ω, X<sub>0</sub> = 33.7 Ω (on the LV). SC (HV, rated I = 15 A): R<sub>e(HV)</sub> = 600/225 = 2.667 Ω; Z<sub>e(HV)</sub> = 75/15 = 5 Ω; X<sub>e(HV)</sub> = √(25 − 7.11) = 4.23 Ω. Referred to LV (÷ 100): <b>R<sub>e</sub> = 0.0267 Ω, X<sub>e</sub> = 0.0423 Ω</b> (Z<sub>e</sub> = 0.05 Ω).",
+   "<b>(d) 5 kVA, 500/250 V.</b> OC (LV): I<sub>c</sub> = 50/250 = 0.2 A, I<sub>m</sub> = √(1 − 0.04) = 0.98 A; R<sub>0</sub> = 1250 Ω, X<sub>0</sub> = 255 Ω (LV); (HV: 5000 Ω, 1021 Ω). SC (HV, rated 10 A): R<sub>e1</sub> = 60/100 = 0.6 Ω, Z<sub>e1</sub> = 2.5 Ω, X<sub>e1</sub> = 2.43 Ω (LV: ÷ 4 → 0.15 Ω, 0.625 Ω, 0.607 Ω). Full-load 0.8 lag: output 4000 W, P<sub>i</sub> = 50 W, P<sub>cu</sub> = 60 W: η = 4000/(4000 + 50 + 60) = <b>97.3%</b>."
+  ],
+  "formulas": [
+   "R<sub>0</sub> = V<sub>0</sub>/I<sub>c</sub>, X<sub>0</sub> = V<sub>0</sub>/I<sub>m</sub>",
+   "R<sub>e</sub> = W<sub>sc</sub>/I<sub>sc</sub>², Z<sub>e</sub> = V<sub>sc</sub>/I<sub>sc</sub>",
+   "x<sub>η max</sub> = √(P<sub>i</sub>/P<sub>cu</sub>)"
+  ],
+  "diagram": "Approximate equivalent circuit: supply – series R<sub>e</sub> + jX<sub>e</sub> – shunt branch R<sub>0</sub> ∥ jX<sub>0</sub> (or shunt first, depending on side) – ideal transformer – load.",
+  "result": "(a) η(FL) = 97.56%, η(½ load) = 97.41%, 6.2 kVA, η<sub>max</sub> = 97.64%; (b) R<sub>e</sub> = 3 Ω, X<sub>e</sub> = 5.2 Ω (HV); (c) R<sub>e</sub> = 0.0267 Ω, X<sub>e</sub> = 0.0423 Ω (LV); (d) η = 97.3%"
+ },
+ "Q3.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Writing efficiency equations at full load 0.8 p.f. and half load unity p.f.",
+    "marks": 2
+   },
+   {
+    "point": "(a) Solving losses: P<sub>i</sub> ≈ 1.01 kW, P<sub>cu</sub> ≈ 2.97 kW",
+    "marks": 2
+   },
+   {
+    "point": "(b) Equivalent parameters referred to HV: R<sub>e1</sub> = 0.4 Ω, X<sub>e1</sub> = 0.9 Ω and I<sub>1</sub> = 62.5 A",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Regulation 2.24%, losses and efficiency 98.25%",
+    "marks": 2
+   },
+   {
+    "point": "(c) Efficiency at full load unity p.f. 97.89%",
+    "marks": 1
+   },
+   {
+    "point": "(c) Efficiency at half load 0.8 p.f. 96.95%",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(a) 400 kVA transformer.</b> Let P<sub>i</sub> = iron loss, P<sub>cu</sub> = full-load copper loss. Full load, 0.8 p.f.: output = 400 × 0.8 = 320 kW; η = 0.9877 ⇒ input = 320/0.9877 = 323.985 kW ⇒ total loss = 3.985 kW, so P<sub>i</sub> + P<sub>cu</sub> = 3.985 kW … (1).",
+   "Half load, unity p.f.: output = 200 kW; η = 0.9913 ⇒ input = 201.755 kW ⇒ loss = 1.755 kW, so P<sub>i</sub> + P<sub>cu</sub>/4 = 1.755 kW … (2).",
+   "(1) − (2): 0.75 P<sub>cu</sub> = 2.230 kW ⇒ <b>P<sub>cu</sub> = 2.97 kW</b>. From (2): <b>P<sub>i</sub> = 1.755 − 0.743 = 1.01 kW</b>.",
+   "<b>(b) 150 kVA, 2400/240 V.</b> Assumption: approximate circuit with the shunt branch (R<sub>c</sub> = 10 kΩ, X<sub>m</sub> = 1.55 kΩ) at the primary terminals, rated V<sub>1</sub> = 2400 V. Turns ratio a = 10. R<sub>e1</sub> = R<sub>1</sub> + a²R<sub>2</sub> = 0.2 + 100 × 0.002 = 0.4 Ω; X<sub>e1</sub> = 0.45 + 100 × 0.0045 = 0.9 Ω. Rated I<sub>1</sub> = 150 000/2400 = 62.5 A.",
+   "(i) % regulation = I<sub>1</sub>(R<sub>e1</sub>cosφ + X<sub>e1</sub>sinφ)/V<sub>1</sub> × 100 = 62.5 × (0.4 × 0.8 + 0.9 × 0.6)/2400 × 100 = 62.5 × 0.86/2400 × 100 = <b>2.24%</b>.",
+   "(ii) Copper loss = I<sub>1</sub>²R<sub>e1</sub> = 62.5² × 0.4 = 1562.5 W. Core loss = V<sub>1</sub>²/R<sub>c</sub> = 2400²/10 000 = 576 W. Total loss = 1562.5 + 576 = <b>2138.5 W</b>.",
+   "(iii) Output = 150 000 × 0.8 = 120 000 W; η = 120 000/(120 000 + 2138.5) = <b>98.25%</b>.",
+   "<b>(c) 100 kVA, P<sub>cu</sub> = 1200 W, P<sub>i</sub> = 960 W.</b> (i) Full load, unity p.f.: output = 100 kW; η = 100 000/(100 000 + 960 + 1200) = 100 000/102 160 = <b>97.89%</b>.",
+   "(ii) Half load, 0.8 p.f.: output = 0.5 × 100 × 0.8 = 40 kW = 40 000 W; copper loss = 0.5² × 1200 = 300 W; η = 40 000/(40 000 + 960 + 300) = 40 000/41 260 = <b>96.95%</b>."
+  ],
+  "formulas": [
+   "η = x S cosφ/(x S cosφ + P<sub>i</sub> + x²P<sub>cu</sub>)",
+   "% VR = I(R<sub>e</sub>cosφ + X<sub>e</sub>sinφ)/V × 100"
+  ],
+  "result": "(a) P<sub>i</sub> = 1.01 kW, P<sub>cu</sub> = 2.97 kW; (b) regulation 2.24%, total loss 2138.5 W, η = 98.25%; (c) 97.89% and 96.95%"
+ },
+ "Q3.9": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Reluctance of core = 0 (infinite μ) and of air gap S<sub>g</sub> = g/(μ<sub>0</sub>A) = 1.017 × 10⁶ AT/Wb",
+    "marks": 2.5
+   },
+   {
+    "point": "(a) Flux Φ = NI/S = 1.224 × 10⁻⁴ Wb",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Flux linkage λ = NΦ = 1.016 × 10⁻² Wb-turns",
+    "marks": 1
+   },
+   {
+    "point": "(a) Inductance L = λ/I = 6.78 mH",
+    "marks": 1
+   },
+   {
+    "point": "(b) Flux density B = 1.0 T",
+    "marks": 1
+   },
+   {
+    "point": "(b) MMF 400 AT and reluctance 3.33 × 10⁵ AT/Wb",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) H = 500 AT/m, μ = 2 × 10⁻³ H/m and μ<sub>r</sub> ≈ 1592",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(a) Given:</b> A<sub>c</sub> = 1.8×10⁻³ m², l<sub>c</sub> = 0.6 m, g = 2.3×10⁻³ m, N = 83, I = 1.5 A, μ<sub>0</sub> = 4π×10⁻⁷ H/m, μ<sub>r(core)</sub> → ∞.",
+   "(i) Reluctance of core S<sub>c</sub> = l<sub>c</sub>/(μ<sub>0</sub>μ<sub>r</sub>A<sub>c</sub>) → <b>0</b> (since μ<sub>r</sub> → ∞).",
+   "(ii) Reluctance of air gap S<sub>g</sub> = g/(μ<sub>0</sub>A<sub>c</sub>) = 2.3×10⁻³/(4π×10⁻⁷ × 1.8×10⁻³) = 2.3×10⁻³/(2.262×10⁻⁹) = <b>1.017 × 10⁶ AT/Wb</b>.",
+   "(iii) MMF = NI = 83 × 1.5 = 124.5 AT. Total reluctance S = S<sub>c</sub> + S<sub>g</sub> = 1.017×10⁶. Flux Φ = NI/S = 124.5/1.017×10⁶ = <b>1.224 × 10⁻⁴ Wb</b>.",
+   "(iv) Flux linkages λ = NΦ = 83 × 1.224×10⁻⁴ = <b>1.016 × 10⁻² Wb-turns</b>.",
+   "(v) Self-inductance L = λ/I = 1.016×10⁻²/1.5 = <b>6.78 mH</b> (check: N²/S = 6889/1.017×10⁶ = 6.78 mH ✓).",
+   "<b>(b) Given:</b> l = 80 cm = 0.8 m, A = 12 cm² = 12×10⁻⁴ m², N = 200, I = 2 A, Φ = 1.2 mWb = 1.2×10⁻³ Wb.",
+   "(i) B = Φ/A = 1.2×10⁻³/12×10⁻⁴ = <b>1.0 T</b>.",
+   "(ii) MMF = NI = 200 × 2 = 400 AT. Reluctance S = MMF/Φ = 400/1.2×10⁻³ = <b>3.33 × 10⁵ AT/Wb</b>.",
+   "(iii) Magnetising force H = NI/l = 400/0.8 = 500 AT/m. Absolute permeability μ = B/H = 1.0/500 = <b>2 × 10⁻³ H/m</b>. Relative permeability μ<sub>r</sub> = μ/μ<sub>0</sub> = 2×10⁻³/(4π×10⁻⁷) = <b>1592</b>."
+  ],
+  "formulas": [
+   "S = l/(μ<sub>0</sub>μ<sub>r</sub>A); Φ = NI/S",
+   "L = N²/S = λ/I",
+   "B = Φ/A; H = NI/l; μ = B/H"
+  ],
+  "result": "(a) S<sub>c</sub> = 0, S<sub>g</sub> = 1.017×10⁶ AT/Wb, Φ = 1.224×10⁻⁴ Wb, λ = 1.016×10⁻² Wb-t, L = 6.78 mH; (b) B = 1 T, S = 3.33×10⁵ AT/Wb, μ = 2×10⁻³ H/m, μ<sub>r</sub> = 1592"
+ },
+ "Q4.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Construction of DC machine with labelled parts (yoke, poles, armature, commutator, brushes)",
+    "marks": 2
+   },
+   {
+    "point": "Operating principle of DC generator (Faraday's law, Fleming's right-hand rule)",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation of EMF equation E<sub>g</sub> = PΦZN/60A with steps",
+    "marks": 3
+   },
+   {
+    "point": "Working principle of DC motor (force on conductor, Fleming's left-hand rule, torque)",
+    "marks": 1.5
+   },
+   {
+    "point": "Back EMF E<sub>b</sub> = V − I<sub>a</sub>R<sub>a</sub>",
+    "marks": 0.5
+   },
+   {
+    "point": "Significance of back EMF: self-regulation of armature current and power conversion",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Construction.</b> (i) <i>Yoke</i> – cast iron/steel frame, mechanical support and path for flux. (ii) <i>Field poles</i> with pole shoes and field winding – produce the main flux. (iii) <i>Armature</i> – laminated core with slots carrying armature conductors (lap or wave wound). (iv) <i>Commutator</i> – hard-drawn copper segments insulated by mica; converts the alternating armature EMF into unidirectional output. (v) <i>Brushes</i> (carbon) with brush gear collecting current; (vi) bearings and shaft.",
+   "<b>Principle of generator.</b> Whenever a conductor cuts magnetic flux, an EMF is induced in it (Faraday's law); its direction is given by Fleming's right-hand rule. The armature conductors rotating in the field of the poles develop an alternating EMF, which the commutator rectifies to DC at the brushes.",
+   "<b>EMF equation.</b> Let Φ = flux per pole (Wb), P = number of poles, Z = total armature conductors, A = number of parallel paths (A = P lap, A = 2 wave), N = speed in rpm.",
+   "Step 1: Flux cut by one conductor in one revolution = PΦ Wb. Time of one revolution = 60/N s.",
+   "Step 2: Average EMF induced per conductor e = PΦ/(60/N) = PΦN/60 volts.",
+   "Step 3: Number of conductors in series per parallel path = Z/A. The EMF of the generator equals that of one path:",
+   "<b>E<sub>g</sub> = (PΦN/60) × (Z/A) = PΦZN/(60A)</b> volts. For a given machine E<sub>g</sub> = KΦN where K = PZ/60A; in terms of ω: E<sub>g</sub> = (PZ/2πA) Φ ω.",
+   "<b>DC motor – principle.</b> A current-carrying conductor placed in a magnetic field experiences a force F = BIl (Fleming's left-hand rule). The forces on the conductors under the N and S poles produce a torque T = KΦI<sub>a</sub> which rotates the armature. The commutator reverses the current in a conductor as it passes the neutral axis, so that the torque keeps the same direction.",
+   "<b>Back EMF.</b> The armature conductors of the motor rotate in the field and cut flux, so an EMF E<sub>b</sub> = PΦZN/60A is induced that opposes the applied voltage (Lenz's law). Voltage equation: V = E<sub>b</sub> + I<sub>a</sub>R<sub>a</sub> ⇒ I<sub>a</sub> = (V − E<sub>b</sub>)/R<sub>a</sub>.",
+   "<b>Significance.</b> (i) E<sub>b</sub> acts as a governor: if the load increases, the speed falls, E<sub>b</sub> falls, I<sub>a</sub> rises and the torque increases to meet the load; if the load decreases, the reverse occurs – the motor automatically draws just the current the load needs. (ii) At start N = 0, E<sub>b</sub> = 0, so I<sub>a</sub> = V/R<sub>a</sub> is dangerously large; hence a starter is needed. (iii) Electrical power input VI<sub>a</sub> is converted to mechanical power: P<sub>m</sub> = E<sub>b</sub>I<sub>a</sub>, i.e. E<sub>b</sub> represents the energy conversion; gross mechanical power is maximum when E<sub>b</sub> = V/2."
+  ],
+  "formulas": [
+   "E<sub>g</sub> = PΦZN/(60A)",
+   "V = E<sub>b</sub> + I<sub>a</sub>R<sub>a</sub>",
+   "T = (PZ/2πA) Φ I<sub>a</sub>; P<sub>m</sub> = E<sub>b</sub>I<sub>a</sub>"
+  ],
+  "diagram": "Cross-section of a 4-pole DC machine: yoke, poles with field coils, armature with slots, commutator and brushes; second sketch showing a conductor in the field with F, B and I directions (Fleming's rules)."
+ },
+ "Q4.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Torque–current and speed–current (torque–speed) characteristics of separately excited/shunt motor with equations",
+    "marks": 2.5
+   },
+   {
+    "point": "Armature voltage/resistance control explained with relation N ∝ (V − I<sub>a</sub>R<sub>a</sub>)/Φ",
+    "marks": 1.5
+   },
+   {
+    "point": "Field flux weakening control (above base speed) with explanation",
+    "marks": 1.5
+   },
+   {
+    "point": "Need for a starter: I<sub>a</sub> = V/R<sub>a</sub> at start",
+    "marks": 1
+   },
+   {
+    "point": "Three-point starter diagram: start arm, resistance studs, NVC, OLR",
+    "marks": 1.5
+   },
+   {
+    "point": "Working of NVC and OLR, handle position",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Characteristics of a shunt/separately excited motor (constant V and field current).</b> T ∝ ΦI<sub>a</sub> and Φ is constant, so the <i>torque–current</i> characteristic (T versus I<sub>a</sub>) is a straight line through the origin. Speed N = (V − I<sub>a</sub>R<sub>a</sub>)/KΦ, so the <i>speed–torque</i> curve is a slightly drooping straight line (a 3–5% fall from no-load to full load): the motor is an almost constant speed motor. Armature reaction slightly lowers Φ and reduces the droop.",
+   "Sketch: T–I<sub>a</sub> straight line passing through the origin; N–T line falling slightly from no-load speed N<sub>0</sub> = V/KΦ with torque.",
+   "<b>Speed control.</b> From N ∝ (V − I<sub>a</sub>R<sub>a</sub>)/Φ the speed can be varied by: (i) <i>Armature resistance control</i> – a variable resistance R<sub>e</sub> in series with the armature lowers the voltage to the armature, so speed is reduced below normal; simple, but wasteful (I²R loss) and gives poor speed regulation. (ii) <i>Armature voltage control</i> – varying V applied to the armature (Ward-Leonard or thyristor converter) gives smooth speed variation from zero up to base speed at constant torque, with good regulation and high efficiency.",
+   "(iii) <i>Field flux weakening</i> – a rheostat in the field circuit reduces I<sub>f</sub> and hence Φ; N ∝ 1/Φ increases above base speed (constant power region), limited by commutation and mechanical stress; torque per ampere falls since T ∝ Φ.",
+   "<b>Need for a starter.</b> At the instant of starting, N = 0 and E<sub>b</sub> = 0, so I<sub>a</sub> = V/R<sub>a</sub>, which may be 20–30 times the rated current because R<sub>a</sub> is very small; this would burn the armature, damage the commutator and cause a heavy line-voltage dip. A starter inserts an external resistance in series with the armature, reducing it step by step as the back EMF builds up.",
+   "<b>Three-point starter.</b> Parts: a rheostat with contact studs, resistance steps, a hinged spring-loaded handle (start arm), a soft-iron piece that is held by the no-volt coil (NVC, hold-on coil) in series with the shunt field, and an overload release (OLR, electromagnet) with a short-circuiting strip. The three terminals are L (line), A (armature) and F (field).",
+   "<b>Working.</b> Handle moved from OFF to the first stud: the full resistance is in series with the armature while the field gets full supply through the NVC. As the motor speeds up, the handle is moved slowly over successive studs to cut out resistance; at the last stud the iron piece is held by the NVC against the spring force, with no resistance in the armature. <b>NVC:</b> if supply fails or the field current is too low, the NVC releases the handle and the spring returns it to OFF – protection against no-voltage restart and field failure (the motor would race). <b>OLR:</b> on overload the magnet attracts its armature, lifting it to short-circuit the NVC, which releases the handle – protecting against excess current."
+  ],
+  "formulas": [
+   "N ∝ (V − I<sub>a</sub>R<sub>a</sub>)/Φ",
+   "T ∝ ΦI<sub>a</sub>",
+   "I<sub>a(start)</sub> = V/R<sub>a</sub>"
+  ],
+  "diagram": "Characteristics: T–I<sub>a</sub> straight line from origin, N–I<sub>a</sub> (and N–T) slightly drooping line. Three-point starter: terminals L, A, F, arm with spring, resistance studs, NVC in field path, OLR above, and the motor armature and shunt field."
+ },
+ "Q4.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definition of rotating magnetic field with spatial arrangement (windings 120° apart)",
+    "marks": 1.5
+   },
+   {
+    "point": "Statement of three-phase currents and fluxes as functions of time",
+    "marks": 1.5
+   },
+   {
+    "point": "Resolution of fluxes into horizontal and vertical components",
+    "marks": 2
+   },
+   {
+    "point": "Resultant flux of constant magnitude 1.5Φ<sub>m</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Proof of rotation at angular speed ω and N<sub>s</sub> = 120f/P",
+    "marks": 2
+   },
+   {
+    "point": "Reversal of direction by interchanging two supply leads",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Rotating magnetic field.</b> A magnetic field of constant magnitude whose axis rotates in space at constant angular speed. It is produced by a balanced 3-phase winding (three coils displaced 120° in space) carrying balanced 3-phase currents.",
+   "<b>Fluxes.</b> Phase currents: i<sub>R</sub> = I<sub>m</sub> sin ωt, i<sub>Y</sub> = I<sub>m</sub> sin(ωt − 120°), i<sub>B</sub> = I<sub>m</sub> sin(ωt − 240°). Each current produces a pulsating flux along its own coil axis: Φ<sub>R</sub> = Φ<sub>m</sub> sin ωt (axis at 0°), Φ<sub>Y</sub> = Φ<sub>m</sub> sin(ωt − 120°) (axis at 120°), Φ<sub>B</sub> = Φ<sub>m</sub> sin(ωt − 240°) (axis at 240°).",
+   "<b>Resultant – horizontal component.</b> Φ<sub>x</sub> = Φ<sub>R</sub> + Φ<sub>Y</sub> cos120° + Φ<sub>B</sub> cos240° = Φ<sub>m</sub>[sin ωt − ½ sin(ωt − 120°) − ½ sin(ωt − 240°)]. Since sin(ωt − 120°) + sin(ωt − 240°) = 2 sin(ωt − 180°) cos60° = − sin ωt, Φ<sub>x</sub> = Φ<sub>m</sub>[sin ωt + ½ sin ωt] = <b>1.5 Φ<sub>m</sub> sin ωt</b>.",
+   "<b>Vertical component.</b> Φ<sub>y</sub> = Φ<sub>Y</sub> sin120° + Φ<sub>B</sub> sin240° = (√3/2)Φ<sub>m</sub>[sin(ωt − 120°) − sin(ωt − 240°)] = (√3/2)Φ<sub>m</sub> · 2cos(ωt − 180°) sin60° = (√3/2)Φ<sub>m</sub>(−√3 cos ωt) = <b>−1.5 Φ<sub>m</sub> cos ωt</b>.",
+   "<b>Resultant magnitude.</b> Φ<sub>r</sub> = √(Φ<sub>x</sub>² + Φ<sub>y</sub>²) = 1.5Φ<sub>m</sub> √(sin²ωt + cos²ωt) = <b>1.5 Φ<sub>m</sub></b>, a constant, independent of time.",
+   "<b>Direction.</b> tan θ = Φ<sub>y</sub>/Φ<sub>x</sub> = −cot ωt = tan(ωt − 90°), so θ = ωt − 90°. The axis of the resultant flux therefore rotates with angular velocity dθ/dt = ω = 2πf rad/s, i.e. one revolution per cycle for a 2-pole winding. (Check: at ωt = 0, Φ<sub>R</sub> = 0, Φ<sub>Y</sub> = −0.866Φ<sub>m</sub>, Φ<sub>B</sub> = +0.866Φ<sub>m</sub>; resultant 1.5Φ<sub>m</sub> at −90°; at ωt = 60° it has moved 60°.)",
+   "<b>Synchronous speed.</b> For a P-pole winding the field moves through one pole pair per cycle, so <b>N<sub>s</sub> = 120 f/P</b> rpm.",
+   "<b>Reversal.</b> The direction of rotation depends on the phase sequence (R-Y-B). Interchanging any two of the three supply lines to the stator (reversing the phase sequence) reverses the direction of the RMF and hence the motor."
+  ],
+  "formulas": [
+   "Φ<sub>r</sub> = 1.5 Φ<sub>m</sub> (constant)",
+   "ω<sub>s</sub> = 2πf (electrical, 2-pole)",
+   "N<sub>s</sub> = 120 f/P"
+  ],
+  "diagram": "Three coil axes 120° apart (R at 0°, Y at 120°, B at 240°), phasor diagram of Φ<sub>R</sub>, Φ<sub>Y</sub>, Φ<sub>B</sub> at ωt = 0, 60°, 120°, and the resultant 1.5Φ<sub>m</sub> rotating counter-clockwise."
+ },
+ "Q4.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Construction of 3-phase induction motor: stator, rotor, air gap with diagram",
+    "marks": 1.5
+   },
+   {
+    "point": "Working principle: RMF, induced rotor EMF, Lenz's law, torque",
+    "marks": 2
+   },
+   {
+    "point": "Why asynchronous, why rotor cannot reach N<sub>s</sub>; slip s = (N<sub>s</sub> − N)/N<sub>s</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Squirrel-cage rotor construction and features",
+    "marks": 1
+   },
+   {
+    "point": "Slip-ring (wound) rotor construction, external resistance and features",
+    "marks": 1.5
+   },
+   {
+    "point": "Torque–slip characteristic with motoring, generating and braking regions and key points (starting torque, T<sub>max</sub>)",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>Construction.</b> <i>Stator</i>: laminated silicon steel frame with slots carrying a 3-phase winding for P poles. <i>Rotor</i>: laminated cylindrical core on the shaft with slots for rotor conductors. A small air gap (0.3–1 mm) separates them. Stator is connected to the supply; no electrical connection feeds the rotor.",
+   "<b>Working principle.</b> The stator current sets up an RMF of speed N<sub>s</sub> = 120f/P which cuts the stationary rotor conductors, inducing EMF in them (Faraday's law). The rotor circuit is closed, so rotor currents flow. By Lenz's law, the rotor tries to oppose the cause (relative speed between field and rotor), so a torque (force on current-carrying conductors in the field) drags the rotor in the direction of the RMF.",
+   "<b>Asynchronous.</b> The rotor speed N is always less than N<sub>s</sub>. If N = N<sub>s</sub>, the relative speed between field and conductors would be zero, no EMF or current would be induced and no torque would be produced; friction would slow the rotor. Hence the motor runs at N < N<sub>s</sub>; the difference is the slip: s = (N<sub>s</sub> − N)/N<sub>s</sub>, typically 2–5% at full load. The rotor-frequency f<sub>r</sub> = sf.",
+   "<b>Squirrel-cage rotor.</b> Slots contain uninsulated copper/aluminium bars short-circuited at both ends by end rings (like a cage); bars are skewed to reduce noise and cogging. Simple, rugged, cheap, maintenance free, higher efficiency; no external resistance can be added, so starting torque is low (1.5–2 × full load torque) with high starting current.",
+   "<b>Phase-wound (slip-ring) rotor.</b> Rotor carries a 3-phase star-connected winding (same poles as stator), the three ends being brought out to three slip rings with brushes connected to an external 3-phase rheostat. External resistance gives high starting torque with low starting current, then it is cut out; it also allows speed control. More expensive, needs maintenance.",
+   "<b>Torque–slip characteristic.</b> T = k s E₂²R₂/(R₂² + s²X₂²) (rotor quantities at standstill). For s from 1 to 0 (motoring region, 0 < s ≤ 1): T = starting torque at s = 1, rises to maximum (breakdown) torque T<sub>max</sub> at s<sub>m</sub> = R₂/X₂, then falls to zero at s = 0 (N = N<sub>s</sub>). Stable region is from s<sub>m</sub> to 0, with a near-linear part around full-load slip. Increasing rotor resistance moves s<sub>m</sub> towards 1 without altering T<sub>max</sub>.",
+   "<b>Generating region (s < 0):</b> if the rotor is driven above N<sub>s</sub> by a prime mover, slip is negative, the torque reverses and the machine delivers power to the supply (induction generator). <b>Braking region (s > 1):</b> if the rotor is driven opposite to the field (e.g. by interchanging two stator leads), speed is negative, s > 1; the torque opposes rotation and the machine acts as a brake (plugging), drawing power from both the supply and the shaft. The torque–speed curve is the torque–slip curve mirrored with speed N = N<sub>s</sub>(1 − s), plotted from −N to above N<sub>s</sub>."
+  ],
+  "formulas": [
+   "N<sub>s</sub> = 120f/P; s = (N<sub>s</sub> − N)/N<sub>s</sub>",
+   "f<sub>r</sub> = sf",
+   "T ∝ sE₂²R₂/(R₂² + s²X₂²); s<sub>m</sub> = R₂/X₂"
+  ],
+  "diagram": "Torque (vertical) versus slip (horizontal, from +1 on the left through 0 to negative values on the right) with the braking region (s > 1), motoring region (0 < s < 1) showing T<sub>st</sub> and T<sub>max</sub> at s<sub>m</sub>, and generating region (s < 0). Also sketches of squirrel-cage bars with end rings and slip-ring rotor with brushes and rheostat."
+ },
+ "Q4.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Need for starters: high starting current 5–7 times full load, low starting torque",
+    "marks": 2
+   },
+   {
+    "point": "DOL starter: construction with contactor, start/stop buttons, overload relay, circuit diagram",
+    "marks": 2
+   },
+   {
+    "point": "DOL starter working and protection (NVC, thermal OLR)",
+    "marks": 2
+   },
+   {
+    "point": "Star-delta starter circuit/switch diagram",
+    "marks": 1.5
+   },
+   {
+    "point": "Star-delta working with ratio V<sub>ph</sub> = V<sub>L</sub>/√3 and current/torque reduction to 1/3",
+    "marks": 2
+   },
+   {
+    "point": "Applications/limitations",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Need for starters.</b> At starting the rotor is stationary, s = 1, the rotor emf and current are maximum and the stator draws a starting current of 5–7 times the full-load value (like a short-circuited transformer). This causes a large voltage dip on the supply, can trip other equipment and overheat windings, though starting torque is low. A starter limits the starting current by reducing the voltage applied to the stator (not applicable to DOL).",
+   "<b>Direct-On-Line (DOL) starter.</b> Connects the motor directly to full supply voltage. Construction: a 3-pole contactor (coil with 'start' (NO) and 'stop' (NC) push buttons), a thermal overload relay in series with the motor, and fuses/MCB. Used for small motors (up to about 5 kW).",
+   "<b>DOL working.</b> Pressing START energises the contactor coil from the supply; the main contacts close and connect the stator to the 3-phase supply, and an auxiliary hold-on contact (in parallel with START) keeps the coil energised. Pressing STOP breaks the coil circuit and the motor stops. Protections: no-volt release (the contactor drops out on supply failure and the motor does not restart automatically); thermal overload relay trips the NC contact in the coil circuit when current is excessive.",
+   "<b>Star-delta (Y-Δ) starter.</b> Used for motors whose stator is normally connected in delta, with all six winding terminals brought out. It uses a triple-pole double-throw (TPDT) switch (or three contactors with timer) to connect the stator in star during starting and then in delta for running.",
+   "<b>Y-Δ working.</b> In the START position the windings are in star, so each phase gets V<sub>L</sub>/√3 (58% of line voltage). Starting phase current falls to 1/√3, and the line current in star is I<sub>L(Y)</sub> = V<sub>L</sub>/(√3 Z); in delta it would be I<sub>L(Δ)</sub> = √3V<sub>L</sub>/Z, hence I<sub>L(Y)</sub>/I<sub>L(Δ)</sub> = 1/3. After the motor reaches about 80% of speed, the switch is thrown to RUN (delta) and the windings get full line voltage. Starting torque ∝ V² so it also falls to 1/3 of the direct-on-line value.",
+   "<b>Comparison and use.</b> DOL: simple, cheap, high current (5–7 I<sub>FL</sub>), small motors. Y-Δ: reduces current to about 2–2.5 I<sub>FL</sub>, cheap, but low starting torque and requires 6-terminal delta motors with no-load or light-load starting (fans, pumps, machine tools). For larger motors autotransformer starters or rotor resistance starters (slip-ring motors) are used."
+  ],
+  "formulas": [
+   "I<sub>st(Y)</sub> = ⅓ I<sub>st(DOL)</sub>",
+   "T<sub>st(Y)</sub> = ⅓ T<sub>st(DOL)</sub>",
+   "V<sub>ph(Y)</sub> = V<sub>L</sub>/√3"
+  ],
+  "diagram": "DOL: supply – fuses – contactor main contacts – overload relay – motor with control circuit (stop NC, start NO, hold-on contact, coil). Y-Δ: TPDT switch with the six terminals U1 V1 W1 / U2 V2 W2 connected in star in the START position and in delta in the RUN position."
+ },
+ "Q4.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Single-phase winding gives a pulsating flux = two equal and opposite rotating fluxes (Φ<sub>m</sub>/2 each)",
+    "marks": 2
+   },
+   {
+    "point": "Torque curves of forward and backward fields; zero net torque at standstill",
+    "marks": 2
+   },
+   {
+    "point": "Conclusion: not self-starting but runs in either direction if started",
+    "marks": 1
+   },
+   {
+    "point": "Split-phase starting (main and auxiliary windings, centrifugal switch) with phasor diagram",
+    "marks": 1.5
+   },
+   {
+    "point": "Capacitor-start (and capacitor-run / two-value) motor",
+    "marks": 1.5
+   },
+   {
+    "point": "Shaded-pole motor",
+    "marks": 1.5
+   },
+   {
+    "point": "Typical applications",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Double-revolving field theory.</b> A single-phase winding carries alternating current and produces a pulsating (alternating) flux Φ = Φ<sub>m</sub> cos ωt along a fixed axis. This is resolved into two rotating fluxes, each of constant magnitude Φ<sub>m</sub>/2 and rotating at synchronous speed N<sub>s</sub> in opposite directions: forward field Φ<sub>f</sub> and backward field Φ<sub>b</sub>. Indeed (Φ<sub>m</sub>/2)[cos(ωt) + cos(ωt)] along the axis and the quadrature parts (Φ<sub>m</sub>/2)(± sin ωt) cancel.",
+   "<b>Why not self-starting.</b> Each field acts on the rotor like the RMF of a 3-phase motor and produces its own torque: T<sub>f</sub> (forward) and T<sub>b</sub> (backward, negative). At standstill the slip is s = 1 for the forward field and 2 − s = 1 for the backward field, so |T<sub>f</sub>| = |T<sub>b</sub>| and the net starting torque T = T<sub>f</sub> − T<sub>b</sub> = 0. The motor merely hums at standstill. If, however, the rotor is given a push in either direction, the corresponding field's torque exceeds the other (forward slip small, backward slip near 2) and the motor accelerates in that direction. So it needs a method to create a rotating field at start.",
+   "<b>Split-phase motor.</b> The stator has a main (running) winding of low resistance and high reactance and an auxiliary (starting) winding of high resistance and low reactance, 90° apart in space. The currents I<sub>m</sub> and I<sub>a</sub> differ in phase by about 30°, giving a weak rotating field and a starting torque of 1–1.5 times full load. A centrifugal switch disconnects the starting winding at 70–80% of speed. Used for fans, washing machines, small pumps.",
+   "<b>Capacitor-start motor.</b> A capacitor (electrolytic) in series with the auxiliary winding gives a phase difference of nearly 90° between I<sub>a</sub> and I<sub>m</sub>, so a large starting torque (3–4.5 times full load) is produced; the capacitor and winding are cut out by the centrifugal switch. <b>Capacitor-run (permanent split capacitor)</b> – the capacitor and auxiliary winding remain in circuit, giving quiet, smooth running and better power factor but lower starting torque (ceiling fans). <b>Capacitor-start capacitor-run</b> (two-value) uses both a starting and a running capacitor for the best performance (compressors, refrigerators).",
+   "<b>Shaded-pole motor.</b> The stator has salient poles, each with a shading ring (a short-circuited copper ring) around about one-third of the pole face. Flux in the shaded portion lags the flux in the unshaded part, creating a moving field from the unshaded to the shaded part, which gives a small starting torque. Simple, rugged, cheap, but low torque, low efficiency and fixed direction of rotation. Used for table fans, hair dryers, small blowers (up to about 100 W)."
+  ],
+  "formulas": [
+   "Φ = Φ<sub>m</sub> cos ωt = (Φ<sub>m</sub>/2)e<sup>jωt</sup> + (Φ<sub>m</sub>/2)e<sup>−jωt</sup>",
+   "T<sub>start</sub> = T<sub>f</sub> − T<sub>b</sub> = 0"
+  ],
+  "diagram": "Torque–speed curves of the forward (T<sub>f</sub>) and backward (T<sub>b</sub>) fields and the resultant, which is zero at N = 0; split-phase and capacitor-start circuits showing main winding, auxiliary winding, capacitor and centrifugal switch."
+ },
+ "Q4.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Classification of alternators (salient pole vs cylindrical rotor; prime mover; horizontal/vertical)",
+    "marks": 1.5
+   },
+   {
+    "point": "Construction of salient-pole and cylindrical-rotor alternators with applications",
+    "marks": 2
+   },
+   {
+    "point": "Working principle of alternator and frequency f = PN<sub>s</sub>/120",
+    "marks": 1.5
+   },
+   {
+    "point": "Principle of operation of synchronous motor (rotor locking with RMF)",
+    "marks": 2
+   },
+   {
+    "point": "Not self-starting reason and methods of starting",
+    "marks": 1.5
+   },
+   {
+    "point": "Differences between induction and synchronous motors (at least 4)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Classification of alternators.</b> (i) By rotor construction: salient-pole (projecting poles) and non-salient (cylindrical/round rotor). (ii) By prime mover: steam/gas-turbine driven, hydro-turbine driven, diesel/engine driven. (iii) By axis: horizontal or vertical shaft. (iv) By output: single-phase or three-phase.",
+   "<b>Constructional details.</b> Stator (armature): laminated core with slots carrying the 3-phase winding. <i>Salient-pole rotor</i>: projecting poles with field coils bolted to a spider on a large-diameter, short-axial-length rotor; many poles (low speed 100–400 rpm); with damper windings; used with hydro-turbines and diesel engines. <i>Cylindrical rotor</i>: smooth solid steel forging with slots carrying distributed field winding; small diameter, long axial length; 2 or 4 poles (1500–3000 rpm); mechanically strong at high speed; used with steam and gas turbines (turbo-alternators). The field is excited by DC through slip rings from an exciter.",
+   "<b>Principle of an alternator.</b> DC fed to the rotor field gives a flux; the prime mover rotates it at N<sub>s</sub> and the flux cuts the stator conductors, inducing an alternating EMF of frequency <b>f = PN<sub>s</sub>/120</b> in each phase (Faraday's law); the three phase windings 120° apart yield a balanced 3-phase EMF E = 4.44 K<sub>w</sub> f Φ T<sub>ph</sub>.",
+   "<b>Synchronous motor – principle.</b> The 3-phase stator carries a 3-phase supply and produces an RMF of speed N<sub>s</sub>. When the DC-excited rotor is rotating at (or near) N<sub>s</sub>, its poles lock magnetically with the opposite poles of the rotating stator field and the rotor is dragged round at exactly synchronous speed with the torque angle δ depending on the load. Speed is constant (N<sub>s</sub> = 120f/P) from no-load to full-load, and it can run at lagging, unity or leading p.f. by changing the field excitation (over-excited = leading, used for p.f. correction as a synchronous condenser).",
+   "<b>Not self-starting.</b> At standstill, the stator field rotates at N<sub>s</sub> but the rotor, due to its inertia, cannot instantly accelerate; the stator poles pass the rotor poles so fast that the average torque in half cycle is attractive and in the next repulsive, so net starting torque is zero. <b>Starting methods:</b> (i) bring the rotor close to synchronous speed with a small auxiliary motor and then synchronise; (ii) as an induction motor using damper (amortisseur) windings on the pole faces, with the DC field applied once speed reaches about 95%; (iii) using a variable-frequency supply.",
+   "<b>Comparison.</b> Synchronous motor: runs at constant N<sub>s</sub> (no slip), needs DC excitation, not self-starting, can operate at any p.f. (lagging/unity/leading), costlier, air gap larger. Induction motor: speed slightly less than N<sub>s</sub> (slip), no separate excitation, self-starting, always lagging p.f., cheaper, rugged, small air gap."
+  ],
+  "formulas": [
+   "f = PN<sub>s</sub>/120",
+   "N<sub>s</sub> = 120 f/P"
+  ],
+  "diagram": "Salient-pole rotor (many projecting poles on a spider) and cylindrical rotor (2-pole smooth rotor with slots), each with stator, slip rings and DC exciter."
+ },
+ "Q4.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Back EMF E<sub>b</sub> = V − I<sub>a</sub>R<sub>a</sub> − brush drop = 426 V",
+    "marks": 2
+   },
+   {
+    "point": "(a) Substitution in E<sub>b</sub> = PΦZN/60A with A = 2 and N = 591.7 rpm",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Motor: I<sub>sh</sub> = 2 A, I<sub>a</sub> = 98 A, E<sub>b</sub> = 218.7 V",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Generator: I<sub>a</sub> = 102 A, E<sub>g</sub> = 241.7 V",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Speed ratio N<sub>g</sub>/N<sub>m</sub> = E<sub>g</sub>/E<sub>b</sub> = 1.105",
+    "marks": 1
+   },
+   {
+    "point": "(c) I<sub>L</sub> = 200 A, I<sub>sh</sub> = 2.5 A, I<sub>a</sub> = 202.5 A, E<sub>g</sub> = 262.15 V",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) Speed N = 655.4 rpm with substitution",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(a)</b> Given P = 4, wave winding ⇒ A = 2, Z = 720, V = 500 V, I<sub>a</sub> = 60 A, Φ = 0.03 Wb, R<sub>a</sub> = 1.2 Ω, brush drop = 2 × 1 = 2 V. E<sub>b</sub> = V − I<sub>a</sub>R<sub>a</sub> − brush drop = 500 − 60 × 1.2 − 2 = 500 − 72 − 2 = 426 V.",
+   "E<sub>b</sub> = PΦZN/60A ⇒ N = 60A E<sub>b</sub>/(PΦZ) = (60 × 2 × 426)/(4 × 0.03 × 720) = 51 120/86.4 = <b>591.7 rpm</b>.",
+   "<b>(b)</b> V = 230 V, R<sub>a</sub> = 0.115 Ω, R<sub>sh</sub> = 115 Ω ⇒ I<sub>sh</sub> = 230/115 = 2 A (same flux in both cases since field current is the same).",
+   "<i>As motor:</i> line current 100 A ⇒ I<sub>a</sub> = 100 − 2 = 98 A; E<sub>b</sub> = V − I<sub>a</sub>R<sub>a</sub> = 230 − 98 × 0.115 = 230 − 11.27 = 218.73 V.",
+   "<i>As generator:</i> line current 100 A ⇒ I<sub>a</sub> = 100 + 2 = 102 A; E<sub>g</sub> = V + I<sub>a</sub>R<sub>a</sub> = 230 + 102 × 0.115 = 230 + 11.73 = 241.73 V.",
+   "Since E ∝ ΦN with the same Φ: N<sub>g</sub>/N<sub>m</sub> = E<sub>g</sub>/E<sub>b</sub> = 241.73/218.73 = <b>1.105</b>.",
+   "<b>(c)</b> P = 4, A = 2 (wave), Φ = 0.03 Wb, Z = 400, V = 250 V, output 50 kW. I<sub>L</sub> = 50 000/250 = 200 A; I<sub>sh</sub> = 250/100 = 2.5 A; I<sub>a</sub> = I<sub>L</sub> + I<sub>sh</sub> = 202.5 A.",
+   "E<sub>g</sub> = V + I<sub>a</sub>R<sub>a</sub> = 250 + 202.5 × 0.06 = 250 + 12.15 = 262.15 V.",
+   "N = 60A E<sub>g</sub>/(PΦZ) = (60 × 2 × 262.15)/(4 × 0.03 × 400) = 31 458/48 = <b>655.4 rpm</b>."
+  ],
+  "formulas": [
+   "E<sub>b</sub> = PΦZN/60A",
+   "E<sub>b</sub> = V − I<sub>a</sub>R<sub>a</sub>; E<sub>g</sub> = V + I<sub>a</sub>R<sub>a</sub>",
+   "I<sub>a</sub> = I<sub>L</sub> ∓ I<sub>sh</sub>"
+  ],
+  "result": "(a) 591.7 rpm; (b) N<sub>g</sub>/N<sub>m</sub> = 1.105; (c) 655.4 rpm"
+ },
+ "Q4.9": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Synchronous speed N<sub>s</sub> = 120f/P = 1000 rpm with substitution",
+    "marks": 2
+   },
+   {
+    "point": "Operating speed N = N<sub>s</sub>(1 − s) = 950 rpm",
+    "marks": 2
+   },
+   {
+    "point": "Rotor current frequency f<sub>r</sub> = sf = 2.5 Hz",
+    "marks": 2
+   },
+   {
+    "point": "Speed of rotor field relative to the rotor = sN<sub>s</sub> = 50 rpm",
+    "marks": 2
+   },
+   {
+    "point": "Speed of rotor field relative to the stator = 1000 rpm (= N<sub>s</sub>) with explanation",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> P = 6, f = 50 Hz, s = 5% = 0.05.",
+   "(i) <b>Synchronous speed</b> N<sub>s</sub> = 120f/P = 120 × 50/6 = <b>1000 rpm</b>.",
+   "(ii) <b>Rotor speed</b> N = N<sub>s</sub>(1 − s) = 1000 × (1 − 0.05) = <b>950 rpm</b>.",
+   "(iii) <b>Rotor current frequency</b> f<sub>r</sub> = sf = 0.05 × 50 = <b>2.5 Hz</b>.",
+   "(iv) The rotor currents of frequency f<sub>r</sub> set up a rotor field rotating relative to the rotor at N<sub>r</sub> = 120f<sub>r</sub>/P = 120 × 2.5/6 = <b>50 rpm</b> (= N<sub>s</sub> − N = 1000 − 950 = sN<sub>s</sub>), in the same direction as the rotor rotation.",
+   "Relative to the stator, this field's speed = rotor speed + speed relative to rotor = 950 + 50 = <b>1000 rpm</b>, i.e. synchronous speed N<sub>s</sub>, which is the same as the stator RMF – so both fields are stationary relative to each other, which is the condition for steady torque production."
+  ],
+  "formulas": [
+   "N<sub>s</sub> = 120f/P",
+   "N = N<sub>s</sub>(1 − s)",
+   "f<sub>r</sub> = sf"
+  ],
+  "result": "N<sub>s</sub> = 1000 rpm; N = 950 rpm; f<sub>r</sub> = 2.5 Hz; rotor field = 50 rpm w.r.t. rotor and 1000 rpm w.r.t. stator"
+ },
+ "Q4.10": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Formula N<sub>s</sub> = 120f/P and substitution",
+    "marks": 2.5
+   },
+   {
+    "point": "Speed N = 1200 rpm with unit",
+    "marks": 2.5
+   },
+   {
+    "point": "Same speed at new frequency: P = 120f/N",
+    "marks": 2.5
+   },
+   {
+    "point": "Number of poles = 2 with check",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>Given:</b> P = 6, f = 60 Hz.",
+   "Frequency of an alternator f = PN/120, so N = 120f/P = 120 × 60/6 = <b>1200 rpm</b>.",
+   "For f = 20 Hz at the same speed N = 1200 rpm: P = 120f/N = 120 × 20/1200 = <b>2 poles</b>.",
+   "Check: f = PN/120 = 2 × 1200/120 = 20 Hz ✓. (Number of poles must be even.)"
+  ],
+  "formulas": [
+   "f = PN/120",
+   "N = 120f/P"
+  ],
+  "result": "N = 1200 rpm; P = 2 poles"
+ },
+ "Q5.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Neat single-line diagram: generating station → step-up transformer → transmission → receiving station → distribution → consumer",
+    "marks": 2.5
+   },
+   {
+    "point": "(a) Explanation of each stage (generation, primary/secondary transmission, primary/secondary distribution) with function",
+    "marks": 2.5
+   },
+   {
+    "point": "(b) Table of standard voltage levels in India (generation, transmission, distribution)",
+    "marks": 2.5
+   },
+   {
+    "point": "(b) Economic advantages of high-voltage transmission (I = P/(√3 V cosφ), reduced I²R loss, conductor saving, regulation, capacity)",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>(a) Layout of an electric power system.</b> Electrical energy is generated at a central generating station, stepped up, transmitted over long distances at high voltage, stepped down at substations and finally distributed to consumers at utilisation voltage.",
+   "<b>1. Generating station:</b> thermal, hydro, nuclear or renewable plant; alternators generate 3-phase AC at 11 kV (up to 33 kV for large units), 50 Hz.",
+   "<b>2. Step-up substation:</b> a transformer raises the generation voltage to the primary transmission voltage (132/220/400 kV) to reduce current and losses.",
+   "<b>3. Primary transmission:</b> overhead lines carry bulk power at 220/400 kV to the grid receiving stations.",
+   "<b>4. Secondary transmission:</b> at the receiving substation voltage is stepped down to 132/66 kV and power is carried to secondary (grid) substations near load centres.",
+   "<b>5. Primary distribution:</b> at the distribution substation voltage is reduced to 33 kV/11 kV and fed to large industrial consumers and to distribution transformers.",
+   "<b>6. Secondary distribution:</b> pole/plinth-mounted distribution transformers step down 11 kV to 415 V (3-phase, 4-wire) / 230 V (single phase) for residential, commercial and small industrial consumers through service mains.",
+   "Single-line diagram (drawn with one line for the three phases): Generator (11 kV) → Step-up transformer (11/220 kV) → 220 kV transmission line → Step-down transformer (220/66 kV) → 66 kV secondary transmission → Substation (66/11 kV) → 11 kV feeders → Distribution transformer (11 kV/415 V) → Consumers.",
+   "<b>(b) Standard voltage levels in India (table):</b>",
+   "AC generation: 11 kV, 13.8 kV, 15.75 kV (up to 33 kV).",
+   "Primary transmission: 220 kV, 400 kV, 765 kV (EHV).",
+   "Secondary transmission: 132 kV, 66 kV.",
+   "Primary distribution: 33 kV, 11 kV (also 6.6 kV).",
+   "Secondary distribution: 415 V three-phase line, 230 V single-phase phase-to-neutral.",
+   "<b>Economic advantages of high-voltage transmission.</b> For a given power P = √3 V I cosφ, the line current is I = P/(√3 V cosφ), so I ∝ 1/V.",
+   "(i) Line loss = 3I²R ∝ 1/V²; doubling the voltage cuts the I²R loss to one quarter, so efficiency is higher.",
+   "(ii) For the same loss, conductor cross-section a ∝ 1/V²; volume of copper/aluminium (and its cost) falls sharply, and lighter towers suffice.",
+   "(iii) Voltage drop IR is smaller, so regulation is better and longer distances can be covered.",
+   "(iv) Greater power-carrying capacity per circuit and fewer circuits/right-of-way needed. Limits: insulation, tower and substation costs and corona rise with V, so an economic voltage is chosen (Kelvin's law)."
+  ],
+  "formulas": [
+   "P = √3 V<sub>L</sub> I<sub>L</sub> cosφ",
+   "Line loss = 3I²R = P²R/(V² cos²φ) ∝ 1/V²",
+   "Conductor volume ∝ 1/(V² cos²φ)"
+  ],
+  "diagram": "Single-line diagram: Generating station (11 kV) → step-up transformer → transmission line (220/400 kV) → receiving substation → secondary transmission (132/66 kV) → distribution substation (33/11 kV) → distribution transformer (11 kV/415 V) → consumers; label each voltage level."
+ },
+ "Q5.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a)(i) SFU: construction (switch + HRC fuse in a single enclosure), working and applications",
+    "marks": 2
+   },
+   {
+    "point": "(a)(ii) MCB: construction (bimetal strip for overload, solenoid/magnetic trip for short circuit, arc chute), working and applications",
+    "marks": 2.5
+   },
+   {
+    "point": "(a)(iii) ELCB: working on residual-current (RCCB, core-balance CT) or voltage principle, trip current 30 mA, applications",
+    "marks": 2
+   },
+   {
+    "point": "(a)(iv) MCCB: construction (moulded case, thermal-magnetic or electronic trip), working and applications",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Comparison table of MCB, ELCB and MCCB on principle, ratings and protection",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>(a)(i) Switch Fuse Unit (SFU).</b> A switch and a fuse (HRC cartridge type) housed together in a metal enclosure with a quick-make quick-break handle. Principle: the fuse element melts (I²Rt heating) on overload or short circuit and breaks the circuit, while the switch is used for manual on/off and isolation. Ratings: 16 A to 1250 A, 415 V. Uses: main/incoming control of industrial and commercial distribution boards, motor feeders. Drawback: fuse must be replaced after operating.",
+   "<b>(ii) Miniature Circuit Breaker (MCB).</b> Construction: moulded insulating case, fixed and moving contacts, operating toggle, <b>bimetallic strip</b> (thermal trip), <b>solenoid/electromagnet with plunger</b> (magnetic trip) and an arc chute with splitter plates. Working: on overload the bimetal heats, bends and releases the latch after an inverse-time delay; on short circuit the solenoid pulls the plunger instantly and trips the contacts; the arc is stretched and cooled in the arc chute. Resettable, no replacement needed. Ratings: 0.5 A to 63 A (up to 125 A), breaking capacity up to 10 kA; types B, C, D (trip curves). Used in homes, offices and final sub-circuits for lighting and sockets.",
+   "<b>(iii) Earth Leakage Circuit Breaker (ELCB).</b> It detects earth-leakage/fault current. Modern current-operated ELCB (RCCB/RCD): phase and neutral pass through a core-balance current transformer; in healthy condition I<sub>phase</sub> = I<sub>neutral</sub> and the net flux is zero. If leakage to earth occurs, the residual current produces flux, induces an EMF in the sensing coil and operates a trip relay, opening the contacts in about 30 ms. Sensitivity: 30 mA (human protection), 100/300 mA (fire protection). Older voltage-ELCB senses the voltage on the earth wire (trip above ~50 V). Applications: bathrooms, kitchens, pumps, domestic and commercial buildings for protection against electric shock and fire. It does not protect against overload or short circuit unless combined (RCBO).",
+   "<b>(iv) Moulded Case Circuit Breaker (MCCB).</b> Heavy-duty breaker in a moulded insulating case with a toggle handle, arc chutes, and a trip unit: thermal (bimetal) for overload and magnetic for short circuit (electronic trip in advanced types) with adjustable settings. Ratings 63 A–1600 A (up to 2500 A), breaking capacity 20–100 kA. Used for main incoming/outgoing feeders, motors, capacitor banks, industrial panels.",
+   "<b>(b) Comparison:</b>",
+   "Principle: MCB – bimetal + electromagnet; ELCB – residual current (core-balance) or earth voltage; MCCB – thermal-magnetic/electronic trip.",
+   "Current rating: MCB up to 63/125 A; ELCB 25–100 A (30 mA to 300 mA sensitivity); MCCB 63–1600 A or more.",
+   "Breaking capacity: MCB ≤ 10 kA; MCCB 20–100 kA.",
+   "Protection: MCB – overload and short circuit; ELCB – earth leakage/shock only; MCCB – overload and short circuit (adjustable), some with earth-fault.",
+   "Adjustability: MCB fixed; MCCB adjustable; ELCB fixed sensitivity.",
+   "Use: MCB – final circuits; ELCB – shock protection; MCCB – main feeders and industry."
+  ],
+  "formulas": [
+   "Fuse heating: H = I²Rt",
+   "ELCB trips when |I<sub>ph</sub> − I<sub>n</sub>| ≥ 30 mA"
+  ],
+  "diagram": "Sectional sketch of an MCB: terminals, toggle, moving and fixed contacts, bimetallic strip, solenoid with plunger, arc chute. Also a block sketch of an ELCB showing phase and neutral through a core-balance CT, sensing coil, trip relay."
+ },
+ "Q5.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Importance of earthing: protection from shock, equipotential, fault current path to operate protective device, fire prevention",
+    "marks": 2.5
+   },
+   {
+    "point": "(a) Hazards of ungrounded equipment: touch voltage, shock, fire, equipment damage",
+    "marks": 1.5
+   },
+   {
+    "point": "(b)(i) Pipe earthing: diagram with labels and installation details",
+    "marks": 2.5
+   },
+   {
+    "point": "(b)(ii) Plate earthing: diagram with labels and installation details",
+    "marks": 2.5
+   },
+   {
+    "point": "(b) Reason for charcoal and salt (low resistance, moisture retention, corrosion protection)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(a) Importance of earthing.</b> Earthing is connecting the non-current-carrying metal parts of equipment (body, frame, enclosure) and the neutral of the system to the general mass of earth through a low-resistance conductor.",
+   "Necessity: (1) Safety of persons – if insulation fails, the body is held at near earth potential, so touch voltage is low and shock is avoided. (2) Fault current gets a low-impedance path to earth, so the fuse/MCB/ELCB operates quickly and isolates the supply. (3) Maintains equipotential surfaces, protects against lightning and static charges. (4) Prevents fire from leakage currents and stabilises voltage of healthy phases during faults.",
+   "<b>Hazards of ungrounded equipment:</b> a fault between live conductor and metal body keeps the body at supply voltage (230 V) so any person touching it gets a severe or fatal shock; no fault current flows to trip protection so the fault persists; risk of fire/sparking, damage to equipment and loss of life or property.",
+   "<b>(b)(i) Pipe earthing.</b> A galvanised iron (GI) pipe of 38–50 mm diameter and 2–3 m length with holes in its lower part is driven vertically into the ground (in a pit, moist soil). A funnel is fixed at the top (reached through a masonry/cast-iron cover chamber) for pouring water. Around the pipe, alternate layers of charcoal and common salt (or coke and salt) about 15 cm thick are filled. The earth wire (GI strip/wire) is bolted to the pipe by a nut-bolt and connected to the equipment body. Water is poured periodically (once or twice a week in summer) to keep the soil moist. Resistance should be below ~1–5 Ω. Suited to small installations and houses.",
+   "<b>(ii) Plate earthing.</b> A copper plate (60 cm × 60 cm × 3.15 mm) or GI plate (60 × 60 cm × 6.3 mm) is buried vertically in a pit at 3 m depth with its face vertical, surrounded by alternate layers of charcoal and salt (about 15 cm). A GI pipe of 19 mm diameter with funnel is led from the top for watering. The earth wire is bolted to the plate with two bolts and a cover/inspection chamber is provided at the top. Used for substations and large installations where larger surface area and low resistance are needed.",
+   "<b>Why charcoal and salt?</b> (1) Salt in solution lowers the soil resistivity, giving better conductivity around the electrode. (2) Charcoal absorbs and retains moisture, keeping the soil damp for long. (3) Charcoal also protects the electrode from corrosion and increases the effective contact surface, so earth resistance remains low and stable."
+  ],
+  "formulas": [
+   "Earth resistance should be ≤ 1–5 Ω (small installations), ≤ 1 Ω (substations)",
+   "Touch voltage = I<sub>fault</sub> × R<sub>earth</sub>"
+  ],
+  "diagram": "Pipe earthing: ground level, cover chamber, funnel, GI pipe 38–50 mm with holes, earth wire, charcoal/salt layers, depth 2.5–3 m. Plate earthing: plate 60×60 cm, earth wire bolts, watering pipe with funnel, charcoal/salt layers, depth ≈ 3 m."
+ },
+ "Q5.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Definition and electrochemical differences of primary vs secondary cells with examples",
+    "marks": 2
+   },
+   {
+    "point": "(b) Classification of secondary batteries by chemistry (Lead-Acid, Ni-Cd, Li-ion) with brief features",
+    "marks": 2
+   },
+   {
+    "point": "(b) Lead-acid charging and discharging reactions at anode, cathode and overall",
+    "marks": 2.5
+   },
+   {
+    "point": "(b) Advantages and disadvantages of lead-acid battery",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) Specifications: Ah capacity, energy density, cycle life, C-rating, self-discharge and their selection significance",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>(a) Primary cells</b> convert chemical energy to electrical energy through an irreversible reaction; once reactants are consumed the cell is discarded (e.g. dry Leclanché cell, alkaline, lithium coin cell). <b>Secondary cells</b> (storage batteries) undergo reversible electrochemical reactions: after discharge they can be recharged by passing current in the reverse direction, restoring the active materials (e.g. lead-acid, Ni-Cd, Li-ion).",
+   "Difference: in primary cells the electrode reactions cannot be reversed, they have higher energy density and lower cost per cell and are used in low-drain devices; secondary cells have rechargeable electrode materials, lower internal resistance, can supply high currents and have thousands of cycles.",
+   "<b>(b) Classification of secondary batteries:</b> (i) <b>Lead-acid</b> – Pb/PbO<sub>2</sub>, dilute H<sub>2</sub>SO<sub>4</sub>, 2.0 V per cell, cheap, high current (automobile, UPS, inverter). (ii) <b>Nickel-cadmium</b> – NiOOH positive, Cd negative, KOH electrolyte, 1.2 V per cell, long life, tolerates deep discharge (emergency lighting, tools); cadmium is toxic. (iii) <b>Lithium-ion</b> – lithium-metal-oxide cathode, graphite anode, lithium salt in organic solvent, 3.6–3.7 V, high energy density, light weight (mobiles, laptops, EVs).",
+   "<b>Lead-acid reactions.</b> Discharging: Anode (negative plate): Pb + SO<sub>4</sub><sup>2−</sup> → PbSO<sub>4</sub> + 2e<sup>−</sup>. Cathode (positive plate): PbO<sub>2</sub> + 4H<sup>+</sup> + SO<sub>4</sub><sup>2−</sup> + 2e<sup>−</sup> → PbSO<sub>4</sub> + 2H<sub>2</sub>O. Overall: Pb + PbO<sub>2</sub> + 2H<sub>2</sub>SO<sub>4</sub> → 2PbSO<sub>4</sub> + 2H<sub>2</sub>O. The electrolyte becomes dilute (specific gravity falls from ≈1.28 to ≈1.12) and cell voltage falls.",
+   "Charging (reverse): 2PbSO<sub>4</sub> + 2H<sub>2</sub>O → Pb + PbO<sub>2</sub> + 2H<sub>2</sub>SO<sub>4</sub>. PbSO<sub>4</sub> on the negative plate is reduced to spongy Pb, on the positive plate oxidised to PbO<sub>2</sub>; acid concentration and voltage rise (gassing near full charge).",
+   "<b>Advantages:</b> low cost, high surge current, simple and reliable, easily recyclable, low internal resistance. <b>Disadvantages:</b> heavy and bulky, low energy density (30–40 Wh/kg), limited cycle life (300–1500), needs maintenance (water topping), acid fumes and hydrogen gas, sulphation if left discharged, lead toxicity.",
+   "<b>(c) Selection specifications.</b> Ampere-hour capacity: charge it can deliver at the rated discharge rate (Ah = I × t) – decides backup time. Energy density (Wh/kg or Wh/L): determines size and weight. Cycle life: number of charge-discharge cycles before capacity falls to 80% – decides life-cycle cost. C-rating: charge/discharge rate relative to capacity (1C for a 100 Ah battery = 100 A); limits permissible current. Self-discharge rate: loss of charge on standby per month (lead-acid 3–5%, Li-ion 1–2%, Ni-Cd 15–20%) – important for standby systems. Others: voltage, temperature range, cost, depth of discharge."
+  ],
+  "formulas": [
+   "Pb + PbO<sub>2</sub> + 2H<sub>2</sub>SO<sub>4</sub> ⇌ 2PbSO<sub>4</sub> + 2H<sub>2</sub>O (discharge → / charge ←)",
+   "Capacity (Ah) = I × t",
+   "C-rate current = rate × Ah rating"
+  ]
+ },
+ "Q5.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Classification of wires (single/multi-strand, PVC, VIR, TRS, CTS) with uses",
+    "marks": 2
+   },
+   {
+    "point": "Types of cables (PVC, XLPE, armoured, flexible, coaxial, single/multi-core) with uses",
+    "marks": 2
+   },
+   {
+    "point": "Labelled sectional diagram of an armoured power cable",
+    "marks": 2
+   },
+   {
+    "point": "Function and material of conductor, insulation, bedding, armour and serving",
+    "marks": 4
+   }
+  ],
+  "answer": [
+   "<b>Wires</b> are single bare or insulated conductors; <b>cables</b> consist of one or more insulated conductors covered by common protective sheath. Conductor materials: copper (higher conductivity) and aluminium (cheaper, lighter).",
+   "<b>Types of wires in internal wiring:</b> (i) VIR (vulcanised India rubber) – obsolete; (ii) <b>PVC-insulated</b> wires (single-core, 1.5–6 mm²) in conduit – most common, FR/FRLS types for safety; (iii) CTS/TRS (cab-tyre/tough-rubber-sheathed) wire in batten wiring; (iv) <b>flexible</b> multi-strand wire for appliances and portable use; (v) lead-sheathed and enamelled winding wires for machines.",
+   "<b>Types of cables:</b> (i) PVC cables (up to 1.1 kV) for house and building wiring; (ii) <b>XLPE</b> (cross-linked polyethylene) cables, 1.1 kV to 33 kV and more, higher temperature rating (90 °C); (iii) armoured power cables for underground/outdoor laying; (iv) paper-insulated lead-covered (PILC) cables for HV; (v) coaxial and communication cables; (vi) flexible, welding and submersible cables. They may be single-core, two-, three-, 3½- or four-core.",
+   "<b>Construction of an armoured cable</b> (from inside to outside):",
+   "1. <b>Conductor:</b> stranded copper or aluminium (circular or sector-shaped) – stranding gives flexibility and carries the load current.",
+   "2. <b>Insulation:</b> PVC or XLPE (or impregnated paper) over each core – withstands the working voltage and insulates the cores from each other; cores are identified by colour (red, yellow, blue, black).",
+   "3. <b>Bedding:</b> a layer of PVC/jute/hessian tape over the laid-up cores (with fillers) – gives a circular shape and protects the insulation from damage by armour.",
+   "4. <b>Armour:</b> galvanised steel wires (or steel tape) wound over the bedding – gives mechanical strength and protection from impact, crushing and rodents; also provides earth path.",
+   "5. <b>Serving (outer sheath):</b> a final PVC or compounded jute layer over armour – protects armour against moisture, corrosion and chemical attack.",
+   "Applications: underground and outdoor distribution, industrial feeders and motor connections, where mechanical stress is expected."
+  ],
+  "diagram": "Cross-section of a 3-core armoured cable: three stranded conductors (sector shaped), insulation on each, fillers, bedding, steel-wire armour, outer PVC serving. Label each layer."
+ },
+ "Q5.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Buck converter circuit diagram (source, switch, diode, L, C, load)",
+    "marks": 2
+   },
+   {
+    "point": "(a) Operation in switch ON/OFF modes with waveforms",
+    "marks": 2
+   },
+   {
+    "point": "(a) Output voltage V<sub>o</sub> = D V<sub>s</sub> with inductor volt-second balance",
+    "marks": 2
+   },
+   {
+    "point": "(b) Single-phase bridge VSI circuit and working with gate sequence and output waveform",
+    "marks": 2.5
+   },
+   {
+    "point": "(b) Differences between single-phase and three-phase inverters",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(a) DC-DC Buck (step-down) converter.</b> Circuit: DC source V<sub>s</sub> in series with a controlled switch S (MOSFET/IGBT) → node with a freewheeling diode D connected to ground (cathode at node) → series inductor L → output capacitor C in parallel with load R.",
+   "<b>Mode 1 (S ON, 0 < t < DT):</b> the diode is reverse biased, the source feeds the inductor and load; inductor voltage v<sub>L</sub> = V<sub>s</sub> − V<sub>o</sub> so the inductor current rises linearly and energy is stored in L.",
+   "<b>Mode 2 (S OFF, DT < t < T):</b> the inductor opposes the fall of current, the diode conducts (freewheels) and L feeds the load; v<sub>L</sub> = −V<sub>o</sub> and i<sub>L</sub> falls linearly. The capacitor keeps the output ripple small.",
+   "<b>Output voltage (continuous conduction):</b> average inductor voltage over a period is zero (volt-second balance): (V<sub>s</sub> − V<sub>o</sub>)DT = V<sub>o</sub>(1 − D)T, so V<sub>o</sub> = D V<sub>s</sub>, where D = T<sub>on</sub>/T is the duty ratio (0 < D < 1). Hence V<sub>o</sub> < V<sub>s</sub> – step-down. Ripple current ΔI<sub>L</sub> = V<sub>o</sub>(1 − D)/(fL). Used in SMPS, mobile chargers and battery chargers.",
+   "<b>(b) Single-phase bridge VSI.</b> Four switches S<sub>1</sub>–S<sub>4</sub> (IGBT/MOSFET each with an antiparallel feedback diode) form two legs (S<sub>1</sub>, S<sub>4</sub> and S<sub>3</sub>, S<sub>2</sub>), fed from a DC source V<sub>dc</sub>, with the load connected between the mid-points of the legs.",
+   "Operation (square-wave): for 0 < t < T/2, S<sub>1</sub> and S<sub>2</sub> are ON, so v<sub>o</sub> = +V<sub>dc</sub>; for T/2 < t < T, S<sub>3</sub> and S<sub>4</sub> are ON, so v<sub>o</sub> = −V<sub>dc</sub>. Switches in the same leg are never ON together (dead-time) to avoid short circuit of the source. The output is a square wave of amplitude ±V<sub>dc</sub> at the frequency set by the gate pulses. The feedback diodes carry load current when it lags the voltage (inductive load).",
+   "RMS output V<sub>o</sub> = V<sub>dc</sub>; fundamental rms = 0.9 V<sub>dc</sub> (4V<sub>dc</sub>/(π√2)). Output contains odd harmonics (3rd, 5th,…) which are reduced by filters or PWM control.",
+   "<b>Single-phase vs three-phase inverter:</b> Single-phase – 4 switches (bridge), single AC output, ±V<sub>dc</sub> square wave, used for small loads (UPS, home inverters), higher harmonics and pulsating power. Three-phase – 6 switches (3 legs), three outputs 120° apart, line voltage 6-step waveform, rated for higher power (motor drives, grid), lower harmonic content, smoother torque and constant power flow, smaller DC filter."
+  ],
+  "formulas": [
+   "V<sub>o</sub> = D V<sub>s</sub>, D = T<sub>on</sub>/T",
+   "ΔI<sub>L</sub> = V<sub>o</sub>(1 − D)/(fL)",
+   "Single-phase bridge: V<sub>o,rms</sub> = V<sub>dc</sub>; V<sub>1,rms</sub> = 4V<sub>dc</sub>/(π√2) ≈ 0.9V<sub>dc</sub>"
+  ],
+  "diagram": "Buck converter: V<sub>s</sub>, switch S, diode D across the node-to-ground, L, C, R with i<sub>L</sub> and v<sub>L</sub> waveforms. Bridge inverter: V<sub>dc</sub> with four switches S1–S4 and antiparallel diodes, load between mid-points, square output waveform ±V<sub>dc</sub>."
+ },
+ "Q5.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Correct energy per day for each lamp (10 Wh, 40 Wh, 90 Wh) and total 140 Wh",
+    "marks": 2
+   },
+   {
+    "point": "(a) Monthly energy 4.2 kWh and bill Rs. 42",
+    "marks": 3
+   },
+   {
+    "point": "(b) Daily energy 1.5 kW × 3 h = 4.5 kWh",
+    "marks": 2
+   },
+   {
+    "point": "(b) Monthly energy 135 kWh",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Cost Rs. 540 with units",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(a) Given:</b> Lamps 10 W, 20 W, 30 W working 1 h, 2 h, 3 h daily; 30 days; tariff Rs. 10/kWh. Energy = Power × time.",
+   "Daily energy: lamp 1 = 10 × 1 = 10 Wh; lamp 2 = 20 × 2 = 40 Wh; lamp 3 = 30 × 3 = 90 Wh. Total per day = 10 + 40 + 90 = 140 Wh = 0.14 kWh.",
+   "Monthly energy = 0.14 × 30 = 4.2 kWh (units).",
+   "Bill = 4.2 × Rs. 10 = <b>Rs. 42</b>.",
+   "<b>(b) Given:</b> heater 1500 W = 1.5 kW, 3 h/day, 30 days (November), tariff Rs. 4/kWh.",
+   "Daily energy = 1.5 kW × 3 h = 4.5 kWh.",
+   "Monthly energy = 4.5 × 30 = 135 kWh.",
+   "Cost = 135 × Rs. 4 = <b>Rs. 540</b>."
+  ],
+  "formulas": [
+   "Energy (kWh) = Power (kW) × time (h)",
+   "Bill = units × tariff"
+  ],
+  "result": "(a) Total energy = 4.2 kWh per month; bill = Rs. 42. (b) Energy = 135 kWh; cost = Rs. 540."
+ }
+}

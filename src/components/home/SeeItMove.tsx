@@ -1,0 +1,89 @@
+"use client";
+import dynamic from "next/dynamic";
+import { Suspense, useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
+import { CountUp } from "@/components/motion";
+import { useCapability, useReducedMotion } from "@/labs/capability";
+import type { WaveControl } from "./WaveSurface3D";
+import "@/components/home3d.css";
+
+const Surface = dynamic(() => import("./WaveSurface3D"), { ssr: false });
+
+function Flat() {
+  return (
+    <svg className="absolute inset-0 h-full w-full" viewBox="0 0 300 200" aria-hidden data-testid="sim-fallback">
+      {[18, 36, 54, 72, 90].map((r, i) => <ellipse key={r} cx="150" cy="105" rx={r * 1.9} ry={r * 0.8} fill="none" stroke={i % 2 ? "#44c95a" : "#6cc4ff"} strokeWidth="3" strokeOpacity={1 - i * 0.14} />)}
+      <circle cx="150" cy="105" r="6" fill="#ffd24d" />
+    </svg>
+  );
+}
+
+export interface Stat { label: string; value: number }
+
+/** Landing section: a real ripple surface you can turn and re-tune, plus counts read from the app's own registries. */
+export function SeeItMove({ stats }: { stats: Stat[] }) {
+  const cap = useCapability();
+  const reduced = useReducedMotion();
+  const host = useRef<HTMLDivElement>(null);
+  const control = useRef<WaveControl>({ k: 3, yaw: 0.5 });
+  const drag = useRef<number | null>(null);
+  const [k, setK] = useState(3);
+  const [inView, setInView] = useState(false);
+  const [seen, setSeen] = useState(false);
+  const [tabOn, setTabOn] = useState(true);
+
+  useEffect(() => {
+    const el = host.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(([e]) => { setInView(e.isIntersecting); if (e.isIntersecting) setSeen(true); }, { threshold: 0.15 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  useEffect(() => {
+    const on = () => setTabOn(!document.hidden);
+    document.addEventListener("visibilitychange", on);
+    return () => document.removeEventListener("visibilitychange", on);
+  }, []);
+
+  const live = (cap === "ok-high" || cap === "ok-low") && !reduced && seen;
+  const down = (e: PointerEvent) => { drag.current = e.clientX; e.currentTarget.setPointerCapture(e.pointerId); };
+  const move = (e: PointerEvent) => { if (drag.current === null) return; control.current.yaw += (e.clientX - drag.current) * 0.012; drag.current = e.clientX; };
+  const up = () => { drag.current = null; };
+  const key = (e: KeyboardEvent) => {
+    if (e.key === "ArrowLeft") { control.current.yaw -= 0.2; e.preventDefault(); }
+    if (e.key === "ArrowRight") { control.current.yaw += 0.2; e.preventDefault(); }
+  };
+
+  return (
+    <section className="mx-auto max-w-6xl px-5 py-10" aria-labelledby="move-h">
+      <div className="h3d-card grid gap-6 p-5 sm:p-8 md:grid-cols-2 md:items-center">
+        <div className="flex flex-col gap-4">
+          <p className="h3d-eyebrow">Try it right here</p>
+          <h2 id="move-h" className="text-3xl !text-white sm:text-4xl">See it move</h2>
+          <p className="text-[#d5e1e7]">Formulas stop being scary when you can turn them around. This ripple is drawn from <b className="text-white">z = sin(k·r − 2t) / (1 + 0.35·r)</b>. Change k and the waves tighten. Every lab in lockin. works the same way.</p>
+          {live && (
+            <label className="flex flex-col gap-1 text-sm font-extrabold text-white">
+              <span>Wave number k: <output className="text-[#ffd24d]" data-testid="sim-k">{k.toFixed(1)}</output></span>
+              <input type="range" aria-label="Wave number k" min={1} max={6} step={0.1} value={k} className="w-full max-w-xs accent-[#44c95a]"
+                onChange={(e) => { const v = Number(e.target.value); control.current.k = v; setK(v); }} />
+            </label>
+          )}
+          <ul className="m-0 grid list-none grid-cols-3 gap-3 p-0" aria-label="What is inside">
+            {stats.map((s) => (
+              <li key={s.label} className="rounded-2xl border border-white/15 bg-white/10 p-3">
+                <p className="stat-big"><CountUp value={s.value} /></p>
+                <p className="mt-1 text-xs font-bold text-[#d5e1e7]">{s.label}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div ref={host} role="group" tabIndex={live ? 0 : -1} aria-label={live ? "Interactive 3D ripple surface. Drag sideways or use the left and right arrow keys to turn it." : "Ripple surface picture"}
+          className={`h3d-stage sim-drag rounded-2xl bg-black/25 ${live ? "" : "pointer-events-none"}`} data-testid="sim" data-mode={live ? "live" : "static"}
+          onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onKeyDown={key}>
+          {live ? (
+            <Suspense fallback={<Flat />}><Surface control={control} active={inView && tabOn} quality={cap === "ok-low" ? 0 : 1} /></Suspense>
+          ) : <Flat />}
+        </div>
+      </div>
+    </section>
+  );
+}

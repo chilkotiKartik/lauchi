@@ -1,0 +1,142 @@
+{
+  "code": "BCA-004",
+  "name": "Information Technology Fundamentals",
+  "short": "IT Fundamentals",
+  "type": "theory",
+  "ltp": "3-1-0",
+  "credits": 4,
+  "sem": "I",
+  "marks": null,
+  "objectives": [],
+  "outcomes": [],
+  "text": [],
+  "ref": [],
+  "rule": "",
+  "note": "",
+  "units": [
+    {
+      "n": 1,
+      "title": "Introduction to Computers",
+      "hours": null,
+      "topics": [
+        "Definition",
+        "characteristics",
+        "evolution",
+        "block diagram",
+        "computer generations (1st to 5th)",
+        "classification (micro, mini, mainframe, supercomputer; analog, digital, hybrid)",
+        "capabilities",
+        "limitations"
+      ],
+      "formulas": [],
+      "hints": [
+        "Define a computer and discuss its primary operational characteristics (speed, accuracy…",
+        "Explain the differences between analog, digital, and hybrid computers"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Computer Organization & I/O",
+      "hours": null,
+      "topics": [
+        "Input units: keyboard",
+        "terminals",
+        "pointing devices",
+        "scanners",
+        "voice recognition",
+        "touchscreens",
+        "Output units: monitors (CRT, LCD, LED)",
+        "impact printers (Dot Matrix, Daisy Wheel) vs. non-impact printers (Inkjet, Laser)",
+        "plotters",
+        "sound cards",
+        "speakers"
+      ],
+      "formulas": [],
+      "hints": [
+        "Compare LCD and LED monitor display technologies in terms of backlighting, contrast, and…",
+        "Explain the working principle and types of impact printers"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Storage Fundamentals",
+      "hours": null,
+      "topics": [
+        "Primary vs. secondary storage",
+        "data retrieval methods",
+        "RAM",
+        "ROM",
+        "PROM",
+        "EPROM",
+        "EEPROM",
+        "secondary media: magnetic tapes",
+        "magnetic disks",
+        "hard disks",
+        "optical discs (CD, DVD, Blu-Ray)",
+        "zip drives",
+        "flash drives"
+      ],
+      "formulas": [],
+      "hints": [
+        "Primary vs. secondary memory performance characteristics",
+        "Optical storage principles: CD, DVD, and Blu-Ray pit/land laser reflection"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Software Concepts",
+      "hours": null,
+      "topics": [
+        "System software vs. application software",
+        "Operating Systems (Batch, Multiprogrammed, Time-sharing, Distributed, Real-time)",
+        "utility programs",
+        "machine language",
+        "assembly language",
+        "high-level languages",
+        "compilers vs. interpreters",
+        "DBMS fundamentals"
+      ],
+      "formulas": [],
+      "hints": [
+        "Define software",
+        "Compare machine language, assembly language, and high-level languages"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Computer Arithmetic",
+      "hours": null,
+      "topics": [
+        "Number systems (Positional & Non-Positional): Binary",
+        "Octal",
+        "Decimal",
+        "Hexadecimal",
+        "radix conversions",
+        "binary arithmetic: addition",
+        "subtraction",
+        "1's and 2's complement arithmetic"
+      ],
+      "formulas": [],
+      "hints": [
+        "Fixed-point vs. floating-point binary representation"
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Business Data Processing",
+      "hours": null,
+      "topics": [
+        "Data storage hierarchy (bit, byte, field, record, file, database)",
+        "file types (master, transaction)",
+        "sequential vs. direct access methods",
+        "file utilities"
+      ],
+      "formulas": [],
+      "hints": [
+        "Define Business Data Processing and explain the data storage hierarchy from bit to…",
+        "Discuss the main types of files used in data processing and compare sequential file…"
+      ]
+    }
+  ],
+  "exps": []
+}

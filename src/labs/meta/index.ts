@@ -1,0 +1,34 @@
+import type { ParamSpec } from "../params-core";
+import { CORE_SPECS } from "./core.specs";
+import { MATHSA_SPECS } from "./mathsa.specs";
+import { MATHSB_SPECS } from "./mathsb.specs";
+import { PHYSICS_SPECS } from "./physics.specs";
+import { CHEM_SPECS } from "./chem.specs";
+import { ELEC_SPECS } from "./elec.specs";
+import { ELEX_SPECS } from "./elex.specs";
+import { MECH_SPECS } from "./mech.specs";
+import { CPROG_SPECS } from "./cprog.specs";
+import { LIFE_SPECS } from "./life.specs";
+import { EXTRA_SPECS } from "./extra.specs";
+import { WEBA_SPECS } from "./weba.specs";
+import { WEBB_SPECS } from "./webb.specs";
+import { GFX_SPECS } from "./gfx.specs";
+import { PHYX_SPECS } from "./phyx.specs";
+import { CHEMX_SPECS } from "./chemx.specs";
+import { ELECX_SPECS } from "./elecx.specs";
+import { ELEXX_SPECS } from "./elexx.specs";
+import { MECHX_SPECS } from "./mechx.specs";
+import { PHYY_SPECS } from "./phyy.specs";
+import { CHEMY_SPECS } from "./chemy.specs";
+import { ELECY_SPECS } from "./elecy.specs";
+import { ELEXY_SPECS } from "./elexy.specs";
+import { MECHY_SPECS } from "./mechy.specs";
+import { CSTX_SPECS } from "./cstx.specs";
+import { BCAX_SPECS } from "./bcax.specs";
+import { BCAZ_SPECS } from "./bcaz.specs";
+import { BCAY_SPECS } from "./bcay.specs";
+import { MATHII_SPECS } from "./mathii.specs";
+import { MATHI_SPECS } from "./mathi.specs";
+
+/** Every lab's parameter spec, keyed by lab id (server-safe). */
+export const ALL_SPECS: Record<string, ParamSpec> = { ...CORE_SPECS, ...MATHSA_SPECS, ...MATHSB_SPECS, ...PHYSICS_SPECS, ...CHEM_SPECS, ...ELEC_SPECS, ...ELEX_SPECS, ...MECH_SPECS, ...CPROG_SPECS, ...LIFE_SPECS, ...EXTRA_SPECS, ...WEBA_SPECS, ...WEBB_SPECS, ...GFX_SPECS, ...PHYX_SPECS, ...CHEMX_SPECS, ...ELECX_SPECS, ...ELEXX_SPECS, ...MECHX_SPECS, ...MECHY_SPECS, ...ELEXY_SPECS, ...ELECY_SPECS, ...CHEMY_SPECS, ...PHYY_SPECS, ...CSTX_SPECS, ...MATHI_SPECS, ...MATHII_SPECS, ...BCAX_SPECS, ...BCAY_SPECS, ...BCAZ_SPECS };

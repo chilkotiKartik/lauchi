@@ -1,0 +1,145 @@
+{
+  "code": "BCA-008",
+  "name": "Object-Oriented Programming using Java",
+  "short": "Java (OOP)",
+  "type": "theory",
+  "ltp": "3-1-0",
+  "credits": 4,
+  "sem": "I",
+  "marks": null,
+  "objectives": [],
+  "outcomes": [],
+  "text": [],
+  "ref": [],
+  "rule": "",
+  "note": "",
+  "units": [
+    {
+      "n": 1,
+      "title": "Java Basics",
+      "hours": null,
+      "topics": [
+        "JVM",
+        "JDK",
+        "JRE",
+        "byte-code execution",
+        "primitive data types",
+        "variables",
+        "operators",
+        "selection statements",
+        "iteration",
+        "methods",
+        "method overloading",
+        "Math class",
+        "1D and 2D arrays"
+      ],
+      "formulas": [],
+      "hints": [
+        "Explain the JVM architecture and detail how bytecode execution achieves platform…"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Classes & Objects",
+      "hours": null,
+      "topics": [
+        "Class definitions",
+        "instance variables",
+        "object instantiation",
+        "constructors",
+        "constructor overloading",
+        "garbage collection",
+        "access modifiers (private, public, protected, default)",
+        "this keyword",
+        "String and StringBuffer"
+      ],
+      "formulas": [],
+      "hints": [
+        "Compare String and StringBuffer classes regarding memory immutability and performance"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Inheritance & Polymorphism",
+      "hours": null,
+      "topics": [
+        "Inheritance basics",
+        "super keyword",
+        "method overriding",
+        "dynamic method dispatch",
+        "abstract classes",
+        "interfaces",
+        "multiple interface implementation",
+        "packages",
+        "access protection"
+      ],
+      "formulas": [],
+      "hints": [
+        "Demonstrate dynamic method dispatch (runtime polymorphism) with an inheritance code…",
+        "Differentiate between abstract classes and interfaces; explain multiple inheritance…"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "GUI & Event Handling",
+      "hours": null,
+      "topics": [
+        "AWT/Swing hierarchies",
+        "event delegation model",
+        "event sources",
+        "listeners",
+        "adapters",
+        "frames",
+        "panels",
+        "layout managers (Flow, Border, Grid)",
+        "UI controls",
+        "Applet lifecycle"
+      ],
+      "formulas": [],
+      "hints": [
+        "Design an interactive GUI login window using Java Swing controls with event handling"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "I/O Streams & Files",
+      "hours": null,
+      "topics": [
+        "Streams",
+        "byte streams vs. character streams",
+        "FileInputStream",
+        "FileOutputStream",
+        "FileReader",
+        "FileWriter",
+        "serialization",
+        "RandomAccessFile"
+      ],
+      "formulas": [],
+      "hints": [
+        "Explain object serialization in Java; write code to serialize and deserialize an object…"
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Multithreading & Exceptions",
+      "hours": null,
+      "topics": [
+        "Java thread model",
+        "Thread lifecycle",
+        "Thread class and Runnable interface",
+        "thread priorities",
+        "inter-thread communication (wait(), notify())",
+        "synchronization",
+        "exception handling (try-catch-finally-throw-throws)",
+        "Collections framework"
+      ],
+      "formulas": [],
+      "hints": [
+        "Producer-Consumer problem using wait() and notify() methods",
+        "Custom checked vs. unchecked exception architectures",
+        "Java Collection framework interfaces: List, Set, and Map"
+      ]
+    }
+  ],
+  "exps": []
+}

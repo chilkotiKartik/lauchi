@@ -1,0 +1,1996 @@
+{
+ "Q1.1": {
+  "marks": 20,
+  "rubric": [
+   {
+    "point": "(a) Definition of a perfect truss with the condition m = 2j − 3",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Deficient truss (m < 2j − 3) and redundant truss (m > 2j − 3) with stability remarks",
+    "marks": 2
+   },
+   {
+    "point": "(a) Comparison table / sketches of the three types with examples",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Assumptions of the analysis (pin joints, loads at joints, weightless members) and check m = 2j − 3",
+    "marks": 2
+   },
+   {
+    "point": "(b) Reactions found first from the equilibrium of the whole truss (ΣF<sub>x</sub> = ΣF<sub>y</sub> = ΣM = 0)",
+    "marks": 2
+   },
+   {
+    "point": "(b) Joint selection (≤ 2 unknowns), FBD of each joint, assume tension (arrow away from joint)",
+    "marks": 2
+   },
+   {
+    "point": "(b) Equations ΣF<sub>x</sub> = 0, ΣF<sub>y</sub> = 0 solved and sign convention (+ve tension, −ve compression); proceeding joint to joint and checking at last joint",
+    "marks": 4
+   },
+   {
+    "point": "(c) Idea of the method of sections: imaginary cut through at most three members, equilibrium of one part",
+    "marks": 2
+   },
+   {
+    "point": "(c) Suitable example: reactions, cut, and moment equation about the intersection of two unknowns",
+    "marks": 2
+   },
+   {
+    "point": "(c) Correct member forces with nature (T/C)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(a) Perfect truss.</b> A truss is a framework of straight slender members joined at their ends by smooth pins, loaded only at the joints, so that each member carries only axial tension or compression. A <b>perfect truss</b> (also called a simple, rigid or just-stiff truss) is a truss that has exactly the minimum number of members needed to keep it a stable, non-collapsing triangulated frame, i.e. m = 2j − 3, where m = number of members and j = number of joints. It is built by adding two new members and one new joint to a basic triangle, and it is statically determinate.",
+   "<b>Deficient (imperfect) truss:</b> m < 2j − 3. There are too few members, so the frame is not completely triangulated, it is a mechanism and collapses under some loads. Example: a rectangular frame ABCD of 4 members and 4 joints (needs 5). <b>Redundant truss:</b> m > 2j − 3. There are more members than required, so the forces cannot be found by the equations of statics alone; it is statically indeterminate (needs deformation/compatibility equations). Example: a rectangle with both diagonals (6 members, 4 joints; needs 5).",
+   "Summary: <b>Perfect</b> – m = 2j − 3, stable, determinate, analysed by statics. <b>Deficient</b> – m < 2j − 3, unstable, cannot carry general loading. <b>Redundant</b> – m > 2j − 3, stable but indeterminate, extra members give extra safety/stiffness.",
+   "<b>(b) Method of joints – procedure.</b> Assumptions: members are weightless and straight, joints are frictionless pins, loads and reactions act only at joints. Each joint is then a concurrent force system, so only ΣF<sub>x</sub> = 0 and ΣF<sub>y</sub> = 0 are available (2 equations per joint).",
+   "Step 1: Check that the truss is perfect (m = 2j − 3) and statically determinate; draw it to scale with all dimensions and angles.",
+   "Step 2: Draw the FBD of the whole truss and find the support reactions from ΣF<sub>x</sub> = 0, ΣF<sub>y</sub> = 0, ΣM = 0 (one end hinged, the other on rollers).",
+   "Step 3: Choose a joint at which not more than two members have unknown forces (usually a support joint). Isolate it and draw its FBD showing all known loads/reactions and the unknown member forces.",
+   "Step 4: Assume every unknown member force to be <b>tensile</b> (arrow pulling away from the joint). If the answer comes out negative the member is in compression.",
+   "Step 5: Apply ΣF<sub>x</sub> = 0 and ΣF<sub>y</sub> = 0, solve for the two unknown forces. Use the direction cosines (horizontal/inclined length etc.) of the inclined members.",
+   "Step 6: Move to the next joint that now has at most two unknowns. Remember that a member force found earlier acts on the next joint in the <i>opposite</i> sense (a member in tension pulls on both its end joints). Repeat for all joints.",
+   "Step 7: Use the last joint (or the overall equilibrium) as a check – the equations must be satisfied. Tabulate member, magnitude, and nature (tension/compression).",
+   "Special cases to save time: at a joint with two non-collinear members and no external load both forces are zero; if three members meet with two collinear and no load, the third is a zero-force member.",
+   "<b>(c) Method of sections.</b> Used when the forces in only a few members (e.g. in a middle panel) are wanted. The truss is cut by an imaginary section through not more than <b>three</b> members whose forces are unknown (not all concurrent/parallel), the support reactions are found, and the equilibrium of either part is written: ΣM = 0 about the point where two cut members meet (gives the third directly), and ΣF<sub>y</sub> = 0 (or ΣF<sub>x</sub> = 0).",
+   "Example: simply supported Warren truss, span 6 m, equilateral triangles of side 2 m (height h = 1.732 m). Bottom joints A, C, E, G at 0, 2, 4, 6 m; top joints B, D, F at 1, 3, 5 m; a 10 kN load at D. Reactions R<sub>A</sub> = R<sub>G</sub> = 5 kN. To find the forces in BD, CD and CE take a section cutting these three members and consider the left part (only R<sub>A</sub> = 5 kN acts on it).",
+   "Moments about C (BD is the only force with a lever arm): 5 × 2 + F<sub>BD</sub> × h = 0 ⇒ F<sub>BD</sub> = −10/1.732 = −5.77 kN, i.e. <b>BD = 5.77 kN compression</b>. Moments about D: 5 × 3 − F<sub>CE</sub> × h = 0 ⇒ <b>CE = 15/1.732 = 8.66 kN tension</b>. ΣF<sub>y</sub> = 0: 5 + F<sub>CD</sub> sin60° = 0 ⇒ <b>CD = 5.77 kN compression</b>. Check ΣF<sub>x</sub>: −5.77 + 8.66 − 5.77 cos60° = 0 ✓.",
+   "Advantage over joints: any member is obtained directly, with one equation, and errors do not accumulate."
+  ],
+  "formulas": [
+   "Perfect truss: m = 2j − 3",
+   "Deficient: m < 2j − 3;  Redundant: m > 2j − 3",
+   "Joint: ΣF<sub>x</sub> = 0, ΣF<sub>y</sub> = 0;  Section: ΣM = 0, ΣF<sub>y</sub> = 0"
+  ],
+  "diagram": "A simple triangulated truss (e.g. 5 joints, 7 members) with hinged support at one end and roller at the other, loads at joints, and a dotted section line X–X cutting three members in the middle panel; FBD of one joint showing assumed tensile arrows."
+ },
+ "Q1.2": {
+  "marks": 20,
+  "rubric": [
+   {
+    "point": "(a) Concept of equilibrium of a rigid body (resultant force and moment both zero), static vs dynamic",
+    "marks": 2
+   },
+   {
+    "point": "(a) Equations ΣF<sub>x</sub> = 0, ΣF<sub>y</sub> = 0, ΣM = 0 with meaning of each; alternate (moment) forms",
+    "marks": 3
+   },
+   {
+    "point": "(b) Statement and explanation of parallelogram law with diagram",
+    "marks": 2.5
+   },
+   {
+    "point": "(b) Statement of triangle law and polygon law with diagram",
+    "marks": 2.5
+   },
+   {
+    "point": "(b) Derivation of R = √(P² + Q² + 2PQ cosθ)",
+    "marks": 3
+   },
+   {
+    "point": "(b) Derivation of direction α = tan<sup>−1</sup>[Q sinθ/(P + Q cosθ)]",
+    "marks": 2
+   },
+   {
+    "point": "(c) Principle of transmissibility stated with sketch/example and limitation",
+    "marks": 2.5
+   },
+   {
+    "point": "(c) Free body diagram: definition, procedure and an example",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>(a) Equilibrium of a rigid body.</b> A rigid body is in equilibrium when it has no tendency to translate or rotate, that is when the resultant of all external forces and the resultant moment about any point are both zero. If it is at rest the equilibrium is <i>static</i>; a body moving with constant velocity is in dynamic equilibrium.",
+   "For a coplanar (two-dimensional) force system the conditions are: <b>ΣF<sub>x</sub> = 0</b> (no translation along x), <b>ΣF<sub>y</sub> = 0</b> (no translation along y) and <b>ΣM<sub>O</sub> = 0</b> (no rotation about any point O in the plane). These three independent equations can determine at most three unknowns; if the number of unknown reactions exceeds three the body is statically indeterminate. Alternative sets: ΣF<sub>x</sub> = 0 with two moment equations about points A, B (line AB not ⟂ x), or three moment equations about three non-collinear points.",
+   "<b>(b)(i) Parallelogram law.</b> If two forces acting at a point are represented in magnitude and direction by the two adjacent sides of a parallelogram drawn from that point, their resultant is represented in magnitude and direction by the diagonal of the parallelogram drawn from the same point.",
+   "<b>(ii) Triangle law.</b> If two forces acting at a point are represented by two sides of a triangle taken in order (head of the first to tail of the second), their resultant is represented by the third side taken in the opposite order (closing side). It is the half-parallelogram form of the first law.",
+   "<b>(iii) Polygon law.</b> If a number of concurrent forces are represented in magnitude and direction by the sides of a polygon taken in order, their resultant is represented by the closing side of the polygon taken in the opposite order. If the polygon closes, the forces are in equilibrium.",
+   "<b>Derivation of the resultant.</b> Let P and Q act at O with angle θ between them. Complete the parallelogram OACB with OA = P, OB = Q; the diagonal OC = R. Draw CD perpendicular to OA produced.",
+   "Step 1: In triangle BOE (or ACD), AD = Q cosθ and CD = Q sinθ, so OD = P + Q cosθ.",
+   "Step 2: In right triangle OCD: R² = OD² + CD² = (P + Q cosθ)² + (Q sinθ)².",
+   "Step 3: R² = P² + 2PQ cosθ + Q²(cos²θ + sin²θ), hence <b>R = √(P² + Q² + 2PQ cosθ)</b>.",
+   "Step 4: If α is the angle of R with P: tanα = CD/OD, so <b>α = tan<sup>−1</sup>[Q sinθ/(P + Q cosθ)]</b>. Special cases: θ = 0° gives R = P + Q; θ = 180° gives R = P − Q; θ = 90° gives R = √(P² + Q²).",
+   "<b>(c) Principle of transmissibility.</b> The state of rest or motion of a rigid body is unchanged if a force acting at a point is replaced by an equal force of the same direction acting at any other point on its line of action. Hence a force may be treated as a <i>sliding vector</i> (for example a pull on a cart by a rope can be replaced by a push of equal magnitude along the same line). It is valid only for rigid bodies and for external effects (reactions, motion); the internal stresses and deformation do change, so it cannot be used when finding internal forces.",
+   "<b>Free body diagram (FBD).</b> An FBD is a sketch of a body (or part of it) isolated from its surroundings, showing all external forces acting on it – applied loads, self-weight, and the reactions/tensions that replace each removed support or connection. Procedure: (1) isolate the body, (2) draw the known forces with their directions, (3) replace every support by its reaction (roller – one force ⟂ surface; smooth surface – normal; hinge – two components; fixed – two components + moment; cable – tension along it; rough surface – normal + friction), (4) mark dimensions and angles. Example: a ladder against a wall shows W at its centre, wall reaction horizontal, floor reaction vertical and friction along the floor. Equilibrium equations are then written from the FBD."
+  ],
+  "formulas": [
+   "ΣF<sub>x</sub> = 0, ΣF<sub>y</sub> = 0, ΣM = 0",
+   "R = √(P² + Q² + 2PQ cosθ)",
+   "tanα = Q sinθ/(P + Q cosθ)"
+  ],
+  "diagram": "Parallelogram OACB with P along OA, Q along OB, diagonal R, perpendicular CD to OA produced, angles θ and α marked; separate triangle and polygon sketches; an FBD of a ladder or beam."
+ },
+ "Q1.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of Newton's first law (inertia)",
+    "marks": 1.5
+   },
+   {
+    "point": "Statement of Newton's second law: F ∝ rate of change of momentum",
+    "marks": 2
+   },
+   {
+    "point": "Derivation of F = ma (constant mass) and unit of force (newton)",
+    "marks": 2
+   },
+   {
+    "point": "Explanation of inertia of motion for the passenger: car stops, lower body stops by friction",
+    "marks": 2.5
+   },
+   {
+    "point": "Upper body tends to continue in motion, hence jerk forward; link to seat belts",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Newton's first law (law of inertia):</b> Every body continues in its state of rest or of uniform motion in a straight line unless an external unbalanced force compels it to change that state. The property of a body to resist any change in its state is called <i>inertia</i>; it is measured by mass.",
+   "<b>Newton's second law:</b> The rate of change of momentum of a body is directly proportional to the applied (resultant) external force and takes place in the direction of the force.",
+   "Let a body of mass m move with velocity v; momentum p = mv. Then F ∝ dp/dt = d(mv)/dt, i.e. F = k d(mv)/dt.",
+   "For constant mass, F = k m (dv/dt) = k m a. Choosing the unit of force so that k = 1 (1 newton is the force which gives 1 kg an acceleration of 1 m/s²), we get <b>F = ma</b> (vector form <b>F</b> = m<b>a</b>). If F = 0 then a = 0, which shows the first law is a special case of the second.",
+   "<b>Passenger in a car (explanation using the first law).</b> While the car is moving, the passenger is also moving with the same velocity v, i.e. the body of the passenger is in a state of uniform motion.",
+   "When the brakes are applied suddenly, the car is brought to rest quickly by the braking force. The lower part of the passenger's body, in contact with the seat, is stopped along with the car by friction.",
+   "The upper part of the body is not directly acted on by any force, so by the first law (inertia of motion) it tends to continue moving forward with the original velocity v. The passenger is therefore thrown forward relative to the car – experienced as a jerk in the forward direction.",
+   "Conversely, when the car starts suddenly the passenger is jerked backward (inertia of rest). Seat belts and headrests supply the external force that decelerates the passenger together with the car, preventing injury."
+  ],
+  "formulas": [
+   "F = dp/dt = d(mv)/dt",
+   "F = ma  (1 N = 1 kg·m/s²)"
+  ],
+  "diagram": "Sketch a car braking with an arrow showing the braking force at the wheels, and a passenger leaning forward with the velocity vector v of the upper body."
+ },
+ "Q1.4": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Statements of the laws of (Coulomb) dry friction: opposes motion, F ∝ N, independent of area, kinetic < static, independent of speed",
+    "marks": 2
+   },
+   {
+    "point": "Angle of friction defined, with tanφ = μ and diagram of N, F and resultant R",
+    "marks": 1.5
+   },
+   {
+    "point": "Coefficient of static friction defined (μ = F<sub>max</sub>/N)",
+    "marks": 0.75
+   },
+   {
+    "point": "Angle of repose defined and shown equal to φ (tanθ = μ)",
+    "marks": 0.75
+   }
+  ],
+  "answer": [
+   "<b>Laws of Coulomb (dry) friction.</b> (1) Friction force always acts opposite to the direction of (impending) motion and is tangential to the surfaces in contact. (2) Up to the limit, friction force equals the applied tangential force (self-adjusting); the maximum or limiting friction is directly proportional to the normal reaction: F<sub>max</sub> = μ<sub>s</sub>N. (3) The limiting friction is independent of the area of contact. (4) Kinetic friction is less than limiting static friction, F<sub>k</sub> = μ<sub>k</sub>N, and is independent of the velocity of sliding (moderate speeds). (5) It depends on the nature (roughness) of the surfaces.",
+   "<b>Coefficient of static friction (μ<sub>s</sub>):</b> the ratio of the limiting (maximum) friction force to the normal reaction, μ<sub>s</sub> = F<sub>max</sub>/N. It is a dimensionless constant for a given pair of surfaces.",
+   "<b>Angle of friction (φ):</b> the angle between the normal reaction N and the resultant R of N and the limiting friction F<sub>max</sub>. From the figure, tanφ = F<sub>max</sub>/N = μ<sub>s</sub>, so φ = tan<sup>−1</sup>μ<sub>s</sub>.",
+   "<b>Angle of repose (α):</b> the maximum angle of inclination of a rough plane to the horizontal at which a body placed on it just begins to slide down under its own weight. On the verge of sliding W sinα = μW cosα, so tanα = μ, therefore α = φ."
+  ],
+  "formulas": [
+   "F<sub>max</sub> = μ<sub>s</sub>N",
+   "tanφ = μ<sub>s</sub>",
+   "Angle of repose α = φ"
+  ],
+  "diagram": "Block on rough plane with N, F, and resultant R; angle φ between N and R. Second sketch: block on an incline at angle α."
+ },
+ "Q1.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "FBD of the ladder with W, R<sub>A</sub> (horizontal), R<sub>B</sub> (vertical), F<sub>B</sub> = μR<sub>B</sub>",
+    "marks": 2
+   },
+   {
+    "point": "Equilibrium equations ΣF<sub>x</sub> = 0, ΣF<sub>y</sub> = 0, ΣM<sub>B</sub> = 0 written correctly",
+    "marks": 2.5
+   },
+   {
+    "point": "Deriving tanθ = 1/(2μ) (smooth wall)",
+    "marks": 1.5
+   },
+   {
+    "point": "Numerical angles 59.04° and 64.36° for the two smooth-wall problems",
+    "marks": 2
+   },
+   {
+    "point": "Rough wall problem: both friction forces, P = 165.2 N and θ<sub>min</sub> = 68.9°",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>(i) Smooth wall, general result.</b> Ladder AB, length L, weight W at its mid-point G, end A against the smooth wall, end B on the floor, inclination θ. Forces: R<sub>A</sub> horizontal (smooth wall, no friction), R<sub>B</sub> vertical, friction F<sub>B</sub> = μR<sub>B</sub> along the floor towards the wall (limiting).",
+   "ΣF<sub>y</sub> = 0: R<sub>B</sub> = W.   ΣF<sub>x</sub> = 0: F<sub>B</sub> = R<sub>A</sub>, so R<sub>A</sub> = μW.",
+   "ΣM<sub>B</sub> = 0: W(L/2)cosθ = R<sub>A</sub> L sinθ ⇒ W cosθ/2 = μW sinθ ⇒ <b>tanθ = 1/(2μ)</b>.",
+   "<b>Problem 1:</b> m = 10 kg (W = 100 N), μ = 0.3: tanθ = 1/(2 × 0.3) = 1.667, θ = tan<sup>−1</sup>(1.667) = <b>59.04°</b>. (Result is independent of the weight.) Check: R<sub>B</sub> = 100 N, R<sub>A</sub> = F = 30 N.",
+   "<b>Problem 2:</b> W = 30 N, μ = 0.24: tanθ = 1/(2 × 0.24) = 2.0833, θ = <b>64.36°</b>. Check: R<sub>B</sub> = 30 N, F = R<sub>A</sub> = 7.2 N.",
+   "<b>Problem 3.</b> L = 5 m, W = 180 N (at mid-point), man 900 N at top A, θ = 60°, μ<sub>w</sub> = 0.25 (wall), μ<sub>f</sub> = 0.35 (floor). Total vertical load = 1080 N. At limiting equilibrium without P the ladder is about to slip: floor foot moves away from the wall, so F<sub>B</sub> acts towards the wall, F<sub>A</sub> = μ<sub>w</sub>R<sub>A</sub> acts upward at the wall.",
+   "<b>(i) With horizontal force P at floor level (towards the wall), θ = 60°.</b> ΣM<sub>B</sub> = 0: R<sub>A</sub> L sin60° + F<sub>A</sub> L cos60° = (180/2 + 900) L cos60° ⇒ R<sub>A</sub>(tan60° + 0.25) = 990 ⇒ R<sub>A</sub> = 990/(1.7321 + 0.25) = 499.5 N, F<sub>A</sub> = 0.25 × 499.5 = 124.9 N.",
+   "ΣF<sub>y</sub> = 0: R<sub>B</sub> = 1080 − 124.9 = 955.1 N, so F<sub>B</sub> = 0.35 × 955.1 = 334.3 N.",
+   "ΣF<sub>x</sub> = 0: P + F<sub>B</sub> = R<sub>A</sub> ⇒ P = 499.5 − 334.3 = <b>165.2 N</b> (towards the wall).",
+   "<b>(ii) Without P:</b> R<sub>B</sub> + μ<sub>w</sub>R<sub>A</sub> = 1080 and R<sub>A</sub> = μ<sub>f</sub>R<sub>B</sub> ⇒ R<sub>B</sub>(1 + 0.25 × 0.35) = 1080 ⇒ R<sub>B</sub> = 993.1 N, R<sub>A</sub> = 347.6 N, F<sub>A</sub> = 86.9 N.",
+   "Moments about B: R<sub>A</sub> tanθ + F<sub>A</sub> = 990 ⇒ tanθ = (990 − 86.9)/347.6 = 2.598 ⇒ <b>θ<sub>min</sub> = 68.9°</b> (the ladder is unsafe at 60° unless P ≥ 165.2 N is applied)."
+  ],
+  "formulas": [
+   "Smooth wall: tanθ = 1/(2μ)",
+   "Rough wall + floor: tanθ = (W/2 + w)/R<sub>A</sub> − μ<sub>w</sub>"
+  ],
+  "diagram": "Ladder AB against wall with W at G (and man's load at A), R<sub>A</sub> horizontal, F<sub>A</sub> up (rough wall case), R<sub>B</sub> vertical, F<sub>B</sub> horizontal, angle θ at floor.",
+  "result": "(1) θ = 59.04°; (2) θ = 64.36°; (3) P = 165.2 N, θ<sub>min</sub> = 68.9°"
+ },
+ "Q1.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "FBD of the block: W, N, F, inclined pull P resolved into P cosθ and P sinθ",
+    "marks": 2
+   },
+   {
+    "point": "Normal reaction N = W − P sinθ for each pull problem",
+    "marks": 2
+   },
+   {
+    "point": "Friction force F = P cosθ (on the point of sliding)",
+    "marks": 1.5
+   },
+   {
+    "point": "Coefficient of friction μ = F/N with correct numerical values 0.365 and 0.352",
+    "marks": 2
+   },
+   {
+    "point": "Third problem: F<sub>max</sub> = μ<sub>s</sub>mg = 39.24 N with units",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>Problem 1.</b> W = 350 N, P = 120 N at 20° above the horizontal; the body is on the verge of sliding, so friction is limiting. FBD: W downward, N upward, P resolved into horizontal P cos20° and vertical P sin20° (upward), friction F opposing motion.",
+   "ΣF<sub>y</sub> = 0: N + P sin20° = W ⇒ N = 350 − 120 × 0.3420 = 350 − 41.04 = <b>308.96 N</b>.",
+   "ΣF<sub>x</sub> = 0: F = P cos20° = 120 × 0.9397 = 112.76 N.",
+   "μ = F/N = 112.76/308.96 = <b>0.365</b>.",
+   "<b>Problem 2.</b> W = 300 N, P = 100 N at 15°: N = 300 − 100 sin15° = 300 − 25.88 = <b>274.12 N</b>; F = 100 cos15° = 96.59 N; μ = 96.59/274.12 = <b>0.352</b>.",
+   "<b>Problem 3.</b> Mass 10 kg, μ<sub>s</sub> = 0.4, horizontal surface; take g = 9.81 m/s². N = mg = 10 × 9.81 = 98.1 N.",
+   "The box does not move as long as the applied horizontal force does not exceed the limiting friction: F<sub>max</sub> = μ<sub>s</sub>N = 0.4 × 98.1 = <b>39.24 N</b> (≈ 39 N; 40 N if g = 10 m/s²)."
+  ],
+  "formulas": [
+   "N = W − P sinθ",
+   "F = P cosθ",
+   "μ = F/N;  F<sub>max</sub> = μ<sub>s</sub>N"
+  ],
+  "diagram": "Block on horizontal table with W, N, P at angle to horizontal and F opposing motion.",
+  "result": "(1) N = 308.96 N, μ = 0.365; (2) N = 274.12 N, μ = 0.352; (3) F<sub>max</sub> = 39.24 N"
+ },
+ "Q1.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of assumptions (supports/loads) and diagram of the truss",
+    "marks": 1.5
+   },
+   {
+    "point": "Support reactions found by equilibrium of the whole truss",
+    "marks": 2
+   },
+   {
+    "point": "Joint FBDs drawn with assumed tensile members; ΣF<sub>x</sub>, ΣF<sub>y</sub> equations applied joint by joint",
+    "marks": 3
+   },
+   {
+    "point": "Correct magnitudes of all member forces",
+    "marks": 2.5
+   },
+   {
+    "point": "Nature (T/C) tabulated and a check applied at the last joint",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "The figures for three of the four variants are not available, so standard configurations are assumed and stated. <b>Problem 1 (triangular truss PQR)</b> – full solution below; the other three are summarised.",
+   "<b>Problem 1.</b> Right-angled truss: P(0,0), Q(2,0), R(0,2); PR = 2 m vertical, PQ = 2 m horizontal, RQ = 2√2 m at 45°. Assume P hinged, Q on rollers; 500 N acts horizontally at R (to the right).",
+   "Reactions: ΣM<sub>P</sub> = 0 ⇒ V<sub>Q</sub> × 2 = 500 × 2 ⇒ V<sub>Q</sub> = 500 N ↑. ΣF<sub>x</sub> = 0 ⇒ H<sub>P</sub> = 500 N ← ; ΣF<sub>y</sub> = 0 ⇒ V<sub>P</sub> = 500 N ↓.",
+   "Joint R (assume tension): ΣF<sub>x</sub> = 0: 500 + F<sub>RQ</sub> cos45° = 0 ⇒ F<sub>RQ</sub> = −707.1 N, i.e. <b>RQ = 707.1 N compression</b>. ΣF<sub>y</sub> = 0: −F<sub>RP</sub> − F<sub>RQ</sub> sin45° = 0 ⇒ F<sub>RP</sub> = +500 N, i.e. <b>RP = 500 N tension</b>.",
+   "Joint P: ΣF<sub>x</sub> = 0: −500 (reaction) + F<sub>PQ</sub> = 0 ⇒ <b>PQ = 500 N tension</b>. ΣF<sub>y</sub> = 0: 500 (pull of RP) − 500 (reaction) = 0 ✓. Joint Q check: PQ pulls 500 N left, RQ pushes with (500, −500), V<sub>Q</sub> = 500 N up: both ΣF = 0 ✓.",
+   "<b>Problem 2.</b> Assume a Warren truss, span 12 m, equilateral panels of 6 m; joints A, C, E on the bottom chord at 0, 6, 12 m and B, D on the top chord at 3 and 9 m; loads 10, 20, 20, 20, 10 kN at A, B, C, D, E. Reactions 40 kN each. Joint A (net upward 30 kN): F<sub>AB</sub> sin60° = 30 ⇒ <b>AB = 34.64 kN compression</b>; <b>AC = 34.64 cos60° = 17.32 kN tension</b>. Joint B: ΣF<sub>y</sub>: 34.64 sin60° − 20 − F<sub>BC</sub> sin60° = 0 ⇒ BC = 11.55 kN tension; ΣF<sub>x</sub>: 17.32 + 5.77 + F<sub>BD</sub> = 0 ⇒ <b>BD = 23.09 kN compression</b>. Joint C by symmetry: <b>DC = 11.55 kN tension</b> (check: 2 × 11.55 sin60° = 20 kN ✓).",
+   "<b>Problem 3.</b> Assume a cantilever truss of two 2 m panels, height 2 m: joints A(0,0), B(0,2) at the wall, C(2,0), D(2,2), E(4,0); members AC, CE, BD, CD, BC, DE; loads 120 kN down at E, 60 kN down and 20 kN horizontal (→) at D, 100 kN down at C. Starting at the free end (no reactions needed): Joint E: DE = 169.7 kN T, CE = 120 kN C. Joint D: BD = 20 + 120 = 140 kN T, CD = 60 + 120 = 180 kN C. Joint C: BC = 280√2 = 396.0 kN T, AC = 120 + 280 = 400 kN C. Reactions: B (420 kN ←, 280 kN ↑), A (400 kN →) – check ΣF<sub>x</sub> = −20 ✓.",
+   "<b>Problem 4.</b> Assume a king-post symmetric roof truss, span 6 m, rafters at 30°, joints A, B, C (apex), D, E on the rafters and F at the middle of the tie AE; loads 50 N at B and D, 100 N at C. Reactions 100 N each. Joint A: AB = 200 N C, AF = 173.2 N T. Joint B: BF = 50 N C, BC = 150 N C. Joint F: CF = 50 N T. Symmetry gives DE = 200 N C, CD = 150 N C, DF = 50 N C, FE = 173.2 N T. Check at apex C: 2 × 150 sin30° = 150 = 100 + 50 ✓."
+  ],
+  "formulas": [
+   "ΣF<sub>x</sub> = 0, ΣF<sub>y</sub> = 0 at each joint; tension +ve, compression −ve"
+  ],
+  "diagram": "Truss to scale with joints labelled, reactions marked, and a joint-FBD for the first joint solved.",
+  "result": "(1) PQ = 500 N T, RP = 500 N T, RQ = 707.1 N C; (2) AB = 34.64 kN C, AC = 17.32 kN T, BD = 23.09 kN C, DC = 11.55 kN T; (3) as above (assumed geometry); (4) as above (assumed geometry)"
+ },
+ "Q1.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Use of resultant formula R² = P² + Q² + 2PQ cosθ for the two-force problems; setting up equations",
+    "marks": 2
+   },
+   {
+    "point": "Forces P, Q found (3 kN and 1 kN) and note on data inconsistency of 10/13 kN",
+    "marks": 2
+   },
+   {
+    "point": "Proof P : Q : R = √2 : √3 : √2",
+    "marks": 2.5
+   },
+   {
+    "point": "Hexagon: resolution into components, ΣX and ΣY, R and direction",
+    "marks": 2
+   },
+   {
+    "point": "Four-force system resultant and angle, and moment of force about A (Varignon)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(a) Two forces.</b> At 90°: R² = P² + Q² ⇒ P² + Q² = 10² = 100. At 60°: R² = P² + Q² + 2PQ cos60° = P² + Q² + PQ = 13² = 169 ⇒ PQ = 69. Then (P − Q)² = 100 − 138 < 0, so no real forces exist for resultants of exactly 10 kN and 13 kN. The standard form of this problem has resultants <b>√10</b> and <b>√13</b> kN (assumed): P² + Q² = 10, PQ = 3, so (P + Q)² = 16 and (P − Q)² = 4, giving P + Q = 4, P − Q = 2 ⇒ <b>P = 3 kN, Q = 1 kN</b>.",
+   "<b>(b) Proof.</b> Let angle between P and Q be α. (1) R² = P² + Q² + 2PQ cosα. (2) Q doubled: (R′)² with R′ = 2R: 4R² = P² + 4Q² + 4PQ cosα. (3) Q reversed: 4R² = P² + Q² − 2PQ cosα.",
+   "(1) + (3): 5R² = 2P² + 2Q².   (2) − 2 × (1): 2R² = 2Q² − P².",
+   "Subtract: 5R² − 2R² = 2P² + P² ⇒ 3R² = 3P² ⇒ R = P. Then 2P² = 2Q² − P² ⇒ Q² = 3P²/2.",
+   "Hence P : Q : R = P : P√(3/2) : P = 1 : √3/√2 : 1 = <b>√2 : √3 : √2</b>. (Proved)",
+   "<b>(c) Hexagon.</b> Take the vertex as origin O with the five forces along the diagonals/sides OB, OC, OD, OE, OF; successive lines are 30° apart (interior angle 120° divided by the four sides' directions). Directions from OB: 0°, 30°, 60°, 90°, 120° with forces 20, 30, 40, 50, 60 N.",
+   "ΣX = 20 + 30 cos30° + 40 cos60° + 50 cos90° + 60 cos120° = 20 + 25.98 + 20 + 0 − 30 = 35.98 N.   ΣY = 0 + 30 sin30° + 40 sin60° + 50 + 60 sin120° = 15 + 34.64 + 50 + 51.96 = 151.60 N.",
+   "R = √(35.98² + 151.60²) = <b>155.8 N</b>; angle with the first force (OB) tan<sup>−1</sup>(151.60/35.98) = <b>76.65°</b>.",
+   "<b>(d) Four concurrent forces</b> (angles of the 100 N and 50 N forces not given; assumed 100 N along 0° and 50 N along 90°): ΣX = 120 cos60° + 200 cos40° + 100 + 0 = 60 + 153.21 + 100 = 313.21 N; ΣY = 120 sin60° + 200 sin40° + 0 + 50 = 103.92 + 128.56 + 50 = 282.48 N. R = √(313.21² + 282.48²) = <b>421.8 N</b> at tan<sup>−1</sup>(282.48/313.21) = <b>42.05°</b> with the x-axis.",
+   "<b>(e) Moment.</b> Take B at (0.5 m, 0.4 m) from A and F at 60° to x-axis: F<sub>x</sub> = 100 cos60° = 50 N, F<sub>y</sub> = 100 sin60° = 86.60 N. By Varignon's theorem M<sub>A</sub> = x F<sub>y</sub> − y F<sub>x</sub> = 0.5 × 86.60 − 0.4 × 50 = 43.30 − 20 = <b>23.30 N·m</b> anticlockwise."
+  ],
+  "formulas": [
+   "R = √(P² + Q² + 2PQ cosα)",
+   "ΣX = ΣF cosθ, ΣY = ΣF sinθ; R = √(ΣX² + ΣY²), tanα = ΣY/ΣX",
+   "M<sub>A</sub> = xF<sub>y</sub> − yF<sub>x</sub>"
+  ],
+  "result": "(a) 3 kN and 1 kN (for √10, √13); (c) 155.8 N at 76.65°; (d) 421.8 N at 42.05° (assumed directions); (e) 23.30 N·m"
+ },
+ "Q2.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Neat labelled stress-strain curve for mild steel (O, A, B, C, D, E, F points, axes, units)",
+    "marks": 3
+   },
+   {
+    "point": "Limit of proportionality and elastic limit explained (Hooke's law, Young's modulus as slope)",
+    "marks": 1.5
+   },
+   {
+    "point": "Upper and lower yield points, yield plateau explained",
+    "marks": 1.5
+   },
+   {
+    "point": "Strain hardening, ultimate tensile strength and necking up to fracture point",
+    "marks": 2
+   },
+   {
+    "point": "Comparison of ductile and brittle materials (at least four points: deformation, yield point, necking, elongation, examples)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Stress–strain curve.</b> When a standard mild steel specimen is pulled in a Universal Testing Machine, the engineering stress σ = P/A<sub>0</sub> is plotted against strain e = δL/L<sub>0</sub>. The curve shows the following points:",
+   "<b>O–A (limit of proportionality):</b> straight line; stress ∝ strain (Hooke's law). The slope is Young's modulus E = σ/e (≈ 2 × 10<sup>5</sup> MPa for steel). A is the limit of proportionality – the highest stress up to which Hooke's law holds.",
+   "<b>B (elastic limit):</b> just beyond A. Up to B the material returns completely to its original size when the load is removed; beyond it a permanent (plastic) set remains. For steel A and B are practically coincident.",
+   "<b>C (upper yield point):</b> the stress at which the material suddenly begins to deform plastically with a sudden drop in load. <b>D (lower yield point):</b> the stress falls to a lower, steady value; strain increases rapidly with almost no increase of stress along the yield plateau D–E (about 1–2 % strain). The yield stress σ<sub>y</sub> (≈ 250 MPa for mild steel) is used as the basis of design.",
+   "<b>E–F (strain hardening):</b> after yielding the dislocations pile up, the material strengthens and needs a greater stress for further strain; the curve rises to a maximum at F.",
+   "<b>F (ultimate tensile strength, UTS):</b> the maximum nominal stress = P<sub>max</sub>/A<sub>0</sub>. Beyond F a local reduction of area (<i>necking</i>) begins.",
+   "<b>G (fracture / breaking point):</b> in the necking region the area falls rapidly, so the nominal stress falls and the specimen finally fractures (cup-and-cone fracture) at G. The true stress (load/actual area) continues to rise to fracture. Percentage elongation (~25 %) and percentage reduction in area measure ductility.",
+   "<b>Ductile vs brittle materials.</b> Ductile (mild steel, copper, aluminium): shows a clear yield point, large plastic deformation, necking, high elongation (> 5 %), fails by shearing (cup-and-cone), gives warning before failure, equal strength in tension and compression, absorbs a lot of energy (tough).",
+   "Brittle (cast iron, concrete, glass, ceramics): no yield point or necking, fracture occurs at small strain (< 5 %) suddenly and without warning, almost linear curve up to fracture, flat fracture surface at right angles to the load, compressive strength much greater than tensile strength, low toughness."
+  ],
+  "formulas": [
+   "σ = P/A<sub>0</sub>,  e = δL/L<sub>0</sub>,  E = σ/e (slope of OA)"
+  ],
+  "diagram": "Stress (σ) on the y-axis and strain (e) on the x-axis: straight line OA, elastic limit B, upper yield C, lower yield D, yield plateau to E, strain hardening to UTS at F, then falling curve to fracture G; dotted true-stress curve optional. Beside it, a brittle curve ending abruptly."
+ },
+ "Q2.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Definitions of E, G, K and Poisson's ratio μ",
+    "marks": 1.5
+   },
+   {
+    "point": "Derivation of E = 2G(1 + μ) using pure shear and strain on diagonal",
+    "marks": 3.5
+   },
+   {
+    "point": "Derivation of E = 3K(1 − 2μ) using volumetric strain",
+    "marks": 3
+   },
+   {
+    "point": "Elimination of μ to get E = 9KG/(3K + G) (or μ expression)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Definitions.</b> Young's modulus E = longitudinal stress/longitudinal strain; modulus of rigidity G = shear stress/shear strain; bulk modulus K = hydrostatic pressure/volumetric strain; Poisson's ratio μ = lateral strain/longitudinal strain (within the elastic limit).",
+   "<b>(1) Relation between E, G and μ.</b> Consider a square element ABCD of side a, subjected to pure shear τ on its faces (τ on AB, CD and complementary shear on BC, DA). The shear strain is φ = τ/G and the diagonal AC gets elongated while BD is shortened.",
+   "Step 1: The shear stresses τ produce on the plane of diagonal AC (at 45°) a direct tensile stress τ and on the plane of BD (perpendicular) an equal compressive stress τ.",
+   "Step 2: Strain of diagonal AC due to these stresses: e<sub>AC</sub> = τ/E + μτ/E = (τ/E)(1 + μ).",
+   "Step 3: Geometrically, in the sheared position D moves to D′ by DD′ = aφ. Elongation of the diagonal ≈ DD′ cos45° = aφ/√2, and AC = a√2, so e<sub>AC</sub> = (aφ/√2)/(a√2) = φ/2 = τ/(2G).",
+   "Step 4: Equate Step 2 and Step 3: τ(1 + μ)/E = τ/(2G) ⇒ <b>E = 2G(1 + μ)</b>.   …(i)",
+   "<b>(2) Relation between E, K and μ.</b> Consider a cube of side L subjected to equal stress σ on all six faces (hydrostatic). Strain in any one direction = σ/E − μσ/E − μσ/E = (σ/E)(1 − 2μ).",
+   "Step 5: Volumetric strain e<sub>v</sub> = 3 × linear strain = 3σ(1 − 2μ)/E.",
+   "Step 6: By definition K = σ/e<sub>v</sub> ⇒ <b>E = 3K(1 − 2μ)</b>.   …(ii)",
+   "<b>(3) Eliminating μ.</b> From (i) μ = E/2G − 1, and from (ii) μ = 1/2 − E/6K. Equating: E/2G − 1 = 1/2 − E/6K ⇒ E(1/2G + 1/6K) = 3/2 ⇒ E(3K + G)/(6KG) = 3/2 ⇒ <b>E = 9KG/(3K + G)</b>.",
+   "Also μ = (3K − 2G)/(2G + 6K). Since K, G > 0, μ must lie between −1 and 0.5; practical metals have 0.25–0.33. For steel (μ = 0.3): G ≈ 0.385E, K ≈ 0.83E."
+  ],
+  "formulas": [
+   "E = 2G(1 + μ)",
+   "E = 3K(1 − 2μ)",
+   "E = 9KG/(3K + G)",
+   "μ = (3K − 2G)/(6K + 2G)"
+  ],
+  "diagram": "Square element ABCD in pure shear with shear strain φ, distorted to ABC′D′ with diagonal elongation; cube under equal pressure on all faces."
+ },
+ "Q2.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Strength, hardness, toughness, ductility each correctly defined with unit/test or example",
+    "marks": 4
+   },
+   {
+    "point": "Malleability, resilience and plasticity correctly defined with examples",
+    "marks": 3
+   },
+   {
+    "point": "Proof resilience defined with relation U = σ²/2E × V",
+    "marks": 2
+   },
+   {
+    "point": "Neatness, units and distinguishing similar terms (toughness vs resilience, ductility vs malleability)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(i) Strength:</b> the ability of a material to resist external loads without failure (fracture or excessive deformation). It is measured as stress: yield strength, ultimate tensile/compressive/shear strength (N/mm² = MPa).",
+   "<b>(ii) Hardness:</b> resistance of a material to indentation, scratching or abrasion (surface wear). Measured by Brinell, Rockwell and Vickers tests, or by the Mohs scale. Hardened steel and diamond are hard.",
+   "<b>(iii) Toughness:</b> the capacity to absorb energy up to fracture, i.e. the total area under the stress–strain curve (energy per unit volume, J/m³). It is a combination of strength and ductility; measured by Charpy/Izod impact tests. Mild steel is tough, glass is not.",
+   "<b>(iv) Ductility:</b> the property by which a material can be drawn into a thin wire under tensile load, i.e. it can undergo large plastic deformation before rupture. Measured by % elongation and % reduction in area. Examples: mild steel, copper, aluminium, gold.",
+   "<b>(v) Malleability:</b> the property of being hammered, rolled or pressed into thin sheets without cracking (large plastic deformation in compression). Examples: gold, silver, lead, aluminium foil.",
+   "<b>(vi) Resilience:</b> the ability of a material to store strain energy when deformed within the elastic limit and to release it on unloading. It is the strain energy stored per unit volume, U = σ²/2E (J/m³). Springs need high resilience.",
+   "<b>(vii) Plasticity:</b> the ability to undergo permanent deformation (without rupture) when stressed beyond the elastic limit; essential for forging, rolling and drawing.",
+   "<b>(viii) Proof resilience:</b> the maximum strain energy that can be stored in a body without permanent deformation, i.e. the strain energy at the elastic limit. Total proof resilience = (σ<sub>e</sub>²/2E) × volume; the corresponding energy per unit volume is the <i>modulus of resilience</i>."
+  ],
+  "formulas": [
+   "Resilience U = σ²/(2E) × V",
+   "Modulus of resilience = σ<sub>e</sub>²/(2E)"
+  ]
+ },
+ "Q2.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Carbon steels classified (low, medium, high) with composition and uses",
+    "marks": 2
+   },
+   {
+    "point": "Alloy steels defined with common alloying elements and their effects",
+    "marks": 2
+   },
+   {
+    "point": "Table of differences between carbon and alloy steels (4+ points)",
+    "marks": 2
+   },
+   {
+    "point": "Effect of carbon percentage on strength, hardness, ductility, weldability",
+    "marks": 1.5
+   },
+   {
+    "point": "Cast iron classification (grey, white, malleable, SG) and one application each",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>Carbon steel</b> is an alloy of iron and carbon (up to about 1.5 % C) with small amounts of Mn (≤ 1.65 %), Si and traces of S and P only as residuals. <b>Alloy steel</b> contains, besides these, deliberately added elements (Ni, Cr, Mo, V, W, Mn, Si, Co) to obtain special properties.",
+   "<b>Classification of carbon steels:</b> low carbon (mild) steel 0.05–0.25 % C – soft, ductile, tough, easily welded (sheets, wires, rivets, structural sections); medium carbon steel 0.25–0.6 % C – stronger and harder, heat-treatable (shafts, axles, gears, rails); high carbon steel 0.6–1.5 % C – very hard and strong but brittle (springs, tools, dies, drills, cutting tools).",
+   "<b>Difference:</b> (i) Carbon steel: properties depend mainly on C; alloy steel: properties from alloying elements. (ii) Carbon steel has lower hardenability and weaker at high temperature; alloy steel has better hardenability, strength at high temperature, wear and corrosion resistance. (iii) Carbon steel is cheap; alloy steel is costlier. (iv) Carbon steel is used for general structures, machine parts; alloy steels for aircraft, turbine blades, tools, stainless steel, automobiles.",
+   "<b>Effect of carbon:</b> as C increases from 0.1 % to 1.0 %, tensile strength and hardness rise (more hard cementite Fe<sub>3</sub>C), while ductility, toughness, machinability and weldability fall. Above ~0.8 % C the hardness continues to rise but the steel becomes brittle.",
+   "<b>Effect of alloying elements:</b> Ni increases toughness and strength; Cr increases hardness, wear and corrosion resistance (stainless steel 18Cr–8Ni); Mo and V increase strength at high temperature and fatigue resistance; W gives red-hardness (high speed steel); Mn raises toughness and wear resistance; Si improves elasticity (spring steel) and magnetic properties.",
+   "<b>Cast iron</b> (2–4.5 % C, 1–3 % Si) is classified as: (1) <i>Grey cast iron</i> – carbon as graphite flakes; good machinability, damping, compressive strength, brittle – machine beds, engine blocks, pipes, brake drums. (2) <i>White cast iron</i> – carbon as cementite; very hard, brittle, wear resistant – rolls, crusher parts, liners. (3) <i>Malleable cast iron</i> – heat-treated white iron; ductile and tough – pipe fittings, automobile parts, hand tools. (4) <i>Spheroidal graphite (nodular/SG) iron</i> – graphite as spheres (Mg/Ce added); high strength with ductility – crankshafts, gears, pipes, heavy-duty castings."
+  ]
+ },
+ "Q2.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of all assumptions in simple bending theory (at least six)",
+    "marks": 2
+   },
+   {
+    "point": "Definition of pure bending, neutral axis and diagram of bent beam with R, y, dθ",
+    "marks": 2
+   },
+   {
+    "point": "Strain in a fibre at distance y: e = y/R, hence σ/y = E/R",
+    "marks": 2.5
+   },
+   {
+    "point": "Moment of resistance: M = ∫σ y dA = (σ/y)I leading to M/I = σ/y",
+    "marks": 2.5
+   },
+   {
+    "point": "Final equation M/I = σ/y = E/R and section modulus Z = I/y<sub>max</sub> (or limiting use)",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Assumptions in the theory of simple bending:</b> (1) The beam material is homogeneous and isotropic. (2) It obeys Hooke's law; stresses are within the elastic limit. (3) Young's modulus is the same in tension and compression. (4) Plane sections before bending remain plane after bending (Bernoulli's assumption). (5) The beam is initially straight with constant cross-section, and the radius of curvature is large compared with the depth. (6) Each layer is free to expand or contract independently of the layers above and below. (7) The beam is subjected to pure bending (constant B.M., no shear), loads act in a plane of symmetry.",
+   "<b>Pure bending and neutral layer.</b> When a beam bends, the top fibres shorten (compression) and the bottom fibres lengthen (tension) (sagging). Between them there is a layer whose length does not change – the <i>neutral layer</i>; its trace on the cross-section is the <i>neutral axis (NA)</i>.",
+   "<b>Derivation.</b> Consider a small length AB of beam. After bending it becomes an arc of radius R (measured to the NA) subtending angle dθ at the centre O. Length of neutral layer NN′ = R dθ (unchanged).",
+   "Step 1: A layer EF at distance y below the NA originally had the same length NN′ = R dθ. After bending its length is (R + y)dθ. Strain: e = [(R + y)dθ − R dθ]/(R dθ) = <b>y/R</b>.",
+   "Step 2: By Hooke's law, the stress in that layer σ = E e = E y/R, i.e. <b>σ/y = E/R</b>.   …(1)  (stress varies linearly with distance from NA).",
+   "Step 3: Consider an elemental strip of area dA at distance y. Force on strip = σ dA. For pure bending the net axial force is zero: ∫σ dA = (E/R)∫y dA = 0 ⇒ ∫y dA = 0, so the NA passes through the centroid of the section.",
+   "Step 4: Moment of the force about the NA: dM = σ dA y = (E/R) y² dA. Total moment of resistance M = (E/R)∫y² dA = (E/R) I, where I = ∫y² dA is the second moment of area about the NA. Hence <b>M/I = E/R</b>.   …(2)",
+   "Step 5: Combining (1) and (2): <b>M/I = σ/y = E/R</b> – the bending (flexure) equation.",
+   "Maximum stress occurs at the extreme fibre y = y<sub>max</sub>: σ<sub>max</sub> = M y<sub>max</sub>/I = M/Z, where Z = I/y<sub>max</sub> is the section modulus (rectangle bd²/6, circle πd³/32)."
+  ],
+  "formulas": [
+   "M/I = σ/y = E/R",
+   "σ<sub>max</sub> = M/Z,  Z = I/y<sub>max</sub>"
+  ],
+  "diagram": "A small element of the beam before and after bending: neutral axis NN′ with radius R, angle dθ, fibre EF at distance y; side view of cross-section with stress distribution (triangular, zero at NA)."
+ },
+ "Q2.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Assumptions of torsion theory (at least six)",
+    "marks": 2
+   },
+   {
+    "point": "Diagram of shaft: length L, radius R, angle of twist θ, shear strain φ",
+    "marks": 1.5
+   },
+   {
+    "point": "Shear strain at radius r: φ = rθ/L and τ = Gφ ⇒ τ/r = Gθ/L",
+    "marks": 3
+   },
+   {
+    "point": "Turning moment of elemental ring and integration to T = τ J/R",
+    "marks": 2.5
+   },
+   {
+    "point": "Final torsion equation T/J = τ/R = Gθ/L and J = πd⁴/32 for solid shaft",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Assumptions:</b> (1) The shaft material is homogeneous, isotropic and obeys Hooke's law (stress within the elastic limit). (2) The shaft is of uniform circular section (solid or hollow) throughout its length. (3) Plane transverse sections remain plane and circular after twisting; there is no warping. (4) Radii remain straight after twisting; diameters do not change. (5) The twist along the shaft is uniform. (6) The torque is applied in a plane perpendicular to the axis (pure torsion). (7) Shear stress does not exceed the elastic limit in shear.",
+   "<b>Derivation.</b> A shaft of length L and radius R is fixed at one end and a torque T is applied at the other. A line AB on the surface moves to AB′, the angle of twist at the free end is θ (radians), and the angle of shear is φ.",
+   "Step 1: At the surface the arc BB′ = Rθ = Lφ. For a point at radius r the arc is rθ = Lφ<sub>r</sub>, where φ<sub>r</sub> is the shear strain at that radius. Hence φ<sub>r</sub> = rθ/L.",
+   "Step 2: Shear stress at radius r: τ<sub>r</sub> = G φ<sub>r</sub> = G r θ/L, so <b>τ<sub>r</sub>/r = Gθ/L</b>; at the surface τ/R = Gθ/L.   …(1)",
+   "Step 3: Take a thin ring of radius r and thickness dr; area dA = 2πr dr. Shear force on ring = τ<sub>r</sub> dA. Turning moment dT = τ<sub>r</sub> dA r = (τ/R) r × 2πr dr × r = (τ/R) 2π r³ dr.",
+   "Step 4: Total torque T = (τ/R)∫<sub>0</sub><sup>R</sup> 2πr³ dr = (τ/R)(πR⁴/2) = (τ/R) J, where J = ∫r² dA = polar moment of inertia = πR⁴/2 = πd⁴/32 for a solid shaft. Hence <b>T/J = τ/R</b>.   …(2)",
+   "Step 5: Combining (1) and (2): <b>T/J = τ/R = Gθ/L</b> – the torsion equation. For a hollow shaft J = π(D⁴ − d⁴)/32.",
+   "Uses: maximum shear stress τ<sub>max</sub> = T R/J = 16T/(πd³) (solid); twist θ = TL/(GJ); power transmitted P = 2πNT/60."
+  ],
+  "formulas": [
+   "T/J = τ/R = Gθ/L",
+   "J = πd⁴/32 (solid);  J = π(D⁴ − d⁴)/32 (hollow)",
+   "P = 2πNT/60"
+  ],
+  "diagram": "Cylindrical shaft fixed at one end with torque T at the free end, line AB deformed to AB′, angle φ at surface and θ at the end section; cross-section showing ring of radius r, thickness dr and linear shear stress variation."
+ },
+ "Q2.7": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Principal plane defined (plane of zero shear stress)",
+    "marks": 1.5
+   },
+   {
+    "point": "Principal stresses defined (normal stress on principal planes, maximum and minimum) with formula",
+    "marks": 2
+   },
+   {
+    "point": "Principal strains defined (strains in principal directions, ε₁, ε₂) with relation to stress",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Principal planes:</b> planes on which the shear stress is zero (only normal stress acts). At any point in a stressed body there are two mutually perpendicular principal planes in 2-D; their orientation is given by tan2θ<sub>p</sub> = 2τ<sub>xy</sub>/(σ<sub>x</sub> − σ<sub>y</sub>).",
+   "<b>Principal stresses:</b> the normal stresses acting on the principal planes. They are the maximum and minimum normal stresses at the point: σ<sub>1,2</sub> = (σ<sub>x</sub> + σ<sub>y</sub>)/2 ± √[((σ<sub>x</sub> − σ<sub>y</sub>)/2)² + τ<sub>xy</sub>²], where σ<sub>1</sub> is the major and σ<sub>2</sub> is the minor principal stress.",
+   "<b>Principal strains:</b> the strains along the principal directions (normal strains on the principal planes). They are the maximum and minimum normal strains and no shear strain accompanies them. For an isotropic material: ε<sub>1</sub> = (σ<sub>1</sub> − μσ<sub>2</sub>)/E and ε<sub>2</sub> = (σ<sub>2</sub> − μσ<sub>1</sub>)/E."
+  ],
+  "formulas": [
+   "tan2θ<sub>p</sub> = 2τ<sub>xy</sub>/(σ<sub>x</sub> − σ<sub>y</sub>)",
+   "σ<sub>1,2</sub> = (σ<sub>x</sub> + σ<sub>y</sub>)/2 ± √[((σ<sub>x</sub> − σ<sub>y</sub>)/2)² + τ<sub>xy</sub>²]"
+  ]
+ },
+ "Q2.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Equilibrium condition ΣP = 0 giving unknown force with sign convention",
+    "marks": 2
+   },
+   {
+    "point": "Axial force in each segment from free-body sections (tension +ve, compression −ve)",
+    "marks": 2.5
+   },
+   {
+    "point": "Formula δ = Σ P<sub>i</sub>L<sub>i</sub>/(A<sub>i</sub>E) with correct substitution and unit conversion",
+    "marks": 3
+   },
+   {
+    "point": "Correct numerical results with units and nature (elongation/shortening)",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>Method.</b> For a bar under several axial loads, the bar must be in equilibrium (ΣP = 0). The bar is divided into segments between loads; the axial force in each segment is found from the loads on one side; total change in length δ = Σ P<sub>i</sub>L<sub>i</sub>/(A<sub>i</sub>E) (tension +, compression −). (The load diagrams are not given; the usual arrangement with end loads pulling outward and the interior loads in the opposite sense is assumed.)",
+   "<b>Problem (i) LMNP.</b> Take the right as positive: 50 kN at L pulls to the left (−50), P at M (+P), 500 kN at N (−500) and 200 kN at P (+200). Equilibrium: −50 + P − 500 + 200 = 0 ⇒ <b>P = 350 kN</b>.",
+   "Axial forces: LM = +50 kN (tension); MN = 50 − 350 = −300 kN (compression 300 kN); NP = −300 + 500 = +200 kN (tension). Check from the right end: NP = 200 kN ✓.",
+   "δ = (1/E)[50 × 10³ × 1000/600 − 300 × 10³ × 1000/2400 + 200 × 10³ × 600/1200] = (1/210 × 10³)[83 333 − 125 000 + 100 000] = 58 333/210 000 = <b>0.278 mm elongation</b>.",
+   "<b>Problem (ii) ABCD.</b> Assume P<sub>1</sub> = 100 kN and P<sub>4</sub> = 150 kN are end loads pulling in opposite directions, with P<sub>2</sub> and P<sub>3</sub> acting opposite to P<sub>1</sub> and P<sub>4</sub> respectively: −100 + 200 − P<sub>3</sub> + 150 = 0 ⇒ <b>P<sub>3</sub> = 250 kN</b>.",
+   "Forces: AB = +100 kN (T); BC = 100 − 200 = −100 kN (C); CD = −100 + 250 = +150 kN (T).",
+   "δ = (1/E)[100 × 10³ × 700/1600 − 100 × 10³ × 1000/625 + 150 × 10³ × 1200/900] = (43 750 − 160 000 + 200 000)/(220 × 10³) = 83 750/220 000 = <b>0.381 mm elongation</b>.",
+   "<b>Problem (iii) Brass bar</b> (A = 1000 mm², E = 1.05 × 10<sup>5</sup> N/mm²). The loads 50, 80, 30, 20 are taken as: 50 kN tension in AB (end load at A), 30 kN compression in BC and 20 kN tension in CD (so the loads at B and C are 80 kN and 50 kN and equilibrium holds). AB = 500 mm, BC = 1000 mm, CD = 1200 mm.",
+   "δ = (1/AE)[50 × 10³ × 500 − 30 × 10³ × 1000 + 20 × 10³ × 1200] = (25 × 10⁶ − 30 × 10⁶ + 24 × 10⁶)/(1000 × 1.05 × 10⁵) = 19 × 10⁶/1.05 × 10⁸ = <b>0.181 mm elongation</b>.",
+   "<b>Problem (iv) Rod.</b> P = 1000 kgf, L = 100 cm, A = 2 × 2 = 4 cm², E = 2 × 10⁶ kgf/cm². δ = PL/(AE) = (1000 × 100)/(4 × 2 × 10⁶) = 0.0125 cm = <b>0.125 mm</b>."
+  ],
+  "formulas": [
+   "δ = ΣP<sub>i</sub>L<sub>i</sub>/(A<sub>i</sub>E)",
+   "ΣP = 0 for equilibrium"
+  ],
+  "diagram": "Bar divided into segments with loads marked, then axial force diagram (A.F.D.) below showing +/− values.",
+  "result": "(i) P = 350 kN, δ = 0.278 mm; (ii) P₃ = 250 kN, δ = 0.381 mm; (iii) δ = 0.181 mm; (iv) δ = 0.0125 cm = 0.125 mm"
+ },
+ "Q2.9": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Reactions evaluated correctly from ΣM = 0 and ΣF<sub>y</sub> = 0",
+    "marks": 2
+   },
+   {
+    "point": "Shear force values at key sections and correctly shaped SFD (sloping under UDL, step at point load)",
+    "marks": 3
+   },
+   {
+    "point": "Bending moment values at key sections and correctly shaped BMD (parabola under UDL, straight otherwise)",
+    "marks": 3
+   },
+   {
+    "point": "Maximum B.M. / point of contraflexure located with correct value",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Sign convention:</b> shear force positive when it tends to rotate the left part clockwise; bending moment positive when sagging. SF changes by the load at a point load, varies linearly under a UDL; BM is parabolic under a UDL, linear elsewhere; BM is maximum where SF = 0.",
+   "<b>(a) Simply supported beam, 9 m, UDL 10 kN/m over 6 m from A.</b> Total UDL = 60 kN acting at 3 m from A. ΣM<sub>A</sub> = 0: R<sub>B</sub> × 9 = 60 × 3 ⇒ R<sub>B</sub> = 20 kN; R<sub>A</sub> = 60 − 20 = 40 kN.",
+   "SFD: at A = +40 kN; falls at 10 kN/m to 40 − 60 = −20 kN at x = 6 m; constant −20 kN up to B; the jump at B is +20 kN back to zero. SF = 0 at x = 40/10 = 4 m.",
+   "BMD: M<sub>A</sub> = 0; M(x) = 40x − 5x² for x ≤ 6; at x = 4: M<sub>max</sub> = 160 − 80 = <b>80 kN·m</b>; at x = 6: 240 − 180 = 60 kN·m; from x = 6 to B straight line down to 0 (60 − 20 × 3 = 0 ✓).",
+   "<b>(b) Simply supported beam with point loads 15 kN at 0.5 m and 20 kN at 1.5 m and UDL 10 kN/m over 0.5 m.</b> Assumed: span AB = 3 m, UDL over the first 0.5 m from A. UDL total = 5 kN at 0.25 m. ΣM<sub>A</sub> = 0: R<sub>B</sub> × 3 = 5 × 0.25 + 15 × 0.5 + 20 × 1.5 = 38.75 ⇒ R<sub>B</sub> = 12.92 kN; R<sub>A</sub> = 40 − 12.92 = 27.08 kN.",
+   "SFD: A = +27.08; just left of 15 kN load (x = 0.5) = 22.08; after it = 7.08, constant to x = 1.5; after 20 kN = −12.92, constant to B (= −R<sub>B</sub> ✓).",
+   "BMD: M(0.5) = 27.08 × 0.5 − 5 × 0.25 = 12.29 kN·m; M(1.5) = 27.08 × 1.5 − 5 × 1.25 − 15 × 1 = 19.38 kN·m (SF changes sign here, so this is <b>M<sub>max</sub> = 19.38 kN·m</b>); M(3) = 19.38 − 12.92 × 1.5 = 0 ✓.",
+   "<b>(c) Overhanging beam.</b> Assumed: simply supported at A and B, span AB = 4 m, overhang BC = 2 m, UDL 60 kN/m on AB and 20 kN point load at free end C. ΣM<sub>A</sub> = 0: R<sub>B</sub> × 4 = 240 × 2 + 20 × 6 = 600 ⇒ R<sub>B</sub> = 150 kN; R<sub>A</sub> = 260 − 150 = 110 kN.",
+   "SFD: A = +110; falls to 110 − 240 = −130 just left of B; jumps +150 to +20 just right of B; constant to C; the 20 kN load brings it to 0. SF = 0 at x = 110/60 = 1.833 m from A.",
+   "BMD: M<sub>max</sub> (sagging) = 110 × 1.833 − 30 × 1.833² = <b>100.8 kN·m</b>; M<sub>B</sub> = −20 × 2 = −40 kN·m (hogging); M<sub>C</sub> = 0.",
+   "<b>Point of contraflexure</b> (BM changes sign): M(x) = 110x − 30x² = 0 ⇒ x = 110/30 = <b>3.667 m from A</b> (0.333 m left of B).",
+   "<b>(d) Cantilever of length L with UDL w per metre on the whole length.</b> Taking the free end as origin, SF at distance x: V = −wx (zero at free end, maximum −wL at the fixed end) – a straight inclined line. BM: M = −wx²/2 (hogging), a parabola, zero at the free end and <b>M<sub>max</sub> = −wL²/2</b> at the fixed support. Reactions: R = wL ↑ and fixing moment wL²/2."
+  ],
+  "formulas": [
+   "M<sub>max</sub> where SF = 0",
+   "Simply supported + UDL: M<sub>max</sub> = wL²/8",
+   "Cantilever + UDL: V<sub>max</sub> = wL, M<sub>max</sub> = wL²/2"
+  ],
+  "diagram": "Beam with loads, below it the SFD with values and the BMD with parabolic/linear portions and maximum marked; contraflexure point shown for (c).",
+  "result": "(a) R<sub>A</sub> = 40 kN, R<sub>B</sub> = 20 kN, M<sub>max</sub> = 80 kN·m at 4 m; (b) M<sub>max</sub> = 19.38 kN·m (assumed 3 m span); (c) contraflexure at 3.667 m from A (assumed geometry); (d) wL, wL²/2"
+ },
+ "Q2.10": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Moment of inertia of rectangle I = bd³/12 (and J for shaft)",
+    "marks": 1.5
+   },
+   {
+    "point": "Flexure formula σ = My/I applied with correct unit conversion",
+    "marks": 2
+   },
+   {
+    "point": "Radius of curvature R = EI/M and stress at 30 mm from top",
+    "marks": 2.5
+   },
+   {
+    "point": "Torque from power T = 60P/(2πN)",
+    "marks": 1.5
+   },
+   {
+    "point": "Diameter from strength and from twist, larger value adopted",
+    "marks": 2.5
+   }
+  ],
+  "answer": [
+   "<b>(i) Beam.</b> b = 100 mm, d = 160 mm, M = 320 kN·m = 320 × 10⁶ N·mm, E = 220 GPa = 2.2 × 10⁵ N/mm². I = bd³/12 = 100 × 160³/12 = 3.413 × 10⁷ mm⁴. y<sub>max</sub> = 80 mm.",
+   "Max bending stress σ = M y<sub>max</sub>/I = 320 × 10⁶ × 80/(3.413 × 10⁷) = <b>750 N/mm²</b> (very high compared with the yield stress of structural steel – the data are as given).",
+   "Radius of curvature from M/I = E/R: R = EI/M = 2.2 × 10⁵ × 3.413 × 10⁷/(320 × 10⁶) = 23 467 mm = <b>23.47 m</b>.",
+   "Stress at 30 mm from the top surface: y = 80 − 30 = 50 mm from the neutral axis, σ = 750 × 50/80 = <b>468.75 N/mm²</b> (compressive if the top is in compression).",
+   "<b>(ii) Shaft.</b> P = 300 kW, N = 250 rpm. T = 60P/(2πN) = 60 × 300 × 10³/(2π × 250) = 11 459 N·m = 11.459 × 10⁶ N·mm.",
+   "<i>Strength:</i> T = (π/16) τ d³ ⇒ d³ = 16T/(πτ) = 16 × 11.459 × 10⁶/(π × 30) = 1.945 × 10⁶ ⇒ d = <b>124.8 mm</b>.",
+   "<i>Rigidity:</i> θ = 1° = 0.017453 rad over L = 2000 mm. θ = TL/(GJ) ⇒ J = TL/(Gθ) = 11.459 × 10⁶ × 2000/(10⁵ × 0.017453) = 1.313 × 10⁷ mm⁴. J = πd⁴/32 ⇒ d⁴ = 1.338 × 10⁸ ⇒ d = <b>107.5 mm</b>.",
+   "The diameter must satisfy both conditions, so take the larger value: <b>d ≈ 125 mm</b> (strength governs)."
+  ],
+  "formulas": [
+   "σ = My/I;  M/I = E/R;  I = bd³/12",
+   "T = 60P/(2πN);  τ = 16T/(πd³);  θ = TL/(GJ)"
+  ],
+  "result": "σ<sub>max</sub> = 750 N/mm²; R = 23.47 m; σ (30 mm from top) = 468.75 N/mm²; shaft d = 125 mm (124.8 mm strength, 107.5 mm twist)"
+ },
+ "Q2.11": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Hooke's law stated (stress ∝ strain within elastic limit) / spring form F = kx",
+    "marks": 2
+   },
+   {
+    "point": "Formula k = F/x with data written",
+    "marks": 1
+   },
+   {
+    "point": "Correct substitution (0.2 m, 50 N)",
+    "marks": 1
+   },
+   {
+    "point": "Answer k = 250 N/m with unit",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Hooke's law:</b> Within the elastic limit, the stress developed in a body is directly proportional to the strain produced: σ ∝ e, or σ = E e, where E is Young's modulus. For a spring, the extension x is proportional to the applied force: <b>F = kx</b>, where k (N/m) is the spring constant (stiffness).",
+   "Given: F = 50 N, x = 0.2 m.",
+   "k = F/x = 50/0.2 = <b>250 N/m</b>."
+  ],
+  "formulas": [
+   "σ = Ee",
+   "F = kx"
+  ],
+  "result": "k = 250 N/m"
+ },
+ "Q3.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Assumptions: steady, incompressible, inviscid, along a streamline (irrotational optional)",
+    "marks": 2
+   },
+   {
+    "point": "Diagram of fluid element along streamline with forces (pressure, weight) and angle θ",
+    "marks": 1.5
+   },
+   {
+    "point": "Euler's equation dp/ρ + g dz + v dv = 0 derived from Newton's second law",
+    "marks": 3
+   },
+   {
+    "point": "Integration to p/ρ + v²/2 + gz = constant",
+    "marks": 1.5
+   },
+   {
+    "point": "Bernoulli's equation in head form and meaning of each term (pressure, kinetic, datum head)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Assumptions:</b> (1) The fluid is ideal (inviscid, no friction). (2) Flow is incompressible (ρ constant). (3) Flow is steady. (4) Flow is along a streamline (or irrotational). (5) The only forces acting are gravity and pressure; no heat transfer, no shaft work, no losses.",
+   "<b>Euler's equation.</b> Consider a small cylindrical fluid element of length ds and cross-section dA along a streamline, inclined at θ to the horizontal. Let pressure p act on the upstream face and p + (∂p/∂s) ds on the downstream face, velocity v, and elevation z.",
+   "Step 1: Forces along the streamline: pressure force = p dA − (p + dp) dA = −dp dA. Weight component = −ρ g dA ds cosθ = −ρ g dA dz (since dz = ds cosθ). Net force F<sub>s</sub> = −dp dA − ρ g dA dz.",
+   "Step 2: Mass of element = ρ dA ds. Acceleration along the streamline a<sub>s</sub> = dv/dt = (∂v/∂s)(ds/dt) = v dv/ds (steady flow).",
+   "Step 3: Newton's second law F = ma: −dp dA − ρ g dA dz = ρ dA ds × v (dv/ds).",
+   "Step 4: Divide by ρ dA: <b>dp/ρ + g dz + v dv = 0</b>  – Euler's equation of motion.",
+   "Step 5: Integrate for constant density: ∫dp/ρ + g∫dz + ∫v dv = constant ⇒ <b>p/ρ + gz + v²/2 = constant</b>.",
+   "Step 6: Dividing by g: <b>p/(ρg) + v²/(2g) + z = constant</b> (head form). For two points on the streamline: p<sub>1</sub>/ρg + v<sub>1</sub>²/2g + z<sub>1</sub> = p<sub>2</sub>/ρg + v<sub>2</sub>²/2g + z<sub>2</sub>.",
+   "<b>Meaning:</b> p/ρg = pressure head, v²/2g = velocity (kinetic) head, z = potential (datum) head; total head is constant along a streamline. It expresses conservation of energy per unit weight. For real fluids, a head-loss term h<sub>L</sub> is added on the downstream side."
+  ],
+  "formulas": [
+   "dp/ρ + g dz + v dv = 0",
+   "p/ρg + v²/2g + z = constant",
+   "p + ½ρv² + ρgz = constant"
+  ],
+  "diagram": "Fluid element of length ds along an inclined streamline, showing p and p + dp on its faces, weight ρg dA ds, angle θ, dz."
+ },
+ "Q3.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Newton's law of viscosity stated with τ = μ du/dy and meaning of μ, units",
+    "marks": 2
+   },
+   {
+    "point": "Velocity profile between plates / diagram explaining shear",
+    "marks": 1.5
+   },
+   {
+    "point": "Newtonian vs non-Newtonian fluids with examples (3 points)",
+    "marks": 2
+   },
+   {
+    "point": "Rheological diagram τ vs du/dy with all fluid types labelled",
+    "marks": 2.5
+   },
+   {
+    "point": "Definitions of ideal, real fluid, Bingham plastic, pseudoplastic, dilatant",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Newton's law of viscosity.</b> The shear stress between adjacent fluid layers is directly proportional to the rate of shear strain (velocity gradient) perpendicular to the direction of flow: <b>τ = μ (du/dy)</b>, where μ is the dynamic (absolute) viscosity (N·s/m² = Pa·s; 1 poise = 0.1 Pa·s) and du/dy is the velocity gradient.",
+   "Explanation: for a fluid between a fixed plate and a plate moving with velocity U at a gap h, the layer adhering to the moving plate has velocity U and that on the fixed plate zero; layers slide over each other, and the resisting force per unit area is τ = μU/h. Kinematic viscosity ν = μ/ρ (m²/s).",
+   "<b>Newtonian fluids</b> obey the law with constant μ at a given temperature (the plot of τ vs du/dy is a straight line through the origin): water, air, kerosene, thin oils. <b>Non-Newtonian fluids</b> do not obey it; μ varies with the rate of shear: τ = A(du/dy)<sup>n</sup> + B, and the plot is a curve or a line not through the origin: blood, paint, toothpaste, slurry, polymer solutions.",
+   "<b>Types of fluids:</b> (1) <i>Ideal fluid</i> – imaginary, μ = 0, incompressible; no shear stress (line along the du/dy axis). (2) <i>Real fluid</i> – has viscosity (and compressibility). (3) <i>Newtonian</i> – linear τ–du/dy through the origin. (4) <i>Non-Newtonian</i> – pseudoplastic (shear thinning, n < 1, e.g. paints, blood), dilatant (shear thickening, n > 1, e.g. wet sand, starch suspensions). (5) <i>Ideal (Bingham) plastic</i> – needs a minimum yield stress τ<sub>y</sub> before flowing and then behaves linearly: τ = τ<sub>y</sub> + μ<sub>p</sub>(du/dy) (toothpaste, mud, sewage sludge).",
+   "Rheological diagram: Shear stress τ (y-axis) vs du/dy (x-axis): ideal fluid – along x-axis; Newtonian – straight line through origin (slope μ); pseudoplastic – curve concave to the strain axis; dilatant – curve convex; Bingham plastic – straight line with an intercept τ<sub>y</sub> on the stress axis; ideal solid – along the stress axis.",
+   "Effect of temperature: viscosity of liquids falls with increasing temperature (reduced cohesion) while that of gases rises (increased molecular momentum exchange)."
+  ],
+  "formulas": [
+   "τ = μ du/dy",
+   "ν = μ/ρ",
+   "Bingham: τ = τ<sub>y</sub> + μ<sub>p</sub> du/dy"
+  ],
+  "diagram": "τ–du/dy graph with five labelled curves (ideal plastic/Bingham, pseudoplastic, Newtonian, dilatant, ideal fluid); plate-and-fluid sketch with velocity profile."
+ },
+ "Q3.3": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Density and specific gravity with formulas and units",
+    "marks": 1
+   },
+   {
+    "point": "Dynamic and kinematic viscosity with units",
+    "marks": 1.5
+   },
+   {
+    "point": "Surface tension with cause and unit",
+    "marks": 1
+   },
+   {
+    "point": "Capillarity with formula h = 4σcosθ/(ρgd) and rise/depression",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Density (mass density) ρ:</b> mass per unit volume, ρ = m/V (kg/m³); water = 1000 kg/m³. Weight density w = ρg (N/m³).",
+   "<b>Specific gravity (relative density) S:</b> ratio of density (or weight density) of a fluid to that of a standard fluid (water at 4 °C for liquids; air for gases). It is dimensionless; mercury S = 13.6.",
+   "<b>Dynamic viscosity μ:</b> the property of a fluid by virtue of which it offers resistance to shear; defined by τ = μ du/dy; unit N·s/m² = Pa·s (1 poise = 0.1 Pa·s). <b>Kinematic viscosity ν = μ/ρ:</b> ratio of dynamic viscosity to density; unit m²/s (1 stoke = 10⁻⁴ m²/s).",
+   "<b>Surface tension σ:</b> the tensile force per unit length acting at the free surface of a liquid, caused by cohesion between molecules at the surface; unit N/m. It causes droplets and bubbles to be spherical; excess pressure in a droplet p = 4σ/d, in a soap bubble 8σ/d.",
+   "<b>Capillarity:</b> the rise or fall of liquid in a tube of small bore relative to the surrounding level, due to the combined action of cohesion and adhesion. Water rises (adhesion > cohesion, θ small); mercury falls (cohesion > adhesion, θ ≈ 130°). Height h = 4σ cosθ/(ρ g d)."
+  ],
+  "formulas": [
+   "ρ = m/V;  S = ρ/ρ<sub>water</sub>",
+   "ν = μ/ρ",
+   "h = 4σ cosθ/(ρgd)"
+  ]
+ },
+ "Q3.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Bourdon tube: neat sketch with labels (tube, linkage, sector, pinion, pointer, dial, socket)",
+    "marks": 2
+   },
+   {
+    "point": "Bourdon tube working principle and construction explained",
+    "marks": 2
+   },
+   {
+    "point": "Thermocouple (Seebeck effect) and RTD working principles",
+    "marks": 2
+   },
+   {
+    "point": "U-tube manometer principle with p = ρgh and sketch",
+    "marks": 2
+   },
+   {
+    "point": "Systematic and random errors with causes and ways to reduce them",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>Bourdon tube pressure gauge – construction:</b> an elliptical (flattened) cross-section tube of brass/phosphor bronze/steel bent into a C-shape (arc about 270°). The open end is fixed to the socket connected to the pressure source; the closed free end is joined by a link to a sector gear that meshes with a pinion carrying the pointer over a calibrated dial.",
+   "<b>Working:</b> when fluid under pressure enters the tube, the elliptical section tends to become circular, so the tube tends to straighten. The free end moves outward; this small motion is magnified by the link–sector–pinion mechanism and the pointer shows the gauge pressure. When the pressure is removed the elastic tube returns to its original shape. Range: up to 1000 bar and above; it measures pressure relative to atmosphere (vacuum gauge if tube curls inward).",
+   "<b>Thermocouple (temperature):</b> two dissimilar metals (e.g. copper–constantan, chromel–alumel) joined at a hot junction with the other ends at a reference (cold) junction. By the Seebeck effect an e.m.f. proportional to the temperature difference is generated, measured by a millivoltmeter and calibrated in temperature. Used from −200 to 1700 °C; fast and rugged.",
+   "<b>RTD (resistance thermometer):</b> a platinum (Pt100) coil whose resistance increases with temperature, R<sub>T</sub> = R<sub>0</sub>(1 + αT); measured by a Wheatstone bridge. High accuracy and linearity (−200 to 650 °C).",
+   "<b>U-tube manometer (pressure):</b> a transparent U-tube partly filled with a heavy liquid (mercury/water). One limb is connected to the pressure to be measured and the other open to the atmosphere. The pressure is balanced by the difference in liquid levels h: gauge pressure p = ρ g h (ρ = density of manometric liquid). Simple, no calibration needed, suitable for low and moderate pressures.",
+   "<b>Errors in measurement.</b> <i>Systematic errors</i> are consistent in magnitude and direction: instrument (calibration, zero, wear) errors, environmental (temperature) effects, loading error and observational errors such as parallax; they can be reduced by calibration and correction. <i>Random errors</i> vary unpredictably in sign and size due to uncontrollable fluctuations (vibration, noise, operator variations); they are reduced by repeated readings and statistical averaging."
+  ],
+  "formulas": [
+   "Manometer: p<sub>gauge</sub> = ρgh",
+   "RTD: R<sub>T</sub> = R<sub>0</sub>(1 + αT)"
+  ],
+  "diagram": "Bourdon gauge: C-shaped elliptical tube with fixed end/socket, free end, link, quadrant sector, pinion, pointer and dial. U-tube manometer with levels difference h."
+ },
+ "Q3.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Difference between hydraulic turbine (extracts energy) and pump (adds energy) – 3 points",
+    "marks": 2
+   },
+   {
+    "point": "Pelton wheel: construction, nozzle, buckets, spear, and working as impulse turbine",
+    "marks": 2.5
+   },
+   {
+    "point": "Francis turbine: spiral casing, guide vanes, runner, draft tube, working as reaction turbine",
+    "marks": 2.5
+   },
+   {
+    "point": "Centrifugal vs reciprocating pumps comparison (4 points)",
+    "marks": 1.5
+   },
+   {
+    "point": "SFEE applied to turbine and pump (w = Δh etc.)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Turbine vs pump.</b> A hydraulic turbine converts the energy of flowing water (kinetic/pressure) into mechanical shaft work (water gives up energy); a pump converts mechanical energy of a prime mover into hydraulic energy raising pressure/head of the liquid. Turbine: flow high head → low head, output shaft power; pump: flow low head → high head, input shaft power. Turbine drives generators; pump lifts or circulates fluids.",
+   "<b>Pelton wheel (impulse turbine).</b> A tangential-flow turbine for high heads (> 250 m) and low discharge. Water from the penstock strikes the runner as a free jet from a nozzle at atmospheric pressure; flow is controlled by a spear (needle). The runner is a wheel with double-hemispherical split buckets on its periphery. The jet is split by the splitter into two halves, turned through about 165° and leaves with small velocity, so the change of momentum rotates the wheel. All the head is converted to kinetic energy before the jet strikes the runner (pressure constant). Efficiency 85–90 %.",
+   "<b>Francis turbine (reaction turbine).</b> A mixed (inward radial) flow turbine for medium heads (30–250 m). Parts: spiral casing, stay ring, guide vanes (adjustable wicket gates) that direct water at the correct angle to the runner, the runner with curved vanes, and the draft tube. Water enters the runner with both pressure and kinetic energy; as it passes through the runner pressure falls (reaction) and flows radially inward and turns axially, leaving through the draft tube submerged in the tailrace, which recovers head and allows the runner to be placed above tail water. The runner is completely filled with water.",
+   "<b>Centrifugal vs reciprocating pump:</b> centrifugal – impeller rotation (centrifugal force), continuous steady discharge, no valves, simple, handles large flows at moderate head, can handle dirty water, low cost and maintenance; reciprocating – piston/plunger in cylinder with suction and delivery valves, pulsating discharge, high head with low discharge, self-priming, more complex and heavier, high maintenance.",
+   "<b>Steady flow energy equation:</b> for a unit mass in steady flow q − w = Δh + Δ(v²/2) + gΔz. For a hydraulic turbine (adiabatic, small velocity change): w = −(Δh + ΔPE) = g(H) – work output equals the head drop, per unit weight H = z<sub>1</sub> − z<sub>2</sub> + (p<sub>1</sub> − p<sub>2</sub>)/ρg + (v<sub>1</sub>² − v<sub>2</sub>²)/2g − losses. For a pump, work input per unit mass w = Δp/ρ + gΔz + Δv²/2 + losses = gH<sub>m</sub> (manometric head), P = ρgQH/η."
+  ],
+  "formulas": [
+   "Turbine: P = ηρgQH",
+   "Pump: P = ρgQH<sub>m</sub>/η",
+   "SFEE: q − w = Δh + Δ(v²/2) + gΔz"
+  ],
+  "diagram": "Pelton wheel with nozzle, spear, jet and buckets; Francis turbine showing spiral casing, guide vanes, runner and draft tube."
+ },
+ "Q3.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of Pascal's law",
+    "marks": 1.5
+   },
+   {
+    "point": "Explanation with sketch (confined fluid, equal pressure transmitted, p = F/A)",
+    "marks": 2.5
+   },
+   {
+    "point": "Derivation F<sub>2</sub> = F<sub>1</sub>(A<sub>2</sub>/A<sub>1</sub>) mechanical advantage",
+    "marks": 2
+   },
+   {
+    "point": "Hydraulic lift/press: neat sketch and working",
+    "marks": 2.5
+   },
+   {
+    "point": "Other applications and assumptions (incompressible fluid)",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Pascal's law:</b> The pressure applied at any point of a confined, static, incompressible fluid is transmitted equally and undiminished in all directions to every point of the fluid and to the walls of the container.",
+   "<b>Explanation.</b> Consider a closed vessel filled with liquid with two pistons of areas A<sub>1</sub> (small) and A<sub>2</sub> (large). A force F<sub>1</sub> on the small piston produces pressure p = F<sub>1</sub>/A<sub>1</sub> in the liquid. By Pascal's law this same pressure acts on the large piston.",
+   "Force on the large piston F<sub>2</sub> = p A<sub>2</sub> = F<sub>1</sub>(A<sub>2</sub>/A<sub>1</sub>). Mechanical advantage = F<sub>2</sub>/F<sub>1</sub> = A<sub>2</sub>/A<sub>1</sub>. Volume displaced is the same: A<sub>1</sub>d<sub>1</sub> = A<sub>2</sub>d<sub>2</sub>, so the small piston moves a distance larger by the same ratio; work input = work output (no losses).",
+   "<b>Hydraulic lift:</b> a small plunger cylinder (area A<sub>1</sub>) and a large ram cylinder (area A<sub>2</sub>) connected by a pipe, filled with oil. Effort F applied to the plunger lifts a heavy load W = F(A<sub>2</sub>/A<sub>1</sub>) on the ram platform (car lift in workshops, goods lifts). A non-return valve and a reservoir allow repeated strokes.",
+   "<b>Hydraulic press:</b> same principle; the ram pushes the work-piece against a fixed head to compress, forge, bale or extrude (hydraulic jack, forging press, hydraulic brakes, excavators, aircraft landing gear). Other applications: hydraulic brakes, dental chairs, braking systems and power steering.",
+   "Limitations: fluid must be incompressible and free of air; friction and leakage reduce efficiency."
+  ],
+  "formulas": [
+   "p = F<sub>1</sub>/A<sub>1</sub> = F<sub>2</sub>/A<sub>2</sub>",
+   "F<sub>2</sub> = F<sub>1</sub> A<sub>2</sub>/A<sub>1</sub>"
+  ],
+  "diagram": "Two connected cylinders with small piston (A<sub>1</sub>, F<sub>1</sub>) and large piston (A<sub>2</sub>, load W/F<sub>2</sub>) filled with liquid, with valve and reservoir for the lift."
+ },
+ "Q3.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of continuity equation A<sub>1</sub>v<sub>1</sub> = A<sub>2</sub>v<sub>2</sub> and Bernoulli's equation with assumptions",
+    "marks": 2
+   },
+   {
+    "point": "Area ratio/diameter relation and v<sub>2</sub> = 8 m/s",
+    "marks": 3
+   },
+   {
+    "point": "Bernoulli substitution (horizontal pipe, z<sub>1</sub> = z<sub>2</sub>)",
+    "marks": 3
+   },
+   {
+    "point": "Correct p<sub>2</sub> = 150 kPa with units",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "Given: d<sub>1</sub> = 300 mm, d<sub>2</sub> = 150 mm, p<sub>1</sub> = 180 kPa, v<sub>1</sub> = 2 m/s, ρ = 1000 kg/m³, horizontal pipe (z<sub>1</sub> = z<sub>2</sub>), losses neglected.",
+   "<b>(i) Continuity:</b> A<sub>1</sub>v<sub>1</sub> = A<sub>2</sub>v<sub>2</sub> ⇒ v<sub>2</sub> = v<sub>1</sub>(d<sub>1</sub>/d<sub>2</sub>)² = 2 × (300/150)² = 2 × 4 = <b>8 m/s</b>.",
+   "Discharge Q = A<sub>1</sub>v<sub>1</sub> = (π/4)(0.3)² × 2 = 0.1414 m³/s.",
+   "<b>(ii) Bernoulli:</b> p<sub>1</sub>/ρg + v<sub>1</sub>²/2g + z<sub>1</sub> = p<sub>2</sub>/ρg + v<sub>2</sub>²/2g + z<sub>2</sub>; with z<sub>1</sub> = z<sub>2</sub>: p<sub>2</sub> = p<sub>1</sub> + ½ρ(v<sub>1</sub>² − v<sub>2</sub>²).",
+   "p<sub>2</sub> = 180 000 + ½ × 1000 × (2² − 8²) = 180 000 + 500 × (4 − 64) = 180 000 − 30 000 = 150 000 Pa = <b>150 kPa</b>.",
+   "The pressure drops by 30 kPa because pressure energy is converted to kinetic energy in the contraction."
+  ],
+  "formulas": [
+   "A<sub>1</sub>v<sub>1</sub> = A<sub>2</sub>v<sub>2</sub>",
+   "p<sub>2</sub> = p<sub>1</sub> + ½ρ(v<sub>1</sub>² − v<sub>2</sub>²)"
+  ],
+  "result": "v₂ = 8 m/s; p₂ = 150 kPa"
+ },
+ "Q3.8": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Pressure formula p = ρgh with data stated",
+    "marks": 1
+   },
+   {
+    "point": "Gauge pressure for mercury column 2.5 m: 333.5 kPa",
+    "marks": 1.5
+   },
+   {
+    "point": "Absolute pressure = gauge + atmospheric = 0.4345 MPa",
+    "marks": 1
+   },
+   {
+    "point": "Oil column gauge pressure 13.98 kN/m² with density from S = 0.95",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(a)</b> h = 250 cm = 2.5 m, ρ<sub>Hg</sub> = 13.6 × 10³ kg/m³, g = 9.81 m/s², p<sub>atm</sub> = 101 kPa. The manometer reading of 250 cm Hg is the gauge pressure: p<sub>gauge</sub> = ρgh = 13 600 × 9.81 × 2.5 = 333 540 Pa = 333.54 kPa.",
+   "Absolute pressure p<sub>abs</sub> = p<sub>gauge</sub> + p<sub>atm</sub> = 333.54 + 101 = 434.54 kPa = <b>0.4345 MPa</b>.",
+   "<b>(b)</b> S = 0.95 ⇒ ρ = 0.95 × 1000 = 950 kg/m³; h = 150 cm = 1.5 m. Gauge pressure p = ρgh = 950 × 9.81 × 1.5 = 13 979 Pa = <b>13.98 kN/m²</b> (≈ 14 kPa)."
+  ],
+  "formulas": [
+   "p = ρgh",
+   "p<sub>abs</sub> = p<sub>gauge</sub> + p<sub>atm</sub>"
+  ],
+  "result": "(a) 0.4345 MPa (434.5 kPa absolute); (b) 13.98 kN/m² gauge"
+ },
+ "Q3.9": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of Pascal's law applied to hydraulic lift: p = F<sub>1</sub>/A<sub>1</sub> = F<sub>2</sub>/A<sub>2</sub>",
+    "marks": 3
+   },
+   {
+    "point": "Data listed with correct areas and load",
+    "marks": 2
+   },
+   {
+    "point": "Substitution F<sub>1</sub> = W A<sub>1</sub>/A<sub>2</sub>",
+    "marks": 3
+   },
+   {
+    "point": "Answer 2667 N with unit (and mechanical advantage 4.5)",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "By Pascal's law the pressure applied to the small piston is transmitted undiminished to the large piston: F<sub>1</sub>/A<sub>1</sub> = F<sub>2</sub>/A<sub>2</sub>.",
+   "Given: A<sub>1</sub> = 0.20 m², A<sub>2</sub> = 0.90 m², F<sub>2</sub> = weight of car = 1.2 × 10⁴ N (the weight of the rack is ignored).",
+   "F<sub>1</sub> = F<sub>2</sub> × A<sub>1</sub>/A<sub>2</sub> = 1.2 × 10⁴ × 0.20/0.90 = 2.667 × 10³ N.",
+   "Mechanical advantage = A<sub>2</sub>/A<sub>1</sub> = 4.5. Hence a force of <b>≈ 2667 N</b> on the small piston supports the car. Pressure in the fluid = F<sub>1</sub>/A<sub>1</sub> = 13 333 Pa."
+  ],
+  "formulas": [
+   "F<sub>1</sub>/A<sub>1</sub> = F<sub>2</sub>/A<sub>2</sub>"
+  ],
+  "result": "F = 2667 N (≈ 2.67 kN)"
+ },
+ "Q4.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Kelvin-Planck statement",
+    "marks": 1.5
+   },
+   {
+    "point": "Clausius statement",
+    "marks": 1.5
+   },
+   {
+    "point": "Sketch/idea of heat engine (KP violator) and refrigerator (Clausius violator)",
+    "marks": 1
+   },
+   {
+    "point": "Proof: violation of Clausius ⇒ violation of Kelvin-Planck, with combined-device diagram",
+    "marks": 3
+   },
+   {
+    "point": "Proof: violation of Kelvin-Planck ⇒ violation of Clausius, with combined-device diagram",
+    "marks": 2
+   },
+   {
+    "point": "Conclusion that the two statements are equivalent",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Kelvin-Planck statement:</b> It is impossible to construct a device that operates in a cycle and produces no effect other than the extraction of heat from a single reservoir and the performance of an equivalent amount of work. (No heat engine can have a thermal efficiency of 100%.)",
+   "<b>Clausius statement:</b> It is impossible to construct a device that operates in a cycle and produces no effect other than the transfer of heat from a colder body to a hotter body. (Heat cannot flow by itself from cold to hot; a refrigerator needs work input.)",
+   "<b>Equivalence.</b> We prove that if either statement is violated, the other is also violated. Consider two reservoirs, source at T<sub>1</sub> and sink at T<sub>2</sub> (T<sub>1</sub> > T<sub>2</sub>).",
+   "<b>(A) Violation of Clausius ⇒ violation of Kelvin-Planck.</b> Let a hypothetical device C transfer heat Q<sub>2</sub> from the sink (T<sub>2</sub>) to the source (T<sub>1</sub>) with no work input (violates Clausius).",
+   "Let a normal heat engine E operate between the same reservoirs: it absorbs Q<sub>1</sub> from the source, rejects Q<sub>2</sub> to the sink and delivers W = Q<sub>1</sub> − Q<sub>2</sub>.",
+   "Take C and E together as one cycle-operating system. The sink receives Q<sub>2</sub> from E and gives Q<sub>2</sub> to C, so its net heat exchange is zero. The source gives Q<sub>1</sub> to E and receives Q<sub>2</sub> from C, so it loses net heat (Q<sub>1</sub> − Q<sub>2</sub>).",
+   "The combined device therefore takes heat (Q<sub>1</sub> − Q<sub>2</sub>) from one reservoir only and converts it wholly into work W = Q<sub>1</sub> − Q<sub>2</sub>. This is a violation of the Kelvin-Planck statement.",
+   "<b>(B) Violation of Kelvin-Planck ⇒ violation of Clausius.</b> Let a hypothetical engine E′ absorb Q<sub>1</sub> from the source at T<sub>1</sub> and convert all of it into work W = Q<sub>1</sub> (violates K-P, no heat rejected).",
+   "Use this work to drive a normal refrigerator R operating between the same reservoirs: R absorbs Q<sub>2</sub> from the sink and rejects Q<sub>2</sub> + W = Q<sub>2</sub> + Q<sub>1</sub> to the source.",
+   "Net effect of E′ + R: the source receives (Q<sub>2</sub> + Q<sub>1</sub>) and gives Q<sub>1</sub>, i.e. gains Q<sub>2</sub>; the sink loses Q<sub>2</sub>; no net work is exchanged with the surroundings. Heat Q<sub>2</sub> has been transferred from the cold sink to the hot source without any external effect, which is a violation of the Clausius statement.",
+   "<b>Conclusion:</b> since violation of either statement leads to violation of the other, the Kelvin-Planck and Clausius statements are equivalent; both are different expressions of the second law."
+  ],
+  "diagram": "Two separate sketches: (A) hot reservoir T1, Clausius-violating device C (arrow Q2 up from T2 to T1) and engine E (Q1 down, W out, Q2 to T2), enclosed in a dotted boundary showing net Q1−Q2 → W. (B) K-P violating engine E′ (Q1 → W = Q1) driving refrigerator R (Q2 in from T2, Q2+Q1 out to T1), dotted boundary showing net Q2 flowing cold to hot."
+ },
+ "Q4.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Purpose and sketch of heat engine, refrigerator and heat pump",
+    "marks": 3
+   },
+   {
+    "point": "(a) Thermal efficiency definition and expression",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) COP of refrigerator and heat pump definitions with expressions",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Statement of the relation and energy balance Q<sub>H</sub> = Q<sub>L</sub> + W",
+    "marks": 2
+   },
+   {
+    "point": "(b) Algebraic proof (COP)<sub>HP</sub> = (COP)<sub>ref</sub> + 1",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>(a) Heat engine:</b> a cyclic device whose purpose is to produce net work by absorbing heat Q<sub>1</sub> from a high-temperature source and rejecting Q<sub>2</sub> to a sink (e.g. steam power plant, IC engine).",
+   "<b>Refrigerator:</b> a cyclic device whose purpose is to maintain a space at low temperature by extracting heat Q<sub>L</sub> from the cold space and rejecting Q<sub>H</sub> to the surroundings, using work input W (e.g. domestic refrigerator).",
+   "<b>Heat pump:</b> a cyclic device whose purpose is to maintain a space at a temperature higher than the surroundings by supplying heat Q<sub>H</sub> to it, extracting Q<sub>L</sub> from the cooler surroundings with work input W (e.g. room heater based on a reversed cycle).",
+   "<b>Thermal efficiency:</b> η<sub>th</sub> = (net work output)/(heat supplied) = W/Q<sub>1</sub> = (Q<sub>1</sub> − Q<sub>2</sub>)/Q<sub>1</sub> = 1 − Q<sub>2</sub>/Q<sub>1</sub>.",
+   "<b>Coefficient of performance (COP)</b> = desired effect/work input. For a refrigerator, (COP)<sub>ref</sub> = Q<sub>L</sub>/W = Q<sub>L</sub>/(Q<sub>H</sub> − Q<sub>L</sub>). For a heat pump, (COP)<sub>HP</sub> = Q<sub>H</sub>/W = Q<sub>H</sub>/(Q<sub>H</sub> − Q<sub>L</sub>).",
+   "<b>(b) Proof.</b> Consider a reversed cycle operating between the same two reservoirs, with heat Q<sub>L</sub> absorbed from the cold body, Q<sub>H</sub> rejected to the hot body and work W supplied. By the first law for the cycle, W = Q<sub>H</sub> − Q<sub>L</sub>.",
+   "(COP)<sub>HP</sub> = Q<sub>H</sub>/W = (Q<sub>L</sub> + W)/W = Q<sub>L</sub>/W + W/W = (COP)<sub>ref</sub> + 1.",
+   "Hence (COP)<sub>HP</sub> = (COP)<sub>ref</sub> + 1. Since (COP)<sub>ref</sub> is positive, (COP)<sub>HP</sub> is always greater than 1 and greater than (COP)<sub>ref</sub> by exactly unity."
+  ],
+  "formulas": [
+   "η<sub>th</sub> = W/Q<sub>1</sub> = 1 − Q<sub>2</sub>/Q<sub>1</sub>",
+   "(COP)<sub>ref</sub> = Q<sub>L</sub>/W",
+   "(COP)<sub>HP</sub> = Q<sub>H</sub>/W",
+   "(COP)<sub>HP</sub> = (COP)<sub>ref</sub> + 1"
+  ],
+  "diagram": "Three block diagrams: engine (T1 → Q1 → box → W out, Q2 → T2); refrigerator (Q_L from cold space, W in, Q_H to surroundings); heat pump (Q_L from surroundings, W in, Q_H to room)."
+ },
+ "Q4.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Statement of SFEE and the steady-flow assumptions",
+    "marks": 1.5
+   },
+   {
+    "point": "Neat control-volume diagram with inlet/exit, Q and W",
+    "marks": 1.5
+   },
+   {
+    "point": "Energy balance per unit mass with flow work",
+    "marks": 2.5
+   },
+   {
+    "point": "Final SFEE in h + V²/2 + gz form",
+    "marks": 1.5
+   },
+   {
+    "point": "Steam turbine simplification",
+    "marks": 1
+   },
+   {
+    "point": "Nozzle/diffuser simplification",
+    "marks": 1
+   },
+   {
+    "point": "Pump simplification",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Steady flow:</b> mass and energy content of the control volume do not change with time, so the mass flow rate is constant (ṁ<sub>1</sub> = ṁ<sub>2</sub> = ṁ), and properties at any point are time-independent, and heat and work rates are constant.",
+   "<b>Statement (SFEE):</b> for a steady-flow open system, the total energy entering the control volume with the fluid plus the heat added equals the total energy leaving with the fluid plus the work done by the system.",
+   "<b>Derivation.</b> Let a fluid enter section 1 and leave section 2 with p, v, u, V, z denoting pressure, specific volume, internal energy, velocity and elevation. Let Q̇ be the heat added and Ẇ the shaft work done per unit time.",
+   "Energy entering per kg: u<sub>1</sub> + V<sub>1</sub>²/2 + gz<sub>1</sub> plus flow work p<sub>1</sub>v<sub>1</sub> needed to push the fluid in. Energy leaving per kg: u<sub>2</sub> + V<sub>2</sub>²/2 + gz<sub>2</sub> plus flow work p<sub>2</sub>v<sub>2</sub>.",
+   "Energy balance (steady state, ΔE<sub>cv</sub> = 0): ṁ(u<sub>1</sub> + p<sub>1</sub>v<sub>1</sub> + V<sub>1</sub>²/2 + gz<sub>1</sub>) + Q̇ = ṁ(u<sub>2</sub> + p<sub>2</sub>v<sub>2</sub> + V<sub>2</sub>²/2 + gz<sub>2</sub>) + Ẇ.",
+   "Using enthalpy h = u + pv, per unit mass: h<sub>1</sub> + V<sub>1</sub>²/2 + gz<sub>1</sub> + q = h<sub>2</sub> + V<sub>2</sub>²/2 + gz<sub>2</sub> + w, where q = Q̇/ṁ and w = Ẇ/ṁ. This is the SFEE.",
+   "Equivalent form: q − w = (h<sub>2</sub> − h<sub>1</sub>) + (V<sub>2</sub>² − V<sub>1</sub>²)/2 + g(z<sub>2</sub> − z<sub>1</sub>).",
+   "<b>(i) Steam turbine:</b> adiabatic (q ≈ 0); changes in K.E. and P.E. are negligible. Hence w = h<sub>1</sub> − h<sub>2</sub>, i.e. the work output equals the fall in enthalpy.",
+   "<b>(ii) Nozzle and diffuser:</b> no work (w = 0), adiabatic (q = 0), Δz = 0. Hence h<sub>1</sub> + V<sub>1</sub>²/2 = h<sub>2</sub> + V<sub>2</sub>²/2, so V<sub>2</sub> = √[V<sub>1</sub>² + 2(h<sub>1</sub> − h<sub>2</sub>)]. In a nozzle enthalpy drops and velocity rises; in a diffuser the opposite occurs.",
+   "<b>(iii) Hydraulic pump:</b> adiabatic, K.E. and P.E. changes negligible, so −w = h<sub>2</sub> − h<sub>1</sub>; for an incompressible liquid h<sub>2</sub> − h<sub>1</sub> = v(p<sub>2</sub> − p<sub>1</sub>), so pump work input = v(p<sub>2</sub> − p<sub>1</sub>)."
+  ],
+  "formulas": [
+   "h<sub>1</sub> + V<sub>1</sub>²/2 + gz<sub>1</sub> + q = h<sub>2</sub> + V<sub>2</sub>²/2 + gz<sub>2</sub> + w",
+   "Turbine: w = h<sub>1</sub> − h<sub>2</sub>",
+   "Nozzle: V<sub>2</sub> = √[V<sub>1</sub>² + 2(h<sub>1</sub> − h<sub>2</sub>)]",
+   "Pump: w<sub>pump</sub> = v(p<sub>2</sub> − p<sub>1</sub>)"
+  ],
+  "diagram": "Control volume (dotted) with inlet 1 at height z1, outlet 2 at height z2, arrows for Q in, W out, labels p, v, u, V at each section."
+ },
+ "Q4.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Definition of system, surroundings, boundary",
+    "marks": 1
+   },
+   {
+    "point": "(a) Open/closed/isolated differences with examples",
+    "marks": 2.5
+   },
+   {
+    "point": "(b) Intensive vs extensive with examples",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Point function vs path function with examples",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) Thermal, mechanical and chemical equilibrium (and thermodynamic equilibrium)",
+    "marks": 2
+   },
+   {
+    "point": "(c) Quasi-static process and continuum",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(a) Thermodynamic system:</b> a definite quantity of matter or region of space chosen for study, enclosed by a real or imaginary boundary; everything outside is the surroundings.",
+   "<b>Closed system:</b> mass fixed, energy (heat/work) can cross the boundary, e.g. gas in a piston-cylinder, a sealed pressure cooker. <b>Open system (control volume):</b> both mass and energy cross the boundary, e.g. turbine, compressor, boiler, nozzle. <b>Isolated system:</b> neither mass nor energy crosses the boundary, e.g. an ideally insulated thermos flask, or the universe as a whole.",
+   "<b>(b) Intensive properties</b> are independent of the mass of the system (p, T, density, specific volume); <b>extensive properties</b> depend on mass (V, U, H, S, m). The ratio of two extensive properties is intensive (e.g. specific volume v = V/m).",
+   "<b>Point functions</b> depend only on the end states, not the path; their differentials are exact, e.g. ∮dp = 0 (p, T, v, u, h, s). <b>Path functions</b> depend on the path followed, differentials are inexact (δQ, δW), e.g. heat and work; ∫δW ≠ W<sub>2</sub> − W<sub>1</sub>.",
+   "<b>(c) Thermodynamic equilibrium:</b> a system is in equilibrium when no change in its properties occurs if it is isolated; it requires all three types: <b>thermal</b> (no temperature difference within the system or with surroundings), <b>mechanical</b> (no unbalanced forces, uniform pressure) and <b>chemical</b> (no chemical reaction or mass transfer between phases, uniform composition).",
+   "<b>Quasi-static process:</b> a process carried out infinitely slowly so that the system passes through a continuous succession of equilibrium states at every instant; it can be shown as a continuous line on a property diagram (e.g. p–V).",
+   "<b>Continuum:</b> matter is treated as continuously distributed, ignoring the molecular structure, so properties like pressure, density and temperature vary continuously from point to point. It is valid when the mean free path is much smaller than the characteristic dimension of the system (Knudsen number small)."
+  ]
+ },
+ "Q4.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Statement of first law for a closed system (cycle and change of state)",
+    "marks": 2
+   },
+   {
+    "point": "(a) Derivation that E is a property (path independence argument with figure)",
+    "marks": 3
+   },
+   {
+    "point": "(b) Limitations of the first law",
+    "marks": 2
+   },
+   {
+    "point": "(b) PMM-1 explanation",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) PMM-2 explanation",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(a) First law for a cycle:</b> when a closed system undergoes a cyclic process, the net heat transfer equals the net work transfer: ∮δQ = ∮δW.",
+   "<b>For a change of state:</b> Q = ΔE + W, i.e. δQ = dE + δW, where E = U + K.E. + P.E. is the total energy of the system. For a stationary system Q = ΔU + W.",
+   "<b>Energy is a property.</b> Consider a system that moves from state 1 to state 2 along path A and returns from 2 to 1 along path B; this is a cycle. By the first law ∮(δQ − δW) = 0, so ∫<sub>1A2</sub>(δQ − δW) + ∫<sub>2B1</sub>(δQ − δW) = 0.",
+   "Now let it return along another path C instead: ∫<sub>1A2</sub>(δQ − δW) + ∫<sub>2C1</sub>(δQ − δW) = 0. Subtracting, ∫<sub>2B1</sub>(δQ − δW) = ∫<sub>2C1</sub>(δQ − δW).",
+   "Thus (δQ − δW) between two states is the same for every path; it depends only on the end states. Hence δQ − δW = dE is an exact differential, so E is a point function, i.e. a property of the system.",
+   "<b>(b) Limitations of the first law:</b> (1) it does not give the direction of a process (it does not forbid heat flowing from cold to hot); (2) it does not tell whether a process is feasible, since it only requires energy to be conserved; (3) it does not indicate the extent to which heat can be converted into work, i.e. nothing about the quality of energy; (4) it does not distinguish between heat and work as high- and low-grade energy.",
+   "<b>PMM-1:</b> a hypothetical machine that delivers work continuously without any energy input (creates energy), thereby violating the first law (energy conservation). Such a machine is impossible.",
+   "<b>PMM-2:</b> a hypothetical heat engine that would continuously convert heat taken from a single reservoir entirely into work with no rejection of heat (η = 100%). It does not violate the first law but violates the second law (Kelvin-Planck statement), so it is impossible."
+  ],
+  "formulas": [
+   "∮δQ = ∮δW",
+   "Q = ΔU + W",
+   "dE = δQ − δW"
+  ]
+ },
+ "Q4.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Clausius inequality / definition of entropy and ΔS ≥ δQ/T",
+    "marks": 2
+   },
+   {
+    "point": "(a) Entropy generation for an isolated system or heat transfer between two bodies showing ΔS<sub>univ</sub> > 0",
+    "marks": 3
+   },
+   {
+    "point": "(a) Principle of increase of entropy and conclusion for reversible case (= 0)",
+    "marks": 1
+   },
+   {
+    "point": "(b) Definitions of reversible and irreversible process with examples",
+    "marks": 2.5
+   },
+   {
+    "point": "(b) Causes of irreversibility",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>(a)</b> By the Clausius inequality, ∮δQ/T ≤ 0 and for any process between two states ΔS ≥ ∫δQ/T, with equality for a reversible process. Thus entropy generation S<sub>gen</sub> = ΔS − ∫δQ/T ≥ 0.",
+   "Illustration: let heat Q flow from a hot body at T<sub>1</sub> to a cold body at T<sub>2</sub> (T<sub>1</sub> > T<sub>2</sub>), the reservoirs being at constant temperature. Then ΔS<sub>hot</sub> = −Q/T<sub>1</sub> and ΔS<sub>cold</sub> = +Q/T<sub>2</sub>.",
+   "ΔS<sub>universe</sub> = ΔS<sub>hot</sub> + ΔS<sub>cold</sub> = Q(1/T<sub>2</sub> − 1/T<sub>1</sub>) = Q(T<sub>1</sub> − T<sub>2</sub>)/(T<sub>1</sub>T<sub>2</sub>) > 0, because T<sub>1</sub> > T<sub>2</sub>. The reverse flow (cold to hot) would make ΔS<sub>universe</sub> < 0, which is impossible (Clausius statement).",
+   "Every real (spontaneous) process, such as heat flow through a finite temperature difference, free expansion, friction or mixing, generates entropy. Since all natural processes are irreversible, the entropy of the universe (system + surroundings) is continuously increasing: ΔS<sub>universe</sub> ≥ 0. This is the <b>principle of increase of entropy</b>; equality holds only for the ideal reversible process.",
+   "<b>(b) Reversible process:</b> a process which can be reversed so that both the system and the surroundings are restored exactly to their initial states, leaving no trace. It must be quasi-static and free from dissipative effects. Examples (ideal): frictionless adiabatic expansion/compression, isothermal expansion with infinitesimal temperature difference, resistance-free electric current.",
+   "<b>Irreversible process:</b> a process that cannot be reversed without leaving a net change in the surroundings. Examples: free (unrestrained) expansion of a gas, heat transfer through a finite temperature difference, mixing of two gases, combustion, friction.",
+   "<b>Factors causing irreversibility:</b> (1) friction (mechanical and fluid); (2) unrestrained expansion; (3) heat transfer through a finite temperature difference; (4) mixing of two different substances; (5) electrical resistance (I²R loss) and hysteresis; (6) chemical reactions such as combustion; (7) lack of equilibrium (finite pressure or temperature gradients)."
+  ],
+  "formulas": [
+   "dS ≥ δQ/T",
+   "ΔS<sub>universe</sub> = Q(T<sub>1</sub> − T<sub>2</sub>)/(T<sub>1</sub>T<sub>2</sub>) > 0",
+   "ΔS<sub>universe</sub> ≥ 0"
+  ]
+ },
+ "Q4.7": {
+  "marks": 5,
+  "rubric": [
+   {
+    "point": "Statement of the zeroth law",
+    "marks": 1.5
+   },
+   {
+    "point": "Why it is called zeroth (logical precedence, formulated after first and second laws)",
+    "marks": 1.5
+   },
+   {
+    "point": "Explanation of how it leads to the concept of temperature",
+    "marks": 1
+   },
+   {
+    "point": "Use in thermometry with example",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>Statement:</b> if two bodies A and B are each in thermal equilibrium with a third body C, then A and B are also in thermal equilibrium with each other.",
+   "<b>Why zeroth:</b> the first and second laws were already named and established when this principle was recognised (R.H. Fowler, 1931) as being logically more fundamental, since the first two laws use the concept of temperature and thermal equilibrium; so it was placed before them and called the zeroth law.",
+   "<b>Basis for temperature:</b> thermal equilibrium is an equivalence relation (reflexive, symmetric, transitive via this law). All bodies in mutual thermal equilibrium share a common property, called temperature. Thus two bodies have the same temperature if they are in thermal equilibrium, and no heat flows between them.",
+   "<b>Thermometry:</b> the third body C acts as a thermometer. If the thermometer reads the same when brought in contact with A and with B, then A and B have equal temperatures even though they are not in contact. This is the principle behind constructing temperature scales (e.g. a mercury-in-glass thermometer calibrated against the ice and steam points)."
+  ]
+ },
+ "Q4.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Expression for displacement work W = ∫p dV and conditions (reversible/quasi-static)",
+    "marks": 1.5
+   },
+   {
+    "point": "(i) pV = constant relation used",
+    "marks": 1
+   },
+   {
+    "point": "(i) Integration and final W = p<sub>1</sub>V<sub>1</sub> ln(V<sub>2</sub>/V<sub>1</sub>)",
+    "marks": 2.5
+   },
+   {
+    "point": "(ii) pV<sup>γ</sup> = constant relation used",
+    "marks": 1
+   },
+   {
+    "point": "(ii) Integration steps",
+    "marks": 2.5
+   },
+   {
+    "point": "(ii) Final W = (p<sub>1</sub>V<sub>1</sub> − p<sub>2</sub>V<sub>2</sub>)/(γ − 1) and p–V sketch",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "For a reversible (quasi-static) expansion of a closed system, the displacement work is W<sub>1–2</sub> = ∫<sub>1</sub><sup>2</sup> p dV, the area under the process on the p–V diagram.",
+   "<b>(i) Reversible isothermal process (ideal gas).</b> T = constant, so pV = p<sub>1</sub>V<sub>1</sub> = C, hence p = p<sub>1</sub>V<sub>1</sub>/V.",
+   "W = ∫<sub>V1</sub><sup>V2</sup> (p<sub>1</sub>V<sub>1</sub>/V) dV = p<sub>1</sub>V<sub>1</sub> ∫<sub>V1</sub><sup>V2</sup> dV/V = p<sub>1</sub>V<sub>1</sub> ln(V<sub>2</sub>/V<sub>1</sub>).",
+   "Since p<sub>1</sub>V<sub>1</sub> = mRT<sub>1</sub> and V<sub>2</sub>/V<sub>1</sub> = p<sub>1</sub>/p<sub>2</sub>, W = mRT ln(V<sub>2</sub>/V<sub>1</sub>) = mRT ln(p<sub>1</sub>/p<sub>2</sub>).",
+   "<b>(ii) Reversible adiabatic process.</b> Q = 0 and pV<sup>γ</sup> = C = p<sub>1</sub>V<sub>1</sub><sup>γ</sup> = p<sub>2</sub>V<sub>2</sub><sup>γ</sup>, so p = C V<sup>−γ</sup>.",
+   "W = ∫<sub>V1</sub><sup>V2</sup> C V<sup>−γ</sup> dV = C [V<sup>1−γ</sup>/(1 − γ)]<sub>V1</sub><sup>V2</sup> = C (V<sub>2</sub><sup>1−γ</sup> − V<sub>1</sub><sup>1−γ</sup>)/(1 − γ).",
+   "Substituting C = p<sub>2</sub>V<sub>2</sub><sup>γ</sup> for the first term and C = p<sub>1</sub>V<sub>1</sub><sup>γ</sup> for the second: W = (p<sub>2</sub>V<sub>2</sub> − p<sub>1</sub>V<sub>1</sub>)/(1 − γ).",
+   "Therefore W = (p<sub>1</sub>V<sub>1</sub> − p<sub>2</sub>V<sub>2</sub>)/(γ − 1) = mR(T<sub>1</sub> − T<sub>2</sub>)/(γ − 1).",
+   "Check: from the first law for an adiabatic process, W = −ΔU = mc<sub>v</sub>(T<sub>1</sub> − T<sub>2</sub>); with c<sub>v</sub> = R/(γ − 1) this agrees with the result above."
+  ],
+  "formulas": [
+   "Isothermal: W = p<sub>1</sub>V<sub>1</sub> ln(V<sub>2</sub>/V<sub>1</sub>) = mRT ln(V<sub>2</sub>/V<sub>1</sub>)",
+   "Adiabatic: W = (p<sub>1</sub>V<sub>1</sub> − p<sub>2</sub>V<sub>2</sub>)/(γ − 1)"
+  ],
+  "diagram": "p–V diagram with an isothermal curve (hyperbola) and a steeper adiabatic curve from state 1; shade the area under each between V1 and V2."
+ },
+ "Q4.9": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Neat P-V and T-s diagrams of the Carnot cycle",
+    "marks": 2
+   },
+   {
+    "point": "Description of the four processes",
+    "marks": 2
+   },
+   {
+    "point": "Heat added and rejected expressions",
+    "marks": 2
+   },
+   {
+    "point": "Derivation of η = 1 − T<sub>L</sub>/T<sub>H</sub> using adiabatic relations",
+    "marks": 2.5
+   },
+   {
+    "point": "Carnot's theorem (two statements) and conclusion",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "The Carnot cycle is a reversible cycle consisting of two reversible isothermal and two reversible adiabatic (isentropic) processes, operating between a source at T<sub>H</sub> and a sink at T<sub>L</sub>. Working substance: 1 kg of ideal gas.",
+   "<b>1–2 Isothermal expansion</b> at T<sub>H</sub>: heat Q<sub>H</sub> is added from the source. <b>2–3 Reversible adiabatic expansion</b>: temperature falls from T<sub>H</sub> to T<sub>L</sub>. <b>3–4 Isothermal compression</b> at T<sub>L</sub>: heat Q<sub>L</sub> is rejected to the sink. <b>4–1 Reversible adiabatic compression</b>: temperature rises from T<sub>L</sub> to T<sub>H</sub>.",
+   "Heat added: Q<sub>H</sub> = RT<sub>H</sub> ln(V<sub>2</sub>/V<sub>1</sub>) = T<sub>H</sub>(s<sub>2</sub> − s<sub>1</sub>). Heat rejected: Q<sub>L</sub> = RT<sub>L</sub> ln(V<sub>3</sub>/V<sub>4</sub>) = T<sub>L</sub>(s<sub>2</sub> − s<sub>1</sub>).",
+   "Net work W = Q<sub>H</sub> − Q<sub>L</sub>. Thermal efficiency: η = W/Q<sub>H</sub> = 1 − Q<sub>L</sub>/Q<sub>H</sub> = 1 − [T<sub>L</sub> ln(V<sub>3</sub>/V<sub>4</sub>)]/[T<sub>H</sub> ln(V<sub>2</sub>/V<sub>1</sub>)].",
+   "For the adiabatic processes: 2–3: T<sub>H</sub>V<sub>2</sub><sup>γ−1</sup> = T<sub>L</sub>V<sub>3</sub><sup>γ−1</sup>; 4–1: T<sub>L</sub>V<sub>4</sub><sup>γ−1</sup> = T<sub>H</sub>V<sub>1</sub><sup>γ−1</sup>. Dividing, V<sub>2</sub>/V<sub>1</sub> = V<sub>3</sub>/V<sub>4</sub>, so the logarithms cancel.",
+   "Hence η<sub>Carnot</sub> = 1 − T<sub>L</sub>/T<sub>H</sub> = (T<sub>H</sub> − T<sub>L</sub>)/T<sub>H</sub>, independent of the working substance; it increases with higher T<sub>H</sub> and lower T<sub>L</sub>, and is always below 100% since T<sub>L</sub> > 0.",
+   "<b>Carnot's theorem:</b> (1) No heat engine operating between two given reservoirs can be more efficient than a reversible engine operating between the same reservoirs. (2) All reversible engines operating between the same two reservoirs have the same efficiency, irrespective of the working fluid.",
+   "Proof idea: if an irreversible engine were more efficient, coupling it to a reversible engine run as a refrigerator would violate the Clausius/Kelvin-Planck statement."
+  ],
+  "formulas": [
+   "η<sub>Carnot</sub> = 1 − T<sub>L</sub>/T<sub>H</sub>",
+   "Q<sub>H</sub>/T<sub>H</sub> = Q<sub>L</sub>/T<sub>L</sub>"
+  ],
+  "diagram": "p–V: four-sided curved figure 1→2 (isotherm T_H), 2→3 (adiabat), 3→4 (isotherm T_L), 4→1 (adiabat), arrows clockwise. T–s: rectangle with corners 1,2 at T_H and 4,3 at T_L, s1 to s2 on the x-axis, Q_H and Q_L marked."
+ },
+ "Q4.10": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) W = ∫p dV with p = V²+6V substituted",
+    "marks": 1
+   },
+   {
+    "point": "(a) Correct integration and limits",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Answer 66 bar·m³ = 6600 kJ with unit conversion",
+    "marks": 1
+   },
+   {
+    "point": "(b) Setting up W = ∫(V²+6)dV",
+    "marks": 1
+   },
+   {
+    "point": "(b) Integration and limits",
+    "marks": 1.5
+   },
+   {
+    "point": "(b) Answer 30.67 bar·m³ = 3066.7 kJ",
+    "marks": 1
+   },
+   {
+    "point": "(c) Isothermal law pV = C and W = p<sub>1</sub>V<sub>1</sub> ln(V<sub>2</sub>/V<sub>1</sub>)",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) Substitution and answer 19.78 kJ",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "For a reversible non-flow process, W = ∫p dV. Note 1 bar·m³ = 10<sup>5</sup> J = 100 kJ.",
+   "<b>(a)</b> p = V² + 6V (bar), V<sub>1</sub> = 1 m³, V<sub>2</sub> = 4 m³.",
+   "W = ∫<sub>1</sub><sup>4</sup> (V² + 6V) dV = [V³/3 + 3V²]<sub>1</sub><sup>4</sup>.",
+   "At V = 4: 64/3 + 48 = 69.333. At V = 1: 1/3 + 3 = 3.333. W = 69.333 − 3.333 = 66 bar·m³ = 66 × 100 = 6600 kJ.",
+   "<b>(b)</b> p = V² + 6 (bar), V<sub>1</sub> = 2 m³, V<sub>2</sub> = 4 m³.",
+   "W = ∫<sub>2</sub><sup>4</sup> (V² + 6) dV = [V³/3 + 6V]<sub>2</sub><sup>4</sup> = (64/3 + 24) − (8/3 + 12) = 45.333 − 14.667 = 30.667 bar·m³.",
+   "W = 30.667 × 100 = 3066.7 kJ.",
+   "<b>(c)</b> Isothermal: pV = constant, so W = p<sub>1</sub>V<sub>1</sub> ln(V<sub>2</sub>/V<sub>1</sub>). p<sub>1</sub>V<sub>1</sub> = 600 kPa × 0.03 m³ = 18 kJ.",
+   "W = 18 × ln(0.09/0.03) = 18 × ln 3 = 18 × 1.0986 = 19.78 kJ (positive, work done by the fluid)."
+  ],
+  "formulas": [
+   "W = ∫p dV",
+   "Isothermal: W = p<sub>1</sub>V<sub>1</sub> ln(V<sub>2</sub>/V<sub>1</sub>)"
+  ],
+  "result": "(a) 6600 kJ; (b) 3066.7 kJ; (c) 19.78 kJ"
+ },
+ "Q4.11": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Heat rejected by engine = 2000 − 360 = 1640 kJ",
+    "marks": 1
+   },
+   {
+    "point": "(a) Refrigerator COP = T<sub>L</sub>/(T<sub>H</sub> − T<sub>L</sub>) = 253/60 with temperatures in K",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Heat to refrigerator (extracted from cold space) 1518 kJ and heat rejected 1878 kJ, net rejected at 40°C = 3518 kJ",
+    "marks": 2
+   },
+   {
+    "point": "(b) η = 0.6 = 1 − T<sub>2</sub>/800 and sink temperature 47°C",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) η = 1 − 300/500 = 0.4 and W = 800 J",
+    "marks": 2
+   },
+   {
+    "point": "(d) η = 1 − 318/773 and Q<sub>1</sub> = W/η = 356.8 kJ",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "<b>(a)</b> Engine: T<sub>1</sub> = 600 + 273 = 873 K, T<sub>2</sub> = 313 K, Q<sub>1</sub> = 2000 kJ, W = 360 kJ. Heat rejected by the engine to the 40°C reservoir Q<sub>2</sub> = Q<sub>1</sub> − W = 2000 − 360 = 1640 kJ.",
+   "The engine's whole output drives the refrigerator, so W<sub>ref</sub> = 360 kJ. Refrigerator is reversible between 313 K and 253 K (−20°C): (COP)<sub>ref</sub> = T<sub>L</sub>/(T<sub>H</sub> − T<sub>L</sub>) = 253/(313 − 253) = 4.217.",
+   "Heat extracted from the cold space (heat transfer to the refrigerator) Q<sub>L</sub> = COP × W = 4.217 × 360 = 1518 kJ. Heat rejected by the refrigerator at 40°C: Q<sub>H</sub> = Q<sub>L</sub> + W = 1518 + 360 = 1878 kJ.",
+   "Net heat rejected to the 40°C reservoir = 1640 + 1878 = 3518 kJ.",
+   "<b>(b)</b> T<sub>1</sub> = 527 + 273 = 800 K. η = 1 − T<sub>2</sub>/T<sub>1</sub> ⇒ 0.6 = 1 − T<sub>2</sub>/800 ⇒ T<sub>2</sub> = 0.4 × 800 = 320 K = 47°C.",
+   "<b>(c)</b> η = 1 − 300/500 = 0.4 (40%) (taking the engine as reversible/Carnot). W = η Q<sub>1</sub> = 0.4 × 2000 = 800 J. Heat rejected = 1200 J.",
+   "<b>(d)</b> T<sub>1</sub> = 773 K, T<sub>2</sub> = 318 K. η = 1 − 318/773 = 0.5886. Heat supplied Q<sub>1</sub> = W/η = 210/0.5886 = 356.8 kJ (heat rejected = 146.8 kJ)."
+  ],
+  "formulas": [
+   "(COP)<sub>ref</sub> = T<sub>L</sub>/(T<sub>H</sub> − T<sub>L</sub>)",
+   "η<sub>Carnot</sub> = 1 − T<sub>2</sub>/T<sub>1</sub>"
+  ],
+  "result": "(a) Heat to refrigerator = 1518 kJ; net heat rejected at 40°C = 3518 kJ; (b) 47°C; (c) W = 800 J, η = 40%; (d) 356.8 kJ"
+ },
+ "Q4.12": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Use of Q = ΔU + W and ΔU = U<sub>2</sub> − U<sub>1</sub> for each process",
+    "marks": 1.5
+   },
+   {
+    "point": "Cycle condition ΣΔU = 0 used to find ΔU of A = −27 kJ",
+    "marks": 2
+   },
+   {
+    "point": "Process A: U<sub>1</sub> = 62 kJ, W = 45 kJ",
+    "marks": 1.5
+   },
+   {
+    "point": "Process B: U<sub>1</sub> = 19 kJ, W = 25 kJ",
+    "marks": 1.5
+   },
+   {
+    "point": "Process C: U<sub>2</sub> = 35 kJ, Q = 44 kJ",
+    "marks": 1.5
+   },
+   {
+    "point": "Process D: U<sub>2</sub> = 24 kJ, W = 15 kJ and cycle check ΣQ = ΣW = 97 kJ",
+    "marks": 2
+   }
+  ],
+  "answer": [
+   "Assumption: the table has columns Q, W, U<sub>1</sub>, U<sub>2</sub>, ΔU, and the system executes a cycle, so ΣΔU = 0 (and ΣQ = ΣW). Use Q = ΔU + W and ΔU = U<sub>2</sub> − U<sub>1</sub> (kJ).",
+   "Process A has only Q and U<sub>2</sub> given, so its ΔU follows from the cycle: ΔU<sub>A</sub> + (−15) + 32 + 10 = 0 ⇒ ΔU<sub>A</sub> = −27 kJ.",
+   "<b>A:</b> U<sub>1</sub> = U<sub>2</sub> − ΔU = 35 + 27 = 62 kJ; W = Q − ΔU = 18 + 27 = 45 kJ.",
+   "<b>B:</b> U<sub>1</sub> = U<sub>2</sub> − ΔU = 4 + 15 = 19 kJ; W = Q − ΔU = 10 + 15 = 25 kJ.",
+   "<b>C:</b> U<sub>2</sub> = U<sub>1</sub> + ΔU = 3 + 32 = 35 kJ; Q = ΔU + W = 32 + 12 = 44 kJ.",
+   "<b>D:</b> U<sub>2</sub> = U<sub>1</sub> + ΔU = 14 + 10 = 24 kJ; W = Q − ΔU = 25 − 10 = 15 kJ.",
+   "<b>Check:</b> ΣQ = 18 + 10 + 44 + 25 = 97 kJ; ΣW = 45 + 25 + 12 + 15 = 97 kJ; ΣΔU = −27 − 15 + 32 + 10 = 0. Hence ∮δQ = ∮δW, the first law for a cycle, is verified."
+  ],
+  "formulas": [
+   "Q = ΔU + W",
+   "ΔU = U<sub>2</sub> − U<sub>1</sub>",
+   "ΣΔU = 0 for a cycle"
+  ],
+  "result": "A: ΔU = −27, U1 = 62, W = 45; B: U1 = 19, W = 25; C: U2 = 35, Q = 44; D: U2 = 24, W = 15 (all kJ)"
+ },
+ "Q5.1": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Assumptions of the air-standard cycle",
+    "marks": 1.5
+   },
+   {
+    "point": "Neat P-V and T-s diagrams with processes labelled",
+    "marks": 2
+   },
+   {
+    "point": "Description of the four processes",
+    "marks": 1.5
+   },
+   {
+    "point": "Heat supplied and rejected expressions",
+    "marks": 2
+   },
+   {
+    "point": "Use of isentropic relations to get T<sub>3</sub>/T<sub>2</sub> = T<sub>4</sub>/T<sub>1</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Final η = 1 − 1/r<sup>γ−1</sup> with remarks",
+    "marks": 1.5
+   }
+  ],
+  "answer": [
+   "<b>Assumptions (air-standard):</b> (1) the working fluid is air, an ideal gas with constant specific heats; (2) the cycle is closed, with the same mass of air throughout; (3) combustion is replaced by heat addition from an external source and exhaust by heat rejection to a sink; (4) compression and expansion are reversible adiabatic (isentropic); (5) no friction or heat losses; (6) kinetic and potential energy changes are negligible.",
+   "<b>Otto cycle processes:</b> 1–2 isentropic compression (volume V<sub>1</sub> → V<sub>2</sub>, compression ratio r = V<sub>1</sub>/V<sub>2</sub>); 2–3 constant-volume heat addition (spark ignition); 3–4 isentropic expansion (power stroke); 4–1 constant-volume heat rejection.",
+   "Heat supplied: Q<sub>s</sub> = mc<sub>v</sub>(T<sub>3</sub> − T<sub>2</sub>). Heat rejected: Q<sub>r</sub> = mc<sub>v</sub>(T<sub>4</sub> − T<sub>1</sub>).",
+   "Thermal efficiency: η = W<sub>net</sub>/Q<sub>s</sub> = 1 − Q<sub>r</sub>/Q<sub>s</sub> = 1 − (T<sub>4</sub> − T<sub>1</sub>)/(T<sub>3</sub> − T<sub>2</sub>).",
+   "For 1–2 (isentropic): T<sub>2</sub>/T<sub>1</sub> = (V<sub>1</sub>/V<sub>2</sub>)<sup>γ−1</sup> = r<sup>γ−1</sup>. For 3–4 (isentropic): T<sub>3</sub>/T<sub>4</sub> = (V<sub>4</sub>/V<sub>3</sub>)<sup>γ−1</sup> = r<sup>γ−1</sup>, since V<sub>4</sub> = V<sub>1</sub> and V<sub>3</sub> = V<sub>2</sub>.",
+   "Hence T<sub>2</sub>/T<sub>1</sub> = T<sub>3</sub>/T<sub>4</sub>, which gives T<sub>3</sub>/T<sub>2</sub> = T<sub>4</sub>/T<sub>1</sub>, and so (T<sub>4</sub> − T<sub>1</sub>)/(T<sub>3</sub> − T<sub>2</sub>) = T<sub>1</sub>/T<sub>2</sub> = 1/r<sup>γ−1</sup>.",
+   "Therefore η<sub>Otto</sub> = 1 − 1/r<sup>γ−1</sup>.",
+   "<b>Remarks:</b> the efficiency depends only on compression ratio r and γ and rises with r; it is independent of the heat added. For r = 8 and γ = 1.4, η = 56.5%. The limit on r is set by knocking (detonation) in SI engines."
+  ],
+  "formulas": [
+   "η<sub>Otto</sub> = 1 − 1/r<sup>γ−1</sup>",
+   "r = V<sub>1</sub>/V<sub>2</sub>"
+  ],
+  "diagram": "P–V: curve 1→2 (steep adiabatic compression), vertical line 2→3 upward (heat in), curve 3→4 (adiabatic expansion), vertical line 4→1 downward (heat out); mark V2 and V1. T–s: curves 1→2 and 3→4 as vertical lines (isentropes), 2→3 and 4→1 as rising exponential constant-volume curves; label Q_s and Q_r."
+ },
+ "Q5.2": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Neat P-V and T-s diagrams of the Diesel cycle",
+    "marks": 2
+   },
+   {
+    "point": "Four processes explained",
+    "marks": 1.5
+   },
+   {
+    "point": "Definitions of compression ratio r and cut-off ratio r<sub>c</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "Heat supplied (const. pressure) and rejected (const. volume) expressions",
+    "marks": 1.5
+   },
+   {
+    "point": "Use of the process relations to eliminate temperatures",
+    "marks": 2.5
+   },
+   {
+    "point": "Final η = 1 − [r<sub>c</sub><sup>γ</sup> − 1]/[γ r<sup>γ−1</sup>(r<sub>c</sub> − 1)] with remarks",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "The Diesel cycle is the ideal air-standard cycle of a compression-ignition engine: 1–2 isentropic compression, 2–3 constant-pressure heat addition, 3–4 isentropic expansion, 4–1 constant-volume heat rejection.",
+   "<b>Compression ratio</b> r = V<sub>1</sub>/V<sub>2</sub> (total volume/clearance volume). <b>Cut-off ratio</b> r<sub>c</sub> = V<sub>3</sub>/V<sub>2</sub> (volume at the end of heat addition/volume at the start).",
+   "Heat supplied at constant pressure: Q<sub>s</sub> = mc<sub>p</sub>(T<sub>3</sub> − T<sub>2</sub>). Heat rejected at constant volume: Q<sub>r</sub> = mc<sub>v</sub>(T<sub>4</sub> − T<sub>1</sub>).",
+   "η = 1 − Q<sub>r</sub>/Q<sub>s</sub> = 1 − (T<sub>4</sub> − T<sub>1</sub>)/[γ(T<sub>3</sub> − T<sub>2</sub>)], using γ = c<sub>p</sub>/c<sub>v</sub>.",
+   "Process 1–2: T<sub>2</sub> = T<sub>1</sub>r<sup>γ−1</sup>. Process 2–3 (p = const): T<sub>3</sub>/T<sub>2</sub> = V<sub>3</sub>/V<sub>2</sub> = r<sub>c</sub> ⇒ T<sub>3</sub> = r<sub>c</sub>T<sub>2</sub> = r<sub>c</sub>T<sub>1</sub>r<sup>γ−1</sup>.",
+   "Process 3–4: T<sub>4</sub>/T<sub>3</sub> = (V<sub>3</sub>/V<sub>4</sub>)<sup>γ−1</sup>, where V<sub>3</sub>/V<sub>4</sub> = (r<sub>c</sub>V<sub>2</sub>)/(rV<sub>2</sub>) = r<sub>c</sub>/r. Therefore T<sub>4</sub> = r<sub>c</sub>T<sub>1</sub>r<sup>γ−1</sup>(r<sub>c</sub>/r)<sup>γ−1</sup> = T<sub>1</sub>r<sub>c</sub><sup>γ</sup>.",
+   "Substituting: η = 1 − T<sub>1</sub>(r<sub>c</sub><sup>γ</sup> − 1)/[γT<sub>1</sub>r<sup>γ−1</sup>(r<sub>c</sub> − 1)].",
+   "<b>η<sub>Diesel</sub> = 1 − (1/r<sup>γ−1</sup>) · (r<sub>c</sub><sup>γ</sup> − 1)/[γ(r<sub>c</sub> − 1)]</b>.",
+   "<b>Remarks:</b> the factor (r<sub>c</sub><sup>γ</sup> − 1)/[γ(r<sub>c</sub> − 1)] is greater than 1, so for the same r the Diesel efficiency is less than that of the Otto cycle; but Diesel engines run on higher r (14–22) since only air is compressed (no knock), giving higher actual efficiency. As r<sub>c</sub> → 1, the Diesel efficiency approaches the Otto value."
+  ],
+  "formulas": [
+   "r = V<sub>1</sub>/V<sub>2</sub>, r<sub>c</sub> = V<sub>3</sub>/V<sub>2</sub>",
+   "η<sub>Diesel</sub> = 1 − [r<sub>c</sub><sup>γ</sup> − 1]/[γ r<sup>γ−1</sup>(r<sub>c</sub> − 1)]"
+  ],
+  "diagram": "P–V: adiabatic 1→2, horizontal line 2→3 (heat in at constant p), adiabatic 3→4, vertical line 4→1 (heat out). T–s: 1→2 vertical, 2→3 constant-pressure curve rising to the right, 3→4 vertical down, 4→1 constant-volume curve; label V2, V3, V1=V4."
+ },
+ "Q5.3": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Neat P-V diagram of the Dual cycle",
+    "marks": 1.5
+   },
+   {
+    "point": "Neat T-s diagram of the Dual cycle",
+    "marks": 1.5
+   },
+   {
+    "point": "Explanation of the five processes",
+    "marks": 1.5
+   },
+   {
+    "point": "Heat supplied and rejected expressions",
+    "marks": 1.5
+   },
+   {
+    "point": "Temperature relations in terms of r, α, β",
+    "marks": 2
+   },
+   {
+    "point": "Final efficiency expression and limiting cases",
+    "marks": 1.5
+   },
+   {
+    "point": "One application",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "The Dual (limited-pressure) cycle is the air-standard cycle of high-speed diesel engines, in which heat is added partly at constant volume and partly at constant pressure.",
+   "<b>Processes:</b> 1–2 isentropic compression; 2–3 constant-volume heat addition (Q<sub>s1</sub>); 3–4 constant-pressure heat addition (Q<sub>s2</sub>); 4–5 isentropic expansion; 5–1 constant-volume heat rejection (Q<sub>r</sub>).",
+   "Define r = V<sub>1</sub>/V<sub>2</sub> (compression ratio), pressure ratio α = p<sub>3</sub>/p<sub>2</sub> and cut-off ratio β = V<sub>4</sub>/V<sub>3</sub>.",
+   "Q<sub>s</sub> = mc<sub>v</sub>(T<sub>3</sub> − T<sub>2</sub>) + mc<sub>p</sub>(T<sub>4</sub> − T<sub>3</sub>); Q<sub>r</sub> = mc<sub>v</sub>(T<sub>5</sub> − T<sub>1</sub>). η = 1 − Q<sub>r</sub>/Q<sub>s</sub>.",
+   "T<sub>2</sub> = T<sub>1</sub>r<sup>γ−1</sup>. For 2–3 (V = const): T<sub>3</sub> = αT<sub>2</sub> = αT<sub>1</sub>r<sup>γ−1</sup>. For 3–4 (p = const): T<sub>4</sub> = βT<sub>3</sub> = αβT<sub>1</sub>r<sup>γ−1</sup>.",
+   "For 4–5 (isentropic): T<sub>5</sub> = T<sub>4</sub>(V<sub>4</sub>/V<sub>5</sub>)<sup>γ−1</sup>, with V<sub>4</sub>/V<sub>5</sub> = βV<sub>2</sub>/(rV<sub>2</sub>) = β/r. Hence T<sub>5</sub> = αβT<sub>1</sub>r<sup>γ−1</sup>(β/r)<sup>γ−1</sup> = αβ<sup>γ</sup>T<sub>1</sub>.",
+   "Substituting: Q<sub>s</sub> = mc<sub>v</sub>T<sub>1</sub>r<sup>γ−1</sup>[(α − 1) + γα(β − 1)] and Q<sub>r</sub> = mc<sub>v</sub>T<sub>1</sub>(αβ<sup>γ</sup> − 1).",
+   "<b>η<sub>Dual</sub> = 1 − (1/r<sup>γ−1</sup>) · (αβ<sup>γ</sup> − 1)/[(α − 1) + γα(β − 1)]</b>.",
+   "For β = 1 this reduces to the Otto cycle; for α = 1 it reduces to the Diesel cycle.",
+   "<b>Application:</b> the cycle approximates the working of modern high-speed compression-ignition (diesel) engines used in trucks, buses, tractors and generators."
+  ],
+  "formulas": [
+   "α = p<sub>3</sub>/p<sub>2</sub>, β = V<sub>4</sub>/V<sub>3</sub>",
+   "η<sub>Dual</sub> = 1 − (αβ<sup>γ</sup> − 1)/[r<sup>γ−1</sup>{(α − 1) + γα(β − 1)}]"
+  ],
+  "diagram": "P–V: 1→2 adiabatic compression, 2→3 vertical up, 3→4 horizontal right, 4→5 adiabatic expansion, 5→1 vertical down. T–s: same five points; 2→3 and 3→4 rising curves (const V steeper than const p); 5→1 constant-volume curve down."
+ },
+ "Q5.4": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Working cycle (Otto vs Diesel)",
+    "marks": 1
+   },
+   {
+    "point": "Fuel used",
+    "marks": 1
+   },
+   {
+    "point": "Method of ignition (spark vs compression)",
+    "marks": 1.5
+   },
+   {
+    "point": "Compression ratio ranges",
+    "marks": 1.5
+   },
+   {
+    "point": "Fuel-air induction/mixture control (carburettor/injection, quantity vs quality governing)",
+    "marks": 1.5
+   },
+   {
+    "point": "Thermal efficiency",
+    "marks": 1.5
+   },
+   {
+    "point": "Weight/speed",
+    "marks": 1
+   },
+   {
+    "point": "Presented as a clear comparison table covering all 7 points",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "The comparison between Spark Ignition (SI) and Compression Ignition (CI) engines is as follows.",
+   "<b>(i) Working cycle:</b> SI works on the Otto cycle (constant-volume heat addition); CI works on the Diesel cycle (constant-pressure heat addition; Dual cycle in high-speed engines).",
+   "<b>(ii) Fuel:</b> SI uses a volatile, high self-ignition-temperature fuel such as petrol (gasoline), CNG or LPG (high octane number); CI uses diesel oil, a less volatile fuel with high cetane number.",
+   "<b>(iii) Ignition:</b> SI uses an external spark plug to ignite the homogeneous mixture; CI relies on self-ignition of the fuel sprayed into air heated by compression above the fuel's ignition temperature.",
+   "<b>(iv) Compression ratio:</b> SI 6 to 10 (limited by knocking/detonation of the premixed charge); CI 14 to 22 (only air compressed; needed to reach ignition temperature).",
+   "<b>(v) Fuel-air induction:</b> in SI, air and fuel are mixed outside the cylinder in a carburettor (or by port injection) and a homogeneous mixture is drawn in; load is controlled by a throttle (quantity governing). In CI, only air is drawn in; fuel is injected directly at high pressure (about 200 bar) near the end of compression through a fuel pump and injector; load is controlled by the quantity of fuel injected (quality governing, no throttling).",
+   "<b>(vi) Thermal efficiency:</b> SI is lower (about 25–30%); CI is higher (about 35–40%) due to higher compression ratio and less pumping loss.",
+   "<b>(vii) Weight and speed:</b> SI engines are lighter per unit power, with higher speeds (up to 6000+ rpm); CI engines are heavier, more robust to withstand high pressure, and run at lower speeds (up to about 3000–4000 rpm). SI engines have lower cost but higher running cost and greater fire hazard; CI engines are costlier but with lower running cost.",
+   "Applications: SI for cars, scooters, small generators; CI for trucks, buses, tractors, locomotives, ships and power generation."
+  ]
+ },
+ "Q5.5": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Crankshaft revolutions per power cycle (1 vs 2)",
+    "marks": 1.5
+   },
+   {
+    "point": "Power strokes per revolution and power/size comparison",
+    "marks": 1.5
+   },
+   {
+    "point": "Port vs valve mechanism",
+    "marks": 2
+   },
+   {
+    "point": "Scavenging and exhaust/charging process",
+    "marks": 2
+   },
+   {
+    "point": "Weight and cost, lubrication",
+    "marks": 1.5
+   },
+   {
+    "point": "Thermal efficiency and fuel economy",
+    "marks": 1
+   },
+   {
+    "point": "Applications",
+    "marks": 0.5
+   }
+  ],
+  "answer": [
+   "<b>Cycle completion:</b> a four-stroke engine completes its cycle in four piston strokes, i.e. two crankshaft revolutions (720°), giving one power stroke per two revolutions. A two-stroke engine completes it in two strokes, i.e. one revolution (360°), giving one power stroke per revolution.",
+   "<b>Power output:</b> for the same size and speed a two-stroke engine ideally gives nearly double the power of a four-stroke (in practice about 1.3–1.6 times, due to poorer scavenging); turning torque is more uniform, so a lighter flywheel suffices.",
+   "<b>Valve mechanism:</b> the four-stroke engine has inlet and exhaust poppet valves operated by a cam, camshaft, tappets and rockers; the two-stroke engine uses ports (inlet, transfer and exhaust) in the cylinder wall, uncovered by the piston, so there is no valve mechanism.",
+   "<b>Scavenging:</b> in a four-stroke the separate exhaust and suction strokes expel burnt gases efficiently, giving good volumetric efficiency; in a two-stroke the burnt gases are pushed out by the fresh charge (crankcase or blower) through the ports, so a part of fresh charge escapes with exhaust (short-circuiting) and some residual gases remain; scavenging is poorer.",
+   "<b>Weight and cost:</b> two-stroke engines are lighter, simpler and cheaper for the same power due to the absence of valves and gear train; four-stroke engines are heavier and costlier.",
+   "<b>Lubrication and cooling:</b> a four-stroke uses a separate oil sump (wet sump, pressure lubrication); a two-stroke SI engine usually uses petroil (oil mixed with fuel), which increases oil consumption and smoke. A two-stroke runs hotter, since a power stroke occurs every revolution.",
+   "<b>Thermal efficiency:</b> four-stroke engines are more efficient (better scavenging, no loss of fresh charge, higher volumetric efficiency and better fuel economy); two-stroke engines have lower efficiency (about 20–25% against 28–32%) and higher fuel consumption and emissions.",
+   "<b>Applications:</b> two-stroke: mopeds, scooters, outboard motors, small tools, large marine diesels; four-stroke: cars, buses, trucks, aircraft."
+  ]
+ },
+ "Q5.6": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "Neat labelled sketch of cylinder-piston assembly showing bore, stroke, TDC, BDC, V<sub>c</sub>, V<sub>s</sub>",
+    "marks": 3
+   },
+   {
+    "point": "Definitions (i)–(iv): bore, stroke, TDC, BDC",
+    "marks": 2
+   },
+   {
+    "point": "Definitions (v)–(vii): swept volume, clearance volume, compression ratio with formulae",
+    "marks": 2.5
+   },
+   {
+    "point": "MEP definition and formula",
+    "marks": 1.5
+   },
+   {
+    "point": "Indicated power definition and formula",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "<b>(i) Bore (D):</b> the inner diameter of the engine cylinder.",
+   "<b>(ii) Stroke (L):</b> the distance travelled by the piston between its two extreme positions, TDC and BDC (L = 2 × crank radius).",
+   "<b>(iii) Top Dead Centre (TDC):</b> the extreme position of the piston nearest the cylinder head (minimum cylinder volume), where its velocity is zero.",
+   "<b>(iv) Bottom Dead Centre (BDC):</b> the extreme position of the piston farthest from the cylinder head (maximum volume), where its velocity is zero.",
+   "<b>(v) Swept (displacement) volume V<sub>s</sub>:</b> the volume swept by the piston in one stroke: V<sub>s</sub> = (π/4)D²L.",
+   "<b>(vi) Clearance volume V<sub>c</sub>:</b> the volume above the piston when it is at TDC.",
+   "<b>(vii) Compression ratio r:</b> the ratio of total cylinder volume to clearance volume: r = (V<sub>s</sub> + V<sub>c</sub>)/V<sub>c</sub> = V<sub>1</sub>/V<sub>2</sub>.",
+   "<b>(viii) Mean Effective Pressure (MEP):</b> the hypothetical constant pressure which, acting on the piston throughout the power stroke, would produce the same net work as the actual cycle. p<sub>m</sub> = W<sub>net</sub>/V<sub>s</sub> = (indicator diagram area × spring constant)/(diagram length).",
+   "<b>(ix) Indicated power (IP):</b> the power developed inside the cylinder as measured from the indicator diagram, IP = p<sub>m</sub> L A n K/60 (W) with p<sub>m</sub> in Pa, L stroke in m, A piston area in m², n rpm, K = number of cylinders and, n replaced by n/2 for a four-stroke engine (one power stroke per two revolutions)."
+  ],
+  "formulas": [
+   "V<sub>s</sub> = (π/4)D²L",
+   "r = (V<sub>s</sub> + V<sub>c</sub>)/V<sub>c</sub>",
+   "p<sub>m</sub> = W<sub>net</sub>/V<sub>s</sub>",
+   "IP = p<sub>m</sub>LANK/60"
+  ],
+  "diagram": "Vertical section of cylinder with piston, connecting rod, crank, head and valves. Show piston at TDC and BDC (dotted), label bore D, stroke L, clearance volume V_c, swept volume V_s."
+ },
+ "Q5.7": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Net-work relation or η formula and r from temperatures",
+    "marks": 2
+   },
+   {
+    "point": "(b) State points T<sub>2</sub>, p<sub>2</sub>, T<sub>3</sub>, p<sub>3</sub>, T<sub>4</sub>, p<sub>4</sub>",
+    "marks": 2.5
+   },
+   {
+    "point": "(b) Specific work 847.1 kJ/kg and η = 56.5%",
+    "marks": 1
+   },
+   {
+    "point": "(c) Mass of air, r, V<sub>2</sub>, V<sub>3</sub>=V<sub>2</sub>, V<sub>4</sub>=V<sub>1</sub> and T<sub>2</sub>, T<sub>3</sub>, T<sub>4</sub>, p<sub>3</sub>, p<sub>4</sub>",
+    "marks": 2
+   },
+   {
+    "point": "(c) Percentage clearance and MEP",
+    "marks": 1
+   },
+   {
+    "point": "(d) η = 1 − 1/8<sup>0.4</sup> = 56.5%",
+    "marks": 0.75
+   },
+   {
+    "point": "(e) r = 11 and η = 61.7%",
+    "marks": 0.75
+   }
+  ],
+  "answer": [
+   "Assumed data: air, c<sub>v</sub> = 0.718 kJ/kg K, R = 0.287 kJ/kg K, γ = 1.4; in (a) the 700 kJ is taken as net work per kg of air (the question does not give the mass).",
+   "<b>(a)</b> T<sub>2</sub> = 650 K, T<sub>3</sub> = 2400 K. Heat added = c<sub>v</sub>(T<sub>3</sub> − T<sub>2</sub>) = 0.718 × 1750 = 1256.5 kJ/kg. η = W/Q<sub>s</sub> = 700/1256.5 = 0.557 = 55.7%.",
+   "From η = 1 − 1/r<sup>γ−1</sup>: 1/r<sup>0.4</sup> = 0.443 ⇒ r<sup>0.4</sup> = 2.258 ⇒ r = 2.258<sup>2.5</sup> = 7.66. (Then T<sub>1</sub> = 650/2.258 = 287.9 K.)",
+   "<b>(b)</b> p<sub>1</sub> = 100 kPa, T<sub>1</sub> = 300 K, r = 8, q<sub>s</sub> = 1500 kJ/kg. r<sup>0.4</sup> = 2.297; r<sup>1.4</sup> = 18.38.",
+   "T<sub>2</sub> = 300 × 2.297 = 689.2 K; p<sub>2</sub> = 100 × 18.38 = 1837.9 kPa.",
+   "q<sub>s</sub> = c<sub>v</sub>(T<sub>3</sub> − T<sub>2</sub>) ⇒ T<sub>3</sub> = 689.2 + 1500/0.718 = 689.2 + 2089.1 = 2778.4 K; p<sub>3</sub> = p<sub>2</sub>T<sub>3</sub>/T<sub>2</sub> = 1837.9 × 2778.4/689.2 = 7409 kPa.",
+   "T<sub>4</sub> = T<sub>3</sub>/r<sup>0.4</sup> = 2778.4/2.297 = 1209.3 K; p<sub>4</sub> = p<sub>3</sub>/r<sup>1.4</sup> = 7409/18.38 = 403.1 kPa.",
+   "Heat rejected = c<sub>v</sub>(T<sub>4</sub> − T<sub>1</sub>) = 0.718 × 909.3 = 652.9 kJ/kg. Specific work = 1500 − 652.9 = 847.1 kJ/kg. η = 847.1/1500 = 56.5% (= 1 − 1/8<sup>0.4</sup>).",
+   "<b>(c)</b> p<sub>1</sub> = 100 kPa, V<sub>1</sub> = 0.45 m³, T<sub>1</sub> = 303 K, p<sub>2</sub> = 1100 kPa. r<sup>1.4</sup> = 11 ⇒ r = 5.544. V<sub>2</sub> = V<sub>3</sub> = 0.45/5.544 = 0.0812 m³; V<sub>4</sub> = V<sub>1</sub> = 0.45 m³.",
+   "T<sub>2</sub> = 303 × 5.544<sup>0.4</sup> = 303 × 1.984 = 601.2 K. Mass m = p<sub>1</sub>V<sub>1</sub>/RT<sub>1</sub> = 100 × 0.45/(0.287 × 303) = 0.5175 kg.",
+   "210 = m c<sub>v</sub>(T<sub>3</sub> − T<sub>2</sub>) ⇒ T<sub>3</sub> − T<sub>2</sub> = 210/(0.5175 × 0.718) = 565.2 K ⇒ T<sub>3</sub> = 1166.4 K; p<sub>3</sub> = 1100 × 1166.4/601.2 = 2134 kPa (21.3 bar).",
+   "T<sub>4</sub> = T<sub>3</sub>/1.984 = 587.9 K; p<sub>4</sub> = p<sub>3</sub>/11 = 194.0 kPa (1.94 bar).",
+   "<b>Percentage clearance</b> = V<sub>c</sub>/V<sub>s</sub> = 0.0812/(0.45 − 0.0812) = 22.0%. η = 1 − 1/5.544<sup>0.4</sup> = 49.6%, W<sub>net</sub> = 0.496 × 210 = 104.2 kJ. <b>MEP</b> = W/V<sub>s</sub> = 104.2/0.3688 = 282.4 kPa (2.82 bar).",
+   "<b>(d)</b> η = 1 − 1/r<sup>γ−1</sup> = 1 − 1/8<sup>0.4</sup> = 1 − 0.4353 = 0.5647 = 56.5%.",
+   "<b>(e)</b> V<sub>c</sub> = 0.1V<sub>s</sub> ⇒ r = (V<sub>s</sub> + V<sub>c</sub>)/V<sub>c</sub> = 1.1/0.1 = 11. η = 1 − 1/11<sup>0.4</sup> = 1 − 0.3833 = 0.6167 = 61.7%."
+  ],
+  "formulas": [
+   "η = 1 − 1/r<sup>γ−1</sup>",
+   "T<sub>2</sub> = T<sub>1</sub>r<sup>γ−1</sup>, p<sub>2</sub> = p<sub>1</sub>r<sup>γ</sup>",
+   "MEP = W<sub>net</sub>/V<sub>s</sub>"
+  ],
+  "result": "(a) η = 55.7%, r = 7.66; (b) T2 = 689 K, p2 = 1838 kPa, T3 = 2778 K, p3 = 7409 kPa, T4 = 1209 K, p4 = 403 kPa, w = 847 kJ/kg, η = 56.5%; (c) clearance 22%, MEP = 282 kPa; (d) 56.5%; (e) 61.7%"
+ },
+ "Q5.8": {
+  "marks": 10,
+  "rubric": [
+   {
+    "point": "(a) Compression ratio from p<sub>2</sub>/p<sub>1</sub> = r<sup>γ</sup>: r = 15.3",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) T<sub>2</sub>, T<sub>3</sub> from heat supplied, cut-off ratio",
+    "marks": 1.5
+   },
+   {
+    "point": "(a) Efficiency 62.8%",
+    "marks": 1
+   },
+   {
+    "point": "(b) r<sub>c</sub> = 1 + 0.06(r − 1) = 1.9",
+    "marks": 1
+   },
+   {
+    "point": "(b) Efficiency formula substitution and 61.9%",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) r from pressure, r<sub>c</sub> = 1.71, state T<sub>2</sub>, T<sub>3</sub>",
+    "marks": 1.5
+   },
+   {
+    "point": "(c) Efficiency 59.5%, work per kg",
+    "marks": 1
+   },
+   {
+    "point": "(c) V<sub>1</sub>, V<sub>s</sub> and MEP = 437 kPa",
+    "marks": 1
+   }
+  ],
+  "answer": [
+   "Assumed data: c<sub>p</sub> = 1.005 kJ/kg K, c<sub>v</sub> = 0.718 kJ/kg K, R = 0.287 kJ/kg K for air (c<sub>p</sub> = 1.004 given in (a)); “cut-off at 6% of the stroke” means V<sub>3</sub> − V<sub>2</sub> = 0.06 V<sub>s</sub>.",
+   "<b>(a)</b> p<sub>1</sub> = 1.03 bar, T<sub>1</sub> = 300 K, p<sub>2</sub> = p<sub>3</sub> = 47 bar, q<sub>s</sub> = 545 kJ/kg.",
+   "(i) p<sub>2</sub>/p<sub>1</sub> = r<sup>1.4</sup> = 45.63 ⇒ r = 45.63<sup>1/1.4</sup> = 15.3.",
+   "(ii) T<sub>2</sub> = T<sub>1</sub>r<sup>0.4</sup> = 300 × 15.317<sup>0.4</sup> = 300 × 2.979 = 893.7 K (620.7°C).",
+   "(iii) q<sub>s</sub> = c<sub>p</sub>(T<sub>3</sub> − T<sub>2</sub>) ⇒ T<sub>3</sub> = 893.7 + 545/1.004 = 893.7 + 542.8 = 1436.5 K. Cut-off ratio r<sub>c</sub> = T<sub>3</sub>/T<sub>2</sub> = 1.607.",
+   "(iv) η = 1 − (r<sub>c</sub><sup>γ</sup> − 1)/[γ r<sup>γ−1</sup>(r<sub>c</sub> − 1)] = 1 − (1.607<sup>1.4</sup> − 1)/[1.4 × 2.979 × 0.607] = 1 − (1.9435 − 1)/2.5316 = 1 − 0.3727 = 0.627, i.e. about 62.8%.",
+   "<b>(b)</b> r = 16. Cut-off: V<sub>3</sub> = V<sub>2</sub> + 0.06V<sub>s</sub> ⇒ r<sub>c</sub> = 1 + 0.06(r − 1) = 1 + 0.06 × 15 = 1.9.",
+   "η = 1 − (1.9<sup>1.4</sup> − 1)/[1.4 × 16<sup>0.4</sup> × 0.9]. 1.9<sup>1.4</sup> = 2.4555; 16<sup>0.4</sup> = 3.0314. η = 1 − 1.4555/(1.4 × 3.0314 × 0.9) = 1 − 1.4555/3.819 = 1 − 0.3811 = 0.619 = 61.9%.",
+   "<b>(c)</b> m = 1 kg, p<sub>1</sub> = 98 kPa, T<sub>1</sub> = 309 K, p<sub>2</sub> = 3500 kPa. r = (3500/98)<sup>1/1.4</sup> = 35.71<sup>0.7143</sup> = 12.86.",
+   "r<sub>c</sub> = 1 + 0.06(12.86 − 1) = 1.711. T<sub>2</sub> = 309 × 12.86<sup>0.4</sup> = 309 × 2.778 = 858.3 K; T<sub>3</sub> = r<sub>c</sub>T<sub>2</sub> = 1468.9 K.",
+   "η = 1 − (1.711<sup>1.4</sup> − 1)/[1.4 × 2.778 × 0.711] = 1 − (2.1219 − 1)/2.7667 = 1 − 0.4055 = 0.5945 ≈ 59.5%.",
+   "Heat supplied q<sub>s</sub> = c<sub>p</sub>(T<sub>3</sub> − T<sub>2</sub>) = 1.005 × 610.6 = 613.7 kJ; net work = 0.595 × 613.7 = 364.8 kJ.",
+   "V<sub>1</sub> = mRT<sub>1</sub>/p<sub>1</sub> = 0.287 × 309/98 = 0.905 m³; V<sub>s</sub> = V<sub>1</sub>(1 − 1/r) = 0.905 × (1 − 0.0778) = 0.835 m³.",
+   "MEP = W<sub>net</sub>/V<sub>s</sub> = 364.8/0.835 = 437 kPa (4.37 bar)."
+  ],
+  "formulas": [
+   "η<sub>Diesel</sub> = 1 − (r<sub>c</sub><sup>γ</sup> − 1)/[γ r<sup>γ−1</sup>(r<sub>c</sub> − 1)]",
+   "r<sub>c</sub> = 1 + (cut-off fraction)(r − 1)",
+   "MEP = W<sub>net</sub>/V<sub>s</sub>"
+  ],
+  "result": "(a) r = 15.3, T2 = 893.7 K, T3 = 1436.5 K, η = 62.8%; (b) η = 61.9%; (c) η = 59.5%, MEP = 437 kPa"
+ }
+}
