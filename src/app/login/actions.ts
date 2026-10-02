@@ -13,11 +13,14 @@ export type LoginState = {
 };
 
 async function origin() {
-  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
   const h = await headers();
   const host = h.get("x-forwarded-host") ?? h.get("host");
   const proto = h.get("x-forwarded-proto") ?? (host?.startsWith("localhost") ? "http" : "https");
-  return `${proto}://${host}`;
+  if (host && !host.startsWith("localhost")) {
+    return `${proto}://${host}`;
+  }
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+  return `${proto}://${host ?? "localhost:3000"}`;
 }
 
 export async function signInWithPasswordAction(_prev: LoginState, form: FormData): Promise<LoginState> {
