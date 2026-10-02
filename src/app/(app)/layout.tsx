@@ -2,6 +2,7 @@ import { Nav } from "@/components/Nav";
 import { PwaShell } from "@/components/pwa/PwaShell";
 import { TopBar } from "@/components/TopBar";
 import { Ambient, LevelWatcher } from "@/components/Ambient";
+import { Footer } from "@/components/Footer";
 import { requireOnboarded } from "@/lib/auth";
 import { levelFromXp } from "@/lib/xp";
 
@@ -20,6 +21,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       <div className="mx-auto max-w-6xl px-4 pb-28 pt-4 md:pb-10">
         <TopBar streak={s.streak} xp={s.total_xp} level={levelFromXp(s.total_xp).level} goalPct={Math.min(100, Math.round((s.today_xp / profile.daily_goal_xp) * 100))} />
         <main className="pt-4">{children}</main>
+        <Footer />
       </div>
     </div>
   );

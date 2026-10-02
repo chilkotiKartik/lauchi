@@ -10,6 +10,8 @@ import { courseUnits } from "@/lib/quiz";
 import { PYQ_CODES, countQuestions, getPyq } from "@/lib/pyq";
 import { SeeItMove } from "@/components/home/SeeItMove";
 
+import { Footer } from "@/components/Footer";
+
 const steps = [
   ["Sign in", "Enter your email and open the link we send. No password to remember."],
   ["Tell us your semester", "Name, branch and semester. Under a minute."],
@@ -125,10 +127,7 @@ export default async function Landing() {
         </Reveal>
       </main>
 
-      <footer className="border-t-2 border-line px-5 py-8 text-center text-sm text-muted">
-        <p>lockin. is an unofficial, student-built study app. Not affiliated with Veer Madho Singh Bhandari Uttarakhand Technical University. Made by kalu don.</p>
-        <nav aria-label="Legal" className="mt-3 flex flex-wrap justify-center gap-4"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/cookies">Cookies</Link><Link href="/security">Security</Link><Link href="/about">About</Link></nav>
-      </footer>
+      <Footer />
     </div>
   );
 }
