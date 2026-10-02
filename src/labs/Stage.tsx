@@ -100,7 +100,7 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
             frameloop={!visible ? "never" : playing ? "always" : "demand"}
             dpr={quality === "low" ? 1 : [1, 1.5]}
             camera={{ position: camera, fov: 45 }}
-            gl={{ antialias: quality === "high", powerPreference: "default", preserveDrawingBuffer: true }}
+            gl={{ antialias: quality === "high", powerPreference: "high-performance", preserveDrawingBuffer: true, stencil: false, alpha: false }}
           >
             {/* Studio 3-Point Laboratory Lighting */}
             <ambientLight color="#ebf4f9" intensity={0.75} />

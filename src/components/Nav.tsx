@@ -21,7 +21,7 @@ export function Nav() {
           {SECTIONS.map(({ href, label, Icon, isNew }) => {
             const a = on(path, href);
             return (
-              <Link key={href} href={href} aria-current={a ? "page" : undefined}
+              <Link key={href} href={href} prefetch={true} aria-current={a ? "page" : undefined}
                 className={`flex min-h-12 items-center gap-3 rounded-2xl border-2 px-3 text-sm font-extrabold uppercase tracking-wide no-underline transition-colors ${a ? "border-blue bg-blue-l text-blue-t" : "border-transparent text-ink hover:bg-soft"}`}>
                 <Icon size={30} /><span className="flex-1">{label}</span>{isNew && <span className="badge-new">New</span>}
               </Link>
@@ -31,12 +31,12 @@ export function Nav() {
       </aside>
       <nav aria-label="Main" className="fixed inset-x-0 bottom-0 z-20 flex justify-around border-t-2 border-line bg-bg pb-[env(safe-area-inset-bottom)] md:hidden">
         {bottom.map(({ href, label, Icon }) => (
-          <Link key={href} href={href} aria-current={on(path, href) ? "page" : undefined}
+          <Link key={href} href={href} prefetch={true} aria-current={on(path, href) ? "page" : undefined}
             className={`flex min-h-14 min-w-14 flex-1 flex-col items-center justify-center gap-0.5 text-[11px] font-extrabold no-underline ${on(path, href) ? "text-blue-t" : "text-muted"}`}>
             <Icon size={26} />{label === "3D Labs" ? "Labs" : label}
           </Link>
         ))}
-        <Link href="/more" aria-current={path === "/more" ? "page" : undefined}
+        <Link href="/more" prefetch={true} aria-current={path === "/more" ? "page" : undefined}
           className={`flex min-h-14 min-w-14 flex-1 flex-col items-center justify-center gap-0.5 text-[11px] font-extrabold no-underline ${moreActive ? "text-blue-t" : "text-muted"}`}>
           <ArtMore size={26} />More
         </Link>
