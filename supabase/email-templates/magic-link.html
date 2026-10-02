@@ -3,119 +3,186 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Lockin 1-Click Sign-In Link</title>
+  <title>Your 1-Click Login Link — lockin.</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       background-color: #0d1418;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      color: #e2e8f0;
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #e6edf3;
+      -webkit-font-smoothing: antialiased;
+    }
+    table {
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
     }
     .wrapper {
       width: 100%;
       background-color: #0d1418;
-      padding: 40px 0;
+      padding: 32px 0 48px;
     }
-    .container {
-      max-width: 580px;
+    .main-card {
+      max-width: 540px;
       margin: 0 auto;
-      background: linear-gradient(180deg, #182228 0%, #111a1f 100%);
-      border: 2px solid #23313a;
-      border-radius: 24px;
+      background-color: #172228;
+      border: 2px solid #263842;
+      border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
     }
-    .header {
-      padding: 36px 36px 20px;
+    .brand-header {
+      padding: 32px 24px 20px;
       text-align: center;
-      border-bottom: 1px solid #23313a;
-      background: radial-gradient(circle at 50% 0%, rgba(43, 166, 245, 0.15) 0%, transparent 70%);
+      background-color: #121c21;
+      border-bottom: 2px solid #263842;
     }
-    .logo {
-      font-size: 28px;
+    .brand-title {
+      font-size: 30px;
       font-weight: 900;
       color: #ffffff;
       text-decoration: none;
-    }
-    .logo span { color: #44c95a; }
-    .badge {
+      letter-spacing: -0.5px;
+      margin-top: 8px;
       display: inline-block;
-      margin-top: 10px;
-      padding: 4px 12px;
-      background-color: rgba(68, 201, 90, 0.15);
-      border: 1px solid rgba(68, 201, 90, 0.3);
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 800;
-      color: #44c95a;
-      text-transform: uppercase;
     }
-    .content { padding: 36px; }
-    .heading {
-      font-size: 24px;
+    .brand-dot {
+      color: #44c95a;
+    }
+    .content-body {
+      padding: 32px 28px;
+    }
+    .hero-h1 {
+      font-size: 22px;
       font-weight: 900;
       color: #ffffff;
-      margin: 0 0 16px;
+      margin: 0 0 12px;
+      text-align: center;
+      letter-spacing: -0.3px;
     }
-    .text {
+    .hero-p {
       font-size: 15px;
-      line-height: 1.6;
-      color: #94a3b8;
+      font-weight: 700;
+      line-height: 1.55;
+      color: #8fa6b2;
       margin: 0 0 24px;
+      text-align: center;
     }
-    .btn-container { text-align: center; margin: 32px 0; }
-    .btn {
-      display: inline-block;
+    .btn-3d {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
       padding: 16px 36px;
       background-color: #2ba6f5;
       color: #ffffff !important;
       font-size: 16px;
       font-weight: 900;
       text-decoration: none;
-      border-radius: 14px;
-      box-shadow: 0 4px 0 #1476b8, 0 8px 20px rgba(43, 166, 245, 0.3);
-    }
-    .footer {
-      padding: 24px 36px;
       text-align: center;
-      border-top: 1px solid #23313a;
-      background-color: #0f161a;
+      border-radius: 16px;
+      border-bottom: 4px solid #1476b8;
+      box-shadow: 0 4px 12px rgba(43, 166, 245, 0.25);
+      letter-spacing: 0.2px;
+    }
+    .btn-3d:hover {
+      background-color: #42b6ff;
+    }
+    .meta-note {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #6c838f;
+      text-align: center;
+      margin: 20px 0 0;
+    }
+    .footer-bar {
+      padding: 22px 28px;
+      text-align: center;
+      background-color: #10191d;
+      border-top: 2px solid #263842;
+    }
+    .footer-links a {
+      color: #8fa6b2;
+      text-decoration: none;
+      font-weight: 800;
       font-size: 12px;
-      color: #64748b;
+      margin: 0 8px;
+    }
+    .footer-text {
+      font-size: 11px;
+      font-weight: 700;
+      color: #556973;
+      margin: 10px 0 0;
+    }
+    .raw-link {
+      font-size: 11px;
+      color: #2ba6f5;
+      word-break: break-all;
+      margin-top: 14px;
+      display: block;
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <div class="container">
-      <div class="header">
-        <a href="{{ .SiteURL }}" class="logo">lockin<span>.</span></a>
-        <br>
-        <span class="badge">Instant Sign In</span>
+    <div class="main-card">
+      
+      <!-- Official Lockin Header with Lochi mascot SVG -->
+      <div class="brand-header">
+        <!-- SVG Mascot Lochi -->
+        <svg viewBox="0 0 120 132" width="70" height="77" style="display: block; margin: 0 auto;">
+          <ellipse cx="60" cy="127" rx="36" ry="5" fill="rgba(0,0,0,.3)" />
+          <path d="M36 60 V42 a24 24 0 0 1 48 0 V60" fill="none" stroke="#9AA7B0" stroke-width="12" stroke-linecap="round" />
+          <path d="M36 60 V42 a24 24 0 0 1 48 0" fill="none" stroke="#C4CDD3" stroke-width="4" stroke-linecap="round" transform="translate(-3 0)" />
+          <rect x="12" y="56" width="96" height="68" rx="28" fill="#2FA046" />
+          <rect x="12" y="52" width="96" height="66" rx="28" fill="#44C95A" />
+          <rect x="22" y="58" width="40" height="8" rx="4" fill="rgba(255,255,255,.28)" />
+          <!-- Eyes & Happy Smile -->
+          <circle cx="44" cy="82" r="11" fill="#fff" /><circle cx="76" cy="82" r="11" fill="#fff" />
+          <circle cx="46" cy="84" r="5.5" fill="#1F2D33" /><circle cx="78" cy="84" r="5.5" fill="#1F2D33" />
+          <circle cx="48" cy="81" r="1.8" fill="#fff" /><circle cx="80" cy="81" r="1.8" fill="#fff" />
+          <path d="M48 97 Q60 111 72 97 Z" fill="#1F2D33" />
+          <path d="M54 103 Q60 108 66 103 Q60 100 54 103Z" fill="#FF6B81" />
+          <ellipse cx="30" cy="97" rx="6.5" ry="4" fill="#FF8FA3" opacity=".75" /><ellipse cx="90" cy="97" rx="6.5" ry="4" fill="#FF8FA3" opacity=".75" />
+        </svg>
+
+        <a href="{{ .SiteURL }}" class="brand-title">lockin<span class="brand-dot">.</span></a>
       </div>
 
-      <div class="content">
-        <h1 class="heading">Welcome back! Ready to study? ⚡</h1>
-        <p class="text">
-          Tap the button below to instantly sign in to your Lockin dashboard. No password required.
+      <!-- Main Body -->
+      <div class="content-body">
+        <h1 class="hero-h1">Welcome back! Ready to lock in? ⚡</h1>
+        <p class="hero-p">
+          Tap the button below to instantly sign in to your dashboard and continue your study streak.
         </p>
 
-        <div class="btn-container">
-          <a href="{{ .ConfirmationURL }}" class="btn" target="_blank">
-            Open Dashboard & Continue Streak →
+        <!-- 3D Chunky Lockin Blue Button -->
+        <div style="text-align: center; margin: 28px 0 10px;">
+          <a href="{{ .ConfirmationURL }}" class="btn-3d" target="_blank">
+            Open Dashboard & Continue →
           </a>
         </div>
 
-        <p class="text" style="font-size: 13px; text-align: center; color: #64748b; margin-bottom: 0;">
-          This link expires in <b>15 minutes</b> and can only be used once.
+        <p class="meta-note">
+          This 1-click link expires in <b>15 minutes</b> and can only be used once.
         </p>
       </div>
 
-      <div class="footer">
-        <p style="margin: 0 0 8px;">If you didn&apos;t request this link, you can safely ignore this email.</p>
-        <p style="margin: 0; font-size: 11px;">© Lockin Study Platform · Built for Student Academic Excellence</p>
+      <!-- Footer Bar -->
+      <div class="footer-bar">
+        <div class="footer-links">
+          <a href="{{ .SiteURL }}/about">About</a> •
+          <a href="{{ .SiteURL }}/privacy">Privacy</a> •
+          <a href="{{ .SiteURL }}/security">Security</a>
+        </div>
+        <p class="footer-text">
+          lockin. · Built for student academic excellence across technical universities.
+        </p>
+        <span class="raw-link">
+          <a href="{{ .ConfirmationURL }}" style="color: #2ba6f5; text-decoration: none;">{{ .ConfirmationURL }}</a>
+        </span>
       </div>
+
     </div>
   </div>
 </body>
