@@ -3,7 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
-  experimental: { serverActions: { bodySizeLimit: "21mb" } },
+  compress: true, // Enable gzip/brotli compression for high traffic
+  experimental: {
+    serverActions: { bodySizeLimit: "21mb" },
+    optimizePackageImports: ["three", "@react-three/fiber", "@react-three/drei", "lucide-react"],
+  },
   // Some content (PYQ banks, syllabus, tutor context) is read from disk at request time; make sure serverless bundles include it.
   outputFileTracingIncludes: {
     "/**": ["./src/content/**/*.json"],
