@@ -1,6 +1,9 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 import { StartQuizButton } from "@/components/StartQuizButton";
+import { Lochi } from "@/components/Lochi";
+import { sfx } from "@/lib/sound";
 
 export interface DuolingoUnit {
   n: number;
@@ -22,6 +25,14 @@ export function DuolingoCoursePath({
   units: DuolingoUnit[];
   weakUnit?: number | null;
 }) {
+  const [openedChest, setOpenedChest] = useState<number | null>(null);
+  const allDone = units.every((u) => u.isCompleted);
+
+  const handleChest = (idx: number) => {
+    sfx.chest();
+    setOpenedChest(idx);
+  };
+
   return (
     <div className="mx-auto flex max-w-md flex-col items-center py-6">
       {/* Subject Header */}
@@ -31,20 +42,37 @@ export function DuolingoCoursePath({
         <p className="mt-1 text-xs font-bold text-muted">Complete units step-by-step to master the syllabus</p>
       </div>
 
+      {/* Mascot Companion Callout */}
+      <div className="mb-8 flex items-center gap-3 rounded-2xl border-2 border-blue/30 bg-blue/10 p-3.5 w-full text-left shadow-sm">
+        <div className="shrink-0 animate-bounce">
+          <Lochi mood={allDone ? "celebrate" : "happy"} size={42} />
+        </div>
+        <div className="text-xs font-bold text-head">
+          {allDone ? (
+            <span>🎉 Outstanding! Every unit completed! Take on the <b>Final Mock Test</b> below!</span>
+          ) : weakUnit ? (
+            <span>⚠️ Focus on Unit {weakUnit} to strengthen your weak areas and boost your exam score!</span>
+          ) : (
+            <span>🚀 Pick your next lesson node and start answering questions!</span>
+          )}
+        </div>
+      </div>
+
       {/* Stepped Node Journey */}
-      <div className="flex w-full flex-col items-center gap-10">
+      <div className="flex w-full flex-col items-center gap-12 relative">
         {units.map((u, idx) => {
+          const stars = u.accuracy !== undefined ? (u.accuracy >= 90 ? 3 : u.accuracy >= 75 ? 2 : u.accuracy >= 60 ? 1 : 0) : 0;
+          const isWeak = weakUnit === u.n;
+
           // Alternating stepping curve: center, right, left, right, center
           const offsetClass =
             idx % 4 === 1
-              ? "translate-x-8"
+              ? "translate-x-10"
               : idx % 4 === 2
-              ? "-translate-x-8"
+              ? "-translate-x-10"
               : idx % 4 === 3
-              ? "translate-x-4"
+              ? "translate-x-6"
               : "translate-x-0";
-
-          const isWeak = weakUnit === u.n;
 
           return (
             <div key={u.n} className={`flex flex-col items-center text-center transition-transform ${offsetClass}`}>
@@ -60,6 +88,20 @@ export function DuolingoCoursePath({
                 </div>
               ) : null}
 
+              {/* 3-Star Rating Crown */}
+              {u.isCompleted && (
+                <div className="mb-2 flex items-center gap-1">
+                  {[1, 2, 3].map((s) => (
+                    <span
+                      key={s}
+                      className={`text-xs ${s <= stars ? "text-amber-400 drop-shadow-[0_0_4px_#f59e0b]" : "text-slate-600"}`}
+                    >
+                      ★
+                    </span>
+                  ))}
+                </div>
+              )}
+
               {/* 3D Chunky Circular Node Button */}
               {u.isUnlocked ? (
                 <div className="relative group">
@@ -67,7 +109,7 @@ export function DuolingoCoursePath({
                     kind="practice"
                     course={courseCode}
                     unit={u.n}
-                    className={`relative flex h-24 w-24 items-center justify-center rounded-full border-4 shadow-xl transition-transform active:translate-y-1 ${
+                    className={`relative flex h-24 w-24 items-center justify-center rounded-full border-4 shadow-xl transition-all duration-150 active:translate-y-2 active:shadow-none hover:scale-105 ${
                       isWeak
                         ? "border-red-600 bg-red-500 shadow-[0_8px_0_#991b1b] text-white"
                         : u.isCompleted
@@ -104,6 +146,29 @@ export function DuolingoCoursePath({
                   {u.title}
                 </h3>
               </div>
+
+              {/* Bonus Checkpoint Chest between units */}
+              {idx < units.length - 1 && (
+                <div className="mt-6 flex flex-col items-center">
+                  <button
+                    type="button"
+                    onClick={() => handleChest(idx)}
+                    className={`relative flex h-12 w-12 items-center justify-center rounded-2xl border-2 transition-transform hover:scale-110 active:scale-95 ${
+                      openedChest === idx
+                        ? "border-amber-400 bg-amber-400/20 text-amber-300 shadow-md"
+                        : "border-line bg-soft text-muted hover:border-amber-400/60"
+                    }`}
+                    title="Tap bonus chest"
+                  >
+                    {openedChest === idx ? "🎁" : "📦"}
+                  </button>
+                  {openedChest === idx && (
+                    <span className="animate-bounce mt-1 text-[10px] font-black text-amber-400">
+                      +25 XP Streak Boost!
+                    </span>
+                  )}
+                </div>
+              )}
             </div>
           );
         })}
@@ -112,7 +177,8 @@ export function DuolingoCoursePath({
         <div className="mt-6 flex flex-col items-center text-center">
           <Link
             href={`/mock`}
-            className="relative flex h-28 w-28 items-center justify-center rounded-full border-4 border-amber-500 bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-950 shadow-[0_10px_0_#b45309] transition-transform hover:scale-105 active:translate-y-1"
+            onClick={() => sfx.victory()}
+            className="relative flex h-28 w-28 items-center justify-center rounded-full border-4 border-amber-500 bg-gradient-to-br from-amber-400 via-yellow-400 to-amber-500 text-slate-950 shadow-[0_10px_0_#b45309] transition-transform hover:scale-110 active:translate-y-2 active:shadow-none"
           >
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H7.5a1.5 1.5 0 0 0 0 3h9a1.5 1.5 0 0 0 0-3H15c-.55 0-1-.45-1-1v-2.34"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
             <span className="absolute -top-3 rounded-full bg-slate-950 border border-amber-400 px-3 py-0.5 text-[10px] font-black uppercase tracking-wider text-amber-400 shadow-md">
