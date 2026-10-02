@@ -41,17 +41,29 @@ const QUICK = [
 
 export default async function Home() {
   const { supabase, profile } = await requireOnboarded();
-  const { data, error } = await supabase.rpc("dashboard_stats");
-  const stats = data as Stats | null;
+  const statsPromise = supabase.rpc("dashboard_stats");
+  const activityPromise = loadActivity(supabase);
+  const donePromise = doneTopics(supabase);
+  const duePromise = dueCount(supabase);
+
+  const [{ data: statsData, error }, { sessions, events }, done, due] = await Promise.all([
+    statsPromise,
+    activityPromise,
+    donePromise,
+    duePromise,
+  ]);
+
+  const stats = statsData as Stats | null;
   if (error || !stats) return <p className="err" role="alert">We couldn&apos;t load your stats. Refresh the page to try again.</p>;
 
-  const [{ sessions, events }, done, due] = await Promise.all([loadActivity(supabase), doneTopics(supabase), dueCount(supabase)]);
+  const fixStatsPromise = allUnitStats(profile.id, sessions);
   const lv = levelFromXp(stats.total_xp);
   const goalDone = stats.today_xp >= profile.daily_goal_xp;
   const acc = accuracy(sessions);
   const pool = quizzedTopics(profile.branch);
   const ready = readiness(done.size, pool.total, acc?.pct ?? null);
-  const fix = leaking((await allUnitStats(profile.id, sessions)).filter((u) => canSeeCourse(profile.branch, u.course)));
+  const rawFix = await fixStatsPromise;
+  const fix = leaking(rawFix.filter((u) => canSeeCourse(profile.branch, u.course)));
   const quests = dailyQuests({ today: stats.today, tz: profile.timezone, todayXp: stats.today_xp, goal: profile.daily_goal_xp, sessions, events });
   const earned = badges({ totalXp: stats.total_xp, level: lv.level, sessions, topicsDone: done.size, best: Math.max(stats.streak, bestStreak(stats.days)) }).filter((b) => b.earned);
   const left = profile.exam_date ? daysBetween(stats.today, profile.exam_date) : null;
