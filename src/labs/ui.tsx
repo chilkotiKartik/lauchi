@@ -2,6 +2,7 @@
 import { useId, useState, type ReactNode } from "react";
 import { Stage, useReducedMotion } from "./Stage";
 import { useLabToolbar } from "./params";
+import { LabRecordModal } from "./LabRecordModal";
 
 export function Slider({ label, value, min, max, step = 0.01, onChange, unit = "", digits = 2 }: {
   label: string; value: number; min: number; max: number; step?: number; unit?: string; digits?: number;
@@ -73,22 +74,39 @@ export function LabFrame({ label, camera, scene, controls, readouts, note, onRes
 }) {
   const rm = useReducedMotion();
   const [manual, setManual] = useState<boolean | null>(null);
+  const [showRecord, setShowRecord] = useState(false);
   const playing = animated && (manual ?? !rm);
   const toolbar = useLabToolbar();
   return (
     <div className="grid gap-4">
       <Stage label={label} playing={playing} camera={camera}>{scene(playing)}</Stage>
       {animated && rm && manual === null && <p role="note" className="rounded-xl bg-soft px-3 py-2 text-sm font-semibold text-muted">Animation is paused because your device asks for reduced motion. Press Play to run it.</p>}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         {animated && (
           <button type="button" className="btn btn-blue" aria-pressed={playing} onClick={() => setManual(!playing)}>{playing ? "Pause" : "Play"}</button>
         )}
         <button type="button" className="btn btn-ghost" onClick={() => { onReset(); setManual(null); }}>Reset</button>
+        <button
+          type="button"
+          className="btn btn-ghost border border-line bg-surface text-head hover:bg-soft"
+          onClick={() => setShowRecord(true)}
+          title="Open University Practical Record & PDF Report Generator"
+        >
+          📑 Lab Record / Report
+        </button>
         {toolbar}
       </div>
       <Readouts items={readouts} />
       <div className="card grid gap-3 p-4 md:grid-cols-2">{controls}</div>
       <div className="card p-4 text-[0.95rem] leading-relaxed text-body">{note}</div>
+
+      <LabRecordModal
+        title="Engineering & Science Practical Record"
+        label={label}
+        readouts={readouts}
+        isOpen={showRecord}
+        onClose={() => setShowRecord(false)}
+      />
     </div>
   );
 }
