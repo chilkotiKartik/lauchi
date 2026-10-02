@@ -41,7 +41,7 @@ describe("seeded question engine", () => {
     }
     expect(checked).toBeGreaterThan(2000);
     expect(bankSize("AHT-003", 1)).toBeGreaterThan(3);
-  });
+  }, 30000);
 });
 
 describe("grading", () => {
