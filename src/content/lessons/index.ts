@@ -15,9 +15,11 @@ import { L_MET001_HI, L_MET001_HL } from "./i18n/met-001";
 import { AHT003_HI, AHT003_HL } from "./i18n/aht-003";
 import { L_BCA001 } from "./bca-001";
 import { L_BCA002 } from "./bca-002";
+import { L_BCA004 } from "./bca-004";
 import { L_BCA006 } from "./bca-006";
 import { L_BCA007 } from "./bca-007";
 import { L_BCA008 } from "./bca-008";
+import { L_BCA009 } from "./bca-009";
 
 /** Lessons are keyed by topic key ("COURSE:unit:topic"). Topics without an entry show the syllabus notes only. */
 export const LESSONS: Record<string, Lesson> = {
@@ -39,9 +41,11 @@ export const LESSONS: Record<string, Lesson> = {
   ...L_MET001,
   ...L_BCA001,
   ...L_BCA002,
+  ...L_BCA004,
   ...L_BCA006,
   ...L_BCA007,
   ...L_BCA008,
+  ...L_BCA009,
 };
 export const LESSONS_HI: Record<string, Lesson> = { ...AHT003_HI, ...L_AHT001_HI, ...L_AHT002_HI, ...L_EET001_HI, ...L_ECT001_HI, ...L_MET001_HI };
 export const LESSONS_HL: Record<string, Lesson> = { ...AHT003_HL, ...L_AHT001_HL, ...L_AHT002_HL, ...L_EET001_HL, ...L_ECT001_HL, ...L_MET001_HL };
