@@ -20,6 +20,14 @@ export type QuizError = { error: string };
 const COUNT = { practice: 10, topic: 5, mock: 20, assignment: 10 } as const;
 
 
+function getClient(s: NonNullable<Awaited<ReturnType<typeof getSession>>>) {
+  try {
+    return createAdminClient();
+  } catch {
+    return s.supabase;
+  }
+}
+
 export async function startQuiz(input: unknown): Promise<QuizError> {
   const s = await getSession();
   if (!s || !s.profile.onboarded_at) redirect("/login");
@@ -34,11 +42,12 @@ export async function startQuiz(input: unknown): Promise<QuizError> {
     const t = topicKey ? parseTopicKey(topicKey) : null;
     if (!t || t.course !== course || t.unit !== unit || !c.units[unit - 1].topics[t.topic - 1]) return { error: "That topic doesn't exist." };
   }
+  const client = getClient(s);
   if (kind === "assignment") {
     // An assignment is resumable: reopen the one this student left unfinished for this unit.
     let resume: string | null = null;
     try {
-      const { data: open } = await createAdminClient().from("quiz_sessions").select("id").eq("user_id", s.user.id).eq("kind", "assignment")
+      const { data: open } = await client.from("quiz_sessions").select("id").eq("user_id", s.user.id).eq("kind", "assignment")
         .eq("course", course).eq("unit", unit).is("submitted_at", null).order("created_at", { ascending: false }).limit(1);
       resume = (open?.[0] as { id: string } | undefined)?.id ?? null;
     } catch { /* fall through and start a fresh one */ }
@@ -46,12 +55,17 @@ export async function startQuiz(input: unknown): Promise<QuizError> {
   }
   let id: string;
   try {
-    const { data, error } = await createAdminClient().rpc("start_quiz_session", {
+    const { data, error } = await client.rpc("start_quiz_session", {
       p_user: s.user.id, p_course: course, p_unit: unit, p_seed: newSeed(), p_kind: kind, p_topic: kind === "topic" ? topicKey : null, p_total: COUNT[kind],
     });
-    if (error) return { error: /too many/.test(error.message) ? "You've done a lot of quizzes today. Come back tomorrow." : "We couldn't start the quiz. Try again." };
+    if (error) {
+      return { error: /too many/.test(error.message) ? "You've done a lot of quizzes today. Come back tomorrow." : `We couldn't start the quiz (${error.message}). Try again.` };
+    }
     id = data as string;
-  } catch { return { error: "Quizzes aren't configured on this server yet." }; }
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : "Quizzes aren't configured on this server yet.";
+    return { error: msg };
+  }
   redirect(`/quiz/${id}`);
 }
 
@@ -76,10 +90,10 @@ export async function checkAnswer(input: unknown): Promise<CheckResult> {
   const raw = gen.q;
   const prior = q.answers[String(i)];
   const correct = prior ? prior.ok : grade(raw, p.data.answer as Answer);
-  const admin = createAdminClient();
+  const client = getClient(s);
   if (!prior) {
     const unit = sessionUnit(q, i);
-    const { error } = await admin.rpc("record_answer_tagged", {
+    const { error } = await client.rpc("record_answer_tagged", {
       p_user: s.user.id, p_session: q.id, p_index: i, p_answer: p.data.answer, p_correct: correct, p_template: gen.t, p_seed: gen.s, p_unit: unit,
     });
     if (error) return { ok: false, error: "We couldn't save that answer." };
@@ -87,7 +101,7 @@ export async function checkAnswer(input: unknown): Promise<CheckResult> {
     // every missed question joins the "Revise today" queue, due tomorrow
     if (!correct) {
       try {
-        await admin.rpc("revise_add", { p_user: s.user.id, p_kind: "quiz", p_ref: quizRef(q.course, unit, gen.t, gen.s), p_course: q.course, p_unit: unit, p_title: titleSnippet(raw.q) });
+        await client.rpc("revise_add", { p_user: s.user.id, p_kind: "quiz", p_ref: quizRef(q.course, unit, gen.t, gen.s), p_course: q.course, p_unit: unit, p_title: titleSnippet(raw.q) });
       } catch { /* the queue is a bonus: never block the quiz on it */ }
     }
   }
@@ -112,17 +126,18 @@ export async function finishQuiz(input: unknown, submitEarly = false): Promise<F
   if (!s) return { ok: false, error: "Your session expired. Log in again." };
   const id = sessionId.safeParse(input);
   if (!id.success) return { ok: false, error: "Unknown quiz." };
+  const client = getClient(s);
   if (submitEarly) {
     const q = await loadSession(s.user.id, id.data);
     if (!q || q.kind !== "mock") return { ok: false, error: "Unknown quiz." };
     if (!q.submitted_at) {
       for (let i = 0; i < q.total; i++) {
         if (q.answers[String(i)]) continue;
-        await createAdminClient().rpc("record_answer", { p_user: s.user.id, p_session: q.id, p_index: i, p_answer: null, p_correct: false });
+        await client.rpc("record_answer", { p_user: s.user.id, p_session: q.id, p_index: i, p_answer: null, p_correct: false });
       }
     }
   }
-  const { data, error } = await createAdminClient().rpc("finish_quiz_session", { p_user: s.user.id, p_session: id.data });
+  const { data, error } = await client.rpc("finish_quiz_session", { p_user: s.user.id, p_session: id.data });
   if (error) return { ok: false, error: /fast/.test(error.message) ? "That was quick! Take a moment to read each question." : "We couldn't finish the quiz." };
   const r = data as { correct: number; total: number; xp: number; topic_completed: boolean; passed?: boolean; replay: boolean };
   revalidatePath("/", "layout");
