@@ -108,11 +108,19 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
             <directionalLight position={[-7, 5, -5]} intensity={0.45} color="#9ec5db" />
             <pointLight position={[0, 8, -6]} intensity={0.35} color="#44c95a" />
 
+            {/* Realistic Laboratory Workbench Floor Grid */}
+            <gridHelper args={[30, 30, "#2a4d63", "#122530"]} position={[0, -0.01, 0]} />
+
             {/* Smooth physical camera controls */}
             {variant === "lab" && <OrbitControls enableDamping dampingFactor={0.08} makeDefault minDistance={2} maxDistance={28} />}
             {variant === "lab" && <Fit base={camera} />}
             {children}
           </Canvas>
+          {variant === "lab" && (
+            <div className="pointer-events-none absolute bottom-3 left-3 rounded-xl border border-line/40 bg-slate-950/80 px-2.5 py-1 text-[11px] font-bold text-slate-300 backdrop-blur-md shadow">
+              🖐️ 360° Orbit · Pinch / Scroll to Zoom
+            </div>
+          )}
           </Guard>
           {lost && <div role="status" className="absolute inset-0 grid place-items-center bg-[#0f1a20]/90 p-6 text-center font-bold text-white">Your graphics driver reset the 3D view. It will come back on its own in a moment.</div>}
         </Q.Provider>
