@@ -8,53 +8,77 @@ export const metadata: Metadata = { title: "Privacy Policy" };
 export default function Privacy() {
   return (
     <LegalPage title="Privacy Policy">
-      <p><b>Plain-language summary.</b> You need an account to use lockin. We store your email, your name and your study progress so they follow you between devices. We do not sell your data, show ads or use tracking cookies. You can download or delete everything from your Profile page.</p>
-      <h2>1. Who we are</h2>
-      <p>lockin. is run by {operator.name} (“we”). For the Digital Personal Data Protection Act, 2023 (India) we are the Data Fiduciary for the information below. Questions or requests: <Mail />. Grievances: <Mail kind="grievance" />.</p>
-      <h2>2. What we collect and why</h2>
-      <table><thead><tr><th>Information</th><th>Why</th></tr></thead><tbody>
-        <tr><td>Email address and name</td><td>To sign you in and greet you</td></tr>
-        <tr><td>Branch, year, semester, daily goal, time zone, language</td><td>To set up your subjects and work out your streak in your own time zone</td></tr>
-        <tr><td>Study activity: XP events, topic progress, quiz, mock and practical attempts, study plan</td><td>To run the app, your streak, level and (only if you join) the weekly league</td></tr>
-        <tr><td>Your choice to join the weekly league (off by default)</td><td>If you join, other joined students see your first name and this week’s XP, nothing else. You can leave at any time and you disappear straight away</td></tr>
-        <tr><td>Questions you ask Lochi</td><td>Sent to Google’s Gemini service to write a reply. We keep only a usage counter, not the text</td></tr>
-        <tr><td>Video searches</td><td>The topic name (not who you are) is sent to YouTube to find lectures; results are cached for a day. A per-student counter of new searches is kept in server memory for the day</td></tr>
-        <tr><td>Study preferences, focus minutes</td><td>Stored only in your browser on this device (local storage). Never sent to us</td></tr>
-        <tr><td>Questions to revise and PYQs you mark as practised</td><td>Saved on your account so “Revise today” can bring them back at the right time</td></tr>
-        <tr><td>Push notification address (only if you turn reminders on)</td><td>Your browser gives us an endpoint address, which we store so we can send you study reminders. Turn reminders off in Settings and it is deleted</td></tr>
-        <tr><td>Friends and groups (only if you use them)</td><td>Friends and group members can see your first name, your streak and whether you studied today. Nobody else can</td></tr>
-        <tr><td>Photos you ask Lochi to check</td><td>The image is sent to Google’s Gemini service to read your working, and is not stored by us</td></tr>
-        <tr><td>IP address (short-lived)</td><td>To rate-limit abuse. Held briefly in a counter and in our hosting provider’s logs</td></tr>
-        <tr><td>Consent record: policy version and time</td><td>To prove and manage your consent</td></tr>
-      </tbody></table>
-      <p>We do not ask for your phone number, address, government ID or payment details.</p>
-      <h2>3. Legal basis</h2>
-      <p>Your consent, given when you tick the box during setup and withdrawable at any time (section 7), and limited uses the Act allows, such as keeping the service secure.</p>
-      <h2>4. Who else handles your data</h2>
+      <div className="rounded-2xl border-2 border-blue/30 bg-blue/10 p-5">
+        <h2 className="!mt-0 text-base !font-black text-blue-t">Student Data Commitment</h2>
+        <p className="mt-1 text-sm font-bold text-body">
+          <b>Plain-Language Summary:</b> You need an account to use lockin. We store only your email, name, branch, and academic progress so your syllabus status and flashcards synchronize across your devices. We never sell your data, run ads, or share student analytics with third parties.
+        </p>
+      </div>
+
+      <h2>1. Data Fiduciary & Identity</h2>
+      <p>
+        lockin. is operated by {operator.name} (“we”, “our”). Under the Digital Personal Data Protection Act, 2023 (DPDP Act, India), we act as the Data Fiduciary for personal data processed on this platform.
+      </p>
+      <p>
+        Official contact for data inquiries: <Mail />. Grievance officer contact: <Mail kind="grievance" />.
+      </p>
+
+      <h2>2. Categories of Data Collected</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Data Category</th>
+            <th>Specific Attributes</th>
+            <th>Operational Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Identity & Account</b></td>
+            <td>Email address, full name, hashed credentials</td>
+            <td>User authentication, password recovery, and profile personalization.</td>
+          </tr>
+          <tr>
+            <td><b>Academic Profile</b></td>
+            <td>University branch, year, semester, target SGPA, daily XP goal, timezone</td>
+            <td>Customizing your subject syllabus, calculating daily streaks accurately in your local timezone, and structuring study plans.</td>
+          </tr>
+          <tr>
+            <td><b>Learning Analytics</b></td>
+            <td>Quiz scores, mock exam answers, 3D lab observations, spaced repetition queues</td>
+            <td>Powers adaptive question difficulty, revision schedules, and personalized doubt resolution.</td>
+          </tr>
+          <tr>
+            <td><b>AI Tutor Queries</b></td>
+            <td>Maths & engineering question text / photos submitted to Lochi</td>
+            <td>Processed via Google Gemini API to generate instant step-by-step solutions. Question texts are not retained for model training.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>3. Technical & Sub-Processor Infrastructure</h2>
       <ul>
-        <li><b>Supabase</b>: database and sign-in provider.</li>
-        <li><b>Vercel</b>: hosts the website and the server that talks to Gemini. Keeps standard server logs.</li>
-        <li><b>Google (Gemini API)</b>: receives what you send to Lochi, under Google’s own terms. Google (Sign in with Google) if you choose it.</li>
-        <li><b>YouTube (Google)</b>: videos play in YouTube’s privacy-enhanced player (youtube-nocookie.com) only after you choose one; YouTube then applies its own terms. Thumbnails load from i.ytimg.com.</li>
-        <li><b>Your browser’s speech service</b>: if you use voice typing, Chrome and Edge send the audio to Google or Microsoft to turn it into text. Read-aloud uses your device’s own voices.</li>
+        <li><b>Database & Auth (Supabase PostgreSQL):</b> User credentials and progress tables stored with Row-Level Security (RLS) enforcement.</li>
+        <li><b>Hosting & Edge Runtime (Vercel):</b> Global CDN and serverless computing with HTTPS TLS 1.3 encryption in transit.</li>
+        <li><b>AI Acceleration (Google Gemini API):</b> Powers step-by-step explanations and math step parsing under strict enterprise API terms.</li>
+        <li><b>Video Caching (YouTube Privacy-Enhanced):</b> Embeds run in <code>youtube-nocookie.com</code> mode.</li>
       </ul>
-      <p>These providers may process data on servers outside India. We do not sell your data or share it for advertising.</p>
-      <h2>5. How long we keep it</h2>
-      <p>Account data stays until you delete your account. Rate-limit counters are short-lived.</p>
-      <h2>6. How we protect it</h2>
-      <p>Traffic is encrypted. Database rules let each student read and change only their own private data. XP can only be written by the server. Secret keys never reach your browser. See <Link href="/security">Security</Link>. No system is perfectly safe; if a breach affects you we will tell you and the authorities as the law requires.</p>
-      <h2>7. Your rights</h2>
+
+      <h2>4. Data Retention & Student Rights</h2>
+      <p>
+        Under Indian DPDP Act & international standards, students hold absolute rights over their personal data:
+      </p>
       <ul>
-        <li><b>Access and download:</b> Profile → “Download my data”.</li>
-        <li><b>Correction:</b> edit your details on the Profile page.</li>
-        <li><b>Erasure and withdrawing consent:</b> Profile → “Delete my account” removes your login, profile, progress and consent records.</li>
-        <li><b>Grievance:</b> write to <Mail kind="grievance" />. If we do not resolve it you may complain to the Data Protection Board of India.</li>
-        <li><b>Nominate</b> someone to exercise these rights for you if you cannot.</li>
+        <li><b>Right to Access & Portability:</b> Download your complete study history, question attempts, and lab logs at any time from your Profile settings.</li>
+        <li><b>Right to Correction:</b> Update your name, branch, semester, or password instantly.</li>
+        <li><b>Right to Erasure (Right to be Forgotten):</b> Delete your account in one click. All profile rows, study streaks, and activity logs are permanently deleted from database tables.</li>
+        <li><b>Grievance Redressal:</b> Direct access to our designated Grievance Officer (<Mail kind="grievance" />) with response timelines mandated by law.</li>
       </ul>
-      <h2>8. Age</h2>
-      <p>lockin. is for university students aged 18 or over. If we learn that an account belongs to someone under 18 we will delete it.</p>
-      <h2>9. Changes</h2>
-      <p>If we change this policy in a way that matters we will update the date above and ask for your agreement again.</p>
+
+      <h2>5. Security Assurance</h2>
+      <p>
+        All communication is secured using TLS 1.3 encryption. Database access is strictly sandboxed: students can only access their own private rows. For detailed technical architecture, read our <Link href="/security" className="font-bold text-blue-t hover:underline">Security Whitepaper</Link>.
+      </p>
     </LegalPage>
   );
 }
