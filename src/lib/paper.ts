@@ -7,7 +7,11 @@ export const PAPER = { maxMarks: 100, minutes: 180, questions: 5, partsPerQ: 3, 
 export const PAPER_MS = PAPER.minutes * 60_000;
 export const LETTERS = ["a", "b", "c"] as const;
 export type PaperMode = "practice" | "exam";
-export const PAPER_COURSES = ["AHT-001", "AHT-002", "EET-001", "ECT-001", "MET-001"] as const;
+export const PAPER_COURSES = [
+  "AHT-001", "AHT-002", "EET-001", "ECT-001", "MET-001",
+  "AHT-003", "AHT-005", "CST-001",
+  "BCA-001", "BCA-002", "BCA-003", "BCA-004", "BCA-005", "BCA-006", "BCA-007", "BCA-008", "BCA-009", "BCA-010", "BCA-011",
+] as const;
 
 /** "1a" … "5c": question number (1-based) and part letter. */
 export const partKey = (q: number, p: number) => `${q + 1}${LETTERS[p]}`;
