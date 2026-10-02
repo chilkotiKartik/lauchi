@@ -8,6 +8,8 @@ schemas = ["public", "auth"]
 
 [auth]
 enabled = true
+site_url = "https://lauchi.vercel.app"
+additional_redirect_urls = ["https://lauchi.vercel.app/**", "http://localhost:3000/**"]
 
 [auth.email]
 enable_signup = true
@@ -21,3 +23,7 @@ content_path = "./supabase/email-templates/confirm-signup.html"
 [auth.email.template.magic_link]
 subject = "Your 1-Click Login Link for Lockin ⚡"
 content_path = "./supabase/email-templates/magic-link.html"
+
+[auth.email.template.recovery]
+subject = "🔐 Reset your Lockin password"
+content_path = "./supabase/email-templates/reset-password.html"
