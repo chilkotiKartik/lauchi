@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Lockin — Verify Your Student Account</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0d1418;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #e2e8f0;
+      -webkit-font-smoothing: antialiased;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      background-color: #0d1418;
+      padding: 40px 0;
+    }
+    .container {
+      max-width: 580px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #182228 0%, #111a1f 100%);
+      border: 2px solid #23313a;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+    .header {
+      padding: 36px 36px 20px;
+      text-align: center;
+      border-bottom: 1px solid #23313a;
+      background: radial-gradient(circle at 50% 0%, rgba(68, 201, 90, 0.15) 0%, transparent 70%);
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: #44c95a;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 12px;
+      background-color: rgba(43, 166, 245, 0.15);
+      border: 1px solid rgba(43, 166, 245, 0.3);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #2ba6f5;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .content {
+      padding: 36px;
+    }
+    .heading {
+      font-size: 24px;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0 16px;
+      line-height: 1.3;
+    }
+    .text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #94a3b8;
+      margin: 0 0 24px;
+    }
+    .highlight-card {
+      background-color: #1a272f;
+      border-left: 4px solid #44c95a;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+    }
+    .highlight-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .highlight-desc {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+    .btn-container {
+      text-align: center;
+      margin: 32px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 16px 36px;
+      background-color: #44c95a;
+      color: #072710 !important;
+      font-size: 16px;
+      font-weight: 900;
+      text-decoration: none;
+      border-radius: 14px;
+      box-shadow: 0 4px 0 #2fa046, 0 8px 20px rgba(68, 201, 90, 0.3);
+      letter-spacing: 0.2px;
+    }
+    .quote-box {
+      background: rgba(122, 63, 214, 0.1);
+      border: 1px dashed rgba(169, 112, 255, 0.3);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .quote-text {
+      font-size: 13px;
+      font-style: italic;
+      color: #d8b4fe;
+      margin: 0;
+    }
+    .footer {
+      padding: 24px 36px 32px;
+      text-align: center;
+      border-top: 1px solid #23313a;
+      background-color: #0f161a;
+    }
+    .footer-text {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.6;
+      margin: 0 0 8px;
+    }
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 700;
+      margin: 0 8px;
+    }
+    .link-fallback {
+      word-break: break-all;
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <a href="{{ .SiteURL }}" class="logo">lockin<span>.</span></a>
+        <br>
+        <span class="badge">Study Smarter · Semester Excellence</span>
+      </div>
+
+      <!-- Main Body -->
+      <div class="content">
+        <h1 class="heading">Your semester breakthrough starts here. 🚀</h1>
+        
+        <p class="text">
+          Welcome to <b>lockin.</b> — where technical concepts click. You are one step away from accessing live 3D physics apparatuses, endless seeded practice quizzes, and an AI tutor ready 24/7.
+        </p>
+
+        <!-- Motivation Card -->
+        <div class="highlight-card">
+          <div class="highlight-title">💡 Why Lockin?</div>
+          <div class="highlight-desc">
+            No rote memorization. Master topics visually with 3D interactive labs, track your daily streaks, and walk into your university end-sem exams knowing your number.
+          </div>
+        </div>
+
+        <!-- Primary Action Button -->
+        <div class="btn-container">
+          <a href="{{ .ConfirmationURL }}" class="btn" target="_blank">
+            Verify Email & Lock In →
+          </a>
+        </div>
+
+        <p class="text" style="font-size: 13px; text-align: center; color: #64748b; margin-bottom: 0;">
+          This verification link is valid for <b>24 hours</b> and can only be used once.
+        </p>
+
+        <!-- Quote -->
+        <div class="quote-box">
+          <p class="quote-text">
+            “Success in engineering is not about luck; it’s about deep clarity and relentless daily reps.”
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p class="footer-text">
+          If you didn’t create this account, you can safely disregard this email.
+        </p>
+        <p class="footer-text link-fallback">
+          Button not working? Copy and paste this URL into your browser:<br>
+          <a href="{{ .ConfirmationURL }}" style="color: #2ba6f5;">{{ .ConfirmationURL }}</a>
+        </p>
+        <div class="footer-links" style="margin-top: 16px;">
+          <a href="{{ .SiteURL }}/about">About</a> •
+          <a href="{{ .SiteURL }}/privacy">Privacy</a> •
+          <a href="{{ .SiteURL }}/security">Security</a>
+        </div>
+        <p class="footer-text" style="margin-top: 12px; font-size: 11px;">
+          © Lockin Study Platform · Built for Student Academic Excellence
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
