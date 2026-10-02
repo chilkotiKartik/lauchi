@@ -64,9 +64,6 @@ export function LegalPage({ title, children }: { title: string; children: React.
               <Link href="/cookies" className="rounded-xl border border-line bg-soft px-4 py-2 hover:bg-surface hover:text-blue-t transition-colors">
                 Cookie Notice
               </Link>
-              <Link href="/security" className="rounded-xl border border-line bg-soft px-4 py-2 hover:bg-surface hover:text-blue-t transition-colors">
-                Security Architecture
-              </Link>
               <Link href="/about" className="rounded-xl border border-line bg-soft px-4 py-2 hover:bg-surface hover:text-blue-t transition-colors">
                 About Platform
               </Link>
