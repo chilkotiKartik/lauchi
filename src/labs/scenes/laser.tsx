@@ -64,8 +64,8 @@ export default function LaserLab() {
 
           {/* High Reflectivity Rear Mirror Mount (99.9% mirror) */}
           <group position={[-len / 2 - 0.18, 0, 0]}>
-            <mesh>
-              <cylinderGeometry args={[0.75, 0.75, 0.14, 32]} rotation={[0, 0, Math.PI / 2]} />
+            <mesh rotation={[0, 0, Math.PI / 2]}>
+              <cylinderGeometry args={[0.75, 0.75, 0.14, 32]} />
               <meshStandardMaterial color="#2d3748" metalness={0.8} roughness={0.3} />
             </mesh>
             <mesh position={[0.075, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
@@ -76,8 +76,8 @@ export default function LaserLab() {
 
           {/* Output Coupler Mirror Mount */}
           <group position={[len / 2 + 0.18, 0, 0]}>
-            <mesh>
-              <cylinderGeometry args={[0.75, 0.75, 0.14, 32]} rotation={[0, 0, Math.PI / 2]} />
+            <mesh rotation={[0, 0, Math.PI / 2]}>
+              <cylinderGeometry args={[0.75, 0.75, 0.14, 32]} />
               <meshStandardMaterial color="#2d3748" metalness={0.8} roughness={0.3} />
             </mesh>
             <mesh position={[-0.075, 0, 0]} rotation={[0, 0, -Math.PI / 2]}>

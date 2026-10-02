@@ -13,7 +13,7 @@ const MULT = [0.4, 0.7, 1, 1.4, 1.9];
 const COLS = ["#5b6d77", "#2ba6f5", "#44c95a", "#ffc83d", "#a970ff"];
 
 export default function BjtLab() {
-  const [P, set, reset] = useLabParams(ELEC_SPECS.bjt);
+  const [P, set, reset] = useLabParams(ELEX_SPECS.bjt);
   const { VCC, RB, RC, beta, early } = P;
   const va = early ? VA : Infinity;
   const B = fixedBias(VCC, RB * 1000, RC * 1000, beta, va);

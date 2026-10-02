@@ -54,6 +54,7 @@ export default function TransformerLab() {
   const { V1, N1, N2, f, RL, A } = P;
   const T = transformer(V1, N1, N2, f, RL, A);
   const coreCol = T.saturated ? "#ff6055" : T.Bm > 1.2 ? "#e59f48" : "#657682";
+  const vh = (v: number) => Math.min(2.0, Math.max(0.08, (v / 440) * 1.8));
 
   return (
     <LabFrame

@@ -1,6 +1,7 @@
 "use client";
 import { Line } from "@react-three/drei";
 import { useMemo } from "react";
+import * as THREE from "three";
 import { polarimeter, SAMPLES, type SampleId } from "../sim/phyx";
 import { LabFrame, Pick, Slider } from "../ui";
 import { useLabParams } from "../params";
