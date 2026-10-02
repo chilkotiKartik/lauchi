@@ -12,14 +12,38 @@ function paintWave(geo: THREE.PlaneGeometry, sources: { x: number; y: number }[]
   const p = geo.attributes.position;
   let col = geo.attributes.color as THREE.BufferAttribute | undefined;
   if (!col) { col = new THREE.BufferAttribute(new Float32Array(p.count * 3), 3); geo.setAttribute("color", col); }
-  const c = new THREE.Color();
-  for (let i = 0; i < p.count; i++) {
-    const h = waveField(sources, k, t, p.getX(i), p.getY(i)) * amp;
-    p.setZ(i, h * 0.9);
-    c.setHSL(0.58, 0.75, 0.42 + 0.3 * Math.max(-1, Math.min(1, h * 1.5)));
-    col.setXYZ(i, c.r, c.g, c.b);
+  const posArr = p.array as Float32Array;
+  const colArr = col.array as Float32Array;
+  const nSrc = sources.length;
+  
+  for (let i = 0, j = 0; i < p.count; i++, j += 3) {
+    const x = posArr[j];
+    const y = posArr[j + 1];
+    let s = 0;
+    for (let si = 0; si < nSrc; si++) {
+      const dx = x - sources[si].x;
+      const dy = y - sources[si].y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      s += Math.sin(k * d - t) / Math.sqrt(1 + d * 0.8);
+    }
+    const h = s * amp;
+    posArr[j + 2] = h * 0.85;
+
+    // Fast water shader coloring: deep indigo in troughs, aqua in crests, bright white peaks
+    const norm = Math.max(-1, Math.min(1, h * 1.6));
+    if (norm > 0) {
+      colArr[j] = 0.05 + norm * 0.45;     // R
+      colArr[j + 1] = 0.45 + norm * 0.55; // G
+      colArr[j + 2] = 0.75 + norm * 0.25; // B
+    } else {
+      colArr[j] = 0.02 + (1 + norm) * 0.03;
+      colArr[j + 1] = 0.15 + (1 + norm) * 0.3;
+      colArr[j + 2] = 0.4 + (1 + norm) * 0.35;
+    }
   }
-  p.needsUpdate = true; col.needsUpdate = true; geo.computeVertexNormals();
+  p.needsUpdate = true;
+  col.needsUpdate = true;
+  geo.computeVertexNormals();
 }
 export default function InterferenceLab() {
   const quality = useQuality();

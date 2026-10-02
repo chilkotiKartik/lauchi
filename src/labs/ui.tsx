@@ -78,9 +78,27 @@ export function LabFrame({ label, camera, scene, controls, readouts, note, onRes
   const playing = animated && (manual ?? !rm);
   const toolbar = useLabToolbar();
   return (
-    <div className="grid gap-4">
-      <Stage label={label} playing={playing} camera={camera}>{scene(playing)}</Stage>
+    <div className="grid gap-3">
+      {/* 3D Simulation Stage */}
+      <div className="sticky top-2 z-10 lg:static">
+        <Stage label={label} playing={playing} camera={camera}>{scene(playing)}</Stage>
+      </div>
+
       {animated && rm && manual === null && <p role="note" className="rounded-xl bg-soft px-3 py-2 text-sm font-semibold text-muted">Animation is paused because your device asks for reduced motion. Press Play to run it.</p>}
+      
+      {/* Interactive Controls First for Direct Visual Feedback */}
+      <div className="card grid gap-3.5 border-2 border-line bg-surface p-4 shadow-md md:grid-cols-2">
+        <div className="flex items-center justify-between border-b border-line/60 pb-2 md:col-span-2">
+          <span className="text-xs font-black uppercase tracking-wider text-head flex items-center gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-blue" />
+            Live Parameters &amp; Sliders
+          </span>
+          <span className="text-xs font-bold text-muted">Real-time simulation feedback</span>
+        </div>
+        {controls}
+      </div>
+
+      {/* Action Toolbar */}
       <div className="flex flex-wrap items-center gap-2">
         {animated && (
           <button type="button" className="btn btn-blue" aria-pressed={playing} onClick={() => setManual(!playing)}>{playing ? "Pause" : "Play"}</button>
@@ -96,8 +114,11 @@ export function LabFrame({ label, camera, scene, controls, readouts, note, onRes
         </button>
         {toolbar}
       </div>
+
+      {/* Numerical Telemetry Readouts */}
       <Readouts items={readouts} />
-      <div className="card grid gap-3 p-4 md:grid-cols-2">{controls}</div>
+
+      {/* Physics / Theory Explanation Note */}
       <div className="card p-4 text-[0.95rem] leading-relaxed text-body">{note}</div>
 
       <LabRecordModal
