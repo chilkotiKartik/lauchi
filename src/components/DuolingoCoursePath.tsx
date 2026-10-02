@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { Lock, Dumbbell, Trophy, CheckCircle2, Sparkles } from "lucide-react";
 import { StartQuizButton } from "@/components/StartQuizButton";
 
 export interface DuolingoUnit {
@@ -56,7 +55,7 @@ export function DuolingoCoursePath({
                 </div>
               ) : u.isNext ? (
                 <div className="animate-pulse mb-2.5 rounded-full border border-green-500/40 bg-green-500/20 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-green-400 shadow-lg flex items-center gap-1">
-                  <Sparkles size={12} />
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
                   START HERE
                 </div>
               ) : null}
@@ -77,9 +76,9 @@ export function DuolingoCoursePath({
                     }`}
                   >
                     {u.isCompleted ? (
-                      <CheckCircle2 size={40} className="stroke-[2.5]" />
+                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
                     ) : (
-                      <Dumbbell size={38} className="stroke-[2.5]" />
+                      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg>
                     )}
                   </StartQuizButton>
 
@@ -92,36 +91,42 @@ export function DuolingoCoursePath({
                 </div>
               ) : (
                 <div className="relative flex h-24 w-24 items-center justify-center rounded-full border-4 border-slate-700 bg-slate-800 text-slate-500 shadow-[0_8px_0_#1e293b]">
-                  <Lock size={32} className="stroke-[2.5]" />
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 </div>
               )}
 
               {/* Node Title & Description */}
               <div className="mt-3 max-w-[200px]">
-                <h3 className="text-sm font-black uppercase tracking-wide text-head">
+                <span className="text-[11px] font-black uppercase tracking-wider text-muted">
                   Unit {u.n}
-                </h3>
-                <p className="mt-0.5 text-xs font-bold leading-tight text-muted">
+                </span>
+                <h3 className="text-base font-black text-head line-clamp-2">
                   {u.title}
-                </p>
+                </h3>
               </div>
             </div>
           );
         })}
 
-        {/* Capstone Final Mock Exam Trophy */}
+        {/* Golden Trophy at end of journey for Capstone Mock Exam */}
         <div className="mt-6 flex flex-col items-center text-center">
           <Link
-            href="/mock"
-            className="group relative flex h-28 w-28 items-center justify-center rounded-3xl border-4 border-amber-600 bg-gradient-to-b from-amber-400 to-amber-500 text-amber-950 shadow-[0_10px_0_#92400e] transition-transform active:translate-y-1"
+            href={`/mock`}
+            className="relative flex h-28 w-28 items-center justify-center rounded-full border-4 border-amber-500 bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-950 shadow-[0_10px_0_#b45309] transition-transform hover:scale-105 active:translate-y-1"
           >
-            <Trophy size={48} className="stroke-[2.5] text-amber-950 drop-shadow group-hover:scale-110 transition-transform" />
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H7.5a1.5 1.5 0 0 0 0 3h9a1.5 1.5 0 0 0 0-3H15c-.55 0-1-.45-1-1v-2.34"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            <span className="absolute -top-3 rounded-full bg-slate-950 border border-amber-400 px-3 py-0.5 text-[10px] font-black uppercase tracking-wider text-amber-400 shadow-md">
+              Final Boss
+            </span>
           </Link>
-          <div className="mt-3">
-            <h3 className="text-base font-black uppercase tracking-wide text-head">
-              Timed Mock Exam
+          <div className="mt-4 max-w-[220px]">
+            <span className="text-xs font-black uppercase tracking-widest text-amber-500">
+              Exam Trophy
+            </span>
+            <h3 className="text-lg font-black text-head">
+              Full Syllabus Mock Test
             </h3>
-            <p className="text-xs font-bold text-muted">Full 100-mark final semester simulation</p>
+            <p className="mt-1 text-xs font-bold text-muted">Timed examination simulation with automated grading</p>
           </div>
         </div>
       </div>

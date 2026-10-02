@@ -9,7 +9,8 @@ import { doneTopics } from "@/lib/progress";
 import { accuracy, badges, bestStreak, dailyQuests, leaking, readiness } from "@/lib/insights";
 import { allUnitStats } from "@/lib/mock-units";
 import { daysBetween } from "@/lib/plan";
-import { getCourse } from "@/lib/syllabus";
+import { getCourse, listCourses } from "@/lib/syllabus";
+import { DuolingoDashboardPath, type DashboardCourseOption, type UnitPerformance } from "@/components/home/DuolingoDashboardPath";
 import { HeroLochi } from "@/components/HeroLochi";
 import { ArtLab, ArtMock, ArtPractice, ArtTarget, ArtFormula } from "@/components/art";
 import { ProgressRing } from "@/components/ProgressRing";
@@ -72,6 +73,20 @@ export default async function Home() {
   const top = fix[0] ?? null;
   const topCourse = top ? getCourse(top.course) : null;
   const weak = top && topCourse ? { course: top.course, unit: top.unit, pct: top.pct, label: `${topCourse.short}: ${topCourse.units[top.unit - 1]?.title ?? `Unit ${top.unit}`}` } : null;
+  const allCourses = listCourses().filter((c) => canSeeCourse(profile.branch, c.code, c.type));
+  const dashboardCourses: DashboardCourseOption[] = allCourses
+    .map((c) => {
+      const full = getCourse(c.code);
+      return {
+        code: c.code,
+        short: c.short,
+        name: c.name,
+        units: (full?.units ?? []).map((u) => ({ n: u.n, title: u.title })),
+      };
+    })
+    .filter((c) => c.units.length > 0);
+
+  const initialCourse = topCourse?.code ?? dashboardCourses[0]?.code ?? "";
   const lab = pickLab(visibleLabs(profile.branch, LABS), top ? { course: top.course, unit: top.unit } : null);
 
   return (
@@ -91,6 +106,18 @@ export default async function Home() {
             </div>
           </section>
         </Tilt>
+
+        {/* Duolingo-style Stepped Course Learning Path & Streak Cycle */}
+        <DuolingoDashboardPath
+          courses={dashboardCourses}
+          initialCourseCode={initialCourse}
+          unitStats={rawFix}
+          streak={stats.streak}
+          todayXp={stats.today_xp}
+          dailyGoal={profile.daily_goal_xp}
+          days={stats.days}
+          today={stats.today}
+        />
 
         <HomeScene
           week={lastDays(stats.today, stats.days, 7)} names={dayNames(stats.today, 7)} todayXp={stats.today_xp} goal={profile.daily_goal_xp}
