@@ -1,0 +1,23 @@
+# Supabase CLI Project Configuration
+project_id = "nfjxamkjggvpsiuwffrj"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "auth"]
+
+[auth]
+enabled = true
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+enable_confirmations = true
+
+[auth.email.template.confirmation]
+subject = "Welcome to Lockin — Verify Your Student Account 🚀"
+content_path = "./supabase/email-templates/confirm-signup.html"
+
+[auth.email.template.magic_link]
+subject = "Your 1-Click Login Link for Lockin ⚡"
+content_path = "./supabase/email-templates/magic-link.html"
