@@ -12,6 +12,7 @@ export const nameSchema = z.string().trim().min(1, "Enter your name").max(60, "N
   .refine((s) => !/[\u0000-\u001f\u007f<>]/.test(s), "Name has characters we can't accept");
 
 export const emailSchema = z.string().trim().toLowerCase().email("Enter a valid email").max(254);
+export const passwordSchema = z.string().min(6, "Password must be at least 6 characters").max(72, "Password is too long");
 
 export const studySchema = z.object({
   name: nameSchema,
