@@ -42,7 +42,7 @@ export function Footer() {
 
       {/* Micro Copyright */}
       <div className="mx-auto mt-6 max-w-5xl px-5 text-center text-[11px] text-muted sm:text-left">
-        <p>© {new Date().getFullYear()} lockin. Built for student academic excellence.</p>
+        <p>© {new Date().getFullYear()} lockin. Created &amp; Copyright by <b className="text-head">Kalu Don</b>. All rights reserved.</p>
       </div>
     </footer>
   );
@@ -58,11 +58,13 @@ export function AppFooter() {
         <span className="text-line">•</span>
         <Link href="/marks" className="hover:text-head transition-colors">SGPA</Link>
         <span className="text-line">•</span>
+        <Link href="/about" className="hover:text-head transition-colors">About</Link>
+        <span className="text-line">•</span>
         <Link href="/privacy" className="hover:text-head transition-colors">Privacy</Link>
         <span className="text-line">•</span>
         <a href="mailto:win.lockin@gmail.com" className="hover:text-head transition-colors">Contact</a>
       </div>
-      <p className="mt-2 text-[11px] text-slate-500">lockin. — study smarter</p>
+      <p className="mt-2 text-[11px] text-muted">lockin. — Created &amp; Copyright by <b className="text-head">Kalu Don</b></p>
     </footer>
   );
 }
