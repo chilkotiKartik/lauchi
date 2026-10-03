@@ -8,6 +8,7 @@ import { ALL_SPECS } from "@/labs/meta";
 import { clampParams, type Params } from "@/labs/params-core";
 import { requestLiveReset, useLiveLab } from "@/labs/live-store";
 import { evaluateStep, formatDuration, passMark, scoreAttempt, type StepContext } from "@/labs/experiments/engine";
+import { sfx } from "@/lib/sound";
 import type { Experiment } from "@/labs/experiments/types";
 import { QuestionCard, type Answered } from "./QuestionCard";
 
@@ -64,7 +65,12 @@ export function ExperimentPanel({ experiment: e }: { experiment: Experiment }) {
     return e.steps.filter((s) => s.check.kind !== "manual" && !doneSet.has(s.id) && evaluateStep(s.check, c)).map((s) => s.id);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [e.steps, base, settling, live, doneSet]);
-  useEffect(() => { if (fresh.length) setSaved({ ...saved, steps: [...saved.steps, ...fresh] }); }, [fresh, saved, setSaved]);
+  useEffect(() => {
+    if (fresh.length) {
+      sfx.pop();
+      setSaved({ ...saved, steps: [...saved.steps, ...fresh] });
+    }
+  }, [fresh, saved, setSaved]);
 
   const stepsDone = e.steps.filter((s) => doneSet.has(s.id)).length;
   const currentStep = e.steps.find((s) => !doneSet.has(s.id))?.id ?? null;
@@ -73,7 +79,12 @@ export function ExperimentPanel({ experiment: e }: { experiment: Experiment }) {
   const answeredCount = e.questions.filter((q) => answers[q.id]).length;
   const finished = answeredCount === e.questions.length && elapsed !== null;
 
-  useEffect(() => { if (!celebrate) return; const t = setTimeout(() => setCelebrate(false), 3500); return () => clearTimeout(t); }, [celebrate]);
+  useEffect(() => {
+    if (!celebrate) return;
+    sfx.victory();
+    const t = setTimeout(() => setCelebrate(false), 3500);
+    return () => clearTimeout(t);
+  }, [celebrate]);
 
   const tickManual = (id: string) => { if (!doneSet.has(id)) setSaved({ ...saved, steps: [...saved.steps, id] }); };
   const retry = (go = true) => { setAnswers({}); setHints({}); setQIndex(0); setElapsed(null); setCelebrate(false); setRound((r) => r + 1); if (go) setTab("questions"); };

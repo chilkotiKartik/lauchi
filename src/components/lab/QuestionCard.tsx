@@ -1,6 +1,7 @@
 "use client";
 import { useId, useState } from "react";
 import { Rich } from "@/lib/rich";
+import { sfx } from "@/lib/sound";
 import { gradeQuestion, parseNumber } from "@/labs/experiments/engine";
 import type { Question } from "@/labs/experiments/types";
 
@@ -20,7 +21,11 @@ export function QuestionCard({ q, number, total, answered, onAnswer, onHint, hin
   const check = () => {
     if (checked || !ready) return;
     const given = q.type === "numeric" ? (parsed as number) : (pick as number | boolean);
-    onAnswer({ given, hintUsed: hintShown, correct: gradeQuestion(q, given) });
+    const correct = gradeQuestion(q, given);
+    if (correct) {
+      sfx.pop();
+    }
+    onAnswer({ given, hintUsed: hintShown, correct });
   };
   const opts: { value: number | boolean; label: string }[] = q.type === "mcq" ? q.options.map((o, i) => ({ value: i, label: o })) : q.type === "tf" ? [{ value: true, label: "True" }, { value: false, label: "False" }] : [];
   const shownPick = answered && q.type !== "numeric" ? (answered.given as number | boolean) : pick;

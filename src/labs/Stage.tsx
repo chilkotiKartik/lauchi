@@ -1,6 +1,7 @@
 "use client";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import * as THREE from "three";
 import { useCapability } from "./capability";
 import { Component, createContext, useContext, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
@@ -94,6 +95,8 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
           <Guard>
           <Canvas
             onCreated={({ gl, invalidate }) => {
+              gl.toneMapping = THREE.ACESFilmicToneMapping;
+              gl.toneMappingExposure = 1.12;
               gl.domElement.addEventListener("webglcontextlost", (e) => { e.preventDefault(); setLost(true); });
               gl.domElement.addEventListener("webglcontextrestored", () => { setLost(false); invalidate(); });
             }}
