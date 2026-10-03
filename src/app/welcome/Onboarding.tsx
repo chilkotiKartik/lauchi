@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Lochi, type LochiMood } from "@/components/Lochi";
 import { BRANCHES, GOALS } from "@/lib/academics";
+import { semesterSubjects } from "@/lib/stream";
 import { completeOnboarding } from "./actions";
 
 type Step = "name" | "branch" | "semester" | "goal" | "done";
@@ -73,7 +74,10 @@ export function Onboarding({ initialName }: { initialName: string }) {
           ))}
           {step === "semester" && (<>
             {([1, 2] as const).map((s) => (
-              <button key={s} type="button" className="choice" aria-pressed={semester === s} onClick={() => setSemester(s)}>Semester {s === 1 ? "I" : "II"} · first year</button>
+              <button key={s} type="button" className="choice flex-col !items-start" aria-pressed={semester === s} onClick={() => setSemester(s)}>
+                <span>Semester {s === 1 ? "I" : "II"} · first year</span>
+                {semesterSubjects(branch, s) && <span className="text-sm font-semibold text-muted">{semesterSubjects(branch, s)}</span>}
+              </button>
             ))}
             <p className="text-sm text-muted">Second year and later are coming soon.</p>
           </>)}

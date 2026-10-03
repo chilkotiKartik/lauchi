@@ -39,7 +39,7 @@ export default async function RevisePage() {
 
   const items: SessionItem[] = [];
   for (const r of rows) {
-    if (r.due > today || items.length >= MAX_SESSION || !canSeeCourse(profile.branch, r.course)) continue;
+    if (r.due > today || items.length >= MAX_SESSION || !canSeeCourse(profile, r.course)) continue;
     const c = getCourse(r.course);
     const where = `${c?.short ?? SHORT[r.course] ?? r.course} · Unit ${r.unit}${c?.units[r.unit - 1] ? `: ${c.units[r.unit - 1].title}` : ""}`;
     const base = { id: r.id, step: r.step, lapses: r.lapses, where };

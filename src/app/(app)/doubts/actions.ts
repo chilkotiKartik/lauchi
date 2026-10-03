@@ -26,7 +26,7 @@ export async function askDoubt(_prev: DoubtState, form: FormData): Promise<Doubt
   }
   const v = parsed.data;
   const c = getCourse(v.course);
-  if (!c || !canSeeCourse(s.profile.branch, c.code, c.type)) return fail("Please fix the highlighted fields.", { course: "Pick a subject from your list" });
+  if (!c || !canSeeCourse(s.profile, c.code, c.type)) return fail("Please fix the highlighted fields.", { course: "Pick a subject from your list" });
   if (v.unit !== null && !c.units[v.unit - 1]) return fail("Please fix the highlighted fields.", { unit: "That unit doesn't exist for this subject" });
   const { data: recent, error: rerr } = await s.supabase.from("doubts").select("created_at").order("created_at", { ascending: false }).limit(DOUBT_DAILY_LIMIT);
   if (rerr) return fail("We couldn't save your doubt. Try again.");

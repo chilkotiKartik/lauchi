@@ -18,8 +18,8 @@ export default async function Labs({ searchParams }: { searchParams: Promise<{ c
   const sp = await searchParams;
   const { data: progress } = await supabase.from("lab_progress").select("lab"); // RLS: own rows only; missing table → no ticks
   const done = new Set((progress ?? []).map((r: { lab: string }) => r.lab));
-  const labs: BrowseLab[] = visibleLabs(profile.branch, ALL_LABS).map((l) => ({
-    id: l.id, title: l.title, blurb: l.blurb, where: l.where.filter(([c]) => canSeeCourse(profile.branch, c)), topics: l.topics, animated: l.animated, guided: !!getExperiment(l.id), done: done.has(l.id),
+  const labs: BrowseLab[] = visibleLabs(profile, ALL_LABS).map((l) => ({
+    id: l.id, title: l.title, blurb: l.blurb, where: l.where.filter(([c]) => canSeeCourse(profile, c)), topics: l.topics, animated: l.animated, guided: !!getExperiment(l.id), done: done.has(l.id),
   }));
   const order = listCourses().map((c) => c.code);
   const codes = subjectCounts(labs, order).map((s) => s.course);

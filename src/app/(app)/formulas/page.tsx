@@ -14,7 +14,7 @@ const ACCENTS = ["#2ba6f5", "#ff9a1f", "#44c95a", "#a970ff", "#ff5a5f", "#ffc83d
 export default async function Formulas({ searchParams }: { searchParams: Promise<{ course?: string; unit?: string }> }) {
   const { profile } = await requireOnboarded();
   const sp = await searchParams;
-  const withFormulas = visibleCourses(profile.branch, listCourses()).map((s) => getCourse(s.code)).filter((c): c is NonNullable<typeof c> => Boolean(c) && c!.units.some((u) => u.formulas.length > 0));
+  const withFormulas = visibleCourses(profile, listCourses()).map((s) => getCourse(s.code)).filter((c): c is NonNullable<typeof c> => Boolean(c) && c!.units.some((u) => u.formulas.length > 0));
   const course = withFormulas.find((c) => c.code === sp.course) ?? withFormulas.find((c) => c.code === "AHT-003") ?? withFormulas[0];
   const units = course.units.filter((u) => u.formulas.length > 0);
   const unit = units.find((u) => String(u.n) === sp.unit) ?? units[0];

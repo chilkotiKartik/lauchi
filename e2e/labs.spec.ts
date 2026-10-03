@@ -1,7 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import { LABS } from "../src/labs/registry";
-import { visibleLabs } from "../src/lib/stream";
-import { fakeYoutube, onboard, onboardAs, shotPixels, signIn, uniqueEmail, watch } from "./helpers";
+import { canSeeLab, visibleLabs } from "../src/lib/stream";
+import { VIEWERS, fakeYoutube, onboard, onboardAs, shotPixels, signIn, uniqueEmail, watch } from "./helpers";
 
 /** Distinct lit colours of the lab as the user sees it: the studio bench and backdrop are dark, so only the lab's own
  * apparatus produces bright colours. A lab that rendered nothing scores ≤ 2. */
@@ -24,7 +24,7 @@ test.describe("live 3D labs", () => {
     await page.goto("/labs");
     await expect(page.getByRole("heading", { name: "Live 3D labs" })).toBeVisible();
     const esc = (t: string) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    for (const l of visibleLabs("CSE", LABS)) await expect(page.getByRole("link", { name: new RegExp(esc(l.title.slice(0, 12))) }).first()).toBeVisible();
+    for (const l of visibleLabs({ branch: "CSE", semester: 1 }, LABS)) await expect(page.getByRole("link", { name: new RegExp(esc(l.title.slice(0, 12))) }).first()).toBeVisible();
   });
 
   for (const l of LABS) {
@@ -32,7 +32,9 @@ test.describe("live 3D labs", () => {
       test.setTimeout(60_000 + l.presets.length * 30_000); // CI renders WebGL in software; each preset remounts the lab
       const problems = watch(page);
       await signIn(page, uniqueEmail());
-      if (visibleLabs("CSE", [l]).length) await onboard(page); else await onboardAs(page, "Bachelor of Computer");
+      const v = VIEWERS.find((x) => canSeeLab({ branch: x.branch, semester: x.semester }, l));
+      test.skip(!v, "no branch takes this lab's course");
+      await onboardAs(page, v!.pattern, "Kalu", v!.semester);
       await page.goto(`/labs/${l.id}`);
       await expect(page.getByRole("heading", { level: 1, name: l.title })).toBeVisible();
       const stage = page.getByTestId("lab-stage");

@@ -41,7 +41,7 @@ export async function GET(req: NextRequest, ctx: { params: Promise<{ id: string 
   if (!s) return err(401, "Please sign in again.", html);
 
   const row = await loadRow(s.supabase, id);
-  if (!row || !canSeeCourse(s.profile.branch, row.course)) return err(404, "We couldn't find that file.", html);
+  if (!row || !canSeeCourse(s.profile, row.course)) return err(404, "We couldn't find that file.", html);
 
   if (!row.file_path) {
     const ext = row.external_url ? parseHttpUrl(row.external_url) : null;

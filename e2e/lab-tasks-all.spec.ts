@@ -1,7 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import { LABS } from "../src/labs/registry";
-import { visibleLabs } from "../src/lib/stream";
-import { onboard, onboardAs, signIn, uniqueEmail, watch } from "./helpers";
+import { canSeeLab } from "../src/lib/stream";
+import { VIEWERS, onboardAs, signIn, uniqueEmail, watch } from "./helpers";
 
 /** Runs one predict → test → explain task on a lab; returns a problem description, or null when it worked. */
 async function runTask(page: Page, id: string): Promise<string | null> {
@@ -25,23 +25,24 @@ async function runTask(page: Page, id: string): Promise<string | null> {
   return null;
 }
 
-const cse = LABS.filter((l) => visibleLabs("CSE", [l]).length);
-const other = LABS.filter((l) => !visibleLabs("CSE", [l]).length && visibleLabs("BCA", [l]).length); // labs of courses no branch takes are not reachable
+// each lab is tested as the first student (branch + semester) who can see it; labs of courses no branch takes are skipped
+const viewerOf = (l: (typeof LABS)[number]) => VIEWERS.find((v) => canSeeLab({ branch: v.branch, semester: v.semester }, l));
 const only = process.env.LABS?.split(",");
-const pick = (xs: typeof LABS) => (only ? xs.filter((l) => only.includes(l.id)) : xs);
-type Group = [string, typeof LABS, boolean];
-const all: Group[] = only
-  ? [["Chosen CSE labs", pick(cse), true], ["Chosen BCA labs", pick(other), false]]
-  : [["CSE labs, first half", cse.slice(0, Math.ceil(cse.length / 2)), true], ["CSE labs, second half", cse.slice(Math.ceil(cse.length / 2)), true], ["BCA-only labs", other, false]];
-const groups = all.filter(([, l]) => l.length > 0);
+type Group = [string, typeof LABS, (typeof VIEWERS)[number]];
+const groups: Group[] = VIEWERS.flatMap((v) => {
+  const labs = LABS.filter((l) => viewerOf(l) === v && (!only || only.includes(l.id)));
+  const half = Math.ceil(labs.length / 2);
+  const name = `${v.branch} semester ${v.semester}`;
+  return (labs.length > 60 ? [[`${name}, first half`, labs.slice(0, half), v], [`${name}, second half`, labs.slice(half), v]] : [[name, labs, v]]) as Group[];
+}).filter(([, l]) => l.length > 0);
 
 test.describe("lab tasks on every lab", () => {
-  for (const [name, labs, isCse] of groups) {
+  for (const [name, labs, v] of groups) {
     test(`${name} (${labs.length}): every lab's task builds, locks, tests and grades`, async ({ page }) => {
       test.setTimeout(labs.length * 45_000 + 60_000);
       const problems = watch(page);
       await signIn(page, uniqueEmail());
-      if (isCse) await onboard(page); else await onboardAs(page, "Bachelor of Computer");
+      await onboardAs(page, v.pattern, "Kalu", v.semester);
       const failures: string[] = [];
       for (const l of labs) {
         const p = await runTask(page, l.id).catch((e: Error) => `error: ${e.message.split("\n")[0]}`);

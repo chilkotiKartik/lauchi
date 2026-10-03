@@ -15,12 +15,12 @@ const ACCENT: Record<string, string> = { theory: "#2ba6f5", lab: "#ffc83d", brid
 
 export default async function Syllabus({ searchParams }: { searchParams: Promise<{ q?: string; type?: string }> }) {
   const { profile } = await requireOnboarded();
-  const mine = visibleCourses(profile.branch, listCourses());
+  const mine = visibleCourses(profile, listCourses());
   const sp = await searchParams;
   const q = (sp.q ?? "").slice(0, 60);
   const type = TYPES.some((t) => t.id === sp.type) ? (sp.type as CourseSummary["type"] | "all") : "all";
   const courses = mine.filter((c) => type === "all" || c.type === type);
-  const { hits, total } = searchSyllabus(q, type, profile.branch);
+  const { hits, total } = searchSyllabus(q, type, profile);
   const href = (t: string) => `/syllabus?${new URLSearchParams({ ...(q ? { q } : {}), ...(t !== "all" ? { type: t } : {}) })}`;
   return (
     <div className="flex flex-col gap-5">

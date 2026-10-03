@@ -1,7 +1,7 @@
 /** Doubt box: validation, limits and pure helpers. Nothing here talks to the database. */
 import { z } from "zod";
 import { isAdmin } from "@/lib/admin";
-import { canSeeCourse } from "@/lib/stream";
+import { canSeeCourse, type Viewer } from "@/lib/stream";
 
 export const DOUBT_DAILY_LIMIT = 10;
 import { TITLE_MAX, BODY_MAX, ANSWER_MAX } from "./doubts-consts";
@@ -33,7 +33,7 @@ export type LibraryAnswer = { id: string; kind: "teacher" | "ai" | "admin"; body
 export type LibraryDoubt = { id: string; course: string; unit: number | null; title: string; body: string; created_at: string; answers: LibraryAnswer[] };
 
 /** Rows from public_doubts(), cleaned up and limited to subjects of the student's stream. Extra fields (should there ever be any) are dropped. */
-export function libraryFor(branch: string | null | undefined, raw: unknown): LibraryDoubt[] {
+export function libraryFor(branch: Viewer, raw: unknown): LibraryDoubt[] {
   if (!Array.isArray(raw)) return [];
   const out: LibraryDoubt[] = [];
   for (const r of raw as Record<string, unknown>[]) {

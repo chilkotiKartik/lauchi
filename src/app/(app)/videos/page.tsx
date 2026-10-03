@@ -16,7 +16,7 @@ const BOOST = "study motivation for engineering students exam";
 export default async function Videos({ searchParams }: { searchParams: Promise<{ course?: string; unit?: string; t?: string; boost?: string }> }) {
   const { profile } = await requireOnboarded();
   const sp = await searchParams;
-  const theory = visibleCourses(profile.branch, listCourses()).filter((c) => c.type === "theory" || c.type === "bridge");
+  const theory = visibleCourses(profile, listCourses()).filter((c) => c.type === "theory" || c.type === "bridge");
   const course = (theory.some((t) => t.code === sp.course) ? getCourse(sp.course ?? "") : null) ?? getCourse(theory[0].code)!;
   const n = Math.min(course.units.length, Math.max(1, parseInt(sp.unit ?? "1", 10) || 1));
   const unit = course.units[n - 1];

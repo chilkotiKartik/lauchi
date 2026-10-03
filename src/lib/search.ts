@@ -1,10 +1,10 @@
-import { canSeeCourse } from "@/lib/stream";
+import { canSeeCourse, type Viewer } from "@/lib/stream";
 import { getCourse, listCourses, type CourseSummary } from "@/lib/syllabus";
 
 export type Hit = { kind: "topic" | "experiment"; course: string; short: string; href: string; title: string; where: string };
 
 /** Case-insensitive search over every topic and experiment title. Server-only (reads the syllabus JSON). */
-export function searchSyllabus(query: string, type: CourseSummary["type"] | "all", branch: string | null | undefined, max = 60): { hits: Hit[]; total: number } {
+export function searchSyllabus(query: string, type: CourseSummary["type"] | "all", branch: Viewer, max = 60): { hits: Hit[]; total: number } {
   const q = query.trim().toLowerCase();
   if (q.length < 2) return { hits: [], total: 0 };
   const all: Hit[] = [];

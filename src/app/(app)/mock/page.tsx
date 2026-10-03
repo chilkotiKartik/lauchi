@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: "Mock test" };
 
 export default async function Mock() {
   const { supabase, profile } = await requireOnboarded();
-  const courses = visibleCourses(profile.branch, listCourses()).filter((c) => courseUnits(c.code).length > 0);
+  const courses = visibleCourses(profile, listCourses()).filter((c) => courseUnits(c.code).length > 0);
   const { data } = await supabase.from("quiz_sessions").select("id,course,total,correct,submitted_at,created_at").eq("kind", "mock").order("created_at", { ascending: false }).limit(20);
   const past = ((data ?? []) as { id: string; course: string; total: number; correct: number | null; submitted_at: string | null; created_at: string }[]).filter((s) => s.submitted_at).slice(0, 8);
   const short = (code: string) => courses.find((c) => c.code === code)?.short ?? code;

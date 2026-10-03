@@ -20,7 +20,7 @@ export default async function UnitPage({ params }: { params: Promise<{ course: s
   const { supabase, profile } = await requireOnboarded();
   const p = await params; const n = Number(p.unit);
   const c = getCourse(p.course); const u = c && Number.isInteger(n) ? c.units[n - 1] : undefined;
-  if (!c || !u || !canSeeCourse(profile.branch, c.code, c.type)) notFound();
+  if (!c || !u || !canSeeCourse(profile, c.code, c.type)) notFound();
   const done = await doneTopics(supabase);
   const d = u.topics.filter((_, i) => done.has(`${c.code}:${n}:${i + 1}`)).length;
   return (

@@ -1,6 +1,6 @@
 import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { visibleCourses } from "@/lib/stream";
+import { visibleCourses, type Viewer } from "@/lib/stream";
 import { listCourses, getCourse } from "@/lib/syllabus";
 import { courseUnits } from "@/lib/quiz";
 import type { EventRow, SessionRow } from "@/lib/insights";
@@ -15,7 +15,7 @@ export async function loadActivity(supabase: SupabaseClient) {
 }
 
 /** Topics in the subjects that have quizzes: the pool "syllabus covered" is measured against. */
-export function quizzedTopics(branch?: string | null): { total: number; courses: number } {
+export function quizzedTopics(branch?: Viewer): { total: number; courses: number } {
   let total = 0, courses = 0;
   for (const c of visibleCourses(branch, listCourses())) {
     const units = courseUnits(c.code);

@@ -15,7 +15,7 @@ const OFFICIAL_LINKS = [
 
 export default async function PapersPage() {
   const { profile } = await requireOnboarded();
-  const visibleCodes = PYQ_CODES.filter((c) => canSeeCourse(profile.branch, c));
+  const visibleCodes = PYQ_CODES.filter((c) => canSeeCourse(profile, c));
 
   return (
     <div className="flex flex-col gap-6">

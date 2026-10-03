@@ -3,7 +3,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { chooseItems, historyStrip, type DailyItem, type DayCell, type UnitRef } from "@/lib/daily";
 import { courseUnits, fromTemplate, givenAnswer, rightAnswer, toPublic, type PublicQuestion } from "@/lib/quiz";
-import { visibleCourses } from "@/lib/stream";
+import { visibleCourses, type Viewer } from "@/lib/stream";
 import { listCourses } from "@/lib/syllabus";
 import { loadActivity } from "@/lib/activity";
 import { allUnitStats } from "@/lib/mock-units";
@@ -29,7 +29,7 @@ export async function loadDailyRow(userId: string, day: string): Promise<DailyRo
 }
 
 /** Today's challenge for this student, created on first visit from their stream's real question banks. */
-export async function ensureDaily(supabase: SupabaseClient, userId: string, branch: string | null): Promise<DailyView> {
+export async function ensureDaily(supabase: SupabaseClient, userId: string, branch: Viewer): Promise<DailyView> {
   const day = indiaToday();
   let row = await loadDailyRow(userId, day);
   if (!row) {

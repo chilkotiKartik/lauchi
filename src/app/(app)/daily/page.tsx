@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 
 export default async function DailyPage() {
   const { supabase, user, profile } = await requireOnboarded();
-  const daily = await ensureDaily(supabase, user.id, profile.branch);
+  const daily = await ensureDaily(supabase, user.id, profile);
   const [history, streak] = await Promise.all([dailyHistory(user.id), streakInfo(user.id)]);
   return (
     <div className="flex flex-col gap-5">

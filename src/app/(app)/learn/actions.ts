@@ -17,7 +17,7 @@ export async function openChest(input: unknown): Promise<ChestResult> {
   if (!s) return { ok: false, error: "Your session expired. Log in again." };
   const p = z.object({ course: z.string().regex(/^[A-Z0-9-]{3,12}$/), unit: z.number().int().min(1).max(12) }).safeParse(input);
   const c = p.success ? getCourse(p.data.course) : undefined;
-  if (!p.success || !c || !c.units[p.data.unit - 1] || !canSeeCourse(s.profile.branch, c.code, c.type)) return { ok: false, error: "Unknown unit." };
+  if (!p.success || !c || !c.units[p.data.unit - 1] || !canSeeCourse(s.profile, c.code, c.type)) return { ok: false, error: "Unknown unit." };
   const db = createAdminClient();
   const { data } = await db.from("quiz_sessions").select("correct,total").eq("user_id", s.user.id).eq("course", c.code).eq("unit", p.data.unit)
     .in("kind", ["practice", "topic"]).not("submitted_at", "is", null).limit(200);

@@ -13,7 +13,7 @@ export const metadata: Metadata = { title: "Doubt box" };
 export default async function Doubts({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
   const { supabase, profile } = await requireOnboarded();
   const q = searchSchema.parse(((await searchParams).q ?? "").toString());
-  const courses: CourseOpt[] = visibleCourses(profile.branch, listCourses()).flatMap((s) => {
+  const courses: CourseOpt[] = visibleCourses(profile, listCourses()).flatMap((s) => {
     const c = getCourse(s.code);
     return c && c.units.length ? [{ code: c.code, short: c.short, units: c.units.map((u) => ({ n: u.n, title: u.title.slice(0, 80) })) }] : [];
   });
@@ -23,7 +23,7 @@ export default async function Doubts({ searchParams }: { searchParams: Promise<{
     supabase.rpc("public_doubts", { p_q: q || null }),
   ]);
   const myRows = (mine.data ?? []) as { id: string; course: string; unit: number | null; title: string; status: keyof typeof STATUS_LABEL; created_at: string }[];
-  const shared = libraryFor(profile.branch, lib.data).slice(0, 50);
+  const shared = libraryFor(profile, lib.data).slice(0, 50);
   return (
     <div className="flex flex-col gap-5">
       <header className="flex items-center gap-3"><ArtAsk size={56} /><div><h1 className="text-3xl">Doubt box</h1><p className="text-muted">Stuck on something? Ask here. A teacher answers, and Lochi can write a first answer to get you moving.</p></div></header>

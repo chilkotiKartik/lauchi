@@ -28,7 +28,7 @@ export default async function Plan() {
   const [done, { sessions }] = await Promise.all([doneTopics(supabase), loadActivity(supabase)]);
   const stats = await allUnitStats(profile.id, sessions);
   const units: PlanUnit[] = [];
-  for (const s of visibleCourses(profile.branch, listCourses())) {
+  for (const s of visibleCourses(profile, listCourses())) {
     if (s.type !== "theory" || !semOk(s.sem, profile.semester ?? 1)) continue;
     const c = getCourse(s.code); if (!c) continue;
     for (const u of c.units) {

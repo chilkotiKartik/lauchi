@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ course: s
 export default async function PracticeCourse({ params }: { params: Promise<{ course: string }> }) {
   const { supabase, profile } = await requireOnboarded();
   const c = getCourse((await params).course);
-  if (!c || courseUnits(c.code).length === 0 || !canSeeCourse(profile.branch, c.code, c.type)) notFound();
-  const { units, hasQuiz } = await loadSubjectPath(supabase, { id: profile.id, branch: profile.branch }, c);
+  if (!c || courseUnits(c.code).length === 0 || !canSeeCourse(profile, c.code, c.type)) notFound();
+  const { units, hasQuiz } = await loadSubjectPath(supabase, { id: profile.id, branch: profile.branch, semester: profile.semester }, c);
   return (
     <div className="flex flex-col gap-4">
       <Crumbs items={[{ href: "/practice", label: "Practice" }, { label: c.short }]} />

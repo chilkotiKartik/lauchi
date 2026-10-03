@@ -15,7 +15,7 @@ export async function loadAllUnits(s: Sess): Promise<PlanUnit[]> {
   const [done, { sessions }] = await Promise.all([doneTopics(s.supabase), loadActivity(s.supabase)]);
   const stats = await allUnitStats(s.profile.id, sessions);
   const units: PlanUnit[] = [];
-  for (const sub of visibleCourses(s.profile.branch, listCourses())) {
+  for (const sub of visibleCourses(s.profile, listCourses())) {
     if (sub.type !== "theory" || !semOk(sub.sem, s.profile.semester ?? 1)) continue;
     const c = getCourse(sub.code); if (!c) continue;
     for (const u of c.units) {

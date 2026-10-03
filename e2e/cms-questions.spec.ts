@@ -16,7 +16,7 @@ test("question bank CMS: draft is hidden, publish goes live, edits show up, unpu
   const studentEmail = uniqueEmail();
 
   await signIn(page, adminEmail);
-  await onboard(page, "Teacher");
+  await onboard(page, "Teacher", 2); // Chemistry is CSE semester 2
   // students get a 404 on the admin pages; then make this user an admin the way the site owner would
   expect((await page.goto("/admin/questions"))?.status()).toBe(404);
   await sql("insert into admins(user_id) select id from auth.users where email=$1", [adminEmail]);
@@ -25,7 +25,7 @@ test("question bank CMS: draft is hidden, publish goes live, edits show up, unpu
   const ctx = await browser.newContext({ ...info.project.use, baseURL: info.project.use.baseURL ?? "http://localhost:3100" });
   const student = await ctx.newPage();
   await signIn(student, studentEmail);
-  await onboard(student, "Student");
+  await onboard(student, "Student", 2);
   expect((await student.goto("/admin/questions/new"))?.status()).toBe(404);
 
   // ---- admin creates a draft (validation first)

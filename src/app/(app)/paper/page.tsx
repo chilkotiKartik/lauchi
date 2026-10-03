@@ -25,7 +25,7 @@ export default async function PaperHome() {
       <section aria-labelledby="pick" className="flex flex-col gap-3">
         <h2 id="pick" className="text-xl">Pick a subject</h2>
         <ul className="enter grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {PAPER_COURSES.filter((c) => canSeeCourse(profile.branch, c)).map((c) => (
+          {PAPER_COURSES.filter((c) => canSeeCourse(profile, c)).map((c) => (
             <li key={c}>
               <Link href={`/paper/${c}`} className="card hero-card flex h-full flex-col gap-1 no-underline">
                 <b className="text-lg text-head">{shortName(c)}</b>

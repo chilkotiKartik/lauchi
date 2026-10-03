@@ -24,7 +24,7 @@ export async function answerCmsQuestion(raw: unknown): Promise<AnswerResult> {
   if (!p.success) return { ok: false, error: "That answer isn't valid." };
   const g = await gradeCmsAnswer(p.data.id, p.data.answer);
   if (!g.ok) return g;
-  if (!canSeeCourse(s.profile.branch, g.course)) return { ok: false, error: "That question isn't available for your course." };
+  if (!canSeeCourse(s.profile, g.course)) return { ok: false, error: "That question isn't available for your course." };
   let xp = 0;
   try {
     const { data, error } = await createAdminClient().rpc("cms_record_attempt", { p_user: s.user.id, p_question: p.data.id, p_correct: g.correct });

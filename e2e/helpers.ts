@@ -34,7 +34,7 @@ export async function signIn(page: Page, email: string) {
   await page.goto(link);
 }
 
-export async function onboard(page: Page, name = "Kalu") {
+export async function onboard(page: Page, name = "Kalu", semester: 1 | 2 = 1) {
   await expect(page).toHaveURL(/\/welcome$/);
   await page.getByLabel("Your name").fill(name);
   await expect(page.getByRole("button", { name: "Continue" })).toBeDisabled();
@@ -42,7 +42,7 @@ export async function onboard(page: Page, name = "Kalu") {
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("button", { name: /Computer Science & Engineering/ }).click();
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("button", { name: /Semester I ·/ }).click();
+  await page.getByRole("button", { name: semester === 1 ? /Semester I ·/ : /Semester II ·/ }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("button", { name: /Regular/ }).click();
   await page.getByRole("button", { name: "Finish" }).click();
@@ -60,14 +60,14 @@ export async function fakeYoutube(page: Page) {
 }
 
 /** Same as onboard() but picks the given branch (button text is matched as a regex source, e.g. "Bachelor of Computer Applications"). */
-export async function onboardAs(page: Page, branchPattern: string, name = "Kalu") {
+export async function onboardAs(page: Page, branchPattern: string, name = "Kalu", semester: 1 | 2 = 1) {
   await expect(page).toHaveURL(/\/welcome$/);
   await page.getByLabel("Your name").fill(name);
   await page.getByLabel(/I am 18 or older/).check();
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("button", { name: new RegExp(branchPattern) }).click();
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("button", { name: /Semester I ·/ }).click();
+  await page.getByRole("button", { name: semester === 1 ? /Semester I ·/ : /Semester II ·/ }).click();
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("button", { name: /Regular/ }).click();
   await page.getByRole("button", { name: "Finish" }).click();
@@ -98,3 +98,11 @@ export async function shotPixels(page: Page, target: import("@playwright/test").
     return { lit: lit.size, all: all.size, green };
   }, { b64: png.toString("base64"), minLum });
 }
+
+/** The students the tests can be: each lab or subject is visible to at least one of them. */
+export const VIEWERS = [
+  { branch: "CSE", semester: 1, pattern: "Computer Science & Engineering" },
+  { branch: "CSE", semester: 2, pattern: "Computer Science & Engineering" },
+  { branch: "BCA", semester: 1, pattern: "Bachelor of Computer" },
+  { branch: "BCA", semester: 2, pattern: "Bachelor of Computer" },
+] as const;

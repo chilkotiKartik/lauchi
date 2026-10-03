@@ -2,7 +2,7 @@ import "server-only";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { dailySeed, type DailyItem, type UnitRef } from "@/lib/daily";
 import { courseUnits, fromTemplate, givenAnswer, rightAnswer, toPublic, type PublicQuestion } from "@/lib/quiz";
-import { visibleCourses } from "@/lib/stream";
+import { visibleCourses, type Viewer } from "@/lib/stream";
 import { getCourse, listCourses } from "@/lib/syllabus";
 import { indiaToday } from "@/lib/social";
 import { isSunday, istStart, planQuest, questDay, questItems, sundayStreak, weekMonday, weekStats, type PlannedUnit } from "@/lib/sunday";
@@ -23,7 +23,7 @@ export type SundayView = {
 const shift = (day: string, n: number) => { const d = new Date(`${day}T00:00:00Z`); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
 
 /** Every unit with a question bank in the student's own subjects. */
-function poolFor(branch: string | null): UnitRef[] {
+function poolFor(branch: Viewer): UnitRef[] {
   return visibleCourses(branch, listCourses()).flatMap((c) => courseUnits(c.code).map((unit) => ({ course: c.code, unit })));
 }
 /** A seeded shuffle of the pool, used when the student practised nothing this week (Sunday is then a mixed review). */
@@ -70,7 +70,7 @@ export async function loadSundayRow(userId: string, day: string): Promise<Sunday
  * Monday–Saturday: the live preview of what Sunday will cover. Sunday: the quest itself, created on first visit from
  * Monday–Saturday's activity (so it matches Saturday night's preview) and then fixed for the day.
  */
-export async function ensureSunday(userId: string, branch: string | null): Promise<SundayView> {
+export async function ensureSunday(userId: string, branch: Viewer): Promise<SundayView> {
   const today = indiaToday();
   const sunday = questDay(today), monday = weekMonday(sunday), open = isSunday(today);
   const pool = poolFor(branch);
@@ -104,7 +104,7 @@ export async function ensureSunday(userId: string, branch: string | null): Promi
 }
 
 /** For the dashboard card: days until Sunday, units planned so far, whether this Sunday's quest is done, and the Sunday streak. */
-export async function sundaySummary(userId: string, branch: string | null): Promise<{ open: boolean; daysLeft: number; units: number; done: boolean; streak: number }> {
+export async function sundaySummary(userId: string, branch: Viewer): Promise<{ open: boolean; daysLeft: number; units: number; done: boolean; streak: number }> {
   try {
     const today = indiaToday(), sunday = questDay(today), open = isSunday(today);
     const daysLeft = open ? 0 : Math.round((Date.parse(sunday) - Date.parse(today)) / 864e5);

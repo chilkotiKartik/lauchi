@@ -11,8 +11,8 @@ export const metadata: Metadata = { title: "Notes & files" };
 export default async function ResourcesPage({ searchParams }: { searchParams: Promise<{ open?: string }> }) {
   const { supabase, user, profile } = await requireOnboarded();
   const { open } = await searchParams;
-  const items = await loadResources(supabase, profile.branch);
-  const courses = visibleCourses(profile.branch, listCourses()).map((c) => ({
+  const items = await loadResources(supabase, profile);
+  const courses = visibleCourses(profile, listCourses()).map((c) => ({
     code: c.code, short: c.short, name: c.name, units: (getCourse(c.code)?.units ?? []).map((u) => u.title),
   }));
   return (

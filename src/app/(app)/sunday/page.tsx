@@ -18,7 +18,7 @@ const dayName = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en
 
 export default async function SundayPage() {
   const { user, profile } = await requireOnboarded();
-  const q = await ensureSunday(user.id, profile.branch);
+  const q = await ensureSunday(user.id, profile);
   const daysLeft = Math.round((Date.parse(q.sunday) - Date.parse(q.today)) / 864e5);
 
   return (

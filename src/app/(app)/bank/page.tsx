@@ -26,7 +26,7 @@ async function publishedCounts(): Promise<Map<string, number>> {
 export default async function BankPage({ searchParams }: { searchParams: Promise<{ course?: string; unit?: string; mode?: string }> }) {
   const { user, profile } = await requireOnboarded();
   const sp = await searchParams;
-  const courses = listCourses().filter((c) => c.units > 0 && canSeeCourse(profile.branch, c.code, c.type));
+  const courses = listCourses().filter((c) => c.units > 0 && canSeeCourse(profile, c.code, c.type));
   const course = courses.find((c) => c.code === sp.course) ?? null;
   const full = course ? getCourse(course.code) : null;
   const counts = await publishedCounts();

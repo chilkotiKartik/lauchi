@@ -16,7 +16,7 @@ export default async function Experiment({ params }: { params: Promise<{ course:
   const p = await params;
   const c = getCourse(p.course); const n = Number(p.n);
   const e = c && Number.isInteger(n) ? c.exps[n - 1] : undefined;
-  if (!c || !e || !canSeeCourse(profile.branch, c.code, c.type)) notFound();
+  if (!c || !e || !canSeeCourse(profile, c.code, c.type)) notFound();
   return (
     <div className="flex flex-col gap-5">
       <Crumbs items={[{ href: "/learn", label: "Learn" }, { href: `/learn/${c.code}`, label: c.short }, { label: `Experiment ${e.n}` }]} />

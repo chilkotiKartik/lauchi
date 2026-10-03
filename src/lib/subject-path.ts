@@ -14,7 +14,7 @@ import { chestReady, starsFor } from "@/lib/subject-progress";
 const UNIT_COLORS = ["#157a37", "#1476b8", "#8a4fd6", "#b33c0b", "#8a6508", "#0b7069", "#c2303a", "#4a5a63"];
 
 /** A subject's level path from the student's real data: topics read, practice stars, finished labs, opened chests. */
-export async function loadSubjectPath(supabase: SupabaseClient, user: { id: string; branch: string | null }, c: Course): Promise<{ units: PathUnit[]; done: Map<string, number>; hasQuiz: boolean }> {
+export async function loadSubjectPath(supabase: SupabaseClient, user: { id: string; branch: string | null; semester: number | null }, c: Course): Promise<{ units: PathUnit[]; done: Map<string, number>; hasQuiz: boolean }> {
   const [done, { sessions }, labRows, chestRows] = await Promise.all([
     doneTopics(supabase), loadActivity(supabase),
     supabase.from("lab_progress").select("lab").then((r) => new Set(((r.data ?? []) as { lab: string }[]).map((x) => x.lab))),
@@ -23,7 +23,7 @@ export async function loadSubjectPath(supabase: SupabaseClient, user: { id: stri
   const stats = await allUnitStats(user.id, sessions);
   const units: PathUnit[] = c.units.map((u, i) => {
     const st = stats.find((x) => x.course === c.code && x.unit === u.n && x.attempts > 0);
-    const lab = labsFor(c.code, u.n).find((l) => canSeeLab(user.branch, l));
+    const lab = labsFor(c.code, u.n).find((l) => canSeeLab(user, l));
     const pct = st ? st.pct : null;
     return {
       n: u.n, title: u.title, color: UNIT_COLORS[i % UNIT_COLORS.length],

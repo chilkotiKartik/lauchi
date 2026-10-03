@@ -16,7 +16,7 @@ export default async function Attempt({ params }: { params: Promise<{ course: st
   const { course, attemptId } = await params;
   if (!isPaperCourse(course) || !z.string().uuid().safeParse(attemptId).success) notFound();
   const { supabase, user, profile } = await requireOnboarded();
-  if (!canSeeCourse(profile.branch, course)) notFound();
+  if (!canSeeCourse(profile, course)) notFound();
   const { data } = await supabase.from("papers").select("id,course,mode,paper,ends_at,paused_at,submitted_at,chosen,self_marks,notes").eq("id", attemptId).eq("user_id", user.id).limit(1);
   const row = (data?.[0] ?? null) as Row | null;
   if (!row || row.course !== course) notFound();

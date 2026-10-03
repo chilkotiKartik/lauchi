@@ -118,15 +118,15 @@ test("PYQ practised ticks are stored on the account and follow the student to a 
   const problems = watch(page);
   const email = uniqueEmail();
   // a tick saved on this device by the old version is moved to the account once
-  await page.addInitScript(() => { if (!sessionStorage.getItem("seeded")) { localStorage.setItem("lockin.pyq.done", JSON.stringify(["AHT-001:Q1.1"])); sessionStorage.setItem("seeded", "1"); } });
-  await signIn(page, email); await onboard(page);
+  await page.addInitScript(() => { if (!sessionStorage.getItem("seeded")) { localStorage.setItem("lockin.pyq.done", JSON.stringify(["AHT-002:Q1.1"])); sessionStorage.setItem("seeded", "1"); } });
+  await signIn(page, email); await onboard(page, "Kalu", 2); // CSE semester 2: Chemistry and Mechanical
   await page.goto("/pyq?course=MET-001&unit=4");
   const cards = page.locator("li.pyq-card");
   await expect(page.getByText(/^0 of \d+ question sets practised$/)).toBeVisible();
   await cards.first().getByRole("button", { name: "Mark practised" }).click();
   await expect(page.getByText(/^1 of \d+ question sets practised$/)).toBeVisible();
   await expect.poll(async () => (await sql("select r.ref from revise_items r join auth.users u on u.id = r.user_id where u.email = $1 and r.kind = 'pyq' order by r.ref", [email])).map((r) => r.ref))
-    .toEqual(["AHT-001:Q1.1", expect.stringMatching(/^MET-001:/)]);
+    .toEqual(["AHT-002:Q1.1", expect.stringMatching(/^MET-001:/)]);
   expect(await page.evaluate(() => localStorage.getItem("lockin.pyq.done"))).toBeNull();
 
   const other = await browser.newContext();
@@ -136,7 +136,7 @@ test("PYQ practised ticks are stored on the account and follow the student to a 
   await p2.goto("/pyq?course=MET-001&unit=4");
   await expect(p2.getByText(/^1 of \d+ question sets practised$/)).toBeVisible();
   await expect(p2.locator("li.pyq-card").getByRole("button", { name: "✓ Practised" })).toHaveCount(1);
-  await p2.goto("/pyq?course=AHT-001&unit=1");
+  await p2.goto("/pyq?course=AHT-002&unit=1");
   await expect(p2.getByText(/^1 of \d+ question sets practised$/)).toBeVisible();
 
   // practised PYQs come back for review with a self-grade

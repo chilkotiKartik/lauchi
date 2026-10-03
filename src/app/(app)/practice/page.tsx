@@ -13,7 +13,7 @@ export const metadata: Metadata = { title: "Practice" };
 
 export default async function Practice() {
   const { supabase, profile } = await requireOnboarded();
-  const courses = visibleCourses(profile.branch, listCourses()).filter((c) => courseUnits(c.code).length > 0);
+  const courses = visibleCourses(profile, listCourses()).filter((c) => courseUnits(c.code).length > 0);
   const { sessions } = await loadActivity(supabase);
   const stats = (await allUnitStats(profile.id, sessions)).filter((s) => s.attempts > 0);
   return (

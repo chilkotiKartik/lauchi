@@ -1,11 +1,11 @@
 import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { RESOURCE_COLS, toItems, type ResourceItem, type ResourceRow } from "@/lib/resources";
-import { canSeeCourse } from "@/lib/stream";
+import { canSeeCourse, type Viewer } from "@/lib/stream";
 
 /** Visible (not hidden, by RLS) resources the student's stream may see, newest first, with their own "done" ticks. */
 export async function loadResources(
-  supabase: SupabaseClient, branch: string | null | undefined, opts: { course?: string; unit?: number; kind?: string; limit?: number } = {},
+  supabase: SupabaseClient, branch: Viewer, opts: { course?: string; unit?: number; kind?: string; limit?: number } = {},
 ): Promise<ResourceItem[]> {
   try {
     const query = (cols: string) => {

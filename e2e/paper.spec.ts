@@ -3,7 +3,7 @@ import { onboard, signIn, uniqueEmail, watch } from "./helpers";
 
 async function ready(page: Page) {
   await signIn(page, uniqueEmail());
-  await onboard(page);
+  await onboard(page, "Kalu", 2); // Mechanical and Electronics are CSE semester 2
 }
 
 test("full paper: start, tick two parts per question, submit, self-mark, reload, history", async ({ page }) => {

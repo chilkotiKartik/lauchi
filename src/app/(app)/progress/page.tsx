@@ -25,7 +25,7 @@ export default async function Progress() {
   const [{ sessions }, done, labRows] = await Promise.all([loadActivity(supabase), doneTopics(supabase),
     supabase.from("lab_progress").select("lab,kind,best,updated_at").order("updated_at", { ascending: false }).then((r) => (r.data ?? []) as { lab: string; kind: string; best: number; updated_at: string }[])]);
   const labsDone = new Set(labRows.map((r) => r.lab));
-  const labTotal = visibleLabs(profile.branch, LABS).length;
+  const labTotal = visibleLabs(profile, LABS).length;
   const taskRows = labRows.filter((r) => r.kind === "tasks");
   const labAvg = taskRows.length ? Math.round(taskRows.reduce((a, r) => a + r.best, 0) / taskRows.length) : null;
   const lv = levelFromXp(s.total_xp);

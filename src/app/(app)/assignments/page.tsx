@@ -17,7 +17,7 @@ export default async function Assignments() {
   const { supabase, profile } = await requireOnboarded();
   const { data } = await supabase.from("quiz_sessions").select("id,course,unit,total,correct,submitted_at,created_at").eq("kind", "assignment").order("created_at", { ascending: false }).limit(500);
   const rows = (data ?? []) as Row[];
-  const courses = visibleCourses(profile.branch, listCourses()).filter((c) => courseUnits(c.code).length > 0);
+  const courses = visibleCourses(profile, listCourses()).filter((c) => courseUnits(c.code).length > 0);
   const state = (course: string, unit: number) => {
     const mine = rows.filter((r) => r.course === course && r.unit === unit);
     const open = mine.find((r) => !r.submitted_at);

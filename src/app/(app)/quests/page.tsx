@@ -18,7 +18,7 @@ export default async function Quests() {
   const { supabase, user, profile } = await requireOnboarded();
   const [daily, sunday, due, stats] = await Promise.all([
     supabase.from("daily_challenges").select("score,completed_at").eq("day", indiaToday()).limit(1).then((r) => (r.data?.[0] ?? null) as { score: number | null; completed_at: string | null } | null),
-    sundaySummary(user.id, profile.branch),
+    sundaySummary(user.id, profile),
     dueCount(supabase),
     supabase.rpc("dashboard_stats").then((r) => (r.data ?? { streak: 0 }) as { streak: number }),
   ]);

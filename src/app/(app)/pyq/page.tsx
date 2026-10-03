@@ -30,7 +30,7 @@ function groupCodes(codes: string[]) {
 export default async function PyqPage({ searchParams }: { searchParams: Promise<{ course?: string; unit?: string }> }) {
   const { profile } = await requireOnboarded();
   const sp = await searchParams;
-  const codes = PYQ_CODES.filter((c) => canSeeCourse(profile.branch, c));
+  const codes = PYQ_CODES.filter((c) => canSeeCourse(profile, c));
   if (codes.length === 0) {
     return (
       <div className="flex flex-col gap-5">

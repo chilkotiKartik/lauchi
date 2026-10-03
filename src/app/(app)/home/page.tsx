@@ -48,7 +48,7 @@ export default async function Home() {
   const activityPromise = loadActivity(supabase);
   const donePromise = doneTopics(supabase);
   const duePromise = dueCount(supabase);
-  const sundayPromise = sundaySummary(profile.id, profile.branch);
+  const sundayPromise = sundaySummary(profile.id, profile);
   const streakPromise = streakInfo(profile.id);
 
   const [{ data: statsData, error }, { sessions, events }, done, due, sunday, streakNow] = await Promise.all([
@@ -67,10 +67,10 @@ export default async function Home() {
   const lv = levelFromXp(stats.total_xp);
   const goalDone = stats.today_xp >= profile.daily_goal_xp;
   const acc = accuracy(sessions);
-  const pool = quizzedTopics(profile.branch);
+  const pool = quizzedTopics(profile);
   const ready = readiness(done.size, pool.total, acc?.pct ?? null);
   const rawFix = await fixStatsPromise;
-  const fix = leaking(rawFix.filter((u) => canSeeCourse(profile.branch, u.course)));
+  const fix = leaking(rawFix.filter((u) => canSeeCourse(profile, u.course)));
   const quests = dailyQuests({ today: stats.today, tz: profile.timezone, todayXp: stats.today_xp, goal: profile.daily_goal_xp, sessions, events });
   const earned = badges({ totalXp: stats.total_xp, level: lv.level, sessions, topicsDone: done.size, best: Math.max(stats.streak, bestStreak(stats.days)) }).filter((b) => b.earned);
   const left = profile.exam_date ? daysBetween(stats.today, profile.exam_date) : null;
@@ -79,9 +79,9 @@ export default async function Home() {
   const top = fix[0] ?? null;
   const topCourse = top ? getCourse(top.course) : null;
   const weak = top && topCourse ? { course: top.course, unit: top.unit, pct: top.pct, label: `${topCourse.short}: ${topCourse.units[top.unit - 1]?.title ?? `Unit ${top.unit}`}` } : null;
-  const allCourses = listCourses().filter((c) => canSeeCourse(profile.branch, c.code, c.type));
+  const allCourses = listCourses().filter((c) => canSeeCourse(profile, c.code, c.type));
 
-  const visible = visibleLabs(profile.branch, LABS);
+  const visible = visibleLabs(profile, LABS);
   const subjects = allCourses.flatMap((c) => {
     const full = getCourse(c.code);
     if (!full || !full.units.length) return [];

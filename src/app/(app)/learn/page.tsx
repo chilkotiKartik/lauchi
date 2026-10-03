@@ -14,7 +14,7 @@ const GROUPS: [CourseSummary["type"], string][] = [["theory", "Theory subjects"]
 export default async function Learn() {
   const { supabase, profile } = await requireOnboarded();
   const done = await doneTopics(supabase);
-  const courses = visibleCourses(profile.branch, listCourses());
+  const courses = visibleCourses(profile, listCourses());
   return (
     <div className="flex flex-col gap-6">
       <div>

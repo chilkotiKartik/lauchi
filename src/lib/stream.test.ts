@@ -36,3 +36,29 @@ describe("stream", () => {
     expect(canSeeLab("ME", { where: [["WD-101", 1]] })).toBe(false);
   });
 });
+
+describe("semester plan", () => {
+  const see = (branch: string, semester: number) => (code: string) => canSeeCourse({ branch, semester }, code);
+  it("CSE semester 1: Physics, Intro Maths, Electrical, PPS, EVS (and their labs)", () => {
+    const s = see("CSE", 1);
+    for (const c of ["AHT-001", "AHT-003", "EET-001", "CST-001", "AHT-004", "AHP-001", "EEP-001", "CSP-001"]) expect(s(c), c).toBe(true);
+    for (const c of ["AHT-002", "AHT-005", "ECT-001", "MET-001", "AHP-002", "ECP-001", "MEP-001"]) expect(s(c), c).toBe(false);
+  });
+  it("semester 2 swaps CSE and AIML, with Analytical Mathematics", () => {
+    const cse2 = see("CSE", 2), ai1 = see("AIML", 1), ai2 = see("AIML", 2);
+    for (const c of ["AHT-002", "AHT-005", "ECT-001", "MET-001"]) { expect(cse2(c), c).toBe(true); expect(ai2(c), c).toBe(c === "AHT-005"); }
+    for (const c of ["AHT-002", "AHT-003", "ECT-001", "MET-001"]) expect(ai1(c), c).toBe(true);
+    for (const c of ["AHT-001", "EET-001", "CST-001", "AHT-004"]) { expect(ai2(c), c).toBe(true); expect(cse2(c), c).toBe(false); expect(ai1(c), c).toBe(false); }
+  });
+  it("BCA: five subjects in semester 1, the rest in semester 2", () => {
+    const b1 = see("BCA", 1), b2 = see("BCA", 2);
+    for (const c of ["BCA-001", "BCA-002", "BCA-011", "BCA-003", "BCA-004"]) { expect(b1(c), c).toBe(true); expect(b2(c), c).toBe(false); }
+    for (const c of ["BCA-005", "BCA-006", "BCA-007", "BCA-008", "BCA-009", "BCA-010"]) { expect(b2(c), c).toBe(true); expect(b1(c), c).toBe(false); }
+    expect(b1("AHT-001")).toBe(false); // never B.Tech subjects
+  });
+  it("subjects outside the plan (electives, the web minor) show in both semesters; a bare branch sees its whole year", () => {
+    expect(see("CSE", 2)("AHP-006")).toBe(true);
+    expect(see("CSE", 2)("WD-101")).toBe(true);
+    expect(canSeeCourse("CSE", "AHT-002")).toBe(true);
+  });
+});

@@ -7,7 +7,7 @@ import { loadResources } from "./data";
 /** Read-only list of assignment files teachers uploaded, grouped by subject. Renders nothing when there are none. */
 export async function AssignmentFiles() {
   const { supabase, profile } = await requireOnboarded();
-  const items = await loadResources(supabase, profile.branch, { kind: "assignment", limit: 200 });
+  const items = await loadResources(supabase, profile, { kind: "assignment", limit: 200 });
   if (items.length === 0) return null;
   const codes = [...new Set(items.map((i) => i.course))];
   return (

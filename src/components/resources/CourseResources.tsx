@@ -6,8 +6,8 @@ import { loadResources } from "./data";
 /** "Notes & files" shelf for one unit (mirrors Teacher's picks). Renders nothing when there is nothing shared. */
 export async function CourseResources({ course, unit }: { course: string; unit: number }) {
   const { supabase, profile } = await requireOnboarded();
-  if (!canSeeCourse(profile.branch, course)) return null;
-  const items = await loadResources(supabase, profile.branch, { course, unit, limit: 50 });
+  if (!canSeeCourse(profile, course)) return null;
+  const items = await loadResources(supabase, profile, { course, unit, limit: 50 });
   if (items.length === 0) return null;
   return (
     <section className="card flex flex-col gap-3" aria-labelledby="unit-files">

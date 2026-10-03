@@ -2,22 +2,22 @@ import { test, expect, type Page } from "@playwright/test";
 import { generate } from "../src/lib/quiz-core";
 import { MOCK, addXp, fakeYoutube, onboard, signIn, sql, uniqueEmail, watch } from "./helpers";
 
-async function ready(page: Page) {
+async function ready(page: Page, semester: 1 | 2 = 1) {
   const email = uniqueEmail();
   await fakeYoutube(page);
   await signIn(page, email);
-  await onboard(page);
+  await onboard(page, "Kalu", semester);
   return email;
 }
 
 test("PYQ bank: subjects, units, filters, practised ticks and Ask Lochi links", async ({ page }) => {
   const problems = watch(page);
-  await ready(page);
+  await ready(page, 2);
   await page.goto("/pyq");
   await expect(page.getByRole("heading", { level: 1, name: "PYQ bank" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Physics: most repeated questions" })).toBeVisible();
-  // Newton's rings is the most repeated physics question (10×)
-  await expect(page.locator("main").getByText(/Newton's rings/).first()).toBeVisible();
+  // a CSE semester-2 student starts on their first semester-2 subject with PYQs (Chemistry); Physics is semester 1
+  await expect(page.getByRole("heading", { name: "Chemistry: most repeated questions" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Physics/ })).toHaveCount(0);
   await page.getByRole("link", { name: /Mechanical/ }).click();
   await expect(page).toHaveURL(/course=MET-001/);
   await page.getByRole("link", { name: /U4.*Thermodynamics/ }).click();

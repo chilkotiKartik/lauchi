@@ -14,7 +14,7 @@ export default async function StartScreen({ params }: { params: Promise<{ course
   const { course } = await params;
   if (!isPaperCourse(course)) notFound();
   const { supabase, profile } = await requireOnboarded();
-  if (!canSeeCourse(profile.branch, course)) notFound();
+  if (!canSeeCourse(profile, course)) notFound();
   const rows = await loadHistory(supabase, course);
   const scores = rows.filter((r) => r.total !== null).map((r) => r.total as number).reverse();
   return (

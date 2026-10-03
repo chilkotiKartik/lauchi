@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 export default async function LabPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ v?: string | string[] }> }) {
   const { supabase, profile } = await requireOnboarded();
   const lab = getLab((await params).id);
-  if (!lab || !canSeeLab(profile.branch, lab)) notFound();
+  if (!lab || !canSeeLab(profile, lab)) notFound();
   const v = (await searchParams).v;
   const initial = decodeParams(typeof v === "string" ? v : null);
   const { data } = await supabase.from("lab_setups").select("id,name,params").eq("lab", lab.id).order("created_at", { ascending: false }).limit(30);
@@ -35,7 +35,7 @@ export default async function LabPage({ params, searchParams }: { params: Promis
   // Admin-written questions (cms_lab_questions, published only) are appended; their answers live in the payload and are scored client-side like the built-in ones.
   const extra = base ? await getPublishedLabQuestions(lab.id) : [];
   const experiment = base && extra.length ? { ...base, questions: [...base.questions, ...extra] } : base;
-  const shown = lab.where.filter(([c]) => canSeeCourse(profile.branch, c));
+  const shown = lab.where.filter(([c]) => canSeeCourse(profile, c));
   const [wc, wu] = shown[0] ?? lab.where[0];
   const wCourse = getCourse(wc);
   const wTopic = lab.topics[0] ?? lab.title;

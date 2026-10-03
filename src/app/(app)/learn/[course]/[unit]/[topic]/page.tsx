@@ -32,7 +32,7 @@ export default async function TopicPage({ params }: { params: P }) {
   const p = await params; const un = Number(p.unit), tn = Number(p.topic);
   const c = getCourse(p.course); const u = c && Number.isInteger(un) ? c.units[un - 1] : undefined;
   const title = u && Number.isInteger(tn) ? u.topics[tn - 1] : undefined;
-  if (!c || !u || !title || !canSeeCourse(profile.branch, c.code, c.type)) notFound();
+  if (!c || !u || !title || !canSeeCourse(profile, c.code, c.type)) notFound();
   const key = `${c.code}:${un}:${tn}`;
   const pinned = await getPinnedVideos(c.code, un, tn);
   const score = (await doneTopics(supabase)).get(key);
