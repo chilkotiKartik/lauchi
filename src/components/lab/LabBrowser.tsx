@@ -56,6 +56,7 @@ export function LabBrowser({ labs, courses, pinned, pinnedFor, youtubeOn }: { la
         <b className="leading-snug">{l.title}</b>
         <span className="line-clamp-2 text-sm text-muted">{l.blurb}</span>
         <span className="mt-auto flex flex-wrap gap-1.5 pt-1">
+          {l.done && <span className="chip chip-th !text-[11px]">✓ done</span>}
           {l.animated && <span className="chip chip-soft !text-[11px]">animated</span>}
           {l.guided && <span className="chip chip-cool !text-[11px]">guided{tried.has(l.id) ? " · tried" : ""}</span>}
         </span>

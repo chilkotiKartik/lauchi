@@ -18,14 +18,14 @@ export async function GET() {
   const s = await getSession();
   if (!s) return NextResponse.json({ error: "Sign in first" }, { status: 401, headers: { "Cache-Control": "no-store" } });
   const q = (t: string, cols = "*") => s.supabase.from(t).select(cols);
-  const [profile, xp, topics, sessions, consents, setups, usage, revise] = await Promise.all([
+  const [profile, xp, topics, sessions, consents, setups, usage, revise, labs] = await Promise.all([
     q("profiles"), q("xp_events"), q("topic_progress"),
-    sessionsWithAnswers(s.user.id) ?? q("quiz_sessions", "id,course,unit,kind,topic_key,total,correct,xp,created_at,submitted_at"), q("consents"), q("lab_setups", "id,lab,name,params,created_at"), aiUsage(s.user.id), q("revise_items"),
+    sessionsWithAnswers(s.user.id) ?? q("quiz_sessions", "id,course,unit,kind,topic_key,total,correct,xp,created_at,submitted_at"), q("consents"), q("lab_setups", "id,lab,name,params,created_at"), aiUsage(s.user.id), q("revise_items"), q("lab_progress"),
   ]);
   const body = {
     exportedAt: new Date().toISOString(),
     note: "This is all the personal data lockin. stores about you, including the answers you gave in quizzes. The random seeds that generate quiz questions are not personal data and are left out.",
-    account: { id: s.user.id, email: s.user.email }, profile: profile.data ?? [], xpEvents: xp.data ?? [], topicProgress: topics.data ?? [], quizSessions: sessions.data ?? [], consents: consents.data ?? [], labSetups: setups.data ?? [], askLochiDailyCounts: usage, reviseItems: revise.data ?? [],
+    account: { id: s.user.id, email: s.user.email }, profile: profile.data ?? [], xpEvents: xp.data ?? [], topicProgress: topics.data ?? [], quizSessions: sessions.data ?? [], consents: consents.data ?? [], labSetups: setups.data ?? [], askLochiDailyCounts: usage, reviseItems: revise.data ?? [], labProgress: labs.data ?? [],
   };
   return new NextResponse(JSON.stringify(body, null, 2), {
     headers: { "Content-Type": "application/json; charset=utf-8", "Content-Disposition": `attachment; filename="lockin-data-${new Date().toISOString().slice(0, 10)}.json"`, "Cache-Control": "private, no-store" },

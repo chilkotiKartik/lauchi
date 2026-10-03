@@ -1,6 +1,6 @@
 // Pure logic for the subject -> unit -> topic lab browser. No server-only imports so tests and client code can use it.
 
-export type BrowseLab = { id: string; title: string; blurb: string; where: [string, number][]; topics: string[]; animated: boolean; guided: boolean };
+export type BrowseLab = { id: string; title: string; blurb: string; where: [string, number][]; topics: string[]; animated: boolean; guided: boolean; /** the student finished this lab's tasks or experiment */ done?: boolean };
 export type BrowseUnit = { n: number; title: string; topics: string[] };
 export type BrowseCourse = { code: string; name: string; short: string; units: BrowseUnit[] };
 export type Sel = { course: string | null; unit: number | null; topic: number | null };

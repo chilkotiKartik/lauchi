@@ -46,6 +46,16 @@ test.describe("live 3D labs", () => {
       await expect.poll(() => page.getByTestId("readouts").textContent(), { message: `${l.id} readouts did not react` }).not.toBe(before);
       await page.getByRole("button", { name: "Reset" }).click();
       await expect(page.getByTestId("readouts")).toHaveText(before, { timeout: 5000 });
+      // the in-lab task works on this lab: predict, make the change, get a graded explanation
+      const tasks = page.getByTestId("lab-tasks");
+      const groups = tasks.getByRole("radiogroup");
+      await expect(groups.first(), `${l.id} has no predict-test task`).toBeVisible({ timeout: 10_000 });
+      for (let i = 0; i < await groups.count(); i++) await groups.nth(i).getByRole("radio").first().click();
+      await tasks.getByRole("button", { name: "Lock in my prediction" }).click();
+      const up = /raise/.test((await tasks.getByRole("heading", { level: 3 }).textContent()) ?? "");
+      await tasks.getByRole("slider").focus(); await tasks.getByRole("slider").press(up ? "End" : "Home");
+      await tasks.getByRole("button", { name: "Check what happened" }).click();
+      await expect(tasks.getByRole("list", { name: "What the lab did" }), `${l.id} task did not grade`).toBeVisible();
       // every preset button loads its values without an error
       for (const pr of l.presets) {
         await page.getByRole("button", { name: pr.name, exact: true }).click();
