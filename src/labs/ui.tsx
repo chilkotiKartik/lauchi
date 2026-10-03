@@ -1,7 +1,7 @@
 "use client";
-import { useId, useState, type ReactNode } from "react";
+import { useEffect, useId, useState, type ReactNode } from "react";
 import { Stage, useReducedMotion } from "./Stage";
-import { useLabGuide, useLabToolbar } from "./params";
+import { useLabBus, useLabGuide, useLabToolbar } from "./params";
 import { LabRecordModal } from "./LabRecordModal";
 
 export function Slider({ label, value, min, max, step = 0.01, onChange, unit = "", digits = 2 }: {
@@ -10,6 +10,8 @@ export function Slider({ label, value, min, max, step = 0.01, onChange, unit = "
 }) {
   const id = useId();
   const [draft, setDraft] = useState<string | null>(null);
+  const bus = useLabBus();
+  useEffect(() => { bus?.slider?.({ label, value, min, max, step, unit, digits, set: onChange, el: id }); });
   const commit = () => {
     if (draft === null) return;
     const v = parseFloat(draft.replace("−", "-"));
@@ -121,6 +123,15 @@ export function LabFrame({
 
   const playing = animated && (manual ?? !rm);
   const toolbar = useLabToolbar();
+  const bus = useLabBus();
+  const shown = JSON.stringify(readouts);
+  useEffect(() => { bus?.readouts?.(JSON.parse(shown)); }, [bus, shown]);
+  // the task panel's "Read the theory" button opens this tab and scrolls to it
+  useEffect(() => {
+    const open = () => { setActiveTab("theory"); document.getElementById("lab-about")?.scrollIntoView({ behavior: "smooth", block: "start" }); };
+    window.addEventListener("lab:theory", open);
+    return () => window.removeEventListener("lab:theory", open);
+  }, []);
   const manualSteps = steps ?? buildSteps({ presets: guide?.presets ?? [], readouts: readouts.map(([k]) => k), animated, topics: guide?.topics });
   const tabs: [Tab, string][] = [["theory", "Theory"], ...(intuition ? [["intuition", "Intuition"] as [Tab, string]] : []), ["procedure", "Procedure"], ...(viva?.length ? [["viva", "Viva"] as [Tab, string]] : [])];
 
@@ -158,7 +169,7 @@ export function LabFrame({
 
       <Readouts items={readouts} />
 
-      <div className="card overflow-hidden border-2 border-line bg-surface p-0">
+      <div id="lab-about" className="card scroll-mt-4 overflow-hidden border-2 border-line bg-surface p-0">
         <div role="tablist" aria-label="About this lab" className="flex overflow-x-auto border-b border-line bg-soft/50">
           {tabs.map(([id, name]) => (
             <button key={id} type="button" role="tab" aria-selected={activeTab === id} onClick={() => setActiveTab(id)}

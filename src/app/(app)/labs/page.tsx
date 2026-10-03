@@ -14,10 +14,12 @@ import { LabBrowser } from "@/components/lab/LabBrowser";
 export const metadata: Metadata = { title: "Labs" };
 
 export default async function Labs({ searchParams }: { searchParams: Promise<{ course?: string; unit?: string; topic?: string }> }) {
-  const { profile } = await requireOnboarded();
+  const { supabase, profile } = await requireOnboarded();
   const sp = await searchParams;
+  const { data: progress } = await supabase.from("lab_progress").select("lab"); // RLS: own rows only; missing table → no ticks
+  const done = new Set((progress ?? []).map((r: { lab: string }) => r.lab));
   const labs: BrowseLab[] = visibleLabs(profile.branch, ALL_LABS).map((l) => ({
-    id: l.id, title: l.title, blurb: l.blurb, where: l.where.filter(([c]) => canSeeCourse(profile.branch, c)), topics: l.topics, animated: l.animated, guided: !!getExperiment(l.id),
+    id: l.id, title: l.title, blurb: l.blurb, where: l.where.filter(([c]) => canSeeCourse(profile.branch, c)), topics: l.topics, animated: l.animated, guided: !!getExperiment(l.id), done: done.has(l.id),
   }));
   const order = listCourses().map((c) => c.code);
   const codes = subjectCounts(labs, order).map((s) => s.course);
@@ -36,7 +38,7 @@ export default async function Labs({ searchParams }: { searchParams: Promise<{ c
         <div className="floaty hidden sm:block"><ArtLab size={72} /></div>
         <div className="min-w-0">
           <h1 className="text-3xl">Live 3D labs</h1>
-          <p className="text-muted">{labs.length} simulations across {codes.length} subjects. Tap a subject to see its labs by unit.</p>
+          <p className="text-muted">{labs.length} simulations across {codes.length} subjects{done.size ? ` · ${labs.filter((l) => l.done).length} done` : ""}. Tap a subject to see its labs by unit.</p>
         </div>
       </div>
       <Suspense fallback={<div className="skel h-64" aria-hidden />}>

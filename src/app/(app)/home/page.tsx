@@ -8,10 +8,12 @@ import { loadActivity, quizzedTopics } from "@/lib/activity";
 import { doneTopics } from "@/lib/progress";
 import { accuracy, badges, bestStreak, dailyQuests, leaking, readiness } from "@/lib/insights";
 import { allUnitStats } from "@/lib/mock-units";
-import { daysBetween } from "@/lib/plan";
+import { addDays, daysBetween } from "@/lib/plan";
 import { getCourse, listCourses } from "@/lib/syllabus";
-import { DuolingoDashboardPath, type DashboardCourseOption } from "@/components/home/DuolingoDashboardPath";
-import { ArtLab, ArtMock, ArtPractice, ArtTarget, ArtFormula } from "@/components/art";
+import { ExamCard, StreakCard, SubjectGrid } from "@/components/home/Dashboard";
+import { streakMood, subjectProgress } from "@/lib/subject-progress";
+import { streakInfo } from "@/lib/daily-server";
+import { ArtLab, ArtMock, ArtPractice, ArtFormula } from "@/components/art";
 import { ProgressRing } from "@/components/ProgressRing";
 import { Heatmap } from "@/components/Heatmap";
 import { StartQuizButton } from "@/components/StartQuizButton";
@@ -19,7 +21,7 @@ import { Tilt } from "@/components/Tilt";
 import { BadgeArt } from "@/components/BadgeArt";
 import { ListenButton } from "@/components/Voice";
 import { boostFor, moodLine } from "@/lib/motivation";
-import { ArtFocus, ArtPyq, ArtQuest, ArtRevise } from "@/components/art";
+import { ArtFocus, ArtPyq, ArtQuest } from "@/components/art";
 import { Lochi } from "@/components/Lochi";
 import { dueCount } from "@/lib/revise";
 import { visibleLabs } from "@/lib/stream";
@@ -47,13 +49,15 @@ export default async function Home() {
   const donePromise = doneTopics(supabase);
   const duePromise = dueCount(supabase);
   const sundayPromise = sundaySummary(profile.id, profile.branch);
+  const streakPromise = streakInfo(profile.id);
 
-  const [{ data: statsData, error }, { sessions, events }, done, due, sunday] = await Promise.all([
+  const [{ data: statsData, error }, { sessions, events }, done, due, sunday, streakNow] = await Promise.all([
     statsPromise,
     activityPromise,
     donePromise,
     duePromise,
     sundayPromise,
+    streakPromise,
   ]);
 
   const stats = statsData as Stats | null;
@@ -76,20 +80,17 @@ export default async function Home() {
   const topCourse = top ? getCourse(top.course) : null;
   const weak = top && topCourse ? { course: top.course, unit: top.unit, pct: top.pct, label: `${topCourse.short}: ${topCourse.units[top.unit - 1]?.title ?? `Unit ${top.unit}`}` } : null;
   const allCourses = listCourses().filter((c) => canSeeCourse(profile.branch, c.code, c.type));
-  const dashboardCourses: DashboardCourseOption[] = allCourses
-    .map((c) => {
-      const full = getCourse(c.code);
-      return {
-        code: c.code,
-        short: c.short,
-        name: c.name,
-        units: (full?.units ?? []).map((u) => ({ n: u.n, title: u.title })),
-      };
-    })
-    .filter((c) => c.units.length > 0);
 
-  const initialCourse = topCourse?.code ?? dashboardCourses[0]?.code ?? "";
-  const lab = pickLab(visibleLabs(profile.branch, LABS), top ? { course: top.course, unit: top.unit } : null);
+  const visible = visibleLabs(profile.branch, LABS);
+  const subjects = allCourses.flatMap((c) => {
+    const full = getCourse(c.code);
+    if (!full || !full.units.length) return [];
+    return [subjectProgress(full, done, rawFix, visible.filter((l) => l.where.some(([x]) => x === c.code)).length)];
+  });
+  const hour = Number(new Intl.DateTimeFormat("en-GB", { hour: "numeric", hourCycle: "h23", timeZone: profile.timezone || "Asia/Kolkata" }).format(new Date()));
+  const weekKeys = lastDays(stats.today, stats.days, 7).map((_, i) => addDays(stats.today, i - 6));
+  const week = weekKeys.map((key, i) => ({ key, name: dayNames(stats.today, 7)[i], xp: stats.days[key] ?? 0, today: key === stats.today }));
+  const lab = pickLab(visible, top ? { course: top.course, unit: top.unit } : null);
 
   return (
     <div className="grid gap-5 lg:grid-cols-[1fr_340px]">
@@ -105,42 +106,25 @@ export default async function Home() {
               <p className="sm:text-lg">{line}</p>
               <p className="text-sm text-muted">{branchName(profile.branch)} · Semester {profile.semester === 1 ? "I" : "II"} · Level {lv.level}</p>
               <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
-                <Link href="/practice" className="btn !px-3">Practice now</Link>
-                <Link href="/learn" className="btn btn-ghost !px-3">Keep learning</Link>
+                <Link href="/practice" className="btn !px-3 !text-sm sm:!text-base">Practice now</Link>
+                <Link href="/learn" className="btn btn-ghost !px-3 !text-sm sm:!text-base">Keep learning</Link>
               </div>
             </div>
           </section>
         </Tilt>
 
-        {/* Duolingo-style Stepped Course Learning Path & Streak Cycle */}
-        <DuolingoDashboardPath
-          courses={dashboardCourses}
-          initialCourseCode={initialCourse}
-          unitStats={rawFix}
-          streak={stats.streak}
-          todayXp={stats.today_xp}
-          dailyGoal={profile.daily_goal_xp}
-          days={stats.days}
-          today={stats.today}
-        />
+        <StreakCard streak={streakNow.streak || stats.streak} freezes={streakNow.freezes} week={week} todayXp={stats.today_xp} goal={profile.daily_goal_xp} mood={streakMood(stats.today_xp, hour)} />
+
+        <ExamCard left={left} ready={ready.score} weak={fix.length} />
+
+        <SubjectGrid subjects={subjects} />
+
+        <MissionStrip due={due} weak={weak} lab={lab ? { id: lab.id, title: lab.title } : null} />
 
         <HomeScene
           week={lastDays(stats.today, stats.days, 7)} names={dayNames(stats.today, 7)} todayXp={stats.today_xp} goal={profile.daily_goal_xp}
           streak={stats.streak} level={lv.level} levelInto={lv.into} levelSpan={lv.span} quote={boostFor(stats.today, 1)}
         />
-
-        <MissionStrip due={due} weak={weak} lab={lab ? { id: lab.id, title: lab.title } : null} />
-
-        <Tilt max={3}>
-          <Link href="/revise" className="card flex items-center gap-4 no-underline" style={{ ["--accent" as string]: "#2ba6f5" }}>
-            {due > 0 ? <span className="floaty"><ArtRevise size={56} /></span> : <Lochi mood="happy" size={56} />}
-            <span className="min-w-0 flex-1">
-              <h2 className="text-xl">Revise today ({due})</h2>
-              <span className="block text-sm text-muted">{due > 0 ? `${due} ${due === 1 ? "question is" : "questions are"} ready to revise before you forget ${due === 1 ? "it" : "them"}.` : "Nothing to revise right now. Lochi is proud of you."}</span>
-            </span>
-            <span className="btn shrink-0">{due > 0 ? "Revise" : "Open"}</span>
-          </Link>
-        </Tilt>
 
         <section className="card boost flex flex-col gap-3" aria-labelledby="boost">
           {[12, 30, 52, 74, 90].map((x, i) => <span key={x} aria-hidden className="spark" style={{ left: `${x}%`, bottom: 8, animationDelay: `${i * 0.7}s` }} />)}
@@ -223,16 +207,6 @@ export default async function Home() {
             <div className="rounded-xl bg-soft p-2"><dt className="text-muted">Quiz accuracy</dt><dd className="font-black text-head">{acc ? `${acc.pct}%` : "No quiz yet"}</dd></div>
           </dl>
           <p className="text-xs text-muted">Measured over the {pool.courses} subjects that have quizzes.</p>
-        </section>
-        <section className="card flex items-center gap-4" aria-label="Exam countdown">
-          <ArtTarget size={52} />
-          {left === null ? (
-            <div><h2 className="text-lg">Exam countdown</h2><p className="text-sm text-muted">Set your exam date in <Link href="/settings">Settings</Link> to unlock a study plan.</p></div>
-          ) : left > 0 ? (
-            <div><h2 className="text-lg">{left} {left === 1 ? "day" : "days"} to go</h2><p className="text-sm text-muted"><Link href="/plan">See your study plan</Link></p></div>
-          ) : (
-            <div><h2 className="text-lg">{left === 0 ? "Exam day. You've got this!" : "Exam date has passed"}</h2><p className="text-sm text-muted">Update it in <Link href="/settings">Settings</Link>.</p></div>
-          )}
         </section>
         <section className="card" aria-labelledby="bd">
           <div className="mb-2 flex items-center justify-between"><h2 id="bd" className="text-lg">Badges</h2><Link href="/progress" className="text-sm font-black uppercase">All</Link></div>

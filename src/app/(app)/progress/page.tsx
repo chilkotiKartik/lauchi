@@ -10,6 +10,9 @@ import { getCourse } from "@/lib/syllabus";
 import { ArtProgress } from "@/components/art";
 import { BadgeArt } from "@/components/BadgeArt";
 import { Tilt } from "@/components/Tilt";
+import Link from "next/link";
+import { visibleLabs } from "@/lib/stream";
+import { LABS, getLab } from "@/labs/registry";
 
 export const metadata: Metadata = { title: "Progress" };
 type Stats = { total_xp: number; today: string; streak: number; days: Record<string, number> };
@@ -19,7 +22,12 @@ export default async function Progress() {
   const { data } = await supabase.rpc("dashboard_stats");
   const s = data as Stats | null;
   if (!s) return <p className="err" role="alert">We couldn&apos;t load your progress. Refresh to try again.</p>;
-  const [{ sessions }, done] = await Promise.all([loadActivity(supabase), doneTopics(supabase)]);
+  const [{ sessions }, done, labRows] = await Promise.all([loadActivity(supabase), doneTopics(supabase),
+    supabase.from("lab_progress").select("lab,kind,best,updated_at").order("updated_at", { ascending: false }).then((r) => (r.data ?? []) as { lab: string; kind: string; best: number; updated_at: string }[])]);
+  const labsDone = new Set(labRows.map((r) => r.lab));
+  const labTotal = visibleLabs(profile.branch, LABS).length;
+  const taskRows = labRows.filter((r) => r.kind === "tasks");
+  const labAvg = taskRows.length ? Math.round(taskRows.reduce((a, r) => a + r.best, 0) / taskRows.length) : null;
   const lv = levelFromXp(s.total_xp);
   const acc = accuracy(sessions);
   const best = Math.max(s.streak, bestStreak(s.days));
@@ -31,7 +39,7 @@ export default async function Progress() {
   const finished = sessions.filter((x) => x.submitted_at).length;
   return (
     <div className="flex flex-col gap-5">
-      <header className="flex items-center gap-3"><ArtProgress size={56} /><div><h1 className="text-3xl">Your progress</h1><p className="text-muted">Everything here is counted from your real quizzes.</p></div></header>
+      <header className="flex items-center gap-3"><ArtProgress size={56} /><div><h1 className="text-3xl">Your progress</h1><p className="text-muted">Everything here is counted from your real quizzes and labs.</p></div></header>
       <section aria-label="Totals" className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {[["Total XP", String(s.total_xp)], ["Level", String(lv.level)], ["Quizzes finished", String(finished)], ["Accuracy", acc ? `${acc.pct}%` : "—"], ["Topics done", String(done.size)], ["Current streak", `${s.streak} d`], ["Best streak (12 wk)", `${best} d`], ["XP to next level", String(lv.next - s.total_xp)]].map(([k, v]) => (
           <div key={k} className="card !p-3"><p className="text-xs font-extrabold uppercase tracking-wide text-muted">{k}</p><p className="text-2xl font-black text-head">{v}</p></div>
@@ -42,6 +50,18 @@ export default async function Progress() {
         <ol className="flex h-40 items-end gap-[3px]" aria-label="XP per day, last 30 days">
           {days.map((x) => <li key={x.d} title={`${x.d}: ${x.xp} XP`} className="flex-1 rounded-t" style={{ height: `${Math.max(3, (x.xp / max) * 100)}%`, background: x.xp > 0 ? "var(--green)" : "var(--line)" }}><span className="sr-only">{x.d}: {x.xp} XP</span></li>)}
         </ol>
+      </section>
+      <section className="card" aria-labelledby="h-labs">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 id="h-labs" className="text-xl">3D labs · {labsDone.size} of {labTotal} done</h2>
+          {labAvg !== null && <span className="text-sm font-bold text-muted">Predictions right: {labAvg}% on average</span>}
+        </div>
+        <div className="bar mt-2" role="progressbar" aria-label="3D labs done" aria-valuemin={0} aria-valuemax={labTotal} aria-valuenow={labsDone.size}><i style={{ width: `${(labsDone.size / Math.max(1, labTotal)) * 100}%` }} /></div>
+        {labRows.length ? (
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {labRows.slice(0, 8).map((r) => <li key={r.lab + r.kind}><Link className="pill !px-3 no-underline" href={`/labs/${r.lab}`}>{getLab(r.lab)?.title ?? r.lab} · {r.kind === "tasks" ? "tasks" : "experiment"} {r.best}%</Link></li>)}
+          </ul>
+        ) : <p className="mt-2 text-sm text-muted">Open any lab and do its “Predict, test, explain” tasks to fill this in. <Link href="/labs">Go to the labs</Link>.</p>}
       </section>
       {byCourse.size > 0 && (
         <section className="card" aria-labelledby="acc">

@@ -66,11 +66,12 @@ function filters(url, params) {
   for (const [k, v] of url.searchParams) {
     if (["select", "order", "limit", "offset", "columns", "on_conflict"].includes(k)) continue;
     const neg = v.startsWith("not."); const vv = neg ? v.slice(4) : v;
-    const m = /^(eq|neq|gt|gte|lt|lte|in|is)\.(.*)$/.exec(vv);
+    const m = /^(eq|neq|gt|gte|lt|lte|in|is|like)\.(.*)$/.exec(vv);
     if (!m) throw Object.assign(new Error("bad filter"), { status: 400 });
     const [, op0, val] = m; const col = ident(k); const op = neg && op0 === "is" ? "isnot" : op0;
     if (op === "isnot") { where.push(`${col} is ${val === "null" ? "not null" : "null"}`); continue; }
     if (op === "in") { params.push(val.replace(/^\(|\)$/g, "").split(",")); where.push(`${col} = any($${params.length})`); }
+    else if (op === "like") { params.push(val.replace(/\*/g, "%")); where.push(`${col} like $${params.length}`); }
     else if (op === "is") where.push(`${col} is ${val === "null" ? "null" : "not null"}`);
     else { params.push(val); where.push(`${col} ${{ eq: "=", neq: "<>", gt: ">", gte: ">=", lt: "<", lte: "<=" }[op]} $${params.length}`); }
   }

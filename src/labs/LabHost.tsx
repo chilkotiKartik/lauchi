@@ -1,9 +1,9 @@
 "use client";
-import { useCallback, useMemo, useRef, useState, useTransition } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { LabLoader } from "./LabLoader";
 import { LabParamsProvider } from "./params";
-import { noteLivePreset, noteLiveReset, registerLiveReset, setLiveParams } from "./live-store";
+import { noteLivePreset, noteLiveReset, registerLiveReset, setLiveParams, setLiveReadouts, setLiveSlider } from "./live-store";
 import { encodeParams, type Params } from "./params-core";
 import type { LabPreset } from "./types";
 import { deleteSetup, saveSetup } from "@/app/(app)/labs/actions";
@@ -16,7 +16,10 @@ export function LabHost({ id, title = "", topics = [], presets, saved, initial }
   const [run, setRun] = useState<{ key: number; values: Params | null; label: string | null }>({ key: 0, values: initial, label: initial ? "Shared setup" : null });
   const current = useRef<Params>({});
   const report = useCallback((p: Params) => { current.current = p; setLiveParams(id, p); }, [id]);
-  const bus = useMemo(() => ({ onReset: () => noteLiveReset(id), register: (fn: () => void) => registerLiveReset(id, fn) }), [id]);
+  const bus = useMemo(() => ({
+    onReset: () => noteLiveReset(id), register: (fn: () => void) => registerLiveReset(id, fn),
+    readouts: (r: [string, string][]) => setLiveReadouts(id, r), slider: (s: Parameters<typeof setLiveSlider>[1]) => setLiveSlider(id, s),
+  }), [id]);
   const [naming, setNaming] = useState(false);
   const [name, setName] = useState("");
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
@@ -25,6 +28,14 @@ export function LabHost({ id, title = "", topics = [], presets, saved, initial }
   const guide = useMemo(() => ({ title, topics, presets: presets.map((p) => ({ name: p.name, note: p.note })) }), [title, topics, presets]);
 
   const load = (values: Params, label: string) => { noteLivePreset(id, label); setRun((r) => ({ key: r.key + 1, values, label })); setMsg(null); setLink(null); };
+  // the in-lab task panel asks for a preset by name ("Load it for me")
+  const loadRef = useRef(load);
+  useEffect(() => { loadRef.current = load; });
+  useEffect(() => {
+    const on = (e: Event) => { const p = presets.find((x) => x.name === (e as CustomEvent<string>).detail); if (p) loadRef.current(p.values, p.name); };
+    window.addEventListener("lab:preset", on);
+    return () => window.removeEventListener("lab:preset", on);
+  }, [presets]);
   const share = async () => {
     const url = `${location.origin}/labs/${id}?v=${encodeParams(current.current)}`;
     setLink(url);

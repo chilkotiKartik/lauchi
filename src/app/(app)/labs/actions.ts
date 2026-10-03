@@ -5,6 +5,7 @@ import { getSession } from "@/lib/auth";
 import { getLab } from "@/labs/registry";
 import { clampParams } from "@/labs/params-core";
 import { ALL_SPECS } from "@/labs/meta";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export type SetupResult = { ok: true; id: string } | { ok: false; error: string };
 
@@ -36,4 +37,18 @@ export async function deleteSetup(input: unknown): Promise<{ ok: boolean }> {
   const { error } = await s.supabase.from("lab_setups").delete().eq("id", p.data.id); // RLS: own rows only
   revalidatePath(`/labs/${p.data.lab}`);
   return { ok: !error };
+}
+
+/**
+ * Record a finished lab (its in-lab tasks or its guided experiment) and pay XP the first time. The score is the
+ * student's own result, worked out in the browser from their lab; XP is small, paid once per lab and capped per day
+ * by award_xp, so a faked score gains little.
+ */
+export async function recordLab(input: unknown): Promise<{ ok: boolean; xp: number }> {
+  const s = await getSession();
+  const p = z.object({ lab: z.string().regex(/^[a-z0-9]{2,24}$/), kind: z.enum(["tasks", "experiment"]), score: z.number().int().min(0).max(100) }).safeParse(input);
+  if (!s || !p.success || !getLab(p.data.lab)) return { ok: false, xp: 0 };
+  const { data, error } = await createAdminClient().rpc("record_lab", { p_user: s.user.id, p_lab: p.data.lab, p_kind: p.data.kind, p_score: p.data.score });
+  if (error) return { ok: false, xp: 0 };
+  return { ok: true, xp: Number((data as { xp?: number } | null)?.xp ?? 0) };
 }

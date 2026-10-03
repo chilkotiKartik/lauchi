@@ -7,6 +7,7 @@ import { Confetti } from "@/components/motion";
 import { ALL_SPECS } from "@/labs/meta";
 import { clampParams, type Params } from "@/labs/params-core";
 import { requestLiveReset, useLiveLab } from "@/labs/live-store";
+import { recordLab } from "@/app/(app)/labs/actions";
 import { evaluateStep, formatDuration, passMark, scoreAttempt, type StepContext } from "@/labs/experiments/engine";
 import { sfx } from "@/lib/sound";
 import type { Experiment } from "@/labs/experiments/types";
@@ -105,6 +106,7 @@ export function ExperimentPanel({ experiment: e }: { experiment: Experiment }) {
       const sc = scoreAttempt(e.questions, Object.fromEntries(Object.entries(next).map(([id, x]) => [id, x && { correct: x.correct, hintUsed: x.hintUsed }])), pass);
       setElapsed(Date.now() - (t0.current ?? Date.now()));
       setSaved({ ...saved, attempts: saved.attempts + 1, best: Math.max(saved.best, sc.percent) });
+      void recordLab({ lab: e.labId, kind: "experiment", score: sc.percent }).catch(() => {}); // progress + XP once
       if (sc.passed) setCelebrate(true);
     }
   };

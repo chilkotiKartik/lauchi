@@ -13,6 +13,7 @@ import { LabVideos } from "@/components/lab/LabVideos";
 import { getPinnedVideos } from "@/lib/admin";
 import { youtubeConfigured } from "@/lib/youtube";
 import { ExperimentPanel } from "@/components/lab/ExperimentPanel";
+import { LabTasks } from "@/components/lab/LabTasks";
 import { getPublishedLabQuestions } from "@/lib/cms-db";
 
 export function generateStaticParams() { return LABS.map((l) => ({ id: l.id })); }
@@ -39,6 +40,7 @@ export default async function LabPage({ params, searchParams }: { params: Promis
   const wCourse = getCourse(wc);
   const wTopic = lab.topics[0] ?? lab.title;
   const pinned = await getPinnedVideos(wc, wu);
+  const tasks = <LabTasks labId={lab.id} title={lab.title} topic={wTopic} presets={lab.presets} course={wc} unit={wu} courseName={wCourse?.name ?? wc} unitTitle={wCourse?.units[wu - 1]?.title ?? `Unit ${wu}`} />;
   return (
     <div className="flex flex-col gap-4">
       <Crumbs items={[{ href: "/labs", label: "Labs" }, { label: lab.title }]} />
@@ -50,14 +52,15 @@ export default async function LabPage({ params, searchParams }: { params: Promis
           return <Link key={c + u} href={`/learn/${c}/${u}`} className="pill !px-3 no-underline">{course?.short ?? c} · Unit {u}: {course?.units[u - 1]?.title ?? ""}</Link>;
         })}
       </p>
-      {experiment ? (
-        <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_25rem]">
-          <div className="min-w-0 lg:col-start-1 lg:row-start-1"><LabHost id={lab.id} title={lab.title} topics={lab.topics} presets={lab.presets} saved={saved} initial={initial} /></div>
-          <div className="order-first min-w-0 lg:sticky lg:top-4 lg:order-none lg:col-start-2 lg:row-start-1"><ExperimentPanel experiment={experiment} /></div>
+      <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_25rem]">
+        <div className="flex min-w-0 flex-col gap-4 lg:col-start-1 lg:row-start-1">
+          <LabHost id={lab.id} title={lab.title} topics={lab.topics} presets={lab.presets} saved={saved} initial={initial} />
+          {experiment && tasks}
         </div>
-      ) : (
-        <LabHost id={lab.id} title={lab.title} topics={lab.topics} presets={lab.presets} saved={saved} initial={initial} />
-      )}
+        {experiment
+          ? <div className="order-first min-w-0 lg:sticky lg:top-4 lg:order-none lg:col-start-2 lg:row-start-1"><ExperimentPanel experiment={experiment} /></div>
+          : <div className="min-w-0 lg:sticky lg:top-4 lg:col-start-2 lg:row-start-1">{tasks}</div>}
+      </div>
       <LabVideos heading="Watch this topic" query={`${wTopic} ${wCourse?.name ?? ""}`.trim()} pinned={pinned} youtubeOn={youtubeConfigured()} />
     </div>
   );

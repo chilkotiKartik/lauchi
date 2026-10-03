@@ -13,8 +13,14 @@ export const prefsSchema = z.object({
 export type PushPrefs = z.infer<typeof prefsSchema>;
 export const DEFAULT_PREFS: PushPrefs = { streak: true, exam: true, studyTime: null };
 
+/** The browsers' real push services. Reminders are only ever sent to these, so a crafted "endpoint" cannot make the
+ * server POST to any other host (SSRF). */
+const PUSH_HOSTS = [/^fcm\.googleapis\.com$/, /^android\.googleapis\.com$/, /^updates\.push\.services\.mozilla\.com$/, /^([a-z0-9-]+\.)*push\.apple\.com$/, /^([a-z0-9-]+\.)*notify\.windows\.com$/];
+export function isPushEndpoint(u: string): boolean {
+  try { const url = new URL(u); return url.protocol === "https:" && !url.port && PUSH_HOSTS.some((h) => h.test(url.hostname)); } catch { return false; }
+}
 export const subscribeSchema = z.object({
-  endpoint: z.string().url().max(1000).refine((u) => u.startsWith("https://"), "Push endpoints are https"),
+  endpoint: z.string().url().max(1000).refine(isPushEndpoint, "That isn't a browser push service"),
   keys: z.object({ p256dh: z.string().min(20).max(200), auth: z.string().min(8).max(100) }),
   prefs: prefsSchema.default(DEFAULT_PREFS),
 });

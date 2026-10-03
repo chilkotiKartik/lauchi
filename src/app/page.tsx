@@ -49,12 +49,12 @@ export default async function Landing() {
     <div className="min-h-dvh">
       <div className="aurora" aria-hidden><i /><i /><i /><i /></div>
       <header className="sticky top-0 z-20 border-b-2 border-line bg-bg/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
-          <Link href="/" className="flex items-center gap-2 text-xl font-black text-green-t no-underline sm:text-2xl"><Lochi mood="idle" size={36} /><span>lockin<span className="text-head">.</span></span></Link>
-          <nav aria-label="Account" className="flex items-center gap-2">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:px-5">
+          <Link href="/" aria-label="lockin. home" className="flex shrink-0 items-center gap-2 text-xl font-black text-green-t no-underline sm:text-2xl"><Lochi mood="idle" size={36} /><span className="hidden min-[400px]:inline">lockin<span className="text-head">.</span></span></Link>
+          <nav aria-label="Account" className="flex min-w-0 items-center gap-1.5 sm:gap-2">
             <QuickThemeToggle compact />
-            {!session && <Link href="/login" className="btn btn-ghost !min-h-11 whitespace-nowrap !px-4 !text-sm sm:!px-6 sm:!text-base">Log in</Link>}
-            <Link href={cta.href} className="btn !min-h-11 whitespace-nowrap !px-4 !text-sm sm:!px-6 sm:!text-base">{session ? "Dashboard" : "Get started"}</Link>
+            {!session && <Link href="/login" className="btn btn-ghost !min-h-11 whitespace-nowrap !px-3 !text-sm sm:!px-6 sm:!text-base">Log in</Link>}
+            <Link href={cta.href} className="btn !min-h-11 whitespace-nowrap !px-3 !text-sm sm:!px-6 sm:!text-base">{session ? "Dashboard" : "Get started"}</Link>
           </nav>
         </div>
       </header>

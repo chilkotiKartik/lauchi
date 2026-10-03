@@ -2,16 +2,17 @@
 import { useState, useTransition } from "react";
 import { startQuiz } from "@/app/quiz/actions";
 
-export function StartQuizButton({ kind, course, unit, topicKey, children, ghost, className, label }: {
+export function StartQuizButton({ kind, course, unit, topicKey, children, ghost, className, label, style }: {
   kind: "practice" | "topic" | "mock" | "assignment"; course: string; unit: number; topicKey?: string; children: React.ReactNode; ghost?: boolean; className?: string;
   /** accessible name, for buttons that only show an icon */
   label?: string;
+  style?: React.CSSProperties;
 }) {
   const [pending, start] = useTransition();
   const [error, setError] = useState("");
   return (
     <div className="flex flex-col items-center gap-2">
-      <button type="button" aria-label={label} className={className ?? `btn ${ghost ? "btn-ghost" : ""}`} disabled={pending}
+      <button type="button" aria-label={label} style={style} className={className ?? `btn ${ghost ? "btn-ghost" : ""}`} disabled={pending}
         onClick={() => start(async () => { const r = await startQuiz({ kind, course, unit, topicKey }); if (r?.error) setError(r.error); })}>
         {pending ? "…" : children}
       </button>
