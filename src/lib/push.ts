@@ -23,7 +23,7 @@ export const unsubscribeSchema = z.object({ endpoint: z.string().url().max(1000)
 /** Postgres `time` comes back as "HH:MM:SS"; the UI works in "HH:MM". */
 export const toHHMM = (t: string | null | undefined) => (t ? t.slice(0, 5) : null);
 
-export type ReminderKind = "streak" | "exam" | "study" | "daily";
+export type ReminderKind = "streak" | "exam" | "study" | "daily" | "sunday" | "sunday_prep";
 export type Reminder = { kind: ReminderKind; streak?: number | null; days_left?: number | null; name?: string };
 export type PushMessage = { title: string; body: string; url: string; tag: string };
 
@@ -50,6 +50,8 @@ export function buildMessage(r: Reminder): PushMessage {
       url: "/daily", tag: "daily",
     };
   }
+  if (r.kind === "sunday") return { title: "Your Sunday Quest is open", body: "12 questions from what you studied this week. Finish before midnight for up to 78 XP.", url: "/sunday", tag: "sunday" };
+  if (r.kind === "sunday_prep") return { title: "Sunday Quest tomorrow", body: "See which units it covers and do a quick revision tonight.", url: "/sunday", tag: "sunday" };
   return { title: "Time to study", body: "Your daily study time is here. Even 15 minutes counts.", url: "/home", tag: "study" };
 }
 

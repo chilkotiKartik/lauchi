@@ -4,7 +4,7 @@ import { Confetti } from "@/components/motion";
 
 const noop = () => () => {};
 
-/** Confetti the first time a student sees their group complete a day (once per group per day on this device). */
+/** Confetti the first time a student sees something completed (a group's day, a Sunday Quest): once per id per day on this device. */
 export function Celebrate({ id, day }: { id: string; day: string }) {
   const key = `lockin-group-done-${id}`;
   // Server and hydration render nothing; the client then reads whether this day was already celebrated.

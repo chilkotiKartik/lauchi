@@ -7,7 +7,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 export const maxDuration = 60;
 
 type Due = { sub_id: string; user_id: string; endpoint: string; p256dh: string; auth: string; kind: ReminderKind; streak: number | null; days_left: number | null; local_day: string };
-const COLUMN: Record<ReminderKind, string> = { streak: "last_streak_on", exam: "last_exam_on", study: "last_study_on", daily: "last_daily_on" };
+const COLUMN: Record<ReminderKind, string> = { streak: "last_streak_on", exam: "last_exam_on", study: "last_study_on", daily: "last_daily_on", sunday: "last_sunday_on", sunday_prep: "last_sunday_on" };
 
 function authorised(req: Request) {
   const secret = process.env.CRON_SECRET;

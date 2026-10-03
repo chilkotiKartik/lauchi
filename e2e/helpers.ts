@@ -25,9 +25,9 @@ export function watch(page: Page) {
 }
 
 export async function signIn(page: Page, email: string) {
-  await page.goto("/login");
-  await page.getByLabel("Email").fill(email);
-  await page.getByRole("button", { name: /email me a sign-in link/i }).click();
+  await page.goto("/login?tab=magic");
+  await page.getByLabel("Email Address").fill(email);
+  await page.getByRole("button", { name: /email me a 1-click link/i }).click();
   await expect(page.getByRole("heading", { name: "Check your inbox" })).toBeVisible();
   const { link } = await (await fetch(`${MOCK}/__mail?email=${encodeURIComponent(email)}`)).json();
   expect(link).toContain("/auth/callback?next=%2Fhome&code=");

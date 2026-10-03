@@ -20,7 +20,7 @@ import { Tilt } from "@/components/Tilt";
 import { BadgeArt } from "@/components/BadgeArt";
 import { ListenButton } from "@/components/Voice";
 import { boostFor, moodLine } from "@/lib/motivation";
-import { ArtFocus, ArtPyq, ArtRevise } from "@/components/art";
+import { ArtFocus, ArtPyq, ArtQuest, ArtRevise } from "@/components/art";
 import { Lochi } from "@/components/Lochi";
 import { dueCount } from "@/lib/revise";
 import { visibleLabs } from "@/lib/stream";
@@ -28,6 +28,7 @@ import { LABS } from "@/labs/registry";
 import { HomeScene } from "@/components/home/HomeScene";
 import { MissionStrip } from "@/components/home/MissionStrip";
 import { dayNames, lastDays, pickLab } from "@/components/home/data";
+import { sundaySummary } from "@/lib/sunday-server";
 
 export const metadata: Metadata = { title: "Dashboard" };
 
@@ -46,12 +47,14 @@ export default async function Home() {
   const activityPromise = loadActivity(supabase);
   const donePromise = doneTopics(supabase);
   const duePromise = dueCount(supabase);
+  const sundayPromise = sundaySummary(profile.id, profile.branch);
 
-  const [{ data: statsData, error }, { sessions, events }, done, due] = await Promise.all([
+  const [{ data: statsData, error }, { sessions, events }, done, due, sunday] = await Promise.all([
     statsPromise,
     activityPromise,
     donePromise,
     duePromise,
+    sundayPromise,
   ]);
 
   const stats = statsData as Stats | null;
@@ -173,6 +176,16 @@ export default async function Home() {
             </ul>
           )}
         </section>
+
+        <Link href="/sunday" className={`card flex items-center gap-4 no-underline hover:border-purple ${sunday.open && !sunday.done ? "!border-purple" : ""}`} aria-label="Sunday Quest">
+          <ArtQuest size={48} />
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-black uppercase tracking-wide text-muted">Sunday Quest{sunday.streak > 0 ? ` · ${sunday.streak} in a row` : ""}</p>
+            <p className="text-lg font-black text-head">{sunday.open ? (sunday.done ? "Done this week. Well played!" : "Open now: 12 questions, up to 78 XP") : `Opens ${sunday.daysLeft === 1 ? "tomorrow" : `in ${sunday.daysLeft} days`}`}</p>
+            {!sunday.open && <p className="text-sm text-muted">{sunday.units ? `Covers ${sunday.units} unit${sunday.units === 1 ? "" : "s"} you practised this week. Tap to prepare.` : "Practise this week and Sunday's quest is built from it."}</p>}
+          </div>
+          <span className="btn !min-h-10 !px-4 !text-sm" aria-hidden>{sunday.open && !sunday.done ? "Start" : "View"}</span>
+        </Link>
 
         <section className="card" aria-labelledby="qs">
           <div className="mb-3 flex items-center justify-between"><h2 id="qs" className="text-xl">Today&apos;s quests</h2><Link href="/quests" className="text-sm font-black uppercase">All quests</Link></div>
