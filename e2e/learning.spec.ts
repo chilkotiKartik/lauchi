@@ -47,9 +47,13 @@ test("browse syllabus: subjects, units, topics, lesson and self-check", async ({
   await onboard(page);
 
   await page.goto("/learn");
-  await expect(page.getByText("26 courses, 963 topics and experiments")).toBeVisible();
+  // a CSE semester-1 student sees only that semester's subjects (plus electives and the minor)
+  const intro = (await page.getByText(/\d+ courses, \d+ topics and experiments/).textContent()) ?? "";
+  const n = Number(/(\d+) courses/.exec(intro)?.[1]);
   for (const g of ["Theory subjects", "Labs and practicals", "Minor: Advance Web Development"]) await expect(page.getByRole("heading", { name: g })).toBeVisible();
-  await expect(page.locator("main li a")).toHaveCount(26);
+  await expect(page.locator("main li a")).toHaveCount(n);
+  for (const c of ["Engineering Physics", "Programming for Problem Solving", "Basic Electrical Engineering"]) await expect(page.getByRole("link", { name: new RegExp(c) }).first()).toBeVisible();
+  for (const c of ["Engineering Chemistry", "Analytical Mathematics", "Basic Mechanical Engineering"]) await expect(page.getByRole("link", { name: new RegExp(`^${c}`) })).toHaveCount(0);
 
   await page.getByRole("link", { name: /Introduction to Engineering Mathematics/ }).click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Introduction to Engineering Mathematics");
@@ -146,7 +150,9 @@ test("failing a topic quiz gives partial XP and does not complete the topic", as
 test("practice: pick subject and unit, first answer is final, quiz resumes after reload", async ({ page }) => {
   await signIn(page, uniqueEmail()); await onboard(page);
   await page.goto("/practice");
-  await expect(page.locator("main li a")).toHaveCount(13);
+  // CSE semester 1: Physics, Intro Maths, Electrical, PPS, EVS (+ the web minor); semester-2 subjects are not offered
+  for (const c of ["Engineering Physics", "Introduction to Engineering Mathematics", "Basic Electrical Engineering", "Programming for Problem Solving", "Environmental Studies"]) await expect(page.getByRole("link", { name: new RegExp(c) }).first()).toBeVisible();
+  for (const c of ["Engineering Chemistry", "Analytical Mathematics", "Basic Mechanical Engineering", "Basic Electronics Engineering"]) await expect(page.getByRole("link", { name: new RegExp(c) })).toHaveCount(0);
   await page.getByRole("link", { name: /Engineering Physics/ }).click();
   await page.getByRole("button", { name: /^Practise unit 1\b/ }).first().click();
   await expect(page).toHaveURL(/\/quiz\//);

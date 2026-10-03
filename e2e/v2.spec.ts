@@ -147,10 +147,19 @@ test("dashboard shows today's boost and Ask Lochi accepts a prefilled question",
   expect(problems).toEqual([]);
 });
 
-test("the new 3D labs are listed and grouped under the five core subjects", async ({ page }) => {
-  await ready(page);
+test("the new 3D labs are listed under their subjects, and follow the student's semester", async ({ page }) => {
+  const email = await ready(page, 2);
+  const shows = async (titles: string[], visible: boolean) => {
+    for (const t of titles) {
+      const link = page.getByRole("link", { name: new RegExp(t.slice(0, 14).replace(/[()+]/g, ".")) });
+      if (visible) await expect(link.first(), t).toBeVisible(); else await expect(link, t).toHaveCount(0);
+    }
+  };
+  const sem2 = ["Truss forces by the method of joints", "Karnaugh map minimiser", "¹H NMR spectrometer"]; // Mechanical, Electronics, Chemistry
+  const sem1 = ["Two-wattmeter method (3-phase)", "He–Ne laser: pumping, gain & threshold"]; // Electrical, Physics
   await page.goto("/labs");
-  for (const t of ["Truss forces by the method of joints", "Two-wattmeter method (3-phase)", "Karnaugh map minimiser", "¹H NMR spectrometer", "He–Ne laser: pumping, gain & threshold"]) {
-    await expect(page.getByRole("link", { name: new RegExp(t.slice(0, 14).replace(/[()+]/g, ".")) }).first()).toBeVisible();
-  }
+  await shows(sem2, true); await shows(sem1, false);
+  await sql("update profiles set semester = 1 where id = (select id from auth.users where email = $1)", [email]);
+  await page.goto("/labs");
+  await shows(sem1, true); await shows(sem2, false);
 });

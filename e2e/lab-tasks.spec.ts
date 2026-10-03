@@ -1,5 +1,5 @@
 import { test, expect, type Locator } from "@playwright/test";
-import { onboard, signIn, sql, uniqueEmail, watch } from "./helpers";
+import { fakeYoutube, onboard, signIn, sql, uniqueEmail, watch } from "./helpers";
 
 /** Predict "goes up" for every reading of the current task. */
 async function predictAllUp(panel: Locator) {
@@ -12,6 +12,7 @@ test("lab tasks: predict, test one change, fair-test warning, preset task, XP on
   test.setTimeout(180_000);
   const problems = watch(page);
   const email = uniqueEmail();
+  await fakeYoutube(page); // an admin test may have pinned a lecture to this unit
   await signIn(page, email); await onboard(page);
   await page.goto("/labs/diffraction");
   const panel = page.getByTestId("lab-tasks");
