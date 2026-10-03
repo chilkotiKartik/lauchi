@@ -38,8 +38,9 @@ function Page({ pdf, n, w, h, width }: { pdf: PDFDocumentProxy; n: number; w: nu
       const vp = page.getViewport({ scale: (width / w) * dpr });
       const c = canvas.current;
       c.width = Math.floor(vp.width); c.height = Math.floor(vp.height);
-      task = page.render({ canvas: c, viewport: vp });
-      await task.promise.catch(() => {});
+      const renderTask = page.render({ canvasContext: c.getContext("2d")!, viewport: vp } as any);
+      task = renderTask as any;
+      await (renderTask as any)?.promise?.catch(() => {});
     })();
     return () => { cancelled = true; task?.cancel(); };
   }, [near, pdf, n, w, width]);
