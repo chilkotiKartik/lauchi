@@ -76,8 +76,10 @@ export async function proxy(request: NextRequest) {
       },
     });
     try {
-      const { data } = await supabase.auth.getUser();
-      signedIn = Boolean(data?.user?.id);
+      // Verifies the token signature locally with the cached JWKS (refreshing an expired session first);
+      // falls back to an Auth round trip only for projects on a shared-secret key.
+      const { data } = await supabase.auth.getClaims();
+      signedIn = Boolean(data?.claims?.sub);
     } catch {
       signedIn = false;
     }

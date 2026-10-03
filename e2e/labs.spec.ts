@@ -1,19 +1,14 @@
 import { test, expect, type Page } from "@playwright/test";
 import { LABS } from "../src/labs/registry";
 import { visibleLabs } from "../src/lib/stream";
-import { fakeYoutube, onboard, onboardAs, signIn, uniqueEmail, watch } from "./helpers";
+import { fakeYoutube, onboard, onboardAs, shotPixels, signIn, uniqueEmail, watch } from "./helpers";
 
-/** Number of distinct colours in the WebGL canvas: a blank/failed render has ≤ 2. */
+/** Distinct lit colours of the lab as the user sees it: the studio bench and backdrop are dark, so only the lab's own
+ * apparatus produces bright colours. A lab that rendered nothing scores ≤ 2. */
 async function colours(page: Page) {
-  return page.evaluate(() => {
-    const c = document.querySelector<HTMLCanvasElement>("[data-testid=lab-stage] canvas");
-    if (!c) return 0;
-    const t = document.createElement("canvas"); t.width = 96; t.height = 96;
-    const x = t.getContext("2d")!; x.drawImage(c, 0, 0, 96, 96);
-    const d = x.getImageData(0, 0, 96, 96).data, seen = new Set<number>();
-    for (let i = 0; i < d.length; i += 4) seen.add(((d[i] >> 4) << 8) | ((d[i + 1] >> 4) << 4) | (d[i + 2] >> 4));
-    return seen.size;
-  });
+  const stage = page.getByTestId("lab-stage");
+  if (!(await stage.locator("canvas").count())) return 0;
+  return (await shotPixels(page, stage.locator("canvas"), 72)).lit;
 }
 
 test("labs need a session", async ({ page }) => {
@@ -28,12 +23,13 @@ test.describe("live 3D labs", () => {
     await onboard(page);
     await page.goto("/labs");
     await expect(page.getByRole("heading", { name: "Live 3D labs" })).toBeVisible();
-    for (const l of visibleLabs("CSE", LABS)) await expect(page.getByRole("link", { name: new RegExp(l.title.slice(0, 12)) }).first()).toBeVisible();
+    const esc = (t: string) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    for (const l of visibleLabs("CSE", LABS)) await expect(page.getByRole("link", { name: new RegExp(esc(l.title.slice(0, 12))) }).first()).toBeVisible();
   });
 
   for (const l of LABS) {
     test(`lab ${l.id}: real pixels, reacts to controls, resets, no errors`, async ({ page }) => {
-      test.setTimeout(60_000);
+      test.setTimeout(60_000 + l.presets.length * 30_000); // CI renders WebGL in software; each preset remounts the lab
       const problems = watch(page);
       await signIn(page, uniqueEmail());
       if (visibleLabs("CSE", [l]).length) await onboard(page); else await onboardAs(page, "Bachelor of Computer");
@@ -55,7 +51,8 @@ test.describe("live 3D labs", () => {
         await page.getByRole("button", { name: pr.name, exact: true }).click();
         await expect(page.getByText(`Now showing: ${pr.name}`)).toBeVisible();
         await stage.scrollIntoViewIfNeeded(); // the canvas only draws while it is on screen
-        await expect.poll(() => colours(page), { timeout: 15_000, message: `${l.id} preset "${pr.name}" rendered blank` }).toBeGreaterThan(6);
+        await expect(stage.locator("canvas")).toBeVisible({ timeout: 20_000 });
+        await expect.poll(() => colours(page), { timeout: 25_000, message: `${l.id} preset "${pr.name}" rendered blank` }).toBeGreaterThan(6);
       }
       expect(problems).toEqual([]);
     });
@@ -101,13 +98,8 @@ test("landing hero becomes a live 3D Lochi when WebGL is available", async ({ pa
   await expect(page.getByTestId("hero").locator("canvas")).toBeVisible({ timeout: 20_000 });
   await expect(page.getByTestId("hero").locator("canvas")).toHaveCount(1);
   await page.getByTestId("hero").scrollIntoViewIfNeeded(); // labs and the hero pause while off-screen, so draw only after it is in view
-  await expect.poll(() => page.evaluate(() => {
-    const cv = document.querySelector<HTMLCanvasElement>("[data-testid=hero] canvas")!;
-    const t = document.createElement("canvas"); t.width = t.height = 64; const x = t.getContext("2d")!; x.drawImage(cv, 0, 0, 64, 64);
-    const d = x.getImageData(0, 0, 64, 64).data; let green = 0;
-    for (let i = 0; i < d.length; i += 4) if (d[i + 1] > 120 && d[i] < 140 && d[i + 2] < 140 && d[i + 3] > 200) green++;
-    return green;
-  }), { timeout: 15_000, message: "the padlock should draw green pixels" }).toBeGreaterThan(150);
+  await expect.poll(async () => (await shotPixels(page, page.getByTestId("hero").locator("canvas"))).green,
+    { timeout: 15_000, message: "the padlock should draw green pixels" }).toBeGreaterThan(150);
   expect(problems).toEqual([]);
 });
 

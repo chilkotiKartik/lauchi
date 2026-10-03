@@ -1,7 +1,6 @@
 "use client";
 import { useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
-import { waveField } from "../math";
 import { Tick, useQuality } from "../Stage";
 import { LabFrame, Slider } from "../ui";
 import { useLabParams } from "../params";

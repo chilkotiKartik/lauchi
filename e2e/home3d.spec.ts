@@ -1,17 +1,12 @@
 import { test, expect, type Page } from "@playwright/test";
-import { onboard, signIn, uniqueEmail, watch } from "./helpers";
+import { onboard, shotPixels, signIn, uniqueEmail, watch } from "./helpers";
 
-/** Opaque pixels the WebGL canvas inside `testid` has drawn (the canvas is transparent, so a blank one has none). */
+/** Distinct colours of the 3D canvas inside `testid` as the user sees it (a blank, transparent canvas shows only the flat
+ * page behind it: a handful of colours). Read from a screenshot because the canvas does not preserve its drawing buffer. */
 async function opaque(page: Page, testid: string) {
-  return page.evaluate((id) => {
-    const cv = document.querySelector<HTMLCanvasElement>(`[data-testid=${id}] canvas`);
-    if (!cv) return 0;
-    const t = document.createElement("canvas"); t.width = t.height = 96;
-    const x = t.getContext("2d")!; x.drawImage(cv, 0, 0, 96, 96);
-    const d = x.getImageData(0, 0, 96, 96).data; let n = 0;
-    for (let i = 3; i < d.length; i += 4) if (d[i] > 200) n++;
-    return n;
-  }, testid);
+  const cv = page.locator(`[data-testid=${testid}] canvas`);
+  if (!(await cv.count())) return 0;
+  return (await shotPixels(page, cv.first())).all;
 }
 
 test("home shows a live 3D lock-in scene that draws pixels and logs no errors", async ({ page }) => {
@@ -27,7 +22,7 @@ test("home shows a live 3D lock-in scene that draws pixels and logs no errors", 
   await expect(scene.locator("canvas")).toHaveCount(1);
   await expect(scene.locator("canvas")).toBeVisible({ timeout: 20_000 });
   await page.waitForTimeout(1500);
-  await expect.poll(() => opaque(page, "home3d"), { timeout: 15_000, message: "the lock and blocks should draw opaque pixels" }).toBeGreaterThan(300);
+  await expect.poll(() => opaque(page, "home3d"), { timeout: 15_000, message: "the lock and blocks should draw (a blank canvas shows only the flat page)" }).toBeGreaterThan(12);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   expect(overflow).toBeLessThanOrEqual(0);
   expect(problems).toEqual([]);
@@ -57,7 +52,7 @@ test("landing 'See it move' loads lazily, draws, reacts to the slider, and is fl
   await sim.scrollIntoViewIfNeeded();
   await expect(sim).toHaveAttribute("data-mode", "live", { timeout: 20_000 });
   await expect(sim.locator("canvas")).toBeVisible({ timeout: 20_000 });
-  await expect.poll(() => opaque(page, "sim"), { timeout: 15_000 }).toBeGreaterThan(300);
+  await expect.poll(() => opaque(page, "sim"), { timeout: 15_000 }).toBeGreaterThan(12);
   await page.getByRole("slider", { name: /Wave number k/ }).fill("5");
   await expect(page.getByTestId("sim-k")).toHaveText("5.0");
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);

@@ -60,9 +60,10 @@ export default function MyLab() {
 2. The **first `<Slider>`** in `controls` must change at least one readout's *displayed text* when moved 6 steps right from its default (so its default must not sit at its max).
 3. **Reset** must restore exactly the default readouts → readouts depend only on params, never on time or randomness.
 4. **No console errors, no network requests.** Never use drei `Text`, `Text3D`, `Html`, `Environment`, `useTexture`, `useGLTF` or any loader (they fetch files and the CSP blocks them). Labels belong in readouts / notes.
-5. Slider min/max/defaults must match the spec. Every `Slider` label unique in the lab. Use `Pick` for `opt`, `Check` for `flag`.
-6. React Compiler lint: never mutate props, state or hook results during render; never call `Math.random()` in render (use a small seeded PRNG in the sim file); do per-frame mutation of geometries in **module-level helper functions** called from `Tick` (see `scenes/interference.tsx` `paintWave`), or through refs; any component that needs `useLayoutEffect` on instanced mesh refs must be its own inner component. No `setState` inside effects.
-7. `useFrame` only inside the Canvas → use `<Tick fn={…} />` inside `scene`.
+5. **Tabs show real content only.** Theory is your `note`. Procedure is written from the lab's presets and readouts unless you pass `steps`. Intuition and Viva appear only when you pass `intuition` / `viva`, so write them for the lab or leave them out; never generic text. Lighting, the bench and shadows come from `Stage`; scenes should not add their own environment maps.
+6. Slider min/max/defaults must match the spec. Every `Slider` label unique in the lab. Use `Pick` for `opt`, `Check` for `flag`.
+7. React Compiler lint: never mutate props, state or hook results during render; never call `Math.random()` in render (use a small seeded PRNG in the sim file); do per-frame mutation of geometries in **module-level helper functions** called from `Tick` (see `scenes/interference.tsx` `paintWave`), or through refs; any component that needs `useLayoutEffect` on instanced mesh refs must be its own inner component. No `setState` inside effects.
+8. `useFrame` only inside the Canvas → use `<Tick fn={…} />` inside `scene`.
 
 ## Performance (no lag on a ₹10k phone)
 

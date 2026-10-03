@@ -7,13 +7,17 @@ import { PreviewDialog } from "./PreviewDialog";
 
 export type CourseInfo = { code: string; short: string; name: string; units: string[] };
 
-export function ResourceBrowser({ items, courses }: { items: ResourceItem[]; courses: CourseInfo[] }) {
+export function ResourceBrowser({ items, courses, openId, watermark }: { items: ResourceItem[]; courses: CourseInfo[]; openId?: string; watermark?: string }) {
   const [q, setQ] = useState("");
   const [kind, setKind] = useState<ResourceKind | "all">("all");
   const [course, setCourse] = useState("all");
   const [todo, setTodo] = useState(false);
   const [seen, setSeen] = useState<Set<string>>(() => new Set(items.filter((i) => i.seen).map((i) => i.id)));
-  const [preview, setPreview] = useState<{ item: ResourceItem; opener: HTMLElement | null } | null>(null);
+  // /resources?open=<id> (used by the unit pages) opens that file in the reader straight away
+  const [preview, setPreview] = useState<{ item: ResourceItem; opener: HTMLElement | null } | null>(() => {
+    const it = openId ? items.find((r) => r.id === openId && canPreview(r)) : undefined;
+    return it ? { item: it, opener: null } : null;
+  });
   const [note, setNote] = useState<string | null>(null);
   const [, start] = useTransition();
   const reduce = useReducedMotion();
@@ -101,9 +105,10 @@ export function ResourceBrowser({ items, courses }: { items: ResourceItem[]; cou
                       {r.description && <p className="text-[0.95rem]">{r.description}</p>}
                       <p className="text-xs text-muted">{[r.topic ? `Topic ${r.topic}` : "Whole unit", r.file_name, formatSize(r.size_bytes)].filter(Boolean).join(" · ")}</p>
                       <div className="flex flex-wrap items-center gap-2">
-                        {canPreview(r) && <button type="button" className="btn btn-blue !px-4 !py-2 !text-sm" onClick={(e) => open(r, e.currentTarget)} aria-label={`Preview ${r.title}`}>Preview</button>}
-                        <a className="btn btn-ghost !px-4 !py-2 !text-sm no-underline" href={`/api/resources/${r.id}`} target="_blank" rel="noopener noreferrer" aria-label={`${r.file_path ? "Open" : "Open link"}: ${r.title}`}>{r.file_path ? "Open in new tab" : "Open link"}</a>
-                        {r.file_path && <a className="btn btn-ghost !px-4 !py-2 !text-sm no-underline" href={`/api/resources/${r.id}?download=1`} aria-label={`Download ${r.title}`}>Download</a>}
+                        {canPreview(r) && <button type="button" className="btn btn-blue !px-4 !py-2 !text-sm" onClick={(e) => open(r, e.currentTarget)} aria-label={`Read ${r.title}`}>Read</button>}
+                        {!r.file_path && <a className="btn btn-ghost !px-4 !py-2 !text-sm no-underline" href={`/api/resources/${r.id}`} target="_blank" rel="noopener noreferrer" aria-label={`Open link: ${r.title}`}>Open link</a>}
+                        {r.file_path && r.allow_download && <a className="btn btn-ghost !px-4 !py-2 !text-sm no-underline" href={`/api/resources/${r.id}?download=1`} aria-label={`Download ${r.title}`}>Download</a>}
+                        {r.file_path && !r.allow_download && <span className="chip chip-soft" title="Your teacher shared this to read inside lockin.">Read-only</span>}
                         <button type="button" aria-pressed={r.seen} className={`seg ml-auto ${r.seen ? "is-on is-green" : ""}`} onClick={() => toggle(r.id, !r.seen)} aria-label={`${r.seen ? "Unmark" : "Mark"} ${r.title} as done`}>{r.seen ? "✓ Done" : "Mark as done"}</button>
                       </div>
                     </motion.li>
@@ -115,11 +120,11 @@ export function ResourceBrowser({ items, courses }: { items: ResourceItem[]; cou
         </section>
       ))}
 
-      <PreviewHost state={preview} onClose={() => setPreview(null)} />
+      <PreviewHost state={preview} onClose={() => setPreview(null)} watermark={watermark} />
     </div>
   );
 }
 
-function PreviewHost({ state, onClose }: { state: { item: ResourceItem; opener: HTMLElement | null } | null; onClose: () => void }) {
-  return <AnimatePresence>{state && <PreviewDialog key={state.item.id} item={state.item} opener={state.opener} onClose={onClose} />}</AnimatePresence>;
+function PreviewHost({ state, onClose, watermark }: { state: { item: ResourceItem; opener: HTMLElement | null } | null; onClose: () => void; watermark?: string }) {
+  return <AnimatePresence>{state && <PreviewDialog key={state.item.id} item={state.item} opener={state.opener} onClose={onClose} watermark={watermark} />}</AnimatePresence>;
 }

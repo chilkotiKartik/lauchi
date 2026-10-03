@@ -1,11 +1,23 @@
 "use client";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import * as THREE from "three";
 import { beam, bendStress } from "../sim/mechx";
 import { LabFrame, Slider } from "../ui";
 import { useLabParams } from "../params";
 import { MECHX_SPECS } from "../meta/mechx.specs";
 import { C, Box, type V3 } from "../kit";
 import { Arrow, Graph, Rod } from "../kit2";
+
+/** The beam as ONE solid rectangular steel section swept along its deflected shape (was ~200 separate rods = 200 draw calls). */
+function DeflectedBeam({ shape }: { shape: V3[] }) {
+  const geo = useMemo(() => {
+    const curve = new THREE.CatmullRomCurve3(shape.map((p) => new THREE.Vector3(...p)));
+    const section = new THREE.Shape().moveTo(-0.13, -0.09).lineTo(0.13, -0.09).lineTo(0.13, 0.09).lineTo(-0.13, 0.09).closePath();
+    return new THREE.ExtrudeGeometry(section, { steps: Math.min(160, shape.length * 2), bevelEnabled: false, extrudePath: curve });
+  }, [shape]);
+  useEffect(() => () => geo.dispose(), [geo]);
+  return <mesh geometry={geo}><meshStandardMaterial color="#b9c3cc" metalness={0.75} roughness={0.32} /></mesh>;
+}
 
 export default function BeamLab() {
   const [P, set, reset] = useLabParams(MECHX_SPECS.beam);
@@ -26,7 +38,7 @@ export default function BeamLab() {
       onReset={reset}
       scene={() => (<group>
         <Rod a={[-4, 1.4, 0]} b={[4, 1.4, 0]} r={0.02} color={C.grey} />
-        {shape.slice(1).map((p, i) => <Rod key={i} a={shape[i]} b={p} r={0.12} color={C.light} />)}
+        <DeflectedBeam shape={shape} />
         <mesh position={[-4, 1.05, 0]}><coneGeometry args={[0.25, 0.4, 3]} /><meshStandardMaterial color={C.green} /></mesh>
         <mesh position={[4, 1.1, 0]}><sphereGeometry args={[0.18, 16, 16]} /><meshStandardMaterial color={C.green} /></mesh>
         {W > 0 && <Arrow from={[X(aa), 3.2, 0]} to={[X(aa), 1.6, 0]} color={C.red} />}

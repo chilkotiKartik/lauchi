@@ -33,7 +33,7 @@ export async function askDoubt(_prev: DoubtState, form: FormData): Promise<Doubt
   if (overDailyLimit(((recent ?? []) as { created_at: string }[]).map((r) => r.created_at))) return fail(`You can ask ${DOUBT_DAILY_LIMIT} doubts a day. Try again tomorrow, or search the shared library.`);
   const id = randomUUID();
   const { error } = await s.supabase.from("doubts").insert({ id, user_id: s.user.id, course: v.course, unit: v.unit, title: v.title, body: v.body, visibility: v.makePublic ? "public" : "private" });
-  if (error) return fail("We couldn't save your doubt. Try again.");
+  if (error) return fail(/too many doubts/.test(error.message) ? `You can ask ${DOUBT_DAILY_LIMIT} doubts a day. Try again tomorrow, or search the shared library.` : "We couldn't save your doubt. Try again.");
   revalidatePath("/doubts");
   redirect(`/doubts/${id}`);
 }
@@ -76,7 +76,8 @@ export async function askAi(id: string): Promise<DoubtState> {
   const r = await aiFirstAnswer({ userId: m.s.user.id, course: m.d.course, unit: m.d.unit, title: m.d.title, body: m.d.body });
   if (!r.ok) return fail(r.message);
   const { error } = await db.from("doubt_answers").insert({ doubt_id: m.d.id, author_id: null, author_kind: "ai", body: r.text });
-  if (error) return fail("We couldn't save the answer. Try again.");
+  // 23505: a second click raced the first one; the database keeps only one AI answer per doubt
+  if (error) return error.code === "23505" ? fail("Lochi has already given a first answer.") : fail("We couldn't save the answer. Try again.");
   if (m.d.status === "open") await db.from("doubts").update({ status: "answered" }).eq("id", m.d.id);
   revalidatePath(`/doubts/${m.d.id}`); revalidatePath("/doubts");
   return { status: "saved", message: "Lochi wrote a first answer." };

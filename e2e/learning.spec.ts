@@ -148,7 +148,7 @@ test("practice: pick subject and unit, first answer is final, quiz resumes after
   await page.goto("/practice");
   await expect(page.locator("main li a")).toHaveCount(13);
   await page.getByRole("link", { name: /Engineering Physics/ }).click();
-  await page.getByRole("button", { name: "Start 10 questions" }).first().click();
+  await page.getByRole("button", { name: /^Practise unit 1\b/ }).first().click();
   await expect(page).toHaveURL(/\/quiz\//);
   const id = sessionIdFrom(page); const s = await sessionSeed(id);
   expect(s.total).toBe(10);

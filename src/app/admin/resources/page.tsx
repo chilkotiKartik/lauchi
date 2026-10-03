@@ -15,9 +15,11 @@ export default async function AdminResources() {
   let rows: ResourceRow[] = [];
   let failed = false;
   try {
-    const { data, error } = await createAdminClient().from("resources").select(RESOURCE_COLS)
-      .order("course", { ascending: true }).order("unit", { ascending: true }).order("created_at", { ascending: false }).limit(1000);
-    if (error) failed = true; else rows = (data ?? []) as ResourceRow[];
+    const db = createAdminClient();
+    const list = (cols: string) => db.from("resources").select(cols).order("course", { ascending: true }).order("unit", { ascending: true }).order("created_at", { ascending: false }).limit(1000);
+    let { data, error } = await list(RESOURCE_COLS);
+    if (error) ({ data, error } = await list(RESOURCE_COLS.replace(",allow_download", ""))); // before migration 0023
+    if (error) failed = true; else rows = (data ?? []) as unknown as ResourceRow[];
   } catch { failed = true; }
 
   const groups = new Map<string, ResourceRow[]>();
@@ -27,7 +29,7 @@ export default async function AdminResources() {
     <div className="flex flex-col gap-5">
       <header>
         <h1 className="text-3xl">Notes &amp; files</h1>
-        <p className="text-muted">Upload PDFs, assignments, slides or links for a subject and unit. Students find them on the <b>Notes &amp; files</b> page, and on that unit&apos;s page. Files are private and only open for signed-in students of that stream.</p>
+        <p className="text-muted">Upload PDFs, assignments, slides or links for a subject and unit. Students find them on the <b>Notes &amp; files</b> page, and on that unit&apos;s page. Files are private and only open for signed-in students of that stream. By default a file is <b>read-only</b>: students read it inside the app and cannot download it; tick the box to allow downloads.</p>
       </header>
       <section className="card flex flex-col gap-3" aria-labelledby="up-h">
         <h2 id="up-h" className="text-xl">Add a file or link</h2>
@@ -50,9 +52,12 @@ export default async function AdminResources() {
                         <span className="text-sm text-muted">
                           {[kindLabel(r.kind), r.file_name, formatSize(r.size_bytes), r.topic ? `Topic ${r.topic}` : "Whole unit", r.external_url ? "has link" : ""].filter(Boolean).join(" · ")}
                         </span>
-                        {r.hidden && <span className="chip chip-warm w-fit">Hidden from students</span>}
+                        <span className="flex flex-wrap gap-1.5">
+                          {r.file_path && <span className={`chip w-fit ${r.allow_download ? "chip-cool" : "chip-soft"}`}>{r.allow_download ? "Students can download" : "Read-only for students"}</span>}
+                          {r.hidden && <span className="chip chip-warm w-fit">Hidden from students</span>}
+                        </span>
                       </div>
-                      <RowActions id={r.id} title={r.title} hidden={Boolean(r.hidden)} />
+                      <RowActions id={r.id} title={r.title} hidden={Boolean(r.hidden)} file={Boolean(r.file_path)} allowDownload={Boolean(r.allow_download)} />
                     </li>
                   ))}
                 </ul>

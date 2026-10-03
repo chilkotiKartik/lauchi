@@ -103,6 +103,10 @@ function Fields({ courses, state, pending, onSubmit }: { courses: CourseTopics[]
       <Field id="res-url" label={kind === "link" ? "Link" : "Link (optional)"} hint="A web page or YouTube link. Needed for the Link kind; otherwise it is shown next to the file." error={e.url}>
         {(a) => <input {...a} name="url" className="field" autoComplete="off" inputMode="url" placeholder="https://…" />}
       </Field>
+      <label className="flex items-start gap-3 rounded-2xl border-2 border-line p-3">
+        <input type="checkbox" name="allow_download" className="mt-1 h-5 w-5" />
+        <span><b className="text-head">Students may download this file</b><br /><span className="text-sm text-muted">Leave it off to make the file read-only: students read it inside lockin. (PDF pages drawn in the app, watermarked with their email) and get no download button or file link.</span></span>
+      </label>
       {state.status === "error" && <p className="err" role="alert">{state.message}</p>}
       <button type="submit" className="btn w-fit" disabled={pending}>{pending ? "Uploading…" : "Add to notes & files"}</button>
     </form>

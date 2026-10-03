@@ -18,14 +18,12 @@ const startSchema = z.object({
 });
 export type QuizError = { error: string };
 const COUNT = { practice: 10, topic: 5, mock: 20, assignment: 10 } as const;
+const NOT_CONFIGURED = "Quizzes aren't configured on this server yet (the server key is missing).";
 
-
-function getClient(s: NonNullable<Awaited<ReturnType<typeof getSession>>>) {
-  try {
-    return createAdminClient();
-  } catch {
-    return s.supabase;
-  }
+/** The quiz write path runs only with the service role: the database functions trust the user id and the grade we pass,
+ * so they are never callable by students directly. Returns null when the server key is missing. */
+function serverDb() {
+  try { return createAdminClient(); } catch { return null; }
 }
 
 export async function startQuiz(input: unknown): Promise<QuizError> {
@@ -42,7 +40,8 @@ export async function startQuiz(input: unknown): Promise<QuizError> {
     const t = topicKey ? parseTopicKey(topicKey) : null;
     if (!t || t.course !== course || t.unit !== unit || !c.units[unit - 1].topics[t.topic - 1]) return { error: "That topic doesn't exist." };
   }
-  const client = getClient(s);
+  const client = serverDb();
+  if (!client) return { error: NOT_CONFIGURED };
   if (kind === "assignment") {
     // An assignment is resumable: reopen the one this student left unfinished for this unit.
     let resume: string | null = null;
@@ -59,12 +58,11 @@ export async function startQuiz(input: unknown): Promise<QuizError> {
       p_user: s.user.id, p_course: course, p_unit: unit, p_seed: newSeed(), p_kind: kind, p_topic: kind === "topic" ? topicKey : null, p_total: COUNT[kind],
     });
     if (error) {
-      return { error: /too many/.test(error.message) ? "You've done a lot of quizzes today. Come back tomorrow." : `We couldn't start the quiz (${error.message}). Try again.` };
+      return { error: /too many/.test(error.message) ? "You've done a lot of quizzes today. Come back tomorrow." : "We couldn't start the quiz. Try again." };
     }
     id = data as string;
-  } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : "Quizzes aren't configured on this server yet.";
-    return { error: msg };
+  } catch {
+    return { error: "We couldn't start the quiz. Try again." };
   }
   redirect(`/quiz/${id}`);
 }
@@ -81,6 +79,8 @@ export async function checkAnswer(input: unknown): Promise<CheckResult> {
   if (!s) return { ok: false, error: "Your session expired. Log in again." };
   const p = answerSchema.safeParse(input);
   if (!p.success) return { ok: false, error: "That answer isn't valid." };
+  const client = serverDb();
+  if (!client) return { ok: false, error: NOT_CONFIGURED };
   let q = await loadSession(s.user.id, p.data.session);
   if (!q || q.submitted_at || p.data.index >= q.total) return { ok: false, error: "This quiz is finished." };
   const i = p.data.index;
@@ -90,7 +90,6 @@ export async function checkAnswer(input: unknown): Promise<CheckResult> {
   const raw = gen.q;
   const prior = q.answers[String(i)];
   const correct = prior ? prior.ok : grade(raw, p.data.answer as Answer);
-  const client = getClient(s);
   if (!prior) {
     const unit = sessionUnit(q, i);
     const { error } = await client.rpc("record_answer_tagged", {
@@ -126,7 +125,8 @@ export async function finishQuiz(input: unknown, submitEarly = false): Promise<F
   if (!s) return { ok: false, error: "Your session expired. Log in again." };
   const id = sessionId.safeParse(input);
   if (!id.success) return { ok: false, error: "Unknown quiz." };
-  const client = getClient(s);
+  const client = serverDb();
+  if (!client) return { ok: false, error: NOT_CONFIGURED };
   if (submitEarly) {
     const q = await loadSession(s.user.id, id.data);
     if (!q || q.kind !== "mock") return { ok: false, error: "Unknown quiz." };

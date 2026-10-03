@@ -1,7 +1,8 @@
 "use client";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { ContactShadows, OrbitControls, PerformanceMonitor } from "@react-three/drei";
 import * as THREE from "three";
+import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { useCapability } from "./capability";
 import { Component, createContext, useContext, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
@@ -62,28 +63,89 @@ function Fit({ base }: { base: [number, number, number] }) {
   return null;
 }
 
-/** Studio 3D Canvas with realistic radial gradient backdrop, studio lighting, and smooth orbit controls */
+// ------------------------------------------------------------------ snapshots
+const capturers = new WeakMap<HTMLCanvasElement, () => string>();
+/** A JPEG of the canvas as it looks now. The drawing buffer is not preserved (faster), so a fresh frame is rendered first. */
+export function captureCanvas(canvas: HTMLCanvasElement | null): string | undefined {
+  const f = canvas ? capturers.get(canvas) : undefined;
+  try { return f ? f() : undefined; } catch { return undefined; }
+}
+
+// ------------------------------------------------------------------ lag guard
+// If a device can't hold a smooth frame rate while a lab animates, every canvas drops to the light mode (DPR 1, no soft
+// shadows, no reflection map) for the rest of the visit, instead of stuttering. Remembered for the browser session.
+let slowDevice: boolean | null = null;
+function isSlow() {
+  if (slowDevice === null) { try { slowDevice = sessionStorage.getItem("lockin-3d-light") === "1"; } catch { slowDevice = false; } }
+  return slowDevice;
+}
+function markSlow() { slowDevice = true; try { sessionStorage.setItem("lockin-3d-light", "1"); } catch { /* private mode */ } }
+
+// ------------------------------------------------------------------ studio environment
+/** Image-based lighting from a procedurally built studio room (three's RoomEnvironment): metals, glass and plastics get
+ * real reflections and soft fill light. Built once per canvas on the GPU, no files or network, so it is cheap and CSP-safe. */
+function StudioEnvironment({ intensity }: { intensity: number }) {
+  const get = useThree((st) => st.get);
+  useEffect(() => {
+    const { gl, scene, invalidate } = get();
+    const pmrem = new THREE.PMREMGenerator(gl);
+    const room = new RoomEnvironment();
+    const target = pmrem.fromScene(room, 0.04);
+    scene.environment = target.texture;
+    scene.environmentIntensity = intensity;
+    invalidate();
+    return () => {
+      if (scene.environment === target.texture) scene.environment = null;
+      target.dispose();
+      room.traverse((o) => { const m = o as THREE.Mesh; m.geometry?.dispose(); (m.material as THREE.Material | undefined)?.dispose?.(); });
+      pmrem.dispose();
+    };
+  }, [get, intensity]);
+  return null;
+}
+
+/** The lab bench under every apparatus: a matte top that catches soft contact shadows, with a faint measuring grid. */
+const BENCH_Y = -2.85;
+function Bench({ shadows }: { shadows: boolean }) {
+  return (
+    <group position={[0, BENCH_Y, 0]}>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]}>
+        {/* far larger than the fog distance, so its edge is never seen */}
+        <circleGeometry args={[90, 64]} />
+        <meshStandardMaterial color="#0a1419" roughness={0.95} metalness={0} />
+      </mesh>
+      <gridHelper args={[24, 24, "#1a3342", "#112029"]} position={[0, 0.002, 0]} />
+      {shadows && <ContactShadows position={[0, 0.006, 0]} scale={22} resolution={256} blur={2.2} far={9} opacity={0.5} color="#000000" />}
+    </group>
+  );
+}
+
+/** Studio 3D canvas: image-based lighting, a key light, soft contact shadows on a bench, and smooth orbit controls. */
 export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", size = "small", children }: StageProps) {
   const cap = useCapability();
   const host = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(true);
+  // Render only while the canvas is on screen AND the tab is in front (two separate signals; either one pauses it).
+  const [inView, setInView] = useState(true);
+  const [tabShown, setTabShown] = useState(true);
+  const visible = inView && tabShown;
   const [lost, setLost] = useState(false);
 
   useEffect(() => {
     const el = host.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { threshold: 0.05 });
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { threshold: 0.05 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
   useEffect(() => {
-    const onVis = () => setVisible(!document.hidden);
+    const onVis = () => setTabShown(!document.hidden);
     document.addEventListener("visibilitychange", onVis);
     return () => document.removeEventListener("visibilitychange", onVis);
   }, []);
 
-  const quality: Quality = cap === "ok-low" ? "low" : "high";
+  const [degraded, setDegraded] = useState(isSlow);
+  const quality: Quality = cap === "ok-low" || degraded ? "low" : "high";
 
   return (
     <div
@@ -112,9 +174,10 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
         <Q.Provider value={quality}>
           <Guard>
             <Canvas
-              onCreated={({ gl, invalidate }) => {
+              onCreated={({ gl, invalidate, get }) => {
                 gl.toneMapping = THREE.ACESFilmicToneMapping;
-                gl.toneMappingExposure = 1.18;
+                gl.toneMappingExposure = 1.1;
+                capturers.set(gl.domElement, () => { const st = get(); gl.render(st.scene, st.camera); return gl.domElement.toDataURL("image/jpeg", 0.85); });
                 gl.domElement.addEventListener("webglcontextlost", (e) => {
                   e.preventDefault();
                   setLost(true);
@@ -138,21 +201,18 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
               {/* Atmospheric Studio Horizon Fog for realistic depth */}
               <fog attach="fog" args={["#081016", 12, 36]} />
 
-              {/* Laboratory Studio Lighting Setup */}
-              <ambientLight color="#e2f1fa" intensity={variant === "hero" ? 1.0 : 0.85} />
-              {/* Main Key Light */}
-              <directionalLight position={[8, 14, 8]} intensity={variant === "hero" ? 1.8 : 1.5} color="#ffffff" castShadow={false} />
-              {/* Cool Blue Fill Light */}
-              <directionalLight position={[-8, 6, -6]} intensity={0.65} color="#7dd3fc" />
-              {/* Warm Rim Light */}
-              <directionalLight position={[0, -6, -8]} intensity={0.35} color="#fef08a" />
-              {/* Center Specular Accent */}
-              <pointLight position={[0, 9, 0]} intensity={0.45} color="#38bdf8" distance={24} />
-
-              {/* Precision Laboratory Floor Grid positioned beneath the models */}
-              {variant === "lab" && (
-                <gridHelper args={[36, 36, "#1e3a5f", "#0d1b2a"]} position={[0, -2.85, 0]} />
+              {/* Watch the real frame rate only while animating (an on-demand canvas renders too rarely to measure) */}
+              {playing && visible && quality === "high" && (
+                <PerformanceMonitor flipflops={2} onDecline={() => { markSlow(); setDegraded(true); }} onFallback={() => { markSlow(); setDegraded(true); }} />
               )}
+              {/* Lighting: image-based studio fill (high quality) + one warm key light + a cool rim, like a real photo studio */}
+              {quality === "high" && <StudioEnvironment intensity={variant === "hero" ? 0.7 : 0.55} />}
+              <ambientLight color="#e2f1fa" intensity={quality === "high" ? 0.35 : 0.85} />
+              <directionalLight position={[8, 14, 8]} intensity={variant === "hero" ? 1.6 : 1.35} color="#fff6ea" />
+              <directionalLight position={[-8, 6, -6]} intensity={0.5} color="#9fd8ff" />
+              {quality === "low" && <directionalLight position={[0, -6, -8]} intensity={0.3} color="#fef08a" />}
+
+              {variant === "lab" && <Bench shadows={quality === "high"} />}
 
               {/* Orbit Controls */}
               {variant === "lab" && (
@@ -168,11 +228,9 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
               {children}
             </Canvas>
 
-            {/* Premium HUD Overlay Pill */}
             {variant === "lab" && (
-              <div className="pointer-events-none absolute bottom-3.5 left-3.5 flex items-center gap-2 rounded-2xl border border-white/10 bg-slate-950/75 px-3 py-1.5 text-xs font-extrabold text-slate-200 backdrop-blur-md shadow-lg">
-                <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
-                <span>360° Studio Orbit · Scroll to Zoom</span>
+              <div className="pointer-events-none absolute bottom-3 left-3 rounded-xl bg-slate-950/70 px-2.5 py-1 text-[11px] font-bold text-slate-300">
+                Drag to rotate · scroll or pinch to zoom
               </div>
             )}
           </Guard>

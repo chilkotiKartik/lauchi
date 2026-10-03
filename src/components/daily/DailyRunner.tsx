@@ -7,7 +7,11 @@ import { StepByStep } from "@/components/StepByStep";
 import { answerDaily, type DailyAnswerResult } from "@/app/(app)/daily/actions";
 import type { PublicQuestion } from "@/lib/quiz-core";
 
-export function DailyRunner({ questions, answered }: { questions: (PublicQuestion | null)[]; answered: number[] }) {
+/** Runs a fixed set of server-graded questions (daily challenge by default; the Sunday Quest passes its own action). */
+export function DailyRunner({ questions, answered, submit = answerDaily, label = "Challenge progress" }: {
+  questions: (PublicQuestion | null)[]; answered: number[];
+  submit?: (input: { index: number; answer: unknown }) => Promise<DailyAnswerResult>; label?: string;
+}) {
   const router = useRouter();
   const first = questions.findIndex((_, i) => !answered.includes(i));
   const [idx, setIdx] = useState(first === -1 ? 0 : first);
@@ -25,7 +29,7 @@ export function DailyRunner({ questions, answered }: { questions: (PublicQuestio
   function check() {
     setError("");
     start(async () => {
-      const r = await answerDaily({ index: idx, answer: value });
+      const r = await submit({ index: idx, answer: value });
       if (!r.ok) return setError(r.error);
       setResult(r);
     });
@@ -41,7 +45,7 @@ export function DailyRunner({ questions, answered }: { questions: (PublicQuestio
   return (
     <section className="card flex flex-col gap-4" aria-labelledby="dq">
       <div className="flex items-center gap-3">
-        <div className="bar flex-1" role="progressbar" aria-label="Challenge progress" aria-valuemin={0} aria-valuemax={questions.length} aria-valuenow={idx + (ok ? 1 : 0)}>
+        <div className="bar flex-1" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={questions.length} aria-valuenow={idx + (ok ? 1 : 0)}>
           <i style={{ width: `${((idx + (ok ? 1 : 0)) / questions.length) * 100}%` }} />
         </div>
         <p className="text-sm text-muted">Question {idx + 1} of {questions.length}</p>

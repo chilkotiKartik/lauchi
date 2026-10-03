@@ -19,7 +19,9 @@ export async function CourseResources({ course, unit }: { course: string; unit: 
               <p className="flex flex-wrap items-center gap-2"><b className="break-words text-head">{r.title}</b>{r.fresh && <span className="chip chip-hot">New</span>}<span className="chip chip-cool">{kindLabel(r.kind)}</span></p>
               {(r.description || r.size_bytes) && <p className="text-sm text-muted">{[r.description, formatSize(r.size_bytes)].filter(Boolean).join(" · ")}</p>}
             </div>
-            <a className="btn btn-ghost !px-4 !py-2 !text-sm no-underline" href={`/api/resources/${r.id}`} target="_blank" rel="noopener noreferrer" aria-label={`Open ${r.title}`}>Open</a>
+            {r.file_path
+              ? <a className="btn btn-ghost !px-4 !py-2 !text-sm no-underline" href={`/resources?open=${r.id}`} aria-label={`Read ${r.title}`}>Read</a>
+              : <a className="btn btn-ghost !px-4 !py-2 !text-sm no-underline" href={`/api/resources/${r.id}`} target="_blank" rel="noopener noreferrer" aria-label={`Open ${r.title}`}>Open link</a>}
           </li>
         ))}
       </ul>

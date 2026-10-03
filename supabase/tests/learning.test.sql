@@ -16,6 +16,8 @@ begin
   perform t_denied($q$insert into topic_progress(user_id,topic_key,best_score) values ('00000000-0000-0000-0000-0000000000a1','AHT-003:1:1',100)$q$, 'client cannot write topic progress');
   perform t_denied($q$select finish_quiz_session('00000000-0000-0000-0000-0000000000a1', gen_random_uuid())$q$, 'client cannot finish a session');
   perform t_denied($q$select record_answer('00000000-0000-0000-0000-0000000000a1', gen_random_uuid(), 0, '1', true)$q$, 'client cannot record answers');
+  perform t_denied($q$select record_answer_tagged('00000000-0000-0000-0000-0000000000a1', gen_random_uuid(), 0, '1', true, 0, 1, 1)$q$, 'client cannot record tagged answers (grades come from the server)');
+  perform t_denied($q$select start_quiz_session('00000000-0000-0000-0000-0000000000b1','AHT-003',1,7,'practice',null,5)$q$, 'client cannot start a session for another student');
   perform t_reset();
   perform t_as(null);
   perform t_denied($q$select * from quiz_sessions$q$, 'anonymous cannot read sessions');

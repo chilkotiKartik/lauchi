@@ -21,6 +21,7 @@ await pool.query(fs.readFileSync("supabase/tests/stub.sql", "utf8"));
 for (const f of fs.readdirSync("supabase/migrations").sort()) await pool.query(fs.readFileSync(path.join("supabase/migrations", f), "utf8"));
 
 const codes = new Map(), tokens = new Map(), mails = new Map();
+const files = new Map(); // Storage stand-in: "bucket/path" -> { type, data }
 let ytCalls = 0;
 const b64 = (o) => Buffer.from(JSON.stringify(o)).toString("base64url");
 const send = (res, code, body) => { res.writeHead(code, { "content-type": "application/json" }); res.end(body === undefined ? "" : JSON.stringify(body)); };
@@ -156,6 +157,17 @@ http.createServer(async (req, res) => {
     }
     if (p === "/auth/v1/logout") { tokens.delete(bearer(req)); return send(res, 204); }
     if (p.startsWith("/rest/v1/")) return await rest(req, res, url, p);
+    // ---- Storage stand-in (service role only, like the real private bucket): upload, download, sign, remove
+    if (p.startsWith("/storage/v1/")) {
+      if (bearer(req) !== process.env.E2E_SERVICE_KEY) return send(res, 403, { message: "not allowed" });
+      const rawBody = () => new Promise((r) => { const parts = []; req.on("data", (c) => parts.push(c)); req.on("end", () => r(Buffer.concat(parts))); });
+      const sign = /^\/storage\/v1\/object\/sign\/(.+)$/.exec(p);
+      if (sign && req.method === "POST") return send(res, 200, { signedURL: `/object/sign/${sign[1]}?token=e2e` });
+      const obj = /^\/storage\/v1\/object\/(.+)$/.exec(p);
+      if (obj && req.method === "POST") { files.set(decodeURIComponent(obj[1]), { type: req.headers["content-type"] ?? "application/octet-stream", data: await rawBody() }); return send(res, 200, { Key: obj[1] }); }
+      if (obj && req.method === "GET") { const f = files.get(decodeURIComponent(obj[1])); if (!f) return send(res, 404, { message: "not found" }); res.writeHead(200, { "content-type": f.type }); return res.end(f.data); }
+      if (obj && req.method === "DELETE") { const b = JSON.parse((await rawBody()).toString() || "{}"); for (const x of b.prefixes ?? []) files.delete(`${obj[1]}/${x}`); return send(res, 200, []); }
+    }
     send(res, 404, { message: "not found" });
   } catch (e) {
     const perm = e.code === "42501";

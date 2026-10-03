@@ -110,7 +110,7 @@ export function DuolingoDashboardPath({
               <div className="flex items-center gap-2">
                 <h3 className="text-xl font-black text-head">{streak} Day Streak</h3>
                 {todayXp > 0 && (
-                  <span className="rounded-full bg-emerald-500/20 border border-emerald-500/30 px-2.5 py-0.5 text-xs font-black text-emerald-400">
+                  <span className="rounded-full bg-emerald-500/20 border border-emerald-500/30 px-2.5 py-0.5 text-xs font-black text-green-t">
                     Active
                   </span>
                 )}
@@ -133,9 +133,9 @@ export function DuolingoDashboardPath({
                 title={`${w.dateStr}: ${w.xp} XP`}
                 className={`flex h-12 w-10 flex-col items-center justify-center rounded-xl border transition-transform hover:scale-105 ${
                   w.isToday
-                    ? "border-orange-500 bg-orange-500/15 font-black text-orange-400 ring-2 ring-orange-500/30"
+                    ? "border-orange-500 bg-orange-500/15 font-black text-head ring-2 ring-orange-500/30"
                     : w.done
-                    ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-400 font-bold"
+                    ? "border-emerald-500/40 bg-emerald-500/10 text-green-t font-bold"
                     : "border-line bg-soft/60 text-muted font-bold"
                 }`}
               >
@@ -186,7 +186,7 @@ export function DuolingoDashboardPath({
             </button>
             <Link
               href={`/practice/${activeCourse.code}`}
-              className="text-xs font-black text-blue hover:underline flex items-center gap-1"
+              className="text-xs font-black text-blue-t hover:underline flex items-center gap-1"
             >
               Full View &rarr;
             </Link>
@@ -205,7 +205,7 @@ export function DuolingoDashboardPath({
                 }}
                 className={`flex shrink-0 items-center gap-2 rounded-xl border-2 px-4 py-2.5 text-xs font-black transition-all ${
                   isSelected
-                    ? "border-blue bg-blue text-white shadow-md shadow-blue/20 scale-[1.02]"
+                    ? "border-blue bg-blue text-[#05223a] shadow-md shadow-blue/20 scale-[1.02]"
                     : "border-line bg-surface text-head hover:bg-soft hover:scale-[1.01]"
                 }`}
               >
@@ -269,7 +269,7 @@ export function DuolingoDashboardPath({
                     FIX THIS ⚠️
                   </div>
                 ) : isNext ? (
-                  <div className="animate-pulse mb-2.5 rounded-full border border-green-500/40 bg-green-500/20 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-green-400 shadow-md flex items-center gap-1">
+                  <div className="animate-pulse mb-2.5 rounded-full border border-green-500/40 bg-green-500/20 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-green-t shadow-md flex items-center gap-1">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
                     START HERE
                   </div>
@@ -281,7 +281,7 @@ export function DuolingoDashboardPath({
                     {[1, 2, 3].map((starIdx) => (
                       <span
                         key={starIdx}
-                        className={`text-xs ${starIdx <= stars ? "text-amber-400 drop-shadow-[0_0_4px_#f59e0b]" : "text-slate-600"}`}
+                        className={`text-xs ${starIdx <= stars ? "text-gold-t" : "text-slate-600"}`}
                       >
                         ★
                       </span>
@@ -295,6 +295,7 @@ export function DuolingoDashboardPath({
                     kind="practice"
                     course={activeCourse.code}
                     unit={u.n}
+                    label={`Practise unit ${u.n}: ${u.title}`}
                     className={`relative flex h-22 w-22 items-center justify-center rounded-full border-4 shadow-xl transition-all duration-150 active:translate-y-2 active:shadow-none hover:scale-105 ${
                       isWeak
                         ? "border-red-600 bg-red-500 shadow-[0_8px_0_#991b1b] text-white"
@@ -336,7 +337,7 @@ export function DuolingoDashboardPath({
                       onClick={() => handleChestClick(idx)}
                       className={`relative flex h-12 w-12 items-center justify-center rounded-2xl border-2 transition-transform hover:scale-110 active:scale-95 ${
                         openedChest === idx
-                          ? "border-amber-400 bg-amber-400/20 text-amber-300 shadow-md"
+                          ? "border-amber-400 bg-amber-400/20 text-gold-t shadow-md"
                           : "border-line bg-soft text-muted hover:border-amber-400/60"
                       }`}
                       title="Tap bonus chest for XP boost"
@@ -344,7 +345,7 @@ export function DuolingoDashboardPath({
                       {openedChest === idx ? "🎁" : "📦"}
                     </button>
                     {openedChest === idx && (
-                      <span className="animate-bounce mt-1 text-[10px] font-black text-amber-400">
+                      <span className="animate-bounce mt-1 text-[10px] font-black text-gold-t">
                         +25 XP Streak Power!
                       </span>
                     )}
@@ -367,7 +368,7 @@ export function DuolingoDashboardPath({
               </span>
             </Link>
             <div className="mt-3.5 max-w-[220px]">
-              <span className="text-[10px] font-black uppercase tracking-widest text-amber-400">
+              <span className="text-[10px] font-black uppercase tracking-widest text-gold-t">
                 Capstone Challenge
               </span>
               <h4 className="text-base font-black text-head">

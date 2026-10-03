@@ -22,9 +22,10 @@ async function counts(table: string, cols: string, filter?: (r: Record<string, u
   return m;
 }
 
-export default async function AdminSubjects() {
+export default async function AdminSubjects({ searchParams }: { searchParams: Promise<{ stream?: string }> }) {
   await requireAdmin();
-  const bca = listCourses().filter((c) => c.code.startsWith("BCA-") && c.units > 0);
+  const stream = (await searchParams).stream === "bca" ? "bca" : "btech";
+  const courses = listCourses().filter((c) => c.units > 0 && (stream === "bca" ? c.code.startsWith("BCA-") : !c.code.startsWith("BCA-")));
   const [lessons, questions, resources, videos, pyqs] = await Promise.all([
     counts("cms_lessons", "course,unit,status", (r) => r.status === "published"),
     counts("cms_questions", "course,unit,status", (r) => r.status === "published"),
@@ -36,9 +37,13 @@ export default async function AdminSubjects() {
     <div className="flex flex-col gap-5">
       <header>
         <h1 className="text-3xl">Subjects &amp; units</h1>
-        <p className="text-muted">The BCA syllabus with what is published for each unit. Use the links to add content straight to a unit.</p>
+        <p className="text-muted">Every subject with what is published for each unit. Use the links to add content straight to a unit.</p>
       </header>
-      {bca.map((s) => {
+      <nav aria-label="Stream" className="flex gap-2">
+        <Link href="/admin/subjects" className="adm-tab" aria-current={stream === "btech" ? "page" : undefined}>B.Tech (CSE, AIML)</Link>
+        <Link href="/admin/subjects?stream=bca" className="adm-tab" aria-current={stream === "bca" ? "page" : undefined}>BCA</Link>
+      </nav>
+      {courses.map((s) => {
         const c = getCourse(s.code);
         if (!c) return null;
         const topics = c.units.reduce((a, u) => a + u.topics.length, 0);
@@ -69,7 +74,7 @@ export default async function AdminSubjects() {
                         <td className="num">{labsFor(c.code, u.n).length}</td>
                         <td><span className="flex flex-wrap gap-x-3 gap-y-1 text-sm font-extrabold">
                           <Link href={`/admin/lessons/new?${q}&topic=1`}>Lesson</Link>
-                          <Link href={`/admin/questions?${q}`}>Question</Link>
+                          <Link href={`/admin/questions/new?${q}`}>Question</Link>
                           <Link href={`/admin/resources?${q}`}>Notes</Link>
                           <Link href={`/admin/pyqs?${q}`}>PYQ</Link>
                           <Link href={`/admin/videos?${q}`}>Video</Link>

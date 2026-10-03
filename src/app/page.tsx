@@ -2,7 +2,7 @@ import Link from "next/link";
 import { HeroLochi } from "@/components/HeroLochi";
 import { Lochi } from "@/components/Lochi";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
-import { ArtAsk, ArtBolt, ArtFlame, ArtLab, ArtLeague, ArtMock, ArtPractice, ArtPapers, ArtScores, ArtTarget, ArtVideo } from "@/components/art";
+import { ArtAsk, ArtBolt, ArtFlame, ArtLab, ArtLeague, ArtMock, ArtPractice, ArtPapers, ArtTarget, ArtVideo } from "@/components/art";
 import { getSession } from "@/lib/auth";
 import { LABS } from "@/labs/registry";
 import { listCourses } from "@/lib/syllabus";
@@ -14,7 +14,7 @@ import { Footer } from "@/components/Footer";
 import { QuickThemeToggle } from "@/components/QuickThemeToggle";
 
 const steps = [
-  ["Sign in", "Enter your email and open the link we send. No password to remember."],
+  ["Sign in", "Create an account with your email and a password, or get a one-tap sign-in link by email."],
   ["Tell us your semester", "Name, branch and semester. Under a minute."],
   ["Drill, explore, repeat", "Fresh questions every round, 3D labs for hard ideas, and a plan that counts down to your exam."],
 ];

@@ -27,11 +27,11 @@ test("signed-out visitors are sent to login and back", async ({ page }) => {
 });
 
 test("login validates email and handles rate limits", async ({ page }) => {
-  await page.goto("/login");
-  await page.getByLabel("Email").fill("not-an-email");
+  await page.goto("/login?tab=magic");
+  await page.getByLabel("Email Address").fill("not-an-email");
   await page.getByRole("button", { name: /email me/i }).click();
   await expect(page.locator(".err")).toContainText("valid email");
-  await page.getByLabel("Email").fill("limit@example.com");
+  await page.getByLabel("Email Address").fill("limit@example.com");
   await page.getByRole("button", { name: /email me/i }).click();
   await expect(page.locator(".err")).toContainText("Too many emails");
 });
@@ -98,8 +98,8 @@ test("open redirects and forged callbacks are refused", async ({ page }) => {
   await expect(page.locator(".err")).toContainText("expired or was already used");
 
   const email = uniqueEmail();
-  await page.goto("/login?next=//evil.example");
-  await page.getByLabel("Email").fill(email);
+  await page.goto("/login?tab=magic&next=//evil.example");
+  await page.getByLabel("Email Address").fill(email);
   await page.getByRole("button", { name: /email me/i }).click();
   await expect(page.getByRole("heading", { name: "Check your inbox" })).toBeVisible();
   const { link } = await (await fetch(`${MOCK}/__mail?email=${encodeURIComponent(email)}`)).json();

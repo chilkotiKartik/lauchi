@@ -41,8 +41,6 @@ export function LoginForm({
 
   const currentState =
     tab === "login" ? loginState : tab === "register" ? registerState : magicState;
-  const isPending =
-    tab === "login" ? loginPending : tab === "register" ? registerPending : magicPending;
 
   if (currentState.status === "sent") {
     return (
@@ -201,9 +199,10 @@ export function LoginForm({
                 type={showPassword ? "text" : "password"}
                 autoComplete="new-password"
                 required
-                minLength={6}
+                minLength={8}
+                maxLength={72}
                 className="field pr-12"
-                placeholder="At least 6 characters"
+                placeholder="At least 8 characters"
               />
               <button
                 type="button"
@@ -215,7 +214,7 @@ export function LoginForm({
               </button>
             </div>
             <span className="text-[11px] text-muted">
-              Minimum 6 characters. Use letters, numbers, and symbols.
+              Minimum 8 characters. Use letters, numbers, and symbols.
             </span>
           </div>
 

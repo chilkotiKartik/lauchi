@@ -25,9 +25,9 @@ export function watch(page: Page) {
 }
 
 export async function signIn(page: Page, email: string) {
-  await page.goto("/login");
-  await page.getByLabel("Email").fill(email);
-  await page.getByRole("button", { name: /email me a sign-in link/i }).click();
+  await page.goto("/login?tab=magic");
+  await page.getByLabel("Email Address").fill(email);
+  await page.getByRole("button", { name: /email me a 1-click link/i }).click();
   await expect(page.getByRole("heading", { name: "Check your inbox" })).toBeVisible();
   const { link } = await (await fetch(`${MOCK}/__mail?email=${encodeURIComponent(email)}`)).json();
   expect(link).toContain("/auth/callback?next=%2Fhome&code=");
@@ -74,4 +74,27 @@ export async function onboardAs(page: Page, branchPattern: string, name = "Kalu"
   await expect(page.getByText(`Welcome, ${name}!`)).toBeVisible();
   await page.getByRole("button", { name: "Let's go" }).click();
   await expect(page).toHaveURL(/\/home$/);
+}
+
+/**
+ * Pixels as the user sees them: a screenshot of `target` decoded in the page. (The WebGL canvases do not preserve their
+ * drawing buffer, for speed, so copying the canvas with drawImage outside a frame returns a blank image.)
+ * Returns the number of distinct colours (4 bits per channel) brighter than `minLum` (0–255), the number of opaque green
+ * pixels, and the total distinct colours.
+ */
+export async function shotPixels(page: Page, target: import("@playwright/test").Locator, minLum = 0) {
+  const png = await target.screenshot();
+  return page.evaluate(async ({ b64, minLum }) => {
+    const img = new Image(); img.src = `data:image/png;base64,${b64}`; await img.decode();
+    const t = document.createElement("canvas"); t.width = t.height = 96;
+    const x = t.getContext("2d")!; x.drawImage(img, 0, 0, 96, 96);
+    const d = x.getImageData(0, 0, 96, 96).data, lit = new Set<number>(), all = new Set<number>(); let green = 0;
+    for (let i = 0; i < d.length; i += 4) {
+      const q = ((d[i] >> 4) << 8) | ((d[i + 1] >> 4) << 4) | (d[i + 2] >> 4);
+      all.add(q);
+      if (0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2] > minLum) lit.add(q);
+      if (d[i + 1] > 120 && d[i] < 140 && d[i + 2] < 140) green++;
+    }
+    return { lit: lit.size, all: all.size, green };
+  }, { b64: png.toString("base64"), minLum });
 }

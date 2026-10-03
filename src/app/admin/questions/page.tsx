@@ -18,18 +18,29 @@ export default async function AdminQuestions({ searchParams }: { searchParams: P
   const opts = courseOptions();
   let rows: Row[] = [];
   let failed = false;
+  const q = (sp.q ?? "").slice(0, 100), course = sp.course ?? "", unit = Number(sp.unit) || 0, status = sp.status ?? "", kind = sp.kind ?? "";
+  let counts = { published: 0, draft: 0 };
   try {
-    const { data, error } = await createAdminClient().from("cms_questions").select("id,course,unit,kind,stem,explanation,status,difficulty,tags,updated_at")
-      .order("updated_at", { ascending: false }).limit(5000);
-    if (error) failed = true; else rows = (data ?? []) as Row[];
+    // exact-match filters run in the database; only free-text search (stem, tags, explanation) is done here
+    const db = createAdminClient();
+    let query = db.from("cms_questions").select("id,course,unit,kind,stem,explanation,status,difficulty,tags,updated_at");
+    if (course) query = query.eq("course", course);
+    if (unit) query = query.eq("unit", unit);
+    if (status === "published" || status === "draft") query = query.eq("status", status);
+    if ((KINDS as readonly string[]).includes(kind)) query = query.eq("kind", kind);
+    const head = { count: "exact" as const, head: true };
+    const [list, pub, dr] = await Promise.all([
+      query.order("updated_at", { ascending: false }).limit(5000),
+      db.from("cms_questions").select("id", head).eq("status", "published"),
+      db.from("cms_questions").select("id", head).eq("status", "draft"),
+    ]);
+    if (list.error) failed = true; else rows = (list.data ?? []) as Row[];
+    counts = { published: pub.count ?? 0, draft: dr.count ?? 0 };
   } catch { failed = true; }
 
-  const q = (sp.q ?? "").slice(0, 100), course = sp.course ?? "", unit = Number(sp.unit) || 0, status = sp.status ?? "", kind = sp.kind ?? "";
-  const filtered = rows.filter((r) => (!course || r.course === course) && (!unit || r.unit === unit) && (!status || r.status === status) && (!kind || r.kind === kind)
-    && matchesSearch({ stem: r.stem, tags: r.tags ?? [], explanation: r.explanation }, q));
+  const filtered = q ? rows.filter((r) => matchesSearch({ stem: r.stem, tags: r.tags ?? [], explanation: r.explanation }, q)) : rows;
   const pg = paginate(filtered, Number(sp.page) || 1);
   const units = opts.find((c) => c.code === course)?.units ?? [];
-  const total = (s: string) => rows.filter((r) => r.status === s).length;
   const href = (page: number) => {
     const u = new URLSearchParams();
     for (const [k, v] of Object.entries({ q, course, unit: unit ? String(unit) : "", status, kind })) if (v) u.set(k, v);
@@ -47,7 +58,7 @@ export default async function AdminQuestions({ searchParams }: { searchParams: P
       <header className="flex flex-wrap items-end gap-3">
         <div className="min-w-0 flex-1">
           <h1 className="text-3xl">Questions</h1>
-          <p className="text-muted">Write practice questions for the student <b>Question bank</b>. Published questions appear for students at once; drafts stay hidden. {total("published")} published · {total("draft")} drafts.</p>
+          <p className="text-muted">Write practice questions for the student <b>Question bank</b>. Published questions appear for students at once; drafts stay hidden. {counts.published} published · {counts.draft} drafts.</p>
         </div>
         <Link href="/admin/questions/new" className="btn btn-blue">New question</Link>
         <Link href="/admin/questions/import" className="btn btn-ghost">Import CSV</Link>
@@ -68,7 +79,7 @@ export default async function AdminQuestions({ searchParams }: { searchParams: P
       <section className="card flex flex-col gap-3" aria-labelledby="ql-h">
         <h2 id="ql-h" className="text-xl">{pg.total} {pg.total === 1 ? "question" : "questions"}</h2>
         {failed ? <p className="err" role="alert">We couldn&apos;t load the list. Refresh to try again.</p>
-          : pg.total === 0 ? <p className="text-muted">{rows.length ? "Nothing matches those filters." : "No questions yet. Write the first one."}</p>
+          : pg.total === 0 ? <p className="text-muted">{counts.published + counts.draft ? "Nothing matches those filters." : "No questions yet. Write the first one."}</p>
           : <QuestionTable key={`${pg.page}:${table.map((t) => t.id + t.status).join()}`} rows={table} />}
         {pg.pages > 1 && (
           <nav aria-label="Pages" className="flex flex-wrap items-center gap-2">

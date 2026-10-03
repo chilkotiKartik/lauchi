@@ -108,7 +108,7 @@ function Pipe({ rt }: { rt: number }) {
   );
 }
 
-function PiezometerColumn({ x, top, h, label }: { x: number; top: number; h: number; label: string }) {
+function PiezometerColumn({ x, top, h }: { x: number; top: number; h: number }) {
   return (
     <group position={[x, top, 0]}>
       {/* Outer Pyrex Glass Column Tube */}
@@ -194,8 +194,8 @@ export default function BernoulliLab() {
           <Flow rt={rt} speed={speed} active={active} />
 
           {/* Dual Piezometer Columns (Inlet vs Throat) */}
-          <PiezometerColumn x={-2.6} top={1.05} h={h1} label="Inlet Head h₁" />
-          <PiezometerColumn x={0} top={rt + 0.05} h={h2} label="Throat Head h₂" />
+          <PiezometerColumn x={-2.6} top={1.05} h={h1} /> {/* inlet head h₁ */}
+          <PiezometerColumn x={0} top={rt + 0.05} h={h2} /> {/* throat head h₂ */}
         </group>
       )}
       readouts={[

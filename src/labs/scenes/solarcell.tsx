@@ -6,8 +6,8 @@ import { fmtSI } from "../sim/physics";
 import { LabFrame, Pick, Slider, Check } from "../ui";
 import { useLabParams } from "../params";
 import { PHYX_SPECS } from "../meta/phyx.specs";
-import { C, Box, type V3 } from "../kit";
-import { Flow, Graph, Pulse, sample } from "../kit2";
+import { type V3 } from "../kit";
+import { Flow, Graph, sample } from "../kit2";
 
 export default function SolarCellLab() {
   const [P, set, reset] = useLabParams(PHYX_SPECS.solarcell);

@@ -4,10 +4,13 @@ export const BCAY_SPECS = {
   cpointer3d: {
     mode: opt("pointer", ["pointer", "array", "malloc", "double"] as const),
     val: num(42, 1, 999),
+    idx: num(0, 0, 3),
   },
   hardarch3d: {
     cpuGhz: num(3.6, 1.0, 5.5),
     ddrGen: opt("4", ["3", "4", "5"] as const),
+    channels: num(2, 1, 4),
+    pcieGen: opt("4", ["3", "4", "5"] as const),
     pcieLanes: num(16, 1, 16),
   },
   sdlc3d: {
