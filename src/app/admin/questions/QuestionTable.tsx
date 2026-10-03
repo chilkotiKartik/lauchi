@@ -1,5 +1,6 @@
 "use client";
 import { useState, useTransition } from "react";
+import { flash } from "@/components/admin/AdminFlash";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Rich } from "@/lib/rich";
@@ -23,7 +24,7 @@ export function QuestionTable({ rows }: { rows: TableRow[] }) {
     setMsg(null);
     run(async () => {
       const r = kind === "delete" ? await deleteQuestions(ids) : await setQuestionStatus(ids, kind);
-      setMsg({ ok: r.ok, text: r.message });
+      flash(r.ok, r.message); // shown above the list: this table remounts when the refreshed rows change
       if (r.ok) { setSel([]); router.refresh(); }
     });
   }

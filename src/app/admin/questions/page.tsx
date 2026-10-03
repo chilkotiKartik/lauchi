@@ -5,6 +5,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { courseLabel, courseOptions } from "@/app/admin/data";
 import { KINDS, KIND_LABEL, PAGE_SIZE, matchesSearch, paginate, type Kind } from "@/lib/cms-questions-core";
 import { QuestionTable, type TableRow } from "./QuestionTable";
+import { AdminFlash } from "@/components/admin/AdminFlash";
 
 export const metadata: Metadata = { title: "Questions" };
 export const dynamic = "force-dynamic";
@@ -78,6 +79,7 @@ export default async function AdminQuestions({ searchParams }: { searchParams: P
       </form>
       <section className="card flex flex-col gap-3" aria-labelledby="ql-h">
         <h2 id="ql-h" className="text-xl">{pg.total} {pg.total === 1 ? "question" : "questions"}</h2>
+        <AdminFlash />
         {failed ? <p className="err" role="alert">We couldn&apos;t load the list. Refresh to try again.</p>
           : pg.total === 0 ? <p className="text-muted">{counts.published + counts.draft ? "Nothing matches those filters." : "No questions yet. Write the first one."}</p>
           : <QuestionTable key={`${pg.page}:${table.map((t) => t.id + t.status).join()}`} rows={table} />}
