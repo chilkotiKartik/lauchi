@@ -20,7 +20,7 @@ export function Fallback({ children }: { children: ReactNode }) {
   );
 }
 
-/** Catches anything thrown while the 3D view starts (no GPU context, a chunk that failed to load) so one lab can never take the page down. */
+/** Catches anything thrown while the 3D view starts so one lab can never take the page down. */
 export class Guard extends Component<{ children: ReactNode; what?: string }, { failed: boolean; tries: number; msg: string }> {
   state = { failed: false, tries: 0, msg: "" };
   static getDerivedStateFromError(e: unknown) { return { failed: true, msg: e instanceof Error ? e.message : String(e) }; }
@@ -30,7 +30,7 @@ export class Guard extends Component<{ children: ReactNode; what?: string }, { f
       <Fallback>
         <div className="grid max-w-md gap-3">
           <p className="text-lg text-head">The 3D view couldn&apos;t start.</p>
-          <p className="text-sm font-semibold">{this.props.what ?? "The controls and numbers below still work."} Usually this is your browser&apos;s graphics acceleration: turn on <b>hardware acceleration</b> in the browser settings (Chrome: Settings → System), close other heavy tabs, then try again.</p>
+          <p className="text-sm font-semibold">{this.props.what ?? "The controls and numbers below still work."} Turn on <b>hardware acceleration</b> in browser settings, close heavy tabs, then try again.</p>
           <p className="break-words text-xs opacity-70">{this.state.msg.slice(0, 160)}</p>
           <button type="button" className="btn btn-blue mx-auto" onClick={() => this.setState((s) => ({ failed: false, tries: s.tries + 1, msg: "" }))}>Try again</button>
         </div>
@@ -48,7 +48,7 @@ interface StageProps {
   children: ReactNode;
 }
 
-/** Labs are framed for a wide screen; on a tall phone screen the sides get cut off, so pull the camera back to fit. */
+/** Fits the camera smoothly on mobile/narrow viewports */
 function Fit({ base }: { base: [number, number, number] }) {
   const { camera, size, invalidate } = useThree();
   const controls = useThree((st) => st.controls) as { update?: () => void } | null;
@@ -62,7 +62,7 @@ function Fit({ base }: { base: [number, number, number] }) {
   return null;
 }
 
-/** Canvas that pauses when off-screen, stops looping when paused, and caps DPR. */
+/** Studio 3D Canvas with realistic radial gradient backdrop, studio lighting, and smooth orbit controls */
 export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", size = "small", children }: StageProps) {
   const cap = useCapability();
   const host = useRef<HTMLDivElement>(null);
@@ -84,58 +84,115 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
   }, []);
 
   const quality: Quality = cap === "ok-low" ? "low" : "high";
+
   return (
-    <div ref={host} role="img" aria-label={label} className={variant === "hero" ? (size === "big" ? "relative h-full w-full" : "relative h-56 w-56") : "relative h-[52vh] min-h-72 w-full overflow-hidden rounded-2xl border-2 border-line bg-[#0f1a20] md:h-[62vh]"} data-testid="lab-stage" data-visible={visible} data-playing={playing}>
+    <div
+      ref={host}
+      role="img"
+      aria-label={label}
+      className={
+        variant === "hero"
+          ? size === "big"
+            ? "relative h-full w-full"
+            : "relative h-56 w-56"
+          : "relative h-[54vh] min-h-[340px] w-full overflow-hidden rounded-3xl border-2 border-line bg-gradient-to-b from-[#14232c] via-[#0b141a] to-[#04080c] shadow-2xl md:h-[64vh]"
+      }
+      data-testid="lab-stage"
+      data-visible={visible}
+      data-playing={playing}
+    >
+      {/* Top Studio Illumination Vignette */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(56,189,248,0.12),transparent_70%)]" />
+
       {cap === null ? (
-        <Fallback>Loading 3D…</Fallback>
+        <Fallback>Loading 3D Laboratory…</Fallback>
       ) : cap === "none" ? (
-        <Fallback>Your browser can&apos;t run WebGL, so the live 3D view is unavailable. The controls and numbers below still work in a browser with WebGL.</Fallback>
+        <Fallback>Your browser can&apos;t run WebGL. The interactive controls and real-time readouts below remain fully functional.</Fallback>
       ) : (
         <Q.Provider value={quality}>
           <Guard>
-          <Canvas
-            onCreated={({ gl, invalidate }) => {
-              gl.toneMapping = THREE.ACESFilmicToneMapping;
-              gl.toneMappingExposure = 1.12;
-              gl.domElement.addEventListener("webglcontextlost", (e) => { e.preventDefault(); setLost(true); });
-              gl.domElement.addEventListener("webglcontextrestored", () => { setLost(false); invalidate(); });
-            }}
-            frameloop={!visible ? "never" : playing ? "always" : "demand"}
-            dpr={quality === "low" ? 1 : [1, 1.25]}
-            camera={{ position: camera, fov: 45 }}
-            gl={{ antialias: quality === "high", powerPreference: "high-performance", preserveDrawingBuffer: false, stencil: false, alpha: true }}
-          >
-            {/* Studio 3-Point Laboratory Lighting */}
-            <ambientLight color="#ebf4f9" intensity={variant === "hero" ? 1.0 : 0.75} />
-            <directionalLight position={[7, 11, 7]} intensity={variant === "hero" ? 1.6 : 1.35} color="#ffffff" />
-            <directionalLight position={[-7, 5, -5]} intensity={0.5} color="#9ec5db" />
-            <pointLight position={[0, 8, -6]} intensity={0.4} color="#44c95a" />
+            <Canvas
+              onCreated={({ gl, invalidate }) => {
+                gl.toneMapping = THREE.ACESFilmicToneMapping;
+                gl.toneMappingExposure = 1.18;
+                gl.domElement.addEventListener("webglcontextlost", (e) => {
+                  e.preventDefault();
+                  setLost(true);
+                });
+                gl.domElement.addEventListener("webglcontextrestored", () => {
+                  setLost(false);
+                  invalidate();
+                });
+              }}
+              frameloop={!visible ? "never" : playing ? "always" : "demand"}
+              dpr={quality === "low" ? 1 : [1, 1.25]}
+              camera={{ position: camera, fov: 45 }}
+              gl={{
+                antialias: quality === "high",
+                powerPreference: "high-performance",
+                preserveDrawingBuffer: false,
+                stencil: false,
+                alpha: true,
+              }}
+            >
+              {/* Atmospheric Studio Horizon Fog for realistic depth */}
+              <fog attach="fog" args={["#081016", 12, 36]} />
 
-            {/* Realistic Laboratory Workbench Floor Grid only for lab experiments */}
-            {variant === "lab" && <gridHelper args={[30, 30, "#2a4d63", "#122530"]} position={[0, -0.01, 0]} />}
+              {/* Laboratory Studio Lighting Setup */}
+              <ambientLight color="#e2f1fa" intensity={variant === "hero" ? 1.0 : 0.85} />
+              {/* Main Key Light */}
+              <directionalLight position={[8, 14, 8]} intensity={variant === "hero" ? 1.8 : 1.5} color="#ffffff" castShadow={false} />
+              {/* Cool Blue Fill Light */}
+              <directionalLight position={[-8, 6, -6]} intensity={0.65} color="#7dd3fc" />
+              {/* Warm Rim Light */}
+              <directionalLight position={[0, -6, -8]} intensity={0.35} color="#fef08a" />
+              {/* Center Specular Accent */}
+              <pointLight position={[0, 9, 0]} intensity={0.45} color="#38bdf8" distance={24} />
 
-            {/* Smooth physical camera controls */}
-            {variant === "lab" && <OrbitControls enableDamping dampingFactor={0.08} makeDefault minDistance={2} maxDistance={28} />}
-            {variant === "lab" && <Fit base={camera} />}
-            {children}
-          </Canvas>
-          {variant === "lab" && (
-            <div className="pointer-events-none absolute bottom-3 left-3 rounded-xl border border-line/40 bg-slate-950/80 px-2.5 py-1 text-[11px] font-bold text-slate-300 backdrop-blur-md shadow">
-              🖐️ 360° Orbit · Pinch / Scroll to Zoom
+              {/* Precision Laboratory Floor Grid */}
+              {variant === "lab" && (
+                <gridHelper args={[36, 36, "#38bdf8", "#162b38"]} position={[0, -0.01, 0]} />
+              )}
+
+              {/* Orbit Controls */}
+              {variant === "lab" && (
+                <OrbitControls
+                  enableDamping
+                  dampingFactor={0.08}
+                  makeDefault
+                  minDistance={2}
+                  maxDistance={30}
+                />
+              )}
+              {variant === "lab" && <Fit base={camera} />}
+              {children}
+            </Canvas>
+
+            {/* Premium HUD Overlay Pill */}
+            {variant === "lab" && (
+              <div className="pointer-events-none absolute bottom-3.5 left-3.5 flex items-center gap-2 rounded-2xl border border-white/10 bg-slate-950/75 px-3 py-1.5 text-xs font-extrabold text-slate-200 backdrop-blur-md shadow-lg">
+                <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
+                <span>360° Studio Orbit · Scroll to Zoom</span>
+              </div>
+            )}
+          </Guard>
+          {lost && (
+            <div role="status" className="absolute inset-0 grid place-items-center bg-[#091118]/90 p-6 text-center font-bold text-white">
+              Graphics driver reset the 3D context. Reconnecting…
             </div>
           )}
-          </Guard>
-          {lost && <div role="status" className="absolute inset-0 grid place-items-center bg-[#0f1a20]/90 p-6 text-center font-bold text-white">Your graphics driver reset the 3D view. It will come back on its own in a moment.</div>}
         </Q.Provider>
       )}
     </div>
   );
 }
 
-/** Per-frame callback; must be rendered inside the Canvas (inside a LabFrame `scene`). */
+/** Per-frame callback inside Canvas scene */
 export function Tick({ fn }: { fn: (dt: number) => void }) {
   const r = useRef(fn);
-  useLayoutEffect(() => { r.current = fn; });
+  useLayoutEffect(() => {
+    r.current = fn;
+  });
   useFrame((_, dt) => r.current(dt));
   return null;
 }
