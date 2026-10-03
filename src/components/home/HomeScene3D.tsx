@@ -83,13 +83,13 @@ function Tower({ week }: { week: number[] }) {
   });
   return (
     <group position={[1.15, -1.2, 0]}>
-      <mesh position={[1.25, -0.05, 0]}><boxGeometry args={[3, 0.1, 0.9]} /><meshStandardMaterial color="#3a4c56" roughness={0.6} /></mesh>
+      <mesh position={[1.25, -0.05, 0]}><boxGeometry args={[3, 0.1, 0.9]} /><meshStandardMaterial color="#cbd5e1" roughness={0.4} metalness={0.1} /></mesh>
       {week.map((v, i) => {
         const today = i === week.length - 1;
         return (
           <mesh key={i} ref={(el) => { refs.current[i] = el; }} position={[i * 0.41, 0.03, 0]} scale={[1, 0.06, 1]}>
             <boxGeometry args={[0.32, 1, 0.5]} />
-            <meshStandardMaterial color={today ? "#ffc83d" : v > 0 ? "#2ba6f5" : "#4d6572"} emissive={today ? "#ffb300" : v > 0 ? "#1476b8" : "#000000"} emissiveIntensity={today ? 0.5 : 0.3} roughness={0.35} />
+            <meshStandardMaterial color={today ? "#ffc83d" : v > 0 ? "#2ba6f5" : "#94a3b8"} emissive={today ? "#ffb300" : v > 0 ? "#1476b8" : "#64748b"} emissiveIntensity={today ? 0.6 : v > 0 ? 0.4 : 0.1} roughness={0.3} />
           </mesh>
         );
       })}
@@ -126,9 +126,10 @@ export default function HomeScene3D({ data, active, quality }: { data: SceneData
         gl={{ antialias: quality > 0, alpha: true, powerPreference: "default", preserveDrawingBuffer: true }}
         style={{ touchAction: "pan-y" }}
       >
-        <ambientLight intensity={0.85} />
-        <directionalLight position={[3, 5, 4]} intensity={1.5} />
-        <pointLight position={[-3, 1, 3]} intensity={12} color="#44c95a" distance={9} />
+        <ambientLight intensity={1.2} color="#ffffff" />
+        <directionalLight position={[4, 6, 5]} intensity={1.8} color="#ffffff" />
+        <directionalLight position={[-4, 3, -3]} intensity={0.6} color="#9ec5db" />
+        <pointLight position={[-3, 1, 3]} intensity={14} color="#44c95a" distance={10} />
         <Fit />
         <Rig>
           <group position={[-1.75, 0, 0]}><Lock levelPct={data.levelPct} quality={quality} /><Orbs lit={data.lit} slots={data.slots} quality={quality} /></group>
