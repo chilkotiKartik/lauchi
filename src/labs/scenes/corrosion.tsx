@@ -5,7 +5,7 @@ import { corrosion, type Protect } from "../sim/chemx";
 import { LabFrame, Pick, Slider } from "../ui";
 import { useLabParams } from "../params";
 import { CHEMX_SPECS } from "../meta/chemx.specs";
-import { C, Box, Instances, type Inst, type V3 } from "../kit";
+import { Box, Instances, type Inst, type V3 } from "../kit";
 import { Flow, Rod, mix } from "../kit2";
 import { prng } from "../sim/physics";
 

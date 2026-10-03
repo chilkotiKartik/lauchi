@@ -257,3 +257,10 @@ html[data-motion="calm"] .page-head > svg, html[data-motion="calm"] main header.
 @media (prefers-reduced-motion: reduce) { .grad-text { color: var(--head); background: none; } .aurora i { animation: none; } }
 .pyq-card, .hot-row, .predict { overflow-wrap: anywhere; }
 .subject-pill.is-on span { color: var(--red-t); }
+
+/* Lab record: "Print / save as PDF" prints only the record, not the page behind it. */
+@media print {
+  body:has(.print-record) * { visibility: hidden; }
+  body:has(.print-record) .print-record, body:has(.print-record) .print-record * { visibility: visible; }
+  body:has(.print-record) .print-record { position: absolute; inset: 0; max-height: none; overflow: visible; box-shadow: none; border: 0; }
+}

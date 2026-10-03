@@ -11,7 +11,7 @@ import { deleteSetup, saveSetup } from "@/app/(app)/labs/actions";
 export type SavedSetup = { id: string; name: string; params: Params };
 
 /** Wraps a lab: ready-made experiments, saved setups (in the student's account) and share links. */
-export function LabHost({ id, presets, saved, initial }: { id: string; presets: LabPreset[]; saved: SavedSetup[]; initial: Params | null }) {
+export function LabHost({ id, title = "", topics = [], presets, saved, initial }: { id: string; title?: string; topics?: string[]; presets: LabPreset[]; saved: SavedSetup[]; initial: Params | null }) {
   const router = useRouter();
   const [run, setRun] = useState<{ key: number; values: Params | null; label: string | null }>({ key: 0, values: initial, label: initial ? "Shared setup" : null });
   const current = useRef<Params>({});
@@ -22,6 +22,7 @@ export function LabHost({ id, presets, saved, initial }: { id: string; presets: 
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [link, setLink] = useState<string | null>(null);
   const [pending, start] = useTransition();
+  const guide = useMemo(() => ({ title, topics, presets: presets.map((p) => ({ name: p.name, note: p.note })) }), [title, topics, presets]);
 
   const load = (values: Params, label: string) => { noteLivePreset(id, label); setRun((r) => ({ key: r.key + 1, values, label })); setMsg(null); setLink(null); };
   const share = async () => {
@@ -82,7 +83,7 @@ export function LabHost({ id, presets, saved, initial }: { id: string; presets: 
   );
 
   return (
-    <LabParamsProvider key={run.key} initial={run.values} report={report} toolbar={toolbar} bus={bus}>
+    <LabParamsProvider key={run.key} initial={run.values} report={report} toolbar={toolbar} guide={guide} bus={bus}>
       <LabLoader id={id} />
     </LabParamsProvider>
   );

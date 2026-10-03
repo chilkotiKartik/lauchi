@@ -6,7 +6,7 @@ import { polarimeter, SAMPLES, type SampleId } from "../sim/phyx";
 import { LabFrame, Pick, Slider } from "../ui";
 import { useLabParams } from "../params";
 import { PHYX_SPECS } from "../meta/phyx.specs";
-import { C, Box, type V3 } from "../kit";
+import { C, type V3 } from "../kit";
 import { Flow, Rod, mix } from "../kit2";
 
 const Disc = ({ x, angle, color, r = 0.8 }: { x: number; angle: number; color: string; r?: number }) => (

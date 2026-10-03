@@ -5,13 +5,16 @@ import { clampParams, type ParamSpec, type Params, type Values } from "./params-
 export { num, opt, flag, clampParams } from "./params-core";
 export type { ParamSpec, Params, Values } from "./params-core";
 
-type Ctx = { initial: Params | null; report: (p: Params) => void; toolbar?: ReactNode; /** Lets the experiment panel see Reset presses and trigger a reset. */ bus?: { onReset: () => void; register: (fn: () => void) => () => void } };
+/** What the page knows about the lab: used to write a lab-specific practical manual instead of generic text. */
+export type LabGuide = { title: string; topics: string[]; presets: { name: string; note: string }[] };
+type Ctx = { initial: Params | null; report: (p: Params) => void; toolbar?: ReactNode; guide?: LabGuide; /** Lets the experiment panel see Reset presses and trigger a reset. */ bus?: { onReset: () => void; register: (fn: () => void) => () => void } };
 const LabParamsCtx = createContext<Ctx>({ initial: null, report: () => {} });
 /** Extra buttons (save, share) the lab host puts next to Play / Reset. */
 export const useLabToolbar = () => useContext(LabParamsCtx).toolbar ?? null;
+export const useLabGuide = () => useContext(LabParamsCtx).guide ?? null;
 
-export function LabParamsProvider({ initial, report, toolbar, bus, children }: Ctx & { children: ReactNode }) {
-  return <LabParamsCtx.Provider value={{ initial, report, toolbar, bus }}>{children}</LabParamsCtx.Provider>;
+export function LabParamsProvider({ initial, report, toolbar, guide, bus, children }: Ctx & { children: ReactNode }) {
+  return <LabParamsCtx.Provider value={{ initial, report, toolbar, guide, bus }}>{children}</LabParamsCtx.Provider>;
 }
 
 /**

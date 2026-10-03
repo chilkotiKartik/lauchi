@@ -6,7 +6,7 @@ import { Tick } from "../Stage";
 import { LabFrame, Pick, Slider } from "../ui";
 import { useLabParams } from "../params";
 import { MECHX_SPECS } from "../meta/mechx.specs";
-import { C, Box } from "../kit";
+import { C } from "../kit";
 import { Graph, Rod, type XY } from "../kit2";
 
 const RR = 0.7, LL = 2.1;

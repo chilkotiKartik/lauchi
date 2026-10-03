@@ -14,8 +14,7 @@ export default function OttoLab() {
   const setR = (x: (typeof P)["r"]) => set("r", x), setG = (x: (typeof P)["g"]) => set("g", x), setTau = (x: (typeof P)["tau"]) => set("tau", x);
   const o = useMemo(() => otto(r, g, tau), [r, g, tau]);
   const vmax = r, pmax = Math.max(...o.path.map((p) => p[1]));
-  const X = (v: number) => ((v - 1) / (vmax - 1 || 1)) * 3.8 + 0.6, Y = (p: number) => (p / pmax) * 2.8 - 1.4;
-  const pts = useMemo(() => o.path.map(([v, p]): [number, number, number] => [X(v), Y(p), 0]), [o, vmax, pmax]);
+  const pts = useMemo(() => o.path.map(([v, p]): [number, number, number] => [((v - 1) / (vmax - 1 || 1)) * 3.8 + 0.6, (p / pmax) * 2.8 - 1.4, 0]), [o, vmax, pmax]);
 
   const ball = useRef<THREE.Mesh>(null);
   const pistonGroup = useRef<THREE.Group>(null);

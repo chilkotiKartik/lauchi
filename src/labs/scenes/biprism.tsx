@@ -6,7 +6,7 @@ import { biprism, nmHex, twoBeam } from "../sim/phyy";
 import { LabFrame, Check, Slider } from "../ui";
 import { useLabParams } from "../params";
 import { PHYY_SPECS } from "../meta/phyy.specs";
-import { C, Ball, Box, Instances, type Inst, type V3 } from "../kit";
+import { Ball, Box, Instances, type Inst, type V3 } from "../kit";
 import { Flow, mix } from "../kit2";
 
 const XS = -4.6, XSCR = 4.4, H = 1.5, NS = 150, WIN_MM = 3, SCR_H = 4;

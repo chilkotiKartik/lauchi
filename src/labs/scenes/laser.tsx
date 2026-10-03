@@ -1,5 +1,4 @@
 "use client";
-import { Line } from "@react-three/drei";
 import { useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { laser } from "../sim/phyx";
@@ -7,7 +6,7 @@ import { Tick, useQuality } from "../Stage";
 import { LabFrame, Slider } from "../ui";
 import { useLabParams } from "../params";
 import { PHYX_SPECS } from "../meta/phyx.specs";
-import { C, Box } from "../kit";
+import { C } from "../kit";
 import { Flow, Graph, Rod } from "../kit2";
 import { prng } from "../sim/physics";
 

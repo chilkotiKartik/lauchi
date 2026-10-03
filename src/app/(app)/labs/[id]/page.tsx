@@ -52,11 +52,11 @@ export default async function LabPage({ params, searchParams }: { params: Promis
       </p>
       {experiment ? (
         <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_25rem]">
-          <div className="min-w-0 lg:col-start-1 lg:row-start-1"><LabHost id={lab.id} presets={lab.presets} saved={saved} initial={initial} /></div>
+          <div className="min-w-0 lg:col-start-1 lg:row-start-1"><LabHost id={lab.id} title={lab.title} topics={lab.topics} presets={lab.presets} saved={saved} initial={initial} /></div>
           <div className="order-first min-w-0 lg:sticky lg:top-4 lg:order-none lg:col-start-2 lg:row-start-1"><ExperimentPanel experiment={experiment} /></div>
         </div>
       ) : (
-        <LabHost id={lab.id} presets={lab.presets} saved={saved} initial={initial} />
+        <LabHost id={lab.id} title={lab.title} topics={lab.topics} presets={lab.presets} saved={saved} initial={initial} />
       )}
       <LabVideos heading="Watch this topic" query={`${wTopic} ${wCourse?.name ?? ""}`.trim()} pinned={pinned} youtubeOn={youtubeConfigured()} />
     </div>
