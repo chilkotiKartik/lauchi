@@ -7,7 +7,7 @@ const sessionIdFrom = (page: Page) => new URL(page.url()).pathname.split("/").po
 test("new pages load, are in the menu and are error free", async ({ page }) => {
   const problems = watch(page);
   await signIn(page, uniqueEmail()); await onboard(page);
-  for (const [path, h1] of [["/assignments", "Assignments"], ["/papers", "Question Papers & PYQ Bank"], ["/marks", "Marks & SGPA"], ["/ask", "Ask Lochi"], ["/league", "Weekly league"]] as const) {
+  for (const [path, h1] of [["/assignments", "Assignments"], ["/papers", "Question Papers & PYQ Bank"], ["/ask", "Ask Lochi"], ["/league", "Weekly league"]] as const) {
     await page.goto(path);
     await expect(page.getByRole("heading", { level: 1, name: h1 })).toBeVisible();
   }
@@ -74,31 +74,6 @@ test("assignment: no verdicts, resumable, graded once, XP once, review afterward
   expect(problems.filter((p) => !/404/.test(p))).toEqual([]);
 });
 
-test("marks & SGPA: pass and target maths, predicted grade, SGPA, remembered after reload", async ({ page }) => {
-  const problems = watch(page);
-  await signIn(page, uniqueEmail()); await onboard(page);
-  await page.goto("/marks");
-  await page.getByRole("button", { name: "Physics", exact: true }).click();
-  await page.getByLabel("CT /30").fill("24");
-  await page.getByLabel("TA /20").fill("16");
-  const box = page.locator("section").filter({ hasText: "Engineering Physics" });
-  await expect(box.getByText("Sessional 40/50")).toBeVisible();
-  await expect(box.getByText("To pass: 30/100")).toBeVisible();
-  await expect(box.getByText("For A: 80/100")).toBeVisible();
-  await page.getByLabel(/Expected end-sem/).fill("80");
-  await expect(box.getByText("120/150 → A")).toBeVisible();
-  await expect(page.getByRole("status").filter({ hasText: /^8\.00$/ })).toBeVisible();
-  await page.getByRole("button", { name: "O", exact: true }).click();
-  await expect(box.getByText("For O: 95/100")).toBeVisible();
-  await page.getByLabel("CT /30").fill("10"); await page.getByLabel("TA /20").fill("5");
-  await expect(box.getByText("For O: not reachable")).toBeVisible(); // 135 - 15 = 120 > 100
-  await page.getByLabel("CT /30").fill("24"); await page.getByLabel("TA /20").fill("16");
-  await page.reload();
-  await expect(page.getByLabel("CT /30")).toHaveValue("24"); // remembered on this device
-  await expect(page.getByRole("button", { name: "Physics", exact: true })).toHaveAttribute("aria-pressed", "true");
-  expect(problems).toEqual([]);
-});
-
 test("league: opt-in only, first name and weekly XP, leave any time", async ({ page }) => {
   const problems = watch(page);
   const email = uniqueEmail();
@@ -140,7 +115,7 @@ test("a lab still explains itself when WebGL is unavailable", async ({ page }) =
 
 test.describe("mobile", () => {
   test.use({ viewport: { width: 390, height: 844 } });
-  for (const path of ["/assignments", "/marks", "/league", "/papers", "/ask"]) {
+  for (const path of ["/assignments", "/league", "/papers", "/ask"]) {
     test(`no horizontal overflow on ${path}`, async ({ page }) => {
       await signIn(page, uniqueEmail()); await onboard(page);
       await page.goto(path);

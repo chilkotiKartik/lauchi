@@ -86,7 +86,7 @@ export default async function SundayPage() {
       ) : (
         <>
           <p className="text-sm text-muted">Covers {q.units.map((u) => `${u.short} U${u.unit}`).join(", ")}. Open until midnight tonight (India time).</p>
-          <DailyRunner questions={q.questions} answered={q.answered} submit={answerSunday} label="Quest progress" />
+          <DailyRunner questions={q.questions} answered={q.answered} submit={answerSunday} label="Quest progress" coach={q.coach} />
         </>
       )}
 

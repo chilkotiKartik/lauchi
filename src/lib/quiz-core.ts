@@ -70,6 +70,9 @@ export function grade(q: RawQuestion, r: Answer | null | undefined): boolean {
   return !Number.isNaN(v) && Math.abs(v - a) < Math.max(0.011, Math.abs(a) * 0.005);
 }
 
+/** A typed numeric answer: digits with an optional sign, decimal point or exponent ("−" accepted as minus). Letters are refused. */
+export const isNumberAnswer = (t: string) => /^[-+]?(\d+\.?\d*|\.\d+)(e[-+]?\d+)?$/i.test(t.trim().replace("−", "-"));
+
 export const newSeed = () => crypto.getRandomValues(new Uint32Array(1))[0] | 0;
 
 type AnswerRow = { a?: unknown; ok?: boolean; t?: number; s?: number; u?: number };

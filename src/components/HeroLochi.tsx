@@ -12,7 +12,7 @@ export function HeroLochi({ big = false }: { big?: boolean }) {
   // useCapability is null on the server and during hydration, so the 3D scene only ever mounts on the client; weak
   // devices (2 cores or 2 GB) keep the flat mascot so the landing page stays fast
   return (
-    <div className={big ? "grid h-full w-full place-items-center" : "grid h-56 w-56 place-items-center"} data-testid="hero">
+    <div className={big ? "grid h-full w-full place-items-center" : "grid h-36 w-36 place-items-center sm:h-56 sm:w-56"} data-testid="hero">
       {cap === "ok-high" && !reduced ? <Scene big={big} /> : <Lochi mood="welcome" size={big ? 240 : 140} />}
     </div>
   );

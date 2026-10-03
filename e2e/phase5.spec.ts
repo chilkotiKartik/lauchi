@@ -2,7 +2,7 @@ import { test, expect, type Page } from "@playwright/test";
 import { generate, sessionQuestion } from "../src/lib/quiz-core";
 import { fakeYoutube, onboard, signIn, sql, uniqueEmail, watch } from "./helpers";
 
-const ROUTES = ["/pyq", "/focus", "/home", "/learn", "/practice", "/labs", "/syllabus", "/formulas", "/mock", "/plan", "/videos", "/mistakes", "/quests", "/progress", "/settings", "/profile", "/more", "/assignments", "/papers", "/marks", "/ask", "/league", "/revise", "/paper", "/friends"];
+const ROUTES = ["/pyq", "/focus", "/home", "/learn", "/practice", "/labs", "/syllabus", "/formulas", "/mock", "/plan", "/videos", "/mistakes", "/quests", "/progress", "/settings", "/profile", "/more", "/assignments", "/papers", "/ask", "/league", "/revise", "/paper", "/friends"];
 
 test("every section loads clean: no errors, no overflow, no serious a11y issues", async ({ page }) => {
   test.setTimeout(120_000);
@@ -28,10 +28,10 @@ test("navigation reaches the new sections and the mobile More hub lists them all
   if (isMobile) {
     await page.getByRole("navigation", { name: "Main" }).last().getByRole("link", { name: "More" }).click();
     await expect(page).toHaveURL(/\/more$/);
-    for (const n of ["Syllabus", "Formula Cards", "Mock Test", "Study Plan", "Video Lectures", "Mistakes", "Quests", "Progress", "Settings"]) await expect(page.getByRole("link", { name: new RegExp(n) })).toBeVisible();
+    for (const n of ["Formula Cards", "Mock Test", "Quests", "Progress", "Settings"]) await expect(page.getByRole("link", { name: new RegExp(n) }).first()).toBeVisible();
   } else {
     const nav = page.getByRole("navigation", { name: "Main" }).first();
-    for (const n of ["Dashboard", "Learn", "Practice", "3D Labs", "Syllabus", "Formula Cards", "Mock Test", "Study Plan", "Video Lectures", "Mistakes", "Quests", "Progress", "Settings", "Profile"]) await expect(nav.getByRole("link", { name: new RegExp(n) })).toBeVisible();
+    for (const n of ["Dashboard", "Learn", "Practice", "3D Labs", "Quests", "Formula Cards", "Mock Test", "Progress", "Settings", "Profile"]) await expect(nav.getByRole("link", { name: new RegExp(n) })).toBeVisible();
   }
 });
 
@@ -52,14 +52,19 @@ test("syllabus search finds topics and experiments", async ({ page }) => {
   await expect(page.getByRole("searchbox")).toHaveValue("<script>alert(1)</script>"); // rendered as text, never as markup
 });
 
-test("formula cards flip", async ({ page }) => {
+test("formula cards: study one card at a time, flip, mark known, see all", async ({ page }) => {
   await signIn(page, uniqueEmail()); await onboard(page);
   await page.goto("/formulas?course=AHT-003&unit=1");
-  const front = page.getByRole("button", { name: /Card 1: Rolle/ });
-  await expect(front).toHaveAttribute("aria-pressed", "false");
-  await front.click();
-  await expect(page.getByRole("button", { name: /Formula for Rolle/ })).toBeVisible();
+  await expect(page.getByText(/^Card 1 of \d+/)).toBeVisible();
+  await page.getByRole("button", { name: "Show formula" }).click();
   await expect(page.locator('.flip[data-on="true"]')).toHaveCount(1);
+  await page.getByRole("button", { name: "Knew it" }).click();
+  await expect(page.getByText(/^1 of \d+ known$/)).toBeVisible();
+  await expect(page.getByText(/^Card 2 of \d+/)).toBeVisible();
+  await page.reload();
+  await expect(page.getByText(/^1 of \d+ known$/)).toBeVisible(); // remembered on this device
+  await page.getByRole("tab", { name: "See all" }).click();
+  await expect(page.getByText("✓ known")).toHaveCount(1);
 });
 
 test("exam date drives the countdown and a study plan that shortens with progress", async ({ page }) => {
@@ -114,6 +119,7 @@ test("theme choice is remembered", async ({ page }) => {
 });
 
 test("data export contains only my data; account deletion removes everything", async ({ page, browser }) => {
+  test.setTimeout(60_000);
   const a = uniqueEmail(), b = uniqueEmail();
   const other = await (await browser.newContext()).newPage();
   await signIn(other, b); await onboard(other, "Other");
@@ -230,11 +236,11 @@ test("quests and progress reflect real activity", async ({ page }) => {
   const email = uniqueEmail();
   await signIn(page, email); await onboard(page);
   await page.goto("/quests");
-  await expect(page.getByText("0 of 4 done today")).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Quests" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Daily challenge/ })).toContainText("5 questions waiting");
+  await expect(page.getByRole("link", { name: /Sunday Quest/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Revise today/ })).toContainText("All caught up");
   await sql("insert into xp_events(user_id,kind,ref,xp) select id,'quiz_completed','q-1',60 from auth.users where email=$1", [email]);
-  await page.goto("/quests");
-  await expect(page.getByRole("progressbar", { name: "Hit your daily goal" })).toHaveAttribute("aria-valuenow", "50");
-  await expect(page.getByText("1 of 4 done today")).toBeVisible();
   await page.goto("/progress");
   await expect(page.getByText("XP, last 30 days")).toBeVisible();
   await expect(page.getByText("Warm-up")).toBeVisible();

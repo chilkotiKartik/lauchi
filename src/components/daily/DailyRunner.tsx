@@ -5,11 +5,12 @@ import { Lochi } from "@/components/Lochi";
 import { Rich } from "@/lib/rich";
 import { StepByStep } from "@/components/StepByStep";
 import { answerDaily, type DailyAnswerResult } from "@/app/(app)/daily/actions";
-import type { PublicQuestion } from "@/lib/quiz-core";
+import { isNumberAnswer as isNumber, type PublicQuestion } from "@/lib/quiz-core";
+import { Coach, type CoachInfo } from "@/components/Coach";
 
 /** Runs a fixed set of server-graded questions (daily challenge by default; the Sunday Quest passes its own action). */
-export function DailyRunner({ questions, answered, submit = answerDaily, label = "Challenge progress" }: {
-  questions: (PublicQuestion | null)[]; answered: number[];
+export function DailyRunner({ questions, answered, submit = answerDaily, label = "Challenge progress", coach }: {
+  questions: (PublicQuestion | null)[]; answered: number[]; coach?: CoachInfo[];
   submit?: (input: { index: number; answer: unknown }) => Promise<DailyAnswerResult>; label?: string;
 }) {
   const router = useRouter();
@@ -22,7 +23,8 @@ export function DailyRunner({ questions, answered, submit = answerDaily, label =
   const [error, setError] = useState("");
   const [pending, start] = useTransition();
   const q = questions[idx];
-  const ready = q && (q.type === "mcq" ? pick !== null : q.type === "msq" ? multi.length > 0 : text.trim() !== "");
+  const badNumber = q?.type === "nat" && text.trim() !== "" && !isNumber(text);
+  const ready = q && (q.type === "mcq" ? pick !== null : q.type === "msq" ? multi.length > 0 : text.trim() !== "" && !badNumber);
   const value = q?.type === "mcq" ? pick : q?.type === "msq" ? multi : text.trim();
   const last = idx + 1 >= questions.length;
 
@@ -57,7 +59,7 @@ export function DailyRunner({ questions, answered, submit = answerDaily, label =
       <p className="text-sm text-muted">{q.type === "msq" ? "Select all that apply." : q.type === "nat" ? "Type a number." : "Pick one answer."}</p>
       <div className="flex flex-col gap-3" role={q.type === "msq" ? "group" : q.type === "mcq" ? "radiogroup" : undefined} aria-label="Answers">
         {q.type === "nat" ? (
-          <input className="field" inputMode="decimal" autoComplete="off" aria-label="Your answer" value={text} disabled={!!result}
+          <input className="field" inputMode="decimal" autoComplete="off" aria-label="Your answer" aria-invalid={badNumber || undefined} aria-describedby={badNumber ? "num-hint" : undefined} placeholder="e.g. 15.12" value={text} disabled={!!result}
             onChange={(e) => setText(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter" && ready && !result) check(); }} />
         ) : q.o!.map((o, i) => {
           const on = q.type === "mcq" ? pick === i : multi.includes(i);
@@ -70,12 +72,14 @@ export function DailyRunner({ questions, answered, submit = answerDaily, label =
           );
         })}
       </div>
+      {badNumber && <p id="num-hint" className="err text-sm">Type a number only, like 15.12 or -3.5 (no letters or units).</p>}
       {error && <p className="err" role="alert">{error}</p>}
       {ok && (
         <div role="status" className={`rounded-2xl border-2 p-3 ${ok.correct ? "border-green bg-green-l" : "border-red bg-red-l"}`}>
           <p className={`text-lg font-black ${ok.correct ? "text-green-t" : "text-red-t"}`}>{ok.correct ? "Correct!" : "Not quite"}</p>
           {!ok.correct && <p className="text-head"><b>Answer:</b> <Rich text={ok.right} /></p>}
           {ok.why && <StepByStep key={`s${idx}`} why={ok.why} result={ok.right} />}
+          {!ok.correct && coach?.[idx] && <div className="mt-3"><Coach info={coach[idx]} question={q.q} right={ok.right} /></div>}
         </div>
       )}
       {ok ? (
