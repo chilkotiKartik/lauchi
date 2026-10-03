@@ -1,56 +1,32 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { canSeeCourse } from "@/lib/stream";
 import { requireOnboarded } from "@/lib/auth";
 import { getCourse } from "@/lib/syllabus";
 import { courseUnits } from "@/lib/quiz";
 import { Crumbs } from "@/components/Crumbs";
-import { DuolingoCoursePath, type DuolingoUnit } from "@/components/DuolingoCoursePath";
-import { loadActivity } from "@/lib/activity";
-import { allUnitStats } from "@/lib/mock-units";
+import { SubjectPath } from "@/components/learn/SubjectPath";
+import { loadSubjectPath } from "@/lib/subject-path";
 
 export async function generateMetadata({ params }: { params: Promise<{ course: string }> }): Promise<Metadata> {
   return { title: `Practice · ${getCourse((await params).course)?.short ?? ""}` };
 }
 
+/** Practice for one subject: the same level path as the subject page, so stars and chests are the same everywhere. */
 export default async function PracticeCourse({ params }: { params: Promise<{ course: string }> }) {
   const { supabase, profile } = await requireOnboarded();
   const c = getCourse((await params).course);
-  const unitsNumbers = c ? courseUnits(c.code) : [];
-  if (!c || unitsNumbers.length === 0 || !canSeeCourse(profile.branch, c.code, c.type)) notFound();
-
-  const { sessions } = await loadActivity(supabase);
-  const unitStats = await allUnitStats(profile.id, sessions);
-  const courseStats = unitStats.filter((u) => u.course === c.code);
-
-  const weakest = courseStats.sort((a, b) => a.pct - b.pct)[0];
-  const weakUnitNumber = weakest && weakest.pct < 60 ? weakest.unit : null;
-
-  const duolingoUnits: DuolingoUnit[] = unitsNumbers.map((n, i) => {
-    const st = courseStats.find((s) => s.unit === n);
-    const hasAttempts = st ? st.attempts > 0 : false;
-    const isCompleted = st ? st.pct >= 70 : false;
-    const isUnlocked = i === 0 || isCompleted || hasAttempts; // First unit always open
-
-    return {
-      n,
-      title: c.units[n - 1]?.title ?? `Unit ${n}`,
-      isUnlocked: true, // Let all UTU units remain accessible with visual completion cues
-      isCompleted,
-      isNext: !isCompleted && isUnlocked,
-      accuracy: st ? st.pct : undefined,
-    };
-  });
-
+  if (!c || courseUnits(c.code).length === 0 || !canSeeCourse(profile.branch, c.code, c.type)) notFound();
+  const { units, hasQuiz } = await loadSubjectPath(supabase, { id: profile.id, branch: profile.branch }, c);
   return (
     <div className="flex flex-col gap-4">
       <Crumbs items={[{ href: "/practice", label: "Practice" }, { label: c.short }]} />
-      <DuolingoCoursePath
-        courseCode={c.code}
-        courseName={c.name}
-        units={duolingoUnits}
-        weakUnit={weakUnitNumber}
-      />
+      <header>
+        <h1 className="text-3xl">Practise {c.name}</h1>
+        <p className="text-muted">Earn stars in each unit (60%, 75%, 90%) and open its chest. <Link href={`/learn/${c.code}`}>Subject page</Link></p>
+      </header>
+      <SubjectPath course={c.code} units={units} mockHref={hasQuiz ? "/mock" : null} />
     </div>
   );
 }

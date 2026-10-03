@@ -7,7 +7,7 @@ import { VideoButton } from "@/components/Videos";
 import { recordLab } from "@/app/(app)/labs/actions";
 import type { Params } from "@/labs/params-core";
 import {
-  buildTasks, changedKeys, grade, moveGoal, predictable, reached, scoreOf, showsPreset, summarise,
+  buildTasks, changedKeys, grade, isNumeric, moveGoal, predictable, reached, scoreOf, showsPreset, summarise,
   type Dir, type RowResult, type SliderInfo, type Task,
 } from "@/labs/challenge";
 
@@ -17,8 +17,9 @@ type Snap = { rows: { label: string; before: string }[]; params: Params | null; 
 type Run = { id: string; phase: "predict" | "test" | "result"; preds: Record<string, Dir>; snap?: Snap; result?: RowResult[]; problem?: string };
 
 const DIRS: [Dir, string, string][] = [["up", "↑", "goes up"], ["down", "↓", "goes down"], ["same", "=", "stays the same"]];
-const SAID: Record<Dir, string> = { up: "rise", down: "fall", same: "stay the same" };
-const DID: Record<Dir, string> = { up: "rose", down: "fell", same: "did not change" };
+const WORD_DIRS: [Dir, string, string][] = [["change", "≠", "changes"], ["same", "=", "stays the same"]]; // readings shown as words or codes
+const SAID: Record<Dir, string> = { up: "rise", down: "fall", change: "change", same: "stay the same" };
+const DID: Record<Dir, string> = { up: "rose", down: "fell", change: "changed", same: "did not change" };
 
 export type LabTasksProps = {
   labId: string; title: string; topic: string;
@@ -34,7 +35,12 @@ export type LabTasksProps = {
 export function LabTasks({ labId, title, topic, presets, course, unit, courseName, unitTitle }: LabTasksProps) {
   const live = useLiveLab(labId);
   const [saved, setSaved] = useLocalJson<Saved>(`lockin.tasks.${labId}`, { done: {}, xp: 0 });
-  const tasks = useMemo(() => buildTasks(live.sliders, presets), [live.sliders, presets]);
+  // sliders in the order the lab shows them (they register in mount order, which can differ)
+  const shownOrder = useMemo(() => [...live.sliders].sort((a, b) => {
+    const x = a.el ? document.getElementById(a.el) : null, y = b.el ? document.getElementById(b.el) : null;
+    return x && y ? (x.compareDocumentPosition(y) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1) : 0;
+  }), [live.sliders]);
+  const tasks = useMemo(() => buildTasks(shownOrder, presets), [shownOrder, presets]);
   const rowsAll = predictable(live.readouts);
   const next = tasks.find((t) => !saved.done[t.id]) ?? null;
   const [run, setRun] = useState<Run | null>(null);
@@ -116,7 +122,7 @@ export function LabTasks({ labId, title, topic, presets, course, unit, courseNam
                   <li key={label} className="flex flex-wrap items-center gap-2 rounded-2xl border-2 border-line p-2">
                     <span className="min-w-0 flex-1 text-sm"><b className="text-head">{label}</b> <span className="tabular-nums text-muted">now {before}</span></span>
                     <span role="radiogroup" aria-label={`${label}: your prediction`} className="flex gap-1">
-                      {DIRS.map(([d, sym, word]) => (
+                      {(isNumeric(before) ? DIRS : WORD_DIRS).map(([d, sym, word]) => (
                         <button key={d} type="button" role="radio" aria-checked={r.preds[label] === d} aria-label={`${label} ${word}`} disabled={r.phase !== "predict"}
                           onClick={() => setRun({ ...r, preds: { ...r.preds, [label]: d } })}
                           className={`h-10 w-10 rounded-xl border-2 text-lg font-black ${r.preds[label] === d ? "border-blue bg-blue-l text-blue-t" : "border-line text-ink"} disabled:opacity-70`}>{sym}</button>
@@ -160,11 +166,14 @@ export function LabTasks({ labId, title, topic, presets, course, unit, courseNam
                 {r.result!.map((x) => (
                   <li key={x.label} className={`rounded-2xl border-2 p-2 text-sm ${x.right ? "border-green bg-green-l" : "border-red bg-red-l"}`}>
                     <b className="text-head">{x.right ? "✓" : "✗"} {x.label}</b>: <span className="tabular-nums">{x.before} → {x.after}</span>
-                    <span className="block text-muted">It {x.actual ? DID[x.actual] : "changed"}{x.right ? ", as you said." : `; you said it would ${SAID[x.predicted]}.`}</span>
+                    <span className="block text-muted">It {DID[x.actual]}{x.right ? ", as you said." : `; you said it would ${SAID[x.predicted]}.`}</span>
                   </li>
                 ))}
               </ul>
               <p className="font-bold text-head">{summarise(cause, r.result!)}{task.kind === "preset" ? ` ${task.note}` : ""}</p>
+              {r.result!.every((x) => x.actual === "same") && (
+                <p className="text-sm text-head">That is a real result, not a glitch: in this lab {task.kind === "slider" ? task.slider : "this setup"} does not change these readings. The formula in the theory shows why.</p>
+              )}
               {wrong.length > 0 && (
                 <div className="coach" aria-label="Understand why">
                   <p className="text-sm text-head">A wrong prediction is useful: it shows exactly which link you had backwards. Find {wrong[0].label} in the formula and see how it depends on {task.kind === "slider" ? task.slider : "the values that changed"}.</p>

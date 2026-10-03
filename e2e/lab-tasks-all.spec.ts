@@ -18,14 +18,22 @@ async function runTask(page: Page, id: string): Promise<string | null> {
   try { await expect(did).toBeVisible({ timeout: 10_000 }); } catch { return "task did not grade"; }
   const rows = await did.getByRole("listitem").allTextContents();
   if (!rows.length) return "graded no readings";
-  // the first slider is guaranteed to change a reading; if none of the graded ones moved, the task is not useful here
-  if (!rows.some((r) => / (rose|fell)/.test(r))) return `no graded reading changed: ${rows.map((r) => r.slice(0, 60)).join(" | ")}`;
+  // every row must report what happened; a lab where this control moves none of the other readings is a real (and
+  // teachable) result, e.g. adding sources does not move interference maxima, so it is noted, not failed
+  if (!rows.every((r) => /→/.test(r) && /It (rose|fell|changed|did not change)/.test(r))) return `a row did not explain itself: ${rows.join(" | ").slice(0, 200)}`;
+  if (!rows.some((r) => / (rose|fell|changed)/.test(r))) console.log(`note ${id}: this control moved none of the other readings`);
   return null;
 }
 
 const cse = LABS.filter((l) => visibleLabs("CSE", [l]).length);
-const other = LABS.filter((l) => !visibleLabs("CSE", [l]).length);
-const groups: [string, typeof LABS, boolean][] = [["CSE labs, first half", cse.slice(0, Math.ceil(cse.length / 2)), true], ["CSE labs, second half", cse.slice(Math.ceil(cse.length / 2)), true], ["BCA-only labs", other, false]];
+const other = LABS.filter((l) => !visibleLabs("CSE", [l]).length && visibleLabs("BCA", [l]).length); // labs of courses no branch takes are not reachable
+const only = process.env.LABS?.split(",");
+const pick = (xs: typeof LABS) => (only ? xs.filter((l) => only.includes(l.id)) : xs);
+type Group = [string, typeof LABS, boolean];
+const all: Group[] = only
+  ? [["Chosen CSE labs", pick(cse), true], ["Chosen BCA labs", pick(other), false]]
+  : [["CSE labs, first half", cse.slice(0, Math.ceil(cse.length / 2)), true], ["CSE labs, second half", cse.slice(Math.ceil(cse.length / 2)), true], ["BCA-only labs", other, false]];
+const groups = all.filter(([, l]) => l.length > 0);
 
 test.describe("lab tasks on every lab", () => {
   for (const [name, labs, isCse] of groups) {

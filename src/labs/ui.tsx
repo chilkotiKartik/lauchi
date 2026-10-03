@@ -11,7 +11,7 @@ export function Slider({ label, value, min, max, step = 0.01, onChange, unit = "
   const id = useId();
   const [draft, setDraft] = useState<string | null>(null);
   const bus = useLabBus();
-  useEffect(() => { bus?.slider?.({ label, value, min, max, step, unit, digits, set: onChange }); });
+  useEffect(() => { bus?.slider?.({ label, value, min, max, step, unit, digits, set: onChange, el: id }); });
   const commit = () => {
     if (draft === null) return;
     const v = parseFloat(draft.replace("−", "-"));

@@ -45,6 +45,27 @@ class SoundFX {
     } catch {}
   }
 
+  /** Soft low "not quite" buzz for a wrong answer */
+  public wrong() {
+    if (this.muted) return;
+    const ctx = this.getContext();
+    if (!ctx) return;
+    try {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "square";
+      const now = ctx.currentTime;
+      osc.frequency.setValueAtTime(196, now);
+      osc.frequency.exponentialRampToValueAtTime(130, now + 0.18);
+      gain.gain.setValueAtTime(0.06, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.2);
+    } catch {}
+  }
+
   /** Shimmering Treasure Chest Open sound */
   public chest() {
     if (this.muted) return;

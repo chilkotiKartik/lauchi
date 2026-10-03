@@ -5,8 +5,9 @@
  */
 import type { Params } from "./params-core";
 
-export type Dir = "up" | "down" | "same";
-export type SliderInfo = { label: string; value: number; min: number; max: number; step: number; unit: string; digits: number; /** moves the real slider */ set?: (v: number) => void };
+/** "change" is for readings shown as words or codes, which can change but not rise or fall. */
+export type Dir = "up" | "down" | "same" | "change";
+export type SliderInfo = { label: string; value: number; min: number; max: number; step: number; unit: string; digits: number; /** moves the real slider */ set?: (v: number) => void; /** the range input's element id, to order sliders as shown */ el?: string };
 export type Readout = [string, string];
 
 export type SliderTask = { kind: "slider"; id: string; slider: string };
@@ -36,28 +37,45 @@ export function readValue(text: string): number | null {
   return Number.isFinite(v) ? v : null;
 }
 
-/** Which way a readout moved between two moments (exact text match means "same", so rounding never invents a change). */
-export function direction(before: string, after: string): Dir | null {
+const RAW_NUM = /[-+]?(?:\d+\.?\d*|\.\d+)/g;
+const rawNumbers = (text: string) => (text.replace(/−/g, "-").replace(/(\d),(?=\d{3}\b)/g, "$1").match(RAW_NUM) ?? []).map(Number);
+
+/**
+ * How a readout changed between two moments. Identical text is "same" (so rounding never invents a change). The
+ * main value decides up/down; when it is unchanged, the first other number that differs decides ("0 of 107" →
+ * "0 of 1132" rose); text that changed without any number changing is "change".
+ */
+export function direction(before: string, after: string): Dir {
   if (before === after) return "same";
   const a = readValue(before), b = readValue(after);
-  if (a === null || b === null) return null;
-  if (Math.abs(b - a) <= 1e-12 * Math.max(1, Math.abs(a))) return "same";
-  return b > a ? "up" : "down";
+  if (a !== null && b !== null && Math.abs(b - a) > 1e-12 * Math.max(1, Math.abs(a))) return b > a ? "up" : "down";
+  const x = rawNumbers(before), y = rawNumbers(after);
+  for (let i = 0; i < Math.min(x.length, y.length); i++) if (x[i] !== y[i]) return y[i] > x[i] ? "up" : "down";
+  return "change";
 }
+
+/** True when a reading shows a number, so it can rise or fall (otherwise it can only change or stay). */
+export const isNumeric = (v: string) => readValue(v) !== null;
 
 /** The first number as written, without unit prefixes ("550 nm" → 550). */
 const shownNumber = (text: string) => { const m = /[-+]?(?:\d+\.?\d*|\.\d+)/.exec(text.replace(/−/g, "-").replace(/(\d),(?=\d{3}\b)/g, "$1")); return m ? parseFloat(m[0]) : null; };
 
+const words = (t: string) => new Set(t.toLowerCase().normalize("NFKD").split(/[^a-zλθωφμσρδεα-ω]+/).filter((w) => w.length >= 3 || /[λθωφμσρδε]/.test(w)).map((w) => w.replace(/s$/, "")));
+/** "Sources" and "Number of sources" name the same thing; "Spacing d" and "Number of sources" do not. */
+const sharesWord = (a: string, b: string) => { const x = words(a); return [...words(b)].some((w) => x.has(w)); };
+
 /**
- * Readouts a prediction can be made about: numeric ones, at most four, in the lab's own order. When a slider is being
- * tested, a readout that merely repeats that slider's value is left out (predicting it teaches nothing), unless
- * nothing else is left.
+ * Readouts a prediction can be made about, at most six, in the lab's own order: numbers (rise / fall / stay) and
+ * words (change / stay). When a slider is being tested, a readout that merely repeats that slider's value is left
+ * out (predicting it teaches nothing), unless nothing else is left.
  */
 export function predictable(readouts: Readout[], tested?: SliderInfo | null): Readout[] {
-  const numeric = readouts.filter(([, v]) => readValue(v) !== null);
-  const echo = (v: string) => { const n = shownNumber(v); return tested != null && n !== null && Math.abs(n - tested.value) <= 1e-9 * Math.max(1, Math.abs(n)); };
-  const useful = numeric.filter(([, v]) => !echo(v));
-  return (useful.length ? useful : numeric).slice(0, 4);
+  const echo = ([k, v]: Readout) => {
+    const n = shownNumber(v);
+    return tested != null && n !== null && Math.abs(n - tested.value) <= 1e-9 * Math.max(1, Math.abs(n)) && sharesWord(k, tested.label);
+  };
+  const useful = readouts.filter((r) => !echo(r));
+  return (useful.length ? useful : readouts).slice(0, 6);
 }
 
 /** Tasks for a lab: its first two sliders (one change each) and its first preset. */
@@ -94,26 +112,29 @@ export function changedKeys(a: Params | null, b: Params | null): string[] {
 /** True when the lab is showing exactly the preset's values (nothing moved after loading it). */
 export const showsPreset = (values: Params, now: Params | null) => !!now && Object.keys(values).every((k) => same(values[k], now[k]));
 
-export type RowResult = { label: string; before: string; after: string; predicted: Dir; actual: Dir | null; right: boolean };
+export type RowResult = { label: string; before: string; after: string; predicted: Dir; actual: Dir; right: boolean };
 
-/** Compare each prediction with what the lab actually did. Rows whose readout became non-numeric are skipped. */
+/** A prediction is right when it matches; "change" (for words) is right whenever the reading changed at all. */
+const matches = (predicted: Dir, actual: Dir) => predicted === actual || (predicted === "change" && actual !== "same") || (actual === "change" && predicted !== "same");
+
+/** Compare each prediction with what the lab actually did (a reading that disappeared is skipped). */
 export function grade(rows: { label: string; before: string; predicted: Dir }[], after: Readout[]): RowResult[] {
   const now = new Map(after);
   return rows.flatMap((r) => {
     const a = now.get(r.label);
     if (a === undefined) return [];
     const actual = direction(r.before, a);
-    return [{ label: r.label, before: r.before, after: a, predicted: r.predicted, actual, right: actual === r.predicted }];
+    return [{ label: r.label, before: r.before, after: a, predicted: r.predicted, actual, right: matches(r.predicted, actual) }];
   });
 }
 
-const WORD: Record<Dir, string> = { up: "rose", down: "fell", same: "did not change" };
+const WORD: Record<Dir, string> = { up: "rose", down: "fell", change: "changed", same: "did not change" };
 const list = (xs: string[]) => (xs.length <= 1 ? xs.join("") : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`);
 
 /** One plain sentence about what the test showed, e.g. "Raising R: Current fell and Power rose; Voltage did not change." */
 export function summarise(cause: string, results: RowResult[]): string {
   const by = (d: Dir) => results.filter((r) => r.actual === d).map((r) => r.label);
-  const parts = (["up", "down", "same"] as Dir[]).map((d) => (by(d).length ? `${list(by(d))} ${WORD[d]}` : "")).filter(Boolean);
+  const parts = (["up", "down", "change", "same"] as Dir[]).map((d) => (by(d).length ? `${list(by(d))} ${WORD[d]}` : "")).filter(Boolean);
   return parts.length ? `${cause}: ${parts.join("; ")}.` : `${cause}: none of the readings changed.`;
 }
 

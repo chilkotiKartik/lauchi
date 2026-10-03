@@ -4,8 +4,9 @@ import { notFound } from "next/navigation";
 import { canSeeCourse } from "@/lib/stream";
 import { requireOnboarded } from "@/lib/auth";
 import { getCourse } from "@/lib/syllabus";
-import { doneTopics } from "@/lib/progress";
 import { Bar, Crumbs } from "@/components/Crumbs";
+import { SubjectPath } from "@/components/learn/SubjectPath";
+import { loadSubjectPath } from "@/lib/subject-path";
 
 export async function generateMetadata({ params }: { params: Promise<{ course: string }> }): Promise<Metadata> {
   const c = getCourse((await params).course);
@@ -16,7 +17,7 @@ export default async function CoursePage({ params }: { params: Promise<{ course:
   const { supabase, profile } = await requireOnboarded();
   const c = getCourse((await params).course);
   if (!c || !canSeeCourse(profile.branch, c.code, c.type)) notFound();
-  const done = await doneTopics(supabase);
+  const { units: path, done, hasQuiz } = await loadSubjectPath(supabase, { id: profile.id, branch: profile.branch }, c);
   return (
     <div className="flex flex-col gap-5">
       <Crumbs items={[{ href: "/learn", label: "Learn" }, { label: c.name }]} />
@@ -26,9 +27,10 @@ export default async function CoursePage({ params }: { params: Promise<{ course:
         {c.marks?.total ? <p className="text-muted">Internal {(c.marks.ct ?? 0) + (c.marks.ta ?? 0)} · End-sem {c.marks.ese} · Total {c.marks.total} marks</p> : null}
         {c.note && <p className="mt-2 text-sm text-muted">{c.note}</p>}
       </header>
+      {c.units.length > 0 && <SubjectPath course={c.code} units={path} mockHref={hasQuiz ? "/mock" : null} />}
       {c.units.length > 0 && (
         <section aria-labelledby="units" className="flex flex-col gap-3">
-          <h2 id="units" className="text-xl">Units</h2>
+          <h2 id="units" className="text-xl">Units and topics</h2>
           <ol className="flex flex-col gap-3">
             {c.units.map((u) => {
               const d = u.topics.filter((_, i) => done.has(`${c.code}:${u.n}:${i + 1}`)).length;

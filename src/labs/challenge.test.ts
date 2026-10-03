@@ -36,7 +36,9 @@ describe("direction", () => {
     expect(direction("950 Ω", "1.05 kΩ")).toBe("up");
     expect(direction("1.2 mA", "900 µA")).toBe("down");
     expect(direction("5.00 V", "5.00 V")).toBe("same");
-    expect(direction("Stable", "Unstable")).toBeNull();
+    expect(direction("Stable", "Unstable")).toBe("change");
+    expect(direction("0 of 107", "0 of 1132")).toBe("up");           // another number in the reading moved
+    expect(direction("1 × 600 = 600", "1 × 3000 = 3000")).toBe("up");
   });
 });
 
@@ -58,13 +60,19 @@ describe("tasks and grading", () => {
     const t = buildTasks([slider, { ...slider, label: "Voltage V" }, { ...slider, label: "Third" }], [{ name: "Short circuit", note: "R near zero", values: { R: 1 } }]);
     expect(t.map((x) => x.id)).toEqual(["s0", "s1", "p0"]);
   });
-  it("keeps only numeric readouts, at most four", () => {
-    expect(predictable([["A", "1 V"], ["B", "Stable"], ["C", "2"], ["D", "3"], ["E", "4"], ["F", "5"]]).map(([k]) => k)).toEqual(["A", "C", "D", "E"]);
+  it("keeps numbers and words, at most six", () => {
+    expect(predictable([["A", "1 V"], ["B", "Stable"], ["C", "2"], ["D", "3"], ["E", "4"], ["F", "5"], ["G", "6"]]).map(([k]) => k)).toEqual(["A", "B", "C", "D", "E", "F"]);
+  });
+  it("grades word readings as change / stay", () => {
+    const r = grade([{ label: "Orbital", before: "1s", predicted: "change" }, { label: "State", before: "Stable", predicted: "same" }], [["Orbital", "2p"], ["State", "Unstable"]]);
+    expect(r.map((x) => x.right)).toEqual([true, false]);
   });
   it("leaves out a readout that only repeats the tested slider", () => {
     const s = { label: "Wavelength λ", value: 550, min: 400, max: 700, step: 1, unit: " nm", digits: 0 };
     expect(predictable([["Wavelength", "550 nm"], ["Fringe width", "1.10 mm"]], s).map(([k]) => k)).toEqual(["Fringe width"]);
     expect(predictable([["Wavelength", "550 nm"]], s).map(([k]) => k)).toEqual(["Wavelength"]); // nothing else left
+    const n = { label: "Number of sources", value: 2, min: 2, max: 5, step: 1, unit: "", digits: 0 };
+    expect(predictable([["Sources", "2"], ["Spacing d", "2.00"]], n).map(([k]) => k)).toEqual(["Spacing d"]); // equal value, different quantity
   });
   it("grades predictions against what the lab did and summarises it", () => {
     const r = grade([{ label: "Current", before: "1.00 A", predicted: "down" }, { label: "Voltage", before: "10 V", predicted: "up" }], [["Current", "0.50 A"], ["Voltage", "10 V"]]);
