@@ -58,10 +58,10 @@ function Fit() {
 export default function WaveSurface3D({ control, active, quality }: { control: RefObject<WaveControl>; active: boolean; quality: 0 | 1 }) {
   return (
     <Guard what="The formula and slider still work.">
-      <Canvas dpr={quality ? [1, 1.5] : 1} frameloop={active ? "always" : "never"} camera={{ position: [0, 2.2, 9], fov: 40 }}
-        gl={{ antialias: quality > 0, alpha: true, powerPreference: "default", preserveDrawingBuffer: true }} style={{ touchAction: "pan-y" }}>
-        <ambientLight intensity={0.9} />
-        <directionalLight position={[3, 6, 4]} intensity={1.6} />
+      <Canvas dpr={quality ? [1, 1.25] : 1} frameloop={active ? "always" : "never"} camera={{ position: [0, 2.2, 9], fov: 40 }}
+        gl={{ antialias: quality > 0, alpha: true, powerPreference: "high-performance", preserveDrawingBuffer: false }} style={{ touchAction: "pan-y" }}>
+        <ambientLight intensity={1.1} />
+        <directionalLight position={[3, 6, 4]} intensity={1.8} />
         <Fit />
         <Surface control={control} segs={quality ? 40 : 22} />
       </Canvas>

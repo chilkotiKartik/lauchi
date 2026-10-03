@@ -10,10 +10,21 @@ const Surface = dynamic(() => import("./WaveSurface3D"), { ssr: false });
 
 function Flat() {
   return (
-    <svg className="absolute inset-0 h-full w-full" viewBox="0 0 300 200" aria-hidden data-testid="sim-fallback">
-      {[18, 36, 54, 72, 90].map((r, i) => <ellipse key={r} cx="150" cy="105" rx={r * 1.9} ry={r * 0.8} fill="none" stroke={i % 2 ? "#44c95a" : "#6cc4ff"} strokeWidth="3" strokeOpacity={1 - i * 0.14} />)}
-      <circle cx="150" cy="105" r="6" fill="#ffd24d" />
-    </svg>
+    <div className="absolute inset-0 flex items-center justify-center p-4 bg-gradient-to-br from-green/5 via-blue/5 to-purple/5">
+      <svg className="h-full w-full max-h-60" viewBox="0 0 300 200" aria-hidden data-testid="sim-fallback">
+        <defs>
+          <linearGradient id="waveGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#58cc02" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#1cb0f6" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#ffc83d" stopOpacity="0.8" />
+          </linearGradient>
+        </defs>
+        {[18, 36, 54, 72, 90].map((r, i) => (
+          <ellipse key={r} cx="150" cy="100" rx={r * 1.55} ry={r * 0.75} fill="none" stroke="url(#waveGrad)" strokeWidth="3" strokeOpacity={1 - i * 0.16} />
+        ))}
+        <circle cx="150" cy="100" r="7" fill="#ffd24d" />
+      </svg>
+    </div>
   );
 }
 
@@ -27,14 +38,15 @@ export function SeeItMove({ stats }: { stats: Stat[] }) {
   const control = useRef<WaveControl>({ k: 3, yaw: 0.5 });
   const drag = useRef<number | null>(null);
   const [k, setK] = useState(3);
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(true);
   const [seen, setSeen] = useState(false);
   const [tabOn, setTabOn] = useState(true);
 
   useEffect(() => {
+    setSeen(true);
     const el = host.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(([e]) => { setInView(e.isIntersecting); if (e.isIntersecting) setSeen(true); }, { threshold: 0.15 });
+    const io = new IntersectionObserver(([e]) => { setInView(e.isIntersecting); }, { threshold: 0.05 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
