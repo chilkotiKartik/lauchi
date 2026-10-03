@@ -38,7 +38,7 @@ export default async function PapersPage() {
           style={{ ["--accent" as string]: "#1476b8" }}
         >
           <div>
-            <span className="text-xs font-black uppercase tracking-wider text-blue">Timed Simulator</span>
+            <span className="text-xs font-black uppercase tracking-wider text-blue-t">Timed Simulator</span>
             <h2 className="mt-1 text-2xl font-black text-head">3-Hour Exam Simulator &rarr;</h2>
             <p className="mt-2 text-sm text-muted">
               Sit a real 100-mark UTU pattern examination paper (5 questions with internal choices). Write on paper, self-evaluate with model answers, and track your readiness.
@@ -117,19 +117,19 @@ export default async function PapersPage() {
         </h2>
         <div className="grid gap-3 sm:grid-cols-3 text-sm">
           <div className="rounded-2xl border border-line bg-soft/60 p-3.5">
-            <b className="text-blue font-black">1. Timed Simulation</b>
+            <b className="text-blue-t font-black">1. Timed Simulation</b>
             <p className="mt-1 text-xs text-muted">
               Start a 3-hour timer on lockin. Write answers by hand on physical paper without looking at references.
             </p>
           </div>
           <div className="rounded-2xl border border-line bg-soft/60 p-3.5">
-            <b className="text-amber-500 font-black">2. Model Marking</b>
+            <b className="text-gold-t font-black">2. Model Marking</b>
             <p className="mt-1 text-xs text-muted">
               Compare your written responses against step-by-step model marking rubrics to find missing points.
             </p>
           </div>
           <div className="rounded-2xl border border-line bg-soft/60 p-3.5">
-            <b className="text-emerald-500 font-black">3. Drill Weak Units</b>
+            <b className="text-green-t font-black">3. Drill Weak Units</b>
             <p className="mt-1 text-xs text-muted">
               Jump into the Duolingo practice path for any units where you lost marks to ensure 100% preparation.
             </p>

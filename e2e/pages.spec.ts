@@ -7,7 +7,7 @@ const sessionIdFrom = (page: Page) => new URL(page.url()).pathname.split("/").po
 test("new pages load, are in the menu and are error free", async ({ page }) => {
   const problems = watch(page);
   await signIn(page, uniqueEmail()); await onboard(page);
-  for (const [path, h1] of [["/assignments", "Assignments"], ["/papers", "Papers & PYQs"], ["/marks", "Marks & SGPA"], ["/ask", "Ask Lochi"], ["/league", "Weekly league"]] as const) {
+  for (const [path, h1] of [["/assignments", "Assignments"], ["/papers", "Question Papers & PYQ Bank"], ["/marks", "Marks & SGPA"], ["/ask", "Ask Lochi"], ["/league", "Weekly league"]] as const) {
     await page.goto(path);
     await expect(page.getByRole("heading", { level: 1, name: h1 })).toBeVisible();
   }

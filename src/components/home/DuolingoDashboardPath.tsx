@@ -110,7 +110,7 @@ export function DuolingoDashboardPath({
               <div className="flex items-center gap-2">
                 <h3 className="text-xl font-black text-head">{streak} Day Streak</h3>
                 {todayXp > 0 && (
-                  <span className="rounded-full bg-emerald-500/20 border border-emerald-500/30 px-2.5 py-0.5 text-xs font-black text-emerald-400">
+                  <span className="rounded-full bg-emerald-500/20 border border-emerald-500/30 px-2.5 py-0.5 text-xs font-black text-green-t">
                     Active
                   </span>
                 )}
@@ -281,7 +281,7 @@ export function DuolingoDashboardPath({
                     {[1, 2, 3].map((starIdx) => (
                       <span
                         key={starIdx}
-                        className={`text-xs ${starIdx <= stars ? "text-amber-400 drop-shadow-[0_0_4px_#f59e0b]" : "text-slate-600"}`}
+                        className={`text-xs ${starIdx <= stars ? "text-gold-t" : "text-slate-600"}`}
                       >
                         ★
                       </span>
@@ -337,7 +337,7 @@ export function DuolingoDashboardPath({
                       onClick={() => handleChestClick(idx)}
                       className={`relative flex h-12 w-12 items-center justify-center rounded-2xl border-2 transition-transform hover:scale-110 active:scale-95 ${
                         openedChest === idx
-                          ? "border-amber-400 bg-amber-400/20 text-amber-300 shadow-md"
+                          ? "border-amber-400 bg-amber-400/20 text-gold-t shadow-md"
                           : "border-line bg-soft text-muted hover:border-amber-400/60"
                       }`}
                       title="Tap bonus chest for XP boost"
@@ -345,7 +345,7 @@ export function DuolingoDashboardPath({
                       {openedChest === idx ? "🎁" : "📦"}
                     </button>
                     {openedChest === idx && (
-                      <span className="animate-bounce mt-1 text-[10px] font-black text-amber-400">
+                      <span className="animate-bounce mt-1 text-[10px] font-black text-gold-t">
                         +25 XP Streak Power!
                       </span>
                     )}

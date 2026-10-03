@@ -47,7 +47,7 @@ export default async function Goals() {
         <Bar name="Quizzes finished" value={now.quizzes} target={target.quizzesTarget} />
         {goalMet({ ...now, goal: target }) && <p role="status" className="ok">Goal reached. Great week!</p>}
         {!now.goal && <p className="text-sm text-muted">No goal saved yet. These numbers come from your daily goal ({profile.daily_goal_xp} XP a day). Save them or change them.</p>}
-        <GoalsForm key={`${target.xpTarget}-${target.quizzesTarget}`} xpTarget={target.xpTarget} quizzesTarget={target.quizzesTarget} saved={Boolean(now.goal)} />
+        <GoalsForm xpTarget={target.xpTarget} quizzesTarget={target.quizzesTarget} saved={Boolean(now.goal)} />
         <p className="text-xs text-muted">Quizzes include practice, topic, mock and assignment quizzes plus your daily challenge.</p>
       </section>
       <section className="card flex flex-col gap-3" aria-labelledby="hw">

@@ -220,7 +220,7 @@ test("mock test: timer, palette, no verdicts, submit, review, mistakes, XP once"
 test("a mock can only be submitted early by its owner, and only if it is a mock", async ({ page }) => {
   await signIn(page, uniqueEmail()); await onboard(page);
   await page.goto("/practice/AHT-003");
-  await page.getByRole("button", { name: "Start 10 questions" }).first().click();
+  await page.getByRole("button", { name: /^Practise unit 1\b/ }).first().click();
   await expect(page).toHaveURL(/\/quiz\/[0-9a-f-]{36}$/);
   // a practice quiz has no "Submit test" shortcut
   await expect(page.getByRole("button", { name: "Submit test" })).toHaveCount(0);

@@ -1,5 +1,4 @@
 "use server";
-import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { getSession } from "@/lib/auth";
 import { createAdminClient } from "@/lib/supabase/admin";
@@ -40,6 +39,7 @@ export async function answerSunday(raw: unknown): Promise<DailyAnswerResult> {
     try { await admin.rpc("revise_add", { p_user: s.user.id, p_kind: "quiz", p_ref: quizRef(item.c, item.u, item.t, item.s), p_course: item.c, p_unit: item.u, p_title: titleSnippet(q.q) }); } catch { /* bonus only */ }
   }
   const r = (data ?? {}) as { done?: boolean; score?: number; xp?: number };
-  if (r.done) { revalidatePath("/sunday"); revalidatePath("/home"); }
+  // No revalidatePath here: it would re-render this page under the student before they see feedback on the last answer.
+  // The runner refreshes when "See my score" is pressed; /home and /goals render fresh on every request.
   return { ok: true, correct, why: q.why, right: rightAnswer(q), done: Boolean(r.done), score: r.score, xp: r.xp };
 }

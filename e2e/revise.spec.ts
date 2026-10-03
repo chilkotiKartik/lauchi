@@ -38,7 +38,7 @@ test("revise today: a missed practice question comes back, and a right review mo
 
   await page.goto("/practice");
   await page.getByRole("link", { name: /Engineering Physics/ }).click();
-  await page.getByRole("button", { name: "Start 10 questions" }).first().click();
+  await page.getByRole("button", { name: /^Practise unit 1\b/ }).first().click();
   await expect(page).toHaveURL(/\/quiz\/[0-9a-f-]{36}$/);
   const id = sessionIdFrom(page);
   await expect(page.getByText(/^Level: (warming up|steady|challenge)$/)).toBeVisible();

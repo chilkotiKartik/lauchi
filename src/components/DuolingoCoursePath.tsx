@@ -82,7 +82,7 @@ export function DuolingoCoursePath({
                   FIX THIS ⚠️
                 </div>
               ) : u.isNext ? (
-                <div className="animate-pulse mb-2.5 rounded-full border border-green-500/40 bg-green-500/20 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-green-400 shadow-lg flex items-center gap-1">
+                <div className="animate-pulse mb-2.5 rounded-full border border-green-500/40 bg-green-500/20 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-green-t shadow-lg flex items-center gap-1">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
                   START HERE
                 </div>
@@ -94,7 +94,7 @@ export function DuolingoCoursePath({
                   {[1, 2, 3].map((s) => (
                     <span
                       key={s}
-                      className={`text-xs ${s <= stars ? "text-amber-400 drop-shadow-[0_0_4px_#f59e0b]" : "text-slate-600"}`}
+                      className={`text-xs ${s <= stars ? "text-gold-t" : "text-slate-600"}`}
                     >
                       ★
                     </span>
@@ -156,7 +156,7 @@ export function DuolingoCoursePath({
                     onClick={() => handleChest(idx)}
                     className={`relative flex h-12 w-12 items-center justify-center rounded-2xl border-2 transition-transform hover:scale-110 active:scale-95 ${
                       openedChest === idx
-                        ? "border-amber-400 bg-amber-400/20 text-amber-300 shadow-md"
+                        ? "border-amber-400 bg-amber-400/20 text-gold-t shadow-md"
                         : "border-line bg-soft text-muted hover:border-amber-400/60"
                     }`}
                     title="Tap bonus chest"
@@ -164,7 +164,7 @@ export function DuolingoCoursePath({
                     {openedChest === idx ? "🎁" : "📦"}
                   </button>
                   {openedChest === idx && (
-                    <span className="animate-bounce mt-1 text-[10px] font-black text-amber-400">
+                    <span className="animate-bounce mt-1 text-[10px] font-black text-gold-t">
                       +25 XP Streak Boost!
                     </span>
                   )}
