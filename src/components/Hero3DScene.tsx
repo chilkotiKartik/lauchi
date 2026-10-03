@@ -81,7 +81,7 @@ function Ground() {
 
 export default function Hero3DScene({ big = false }: { big?: boolean }) {
   return (
-    <Stage variant="hero" size={big ? "big" : "small"} label="Lochi, the lockin. padlock mascot, rotating in 3D with maths badges orbiting it" playing camera={[0, 0.2, big ? 6.4 : 5.2]}>
+    <Stage variant="hero" label="Lochi, the lockin. padlock mascot, rotating in 3D with maths badges orbiting it" playing camera={[0, 0.2, big ? 6.4 : 5.2]}>
       <Ground />
       <Padlock />
       <Orbs />

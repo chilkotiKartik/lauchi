@@ -11,7 +11,6 @@ import { allUnitStats } from "@/lib/mock-units";
 import { daysBetween } from "@/lib/plan";
 import { getCourse, listCourses } from "@/lib/syllabus";
 import { DuolingoDashboardPath, type DashboardCourseOption } from "@/components/home/DuolingoDashboardPath";
-import { HeroLochi } from "@/components/HeroLochi";
 import { ArtLab, ArtMock, ArtPractice, ArtTarget, ArtFormula } from "@/components/art";
 import { ProgressRing } from "@/components/ProgressRing";
 import { Heatmap } from "@/components/Heatmap";
@@ -96,15 +95,18 @@ export default async function Home() {
     <div className="grid gap-5 lg:grid-cols-[1fr_340px]">
       <div className="enter flex min-w-0 flex-col gap-5">
         <Tilt max={3}>
-          <section className="card hero-card flex flex-col items-center gap-2 text-center sm:flex-row sm:text-left" style={{ ["--accent" as string]: "#44c95a" }} aria-label="Welcome">
-            <div className="floaty"><HeroLochi /></div>
-            <div className="flex flex-col gap-2">
-              <h1 className="text-3xl">Welcome back, {profile.name}!</h1>
-              <p className="text-lg">{line}</p>
+          <section className="card hero-card flex items-center gap-4" style={{ ["--accent" as string]: "#44c95a" }} aria-label="Welcome">
+            <div className="floaty hidden shrink-0 sm:block"><Lochi mood="welcome" size={128} /></div>
+            <div className="flex min-w-0 flex-1 flex-col gap-2">
+              <div className="flex items-center gap-3">
+                <span className="shrink-0 sm:hidden"><Lochi mood="welcome" size={56} /></span>
+                <h1 className="text-2xl sm:text-3xl">Welcome back, {profile.name}!</h1>
+              </div>
+              <p className="sm:text-lg">{line}</p>
               <p className="text-sm text-muted">{branchName(profile.branch)} · Semester {profile.semester === 1 ? "I" : "II"} · Level {lv.level}</p>
-              <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
-                <Link href="/practice" className="btn">Practice now</Link>
-                <Link href="/learn" className="btn btn-ghost">Continue learning</Link>
+              <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+                <Link href="/practice" className="btn !px-3">Practice now</Link>
+                <Link href="/learn" className="btn btn-ghost !px-3">Keep learning</Link>
               </div>
             </div>
           </section>
