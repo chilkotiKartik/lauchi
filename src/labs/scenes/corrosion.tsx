@@ -10,10 +10,19 @@ import { Flow, Rod, mix } from "../kit2";
 import { prng } from "../sim/physics";
 
 function rustSpots(n: number): Inst[] {
-  const r = prng(31), out: Inst[] = [];
+  const r = prng(31),
+    out: Inst[] = [];
   for (let i = 0; i < 90; i++) {
-    const x = -2.8 + r() * 5.6, a = r() * 6.28, s = 0.08 + r() * 0.16;
-    if (i < n) out.push({ p: [x, Math.cos(a) * 0.36, Math.sin(a) * 0.36], s: [s * 1.6, s, s * 1.6], c: i % 3 ? "#a0522d" : "#c06a2b" });
+    const x = -2.8 + r() * 5.6,
+      a = r() * 6.28,
+      s = 0.08 + r() * 0.16;
+    if (i < n) {
+      out.push({
+        p: [x, Math.cos(a) * 0.38, Math.sin(a) * 0.38],
+        s: [s * 1.6, s, s * 1.6],
+        c: i % 3 ? "#9a3412" : "#c2410c",
+      });
+    }
   }
   return out;
 }
@@ -23,47 +32,113 @@ export default function CorrosionLab() {
   const { o2, pH, area, I, prot } = P;
   const c = corrosion(pH, o2, area, prot, I);
   const spots = useMemo(() => rustSpots(Math.round(Math.min(90, c.rate * 70))), [c.rate]);
-  const bubbles = useMemo<V3[]>(() => [[-1.5, 0.3, 0.3], [-1.3, 2.2, 0.3]], []);
-  const bubbles2 = useMemo<V3[]>(() => [[1.2, 0.3, -0.3], [1.4, 2.2, -0.3]], []);
+  const bubbles = useMemo<V3[]>(() => [[-1.5, 0.4, 0.3], [-1.3, 2.2, 0.3]], []);
+  const bubbles2 = useMemo<V3[]>(() => [[1.2, 0.4, -0.3], [1.4, 2.2, -0.3]], []);
   const oxy = useMemo<V3[]>(() => [[-3.5, 1.8, 0.9], [3.5, 1.4, 0.9]], []);
   const wire = useMemo<V3[]>(() => [[0, 0.4, 0], [0, 2.6, 0], [2.6, 2.6, 0], [2.6, -0.4, 1.4]], []);
-  const water = mix("#2b6f9e", "#7fb04a", Math.max(0, (7 - pH) / 5) * 0.4);
+  const water = mix("#1e3a8a", "#15803d", Math.max(0, (7 - pH) / 5) * 0.4);
+
   return (
     <LabFrame
-      label="A steel pipe lying in water; rust spots grow with the corrosion rate, hydrogen bubbles appear in acid, and a sacrificial anode or an impressed-current source is wired to the pipe with electrons flowing to protect it"
+      label="Electrochemical Corrosion & Cathodic Protection: steel pipe immersion, anodic oxidation pits, hydrogen effervescence, and sacrificial anode / ICCP protection"
       camera={[0.5, 2.6, 8.5]}
       onReset={reset}
-      scene={() => (<group>
-        <Box p={[0, -0.2, 0]} s={[7.4, 2.6, 3.2]} c={water} o={0.22} />
-        <Rod a={[-3, 0, 0]} b={[3, 0, 0]} r={0.36} color="#8d9aa1" />
-        <Instances items={spots} cap={90} shape="box" />
-        {o2 > 0 && <Flow path={oxy} n={Math.round(o2)} speed={0.15} color="#e8f1f5" r={0.05} />}
-        {pH < 4.5 && <><Flow path={bubbles} n={6} speed={0.5} color="#e8f1f5" r={0.07} /><Flow path={bubbles2} n={6} speed={0.45} color="#e8f1f5" r={0.07} /></>}
-        {prot !== "none" && (<>
-          <Line points={wire} color={C.light} lineWidth={2} />
-          <Flow path={[...wire].reverse()} n={10} speed={0.25 + c.supplyA / 4} color={C.blue} r={0.06} />
-          {prot === "iccp" ? (<>
-            <Box p={[1.3, 2.6, 0]} s={[0.9, 0.6, 0.6]} c={C.dark} />
-            <Box p={[2.6, -0.6, 1.4]} s={[0.25, 0.9, 0.25]} c="#2b2b2b" />
-          </>) : <Box p={[2.6, -0.6, 1.4]} s={[0.6, 0.6, 0.6]} c={prot === "zinc" ? "#b8c4cc" : "#e4e9ec"} glow={0.15} />}
-        </>)}
-      </group>)}
+      note={
+        <p>
+          Wet corrosion operates as an electrochemical cell on the metal surface: at anodic sites, iron dissolves (<b>Fe $\rightarrow$ Fe²⁺ + 2e⁻</b>), while electrons are consumed at cathodic sites via <b>hydrogen reduction</b> (in acidic media: 2H⁺ + 2e⁻ $\rightarrow$ H₂) or <b>oxygen absorption</b> (neutral water: O₂ + 2H₂O + 4e⁻ $\rightarrow$ 4OH⁻). Cathodic protection supplies excess electrons from a <b>sacrificial anode (Zn/Mg)</b> or an <b>impressed current DC rectifier (ICCP)</b> to polarize the steel structure into the immune thermodynamic domain.
+        </p>
+      }
+      scene={() => (
+        <group>
+          {/* Glass Electrolyte Tank */}
+          <Box p={[0, -0.2, 0]} s={[7.6, 2.8, 3.4]} c={water} o={0.25} />
+
+          {/* Submerged Flanged Steel Pipeline */}
+          <Rod a={[-3.2, 0, 0]} b={[3.2, 0, 0]} r={0.38} color="#64748b" />
+          {[-3.2, 3.2].map((fx, i) => (
+            <mesh key={i} position={[fx, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+              <cylinderGeometry args={[0.52, 0.52, 0.1, 24]} />
+              <meshStandardMaterial color="#334155" metalness={0.9} />
+            </mesh>
+          ))}
+
+          {/* Rust Spots (Iron Oxide Pitting) */}
+          <Instances items={spots} cap={90} shape="box" />
+
+          {/* Dissolved Oxygen Diffusion Stream */}
+          {o2 > 0 && <Flow path={oxy} n={Math.round(o2)} speed={0.15} color="#e0f2fe" r={0.05} />}
+
+          {/* Acid Hydrogen Gas Effervescence Bubbles */}
+          {pH < 4.5 && (
+            <>
+              <Flow path={bubbles} n={8} speed={0.55} color="#f8fafc" r={0.07} />
+              <Flow path={bubbles2} n={8} speed={0.5} color="#f8fafc" r={0.07} />
+            </>
+          )}
+
+          {/* Cathodic Protection System (Anode & Conductor Wire) */}
+          {prot !== "none" && (
+            <>
+              <Line points={wire} color="#e2e8f0" lineWidth={2.5} />
+              <Flow path={[...wire].reverse()} n={12} speed={0.25 + c.supplyA / 4} color="#38bdf8" r={0.06} />
+
+              {prot === "iccp" ? (
+                <>
+                  {/* ICCP DC Rectifier Unit on Top Rail */}
+                  <group position={[1.3, 2.6, 0]}>
+                    <Box p={[0, 0, 0]} s={[1.0, 0.7, 0.7]} c="#0f172a" />
+                    {/* Glowing LED Power Indicator */}
+                    <mesh position={[0, 0, 0.36]}>
+                      <boxGeometry args={[0.4, 0.2, 0.02]} />
+                      <meshStandardMaterial color="#22c55e" emissive="#22c55e" emissiveIntensity={1.2} />
+                    </mesh>
+                  </group>
+                  {/* Inert MMO Titanium/Carbon Anode */}
+                  <Box p={[2.6, -0.6, 1.4]} s={[0.28, 1.0, 0.28]} c="#1e293b" glow={0.3} />
+                </>
+              ) : (
+                /* Sacrificial Galvanic Anode Ingot (Zinc / Magnesium) */
+                <Box
+                  p={[2.6, -0.6, 1.4]}
+                  s={[0.65, 0.65, 0.65]}
+                  c={prot === "zinc" ? "#94a3b8" : "#cbd5e1"}
+                  glow={0.2}
+                />
+              )}
+            </>
+          )}
+        </group>
+      )}
       readouts={[
-        ["Corrosion current density", `${c.icorr.toFixed(1)} μA/cm²`],
-        ["Mechanism", c.mech],
-        ["Corrosion rate now", `${c.rate.toFixed(3)} mm/year`],
-        ["Current to protect fully", `${c.needA.toFixed(2)} A`],
-        ["Protection", `${(c.frac * 100).toFixed(0)} %${c.overprotect ? " (over-protected: wasteful, may blister coatings)" : ""}`],
-        ["Anode used up", c.anodeKgPerYear > 0 ? `${c.anodeKgPerYear.toFixed(1)} kg/year` : "—"],
+        ["Corrosion Current Density", `${c.icorr.toFixed(1)} μA/cm²`],
+        ["Reaction Mechanism", c.mech],
+        ["Corrosion Penetration Rate", `${c.rate.toFixed(3)} mm/year`],
+        ["Required Protection Current", `${c.needA.toFixed(2)} A`],
+        [
+          "Cathodic Protection Level",
+          `${(c.frac * 100).toFixed(0)} %${c.overprotect ? " (Over-protected)" : ""}`,
+        ],
+        ["Anode Consumption Rate", c.anodeKgPerYear > 0 ? `${c.anodeKgPerYear.toFixed(1)} kg/year` : "N/A"],
       ]}
-      controls={<>
-        <Slider label="Dissolved oxygen" value={o2} min={0} max={15} step={0.1} digits={1} unit=" ppm" onChange={(x) => set("o2", x)} />
-        <Slider label="pH of the water" value={pH} min={2} max={12} step={0.1} digits={1} onChange={(x) => set("pH", x)} />
-        <Slider label="Pipe surface area" value={area} min={0.1} max={10} step={0.1} digits={1} unit=" m²" onChange={(x) => set("area", x)} />
-        <Pick label="Protection" value={prot} options={[{ id: "none", label: "None" }, { id: "zinc", label: "Sacrificial zinc anode" }, { id: "magnesium", label: "Sacrificial magnesium anode" }, { id: "iccp", label: "Impressed current (ICCP)" }] as { id: Protect; label: string }[]} onChange={(x) => set("prot", x)} />
-        <Slider label="ICCP current" value={I} min={0} max={5} step={0.05} digits={2} unit=" A" onChange={(x) => set("I", x)} />
-      </>}
-      note={<p>Wet corrosion is an electrochemical cell on the metal surface. At anodic spots Fe → Fe²⁺ + 2e⁻; the electrons are used at cathodic spots by <b>hydrogen evolution</b> in acid (2H⁺ + 2e⁻ → H₂, bubbles) or <b>oxygen absorption</b> in neutral water (O₂ + 2H₂O + 4e⁻ → 4OH⁻). Fe²⁺ + OH⁻ then forms Fe(OH)₂ and rust, Fe₂O₃·xH₂O. Cathodic protection supplies those electrons from outside so the steel never has to dissolve: a more active <b>sacrificial anode</b> (Zn, Mg) corrodes instead, or a DC source drives current from an inert anode (<b>ICCP</b>). Rates use 1 μA/cm² ≈ 0.0116 mm/year for iron; the current-density model is simplified.</p>}
+      controls={
+        <>
+          <Slider label="Dissolved Oxygen (DO)" value={o2} min={0} max={15} step={0.1} digits={1} unit=" ppm" onChange={(x) => set("o2", x)} />
+          <Slider label="Electrolyte pH" value={pH} min={2} max={12} step={0.1} digits={1} onChange={(x) => set("pH", x)} />
+          <Slider label="Exposed Pipe Area" value={area} min={0.1} max={10} step={0.1} digits={1} unit=" m²" onChange={(x) => set("area", x)} />
+          <Pick
+            label="Cathodic Protection System"
+            value={prot}
+            options={[
+              { id: "none", label: "None (Unprotected Steel)" },
+              { id: "zinc", label: "Sacrificial Zinc Anode (Zn)" },
+              { id: "magnesium", label: "Sacrificial Magnesium Ingot (Mg)" },
+              { id: "iccp", label: "Impressed Current Cathodic Protection (ICCP)" },
+            ] as { id: Protect; label: string }[]}
+            onChange={(x) => set("prot", x)}
+          />
+          <Slider label="ICCP Rectifier Current" value={I} min={0} max={5} step={0.05} digits={2} unit=" A" onChange={(x) => set("I", x)} />
+        </>
+      }
     />
   );
 }
