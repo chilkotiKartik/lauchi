@@ -1,7 +1,7 @@
-import { test, expect, type Page } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 import fs from "node:fs";
 import { generate, sessionQuestion } from "../src/lib/quiz-core";
-import { sql, signIn, uniqueEmail, addXp } from "../e2e/helpers";
+import { sql, uniqueEmail, addXp } from "../e2e/helpers";
 
 const OUT = "/home/claude/shots";
 test("snapshots", async ({ page }, info) => {

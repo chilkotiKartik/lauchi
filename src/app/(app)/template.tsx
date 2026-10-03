@@ -1,5 +1,5 @@
 "use client";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 /** Every page in the app slides in softly instead of snapping. The wrapper is always rendered so server and browser markup match. */
 export default function Template({ children }: { children: React.ReactNode }) {

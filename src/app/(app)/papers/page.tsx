@@ -3,7 +3,7 @@ import Link from "next/link";
 import { requireOnboarded } from "@/lib/auth";
 import { canSeeCourse } from "@/lib/stream";
 import { PYQ_CODES, countQuestions, getPyq, SHORT } from "@/lib/pyq";
-import { ArtPapers, ArtMock } from "@/components/art";
+import { ArtPapers } from "@/components/art";
 
 export const metadata: Metadata = { title: "Papers & PYQs Bank" };
 

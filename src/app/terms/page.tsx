@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { LegalPage, Mail } from "@/components/Legal";
 
 export const metadata: Metadata = { title: "Terms of Use" };

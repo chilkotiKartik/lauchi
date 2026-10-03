@@ -10,7 +10,7 @@ import { accuracy, badges, bestStreak, dailyQuests, leaking, readiness } from "@
 import { allUnitStats } from "@/lib/mock-units";
 import { daysBetween } from "@/lib/plan";
 import { getCourse, listCourses } from "@/lib/syllabus";
-import { DuolingoDashboardPath, type DashboardCourseOption, type UnitPerformance } from "@/components/home/DuolingoDashboardPath";
+import { DuolingoDashboardPath, type DashboardCourseOption } from "@/components/home/DuolingoDashboardPath";
 import { HeroLochi } from "@/components/HeroLochi";
 import { ArtLab, ArtMock, ArtPractice, ArtTarget, ArtFormula } from "@/components/art";
 import { ProgressRing } from "@/components/ProgressRing";
@@ -20,7 +20,7 @@ import { Tilt } from "@/components/Tilt";
 import { BadgeArt } from "@/components/BadgeArt";
 import { ListenButton } from "@/components/Voice";
 import { boostFor, moodLine } from "@/lib/motivation";
-import { ArtFocus, ArtPyq, ArtRevise, ArtFriends } from "@/components/art";
+import { ArtFocus, ArtPyq, ArtRevise } from "@/components/art";
 import { Lochi } from "@/components/Lochi";
 import { dueCount } from "@/lib/revise";
 import { visibleLabs } from "@/lib/stream";
