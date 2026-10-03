@@ -149,9 +149,9 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
               {/* Center Specular Accent */}
               <pointLight position={[0, 9, 0]} intensity={0.45} color="#38bdf8" distance={24} />
 
-              {/* Precision Laboratory Floor Grid */}
+              {/* Precision Laboratory Floor Grid positioned beneath the models */}
               {variant === "lab" && (
-                <gridHelper args={[36, 36, "#38bdf8", "#162b38"]} position={[0, -0.01, 0]} />
+                <gridHelper args={[36, 36, "#1e3a5f", "#0d1b2a"]} position={[0, -2.85, 0]} />
               )}
 
               {/* Orbit Controls */}
