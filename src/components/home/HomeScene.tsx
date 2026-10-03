@@ -44,8 +44,7 @@ export function HomeScene(p: HomeSceneProps) {
     return () => io.disconnect();
   }, []);
   useEffect(() => {
-    const id = setTimeout(() => setSettled(true), 900);
-    return () => clearTimeout(id);
+    setSettled(true);
   }, []);
   useEffect(() => {
     const on = () => setTabOn(!document.hidden);

@@ -120,10 +120,10 @@ export default function HomeScene3D({ data, active, quality }: { data: SceneData
   return (
     <Guard what="Your numbers are still shown in the page.">
       <Canvas
-        dpr={quality ? [1, 1.5] : 1}
+        dpr={quality ? [1, 1.25] : 1}
         frameloop={active ? "always" : "never"}
         camera={{ position: [0, 0.5, 9], fov: 40 }}
-        gl={{ antialias: quality > 0, alpha: true, powerPreference: "default", preserveDrawingBuffer: true }}
+        gl={{ antialias: quality > 0, alpha: true, powerPreference: "high-performance", preserveDrawingBuffer: false }}
         style={{ touchAction: "pan-y" }}
       >
         <ambientLight intensity={1.2} color="#ffffff" />

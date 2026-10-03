@@ -101,9 +101,9 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
               gl.domElement.addEventListener("webglcontextrestored", () => { setLost(false); invalidate(); });
             }}
             frameloop={!visible ? "never" : playing ? "always" : "demand"}
-            dpr={quality === "low" ? 1 : [1, 1.5]}
+            dpr={quality === "low" ? 1 : [1, 1.25]}
             camera={{ position: camera, fov: 45 }}
-            gl={{ antialias: quality === "high", powerPreference: "high-performance", preserveDrawingBuffer: true, stencil: false, alpha: true }}
+            gl={{ antialias: quality === "high", powerPreference: "high-performance", preserveDrawingBuffer: false, stencil: false, alpha: true }}
           >
             {/* Studio 3-Point Laboratory Lighting */}
             <ambientLight color="#ebf4f9" intensity={variant === "hero" ? 1.0 : 0.75} />
