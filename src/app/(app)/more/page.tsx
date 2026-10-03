@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SECTIONS } from "@/components/sections";
+import { isAdmin } from "@/lib/admin";
 
 export const metadata: Metadata = { title: "All sections" };
 
-export default function More() {
+export default async function More() {
+  const admin = await isAdmin();
   return (
     <div className="flex flex-col gap-5">
       <div><h1 className="text-3xl">Everything in lockin.</h1><p className="text-muted">Tap a section to jump in.</p></div>
+      {admin && <Link href="/admin" className="btn btn-blue w-fit">Open the admin panel</Link>}
       <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {SECTIONS.map(({ href, label, blurb, Icon, accent, isNew }) => (
           <li key={href}>

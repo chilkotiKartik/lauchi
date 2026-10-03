@@ -19,11 +19,13 @@ Local check before pushing: `npm ci && npm run typecheck && npm run lint && npm 
 Call `GET https://YOUR-DOMAIN/api/cron/reminders` every 30 minutes with header `Authorization: Bearer $CRON_SECRET` (Vercel Cron, cron-job.org or GitHub Actions).
 
 ## 5. Admin and teachers
-Admin login = normal sign-in (email link) with an account that is in `public.admins`; the server re-checks on every page and action (non-admins get 404). Make yourself admin once:
+Admin login = normal sign-in (email link, or email + password) with an account that is in `public.admins`; the server re-checks on every page and action (non-admins get 404). There is deliberately no built-in admin email/password in the code: anyone who can read the repository could log in with it.
+
+To get an admin account with a password: Supabase dashboard -> **Authentication -> Users -> Add user -> Create new user**, enter an email you own and a strong password, tick **Auto Confirm User**. Then make it admin once:
 ```sql
 insert into public.admins (user_id) select id from auth.users where email = 'you@example.com';
 ```
-Then open `/admin`: Questions, Lessons, Lab content, Notes & files, Subjects, Doubts, Teachers (grant teacher access by email so they can create classes), Stats, Reports. Publish/unpublish is live for students immediately.
+Sign in at `/login` with that email and password; admins see **Admin panel** in the sidebar (and on *More* on phones). Then open `/admin`: Questions, Lessons, Lab content, Notes & files, Subjects, Doubts, Teachers (grant teacher access by email so they can create classes), Stats, Reports. Publish/unpublish is live for students immediately.
 
 ## 6. Load (about 10k users)
 Quiz/XP logic is in SQL functions; pages are server-rendered per user. Use the Supabase Pro plan if you expect >500 concurrent users (connection limits), keep Vercel region near your Supabase region (ap-south-1 / Mumbai), set up your own SMTP for sign-in emails.

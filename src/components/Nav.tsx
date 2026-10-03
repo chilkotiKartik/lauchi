@@ -8,7 +8,7 @@ import { Lochi } from "@/components/Lochi";
 const bottom = SECTIONS.filter((s) => s.bottom && s.href !== "/profile");
 const on = (path: string, href: string) => path === href || path.startsWith(href + "/");
 
-export function Nav() {
+export function Nav({ admin = false }: { admin?: boolean }) {
   const path = usePathname();
   const moreActive = !bottom.some((s) => on(path, s.href)) && path !== "/more" ? true : path === "/more";
   return (
@@ -27,6 +27,11 @@ export function Nav() {
               </Link>
             );
           })}
+          {admin && (
+            <Link href="/admin" className="mt-2 flex min-h-12 items-center gap-3 rounded-2xl border-2 border-dashed border-blue px-3 text-sm font-extrabold uppercase tracking-wide text-blue-t no-underline hover:bg-blue-l">
+              <span aria-hidden className="grid h-[30px] w-[30px] place-items-center text-lg">⚙</span><span className="flex-1">Admin panel</span>
+            </Link>
+          )}
         </nav>
       </aside>
       <nav aria-label="Main" className="fixed inset-x-0 bottom-0 z-20 flex justify-around border-t-2 border-line bg-bg pb-[env(safe-area-inset-bottom)] md:hidden">

@@ -20,6 +20,12 @@ function symbolFor(name: string): string {
   if (/communication|english|language/.test(n)) return "Aa";
   return name.trim()[0]?.toUpperCase() ?? "?";
 }
+/** A subject's coloured symbol tile (the same one everywhere: home, Learn, Practice). */
+export function SubjectBadge({ name, index, size = 48 }: { name: string; index: number; size?: number }) {
+  return <span className="grid shrink-0 place-items-center rounded-2xl font-black text-white shadow-[0_3px_0_rgba(0,0,0,0.18)]" style={{ background: PALETTE[index % PALETTE.length], width: size, height: size, fontSize: size * 0.42 }} aria-hidden>{symbolFor(name)}</span>;
+}
+export const subjectColor = (index: number) => PALETTE[index % PALETTE.length];
+
 const BAR: Record<UnitState, string> = { new: "var(--line)", started: "var(--blue)", weak: "var(--red)", ok: "var(--gold)", strong: "var(--green)" };
 const WORD: Record<UnitState, string> = { new: "not started", started: "reading", weak: "needs work", ok: "good", strong: "strong" };
 

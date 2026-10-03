@@ -60,9 +60,9 @@ export function Readouts({ items }: { items: [string, string][] }) {
   return (
     <dl className="grid grid-cols-2 gap-2 sm:grid-cols-3" data-testid="readouts">
       {items.map(([k, v]) => (
-        <div key={k} className="card p-3">
-          <dt className="text-xs font-extrabold uppercase tracking-wide text-muted">{k}</dt>
-          <dd className="text-lg font-black tabular-nums text-head">{v}</dd>
+        <div key={k} className="card !p-2.5 sm:!p-3">
+          <dt className="text-[11px] font-extrabold uppercase tracking-wide text-muted sm:text-xs">{k}</dt>
+          <dd className="text-base font-black tabular-nums text-head sm:text-lg">{v}</dd>
         </div>
       ))}
     </dl>
@@ -137,15 +137,15 @@ export function LabFrame({
 
   return (
     <div className="grid gap-4">
-      <div className="sticky top-2 z-10 lg:static">
-        <Stage label={label} playing={playing} camera={camera}>{scene(playing)}</Stage>
-      </div>
+      <Stage label={label} playing={playing} camera={camera}>{scene(playing)}</Stage>
 
       {animated && rm && manual === null && (
         <p role="note" className="rounded-xl bg-soft px-3 py-2 text-sm font-semibold text-muted">
           Animation is paused because your device asks for reduced motion. Press Play to run it.
         </p>
       )}
+
+      <Readouts items={readouts} />
 
       <div className="card grid gap-3.5 border-2 border-line bg-surface p-4 md:grid-cols-2">
         <p className="border-b border-line/60 pb-2 text-xs font-black uppercase tracking-wider text-muted md:col-span-2">Controls</p>
@@ -154,20 +154,18 @@ export function LabFrame({
 
       <div className="flex flex-wrap items-center gap-2">
         {animated && (
-          <button type="button" className="btn btn-blue" aria-pressed={playing} onClick={() => setManual(!playing)}>
+          <button type="button" className="btn btn-blue !min-h-10 !px-4 !text-sm sm:!min-h-12 sm:!text-base" aria-pressed={playing} onClick={() => setManual(!playing)}>
             {playing ? "Pause" : "Play"}
           </button>
         )}
-        <button type="button" className="btn btn-ghost" onClick={() => { onReset(); setManual(null); }}>
+        <button type="button" className="btn btn-ghost !min-h-10 !px-4 !text-sm sm:!min-h-12 sm:!text-base" onClick={() => { onReset(); setManual(null); }}>
           Reset
         </button>
-        <button type="button" className="btn btn-ghost" onClick={() => setShowRecord(true)} title="Write these readings up as a practical record">
+        <button type="button" className="btn btn-ghost !min-h-10 !px-4 !text-sm sm:!min-h-12 sm:!text-base" onClick={() => setShowRecord(true)} title="Write these readings up as a practical record">
           Lab Record
         </button>
         {toolbar}
       </div>
-
-      <Readouts items={readouts} />
 
       <div id="lab-about" className="card scroll-mt-4 overflow-hidden border-2 border-line bg-surface p-0">
         <div role="tablist" aria-label="About this lab" className="flex overflow-x-auto border-b border-line bg-soft/50">
