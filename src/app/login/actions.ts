@@ -3,7 +3,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getPublicEnv } from "@/lib/env";
-import { emailSchema, passwordSchema } from "@/lib/schemas";
+import { emailSchema, newPasswordSchema, passwordSchema } from "@/lib/schemas";
 import { safeNext } from "@/lib/safe-path";
 
 export type LoginState = {
@@ -12,15 +12,15 @@ export type LoginState = {
   email?: string;
 };
 
+/** Base URL for links in sign-in emails. The configured site URL always wins: a request's Host header is client-controlled,
+ * so it is only used in development or when no site URL is set. */
 async function origin() {
+  const site = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "");
+  if (site && /^https?:\/\//.test(site)) return site;
   const h = await headers();
-  const host = h.get("x-forwarded-host") ?? h.get("host");
-  const proto = h.get("x-forwarded-proto") ?? (host?.startsWith("localhost") ? "http" : "https");
-  if (host && !host.startsWith("localhost")) {
-    return `${proto}://${host}`;
-  }
-  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
-  return `${proto}://${host ?? "localhost:3000"}`;
+  const host = h.get("host") ?? "localhost:3000";
+  const proto = host.startsWith("localhost") || host.startsWith("127.0.0.1") ? "http" : "https";
+  return `${proto}://${host}`;
 }
 
 export async function signInWithPasswordAction(_prev: LoginState, form: FormData): Promise<LoginState> {
@@ -47,7 +47,8 @@ export async function signInWithPasswordAction(_prev: LoginState, form: FormData
     if (/email not confirmed/i.test(error.message)) {
       return { status: "error", message: "Please confirm your email address before signing in." };
     }
-    return { status: "error", message: error.message || "Failed to sign in. Please try again." };
+    if (error.status === 429 || /rate/i.test(error.message)) return { status: "error", message: "Too many attempts. Wait a minute and try again." };
+    return { status: "error", message: "We couldn't sign you in. Please try again." };
   }
 
   redirect(next || "/home");
@@ -59,7 +60,7 @@ export async function signUpWithPasswordAction(_prev: LoginState, form: FormData
   const parsedEmail = emailSchema.safeParse(form.get("email"));
   if (!parsedEmail.success) return { status: "error", message: parsedEmail.error.issues[0].message };
 
-  const parsedPassword = passwordSchema.safeParse(form.get("password"));
+  const parsedPassword = newPasswordSchema.safeParse(form.get("password"));
   if (!parsedPassword.success) return { status: "error", message: parsedPassword.error.issues[0].message };
 
   const next = safeNext(String(form.get("next") ?? ""));
@@ -77,7 +78,9 @@ export async function signUpWithPasswordAction(_prev: LoginState, form: FormData
     if (/user already registered/i.test(error.message)) {
       return { status: "error", message: "An account with this email already exists. Please sign in instead." };
     }
-    return { status: "error", message: error.message || "Failed to create account. Please try again." };
+    if (/password/i.test(error.message)) return { status: "error", message: "Choose a stronger password: at least 8 characters, not a common one." };
+    if (error.status === 429 || /rate/i.test(error.message)) return { status: "error", message: "Too many attempts. Wait a minute and try again." };
+    return { status: "error", message: "We couldn't create your account. Please try again." };
   }
 
   // If session is returned immediately (e.g. email confirmations disabled)

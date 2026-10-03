@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import { notFound } from "next/navigation";
 import { z } from "zod";
 import { getSession } from "@/lib/auth";
@@ -13,15 +14,21 @@ export function adminEmails(raw: string | undefined = process.env.ADMIN_EMAILS):
   return new Set((raw ?? "").split(",").map((e) => e.trim().toLowerCase()).filter((e) => e.includes("@")));
 }
 
-/** True when the signed-in user is an admin: listed in ADMIN_EMAILS or present in the `admins` table. Always checked on the server. */
-export async function isAdmin(): Promise<boolean> {
+/** True when the signed-in user is an admin: listed in ADMIN_EMAILS or present in the `admins` table. Always checked on the server.
+ * Memoised per request, so a layout, page and its components share one lookup. */
+export const isAdmin = cache(async function isAdmin(): Promise<boolean> {
   const s = await getSession();
   if (!s) return false;
-  const email = (s.user.email ?? s.profile.email ?? "").toLowerCase();
-  if (email && adminEmails().has(email)) return true;
+  // ADMIN_EMAILS only counts for an address the account has proven it owns: never trust an unconfirmed sign-up.
+  // (Only listed emails pay for the extra Auth lookup that tells us whether the address is confirmed.)
+  const email = (s.user.email ?? "").toLowerCase();
+  if (email && adminEmails().has(email)) {
+    const { data } = await s.supabase.auth.getUser();
+    if (data.user?.email_confirmed_at && (data.user.email ?? "").toLowerCase() === email) return true;
+  }
   const { data, error } = await s.supabase.from("admins").select("user_id").eq("user_id", s.user.id).limit(1);
   return !error && Array.isArray(data) && data.length > 0;
-}
+});
 
 /** For admin pages and layouts: the session, or a 404 for anyone who is not an admin (never reveal that the page exists). */
 export async function requireAdmin() {

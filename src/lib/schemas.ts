@@ -13,6 +13,9 @@ export const nameSchema = z.string().trim().min(1, "Enter your name").max(60, "N
 
 export const emailSchema = z.string().trim().toLowerCase().email("Enter a valid email").max(254);
 export const passwordSchema = z.string().min(6, "Password must be at least 6 characters").max(72, "Password is too long");
+/** New accounts: longer passwords (existing 6-character passwords can still sign in with `passwordSchema`). */
+export const newPasswordSchema = z.string().min(8, "Use at least 8 characters").max(72, "Password is too long")
+  .refine((s) => !/^(.)\1+$/.test(s) && !/^(12345678|password|qwertyui)/i.test(s), "That password is too easy to guess");
 
 export const studySchema = z.object({
   name: nameSchema,

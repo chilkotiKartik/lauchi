@@ -3,6 +3,7 @@
 ## 1. Supabase (database + auth + storage)
 **New empty project:** SQL Editor -> paste `deploy/supabase-all-migrations.sql` -> Run (once).
 **Your existing "lockin" project** (already has migrations 0001-0007 + resources 0014): paste `deploy/supabase-upgrade-existing-lockin.sql` -> Run. It adds push, social, admin, papers, branch rule (CSE/AIML/BCA), daily challenge + streak freezes + goals, classes, doubts + exam planner, CMS questions and lessons.
+**Security update (run once on every existing project):** paste `supabase/migrations/0021_security_hardening.sql` -> Run. It removes direct student access to the quiz-scoring functions (if `0020_quiz_permissions.sql` was ever run, students could award themselves XP), aligns streaks and moves the doubt and exam-task limits into the database. It is safe to run more than once. Make sure `SUPABASE_SERVICE_ROLE_KEY` is set on the server: quizzes need it.
 Then: Authentication -> URL Configuration: Site URL = your deployed URL, Redirect URLs += `https://YOUR-DOMAIN/**`. Authentication -> Providers: Email ON (SMTP: configure your own for production volume, the built-in sender is rate limited). Storage: bucket `resources` is created by the SQL (private).
 Project Settings -> API: copy the project URL, anon key, service_role key.
 
