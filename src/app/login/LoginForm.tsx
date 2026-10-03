@@ -219,6 +219,13 @@ export function LoginForm({
             </span>
           </div>
 
+          <div className="grid gap-1.5">
+            <label className="text-sm font-black text-head">
+              App Theme Preference
+            </label>
+            <QuickThemeToggle />
+          </div>
+
           {registerState.status === "error" && (
             <p className="err text-sm" role="alert">
               {registerState.message}
