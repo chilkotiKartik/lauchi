@@ -92,8 +92,10 @@ function pathLength(path: V3[]) {
 }
 function paintFlow(mesh: THREE.InstancedMesh, path: V3[], cum: number[], n: number, phase: number) {
   const L = cum[cum.length - 1] || 1;
-  for (let k = 0; k < mesh.count; k++) {
-    if (k >= n) { _o.position.set(0, -999, 0); _o.scale.setScalar(0.0001); _o.updateMatrix(); mesh.setMatrixAt(k, _o.matrix); continue; }
+  // draw only the n visible dots (the buffer holds `cap`); hidden instances used to be drawn at scale 0 every frame
+  const count = Math.min(n, mesh.instanceMatrix.count);
+  mesh.count = count;
+  for (let k = 0; k < count; k++) {
     let s = (((k / n + phase) % 1) + 1) % 1 * L, i = 1;
     while (i < cum.length - 1 && cum[i] < s) i++;
     const a = path[i - 1], b = path[i], f = (s - cum[i - 1]) / (cum[i] - cum[i - 1] || 1);
@@ -114,7 +116,8 @@ export function Flow({ path, n = 16, speed = 0.25, color = C.gold, r = 0.07, cap
     <>
       <Tick fn={tick} />
       <instancedMesh ref={ref} args={[undefined, undefined, cap]} frustumCulled={false}>
-        <sphereGeometry args={[r, 10, 10]} />
+        {/* small moving dots: 8×6 segments look identical at this size and halve the triangles of the 10×10 sphere */}
+        <sphereGeometry args={[r, 8, 6]} />
         <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.7} />
       </instancedMesh>
     </>

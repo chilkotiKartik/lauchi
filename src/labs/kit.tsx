@@ -3,7 +3,7 @@
 import { Line } from "@react-three/drei";
 import { useLayoutEffect, useMemo, useRef, type ReactNode } from "react";
 import * as THREE from "three";
-import { Tick } from "./Stage";
+import { Tick, useQuality } from "./Stage";
 
 export type V3 = [number, number, number];
 /** The app palette (see AUTHORING.md). */
@@ -244,10 +244,13 @@ function paintInstances(m: THREE.InstancedMesh, items: Inst[]) {
 /** Up to `cap` boxes or spheres of unit size, each with its own position, scale and colour, drawn in one call. */
 export function Instances({ items, cap, shape = "box" }: { items: Inst[]; cap: number; shape?: "box" | "sphere" }) {
   const ref = useRef<THREE.InstancedMesh>(null);
+  // sphere detail scales with how many there are and the device: hundreds of small atoms don't need 12×12 segments each
+  const quality = useQuality();
+  const seg: [number, number] = quality === "low" ? [7, 5] : cap > 120 ? [9, 7] : [12, 10];
   useLayoutEffect(() => { if (ref.current) paintInstances(ref.current, items); }, [items]);
   return (
     <instancedMesh ref={ref} args={[undefined, undefined, cap]}>
-      {shape === "box" ? <boxGeometry args={[1, 1, 1]} /> : <sphereGeometry args={[0.5, 12, 12]} />}
+      {shape === "box" ? <boxGeometry args={[1, 1, 1]} /> : <sphereGeometry key={seg.join("x")} args={[0.5, seg[0], seg[1]]} />}
       <meshStandardMaterial color="#ffffff" roughness={0.45} />
     </instancedMesh>
   );

@@ -1,7 +1,8 @@
 "use client";
 /** Shared building blocks of the BCA labs: 7-segment digits made of glowing bars, travelling data packets, gliding nodes, bit rows and pointers. Plain geometry only. */
-import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import * as THREE from "three";
+import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { Tick } from "../Stage";
 import { Bench, C, cyc, Glass, Led, Rail, Slab, Token, type V3 } from "./cstx-kit";
 
@@ -14,33 +15,43 @@ const SEG: Record<string, string> = {
   n: "ceg", o: "cdeg", r: "eg", t: "defg", u: "cde", I: "ef", Y: "bcdfg", _: "d", X: "bcefg", G: "acdef", J: "bcde", O: "abcdef", T: "defg", N: "ceg", R: "eg", D: "bcdeg", B: "cdefg", M: "ceg", W: "cde", K: "bcefg", Q: "abcfg", V: "cde", Z: "abdeg", "?": "abeg", "+": "bcg", "=": "dg", "/": "bg", "*": "abfg", "'": "f",
 };
 
-/** One glowing seven-segment character, h tall, facing +z. Unknown characters are blank. */
-export function Digit({ p, ch, h = 0.4, c = C.gold, glow = 1 }: { p: V3; ch: string; h?: number; c?: string; glow?: number }) {
+/** Boxes (as [x, y, w, h]) for one seven-segment character `ch`, h tall, centred at x0. */
+function segBoxes(ch: string, x0: number, h: number): [number, number, number, number][] {
   const on = SEG[ch] ?? "", w = h * 0.55, t = h * 0.13, hl = w * 0.92, vl = h * 0.46;
-  return (
-    <group position={p}>
-      {on.split("").map((s) => {
-        const horiz = s === "a" || s === "d" || s === "g";
-        const x = s === "b" || s === "c" ? w / 2 : s === "e" || s === "f" ? -w / 2 : 0;
-        const y = s === "a" ? h / 2 : s === "d" ? -h / 2 : s === "g" ? 0 : s === "b" || s === "f" ? h / 4 : -h / 4;
-        return (
-          <mesh key={s} position={[x, y, 0]}>
-            <boxGeometry args={horiz ? [hl, t, t] : [t, vl, t]} />
-            <meshStandardMaterial color={c} emissive={c} emissiveIntensity={glow} roughness={0.4} />
-          </mesh>
-        );
-      })}
-    </group>
-  );
+  return on.split("").map((s) => {
+    const horiz = s === "a" || s === "d" || s === "g";
+    const x = s === "b" || s === "c" ? w / 2 : s === "e" || s === "f" ? -w / 2 : 0;
+    const y = s === "a" ? h / 2 : s === "d" ? -h / 2 : s === "g" ? 0 : s === "b" || s === "f" ? h / 4 : -h / 4;
+    return horiz ? [x0 + x, y, hl, t] : [x0 + x, y, t, vl];
+  });
 }
 
-/** A short text or number written with seven-segment digits, centred on p. */
+/** All segments of a string merged into ONE geometry, so a number costs one draw call instead of one per segment. */
+function useSegGeometry(str: string, h: number) {
+  const geo = useMemo(() => {
+    const t = h * 0.13, sp = h * 0.8, parts: THREE.BufferGeometry[] = [];
+    str.split("").forEach((ch, i) => segBoxes(ch, (i - (str.length - 1) / 2) * sp, h).forEach(([x, y, w, hh]) => parts.push(new THREE.BoxGeometry(w, hh, t).translate(x, y, 0))));
+    const g = parts.length ? mergeGeometries(parts) : null;
+    parts.forEach((q) => q.dispose());
+    return g;
+  }, [str, h]);
+  useEffect(() => () => geo?.dispose(), [geo]);
+  return geo;
+}
+
+/** One glowing seven-segment character, h tall, facing +z. Unknown characters are blank. */
+export function Digit({ p, ch, h = 0.4, c = C.gold, glow = 1 }: { p: V3; ch: string; h?: number; c?: string; glow?: number }) {
+  return <Txt p={p} s={ch.slice(0, 1)} h={h} c={c} glow={glow} />;
+}
+
+/** A short text or number written with seven-segment digits, centred on p (a single mesh). */
 export function Txt({ p, s, h = 0.4, c = C.gold, glow = 1 }: { p: V3; s: string | number; h?: number; c?: string; glow?: number }) {
-  const str = String(s), sp = h * 0.8;
+  const geo = useSegGeometry(String(s), h);
+  if (!geo) return null;
   return (
-    <group position={p}>
-      {str.split("").map((ch, i) => <Digit key={i} p={[(i - (str.length - 1) / 2) * sp, 0, 0]} ch={ch} h={h} c={c} glow={glow} />)}
-    </group>
+    <mesh position={p} geometry={geo}>
+      <meshStandardMaterial color={c} emissive={c} emissiveIntensity={glow} roughness={0.4} />
+    </mesh>
   );
 }
 
