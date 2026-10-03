@@ -1,5 +1,5 @@
 "use client";
-import { isNumberAnswer } from "@/lib/quiz-core";
+import { isNumberAnswer } from "@/lib/answer-format";
 import Link from "next/link";
 import { useMemo, useState, useTransition } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";

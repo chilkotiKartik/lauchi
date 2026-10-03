@@ -71,7 +71,7 @@ export function grade(q: RawQuestion, r: Answer | null | undefined): boolean {
 }
 
 /** A typed numeric answer: digits with an optional sign, decimal point or exponent ("−" accepted as minus). Letters are refused. */
-export const isNumberAnswer = (t: string) => /^[-+]?(\d+\.?\d*|\.\d+)(e[-+]?\d+)?$/i.test(t.trim().replace("−", "-"));
+export { isNumberAnswer } from "./answer-format";
 
 export const newSeed = () => crypto.getRandomValues(new Uint32Array(1))[0] | 0;
 

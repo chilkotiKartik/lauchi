@@ -41,3 +41,18 @@ describe("push helpers", () => {
     expect(isGone(undefined)).toBe(false);
   });
 });
+
+describe("isPushEndpoint", () => {
+  it("accepts real push services and refuses anything else", async () => {
+    const { isPushEndpoint } = await import("./push");
+    expect(isPushEndpoint("https://fcm.googleapis.com/fcm/send/abc")).toBe(true);
+    expect(isPushEndpoint("https://updates.push.services.mozilla.com/wpush/v2/abc")).toBe(true);
+    expect(isPushEndpoint("https://web.push.apple.com/QM")).toBe(true);
+    expect(isPushEndpoint("https://wns2-par02p.notify.windows.com/w/?token=x")).toBe(true);
+    expect(isPushEndpoint("https://evil.example.com/fcm.googleapis.com")).toBe(false);
+    expect(isPushEndpoint("https://fcm.googleapis.com.evil.com/x")).toBe(false);
+    expect(isPushEndpoint("https://169.254.169.254/latest")).toBe(false);
+    expect(isPushEndpoint("https://fcm.googleapis.com:8443/x")).toBe(false);
+    expect(isPushEndpoint("http://fcm.googleapis.com/x")).toBe(false);
+  });
+});

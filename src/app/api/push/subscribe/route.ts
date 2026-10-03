@@ -13,7 +13,15 @@ export async function POST(req: Request) {
   if (!p.success) return json(400, "invalid", "That subscription couldn't be read.");
   const { endpoint, keys, prefs } = p.data;
   try {
-    const { error } = await createAdminClient().from("push_subscriptions").upsert({
+    const db = createAdminClient();
+    // an endpoint already saved by another account is never moved over; at most 10 browsers per student
+    const [{ data: owner }, { count }] = await Promise.all([
+      db.from("push_subscriptions").select("user_id").eq("endpoint", endpoint).maybeSingle<{ user_id: string }>(),
+      db.from("push_subscriptions").select("endpoint", { count: "exact", head: true }).eq("user_id", s.user.id),
+    ]);
+    if (owner && owner.user_id !== s.user.id) return json(409, "taken", "This browser is linked to another account. Sign in to that account to change its reminders.");
+    if (!owner && (count ?? 0) >= 10) return json(429, "too_many", "Reminders are on in 10 browsers already. Switch them off in one first.");
+    const { error } = await db.from("push_subscriptions").upsert({
       user_id: s.user.id, endpoint, p256dh: keys.p256dh, auth: keys.auth,
       remind_streak: prefs.streak, remind_exam: prefs.exam, study_time: prefs.studyTime,
     }, { onConflict: "endpoint" });

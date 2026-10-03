@@ -2,18 +2,18 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { ResourceItem } from "@/lib/resources";
-import type { PDFDocumentProxy } from "pdfjs-dist";
+import type { PDFDocumentLoadingTask, PDFDocumentProxy } from "pdfjs-dist";
 
 type Doc = { kind: "pdf"; pdf: PDFDocumentProxy; pages: { w: number; h: number }[] } | { kind: "image"; url: string };
 
 /** pdf.js loads on demand (only when a student opens a PDF), with its worker served from this site. The legacy build
  * carries polyfills, so it also works on older phone browsers (the modern build needs very new JavaScript features). */
-async function loadPdf(bytes: ArrayBuffer): Promise<PDFDocumentProxy> {
+async function loadPdf(bytes: ArrayBuffer): Promise<PDFDocumentLoadingTask> {
   const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
   if (!pdfjs.GlobalWorkerOptions.workerPort) {
     pdfjs.GlobalWorkerOptions.workerPort = new Worker(new URL("pdfjs-dist/legacy/build/pdf.worker.min.mjs", import.meta.url), { type: "module" });
   }
-  return pdfjs.getDocument({ data: new Uint8Array(bytes) }).promise;
+  return pdfjs.getDocument({ data: new Uint8Array(bytes), enableXfa: false });
 }
 
 /** One page: a sized placeholder that is drawn to a canvas only when it scrolls near the viewport (fast for long PDFs). */
@@ -68,15 +68,16 @@ export function PreviewDialog({ item, opener, onClose, watermark }: { item: Reso
 
   useEffect(() => {
     const ctl = new AbortController();
-    let objectUrl: string | null = null, pdf: PDFDocumentProxy | null = null;
+    let objectUrl: string | null = null, task: PDFDocumentLoadingTask | null = null;
     (async () => {
       try {
         const r = await fetch(`/api/resources/${item.id}?view=1`, { signal: ctl.signal, cache: "no-store" });
         if (!r.ok) throw new Error(String(r.status));
         const bytes = await r.arrayBuffer();
         if (item.mime === "application/pdf") {
-          pdf = await loadPdf(bytes);
-          const pages = await Promise.all(Array.from({ length: pdf.numPages }, async (_, i) => { const vp = (await pdf!.getPage(i + 1)).getViewport({ scale: 1 }); return { w: vp.width, h: vp.height }; }));
+          task = await loadPdf(bytes);
+          const pdf = await task.promise;
+          const pages = await Promise.all(Array.from({ length: pdf.numPages }, async (_, i) => { const vp = (await pdf.getPage(i + 1)).getViewport({ scale: 1 }); return { w: vp.width, h: vp.height }; }));
           if (!ctl.signal.aborted) setDoc({ kind: "pdf", pdf, pages });
         } else {
           objectUrl = URL.createObjectURL(new Blob([bytes], { type: item.mime ?? "image/png" }));
@@ -84,7 +85,7 @@ export function PreviewDialog({ item, opener, onClose, watermark }: { item: Reso
         }
       } catch (e) { if ((e as { name?: string })?.name !== "AbortError") setFailed(true); }
     })();
-    return () => { ctl.abort(); if (objectUrl) URL.revokeObjectURL(objectUrl); void pdf?.destroy(); };
+    return () => { ctl.abort(); if (objectUrl) URL.revokeObjectURL(objectUrl); void task?.destroy(); };
   }, [item.id, item.mime]);
 
   // page width follows the reader's width (re-rendered sharply on resize)

@@ -5,7 +5,8 @@ import { Lochi } from "@/components/Lochi";
 import { Rich } from "@/lib/rich";
 import { StepByStep } from "@/components/StepByStep";
 import { answerDaily, type DailyAnswerResult } from "@/app/(app)/daily/actions";
-import { isNumberAnswer as isNumber, type PublicQuestion } from "@/lib/quiz-core";
+import { isNumberAnswer as isNumber } from "@/lib/answer-format";
+import type { PublicQuestion } from "@/lib/quiz-core";
 import { Coach, type CoachInfo } from "@/components/Coach";
 
 /** Runs a fixed set of server-graded questions (daily challenge by default; the Sunday Quest passes its own action). */
