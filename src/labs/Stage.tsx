@@ -154,7 +154,7 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", chi
       className={
         variant === "hero"
           ? "relative h-full w-full" // the hero's wrapper sets the size (smaller on phones)
-          : "relative h-[54vh] min-h-[340px] w-full overflow-hidden rounded-3xl border-2 border-line bg-gradient-to-b from-[#14232c] via-[#0b141a] to-[#04080c] shadow-2xl md:h-[64vh]"
+          : "relative h-[46vh] min-h-[300px] w-full overflow-hidden rounded-3xl border-2 border-line bg-gradient-to-b from-[#14232c] via-[#0b141a] to-[#04080c] shadow-2xl md:h-[64vh]"
       }
       data-testid="lab-stage"
       data-visible={visible}

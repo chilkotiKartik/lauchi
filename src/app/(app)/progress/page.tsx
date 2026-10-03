@@ -47,6 +47,7 @@ export default async function Progress() {
       </section>
       <section className="card" aria-labelledby="h30">
         <h2 id="h30" className="mb-3 text-xl">XP, last 30 days</h2>
+        {days.every((x) => x.xp === 0) && <p className="mb-2 text-sm text-muted">No XP yet. Finish a quiz, a lab task or today&apos;s challenge and your first bar appears here.</p>}
         <ol className="flex h-40 items-end gap-[3px]" aria-label="XP per day, last 30 days">
           {days.map((x) => <li key={x.d} title={`${x.d}: ${x.xp} XP`} className="flex-1 rounded-t" style={{ height: `${Math.max(3, (x.xp / max) * 100)}%`, background: x.xp > 0 ? "var(--green)" : "var(--line)" }}><span className="sr-only">{x.d}: {x.xp} XP</span></li>)}
         </ol>

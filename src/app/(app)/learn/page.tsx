@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SubjectBadge, subjectColor } from "@/components/home/Dashboard";
 import { visibleCourses } from "@/lib/stream";
 import { requireOnboarded } from "@/lib/auth";
 import { listCourses, type CourseSummary } from "@/lib/syllabus";
@@ -26,12 +27,18 @@ export default async function Learn() {
           <ul className="enter grid gap-3 sm:grid-cols-2">
             {courses.filter((c) => c.type === type).map((c) => {
               const d = countDone(done, c.code + ":");
+              const i = courses.indexOf(c);
               return (
                 <li key={c.code}>
-                  <Link href={`/learn/${c.code}`} className="card flex h-full flex-col gap-2 text-ink no-underline hover:border-blue">
-                    <span className="text-xs font-black tracking-wide text-muted">{c.code} · SEM {c.sem.replace(/ \(.*/, "").toUpperCase()}</span>
-                    <b className="text-lg leading-tight text-head">{c.name}</b>
-                    <span className="text-sm text-muted">{c.type === "lab" ? `${c.items} experiments` : `${c.units} units · ${c.items} topics`}</span>
+                  <Link href={`/learn/${c.code}`} className="tile h-full !gap-2 !p-4" style={{ ["--accent" as string]: subjectColor(i) }}>
+                    <span className="flex items-center gap-3">
+                      <SubjectBadge name={c.name} index={i} size={44} />
+                      <span className="min-w-0">
+                        <span className="block text-[11px] font-black uppercase tracking-wide text-muted">{c.code} · Sem {c.sem.replace(/ \(.*/, "")}</span>
+                        <b className="block leading-snug text-head">{c.name}</b>
+                      </span>
+                    </span>
+                    <span className="text-sm font-bold text-muted">{c.type === "lab" ? `${c.items} experiments` : `${c.units} units · ${d} of ${c.items} topics done`}</span>
                     {c.type !== "lab" && <Bar value={d} max={c.items} label={`${c.name} progress`} />}
                   </Link>
                 </li>

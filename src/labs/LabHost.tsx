@@ -50,8 +50,8 @@ export function LabHost({ id, title = "", topics = [], presets, saved, initial }
 
   const toolbar = (
     <>
-      <button type="button" className="btn btn-ghost" onClick={() => { setNaming(!naming); setMsg(null); }} aria-expanded={naming}>Save setup</button>
-      <button type="button" className="btn btn-ghost" onClick={share}>Share</button>
+      <button type="button" className="btn btn-ghost !min-h-10 !px-4 !text-sm sm:!min-h-12 sm:!text-base" onClick={() => { setNaming(!naming); setMsg(null); }} aria-expanded={naming}>Save setup</button>
+      <button type="button" className="btn btn-ghost !min-h-10 !px-4 !text-sm sm:!min-h-12 sm:!text-base" onClick={share}>Share</button>
       {naming && (
         <form className="flex basis-full flex-wrap items-center gap-2" onSubmit={(e) => { e.preventDefault(); save(); }}>
           <label className="sr-only" htmlFor={`setup-name-${id}`}>Setup name</label>

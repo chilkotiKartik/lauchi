@@ -45,7 +45,7 @@ export default async function LabPage({ params, searchParams }: { params: Promis
     <div className="flex flex-col gap-4">
       <Crumbs items={[{ href: "/labs", label: "Labs" }, { label: lab.title }]} />
       <h1 className="text-3xl">{lab.title}</h1>
-      <p className="text-muted">{lab.blurb} Drag to rotate, scroll or pinch to zoom. Type exact values in the boxes next to each slider.</p>
+      <p className="line-clamp-2 text-muted sm:line-clamp-none">{lab.blurb} <span className="hidden sm:inline">Drag to rotate, scroll or pinch to zoom. Type exact values in the boxes next to each slider.</span></p>
       <p className="flex flex-wrap gap-2 text-sm">
         {shown.map(([c, u]) => {
           const course = getCourse(c);
@@ -58,7 +58,7 @@ export default async function LabPage({ params, searchParams }: { params: Promis
           {experiment && tasks}
         </div>
         {experiment
-          ? <div className="order-first min-w-0 lg:sticky lg:top-4 lg:order-none lg:col-start-2 lg:row-start-1"><ExperimentPanel experiment={experiment} /></div>
+          ? <div className="min-w-0 lg:sticky lg:top-4 lg:col-start-2 lg:row-start-1"><ExperimentPanel experiment={experiment} /></div>
           : <div className="min-w-0 lg:sticky lg:top-4 lg:col-start-2 lg:row-start-1">{tasks}</div>}
       </div>
       <LabVideos heading="Watch this topic" query={`${wTopic} ${wCourse?.name ?? ""}`.trim()} pinned={pinned} youtubeOn={youtubeConfigured()} />

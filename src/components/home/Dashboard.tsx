@@ -20,6 +20,12 @@ function symbolFor(name: string): string {
   if (/communication|english|language/.test(n)) return "Aa";
   return name.trim()[0]?.toUpperCase() ?? "?";
 }
+/** A subject's coloured symbol tile (the same one everywhere: home, Learn, Practice). */
+export function SubjectBadge({ name, index, size = 48 }: { name: string; index: number; size?: number }) {
+  return <span className="grid shrink-0 place-items-center rounded-2xl font-black text-white shadow-[0_3px_0_rgba(0,0,0,0.18)]" style={{ background: PALETTE[index % PALETTE.length], width: size, height: size, fontSize: size * 0.42 }} aria-hidden>{symbolFor(name)}</span>;
+}
+export const subjectColor = (index: number) => PALETTE[index % PALETTE.length];
+
 const BAR: Record<UnitState, string> = { new: "var(--line)", started: "var(--blue)", weak: "var(--red)", ok: "var(--gold)", strong: "var(--green)" };
 const WORD: Record<UnitState, string> = { new: "not started", started: "reading", weak: "needs work", ok: "good", strong: "strong" };
 
@@ -116,7 +122,12 @@ export function ExamCard({ left, ready, weak }: { left: number | null; ready: nu
   ];
   return (
     <section aria-labelledby="exam-h" className="card flex flex-col gap-3">
-      <h2 id="exam-h" className="text-xl">End semester exam</h2>
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <h2 id="exam-h" className="text-xl">End semester exam</h2>
+        <span className="text-sm font-bold text-muted">
+          {left === null ? <Link href="/settings">Set your exam date</Link> : left > 0 ? <><Link href="/plan">{left} {left === 1 ? "day" : "days"} to go</Link></> : left === 0 ? "Exam day. You've got this!" : <Link href="/settings">Exam date passed: update it</Link>}
+        </span>
+      </div>
       <div className="grid grid-cols-3 gap-2">
         {cells.map(([v, k, href]) => {
           const inner = <><span className="block text-2xl font-black text-head">{v}</span><span className="block text-xs font-bold text-muted">{k}</span></>;

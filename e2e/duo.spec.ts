@@ -72,3 +72,14 @@ test("formula cards quiz: pick the formula, combo, 80% pays XP once a day", asyn
   await expect(page.getByText(`${deck.length} of ${deck.length} known`)).toBeVisible();
   expect(problems).toEqual([]);
 });
+
+test("the admin panel link shows only for admins (checked on the server)", async ({ page, isMobile }) => {
+  const email = uniqueEmail();
+  await signIn(page, email); await onboard(page);
+  await page.goto(isMobile ? "/more" : "/home");
+  await expect(page.getByRole("link", { name: /admin panel/i })).toHaveCount(0);
+  await sql("insert into admins(user_id) select id from auth.users where email=$1", [email]);
+  await page.goto(isMobile ? "/more" : "/home");
+  await page.getByRole("link", { name: /admin panel/i }).first().click();
+  await expect(page).toHaveURL(/\/admin$/);
+});
