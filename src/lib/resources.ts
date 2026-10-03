@@ -17,8 +17,10 @@ export type ResourceRow = {
   id: string; course: string; unit: number; topic: string | null; kind: string; title: string; description: string;
   file_path: string | null; file_name: string | null; size_bytes: number | null; mime: string | null; external_url: string | null;
   hidden?: boolean; created_at: string;
+  /** false (the default): students can only read it inside the app; no download, no storage link */
+  allow_download?: boolean;
 };
-export const RESOURCE_COLS = "id,course,unit,topic,kind,title,description,file_path,file_name,size_bytes,mime,external_url,hidden,created_at";
+export const RESOURCE_COLS = "id,course,unit,topic,kind,title,description,file_path,file_name,size_bytes,mime,external_url,hidden,created_at,allow_download";
 
 /* ------------------------------------------------------------------ validation */
 

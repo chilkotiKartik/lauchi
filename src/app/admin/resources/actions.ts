@@ -54,7 +54,7 @@ export async function uploadResource(_prev: ResState, form: FormData): Promise<R
     const { error } = await db.from("resources").insert({
       id, course: v.course, unit: v.unit, topic: v.topic, kind: v.kind, title: v.title, description: v.description,
       file_path: stored?.path ?? null, file_name: stored?.name ?? null, size_bytes: stored?.size ?? null, mime: stored?.mime ?? null,
-      external_url: v.url, created_by: userId,
+      external_url: v.url, created_by: userId, allow_download: form.get("allow_download") === "on",
     });
     if (error) throw error;
   } catch {
@@ -62,7 +62,15 @@ export async function uploadResource(_prev: ResState, form: FormData): Promise<R
     return fail("We couldn't save that. Try again.");
   }
   refresh();
-  return { status: "saved", message: "Added. Students on that subject can see it now.", at: Date.now() };
+  return { status: "saved", message: form.get("allow_download") === "on" ? "Added. Students on that subject can read and download it now." : "Added as read-only. Students on that subject can read it in the app now.", at: Date.now() };
+}
+
+/** Read-only (false) or downloadable (true) for students. */
+export async function setResourceDownload(id: string, allow: boolean): Promise<void> {
+  const { db } = await admin();
+  if (!idSchema.safeParse(id).success || typeof allow !== "boolean") return;
+  await db.from("resources").update({ allow_download: allow }).eq("id", id);
+  refresh();
 }
 
 export async function setResourceHidden(id: string, hidden: boolean): Promise<void> {

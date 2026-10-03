@@ -8,13 +8,18 @@ export async function loadResources(
   supabase: SupabaseClient, branch: string | null | undefined, opts: { course?: string; unit?: number; kind?: string; limit?: number } = {},
 ): Promise<ResourceItem[]> {
   try {
-    let q = supabase.from("resources").select(RESOURCE_COLS);
-    if (opts.course) q = q.eq("course", opts.course);
-    if (opts.unit) q = q.eq("unit", opts.unit);
-    if (opts.kind) q = q.eq("kind", opts.kind);
-    const { data, error } = await q.order("created_at", { ascending: false }).limit(opts.limit ?? 1000);
+    const query = (cols: string) => {
+      let q = supabase.from("resources").select(cols);
+      if (opts.course) q = q.eq("course", opts.course);
+      if (opts.unit) q = q.eq("unit", opts.unit);
+      if (opts.kind) q = q.eq("kind", opts.kind);
+      return q.order("created_at", { ascending: false }).limit(opts.limit ?? 1000);
+    };
+    let { data, error } = await query(RESOURCE_COLS);
+    // before migration 0023 the allow_download column doesn't exist: list everything as view-only
+    if (error) ({ data, error } = await query(RESOURCE_COLS.replace(",allow_download", "")));
     if (error || !data) return [];
-    const rows = (data as ResourceRow[]).filter((r) => canSeeCourse(branch, r.course));
+    const rows = (data as unknown as ResourceRow[]).filter((r) => canSeeCourse(branch, r.course));
     if (!rows.length) return [];
     const { data: seen } = await supabase.from("resource_seen").select("resource_id").limit(5000);
     return toItems(rows, new Set(((seen ?? []) as { resource_id: string }[]).map((s) => s.resource_id)));
