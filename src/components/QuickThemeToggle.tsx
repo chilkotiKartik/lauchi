@@ -51,7 +51,7 @@ export function QuickThemeToggle({ className = "", compact = false }: { classNam
           type="button"
           onClick={() => changeTheme("light")}
           className={`flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-black transition-all ${
-            theme === "light" ? "bg-[#58cc02] text-white shadow-sm" : "text-muted hover:text-head"
+            theme === "light" ? "bg-[#58cc02] text-[#0d3a19] shadow-sm" : "text-muted hover:text-head"
           }`}
         >
           <span>☀️</span>

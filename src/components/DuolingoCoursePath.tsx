@@ -109,6 +109,7 @@ export function DuolingoCoursePath({
                     kind="practice"
                     course={courseCode}
                     unit={u.n}
+                    label={`Practise unit ${u.n}`}
                     className={`relative flex h-24 w-24 items-center justify-center rounded-full border-4 shadow-xl transition-all duration-150 active:translate-y-2 active:shadow-none hover:scale-105 ${
                       isWeak
                         ? "border-red-600 bg-red-500 shadow-[0_8px_0_#991b1b] text-white"
@@ -186,7 +187,7 @@ export function DuolingoCoursePath({
             </span>
           </Link>
           <div className="mt-4 max-w-[220px]">
-            <span className="text-xs font-black uppercase tracking-widest text-amber-500">
+            <span className="text-xs font-black uppercase tracking-widest text-gold-t">
               Exam Trophy
             </span>
             <h3 className="text-lg font-black text-head">

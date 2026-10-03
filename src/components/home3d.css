@@ -110,7 +110,7 @@
 }
 
 .h3d-chip b {
-  color: #d97706;
+  color: #9a5200; /* 5:1 on the light chip (was #d97706, 3:1) */
 }
 
 [data-theme="dark"] .h3d-chip b {

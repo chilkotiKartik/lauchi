@@ -6,7 +6,7 @@
   --green: #44c95a; --green-d: #2fa046; --green-l: #ddf8d9; --green-t: #23773a;
   --blue: #2ba6f5; --blue-d: #1b86cc; --blue-l: #ddf1ff; --blue-t: #0f629a;
   --red: #ff5a5f; --red-d: #d93b40; --red-l: #ffe1e2; --red-t: #c2303a;
-  --gold: #ffc83d; --gold-d: #e0a300; --gold-l: #fff4d1;
+  --gold: #ffc83d; --gold-d: #e0a300; --gold-l: #fff4d1; --gold-t: #9a5200;
   --orange: #ff9a1f; --orange-d: #e07a00;
   --purple: #a970ff; --purple-d: #8750e0; --purple-l: #f0e6ff; --purple-t: #7a3fd6;
   --r: 16px;
@@ -15,14 +15,14 @@
   --bg: #0c151a; --card: #14222a; --soft: #1a2b34; --line: #2b3f4a; --line2: #4d626c; --edge: rgba(0,0,0,.35);
   --text: #d5e1e7; --head: #f4f9fc; --muted: #9db0ba;
   --green-l: #1c3624; --green-t: #6fe083; --blue-l: #15303f; --blue-t: #6cc4ff;
-  --red-l: #3a1d20; --red-t: #ff8a8e; --gold-l: #3a3015; --purple-l: #2a1f3f; --purple-t: #c9a3ff;
+  --red-l: #3a1d20; --red-t: #ff8a8e; --gold-l: #3a3015; --gold-t: #ffd24d; --purple-l: #2a1f3f; --purple-t: #c9a3ff;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0c151a; --card: #14222a; --soft: #1a2b34; --line: #2b3f4a; --line2: #4d626c; --edge: rgba(0,0,0,.35);
     --text: #d5e1e7; --head: #f4f9fc; --muted: #9db0ba;
     --green-l: #1c3624; --green-t: #6fe083; --blue-l: #15303f; --blue-t: #6cc4ff;
-    --red-l: #3a1d20; --red-t: #ff8a8e; --gold-l: #3a3015; --purple-l: #2a1f3f; --purple-t: #c9a3ff;
+    --red-l: #3a1d20; --red-t: #ff8a8e; --gold-l: #3a3015; --gold-t: #ffd24d; --purple-l: #2a1f3f; --purple-t: #c9a3ff;
   }
 }
 
@@ -33,7 +33,7 @@
   --color-green: var(--green); --color-green-d: var(--green-d); --color-green-l: var(--green-l); --color-green-t: var(--green-t);
   --color-blue: var(--blue); --color-blue-d: var(--blue-d); --color-blue-l: var(--blue-l); --color-blue-t: var(--blue-t);
   --color-red: var(--red); --color-red-l: var(--red-l); --color-red-t: var(--red-t);
-  --color-gold: var(--gold); --color-gold-l: var(--gold-l);
+  --color-gold: var(--gold); --color-gold-l: var(--gold-l); --color-gold-t: var(--gold-t);
   --color-orange: var(--orange);
   --color-purple: var(--purple); --color-purple-l: var(--purple-l); --color-purple-t: var(--purple-t);
 }
@@ -87,7 +87,7 @@ a { color: var(--blue-t); text-decoration: underline; text-underline-offset: 3px
 .dots i:nth-child(2) { animation-delay: .15s; } .dots i:nth-child(3) { animation-delay: .3s; }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
 }
 
 /* ---------- rich UI ---------- */
@@ -264,3 +264,6 @@ html[data-motion="calm"] .page-head > svg, html[data-motion="calm"] main header.
   body:has(.print-record) .print-record, body:has(.print-record) .print-record * { visibility: visible; }
   body:has(.print-record) .print-record { position: absolute; inset: 0; max-height: none; overflow: visible; box-shadow: none; border: 0; }
 }
+
+/* The in-app notes reader never prints (read-only files are not meant to leave the app). */
+@media print { .no-print { display: none !important; } }

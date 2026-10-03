@@ -32,7 +32,7 @@ test("Sunday Quest: built from this week's practice, prepared during the week, g
     await expect(page.getByText("12 questions on Sunday")).toBeVisible(); // the only unit studied gets the whole quest
     // the dashboard card points here
     await page.goto("/home");
-    await expect(page.getByRole("link", { name: "Sunday Quest" })).toContainText(/Opens/);
+    await expect(page.getByRole("link", { name: "Sunday Quest", exact: true })).toContainText(/Opens/);
   } else {
     const [row] = await sql("select q.items from sunday_quests q join auth.users u on u.id = q.user_id where u.email = $1", [email]) as { items: Item[] }[];
     expect(row.items).toHaveLength(12);
