@@ -45,7 +45,6 @@ interface StageProps {
   playing: boolean;
   camera?: [number, number, number];
   variant?: "lab" | "hero";
-  size?: "small" | "big";
   children: ReactNode;
 }
 
@@ -121,7 +120,7 @@ function Bench({ shadows }: { shadows: boolean }) {
 }
 
 /** Studio 3D canvas: image-based lighting, a key light, soft contact shadows on a bench, and smooth orbit controls. */
-export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", size = "small", children }: StageProps) {
+export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", children }: StageProps) {
   const cap = useCapability();
   const host = useRef<HTMLDivElement>(null);
   // Render only while the canvas is on screen AND the tab is in front (two separate signals; either one pauses it).
@@ -154,9 +153,7 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
       aria-label={label}
       className={
         variant === "hero"
-          ? size === "big"
-            ? "relative h-full w-full"
-            : "relative h-56 w-56"
+          ? "relative h-full w-full" // the hero's wrapper sets the size (smaller on phones)
           : "relative h-[54vh] min-h-[340px] w-full overflow-hidden rounded-3xl border-2 border-line bg-gradient-to-b from-[#14232c] via-[#0b141a] to-[#04080c] shadow-2xl md:h-[64vh]"
       }
       data-testid="lab-stage"

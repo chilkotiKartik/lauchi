@@ -2,6 +2,7 @@
 import { useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { ChipRow } from "@/components/ChipRow";
 import { LabVideos } from "@/components/lab/LabVideos";
 import type { PinnedVideo } from "@/lib/admin";
 import { filterLabs, parseSel, selToQuery, subjectCounts, unitCounts, videoQuery, type BrowseCourse, type BrowseLab, type Sel } from "@/lib/lab-browse";
@@ -40,107 +41,85 @@ export function LabBrowser({ labs, courses, pinned, pinnedFor, youtubeOn }: { la
   const unit = course?.units.find((u) => u.n === sel.unit) ?? null;
   const topicText = unit && sel.topic ? unit.topics[sel.topic - 1] ?? null : null;
   const units = course ? unitCounts(labs, course.code, course.units) : [];
-  const { labs: shown, fallback } = filterLabs(labs, sel, topicText, q);
+  const { labs: shown } = filterLabs(labs, sel, topicText, q);
   const selKey = `${sel.course ?? ""}:${sel.unit ?? ""}:${sel.topic ?? ""}`;
   const vq = course && unit ? videoQuery(course.name, unit.title, topicText) : "";
 
+  // labs of the chosen subject, grouped by unit (search narrows them); a chosen unit shows only that unit
+  const groups = course ? course.units.map((u) => ({ u, labs: shown.filter((l) => l.where.some(([c, n]) => c === course.code && n === u.n)) })).filter((g) => g.labs.length > 0 && (!unit || g.u.n === unit.n)) : [];
+  const Tile = ({ l }: { l: BrowseLab }) => {
+    const w = (course && l.where.find(([c]) => c === course.code)) || l.where[0];
+    const label = courses.find((c) => c.code === w[0])?.short ?? w[0];
+    return (
+      <Link href={`/labs/${l.id}`} className="tile h-full !gap-1 !p-3 sm:!p-4" style={ACCENT}>
+        {!course && <span className="text-[11px] font-black uppercase tracking-wide text-muted">{label} · Unit {w[1]}</span>}
+        <b className="leading-snug">{l.title}</b>
+        <span className="line-clamp-2 text-sm text-muted">{l.blurb}</span>
+        <span className="mt-auto flex flex-wrap gap-1.5 pt-1">
+          {l.animated && <span className="chip chip-soft !text-[11px]">animated</span>}
+          {l.guided && <span className="chip chip-cool !text-[11px]">guided{tried.has(l.id) ? " · tried" : ""}</span>}
+        </span>
+      </Link>
+    );
+  };
+
   return (
-    <div className="flex min-w-0 flex-col gap-5">
-      <section aria-labelledby="pick-subject" className="flex flex-col gap-3">
-        <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 id="pick-subject" className="text-xl">1. Pick a subject</h2>
-          {course && <button type="button" className="btn btn-ghost !min-h-11" onClick={() => { setQ(""); go({ course: null, unit: null, topic: null }); }}>Show all subjects</button>}
-        </div>
-        <ul className="grid grid-cols-1 gap-2 min-[420px]:grid-cols-2 lg:grid-cols-3">
-          {subjects.map(({ course: code, count }) => {
-            const c = courses.find((x) => x.code === code);
-            const guided = labs.filter((l) => l.guided && l.where.some(([x]) => x === code));
-            const done = guided.filter((l) => tried.has(l.id)).length;
-            const on = sel.course === code;
-            return (
-              <li key={code} className="min-w-0">
-                <button type="button" aria-pressed={on} onClick={() => go(on ? { course: null, unit: null, topic: null } : { course: code, unit: null, topic: null })}
-                  className={`flex min-h-[4.5rem] w-full min-w-0 flex-col gap-0.5 rounded-2xl border-2 p-3 text-left transition-colors ${on ? "border-blue bg-blue-l" : "border-line bg-card hover:bg-soft"}`}>
-                  <b className="text-head">{c?.short ?? code}</b>
-                  <span className="truncate text-xs text-muted">{c?.name ?? code}</span>
-                  <span className="text-xs font-extrabold text-blue-t">{count} lab{count === 1 ? "" : "s"}{guided.length > 0 && ` · ${done}/${guided.length} experiments tried`}</span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+    <div className="flex min-w-0 flex-col gap-4">
+      {/* subjects: one swipeable row of chips; picking one shows its labs right below, no scrolling */}
+      <ChipRow label="Subjects" active={sel.course}>
+        <button type="button" aria-pressed={!course} onClick={() => { setQ(""); go({ course: null, unit: null, topic: null }); }} className={`${pill(!course)} shrink-0 whitespace-nowrap`}>All labs · {labs.length}</button>
+        {subjects.map(({ course: code, count }) => {
+          const c = courses.find((x) => x.code === code);
+          const on = sel.course === code;
+          return (
+            <button key={code} type="button" aria-pressed={on} onClick={() => go(on ? { course: null, unit: null, topic: null } : { course: code, unit: null, topic: null })}
+              className={`${pill(on)} shrink-0 whitespace-nowrap`} title={c?.name ?? code}>
+              {c?.short ?? code} · {count}
+            </button>
+          );
+        })}
+      </ChipRow>
 
       {course && (
-        <section aria-labelledby="pick-unit" className="flex min-w-0 flex-col gap-2">
-          <h2 id="pick-unit" className="text-xl">2. Pick a unit <span className="text-base text-muted">· {course.name}</span></h2>
-          <ul className="unit-tabs" role="list">
-            {course.units.map((u) => {
-              const count = units.find((x) => x.n === u.n)?.count ?? 0;
-              const on = sel.unit === u.n;
-              return (
-                <li key={u.n} className="flex-none">
-                  <button type="button" aria-pressed={on} onClick={() => go({ course: course.code, unit: on ? null : u.n, topic: null })}
-                    className={`unit-tab ${on ? "is-on" : ""} ${count === 0 ? "!border-dashed" : ""}`}>
-                    <span className="unit-num">U{u.n}</span>
-                    <span className="flex min-w-0 flex-col text-left"><span className="truncate">{u.title}</span><span className="text-xs font-bold text-muted">{count > 0 ? `${count} lab${count === 1 ? "" : "s"}` : "Videos only"}</span></span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
+        <ChipRow label={`Units of ${course.name}`} active={`${course.code}:${sel.unit ?? 0}`}>
+          <button type="button" aria-pressed={!unit} onClick={() => go({ course: course.code, unit: null, topic: null })} className={`${pill(!unit)} shrink-0 whitespace-nowrap`}>All units</button>
+          {course.units.map((u) => {
+            const count = units.find((x) => x.n === u.n)?.count ?? 0;
+            const on = sel.unit === u.n;
+            return (
+              <button key={u.n} type="button" aria-pressed={on} onClick={() => go({ course: course.code, unit: on ? null : u.n, topic: null })}
+                className={`${pill(on)} shrink-0 whitespace-nowrap ${count === 0 ? "opacity-60" : ""}`} title={u.title}>
+                Unit {u.n} · {count}
+              </button>
+            );
+          })}
+        </ChipRow>
       )}
 
-      {course && unit && unit.topics.length > 0 && (
-        <section aria-labelledby="pick-topic" className="flex min-w-0 flex-col gap-2">
-          <h2 id="pick-topic" className="text-xl">3. Pick a topic <span className="text-base text-muted">· optional</span></h2>
-          <ul className="flex flex-wrap gap-2">
-            {unit.topics.map((t, i) => (
-              <li key={i} className="max-w-full">
-                <button type="button" aria-pressed={sel.topic === i + 1} onClick={() => go({ course: course.code, unit: unit.n, topic: sel.topic === i + 1 ? null : i + 1 })} className={`${pill(sel.topic === i + 1)} max-w-full break-words`}>{t}</button>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+      <label className="sr-only" htmlFor="lab-search">Search labs by name</label>
+      <input id="lab-search" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={course ? `Search ${course.short} labs…` : "Search all labs, e.g. Thevenin"} className="field" />
 
-      <section aria-labelledby="labs-h" className="flex min-w-0 flex-col gap-3">
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <h2 id="labs-h" className="text-xl">{course ? `Labs${unit ? ` for Unit ${unit.n}` : ""}${topicText ? `: ${topicText}` : ""}` : "All labs"} <span className="text-base text-muted">· {shown.length}</span></h2>
-          <label className="flex w-full flex-col gap-1 text-sm font-extrabold text-head sm:w-72">
-            Search labs by name
-            <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="e.g. Thevenin" className="field" />
-          </label>
-        </div>
-        {fallback && topicText && <p role="status" className="text-sm text-muted">No lab is tagged &ldquo;{topicText}&rdquo;, so here are all labs for this unit.</p>}
-        {shown.length === 0 ? (
-          <p role="status" className="card text-muted">{q ? "No lab matches that name here." : unit ? "No labs for this unit yet. The lectures below still cover it." : "No labs here yet."}</p>
-        ) : (
-          <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-            {shown.map((l) => {
-              const w = (course && l.where.find(([c]) => c === course.code)) || l.where[0];
-              const label = courses.find((c) => c.code === w[0])?.short ?? w[0];
-              return (
-                <li key={l.id} className="min-w-0">
-                  <Link href={`/labs/${l.id}`} className="tile h-full" style={ACCENT}>
-                    <span className="text-xs font-black uppercase tracking-wide text-muted">{label} · Unit {w[1]}{l.animated ? " · animated" : ""}</span>
-                    <b>{l.title}</b>
-                    <span className="text-sm text-muted">{l.blurb}</span>
-                    {l.guided && <span className="chip chip-cool w-fit">guided experiment{tried.has(l.id) ? " · tried" : ""}</span>}
-                    <span className="mt-auto text-xs font-extrabold text-blue-t">{l.topics.join(" · ")}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-      </section>
-
-      {course && unit ? (
-        <LabVideos key={selKey} id="topic-videos" heading={`Watch: ${topicText ?? unit.title}`} query={vq} youtubeOn={youtubeOn} pinned={pinnedFor === selKey ? pinned : []} />
+      {course ? (
+        groups.length === 0 ? (
+          <p role="status" className="card text-muted">{q ? "No lab matches that name here." : "No labs for this unit yet. The lectures below still cover it."}</p>
+        ) : groups.map(({ u, labs: list }) => (
+          <section key={u.n} aria-labelledby={`u-${u.n}`} className="flex min-w-0 flex-col gap-2">
+            <h2 id={`u-${u.n}`} className="flex items-baseline gap-2 text-lg"><span className="unit-num">U{u.n}</span><span className="min-w-0">{u.title}</span><span className="text-sm font-bold text-muted">· {list.length}</span></h2>
+            <ul className="grid grid-cols-1 gap-2.5 min-[480px]:grid-cols-2 xl:grid-cols-3">
+              {list.map((l) => <li key={l.id} className="min-w-0"><Tile l={l} /></li>)}
+            </ul>
+          </section>
+        ))
+      ) : shown.length === 0 ? (
+        <p role="status" className="card text-muted">No lab matches that name here.</p>
       ) : (
-        <p className="card text-muted">Pick a subject and a unit to see lecture videos for it.</p>
+        <ul className="grid grid-cols-1 gap-2.5 min-[480px]:grid-cols-2 xl:grid-cols-3" aria-label="All labs">
+          {shown.map((l) => <li key={l.id} className="min-w-0"><Tile l={l} /></li>)}
+        </ul>
+      )}
+
+      {course && unit && (
+        <LabVideos key={selKey} id="topic-videos" heading={`Watch: ${unit.title}`} query={vq} youtubeOn={youtubeOn} pinned={pinnedFor === selKey ? pinned : []} />
       )}
     </div>
   );

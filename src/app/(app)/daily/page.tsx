@@ -52,7 +52,7 @@ export default async function DailyPage() {
           <div className="flex flex-wrap gap-2"><Link href="/goals" className="btn btn-blue">Weekly goals</Link><Link href="/practice" className="btn btn-ghost">Practise more</Link></div>
         </section>
       ) : (
-        <DailyRunner questions={daily.questions} answered={daily.answered} />
+        <DailyRunner questions={daily.questions} answered={daily.answered} coach={daily.coach} />
       )}
 
       <HistoryStrip cells={history} />

@@ -9,6 +9,8 @@ import { loadActivity } from "@/lib/activity";
 import { allUnitStats } from "@/lib/mock-units";
 import { leaking } from "@/lib/insights";
 import { dailySeed } from "@/lib/daily";
+import { coachFor } from "@/lib/coach";
+import type { CoachInfo } from "@/components/Coach";
 import { indiaToday } from "@/lib/social";
 import { lastDays } from "@/lib/streak";
 
@@ -17,6 +19,8 @@ export type ReviewItem = { q: string; given: string; right: string; why: string;
 export type DailyView = {
   day: string; total: number; answered: number[]; questions: (PublicQuestion | null)[];
   completed: { score: number; xp: number } | null; review: ReviewItem[];
+  /** per question: where the "Fix it now" coach points after a wrong answer */
+  coach: CoachInfo[];
 };
 
 export async function loadDailyRow(userId: string, day: string): Promise<DailyRow | null> {
@@ -37,7 +41,7 @@ export async function ensureDaily(supabase: SupabaseClient, userId: string, bran
       weak = leaking((await allUnitStats(userId, sessions)).filter((u) => inPool.has(`${u.course}:${u.unit}`)), 2).map((u) => ({ course: u.course, unit: u.unit }));
     } catch { /* no history yet: a plain seeded pick still works */ }
     const items = chooseItems({ seed: dailySeed(userId, day), pool, weak });
-    if (items.length === 0) return { day, total: 0, answered: [], questions: [], completed: null, review: [] };
+    if (items.length === 0) return { day, total: 0, answered: [], questions: [], completed: null, review: [], coach: [] };
     await createAdminClient().from("daily_challenges").insert({ user_id: userId, day, items }); // a duplicate (two tabs) is simply ignored
     // Next.js memoises identical GET fetches within one render, so re-reading here could return the stale "no row" answer; read after a duplicate-insert race only.
     row = { items, answers: {}, score: null, xp: null, completed_at: null };
@@ -46,7 +50,7 @@ export async function ensureDaily(supabase: SupabaseClient, userId: string, bran
 }
 
 function view(day: string, row: DailyRow | null): DailyView {
-  if (!row) return { day, total: 0, answered: [], questions: [], completed: null, review: [] };
+  if (!row) return { day, total: 0, answered: [], questions: [], completed: null, review: [], coach: [] };
   const qs = row.items.map((i) => fromTemplate(i.c, i.u, i.t, i.s));
   const done = Boolean(row.completed_at);
   return {
@@ -54,6 +58,7 @@ function view(day: string, row: DailyRow | null): DailyView {
     answered: Object.keys(row.answers ?? {}).map(Number),
     questions: qs.map((q) => (q ? toPublic(q) : null)),
     completed: done ? { score: row.score ?? 0, xp: row.xp ?? 0 } : null,
+    coach: row.items.map((i) => coachFor(i.c, i.u)),
     review: done ? qs.flatMap((q, i) => q ? [{ q: q.q, given: givenAnswer(q, row.answers[String(i)]?.a), right: rightAnswer(q), why: q.why, ok: Boolean(row.answers[String(i)]?.ok) }] : []) : [],
   };
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ChipRow } from "@/components/ChipRow";
 import { visibleCourses } from "@/lib/stream";
 import { requireOnboarded } from "@/lib/auth";
 import { getCourse, listCourses } from "@/lib/syllabus";
@@ -20,15 +21,15 @@ export default async function Formulas({ searchParams }: { searchParams: Promise
   const accent = ACCENTS[(unit.n - 1) % ACCENTS.length];
   return (
     <div className="flex flex-col gap-5">
-      <header className="flex items-center gap-3"><ArtFormula size={56} /><div><h1 className="text-3xl">Formula cards</h1><p className="text-muted">Tap a card to flip it. Try to recall the formula first.</p></div></header>
-      <nav aria-label="Subject" className="flex flex-wrap gap-2">
-        {withFormulas.map((c) => <Link key={c.code} href={`/formulas?course=${c.code}`} aria-current={c.code === course.code ? "true" : undefined} className={`rounded-full border-2 px-3 py-1 text-sm font-extrabold no-underline ${c.code === course.code ? "border-blue bg-blue-l text-blue-t" : "border-line text-ink"}`}>{c.short}</Link>)}
-      </nav>
-      <nav aria-label="Unit" className="flex flex-wrap gap-2">
-        {units.map((u) => <Link key={u.n} href={`/formulas?course=${course.code}&unit=${u.n}`} aria-current={u.n === unit.n ? "true" : undefined} className={`rounded-full border-2 px-3 py-1 text-sm font-extrabold no-underline ${u.n === unit.n ? "border-orange bg-gold-l text-head" : "border-line text-ink"}`}>Unit {u.n}</Link>)}
-      </nav>
-      <h2 className="text-xl">{course.name} · Unit {unit.n}: {unit.title}</h2>
-      <FlipDeck cards={unit.formulas.map(toCard)} accent={accent} />
+      <header className="flex items-center gap-3"><span className="shrink-0"><ArtFormula size={56} /></span><div><h1 className="text-3xl">Formula cards</h1><p className="text-muted">Recall each formula, flip, and mark it. Missed cards come back.</p></div></header>
+      <ChipRow label="Subject" active={course.code}>
+        {withFormulas.map((c) => <Link key={c.code} href={`/formulas?course=${c.code}`} aria-current={c.code === course.code ? "true" : undefined} className={`shrink-0 whitespace-nowrap rounded-full border-2 px-3 py-1 text-sm font-extrabold no-underline ${c.code === course.code ? "border-blue bg-blue-l text-blue-t" : "border-line text-ink"}`}>{c.short}</Link>)}
+      </ChipRow>
+      <ChipRow label="Unit" active={`${course.code}:${unit.n}`}>
+        {units.map((u) => <Link key={u.n} href={`/formulas?course=${course.code}&unit=${u.n}`} aria-current={u.n === unit.n ? "true" : undefined} className={`shrink-0 whitespace-nowrap rounded-full border-2 px-3 py-1 text-sm font-extrabold no-underline ${u.n === unit.n ? "border-orange bg-gold-l text-head" : "border-line text-ink"}`}>Unit {u.n}</Link>)}
+      </ChipRow>
+      <h2 className="text-lg">{course.short} · Unit {unit.n}: {unit.title}</h2>
+      <FlipDeck key={`${course.code}:${unit.n}`} deckKey={`${course.code}:${unit.n}`} cards={unit.formulas.map(toCard)} accent={accent} />
     </div>
   );
 }

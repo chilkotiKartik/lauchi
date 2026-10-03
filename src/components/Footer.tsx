@@ -56,7 +56,7 @@ export function AppFooter() {
         <span className="text-line">•</span>
         <Link href="/labs" className="hover:text-head transition-colors">3D Labs</Link>
         <span className="text-line">•</span>
-        <Link href="/marks" className="hover:text-head transition-colors">SGPA</Link>
+        <Link href="/quests" className="hover:text-head transition-colors">Quests</Link>
         <span className="text-line">•</span>
         <Link href="/about" className="hover:text-head transition-colors">About</Link>
         <span className="text-line">•</span>

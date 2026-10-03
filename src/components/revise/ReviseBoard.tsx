@@ -1,4 +1,5 @@
 "use client";
+import { isNumberAnswer } from "@/lib/quiz-core";
 import Link from "next/link";
 import { useMemo, useState, useTransition } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -203,7 +204,7 @@ function QuizReview({ id, q, disabled, onResult }: { id: string; q: PublicQuesti
   const [multi, setMulti] = useState<number[]>([]);
   const [text, setText] = useState("");
   const [checking, start] = useTransition();
-  const ready = q.type === "mcq" ? pick !== null : q.type === "msq" ? multi.length > 0 : text.trim() !== "";
+  const ready = q.type === "mcq" ? pick !== null : q.type === "msq" ? multi.length > 0 : text.trim() !== "" && isNumberAnswer(text);
   const locked = disabled || checking;
   function check() {
     const answer = q.type === "mcq" ? pick : q.type === "msq" ? multi : text.trim();
@@ -216,7 +217,7 @@ function QuizReview({ id, q, disabled, onResult }: { id: string; q: PublicQuesti
       <h2 className="whitespace-pre-line text-xl font-extrabold leading-snug text-head"><Rich text={q.q} /></h2>
       <p className="text-sm text-muted">{q.type === "msq" ? "Select all that apply." : q.type === "nat" ? "Type a number." : "Pick one answer."}</p>
       {q.type === "nat" ? (
-        <input className="field" inputMode="decimal" autoComplete="off" aria-label="Your answer" value={text} disabled={locked}
+        <input className="field" inputMode="decimal" autoComplete="off" aria-label="Your answer (numbers only)" placeholder="Numbers only, e.g. 15.12" value={text} disabled={locked}
           onChange={(e) => setText(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter" && ready && !locked) check(); }} />
       ) : (
         <div className="flex flex-col gap-3" role={q.type === "msq" ? "group" : "radiogroup"} aria-label="Answers">

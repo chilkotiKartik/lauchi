@@ -7,6 +7,8 @@ import { getCourse, listCourses } from "@/lib/syllabus";
 import { indiaToday } from "@/lib/social";
 import { isSunday, istStart, planQuest, questDay, questItems, sundayStreak, weekMonday, weekStats, type PlannedUnit } from "@/lib/sunday";
 import type { ReviewItem } from "@/lib/daily-server";
+import { coachFor } from "@/lib/coach";
+import type { CoachInfo } from "@/components/Coach";
 
 export type SundayRow = { items: DailyItem[]; units: PlannedUnit[]; answers: Record<string, { a: unknown; ok: boolean }>; score: number | null; xp: number | null; completed_at: string | null };
 export type PlannedView = PlannedUnit & { short: string; title: string };
@@ -14,6 +16,7 @@ export type SundayView = {
   today: string; sunday: string; open: boolean; review: boolean; units: PlannedView[];
   total: number; answered: number[]; questions: (PublicQuestion | null)[];
   completed: { score: number; xp: number } | null; answers: ReviewItem[];
+  coach: CoachInfo[];
   streak: number; history: { day: string; score: number | null; total: number; done: boolean }[];
 };
 
@@ -77,14 +80,14 @@ export async function ensureSunday(userId: string, branch: string | null): Promi
 
   if (!open) {
     const plan = planQuest(await weekActivity(userId, monday, shift(today, 1)), pool, fallback);
-    return { ...base, review: plan.review, units: label(plan.units), total: 0, answered: [], questions: [], completed: null, answers: [] };
+    return { ...base, review: plan.review, units: label(plan.units), total: 0, answered: [], questions: [], completed: null, answers: [], coach: [] };
   }
 
   let row = existing;
   if (!row) {
     const plan = planQuest(await weekActivity(userId, monday, sunday), pool, fallback);
     const items = questItems(plan.units, dailySeed(userId, `sunday:${sunday}`));
-    if (!items.length) return { ...base, review: plan.review, units: [], total: 0, answered: [], questions: [], completed: null, answers: [] };
+    if (!items.length) return { ...base, review: plan.review, units: [], total: 0, answered: [], questions: [], completed: null, answers: [], coach: [] };
     // A second tab inserting at the same moment is rejected by the primary key; both build identical items (same seed, same week).
     await createAdminClient().from("sunday_quests").insert({ user_id: userId, day: sunday, items, units: plan.units });
     row = { items, units: plan.units, answers: {}, score: null, xp: null, completed_at: null };
@@ -95,6 +98,7 @@ export async function ensureSunday(userId: string, branch: string | null): Promi
     ...base, review: row.units.every((u) => u.attempts === 0), units: label(row.units),
     total: row.items.length, answered: Object.keys(row.answers ?? {}).map(Number), questions: qs.map((q) => (q ? toPublic(q) : null)),
     completed: done ? { score: row.score ?? 0, xp: row.xp ?? 0 } : null,
+    coach: row.items.map((i) => coachFor(i.c, i.u)),
     answers: done ? qs.flatMap((q, i) => (q ? [{ q: q.q, given: givenAnswer(q, row!.answers[String(i)]?.a), right: rightAnswer(q), why: q.why, ok: Boolean(row!.answers[String(i)]?.ok) }] : [])) : [],
   };
 }

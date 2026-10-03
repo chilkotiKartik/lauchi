@@ -1,4 +1,5 @@
 "use client";
+import { isNumberAnswer } from "@/lib/quiz-core";
 import Link from "next/link";
 import { useEffect, useRef, useState, useTransition } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -45,7 +46,7 @@ export function QuizRunner({ sessionId, questions: initialQuestions, levels: ini
 
   const blind = Boolean(mock) || assignment; // no verdicts until the whole set is submitted
   const q = questions[idx];
-  const ready = q && (q.type === "mcq" ? pick !== null : q.type === "msq" ? multi.length > 0 : text.trim() !== "");
+  const ready = q && (q.type === "mcq" ? pick !== null : q.type === "msq" ? multi.length > 0 : text.trim() !== "" && isNumberAnswer(text));
   const answerValue = q?.type === "mcq" ? pick : q?.type === "msq" ? multi : text.trim();
   const finished = idx >= questions.length || Boolean(submitted) || Boolean(final?.ok);
 
@@ -178,7 +179,7 @@ export function QuizRunner({ sessionId, questions: initialQuestions, levels: ini
         {q.type === "nat" ? (
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
-              <input className="field min-w-0 flex-1" inputMode="decimal" autoComplete="off" aria-label="Your answer" value={text} disabled={!!result}
+              <input className="field min-w-0 flex-1" inputMode="decimal" autoComplete="off" aria-label="Your answer (numbers only)" placeholder="Numbers only, e.g. 15.12" value={text} disabled={!!result}
                 onChange={(e) => setText(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter" && ready && !result) check(); }} />
               {!result && <MicButton label="Say" onText={(t) => { const n = spokenNumber(t); setHeard(n ? "" : `Heard "${t}" — that isn't a number.`); if (n) setText(n); }} />}
             </div>

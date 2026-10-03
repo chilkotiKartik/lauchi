@@ -36,7 +36,7 @@ export default async function Labs({ searchParams }: { searchParams: Promise<{ c
         <div className="floaty hidden sm:block"><ArtLab size={72} /></div>
         <div className="min-w-0">
           <h1 className="text-3xl">Live 3D labs</h1>
-          <p className="text-muted">{labs.length} real-time simulations across {codes.length} subjects. Pick a subject, then a unit and a topic to see its labs and lecture videos. Every picture is computed from the maths as you move a slider.</p>
+          <p className="text-muted">{labs.length} simulations across {codes.length} subjects. Tap a subject to see its labs by unit.</p>
         </div>
       </div>
       <Suspense fallback={<div className="skel h-64" aria-hidden />}>
