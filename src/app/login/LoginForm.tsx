@@ -8,6 +8,7 @@ import {
   type LoginState,
 } from "./actions";
 import { Lochi } from "@/components/Lochi";
+import { QuickThemeToggle } from "@/components/QuickThemeToggle";
 
 export function LoginForm({
   next,
@@ -98,6 +99,9 @@ export function LoginForm({
           Register
         </button>
       </div>
+
+      {/* Theme Preference Onboarding Toggle */}
+      <QuickThemeToggle />
 
       {/* Form Area */}
       {tab === "login" && (

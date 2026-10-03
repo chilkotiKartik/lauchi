@@ -71,8 +71,10 @@ function Padlock() {
 function Ground() {
   return (
     <>
-      <mesh position={[0, -1.55, -0.2]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[1.7, 48]} /><meshBasicMaterial color="#000000" transparent opacity={0.16} /></mesh>
-      <mesh position={[0, 0, -1.5]}><circleGeometry args={[2.6, 48]} /><meshBasicMaterial color="#44c95a" transparent opacity={0.1} /></mesh>
+      <mesh position={[0, -1.35, -0.2]} rotation={[-Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[1.6, 48]} />
+        <meshBasicMaterial color="#58cc02" transparent opacity={0.12} />
+      </mesh>
     </>
   );
 }

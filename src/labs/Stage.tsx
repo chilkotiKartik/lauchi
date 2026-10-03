@@ -100,16 +100,16 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
             frameloop={!visible ? "never" : playing ? "always" : "demand"}
             dpr={quality === "low" ? 1 : [1, 1.5]}
             camera={{ position: camera, fov: 45 }}
-            gl={{ antialias: quality === "high", powerPreference: "high-performance", preserveDrawingBuffer: true, stencil: false, alpha: false }}
+            gl={{ antialias: quality === "high", powerPreference: "high-performance", preserveDrawingBuffer: true, stencil: false, alpha: true }}
           >
             {/* Studio 3-Point Laboratory Lighting */}
-            <ambientLight color="#ebf4f9" intensity={0.75} />
-            <directionalLight position={[7, 11, 7]} intensity={1.35} color="#ffffff" />
-            <directionalLight position={[-7, 5, -5]} intensity={0.45} color="#9ec5db" />
-            <pointLight position={[0, 8, -6]} intensity={0.35} color="#44c95a" />
+            <ambientLight color="#ebf4f9" intensity={variant === "hero" ? 1.0 : 0.75} />
+            <directionalLight position={[7, 11, 7]} intensity={variant === "hero" ? 1.6 : 1.35} color="#ffffff" />
+            <directionalLight position={[-7, 5, -5]} intensity={0.5} color="#9ec5db" />
+            <pointLight position={[0, 8, -6]} intensity={0.4} color="#44c95a" />
 
-            {/* Realistic Laboratory Workbench Floor Grid */}
-            <gridHelper args={[30, 30, "#2a4d63", "#122530"]} position={[0, -0.01, 0]} />
+            {/* Realistic Laboratory Workbench Floor Grid only for lab experiments */}
+            {variant === "lab" && <gridHelper args={[30, 30, "#2a4d63", "#122530"]} position={[0, -0.01, 0]} />}
 
             {/* Smooth physical camera controls */}
             {variant === "lab" && <OrbitControls enableDamping dampingFactor={0.08} makeDefault minDistance={2} maxDistance={28} />}

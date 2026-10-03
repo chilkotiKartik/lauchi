@@ -11,6 +11,7 @@ import { PYQ_CODES, countQuestions, getPyq } from "@/lib/pyq";
 import { SeeItMove } from "@/components/home/SeeItMove";
 
 import { Footer } from "@/components/Footer";
+import { QuickThemeToggle } from "@/components/QuickThemeToggle";
 
 const steps = [
   ["Sign in", "Enter your email and open the link we send. No password to remember."],
@@ -51,6 +52,7 @@ export default async function Landing() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
           <Link href="/" className="flex items-center gap-2 text-xl font-black text-green-t no-underline sm:text-2xl"><Lochi mood="idle" size={36} /><span>lockin<span className="text-head">.</span></span></Link>
           <nav aria-label="Account" className="flex items-center gap-2">
+            <QuickThemeToggle compact />
             {!session && <Link href="/login" className="btn btn-ghost !min-h-11 whitespace-nowrap !px-4 !text-sm sm:!px-6 sm:!text-base">Log in</Link>}
             <Link href={cta.href} className="btn !min-h-11 whitespace-nowrap !px-4 !text-sm sm:!px-6 sm:!text-base">{session ? "Dashboard" : "Get started"}</Link>
           </nav>
