@@ -1,5 +1,5 @@
 "use client";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 /** A flickering streak flame. Grey and still when the streak is 0; still for reduced motion. */
 export function Flame({ count, size = 44, label }: { count: number; size?: number; label?: string }) {

@@ -1,5 +1,5 @@
 "use client";
-import { motion, useReducedMotion, type TargetAndTransition } from "framer-motion";
+import { motion, type TargetAndTransition } from "framer-motion";
 
 export type LochiMood =
   | "idle" | "welcome" | "happy" | "correct" | "wrong" | "thinking" | "loading" | "celebrate" | "streak" | "levelup" | "sleep";

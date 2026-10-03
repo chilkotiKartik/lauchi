@@ -43,10 +43,12 @@ export function SeeItMove({ stats }: { stats: Stat[] }) {
   const [tabOn, setTabOn] = useState(true);
 
   useEffect(() => {
-    setSeen(true);
     const el = host.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(([e]) => { setInView(e.isIntersecting); }, { threshold: 0.05 });
+    const io = new IntersectionObserver(([e]) => {
+      setInView(e.isIntersecting);
+      if (e.isIntersecting) setSeen(true);
+    }, { threshold: 0.05 });
     io.observe(el);
     return () => io.disconnect();
   }, []);

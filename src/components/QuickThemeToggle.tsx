@@ -1,22 +1,24 @@
 "use client";
-import { useEffect, useState, useTransition } from "react";
+import { useSyncExternalStore, useTransition } from "react";
 import { setTheme } from "@/app/(app)/settings/actions";
 
+function subscribeTheme(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  const observer = new MutationObserver(callback);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  return () => observer.disconnect();
+}
+
+function getThemeSnapshot(): "light" | "dark" {
+  if (typeof document === "undefined") return "light";
+  return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+}
+
 export function QuickThemeToggle({ className = "", compact = false }: { className?: string; compact?: boolean }) {
-  const [theme, setLocalTheme] = useState<"light" | "dark">("light");
+  const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, () => "light" as const);
   const [, startTransition] = useTransition();
 
-  useEffect(() => {
-    const current = document.documentElement.getAttribute("data-theme");
-    if (current === "dark") {
-      setLocalTheme("dark");
-    } else {
-      setLocalTheme("light");
-    }
-  }, []);
-
   const changeTheme = (newTheme: "light" | "dark") => {
-    setLocalTheme(newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
     document.cookie = `lockin-theme=${newTheme}; path=/; max-age=31536000; SameSite=Lax`;
     startTransition(async () => {

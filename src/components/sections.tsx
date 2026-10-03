@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { ArtAsk, ArtAssign, ArtBook, ArtFormula, ArtLeague, ArtPapers, ArtScores, ArtGear, ArtHome, ArtLab, ArtMistake, ArtMock, ArtPlan, ArtPractice, ArtProgress, ArtQuest, ArtSyllabus, ArtUser, ArtVideo, ArtPyq, ArtFocus, ArtRevise, ArtPaper, ArtFriends } from "@/components/art";
+import { ArtAsk, ArtAssign, ArtBook, ArtFormula, ArtLeague, ArtPapers, ArtGear, ArtHome, ArtLab, ArtMistake, ArtMock, ArtPlan, ArtPractice, ArtProgress, ArtQuest, ArtSyllabus, ArtUser, ArtVideo, ArtPyq, ArtFocus, ArtRevise, ArtPaper } from "@/components/art";
 
 export type Section = { href: string; label: string; blurb: string; Icon: ComponentType<{ size?: number }>; accent: string; isNew?: boolean; bottom?: boolean };
 

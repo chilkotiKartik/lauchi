@@ -33,19 +33,19 @@ export function HomeScene(p: HomeSceneProps) {
   const host = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   const [seen, setSeen] = useState(false);
-  const [settled, setSettled] = useState(false);
   const [tabOn, setTabOn] = useState(true);
 
   useEffect(() => {
     const el = host.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(([e]) => { setInView(e.isIntersecting); if (e.isIntersecting) setSeen(true); }, { threshold: 0.1 });
+    const io = new IntersectionObserver(([e]) => {
+      setInView(e.isIntersecting);
+      if (e.isIntersecting) setSeen(true);
+    }, { threshold: 0.05 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
-  useEffect(() => {
-    setSettled(true);
-  }, []);
+
   useEffect(() => {
     const on = () => setTabOn(!document.hidden);
     document.addEventListener("visibilitychange", on);
@@ -54,7 +54,7 @@ export function HomeScene(p: HomeSceneProps) {
 
   const lit = litOrbs(p.todayXp, p.goal, SLOTS);
   const pct = p.levelSpan > 0 ? Math.min(1, p.levelInto / p.levelSpan) : 0;
-  const live = (cap === "ok-high" || cap === "ok-low") && !reduced && seen && settled;
+  const live = (cap === "ok-high" || cap === "ok-low") && !reduced && seen;
   const label = `3D scene of your progress. ${lit} of ${SLOTS} orbs are lit for today's goal of ${p.goal} XP. The ring shows ${Math.round(pct * 100)}% of the way to level ${p.level + 1}. Blocks show XP for the last 7 days: ${p.names.map((n, i) => `${n} ${p.week[i]}`).join(", ")}.`;
   const flat = <SceneFallback week={p.week} names={p.names} lit={lit} slots={SLOTS} />;
 

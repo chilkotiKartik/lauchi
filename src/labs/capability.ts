@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 function detect(): "ok-high" | "ok-low" | "none" {
   if (typeof window === "undefined" || typeof document === "undefined") return "none";
@@ -17,26 +17,37 @@ function detect(): "ok-high" | "ok-low" | "none" {
 }
 
 let cached: "ok-high" | "ok-low" | "none" | null = null;
+function getCapability() {
+  if (!cached) cached = detect();
+  return cached;
+}
+
+const emptySubscribe = () => () => {};
 
 export function useCapability() {
-  const [cap, setCap] = useState<"ok-high" | "ok-low" | "none" | null>(cached);
-  useEffect(() => {
-    if (!cached) cached = detect();
-    setCap(cached);
-  }, []);
-  return cap;
+  return useSyncExternalStore(
+    emptySubscribe,
+    getCapability,
+    () => null
+  );
+}
+
+function subscribeReducedMotion(callback: () => void) {
+  if (typeof window === "undefined" || typeof matchMedia === "undefined") return () => {};
+  const mq = matchMedia("(prefers-reduced-motion: reduce)");
+  mq.addEventListener("change", callback);
+  return () => mq.removeEventListener("change", callback);
+}
+
+function getReducedMotion() {
+  if (typeof window === "undefined" || typeof matchMedia === "undefined") return false;
+  return matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
 export function useReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    if (typeof matchMedia !== "undefined") {
-      const mq = matchMedia("(prefers-reduced-motion: reduce)");
-      setReduced(mq.matches);
-      const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
-      mq.addEventListener("change", handler);
-      return () => mq.removeEventListener("change", handler);
-    }
-  }, []);
-  return reduced;
+  return useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotion,
+    () => false
+  );
 }
