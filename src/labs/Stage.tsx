@@ -1,6 +1,6 @@
 "use client";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { ContactShadows, OrbitControls } from "@react-three/drei";
+import { ContactShadows, OrbitControls, PerformanceMonitor } from "@react-three/drei";
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { useCapability } from "./capability";
@@ -71,6 +71,16 @@ export function captureCanvas(canvas: HTMLCanvasElement | null): string | undefi
   try { return f ? f() : undefined; } catch { return undefined; }
 }
 
+// ------------------------------------------------------------------ lag guard
+// If a device can't hold a smooth frame rate while a lab animates, every canvas drops to the light mode (DPR 1, no soft
+// shadows, no reflection map) for the rest of the visit, instead of stuttering. Remembered for the browser session.
+let slowDevice: boolean | null = null;
+function isSlow() {
+  if (slowDevice === null) { try { slowDevice = sessionStorage.getItem("lockin-3d-light") === "1"; } catch { slowDevice = false; } }
+  return slowDevice;
+}
+function markSlow() { slowDevice = true; try { sessionStorage.setItem("lockin-3d-light", "1"); } catch { /* private mode */ } }
+
 // ------------------------------------------------------------------ studio environment
 /** Image-based lighting from a procedurally built studio room (three's RoomEnvironment): metals, glass and plastics get
  * real reflections and soft fill light. Built once per canvas on the GPU, no files or network, so it is cheap and CSP-safe. */
@@ -105,7 +115,7 @@ function Bench({ shadows }: { shadows: boolean }) {
         <meshStandardMaterial color="#0a1419" roughness={0.95} metalness={0} />
       </mesh>
       <gridHelper args={[24, 24, "#1a3342", "#112029"]} position={[0, 0.002, 0]} />
-      {shadows && <ContactShadows position={[0, 0.006, 0]} scale={22} resolution={512} blur={2.4} far={9} opacity={0.5} color="#000000" />}
+      {shadows && <ContactShadows position={[0, 0.006, 0]} scale={22} resolution={256} blur={2.2} far={9} opacity={0.5} color="#000000" />}
     </group>
   );
 }
@@ -134,7 +144,8 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
     return () => document.removeEventListener("visibilitychange", onVis);
   }, []);
 
-  const quality: Quality = cap === "ok-low" ? "low" : "high";
+  const [degraded, setDegraded] = useState(isSlow);
+  const quality: Quality = cap === "ok-low" || degraded ? "low" : "high";
 
   return (
     <div
@@ -190,6 +201,10 @@ export function Stage({ label, playing, camera = [5, 4, 6], variant = "lab", siz
               {/* Atmospheric Studio Horizon Fog for realistic depth */}
               <fog attach="fog" args={["#081016", 12, 36]} />
 
+              {/* Watch the real frame rate only while animating (an on-demand canvas renders too rarely to measure) */}
+              {playing && visible && quality === "high" && (
+                <PerformanceMonitor flipflops={2} onDecline={() => { markSlow(); setDegraded(true); }} onFallback={() => { markSlow(); setDegraded(true); }} />
+              )}
               {/* Lighting: image-based studio fill (high quality) + one warm key light + a cool rim, like a real photo studio */}
               {quality === "high" && <StudioEnvironment intensity={variant === "hero" ? 0.7 : 0.55} />}
               <ambientLight color="#e2f1fa" intensity={quality === "high" ? 0.35 : 0.85} />
