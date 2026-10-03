@@ -15,6 +15,11 @@ export default function CPointer3DLab() {
       label="3D C Memory layout, stack and heap blocks, and pointer dereference rays"
       camera={[0, 1.5, 7.5]}
       onReset={reset}
+      note={
+        <p className="text-sm text-muted">
+          Pointers store hexadecimal memory addresses that point to other memory cells in the stack or heap segment.
+        </p>
+      }
       scene={() => (
         <group position={[0, -0.2, 0]}>
           <Billboard position={[0, 2.5, 0]}>
@@ -76,7 +81,17 @@ export default function CPointer3DLab() {
       ]}
       controls={
         <>
-          <Pick label="Memory Pattern" value={mode} options={["pointer", "array", "malloc", "double"] as const} onChange={(v) => set("mode", v)} />
+          <Pick
+            label="Memory Pattern"
+            value={mode}
+            options={[
+              { id: "pointer", label: "Single Pointer (*p)" },
+              { id: "array", label: "Array Contiguous (arr[i])" },
+              { id: "malloc", label: "Dynamic Heap (malloc)" },
+              { id: "double", label: "Double Pointer (**ptr)" },
+            ]}
+            onChange={(v) => set("mode", v)}
+          />
           <Slider label="Integer Value" value={val} min={1} max={999} step={1} onChange={(v) => set("val", v)} />
         </>
       }

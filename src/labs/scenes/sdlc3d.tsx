@@ -1,6 +1,5 @@
 "use client";
 import { Billboard, RoundedBox, Text } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
 import { useLabParams } from "../params";
@@ -19,6 +18,11 @@ export default function SDLC3DLab() {
       label="3D Software Engineering lifecycle workflows, sprints, agile iterations, and waterfall stages"
       camera={[0, 1.5, 7.5]}
       onReset={reset}
+      note={
+        <p className="text-sm text-muted">
+          Software engineering life cycles manage risk, requirements changes, and iteration velocity through waterfall, spiral, or agile methodologies.
+        </p>
+      }
       scene={() => (
         <group position={[0, 0, 0]}>
           <Billboard position={[0, 2.3, 0]}>
@@ -85,11 +89,20 @@ export default function SDLC3DLab() {
         ["SDLC Model", model.toUpperCase()],
         ["Current Phase", state.currentPhase],
         ["Progress", `${state.progressPct}%`],
-        ["Risk Assessment", state.riskLevel.toUpperCase()],
+        ["Flexibility", state.flexibility],
       ]}
       controls={
         <>
-          <Pick label="Lifecycle Model" value={model} options={["waterfall", "spiral", "agile"] as const} onChange={(v) => set("model", v)} />
+          <Pick
+            label="Lifecycle Model"
+            value={model}
+            options={[
+              { id: "agile", label: "Agile / Scrum" },
+              { id: "waterfall", label: "Waterfall" },
+              { id: "spiral", label: "Spiral Model" },
+            ]}
+            onChange={(v) => set("model", v)}
+          />
           <Slider label="Sprint / Stage Phase" value={phase} min={1} max={8} step={1} onChange={(v) => set("phase", v)} />
         </>
       }

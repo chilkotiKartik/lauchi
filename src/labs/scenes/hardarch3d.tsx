@@ -12,72 +12,86 @@ export default function HardArch3DLab() {
 
   return (
     <LabFrame
-      label="3D Motherboard Architecture with CPU Socket, RAM DIMM slots, PCIe lanes, and live data highway"
-      camera={[0, 2.5, 7.5]}
+      label="3D Computer Motherboard Architecture, PCIe lanes, RAM Bus, and CPU socket clock pulse"
+      camera={[0, 4, 7]}
       onReset={reset}
+      note={
+        <p className="text-sm text-muted">
+          Motherboard chipsets route high-speed digital buses between CPU cores, DDR memory controllers, and PCIe lanes.
+        </p>
+      }
       scene={() => (
-        <group position={[0, -0.4, 0]}>
-          {/* Motherboard PCB */}
-          <RoundedBox args={[7.8, 0.2, 5.6]} radius={0.12} smoothness={4} position={[0, -0.6, 0]}>
-            <meshStandardMaterial color="#064e3b" roughness={0.4} metalness={0.1} />
+        <group position={[0, -0.5, 0]}>
+          {/* Motherboard PCB substrate */}
+          <RoundedBox args={[6.5, 0.2, 5.0]} radius={0.1} smoothness={4} position={[0, -0.1, 0]}>
+            <meshStandardMaterial color="#064e3b" roughness={0.6} metalness={0.1} />
           </RoundedBox>
 
-          {/* CPU Socket */}
-          <group position={[-2.0, 0, 0]}>
-            <RoundedBox args={[1.9, 0.45, 1.9]} radius={0.08} smoothness={4}>
+          {/* CPU Socket & Heatspreader */}
+          <group position={[-1.5, 0.2, 0]}>
+            <RoundedBox args={[1.6, 0.35, 1.6]} radius={0.08} smoothness={4}>
               <meshStandardMaterial color="#94a3b8" metalness={0.8} roughness={0.2} />
             </RoundedBox>
-            <Billboard position={[0, 0.45, 0]}>
-              <Text fontSize={0.26} color="#f8fafc" anchorX="center" anchorY="middle">
-                {`CPU (${cpuGhz.toFixed(1)} GHz)`}
+            <Billboard position={[0, 0.6, 0]}>
+              <Text fontSize={0.22} color="#f8fafc" anchorX="center" anchorY="middle">
+                {`CPU Socket (${cpuGhz.toFixed(1)} GHz)`}
               </Text>
             </Billboard>
           </group>
 
           {/* RAM DIMM Slots */}
-          <group position={[0.6, 0, 1.3]}>
-            {[-0.35, 0, 0.35].map((zOffset, i) => (
-              <RoundedBox key={i} args={[2.4, 0.65, 0.14]} radius={0.03} smoothness={2} position={[0, 0.1, zOffset]}>
-                <meshStandardMaterial color="#1e3a8a" roughness={0.3} metalness={0.3} />
+          <group position={[1.4, 0.4, -0.8]}>
+            {[-0.3, 0, 0.3].map((zOffset, i) => (
+              <RoundedBox key={i} args={[0.15, 0.7, 1.8]} radius={0.02} smoothness={2} position={[i * 0.35, 0, 0]}>
+                <meshStandardMaterial color="#3b82f6" roughness={0.4} />
               </RoundedBox>
             ))}
-            <Billboard position={[0, 0.7, 0]}>
-              <Text fontSize={0.22} color="#38bdf8" anchorX="center" anchorY="middle">
-                {`DDR${ddrGen} RAM (${metrics.ramBandwidthGbs} GB/s)`}
+            <Billboard position={[0.35, 0.75, 0]}>
+              <Text fontSize={0.2} color="#60a5fa" anchorX="center" anchorY="middle">
+                {`DDR${ddrGen} Slots (${metrics.ramBandwidthGbs} GB/s)`}
               </Text>
             </Billboard>
           </group>
 
           {/* PCIe Expansion Slot */}
-          <group position={[0.6, 0, -1.4]}>
-            <RoundedBox args={[3.4, 0.38, 0.28]} radius={0.04} smoothness={2}>
-              <meshStandardMaterial color="#1e293b" metalness={0.5} roughness={0.3} />
+          <group position={[0.2, 0.2, 1.4]}>
+            <RoundedBox args={[4.2, 0.25, 0.3]} radius={0.02} smoothness={2}>
+              <meshStandardMaterial color="#1e293b" />
             </RoundedBox>
-            <Billboard position={[0, 0.48, 0]}>
-              <Text fontSize={0.22} color="#a855f7" anchorX="center" anchorY="middle">
-                {`PCIe Gen4 x${pcieLanes} (${metrics.pcieBandwidthGbs} GB/s)`}
+            <Billboard position={[0, 0.5, 0]}>
+              <Text fontSize={0.2} color="#fbbf24" anchorX="center" anchorY="middle">
+                {`PCIe x${pcieLanes} (${metrics.pcieBandwidthGbs} GB/s)`}
               </Text>
             </Billboard>
           </group>
 
-          {/* Data Bus Highway */}
-          <mesh position={[0, -0.45, 0]}>
-            <boxGeometry args={[4.8, 0.06, 0.22]} />
-            <meshStandardMaterial color="#eab308" emissive="#ca8a04" emissiveIntensity={0.6} />
+          {/* Bus Traces / Lasers */}
+          <mesh position={[-0.1, 0.05, -0.4]} rotation={[0, 0, Math.PI / 2]}>
+            <cylinderGeometry args={[0.03, 0.03, 2.4, 16]} />
+            <meshStandardMaterial color="#22c55e" emissive="#4ade80" emissiveIntensity={0.8} />
           </mesh>
         </group>
       )}
       readouts={[
-        ["CPU Clock Speed", `${cpuGhz.toFixed(1)} GHz`],
-        ["CPU Cycle Period", `${metrics.cpuCycleTimeNs} ns`],
-        ["RAM Bandwidth", `${metrics.ramBandwidthGbs} GB/s (DDR${ddrGen})`],
-        ["PCIe Bandwidth", `${metrics.pcieBandwidthGbs} GB/s (x${pcieLanes})`],
+        ["CPU Clock Freq", `${cpuGhz.toFixed(1)} GHz`],
+        ["Cycle Time", `${metrics.cpuCycleTimeNs} ns`],
+        ["RAM Bandwidth", `${metrics.ramBandwidthGbs} GB/s`],
+        ["PCIe Bandwidth", `${metrics.pcieBandwidthGbs} GB/s`],
       ]}
       controls={
         <>
-          <Slider label="CPU Frequency (GHz)" value={cpuGhz} min={1.0} max={5.5} step={0.1} onChange={(v) => set("cpuGhz", v)} />
-          <Pick label="RAM Generation" value={ddrGen} options={["3", "4", "5"] as const} onChange={(v) => set("ddrGen", v)} />
-          <Slider label="PCIe Lanes" value={pcieLanes} min={1} max={16} step={1} onChange={(v) => set("pcieLanes", v)} />
+          <Slider label="CPU Clock Frequency" value={cpuGhz} min={1.0} max={5.5} step={0.1} unit=" GHz" onChange={(v) => set("cpuGhz", v)} />
+          <Pick
+            label="DDR Memory Generation"
+            value={ddrGen}
+            options={[
+              { id: "3", label: "DDR3 (12.8 GB/s)" },
+              { id: "4", label: "DDR4 (25.6 GB/s)" },
+              { id: "5", label: "DDR5 (51.2 GB/s)" },
+            ]}
+            onChange={(v) => set("ddrGen", v)}
+          />
+          <Slider label="PCIe Lanes" value={pcieLanes} min={1} max={16} step={1} unit=" Lanes" onChange={(v) => set("pcieLanes", v)} />
         </>
       }
     />
