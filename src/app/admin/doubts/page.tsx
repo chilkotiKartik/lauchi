@@ -20,14 +20,19 @@ export default async function AdminDoubts({ searchParams }: { searchParams: Prom
   let rows: Row[] = [], answers: Ans[] = [], failed = false;
   try {
     const db = createAdminClient();
-    const { data, error } = await db.from("doubts").select("id,course,unit,title,body,status,visibility,published,hidden,created_at").order("created_at", { ascending: false }).limit(300);
+    // filter in the database so an old open doubt is never pushed out of the list; open doubts are answered oldest first
+    let query = db.from("doubts").select("id,course,unit,title,body,status,visibility,published,hidden,created_at");
+    if (f.status === "hidden") query = query.eq("hidden", true);
+    else if (f.status !== "all") query = query.eq("status", f.status).eq("hidden", false);
+    if (f.course) query = query.eq("course", f.course);
+    const { data, error } = await query.order("created_at", { ascending: f.status === "open" }).limit(200);
     if (error) failed = true; else rows = (data ?? []) as Row[];
     if (rows.length) {
       const { data: a } = await db.from("doubt_answers").select("id,doubt_id,author_kind,body,helpful_count").in("doubt_id", rows.map((r) => r.id)).limit(2000);
       answers = (a ?? []) as Ans[];
     }
   } catch { failed = true; }
-  const shown = rows.filter((r) => (f.status === "hidden" ? r.hidden : f.status === "all" || r.status === f.status) && !(r.hidden && f.status !== "hidden" && f.status !== "all") && (!f.course || r.course === f.course));
+  const shown = rows;
   const tab = (status: string, label: string) => <Link key={status} href={`/admin/doubts?status=${status}${f.course ? `&course=${f.course}` : ""}`} className="adm-tab" aria-current={f.status === status ? "page" : undefined}>{label}</Link>;
   return (
     <div className="flex flex-col gap-5">

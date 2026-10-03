@@ -19,9 +19,10 @@ export function StatusBadge({ status }: { status: string }) {
   return status === "published" ? <span className="chip chip-th">Published</span> : <span className="chip chip-warm">Draft</span>;
 }
 
-export function QuestionForm({ courses, id, initial, status }: { courses: CourseOpt[]; id?: string; initial?: FormInitial; status?: string }) {
+export function QuestionForm({ courses, id, initial, status, preset }: { courses: CourseOpt[]; id?: string; initial?: FormInitial; status?: string; preset?: { course: string; unit: number } }) {
   const router = useRouter();
-  const start = initial ?? BLANK(courses[0]?.code ?? "");
+  const presetOk = preset && courses.some((c) => c.code === preset.course && c.units.some((u) => u.n === preset.unit));
+  const start = initial ?? (presetOk ? { ...BLANK(preset.course), unit: preset.unit } : BLANK(courses[0]?.code ?? ""));
   const [course, setCourse] = useState(start.course);
   const [unit, setUnit] = useState(start.unit);
   const [kind, setKind] = useState<Kind>(start.kind);

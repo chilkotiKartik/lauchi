@@ -16,16 +16,14 @@ async function load(): Promise<Stats | null> {
   const db = createAdminClient();
   const { data, error } = await db.rpc("admin_stats");
   if (error || !data) return cache; // stale numbers beat an empty page
+  // finished daily 5-question challenges (migration 0015): all time and in the last 7 days
   let daily: Stats["daily"] = null;
-  for (const table of ["daily_challenge_completions", "daily_completions", "daily_challenge_results"]) {
-    try {
-      const all = await db.from(table).select("*", { count: "exact", head: true });
-      if (all.error || all.count === null) continue;
-      const wk = await db.from(table).select("*", { count: "exact", head: true }).gte("created_at", new Date(Date.now() - 7 * 864e5).toISOString());
-      daily = { table, total: all.count, week: wk.error ? null : wk.count };
-      break;
-    } catch { /* table doesn't exist yet */ }
-  }
+  const head = { count: "exact" as const, head: true };
+  const [all, wk] = await Promise.all([
+    db.from("daily_challenges").select("user_id", head).not("completed_at", "is", null),
+    db.from("daily_challenges").select("user_id", head).gte("completed_at", new Date(Date.now() - 7 * 864e5).toISOString()),
+  ]);
+  if (!all.error && all.count !== null) daily = { table: "daily_challenges", total: all.count, week: wk.error ? null : wk.count };
   cache = { raw: data as Raw, daily, at: Date.now() };
   return cache;
 }
